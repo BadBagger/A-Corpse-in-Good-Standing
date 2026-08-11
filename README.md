@@ -22,6 +22,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `docs/checkpoints/step_5_human_review_bundle.json` and `.md` - compact Step 5 human-review launch bundle and artifact index
 - `docs/checkpoints/production_blocker_index.md` - stable index of current GitHub production blockers and the evidence/commands tied to each one
 - `docs/checkpoints/ci_gate_boundary.md` - explicit split between GitHub Actions coverage and local-only Godot/Step 2-5 gates
+- `docs/checkpoints/toolchain_status.json` and `.md` - generated local-only Godot/Blender/Ink toolchain audit
 - `docs/art/act_i_review_contact_sheet.html` - browser review sheet combining Act I blockout images, walk bands, hotspot markers, and room tables
 - `docs/vo/vo_recording_packets_index.json`, `.csv`, and `.md` plus `docs/vo/recording_packets/scratch_ready/*.md` - generated per-batch scratch VO recording packets
 - `docs/vo/vo_minor_speaker_decisions_template.csv` and `.md` - generated minor-speaker VO casting/consolidation decision handoff
@@ -123,6 +124,8 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-ProductionBlockerIndex.ps1` validates that `docs\checkpoints\production_blocker_index.md` keeps the three live production blockers, evidence paths, verification commands, and stop-point guardrails visible.
 - `tools\Test-ProductionBlockerIndex.ps1` proves the blocker-index validator accepts the current index and rejects a missing scratch-VO shipping guardrail before restoring the fixture.
 - `tools\Validate-CiGateBoundary.ps1` validates that GitHub Actions still proves repo hygiene plus Step 1 only, while Step 2-5 remain documented as local-only until portable Godot/render tooling is added to CI.
+- `tools\Export-ToolchainStatus.ps1` writes `docs\checkpoints\toolchain_status.json` and `.md`, a local-only audit of the resolved Godot, Blender, and Ink compiler paths.
+- `tools\Validate-ToolchainStatus.ps1` regenerates and validates the local toolchain audit; it is intentionally not part of GitHub Actions until CI installs portable Godot and Blender.
 - `tools\Resolve-Godot.ps1` centralizes local Godot 4.6.3 .NET executable discovery for Step 2-5 scripts. It honors `CORPSE_GODOT_CONSOLE`, `CORPSE_GODOT_WINDOWED`, or `CORPSE_GODOT_DIR` before checking the current WinGet and Downloads locations.
 - `tools\Validate-GodotResolver.ps1` validates the local Godot resolver on this machine; it is intentionally not part of GitHub Actions until CI installs portable Godot.
 - `tools\Resolve-Blender.ps1` centralizes local Blender executable discovery for blockout, shader, and Corvin source/render scripts. It honors `CORPSE_BLENDER` or `CORPSE_BLENDER_DIR`, then existing probe data, PATH, and standard Windows install locations.

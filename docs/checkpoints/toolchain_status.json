@@ -1,0 +1,41 @@
+{
+    "project":  "A Corpse in Good Standing",
+    "purpose":  "Local-only toolchain audit for Step 2-5 readiness",
+    "ci_boundary":  "Not part of GitHub Actions until portable Godot and Blender installs are available in CI",
+    "tools":  {
+                  "godot":  {
+                                "required":  "Godot 4.6.3 .NET",
+                                "console_path":  "C:\\Users\\KyleB\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine.Mono_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.6.3-stable_mono_win64\\Godot_v4.6.3-stable_mono_win64_console.exe",
+                                "console_path_display":  "C:\\Users\\KyleB\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine.Mono_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.6.3-stable_mono_win64\\Godot_v4.6.3-stable_mono_win64_console.exe",
+                                "windowed_path":  "C:\\Users\\KyleB\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine.Mono_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.6.3-stable_mono_win64\\Godot_v4.6.3-stable_mono_win64.exe",
+                                "windowed_path_display":  "C:\\Users\\KyleB\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine.Mono_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.6.3-stable_mono_win64\\Godot_v4.6.3-stable_mono_win64.exe",
+                                "version":  "4.6.3.stable.mono.official.7d41c59c4",
+                                "env_overrides":  [
+                                                      "CORPSE_GODOT_CONSOLE",
+                                                      "CORPSE_GODOT_WINDOWED",
+                                                      "CORPSE_GODOT_DIR"
+                                                  ]
+                            },
+                  "blender":  {
+                                  "required":  "Blender with GLB import and headless render support",
+                                  "path":  "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+                                  "path_display":  "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+                                  "version":  "Blender 5.2.0 LTS",
+                                  "env_overrides":  [
+                                                        "CORPSE_BLENDER",
+                                                        "CORPSE_BLENDER_DIR"
+                                                    ]
+                              },
+                  "inklecate":  {
+                                    "required":  "Vendored Ink compiler",
+                                    "path":  "C:\\Users\\KyleB\\Documents\\ChatGPT\\A Corpse in Good Standing\\tools\\ink\\inklecate.exe",
+                                    "path_display":  "tools/ink/inklecate.exe",
+                                    "product_name":  "inklecate",
+                                    "product_version":  "1.0.0+35c63e52f1d36060930dc7ed3cfba38ea224b528",
+                                    "sha256":  "FE28FD3CBC6C1ADE1EC3FBD76AFAC1DAAC09E2101E699142E2051B838411C608",
+                                    "env_overrides":  [
+                                                          "CORPSE_INKLECATE"
+                                                      ]
+                                }
+              }
+}
