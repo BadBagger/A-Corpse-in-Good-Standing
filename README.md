@@ -1,5 +1,7 @@
 # A Corpse in Good Standing
 
+[![Headless Gates](https://github.com/BadBagger/A-Corpse-in-Good-Standing/actions/workflows/headless-gates.yml/badge.svg)](https://github.com/BadBagger/A-Corpse-in-Good-Standing/actions/workflows/headless-gates.yml)
+
 Godot 4.6.3 .NET point-and-click adventure prototype.
 
 This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.

@@ -1,0 +1,39 @@
+name: Headless Gates
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  repo-and-duel:
+    name: Repo Hygiene And Duel Domain
+    runs-on: windows-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set Up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install Git LFS
+        shell: pwsh
+        run: git lfs install --local
+
+      - name: Repo Readiness Gates
+        shell: pwsh
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File tools\Run-RepoReadinessGates.ps1
+
+      - name: Step 1 Confession Duel Gates
+        shell: pwsh
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File tools\Run-Step1Gates.ps1
