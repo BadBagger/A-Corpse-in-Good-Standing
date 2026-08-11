@@ -7,6 +7,7 @@ GATES:
 - Corvin animation tracker: pass, 10 present / 119 pending / 129 total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.
 - Ink shader yaw metrics: pass, status audited, object pairwise max 0% against threshold 6%, first-last drift 0% against threshold 9%; bad-control pairwise max 28.512% remains the calibration contrast.
 - Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.
+- Act I background element pipeline: pass, generated source contract keeps Blender greybox/paintover authoritative, limits Meshy to source-prop help, limits generated images to reference, and keeps logic-touched elements separate.
 - Act I paintover packet: pass, generated per-room final-paintover instructions preserve hotspot coordinates, walk-band constraints, palette rules, Grey Float hard-R staging, and Registrar duel-format lock.
 - Act I art readability review: pass, generated room-by-room review checklist covers brightest-object readability, walk-band clarity, wet targets, confession-source staging, Grey Float hard-R checks, and Registrar duel-format risk.
 - Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.

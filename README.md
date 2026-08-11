@@ -33,6 +33,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `docs/art/act_i_hotspot_layout_audit.md` - generated hotspot bounds/proximity audit for final-art staging
 - `docs/art/act_i_background_manifest.json` - generated Act I background source/export contract
 - `docs/art/act_i_background_brief.md` - generated room-by-room background production brief
+- `docs/art/act_i_background_element_pipeline.json` and `.md` - generated Act I background element source contract for Blender, Meshy helper models, generated reference, baked paint, and interactive layers
 - `docs/art/act_i_background_asset_status.csv` and `.md` - generated present/pending tracker for Act I background assets
 - `docs/art/act_i_blockout_tasks.json` and `.md` - generated Blender blockout proof tasks for Act I rooms
 - `docs/art/act_i_background_palette_audit.csv` and `.md` - generated G9/G10 palette audit for exported Act I backgrounds
@@ -66,6 +67,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `docs\art\act_i_hotspot_map.csv` is generated from the current Godot room scenes with `tools\Export-ActIHotspotMap.ps1`.
 - `tools\Validate-ActIHotspotMap.ps1` regenerates and validates that CSV, the SVG overlay, and the layout audit as part of the Step 4 gates.
 - `tools\Validate-ActIBackgroundManifest.ps1` regenerates and validates the Act I background manifest and production brief from the hotspot map.
+- `tools\Validate-ActIBackgroundElementPipeline.ps1` regenerates and validates the Act I background element source contract: Blender greybox/paintover are authoritative, Meshy is source-prop help only, generated images are reference only, and logic-touched elements stay separate.
 - `tools\Validate-ActIBackgroundAssetStatus.ps1` regenerates the background asset tracker. Pending art is allowed here; malformed or incomplete tracking is not.
 - `tools\Validate-ActIBlockoutTasks.ps1` regenerates the Blender blockout task brief and validates room coverage, wet-verb tasks, close-pair review, and Registrar duel-format lock.
 - `tools\Validate-ActIBackgroundPaletteAudit.ps1` regenerates the palette audit. Pending exports are allowed; existing exported PNGs must satisfy G9/G10.

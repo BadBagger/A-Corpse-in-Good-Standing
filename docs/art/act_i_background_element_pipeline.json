@@ -1,0 +1,1136 @@
+﻿{
+    "generated_from":  "docs/art/act_i_background_manifest.json",
+    "purpose":  "Act I background element pipeline contract: what is Blender greybox, Meshy source-model helper, generated reference, baked paint, or separate interactive layer.",
+    "global_pipeline_order":  [
+                                  "Godot/Blender greybox locks perspective, walk band, exits, and hotspot readability.",
+                                  "Blender render supplies perspective and lighting base.",
+                                  "Meshy is allowed for reusable source props or structural models, never as the whole finished room.",
+                                  "Generated images are allowed as concept, grime, mood, and dressing reference only; they must be repainted or heavily paintover-integrated.",
+                                  "Final 2D paintover produces the room plate.",
+                                  "Interactive objects stay separate from the baked plate when any verb, state, item, confession, duel, wetness, gate, or navigation logic touches them."
+                              ],
+    "hard_rules":  [
+                       "Do not use Meshy as the main background generator.",
+                       "Do not ship a generated background plate without deterministic layout and paintover review.",
+                       "Do not bake interactive objects into the background as their only visual representation.",
+                       "Do not move hotspot centers without regenerating the Godot scene, hotspot map, background manifest, and this contract.",
+                       "Registrar art may frame the duel but must preserve the accepted Litany UI format.",
+                       "Grey Float stays hard-R: steam, silhouettes, labor, privacy, no explicit anatomy.",
+                       "All final exports must pass G9/G10 palette checks before shipping."
+                   ],
+    "rooms":  [
+                  {
+                      "room_id":  "mudflats",
+                      "room_code":  "R01",
+                      "title":  "Mudflats",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/mudflats.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/mudflats.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/mudflats_bg.png",
+                      "godot_import_target":  "game/rooms/mudflats/background/mudflats_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "distant leviathan ribs",
+                                                            "bollard silhouettes",
+                                                            "mud ridge reference forms"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "wet silt texture",
+                                                              "cold horizon wash",
+                                                              "dawn haze"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "HarborView",
+                                           "label":  "harbor view",
+                                           "type":  "hotspot",
+                                           "position":  "1180, 620",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "SaltMarketExit",
+                                           "label":  "road to the Salt Market",
+                                           "type":  "hotspot",
+                                           "position":  "1765, 665",
+                                           "critical_roles":  [
+                                                                  "custom_navigation"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "BollardOfTomas",
+                                           "label":  "Bollard-of-Tomas",
+                                           "type":  "hotspot",
+                                           "position":  "390, 702",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "OwnHands",
+                                           "label":  "Corvin\u0027s hands",
+                                           "type":  "hotspot",
+                                           "position":  "660, 760",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "Coat",
+                                           "label":  "coat",
+                                           "type":  "hotspot",
+                                           "position":  "735, 760",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "MissingBoots",
+                                           "label":  "missing boots",
+                                           "type":  "hotspot",
+                                           "position":  "965, 910",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "Silt",
+                                           "label":  "silt",
+                                           "type":  "hotspot",
+                                           "position":  "500, 930",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "old_quay",
+                      "room_code":  "R02",
+                      "title":  "The Old Quay",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/old_quay.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/old_quay.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/old_quay_blockout_bg.png",
+                      "godot_import_target":  "game/rooms/old_quay/background/old_quay_blockout_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "dock pilings",
+                                                            "bollard row",
+                                                            "rope cleat",
+                                                            "harbor rail fragments"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "grime texture",
+                                                              "ink-wash edge breakup",
+                                                              "palette-safe mood reference",
+                                                              "non-clickable dressing silhouettes"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "target_room":  "SaltMarket",
+                                        "position":  "1700, 700",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToMudflats",
+                                        "label":  "Mudflats",
+                                        "target_room":  "Mudflats",
+                                        "position":  "180, 760",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "BollardPetra",
+                                           "label":  "Bollard Petra",
+                                           "type":  "hotspot",
+                                           "position":  "690, 700",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "BollardLedger",
+                                           "label":  "Ledger bollard",
+                                           "type":  "hotspot",
+                                           "position":  "870, 705",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "SilentBollards",
+                                           "label":  "Silent bollards",
+                                           "type":  "hotspot",
+                                           "position":  "910, 710",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "BollardBride",
+                                           "label":  "Bride bollard",
+                                           "type":  "hotspot",
+                                           "position":  "1050, 715",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "Tomas",
+                                           "label":  "Bollard Tomas",
+                                           "type":  "hotspot",
+                                           "position":  "470, 720",
+                                           "critical_roles":  [
+                                                                  "conditional_followup",
+                                                                  "confession_source"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "Flask",
+                                           "label":  "Empty flask",
+                                           "type":  "hotspot",
+                                           "position":  "1180, 760",
+                                           "critical_roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "RopeCleat",
+                                           "label":  "Rope cleat",
+                                           "type":  "hotspot",
+                                           "position":  "720, 800",
+                                           "critical_roles":  [
+                                                                  "wet_verb",
+                                                                  "item_reward"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "salt_market",
+                      "room_code":  "R03",
+                      "title":  "Salt Market",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/salt_market.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/salt_market.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/salt_market_bg.png",
+                      "godot_import_target":  "game/rooms/salt_market/background/salt_market_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "market stall shells",
+                                                            "boot stall",
+                                                            "hanging lamps",
+                                                            "crowd silhouette blockers"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "public crowd mood",
+                                                              "salt signage grime",
+                                                              "market awning texture"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+                                    {
+                                        "name":  "ToRegistry",
+                                        "label":  "Registry",
+                                        "target_room":  "HarborRegistry",
+                                        "position":  "520, 650",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToChurch",
+                                        "label":  "Church",
+                                        "target_room":  "ChurchOfTheDrowned",
+                                        "position":  "1660, 650",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToChandler",
+                                        "label":  "Bone Chandler",
+                                        "target_room":  "BoneChandler",
+                                        "position":  "820, 655",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToAlmshouse",
+                                        "label":  "Almshouse",
+                                        "target_room":  "Almshouse",
+                                        "position":  "1120, 655",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToFishHall",
+                                        "label":  "Fish Hall",
+                                        "target_room":  "FishHall",
+                                        "position":  "1390, 655",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToOldQuay",
+                                        "label":  "Old Quay",
+                                        "target_room":  "OldQuay",
+                                        "position":  "180, 740",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "ChurchSign",
+                                           "label":  "Church sign",
+                                           "type":  "hotspot",
+                                           "position":  "1380, 540",
+                                           "critical_roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "WhaleOilLamp",
+                                           "label":  "Whale-oil lamp",
+                                           "type":  "hotspot",
+                                           "position":  "1520, 620",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "BootStall",
+                                           "label":  "Boot stall",
+                                           "type":  "hotspot",
+                                           "position":  "300, 720",
+                                           "critical_roles":  [
+                                                                  "gated"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "Fishmonger",
+                                           "label":  "Fishmonger",
+                                           "type":  "hotspot",
+                                           "position":  "520, 720",
+                                           "critical_roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "ConfessionQueue",
+                                           "label":  "Confession queue",
+                                           "type":  "hotspot",
+                                           "position":  "1180, 720",
+                                           "critical_roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "MarketCrowd",
+                                           "label":  "Crowd",
+                                           "type":  "hotspot",
+                                           "position":  "960, 760",
+                                           "critical_roles":  [
+                                                                  "confession_source",
+                                                                  "item_reward"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "harbor_registry",
+                      "room_code":  "R05",
+                      "title":  "Harbor Registry",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/harbor_registry.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/harbor_registry.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/harbor_registry_bg.png",
+                      "godot_import_target":  "game/rooms/harbor_registry/background/harbor_registry_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "Registrar desk",
+                                                            "ledger stacks",
+                                                            "roll book lectern",
+                                                            "window frame"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "grime texture",
+                                                              "ink-wash edge breakup",
+                                                              "palette-safe mood reference",
+                                                              "non-clickable dressing silhouettes"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "target_room":  "SaltMarket",
+                                        "position":  "180, 740",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "KestrelLedger",
+                                           "label":  "Kestrel ledger",
+                                           "type":  "hotspot",
+                                           "position":  "1220, 610",
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "confession_source",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "DeskLamp",
+                                           "label":  "Desk lamp",
+                                           "type":  "hotspot",
+                                           "position":  "890, 650",
+                                           "critical_roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "Ledgers",
+                                           "label":  "Ledgers",
+                                           "type":  "hotspot",
+                                           "position":  "420, 660",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "Registrar",
+                                           "label":  "Registrar",
+                                           "type":  "duel",
+                                           "position":  "980, 690",
+                                           "critical_roles":  [
+                                                                  "duel",
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "RollBook",
+                                           "label":  "Open roll",
+                                           "type":  "hotspot",
+                                           "position":  "640, 700",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "bone_chandler",
+                      "room_code":  "R06",
+                      "title":  "The Bone Chandler",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/bone_chandler.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/bone_chandler.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/bone_chandler_bg.png",
+                      "godot_import_target":  "game/rooms/bone_chandler/background/bone_chandler_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "bone shelf units",
+                                                            "trade counter",
+                                                            "chess set scale prop",
+                                                            "Prosper watch display block"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "grime texture",
+                                                              "ink-wash edge breakup",
+                                                              "palette-safe mood reference",
+                                                              "non-clickable dressing silhouettes"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+                                    {
+                                        "name":  "ToAlmshouse",
+                                        "label":  "Almshouse",
+                                        "target_room":  "Almshouse",
+                                        "position":  "1700, 730",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "target_room":  "SaltMarket",
+                                        "position":  "180, 740",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "ChessSet",
+                                           "label":  "Chess set",
+                                           "type":  "hotspot",
+                                           "position":  "790, 680",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "Wares",
+                                           "label":  "Wares",
+                                           "type":  "hotspot",
+                                           "position":  "560, 700",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "ProsperWatch",
+                                           "label":  "Prosper\u0027s watch",
+                                           "type":  "hotspot",
+                                           "position":  "1010, 700",
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "almshouse",
+                      "room_code":  "R07",
+                      "title":  "The Almshouse",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/almshouse.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/almshouse.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/almshouse_bg.png",
+                      "godot_import_target":  "game/rooms/almshouse/background/almshouse_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "cot rows",
+                                                            "window frame",
+                                                            "privacy screens",
+                                                            "Prosper sitting silhouette block"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "grime texture",
+                                                              "ink-wash edge breakup",
+                                                              "palette-safe mood reference",
+                                                              "non-clickable dressing silhouettes"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "target_room":  "SaltMarket",
+                                        "position":  "1700, 730",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToBoneChandler",
+                                        "label":  "Bone Chandler",
+                                        "target_room":  "BoneChandler",
+                                        "position":  "180, 740",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "Window",
+                                           "label":  "Window",
+                                           "type":  "hotspot",
+                                           "position":  "780, 650",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "HalfCoinProsper",
+                                           "label":  "Half-Coin Prosper",
+                                           "type":  "hotspot",
+                                           "position":  "980, 700",
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "Cots",
+                                           "label":  "Cots",
+                                           "type":  "hotspot",
+                                           "position":  "560, 720",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "fish_hall",
+                      "room_code":  "R08",
+                      "title":  "The Fish Hall",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/fish_hall.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/fish_hall.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/fish_hall_bg.png",
+                      "godot_import_target":  "game/rooms/fish_hall/background/fish_hall_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "ice table",
+                                                            "drain grate",
+                                                            "visitor book stand",
+                                                            "tagged body-table silhouette"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "grime texture",
+                                                              "ink-wash edge breakup",
+                                                              "palette-safe mood reference",
+                                                              "non-clickable dressing silhouettes"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "target_room":  "SaltMarket",
+                                        "position":  "180, 740",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "VisitorBook",
+                                           "label":  "Visitor book",
+                                           "type":  "hotspot",
+                                           "position":  "1260, 690",
+                                           "critical_roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "CoronerTag",
+                                           "label":  "Coroner tag",
+                                           "type":  "hotspot",
+                                           "position":  "960, 710",
+                                           "critical_roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "IceTable",
+                                           "label":  "Ice table",
+                                           "type":  "hotspot",
+                                           "position":  "610, 720",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "Drain",
+                                           "label":  "Drain",
+                                           "type":  "hotspot",
+                                           "position":  "1500, 780",
+                                           "critical_roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "church_of_the_drowned",
+                      "room_code":  "R09",
+                      "title":  "Church of the Drowned",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/church_of_the_drowned.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/church_of_the_drowned.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/church_of_the_drowned_bg.png",
+                      "godot_import_target":  "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "confession booth",
+                                                            "Church ledger desk",
+                                                            "receipt window",
+                                                            "green lamp housings"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "institutional absinthe-green light",
+                                                              "paper bureaucracy texture",
+                                                              "wet stone grime"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+                                    {
+                                        "name":  "ToGreyFloat",
+                                        "label":  "Grey Float",
+                                        "target_room":  "GreyFloat",
+                                        "position":  "1700, 730",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "target_room":  "SaltMarket",
+                                        "position":  "180, 740",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "ChurchStallSign",
+                                           "label":  "Church stall sign",
+                                           "type":  "hotspot",
+                                           "position":  "1100, 585",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "ConfessionBooth",
+                                           "label":  "Confession booth",
+                                           "type":  "hotspot",
+                                           "position":  "780, 650",
+                                           "critical_roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "RateCard",
+                                           "label":  "Teodor\u0027s stall",
+                                           "type":  "hotspot",
+                                           "position":  "940, 700",
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "confession_source",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "PoorBox",
+                                           "label":  "Poor box",
+                                           "type":  "hotspot",
+                                           "position":  "620, 720",
+                                           "critical_roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "grey_float",
+                      "room_code":  "R10",
+                      "title":  "The Grey Float",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/grey_float.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/grey_float.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/grey_float_bg.png",
+                      "godot_import_target":  "game/rooms/grey_float/background/grey_float_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "barge wall ribs",
+                                                            "steam-screen partitions",
+                                                            "lamp clusters",
+                                                            "bathhouse railings"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "steam density",
+                                                              "warm silhouette privacy shapes",
+                                                              "non-explicit labor staging",
+                                                              "amber trap mood"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+                                    {
+                                        "name":  "ToHarbormaster",
+                                        "label":  "Harbormaster",
+                                        "target_room":  "HarbormasterOffice",
+                                        "position":  "1700, 730",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToChurch",
+                                        "label":  "Church",
+                                        "target_room":  "ChurchOfTheDrowned",
+                                        "position":  "180, 740",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "SteamScreen",
+                                           "label":  "Steam screen",
+                                           "type":  "hotspot",
+                                           "position":  "1450, 650",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "JunoTable",
+                                           "label":  "Juno\u0027s table",
+                                           "type":  "hotspot",
+                                           "position":  "450, 675",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "BilgeRegulator",
+                                           "label":  "Bilge regulator",
+                                           "type":  "hotspot",
+                                           "position":  "900, 700",
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "StaffCorner",
+                                           "label":  "Staff corner",
+                                           "type":  "hotspot",
+                                           "position":  "620, 710",
+                                           "critical_roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       },
+                                       {
+                                           "name":  "HotPool",
+                                           "label":  "Hot pool",
+                                           "type":  "hotspot",
+                                           "position":  "1220, 720",
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "gated"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "harbormaster_office",
+                      "room_code":  "R11",
+                      "title":  "Harbormaster\u0027s Office",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/harbormaster_office.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/harbormaster_office.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/harbormaster_office_bg.png",
+                      "godot_import_target":  "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "office desk",
+                                                            "filing wall",
+                                                            "checklist board",
+                                                            "frosted glass door"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "grime texture",
+                                                              "ink-wash edge breakup",
+                                                              "palette-safe mood reference",
+                                                              "non-clickable dressing silhouettes"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+                                    {
+                                        "name":  "ToSabine",
+                                        "label":  "Sabine",
+                                        "target_room":  "SabineOffice",
+                                        "position":  "1700, 730",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    },
+                                    {
+                                        "name":  "ToGreyFloat",
+                                        "label":  "Grey Float",
+                                        "target_room":  "GreyFloat",
+                                        "position":  "180, 740",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "SabineDoor",
+                                           "label":  "Sabine\u0027s door",
+                                           "type":  "hotspot",
+                                           "position":  "1500, 665",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "ChecklistDesk",
+                                           "label":  "Checklist desk",
+                                           "type":  "hotspot",
+                                           "position":  "740, 690",
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "pipeline_route":  "baked_paintover_dressing",
+                                           "reason":  "Scene texture only; no verb/state contract depends on it.",
+                                           "source_guidance":  "Blender greybox and final paintover. Generated texture reference is allowed if repainted and palette-audited."
+                                       },
+                                       {
+                                           "name":  "ChecklistClerk",
+                                           "label":  "Checklist clerk",
+                                           "type":  "hotspot",
+                                           "position":  "960, 700",
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "gated"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "sabine_office",
+                      "room_code":  "R12",
+                      "title":  "Sabine\u0027s Office",
+                      "authoritative_layout":  "docs/art/act_i_background_manifest.json",
+                      "camera_and_scale_source":  "art/src/backgrounds/act_i/sabine_office.blend",
+                      "final_plate_source":  "art/src/backgrounds/act_i/sabine_office.psd",
+                      "final_plate_export":  "art/export/backgrounds/act_i/sabine_office_bg.png",
+                      "godot_import_target":  "game/rooms/sabine_office/background/sabine_office_bg.png",
+                      "meshy_source_model_candidates":  [
+                                                            "Sabine desk",
+                                                            "window frame",
+                                                            "Persian rug plane",
+                                                            "wrist-check staging chair"
+                                                        ],
+                      "generated_reference_allowed_for":  [
+                                                              "grime texture",
+                                                              "ink-wash edge breakup",
+                                                              "palette-safe mood reference",
+                                                              "non-clickable dressing silhouettes"
+                                                          ],
+                      "forbidden_routes":  [
+                                               "whole_room_meshy_generation",
+                                               "generated_final_background_without_paintover",
+                                               "merged_interactive_object_baked_only",
+                                               "palette-unchecked export"
+                                           ],
+                      "exits":  [
+                                    {
+                                        "name":  "ToHarbormaster",
+                                        "label":  "Harbormaster",
+                                        "target_room":  "HarbormasterOffice",
+                                        "position":  "180, 740",
+                                        "pipeline_route":  "navigation_hotspot_over_locked_background",
+                                        "source_guidance":  "Keep exit silhouette readable in the paintover, but preserve Godot navigation/hotspot metadata."
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "SabineDesk",
+                                           "label":  "Sabine\u0027s desk",
+                                           "type":  "hotspot",
+                                           "position":  "960, 690",
+                                           "critical_roles":  [
+                                                                  "gated"
+                                                              ],
+                                           "pipeline_route":  "separate_interactive_sprite_or_hotspot_layer",
+                                           "reason":  "Verb-coin, state, confession, duel, item, wetness, gate, or navigation logic touches this element.",
+                                           "source_guidance":  "Blender greybox for position; Meshy only for reusable structural/source-model help; generated images reference only."
+                                       }
+                                   ]
+                  }
+              ]
+}

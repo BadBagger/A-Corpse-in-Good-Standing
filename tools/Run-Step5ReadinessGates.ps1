@@ -52,6 +52,7 @@ try {
     Write-Host ""
 
     Invoke-Step -Name "Refresh automated Act I playtest report" -ScriptName "Record-ActIGreyboxPlaytest.ps1" -TimeoutSeconds 120
+    Invoke-Step -Name "Validate Act I background element pipeline" -ScriptName "Validate-ActIBackgroundElementPipeline.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I paintover packet" -ScriptName "Validate-ActIPaintoverPacket.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I art readability review" -ScriptName "Validate-ActIArtReadabilityReview.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I review contact sheet" -ScriptName "Validate-ActIReviewContactSheet.ps1" -TimeoutSeconds 120
