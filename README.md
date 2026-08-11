@@ -21,6 +21,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `docs/vo/vo_recording_queue.json`, `.csv`, and `.md` - generated scratch-ready vs blocked VO batch queue
 - `docs/checkpoints/step_5_human_review_bundle.json` and `.md` - compact Step 5 human-review launch bundle and artifact index
 - `docs/checkpoints/production_blocker_index.md` - stable index of current GitHub production blockers and the evidence/commands tied to each one
+- `docs/checkpoints/ci_gate_boundary.md` - explicit split between GitHub Actions coverage and local-only Godot/Step 2-5 gates
 - `docs/art/act_i_review_contact_sheet.html` - browser review sheet combining Act I blockout images, walk bands, hotspot markers, and room tables
 - `docs/vo/vo_recording_packets_index.json`, `.csv`, and `.md` plus `docs/vo/recording_packets/scratch_ready/*.md` - generated per-batch scratch VO recording packets
 - `docs/vo/vo_minor_speaker_decisions_template.csv` and `.md` - generated minor-speaker VO casting/consolidation decision handoff
@@ -121,6 +122,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-TextArtifactHygiene.ps1` checks source, narrative, Godot text resources, docs, and repo metadata for illegal control characters.
 - `tools\Validate-ProductionBlockerIndex.ps1` validates that `docs\checkpoints\production_blocker_index.md` keeps the three live production blockers, evidence paths, verification commands, and stop-point guardrails visible.
 - `tools\Test-ProductionBlockerIndex.ps1` proves the blocker-index validator accepts the current index and rejects a missing scratch-VO shipping guardrail before restoring the fixture.
+- `tools\Validate-CiGateBoundary.ps1` validates that GitHub Actions still proves repo hygiene plus Step 1 only, while Step 2-5 remain documented as local-only until portable Godot/render tooling is added to CI.
 - `tools\Run-RepoReadinessGates.ps1` runs the source-control/LFS and text-artifact gates for commit/package hygiene. It does not replace the Step 1-5 build gates.
 - `tools\Validate-StagedSourceSnapshot.ps1` validates a staged initial snapshot, rejecting build output, Godot cache files, Blender backups, temp files, and missing root handoff artifacts while reporting commit identity/remote blockers.
 - `.github\pull_request_template.md` and `.github\ISSUE_TEMPLATE\*.yml` keep GitHub review/work items aligned with the duel-format lock, Grey Float hard-R line, Act I confession gates, and Step 5 human-review/paintover ordering.
