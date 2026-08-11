@@ -37,6 +37,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `docs/art/act_i_background_source_worklist.json`, `.csv`, and `.md` - generated source-art task list for Act I Meshy helper models, generated reference boards, interactive layers, and navigation silhouettes
 - `docs/art/act_i_background_source_prompts.json`, `.csv`, and `.md` - generated guarded prompt packets for Act I Meshy helper models, imagegen reference boards, and paintover/runtime layer tasks
 - `docs/art/act_i_background_source_intake.json`, `.csv`, and `.md` - generated intake/status report for Act I prompt output files, keeping Meshy, imagegen, and paintover sources separate from final art acceptance
+- `docs/art/act_i_background_source_placement.json`, `.csv`, and `.md` - generated placement map for routing Act I prompt outputs into Blender helper geometry, reference boards, separate runtime layers, or navigation readability review
 - `docs/art/act_i_background_asset_status.csv` and `.md` - generated present/pending tracker for Act I background assets
 - `docs/art/act_i_blockout_tasks.json` and `.md` - generated Blender blockout proof tasks for Act I rooms
 - `docs/art/act_i_background_palette_audit.csv` and `.md` - generated G9/G10 palette audit for exported Act I backgrounds
@@ -74,6 +75,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-ActIBackgroundSourceWorklist.ps1` regenerates and validates the concrete Act I source-art task list: Meshy GLB helpers, generated reference boards, separate interactive layers, and navigation silhouettes all start pending and preserve the background pipeline rules.
 - `tools\Validate-ActIBackgroundSourcePrompts.ps1` regenerates and validates guarded prompts for the Act I source-art worklist, keeping Meshy helper prompts, imagegen reference prompts, and paintover/runtime-layer prompts inside the accepted pipeline.
 - `tools\Validate-ActIBackgroundSourceIntake.ps1` regenerates and validates source prompt output intake, marking files present/pending without treating Meshy GLBs, imagegen references, or paintover PSDs as final room art.
+- `tools\Validate-ActIBackgroundSourcePlacement.ps1` regenerates and validates the placement map for source prompt outputs after intake, keeping Meshy, imagegen, interactive, and navigation outputs routed through their proper review gates.
 - `tools\Validate-ActIBackgroundAssetStatus.ps1` regenerates the background asset tracker. Pending art is allowed here; malformed or incomplete tracking is not.
 - `tools\Validate-ActIBlockoutTasks.ps1` regenerates the Blender blockout task brief and validates room coverage, wet-verb tasks, close-pair review, and Registrar duel-format lock.
 - `tools\Validate-ActIBackgroundPaletteAudit.ps1` regenerates the palette audit. Pending exports are allowed; existing exported PNGs must satisfy G9/G10.
