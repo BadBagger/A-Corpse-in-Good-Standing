@@ -12,6 +12,7 @@ GATES:
 - Act I background source prompts: pass, generated guarded prompts cover Meshy helper GLBs, imagegen reference boards, and paintover/runtime-layer tasks without approving final art.
 - Act I background source intake: pass, generated source-output intake keeps prompt outputs pending/present without treating Meshy, imagegen, or paintover sources as final room art.
 - Act I background source placement: pass, generated placement map routes source outputs into Blender helper geometry, reference boards, separate runtime layers, or navigation readability review without approving final art.
+- Act I background source dropzones: pass, generated source-output folders and README scaffolds exist without creating placeholder binary files or approving final art.
 - Act I paintover packet: pass, generated per-room final-paintover instructions preserve hotspot coordinates, walk-band constraints, palette rules, Grey Float hard-R staging, and Registrar duel-format lock.
 - Act I art readability review: pass, generated room-by-room review checklist covers brightest-object readability, walk-band clarity, wet targets, confession-source staging, Grey Float hard-R checks, and Registrar duel-format risk.
 - Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.

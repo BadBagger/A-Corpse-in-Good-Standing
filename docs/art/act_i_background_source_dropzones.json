@@ -1,0 +1,2354 @@
+﻿{
+    "generated_from":  "docs/art/act_i_background_source_placement.json",
+    "purpose":  "Physical drop-zone scaffold for Act I background source outputs.",
+    "status":  "dropzones_ready_pending_sources",
+    "guardrails":  [
+                       "Drop-zone README files are scaffolds only.",
+                       "Do not create placeholder binary outputs.",
+                       "Generated source outputs remain pending until real nonzero files appear in intake.",
+                       "Meshy and generated references still cannot count as final room art.",
+                       "Interactive and navigation source files still require their later runtime and Godot alignment gates."
+                   ],
+    "dropzone_count":  43,
+    "kind_counts":  {
+                        "generated_reference_boards":  11,
+                        "interactive_layer_sources":  11,
+                        "meshy_source_models":  11,
+                        "navigation_silhouette_sources":  10
+                    },
+    "dropzones":  [
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/mudflats",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/mudflats/README.md",
+                          "room_code":  "R01",
+                          "room_id":  "mudflats",
+                          "room_title":  "Mudflats",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  3,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "mudflats_meshy_source_model_bollard_silhouettes",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "bollard silhouettes",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/mudflats/bollard_silhouettes.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/mudflats.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "mudflats_meshy_source_model_distant_leviathan_ribs",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "distant leviathan ribs",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/mudflats/distant_leviathan_ribs.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/mudflats.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "mudflats_meshy_source_model_mud_ridge_reference_forms",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "mud ridge reference forms",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/mudflats/mud_ridge_reference_forms.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/mudflats.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/mudflats",
+                          "readme_path":  "docs/art/reference/act_i/mudflats/README.md",
+                          "room_code":  "R01",
+                          "room_id":  "mudflats",
+                          "room_title":  "Mudflats",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  3,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "mudflats_generated_reference_cold_horizon_wash",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "cold horizon wash",
+                                                     "source_path":  "docs/art/reference/act_i/mudflats/cold_horizon_wash.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/mudflats",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "mudflats_generated_reference_dawn_haze",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "dawn haze",
+                                                     "source_path":  "docs/art/reference/act_i/mudflats/dawn_haze.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/mudflats",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "mudflats_generated_reference_wet_silt_texture",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "wet silt texture",
+                                                     "source_path":  "docs/art/reference/act_i/mudflats/wet_silt_texture.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/mudflats",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/mudflats",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/mudflats/README.md",
+                          "room_code":  "R01",
+                          "room_id":  "mudflats",
+                          "room_title":  "Mudflats",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  1,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "mudflats_interactive_layer_road_to_the_salt_market",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "road to the Salt Market",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/mudflats/saltmarketexit.psd",
+                                                     "runtime_path":  "game/rooms/mudflats/props/saltmarketexit.png",
+                                                     "placement_target":  "game/rooms/mudflats/props/saltmarketexit.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/old_quay",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/old_quay/README.md",
+                          "room_code":  "R02",
+                          "room_id":  "old_quay",
+                          "room_title":  "The Old Quay",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "old_quay_meshy_source_model_bollard_row",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "bollard row",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/old_quay/bollard_row.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/old_quay.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "old_quay_meshy_source_model_dock_pilings",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "dock pilings",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/old_quay/dock_pilings.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/old_quay.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "old_quay_meshy_source_model_harbor_rail_fragments",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "harbor rail fragments",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/old_quay/harbor_rail_fragments.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/old_quay.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "old_quay_meshy_source_model_rope_cleat",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "rope cleat",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/old_quay/rope_cleat.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/old_quay.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/old_quay",
+                          "readme_path":  "docs/art/reference/act_i/old_quay/README.md",
+                          "room_code":  "R02",
+                          "room_id":  "old_quay",
+                          "room_title":  "The Old Quay",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "old_quay_generated_reference_grime_texture",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "grime texture",
+                                                     "source_path":  "docs/art/reference/act_i/old_quay/grime_texture.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/old_quay",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "old_quay_generated_reference_ink_wash_edge_breakup",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "ink-wash edge breakup",
+                                                     "source_path":  "docs/art/reference/act_i/old_quay/ink_wash_edge_breakup.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/old_quay",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "old_quay_generated_reference_non_clickable_dressing_silhouettes",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "non-clickable dressing silhouettes",
+                                                     "source_path":  "docs/art/reference/act_i/old_quay/non_clickable_dressing_silhouettes.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/old_quay",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "old_quay_generated_reference_palette_safe_mood_reference",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "palette-safe mood reference",
+                                                     "source_path":  "docs/art/reference/act_i/old_quay/palette_safe_mood_reference.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/old_quay",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/old_quay",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/old_quay/README.md",
+                          "room_code":  "R02",
+                          "room_id":  "old_quay",
+                          "room_title":  "The Old Quay",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  3,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "old_quay_interactive_layer_bollard_tomas",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Bollard Tomas",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/old_quay/tomas.psd",
+                                                     "runtime_path":  "game/rooms/old_quay/props/tomas.png",
+                                                     "placement_target":  "game/rooms/old_quay/props/tomas.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "old_quay_interactive_layer_empty_flask",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Empty flask",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/old_quay/flask.psd",
+                                                     "runtime_path":  "game/rooms/old_quay/props/flask.png",
+                                                     "placement_target":  "game/rooms/old_quay/props/flask.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "old_quay_interactive_layer_rope_cleat",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Rope cleat",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/old_quay/ropecleat.psd",
+                                                     "runtime_path":  "game/rooms/old_quay/props/ropecleat.png",
+                                                     "placement_target":  "game/rooms/old_quay/props/ropecleat.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/navigation_silhouettes/old_quay",
+                          "readme_path":  "art/src/backgrounds/act_i/navigation_silhouettes/old_quay/README.md",
+                          "room_code":  "R02",
+                          "room_id":  "old_quay",
+                          "room_title":  "The Old Quay",
+                          "dropzone_kind":  "navigation_silhouette_sources",
+                          "sort_order":  3,
+                          "expected_file_count":  2,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_navigation_readability"
+                                               ],
+                          "runtime_policies":  [
+                                                   "preserve_existing_exit_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "old_quay_navigation_silhouette_mudflats",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Mudflats",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/old_quay/tomudflats.psd",
+                                                     "runtime_path":  "game/rooms/old_quay/background/old_quay_bg.png",
+                                                     "placement_target":  "game/rooms/old_quay/background/old_quay_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "old_quay_navigation_silhouette_salt_market",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Salt Market",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/old_quay/tosaltmarket.psd",
+                                                     "runtime_path":  "game/rooms/old_quay/background/old_quay_bg.png",
+                                                     "placement_target":  "game/rooms/old_quay/background/old_quay_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/salt_market",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/salt_market/README.md",
+                          "room_code":  "R03",
+                          "room_id":  "salt_market",
+                          "room_title":  "Salt Market",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "salt_market_meshy_source_model_boot_stall",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "boot stall",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/salt_market/boot_stall.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/salt_market.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_meshy_source_model_crowd_silhouette_blockers",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "crowd silhouette blockers",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/salt_market/crowd_silhouette_blockers.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/salt_market.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_meshy_source_model_hanging_lamps",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "hanging lamps",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/salt_market/hanging_lamps.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/salt_market.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_meshy_source_model_market_stall_shells",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "market stall shells",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/salt_market/market_stall_shells.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/salt_market.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/salt_market",
+                          "readme_path":  "docs/art/reference/act_i/salt_market/README.md",
+                          "room_code":  "R03",
+                          "room_id":  "salt_market",
+                          "room_title":  "Salt Market",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  3,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "salt_market_generated_reference_market_awning_texture",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "market awning texture",
+                                                     "source_path":  "docs/art/reference/act_i/salt_market/market_awning_texture.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/salt_market",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_generated_reference_public_crowd_mood",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "public crowd mood",
+                                                     "source_path":  "docs/art/reference/act_i/salt_market/public_crowd_mood.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/salt_market",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_generated_reference_salt_signage_grime",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "salt signage grime",
+                                                     "source_path":  "docs/art/reference/act_i/salt_market/salt_signage_grime.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/salt_market",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/salt_market",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/salt_market/README.md",
+                          "room_code":  "R03",
+                          "room_id":  "salt_market",
+                          "room_title":  "Salt Market",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  5,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "salt_market_interactive_layer_boot_stall",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Boot stall",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/salt_market/bootstall.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/props/bootstall.png",
+                                                     "placement_target":  "game/rooms/salt_market/props/bootstall.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_interactive_layer_church_sign",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Church sign",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/salt_market/churchsign.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/props/churchsign.png",
+                                                     "placement_target":  "game/rooms/salt_market/props/churchsign.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_interactive_layer_confession_queue",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Confession queue",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/salt_market/confessionqueue.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/props/confessionqueue.png",
+                                                     "placement_target":  "game/rooms/salt_market/props/confessionqueue.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_interactive_layer_crowd",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Crowd",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/salt_market/marketcrowd.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/props/marketcrowd.png",
+                                                     "placement_target":  "game/rooms/salt_market/props/marketcrowd.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_interactive_layer_fishmonger",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Fishmonger",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/salt_market/fishmonger.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/props/fishmonger.png",
+                                                     "placement_target":  "game/rooms/salt_market/props/fishmonger.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/navigation_silhouettes/salt_market",
+                          "readme_path":  "art/src/backgrounds/act_i/navigation_silhouettes/salt_market/README.md",
+                          "room_code":  "R03",
+                          "room_id":  "salt_market",
+                          "room_title":  "Salt Market",
+                          "dropzone_kind":  "navigation_silhouette_sources",
+                          "sort_order":  3,
+                          "expected_file_count":  6,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_navigation_readability"
+                                               ],
+                          "runtime_policies":  [
+                                                   "preserve_existing_exit_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "salt_market_navigation_silhouette_almshouse",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Almshouse",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/salt_market/toalmshouse.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "placement_target":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_navigation_silhouette_bone_chandler",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Bone Chandler",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/salt_market/tochandler.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "placement_target":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_navigation_silhouette_church",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Church",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/salt_market/tochurch.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "placement_target":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_navigation_silhouette_fish_hall",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Fish Hall",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/salt_market/tofishhall.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "placement_target":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_navigation_silhouette_old_quay",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Old Quay",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/salt_market/tooldquay.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "placement_target":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "salt_market_navigation_silhouette_registry",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Registry",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/salt_market/toregistry.psd",
+                                                     "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "placement_target":  "game/rooms/salt_market/background/salt_market_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/harbor_registry",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/harbor_registry/README.md",
+                          "room_code":  "R05",
+                          "room_id":  "harbor_registry",
+                          "room_title":  "Harbor Registry",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "harbor_registry_meshy_source_model_ledger_stacks",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "ledger stacks",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/harbor_registry/ledger_stacks.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/harbor_registry.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "harbor_registry_meshy_source_model_registrar_desk",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "Registrar desk",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/harbor_registry/registrar_desk.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/harbor_registry.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "harbor_registry_meshy_source_model_roll_book_lectern",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "roll book lectern",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/harbor_registry/roll_book_lectern.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/harbor_registry.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "harbor_registry_meshy_source_model_window_frame",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "window frame",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/harbor_registry/window_frame.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/harbor_registry.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/harbor_registry",
+                          "readme_path":  "docs/art/reference/act_i/harbor_registry/README.md",
+                          "room_code":  "R05",
+                          "room_id":  "harbor_registry",
+                          "room_title":  "Harbor Registry",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "harbor_registry_generated_reference_grime_texture",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "grime texture",
+                                                     "source_path":  "docs/art/reference/act_i/harbor_registry/grime_texture.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/harbor_registry",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "harbor_registry_generated_reference_ink_wash_edge_breakup",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "ink-wash edge breakup",
+                                                     "source_path":  "docs/art/reference/act_i/harbor_registry/ink_wash_edge_breakup.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/harbor_registry",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "harbor_registry_generated_reference_non_clickable_dressing_silhouettes",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "non-clickable dressing silhouettes",
+                                                     "source_path":  "docs/art/reference/act_i/harbor_registry/non_clickable_dressing_silhouettes.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/harbor_registry",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "harbor_registry_generated_reference_palette_safe_mood_reference",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "palette-safe mood reference",
+                                                     "source_path":  "docs/art/reference/act_i/harbor_registry/palette_safe_mood_reference.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/harbor_registry",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/harbor_registry",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/harbor_registry/README.md",
+                          "room_code":  "R05",
+                          "room_id":  "harbor_registry",
+                          "room_title":  "Harbor Registry",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  3,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "harbor_registry_interactive_layer_desk_lamp",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Desk lamp",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/harbor_registry/desklamp.psd",
+                                                     "runtime_path":  "game/rooms/harbor_registry/props/desklamp.png",
+                                                     "placement_target":  "game/rooms/harbor_registry/props/desklamp.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "harbor_registry_interactive_layer_kestrel_ledger",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Kestrel ledger",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/harbor_registry/kestrelledger.psd",
+                                                     "runtime_path":  "game/rooms/harbor_registry/props/kestrelledger.png",
+                                                     "placement_target":  "game/rooms/harbor_registry/props/kestrelledger.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "harbor_registry_interactive_layer_registrar",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Registrar",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/harbor_registry/registrar.psd",
+                                                     "runtime_path":  "game/rooms/harbor_registry/props/registrar.png",
+                                                     "placement_target":  "game/rooms/harbor_registry/props/registrar.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/navigation_silhouettes/harbor_registry",
+                          "readme_path":  "art/src/backgrounds/act_i/navigation_silhouettes/harbor_registry/README.md",
+                          "room_code":  "R05",
+                          "room_id":  "harbor_registry",
+                          "room_title":  "Harbor Registry",
+                          "dropzone_kind":  "navigation_silhouette_sources",
+                          "sort_order":  3,
+                          "expected_file_count":  1,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_navigation_readability"
+                                               ],
+                          "runtime_policies":  [
+                                                   "preserve_existing_exit_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "harbor_registry_navigation_silhouette_salt_market",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Salt Market",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/harbor_registry/tosaltmarket.psd",
+                                                     "runtime_path":  "game/rooms/harbor_registry/background/harbor_registry_bg.png",
+                                                     "placement_target":  "game/rooms/harbor_registry/background/harbor_registry_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/bone_chandler",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/bone_chandler/README.md",
+                          "room_code":  "R06",
+                          "room_id":  "bone_chandler",
+                          "room_title":  "The Bone Chandler",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "bone_chandler_meshy_source_model_bone_shelf_units",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "bone shelf units",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/bone_chandler/bone_shelf_units.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/bone_chandler.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "bone_chandler_meshy_source_model_chess_set_scale_prop",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "chess set scale prop",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/bone_chandler/chess_set_scale_prop.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/bone_chandler.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "bone_chandler_meshy_source_model_prosper_watch_display_block",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "Prosper watch display block",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/bone_chandler/prosper_watch_display_block.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/bone_chandler.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "bone_chandler_meshy_source_model_trade_counter",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "trade counter",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/bone_chandler/trade_counter.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/bone_chandler.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/bone_chandler",
+                          "readme_path":  "docs/art/reference/act_i/bone_chandler/README.md",
+                          "room_code":  "R06",
+                          "room_id":  "bone_chandler",
+                          "room_title":  "The Bone Chandler",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "bone_chandler_generated_reference_grime_texture",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "grime texture",
+                                                     "source_path":  "docs/art/reference/act_i/bone_chandler/grime_texture.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/bone_chandler",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "bone_chandler_generated_reference_ink_wash_edge_breakup",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "ink-wash edge breakup",
+                                                     "source_path":  "docs/art/reference/act_i/bone_chandler/ink_wash_edge_breakup.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/bone_chandler",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "bone_chandler_generated_reference_non_clickable_dressing_silhouettes",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "non-clickable dressing silhouettes",
+                                                     "source_path":  "docs/art/reference/act_i/bone_chandler/non_clickable_dressing_silhouettes.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/bone_chandler",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "bone_chandler_generated_reference_palette_safe_mood_reference",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "palette-safe mood reference",
+                                                     "source_path":  "docs/art/reference/act_i/bone_chandler/palette_safe_mood_reference.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/bone_chandler",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/bone_chandler",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/bone_chandler/README.md",
+                          "room_code":  "R06",
+                          "room_id":  "bone_chandler",
+                          "room_title":  "The Bone Chandler",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  1,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "bone_chandler_interactive_layer_prosper_s_watch",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Prosper\u0027s watch",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/bone_chandler/prosperwatch.psd",
+                                                     "runtime_path":  "game/rooms/bone_chandler/props/prosperwatch.png",
+                                                     "placement_target":  "game/rooms/bone_chandler/props/prosperwatch.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/navigation_silhouettes/bone_chandler",
+                          "readme_path":  "art/src/backgrounds/act_i/navigation_silhouettes/bone_chandler/README.md",
+                          "room_code":  "R06",
+                          "room_id":  "bone_chandler",
+                          "room_title":  "The Bone Chandler",
+                          "dropzone_kind":  "navigation_silhouette_sources",
+                          "sort_order":  3,
+                          "expected_file_count":  2,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_navigation_readability"
+                                               ],
+                          "runtime_policies":  [
+                                                   "preserve_existing_exit_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "bone_chandler_navigation_silhouette_almshouse",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Almshouse",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/bone_chandler/toalmshouse.psd",
+                                                     "runtime_path":  "game/rooms/bone_chandler/background/bone_chandler_bg.png",
+                                                     "placement_target":  "game/rooms/bone_chandler/background/bone_chandler_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "bone_chandler_navigation_silhouette_salt_market",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Salt Market",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/bone_chandler/tosaltmarket.psd",
+                                                     "runtime_path":  "game/rooms/bone_chandler/background/bone_chandler_bg.png",
+                                                     "placement_target":  "game/rooms/bone_chandler/background/bone_chandler_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/almshouse",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/almshouse/README.md",
+                          "room_code":  "R07",
+                          "room_id":  "almshouse",
+                          "room_title":  "The Almshouse",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "almshouse_meshy_source_model_cot_rows",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "cot rows",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/almshouse/cot_rows.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/almshouse.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "almshouse_meshy_source_model_privacy_screens",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "privacy screens",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/almshouse/privacy_screens.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/almshouse.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "almshouse_meshy_source_model_prosper_sitting_silhouette_block",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "Prosper sitting silhouette block",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/almshouse/prosper_sitting_silhouette_block.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/almshouse.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "almshouse_meshy_source_model_window_frame",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "window frame",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/almshouse/window_frame.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/almshouse.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/almshouse",
+                          "readme_path":  "docs/art/reference/act_i/almshouse/README.md",
+                          "room_code":  "R07",
+                          "room_id":  "almshouse",
+                          "room_title":  "The Almshouse",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "almshouse_generated_reference_grime_texture",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "grime texture",
+                                                     "source_path":  "docs/art/reference/act_i/almshouse/grime_texture.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/almshouse",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "almshouse_generated_reference_ink_wash_edge_breakup",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "ink-wash edge breakup",
+                                                     "source_path":  "docs/art/reference/act_i/almshouse/ink_wash_edge_breakup.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/almshouse",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "almshouse_generated_reference_non_clickable_dressing_silhouettes",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "non-clickable dressing silhouettes",
+                                                     "source_path":  "docs/art/reference/act_i/almshouse/non_clickable_dressing_silhouettes.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/almshouse",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "almshouse_generated_reference_palette_safe_mood_reference",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "palette-safe mood reference",
+                                                     "source_path":  "docs/art/reference/act_i/almshouse/palette_safe_mood_reference.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/almshouse",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/almshouse",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/almshouse/README.md",
+                          "room_code":  "R07",
+                          "room_id":  "almshouse",
+                          "room_title":  "The Almshouse",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  1,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "almshouse_interactive_layer_half_coin_prosper",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Half-Coin Prosper",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/almshouse/halfcoinprosper.psd",
+                                                     "runtime_path":  "game/rooms/almshouse/props/halfcoinprosper.png",
+                                                     "placement_target":  "game/rooms/almshouse/props/halfcoinprosper.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/navigation_silhouettes/almshouse",
+                          "readme_path":  "art/src/backgrounds/act_i/navigation_silhouettes/almshouse/README.md",
+                          "room_code":  "R07",
+                          "room_id":  "almshouse",
+                          "room_title":  "The Almshouse",
+                          "dropzone_kind":  "navigation_silhouette_sources",
+                          "sort_order":  3,
+                          "expected_file_count":  2,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_navigation_readability"
+                                               ],
+                          "runtime_policies":  [
+                                                   "preserve_existing_exit_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "almshouse_navigation_silhouette_bone_chandler",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Bone Chandler",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/almshouse/tobonechandler.psd",
+                                                     "runtime_path":  "game/rooms/almshouse/background/almshouse_bg.png",
+                                                     "placement_target":  "game/rooms/almshouse/background/almshouse_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "almshouse_navigation_silhouette_salt_market",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Salt Market",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/almshouse/tosaltmarket.psd",
+                                                     "runtime_path":  "game/rooms/almshouse/background/almshouse_bg.png",
+                                                     "placement_target":  "game/rooms/almshouse/background/almshouse_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/fish_hall",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/fish_hall/README.md",
+                          "room_code":  "R08",
+                          "room_id":  "fish_hall",
+                          "room_title":  "The Fish Hall",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "fish_hall_meshy_source_model_drain_grate",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "drain grate",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/fish_hall/drain_grate.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/fish_hall.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "fish_hall_meshy_source_model_ice_table",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "ice table",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/fish_hall/ice_table.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/fish_hall.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "fish_hall_meshy_source_model_tagged_body_table_silhouette",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "tagged body-table silhouette",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/fish_hall/tagged_body_table_silhouette.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/fish_hall.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "fish_hall_meshy_source_model_visitor_book_stand",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "visitor book stand",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/fish_hall/visitor_book_stand.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/fish_hall.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/fish_hall",
+                          "readme_path":  "docs/art/reference/act_i/fish_hall/README.md",
+                          "room_code":  "R08",
+                          "room_id":  "fish_hall",
+                          "room_title":  "The Fish Hall",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "fish_hall_generated_reference_grime_texture",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "grime texture",
+                                                     "source_path":  "docs/art/reference/act_i/fish_hall/grime_texture.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/fish_hall",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "fish_hall_generated_reference_ink_wash_edge_breakup",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "ink-wash edge breakup",
+                                                     "source_path":  "docs/art/reference/act_i/fish_hall/ink_wash_edge_breakup.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/fish_hall",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "fish_hall_generated_reference_non_clickable_dressing_silhouettes",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "non-clickable dressing silhouettes",
+                                                     "source_path":  "docs/art/reference/act_i/fish_hall/non_clickable_dressing_silhouettes.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/fish_hall",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "fish_hall_generated_reference_palette_safe_mood_reference",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "palette-safe mood reference",
+                                                     "source_path":  "docs/art/reference/act_i/fish_hall/palette_safe_mood_reference.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/fish_hall",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/fish_hall",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/fish_hall/README.md",
+                          "room_code":  "R08",
+                          "room_id":  "fish_hall",
+                          "room_title":  "The Fish Hall",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  3,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "fish_hall_interactive_layer_coroner_tag",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Coroner tag",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/fish_hall/coronertag.psd",
+                                                     "runtime_path":  "game/rooms/fish_hall/props/coronertag.png",
+                                                     "placement_target":  "game/rooms/fish_hall/props/coronertag.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "fish_hall_interactive_layer_drain",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Drain",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/fish_hall/drain.psd",
+                                                     "runtime_path":  "game/rooms/fish_hall/props/drain.png",
+                                                     "placement_target":  "game/rooms/fish_hall/props/drain.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "fish_hall_interactive_layer_visitor_book",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Visitor book",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/fish_hall/visitorbook.psd",
+                                                     "runtime_path":  "game/rooms/fish_hall/props/visitorbook.png",
+                                                     "placement_target":  "game/rooms/fish_hall/props/visitorbook.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/navigation_silhouettes/fish_hall",
+                          "readme_path":  "art/src/backgrounds/act_i/navigation_silhouettes/fish_hall/README.md",
+                          "room_code":  "R08",
+                          "room_id":  "fish_hall",
+                          "room_title":  "The Fish Hall",
+                          "dropzone_kind":  "navigation_silhouette_sources",
+                          "sort_order":  3,
+                          "expected_file_count":  1,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_navigation_readability"
+                                               ],
+                          "runtime_policies":  [
+                                                   "preserve_existing_exit_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "fish_hall_navigation_silhouette_salt_market",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Salt Market",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/fish_hall/tosaltmarket.psd",
+                                                     "runtime_path":  "game/rooms/fish_hall/background/fish_hall_bg.png",
+                                                     "placement_target":  "game/rooms/fish_hall/background/fish_hall_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/church_of_the_drowned",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/church_of_the_drowned/README.md",
+                          "room_code":  "R09",
+                          "room_id":  "church_of_the_drowned",
+                          "room_title":  "Church of the Drowned",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "church_of_the_drowned_meshy_source_model_church_ledger_desk",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "Church ledger desk",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/church_of_the_drowned/church_ledger_desk.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/church_of_the_drowned.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "church_of_the_drowned_meshy_source_model_confession_booth",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "confession booth",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/church_of_the_drowned/confession_booth.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/church_of_the_drowned.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "church_of_the_drowned_meshy_source_model_green_lamp_housings",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "green lamp housings",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/church_of_the_drowned/green_lamp_housings.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/church_of_the_drowned.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "church_of_the_drowned_meshy_source_model_receipt_window",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "receipt window",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/church_of_the_drowned/receipt_window.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/church_of_the_drowned.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/church_of_the_drowned",
+                          "readme_path":  "docs/art/reference/act_i/church_of_the_drowned/README.md",
+                          "room_code":  "R09",
+                          "room_id":  "church_of_the_drowned",
+                          "room_title":  "Church of the Drowned",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  3,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "church_of_the_drowned_generated_reference_institutional_absinthe_green_light",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "institutional absinthe-green light",
+                                                     "source_path":  "docs/art/reference/act_i/church_of_the_drowned/institutional_absinthe_green_light.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/church_of_the_drowned",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "church_of_the_drowned_generated_reference_paper_bureaucracy_texture",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "paper bureaucracy texture",
+                                                     "source_path":  "docs/art/reference/act_i/church_of_the_drowned/paper_bureaucracy_texture.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/church_of_the_drowned",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "church_of_the_drowned_generated_reference_wet_stone_grime",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "wet stone grime",
+                                                     "source_path":  "docs/art/reference/act_i/church_of_the_drowned/wet_stone_grime.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/church_of_the_drowned",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned/README.md",
+                          "room_code":  "R09",
+                          "room_id":  "church_of_the_drowned",
+                          "room_title":  "Church of the Drowned",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  3,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "church_of_the_drowned_interactive_layer_confession_booth",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Confession booth",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned/confessionbooth.psd",
+                                                     "runtime_path":  "game/rooms/church_of_the_drowned/props/confessionbooth.png",
+                                                     "placement_target":  "game/rooms/church_of_the_drowned/props/confessionbooth.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "church_of_the_drowned_interactive_layer_poor_box",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Poor box",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned/poorbox.psd",
+                                                     "runtime_path":  "game/rooms/church_of_the_drowned/props/poorbox.png",
+                                                     "placement_target":  "game/rooms/church_of_the_drowned/props/poorbox.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "church_of_the_drowned_interactive_layer_teodor_s_stall",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Teodor\u0027s stall",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned/ratecard.psd",
+                                                     "runtime_path":  "game/rooms/church_of_the_drowned/props/ratecard.png",
+                                                     "placement_target":  "game/rooms/church_of_the_drowned/props/ratecard.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/navigation_silhouettes/church_of_the_drowned",
+                          "readme_path":  "art/src/backgrounds/act_i/navigation_silhouettes/church_of_the_drowned/README.md",
+                          "room_code":  "R09",
+                          "room_id":  "church_of_the_drowned",
+                          "room_title":  "Church of the Drowned",
+                          "dropzone_kind":  "navigation_silhouette_sources",
+                          "sort_order":  3,
+                          "expected_file_count":  2,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_navigation_readability"
+                                               ],
+                          "runtime_policies":  [
+                                                   "preserve_existing_exit_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "church_of_the_drowned_navigation_silhouette_grey_float",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Grey Float",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/church_of_the_drowned/togreyfloat.psd",
+                                                     "runtime_path":  "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
+                                                     "placement_target":  "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "church_of_the_drowned_navigation_silhouette_salt_market",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Salt Market",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/church_of_the_drowned/tosaltmarket.psd",
+                                                     "runtime_path":  "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
+                                                     "placement_target":  "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/grey_float",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/grey_float/README.md",
+                          "room_code":  "R10",
+                          "room_id":  "grey_float",
+                          "room_title":  "The Grey Float",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "grey_float_meshy_source_model_barge_wall_ribs",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "barge wall ribs",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/grey_float/barge_wall_ribs.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/grey_float.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "grey_float_meshy_source_model_bathhouse_railings",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "bathhouse railings",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/grey_float/bathhouse_railings.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/grey_float.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "grey_float_meshy_source_model_lamp_clusters",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "lamp clusters",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/grey_float/lamp_clusters.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/grey_float.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "grey_float_meshy_source_model_steam_screen_partitions",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "steam-screen partitions",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/grey_float/steam_screen_partitions.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/grey_float.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/grey_float",
+                          "readme_path":  "docs/art/reference/act_i/grey_float/README.md",
+                          "room_code":  "R10",
+                          "room_id":  "grey_float",
+                          "room_title":  "The Grey Float",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "grey_float_generated_reference_amber_trap_mood",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "amber trap mood",
+                                                     "source_path":  "docs/art/reference/act_i/grey_float/amber_trap_mood.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/grey_float",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "grey_float_generated_reference_non_explicit_labor_staging",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "non-explicit labor staging",
+                                                     "source_path":  "docs/art/reference/act_i/grey_float/non_explicit_labor_staging.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/grey_float",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "grey_float_generated_reference_steam_density",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "steam density",
+                                                     "source_path":  "docs/art/reference/act_i/grey_float/steam_density.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/grey_float",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "grey_float_generated_reference_warm_silhouette_privacy_shapes",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "warm silhouette privacy shapes",
+                                                     "source_path":  "docs/art/reference/act_i/grey_float/warm_silhouette_privacy_shapes.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/grey_float",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/grey_float",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/grey_float/README.md",
+                          "room_code":  "R10",
+                          "room_id":  "grey_float",
+                          "room_title":  "The Grey Float",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  3,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "grey_float_interactive_layer_bilge_regulator",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Bilge regulator",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/grey_float/bilgeregulator.psd",
+                                                     "runtime_path":  "game/rooms/grey_float/props/bilgeregulator.png",
+                                                     "placement_target":  "game/rooms/grey_float/props/bilgeregulator.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "grey_float_interactive_layer_hot_pool",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Hot pool",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/grey_float/hotpool.psd",
+                                                     "runtime_path":  "game/rooms/grey_float/props/hotpool.png",
+                                                     "placement_target":  "game/rooms/grey_float/props/hotpool.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 },
+                                                 {
+                                                     "id":  "grey_float_interactive_layer_staff_corner",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Staff corner",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/grey_float/staffcorner.psd",
+                                                     "runtime_path":  "game/rooms/grey_float/props/staffcorner.png",
+                                                     "placement_target":  "game/rooms/grey_float/props/staffcorner.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/navigation_silhouettes/grey_float",
+                          "readme_path":  "art/src/backgrounds/act_i/navigation_silhouettes/grey_float/README.md",
+                          "room_code":  "R10",
+                          "room_id":  "grey_float",
+                          "room_title":  "The Grey Float",
+                          "dropzone_kind":  "navigation_silhouette_sources",
+                          "sort_order":  3,
+                          "expected_file_count":  2,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_navigation_readability"
+                                               ],
+                          "runtime_policies":  [
+                                                   "preserve_existing_exit_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "grey_float_navigation_silhouette_church",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Church",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/grey_float/tochurch.psd",
+                                                     "runtime_path":  "game/rooms/grey_float/background/grey_float_bg.png",
+                                                     "placement_target":  "game/rooms/grey_float/background/grey_float_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "grey_float_navigation_silhouette_harbormaster",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Harbormaster",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/grey_float/toharbormaster.psd",
+                                                     "runtime_path":  "game/rooms/grey_float/background/grey_float_bg.png",
+                                                     "placement_target":  "game/rooms/grey_float/background/grey_float_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/harbormaster_office",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/harbormaster_office/README.md",
+                          "room_code":  "R11",
+                          "room_id":  "harbormaster_office",
+                          "room_title":  "Harbormaster\u0027s Office",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "harbormaster_office_meshy_source_model_checklist_board",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "checklist board",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/harbormaster_office/checklist_board.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/harbormaster_office.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "harbormaster_office_meshy_source_model_filing_wall",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "filing wall",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/harbormaster_office/filing_wall.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/harbormaster_office.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "harbormaster_office_meshy_source_model_frosted_glass_door",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "frosted glass door",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/harbormaster_office/frosted_glass_door.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/harbormaster_office.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "harbormaster_office_meshy_source_model_office_desk",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "office desk",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/harbormaster_office/office_desk.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/harbormaster_office.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/harbormaster_office",
+                          "readme_path":  "docs/art/reference/act_i/harbormaster_office/README.md",
+                          "room_code":  "R11",
+                          "room_id":  "harbormaster_office",
+                          "room_title":  "Harbormaster\u0027s Office",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "harbormaster_office_generated_reference_grime_texture",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "grime texture",
+                                                     "source_path":  "docs/art/reference/act_i/harbormaster_office/grime_texture.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/harbormaster_office",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "harbormaster_office_generated_reference_ink_wash_edge_breakup",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "ink-wash edge breakup",
+                                                     "source_path":  "docs/art/reference/act_i/harbormaster_office/ink_wash_edge_breakup.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/harbormaster_office",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "harbormaster_office_generated_reference_non_clickable_dressing_silhouettes",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "non-clickable dressing silhouettes",
+                                                     "source_path":  "docs/art/reference/act_i/harbormaster_office/non_clickable_dressing_silhouettes.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/harbormaster_office",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "harbormaster_office_generated_reference_palette_safe_mood_reference",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "palette-safe mood reference",
+                                                     "source_path":  "docs/art/reference/act_i/harbormaster_office/palette_safe_mood_reference.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/harbormaster_office",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/harbormaster_office",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/harbormaster_office/README.md",
+                          "room_code":  "R11",
+                          "room_id":  "harbormaster_office",
+                          "room_title":  "Harbormaster\u0027s Office",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  1,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "harbormaster_office_interactive_layer_checklist_clerk",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Checklist clerk",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/harbormaster_office/checklistclerk.psd",
+                                                     "runtime_path":  "game/rooms/harbormaster_office/props/checklistclerk.png",
+                                                     "placement_target":  "game/rooms/harbormaster_office/props/checklistclerk.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/navigation_silhouettes/harbormaster_office",
+                          "readme_path":  "art/src/backgrounds/act_i/navigation_silhouettes/harbormaster_office/README.md",
+                          "room_code":  "R11",
+                          "room_id":  "harbormaster_office",
+                          "room_title":  "Harbormaster\u0027s Office",
+                          "dropzone_kind":  "navigation_silhouette_sources",
+                          "sort_order":  3,
+                          "expected_file_count":  2,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_navigation_readability"
+                                               ],
+                          "runtime_policies":  [
+                                                   "preserve_existing_exit_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "harbormaster_office_navigation_silhouette_grey_float",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Grey Float",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/harbormaster_office/togreyfloat.psd",
+                                                     "runtime_path":  "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
+                                                     "placement_target":  "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 },
+                                                 {
+                                                     "id":  "harbormaster_office_navigation_silhouette_sabine",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Sabine",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/harbormaster_office/tosabine.psd",
+                                                     "runtime_path":  "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
+                                                     "placement_target":  "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/source_models/sabine_office",
+                          "readme_path":  "art/src/backgrounds/act_i/source_models/sabine_office/README.md",
+                          "room_code":  "R12",
+                          "room_id":  "sabine_office",
+                          "room_title":  "Sabine\u0027s Office",
+                          "dropzone_kind":  "meshy_source_models",
+                          "sort_order":  0,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "glb"
+                                                  ],
+                          "placement_stages":  [
+                                                   "blender_helper_geometry"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "sabine_office_meshy_source_model_persian_rug_plane",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "Persian rug plane",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/sabine_office/persian_rug_plane.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/sabine_office.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "sabine_office_meshy_source_model_sabine_desk",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "Sabine desk",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/sabine_office/sabine_desk.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/sabine_office.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "sabine_office_meshy_source_model_window_frame",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "window frame",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/sabine_office/window_frame.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/sabine_office.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 },
+                                                 {
+                                                     "id":  "sabine_office_meshy_source_model_wrist_check_staging_chair",
+                                                     "kind":  "meshy_source_model",
+                                                     "tool":  "Meshy",
+                                                     "name":  "wrist-check staging chair",
+                                                     "source_path":  "art/src/backgrounds/act_i/source_models/sabine_office/wrist_check_staging_chair.glb",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "art/src/backgrounds/act_i/blockouts/sabine_office.blend",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "open_room_blend_and_confirm_scale_silhouette_palette_before_paintover"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "docs/art/reference/act_i/sabine_office",
+                          "readme_path":  "docs/art/reference/act_i/sabine_office/README.md",
+                          "room_code":  "R12",
+                          "room_id":  "sabine_office",
+                          "room_title":  "Sabine\u0027s Office",
+                          "dropzone_kind":  "generated_reference_boards",
+                          "sort_order":  1,
+                          "expected_file_count":  4,
+                          "expected_extensions":  [
+                                                      "png"
+                                                  ],
+                          "placement_stages":  [
+                                                   "reference_board"
+                                               ],
+                          "runtime_policies":  [
+                                                   "never_import_directly_to_godot"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "sabine_office_generated_reference_grime_texture",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "grime texture",
+                                                     "source_path":  "docs/art/reference/act_i/sabine_office/grime_texture.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/sabine_office",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "sabine_office_generated_reference_ink_wash_edge_breakup",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "ink-wash edge breakup",
+                                                     "source_path":  "docs/art/reference/act_i/sabine_office/ink_wash_edge_breakup.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/sabine_office",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "sabine_office_generated_reference_non_clickable_dressing_silhouettes",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "non-clickable dressing silhouettes",
+                                                     "source_path":  "docs/art/reference/act_i/sabine_office/non_clickable_dressing_silhouettes.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/sabine_office",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 },
+                                                 {
+                                                     "id":  "sabine_office_generated_reference_palette_safe_mood_reference",
+                                                     "kind":  "generated_reference",
+                                                     "tool":  "imagegen",
+                                                     "name":  "palette-safe mood reference",
+                                                     "source_path":  "docs/art/reference/act_i/sabine_office/palette_safe_mood_reference.png",
+                                                     "runtime_path":  "",
+                                                     "placement_target":  "docs/art/reference/act_i/sabine_office",
+                                                     "runtime_policy":  "never_import_directly_to_godot",
+                                                     "review_gate":  "compare_against_locked_palette_and_existing_hotspot_readability"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/interactive_layers/sabine_office",
+                          "readme_path":  "art/src/backgrounds/act_i/interactive_layers/sabine_office/README.md",
+                          "room_code":  "R12",
+                          "room_id":  "sabine_office",
+                          "room_title":  "Sabine\u0027s Office",
+                          "dropzone_kind":  "interactive_layer_sources",
+                          "sort_order":  2,
+                          "expected_file_count":  1,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_runtime_layer"
+                                               ],
+                          "runtime_policies":  [
+                                                   "export_separate_png_and_preserve_godot_hotspot_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "sabine_office_interactive_layer_sabine_s_desk",
+                                                     "kind":  "interactive_layer",
+                                                     "tool":  "paintover",
+                                                     "name":  "Sabine\u0027s desk",
+                                                     "source_path":  "art/src/backgrounds/act_i/interactive_layers/sabine_office/sabinedesk.psd",
+                                                     "runtime_path":  "game/rooms/sabine_office/props/sabinedesk.png",
+                                                     "placement_target":  "game/rooms/sabine_office/props/sabinedesk.png",
+                                                     "runtime_policy":  "export_separate_png_and_preserve_godot_hotspot_metadata",
+                                                     "review_gate":  "verify alpha, bounds, hotspot center alignment, and role readability in Godot"
+                                                 }
+                                             ]
+                      },
+                      {
+                          "directory_path":  "art/src/backgrounds/act_i/navigation_silhouettes/sabine_office",
+                          "readme_path":  "art/src/backgrounds/act_i/navigation_silhouettes/sabine_office/README.md",
+                          "room_code":  "R12",
+                          "room_id":  "sabine_office",
+                          "room_title":  "Sabine\u0027s Office",
+                          "dropzone_kind":  "navigation_silhouette_sources",
+                          "sort_order":  3,
+                          "expected_file_count":  1,
+                          "expected_extensions":  [
+                                                      "psd"
+                                                  ],
+                          "placement_stages":  [
+                                                   "paintover_navigation_readability"
+                                               ],
+                          "runtime_policies":  [
+                                                   "preserve_existing_exit_metadata"
+                                               ],
+                          "expected_files":  [
+                                                 {
+                                                     "id":  "sabine_office_navigation_silhouette_harbormaster",
+                                                     "kind":  "navigation_silhouette",
+                                                     "tool":  "paintover",
+                                                     "name":  "Harbormaster",
+                                                     "source_path":  "art/src/backgrounds/act_i/navigation_silhouettes/sabine_office/toharbormaster.psd",
+                                                     "runtime_path":  "game/rooms/sabine_office/background/sabine_office_bg.png",
+                                                     "placement_target":  "game/rooms/sabine_office/background/sabine_office_bg.png",
+                                                     "runtime_policy":  "preserve_existing_exit_metadata",
+                                                     "review_gate":  "verify visible exit affordance, walk-band clarity, and no new unplanned route"
+                                                 }
+                                             ]
+                      }
+                  ]
+}

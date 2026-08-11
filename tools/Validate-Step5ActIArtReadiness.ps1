@@ -13,6 +13,7 @@ $backgroundSourceWorklistPath = Join-Path $root "docs\art\act_i_background_sourc
 $backgroundSourcePromptsPath = Join-Path $root "docs\art\act_i_background_source_prompts.md"
 $backgroundSourceIntakePath = Join-Path $root "docs\art\act_i_background_source_intake.md"
 $backgroundSourcePlacementPath = Join-Path $root "docs\art\act_i_background_source_placement.md"
+$backgroundSourceDropzonesPath = Join-Path $root "docs\art\act_i_background_source_dropzones.md"
 $paintoverPacketPath = Join-Path $root "docs\art\act_i_paintover_packet.md"
 $artReadabilityReviewPath = Join-Path $root "docs\playtest\act_i_art_readability_review.md"
 $reviewContactSheetPath = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
@@ -66,6 +67,7 @@ foreach ($path in @(
     $backgroundSourcePromptsPath,
     $backgroundSourceIntakePath,
     $backgroundSourcePlacementPath,
+    $backgroundSourceDropzonesPath,
     $paintoverPacketPath,
     $artReadabilityReviewPath,
     $reviewContactSheetPath,
@@ -122,6 +124,7 @@ $backgroundSourceWorklist = Get-Content -LiteralPath $backgroundSourceWorklistPa
 $backgroundSourcePrompts = Get-Content -LiteralPath $backgroundSourcePromptsPath -Raw
 $backgroundSourceIntake = Get-Content -LiteralPath $backgroundSourceIntakePath -Raw
 $backgroundSourcePlacement = Get-Content -LiteralPath $backgroundSourcePlacementPath -Raw
+$backgroundSourceDropzones = Get-Content -LiteralPath $backgroundSourceDropzonesPath -Raw
 $paintoverPacketReport = Get-Content -LiteralPath $paintoverPacketPath -Raw
 $artReadabilityReview = Get-Content -LiteralPath $artReadabilityReviewPath -Raw
 $reviewContactSheet = Get-Content -LiteralPath $reviewContactSheetPath -Raw
@@ -312,6 +315,19 @@ foreach ($requiredText in @(
 )) {
     if ($backgroundSourcePlacement -notmatch [regex]::Escape($requiredText)) {
         throw "Act I background source placement missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Background Source Dropzones",
+    "Drop-zone README files are scaffolds only",
+    "Do not create placeholder binary outputs",
+    "Generated source outputs remain pending until real nonzero files appear in intake",
+    "Meshy and generated references still cannot count as final room art",
+    "Interactive and navigation source files still require their later runtime and Godot alignment gates"
+)) {
+    if ($backgroundSourceDropzones -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I background source dropzones missing readiness text: $requiredText"
     }
 }
 
@@ -713,6 +729,7 @@ $lines = @(
     "- Act I background source prompts: pass, generated guarded prompts cover Meshy helper GLBs, imagegen reference boards, and paintover/runtime-layer tasks without approving final art.",
     "- Act I background source intake: pass, generated source-output intake keeps prompt outputs pending/present without treating Meshy, imagegen, or paintover sources as final room art.",
     "- Act I background source placement: pass, generated placement map routes source outputs into Blender helper geometry, reference boards, separate runtime layers, or navigation readability review without approving final art.",
+    "- Act I background source dropzones: pass, generated source-output folders and README scaffolds exist without creating placeholder binary files or approving final art.",
     "- Act I paintover packet: pass, generated per-room final-paintover instructions preserve hotspot coordinates, walk-band constraints, palette rules, Grey Float hard-R staging, and Registrar duel-format lock.",
     "- Act I art readability review: pass, generated room-by-room review checklist covers brightest-object readability, walk-band clarity, wet targets, confession-source staging, Grey Float hard-R checks, and Registrar duel-format risk.",
     "- Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.",
@@ -761,6 +778,7 @@ foreach ($requiredText in @(
     "Act I background source prompts: pass",
     "Act I background source intake: pass",
     "Act I background source placement: pass",
+    "Act I background source dropzones: pass",
     "Act I review contact sheet: pass",
     "Step 5 review dashboard: pass",
     "Step 5 human review bundle: pass",

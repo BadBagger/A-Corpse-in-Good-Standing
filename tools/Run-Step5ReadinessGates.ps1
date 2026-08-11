@@ -57,6 +57,7 @@ try {
     Invoke-Step -Name "Validate Act I background source prompts" -ScriptName "Validate-ActIBackgroundSourcePrompts.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I background source intake" -ScriptName "Validate-ActIBackgroundSourceIntake.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I background source placement" -ScriptName "Validate-ActIBackgroundSourcePlacement.ps1" -TimeoutSeconds 120
+    Invoke-Step -Name "Validate Act I background source dropzones" -ScriptName "Validate-ActIBackgroundSourceDropzones.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I paintover packet" -ScriptName "Validate-ActIPaintoverPacket.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I art readability review" -ScriptName "Validate-ActIArtReadabilityReview.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I review contact sheet" -ScriptName "Validate-ActIReviewContactSheet.ps1" -TimeoutSeconds 120
