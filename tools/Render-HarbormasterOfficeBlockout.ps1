@@ -1,10 +1,8 @@
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
-$blender = "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe"
-if (-not (Test-Path -LiteralPath $blender)) {
-    throw "Blender executable not found: $blender"
-}
+. (Join-Path $PSScriptRoot "Resolve-Blender.ps1")
+$blender = Get-CorpseBlenderPath
 
 $sourceBlend = Join-Path $root "art\src\backgrounds\act_i\harbormaster_office.blend"
 $exportPng = Join-Path $root "art\export\backgrounds\act_i\harbormaster_office_bg.png"

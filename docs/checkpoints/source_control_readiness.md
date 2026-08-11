@@ -44,10 +44,10 @@ Git LFS: git-lfs/3.7.1 (GitHub; windows amd64; go 1.25.1; git b84b3384)
 
 ## Oversized Files Checked
 
-- `art/src/shaders/ink_wash_shader_spike.blend1` - 94.69 MB - ignored_backup
 - `art/src/shaders/ink_wash_shader_spike.blend` - 94.69 MB - covered_by_lfs
-- `art/src/characters/corvin/corvin_act_i_clean.blend1` - 94.69 MB - ignored_backup
+- `art/src/shaders/ink_wash_shader_spike.blend1` - 94.69 MB - ignored_backup
 - `art/src/characters/corvin/corvin_act_i_clean.blend` - 94.69 MB - covered_by_lfs
+- `art/src/characters/corvin/corvin_act_i_clean.blend1` - 94.69 MB - ignored_backup
 - `art/src/characters/corvin/meshy/corvin_act_i_clean.glb` - 61.2 MB - covered_by_lfs
 - `tools/ink/inklecate.exe` - 56.46 MB - covered_by_lfs
 

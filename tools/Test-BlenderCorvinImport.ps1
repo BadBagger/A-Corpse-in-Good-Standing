@@ -8,34 +8,7 @@ $characterBlend = Join-Path $root "art\src\characters\corvin\corvin_act_i_clean.
 $shaderBlend = Join-Path $root "art\src\shaders\ink_wash_shader_spike.blend"
 $timeoutSeconds = 120
 
-function Resolve-Blender {
-    $candidates = New-Object System.Collections.Generic.List[string]
-    $command = Get-Command blender -ErrorAction SilentlyContinue
-    if ($null -ne $command) {
-        $candidates.Add($command.Source)
-    }
-
-    foreach ($path in @(
-        "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 5.1\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 5.0\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 4.3\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 4.2\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 4.1\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 4.0\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 3.6\blender.exe",
-        "$env:LOCALAPPDATA\Microsoft\WindowsApps\blender.exe"
-    )) {
-        $candidates.Add($path)
-    }
-
-    foreach ($candidate in ($candidates | Where-Object { $_ } | Select-Object -Unique)) {
-        if (Test-Path -LiteralPath $candidate) {
-            return $candidate
-        }
-    }
-    return $null
-}
+. (Join-Path $PSScriptRoot "Resolve-Blender.ps1")
 
 function Get-RelativePath {
     param([Parameter(Mandatory=$true)][string]$Path)
@@ -53,7 +26,7 @@ foreach ($directory in @(
     }
 }
 
-$blenderPath = Resolve-Blender
+$blenderPath = Get-CorpseBlenderPath -Optional
 $status = "pending"
 $versionText = ""
 $notes = New-Object System.Collections.Generic.List[string]

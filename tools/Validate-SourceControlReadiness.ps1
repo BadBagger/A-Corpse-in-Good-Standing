@@ -85,7 +85,7 @@ $oversizedFiles = @(
             $_.FullName -notmatch "\\obj\\" -and
             $_.Length -gt 50MB
         } |
-        Sort-Object Length -Descending
+        Sort-Object @{ Expression = "Length"; Descending = $true }, @{ Expression = "FullName"; Descending = $false }
 )
 
 $oversizedRows = @()

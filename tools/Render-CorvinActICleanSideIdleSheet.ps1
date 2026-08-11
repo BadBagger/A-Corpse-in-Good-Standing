@@ -17,32 +17,7 @@ $cellWidth = 256
 $cellHeight = 512
 $timeoutSeconds = 120
 
-function Resolve-Blender {
-    if (Test-Path -LiteralPath $probePath) {
-        $probe = Get-Content -LiteralPath $probePath -Raw | ConvertFrom-Json
-        if (-not [string]::IsNullOrWhiteSpace([string]$probe.blender_path) -and (Test-Path -LiteralPath $probe.blender_path)) {
-            return [string]$probe.blender_path
-        }
-    }
-
-    $command = Get-Command blender -ErrorAction SilentlyContinue
-    if ($null -ne $command -and (Test-Path -LiteralPath $command.Source)) {
-        return $command.Source
-    }
-
-    foreach ($path in @(
-        "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 5.1\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 5.0\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 4.3\blender.exe",
-        "C:\Program Files\Blender Foundation\Blender 4.2\blender.exe"
-    )) {
-        if (Test-Path -LiteralPath $path) {
-            return $path
-        }
-    }
-    return $null
-}
+. (Join-Path $PSScriptRoot "Resolve-Blender.ps1")
 
 function Get-RelativePath {
     param([Parameter(Mandatory=$true)][string]$Path)
@@ -66,7 +41,7 @@ if ($Force) {
     Get-ChildItem -LiteralPath $tempFrameDir -Filter "frame_*.png" -File -ErrorAction SilentlyContinue | Remove-Item -Force
 }
 
-$blenderPath = Resolve-Blender
+$blenderPath = Get-CorpseBlenderPath -Optional
 $status = "pending"
 $notes = New-Object System.Collections.Generic.List[string]
 
