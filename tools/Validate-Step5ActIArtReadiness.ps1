@@ -11,6 +11,7 @@ $playtestReportPath = Join-Path $root "docs\playtest\results\act_i_greybox_auto_
 $backgroundElementPipelinePath = Join-Path $root "docs\art\act_i_background_element_pipeline.md"
 $backgroundSourceWorklistPath = Join-Path $root "docs\art\act_i_background_source_worklist.md"
 $backgroundSourcePromptsPath = Join-Path $root "docs\art\act_i_background_source_prompts.md"
+$backgroundSourceIntakePath = Join-Path $root "docs\art\act_i_background_source_intake.md"
 $paintoverPacketPath = Join-Path $root "docs\art\act_i_paintover_packet.md"
 $artReadabilityReviewPath = Join-Path $root "docs\playtest\act_i_art_readability_review.md"
 $reviewContactSheetPath = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
@@ -62,6 +63,7 @@ foreach ($path in @(
     $backgroundElementPipelinePath,
     $backgroundSourceWorklistPath,
     $backgroundSourcePromptsPath,
+    $backgroundSourceIntakePath,
     $paintoverPacketPath,
     $artReadabilityReviewPath,
     $reviewContactSheetPath,
@@ -116,6 +118,7 @@ $playtestReport = Get-Content -LiteralPath $playtestReportPath -Raw
 $backgroundElementPipeline = Get-Content -LiteralPath $backgroundElementPipelinePath -Raw
 $backgroundSourceWorklist = Get-Content -LiteralPath $backgroundSourceWorklistPath -Raw
 $backgroundSourcePrompts = Get-Content -LiteralPath $backgroundSourcePromptsPath -Raw
+$backgroundSourceIntake = Get-Content -LiteralPath $backgroundSourceIntakePath -Raw
 $paintoverPacketReport = Get-Content -LiteralPath $paintoverPacketPath -Raw
 $artReadabilityReview = Get-Content -LiteralPath $artReadabilityReviewPath -Raw
 $reviewContactSheet = Get-Content -LiteralPath $reviewContactSheetPath -Raw
@@ -281,6 +284,18 @@ foreach ($requiredText in @(
 )) {
     if ($backgroundSourcePrompts -notmatch [regex]::Escape($requiredText)) {
         throw "Act I background source prompts missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Background Source Intake",
+    "Source prompt outputs do not count as final background art",
+    "Meshy GLBs are helper geometry",
+    "Generated references are paintover references only",
+    "Zero-byte source outputs fail intake"
+)) {
+    if ($backgroundSourceIntake -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I background source intake missing readiness text: $requiredText"
     }
 }
 
@@ -680,6 +695,7 @@ $lines = @(
     "- Act I background element pipeline: pass, generated source contract keeps Blender greybox/paintover authoritative, limits Meshy to source-prop help, limits generated images to reference, and keeps logic-touched elements separate.",
     "- Act I background source worklist: pass, generated pending task list tracks Meshy helper models, generated reference boards, separate interactive layers, and navigation silhouettes before final paintover starts.",
     "- Act I background source prompts: pass, generated guarded prompts cover Meshy helper GLBs, imagegen reference boards, and paintover/runtime-layer tasks without approving final art.",
+    "- Act I background source intake: pass, generated source-output intake keeps prompt outputs pending/present without treating Meshy, imagegen, or paintover sources as final room art.",
     "- Act I paintover packet: pass, generated per-room final-paintover instructions preserve hotspot coordinates, walk-band constraints, palette rules, Grey Float hard-R staging, and Registrar duel-format lock.",
     "- Act I art readability review: pass, generated room-by-room review checklist covers brightest-object readability, walk-band clarity, wet targets, confession-source staging, Grey Float hard-R checks, and Registrar duel-format risk.",
     "- Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.",
@@ -726,6 +742,7 @@ foreach ($requiredText in @(
     "Act I background element pipeline: pass",
     "Act I background source worklist: pass",
     "Act I background source prompts: pass",
+    "Act I background source intake: pass",
     "Act I review contact sheet: pass",
     "Step 5 review dashboard: pass",
     "Step 5 human review bundle: pass",
