@@ -127,6 +127,8 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-GodotResolver.ps1` validates the local Godot resolver on this machine; it is intentionally not part of GitHub Actions until CI installs portable Godot.
 - `tools\Resolve-Blender.ps1` centralizes local Blender executable discovery for blockout, shader, and Corvin source/render scripts. It honors `CORPSE_BLENDER` or `CORPSE_BLENDER_DIR`, then existing probe data, PATH, and standard Windows install locations.
 - `tools\Validate-BlenderResolver.ps1` validates the local Blender resolver and version probe; it is intentionally not part of GitHub Actions until CI installs portable Blender/render tooling.
+- `tools\Resolve-InkCompiler.ps1` centralizes `inklecate` discovery. It honors `CORPSE_INKLECATE`, then the vendored `tools\ink\inklecate.exe`, then PATH.
+- `tools\Validate-InkCompiler.ps1` validates the vendored Ink compiler identity, SHA256, usage text, and prologue compile path.
 - `tools\Run-RepoReadinessGates.ps1` runs the source-control/LFS and text-artifact gates for commit/package hygiene. It does not replace the Step 1-5 build gates.
 - `tools\Validate-StagedSourceSnapshot.ps1` validates a staged initial snapshot, rejecting build output, Godot cache files, Blender backups, temp files, and missing root handoff artifacts while reporting commit identity/remote blockers.
 - `.github\pull_request_template.md` and `.github\ISSUE_TEMPLATE\*.yml` keep GitHub review/work items aligned with the duel-format lock, Grey Float hard-R line, Act I confession gates, and Step 5 human-review/paintover ordering.

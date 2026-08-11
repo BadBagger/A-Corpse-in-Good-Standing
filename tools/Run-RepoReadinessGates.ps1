@@ -57,6 +57,7 @@ try {
     Invoke-RepoGate -Name "Validate production blocker index" -ScriptName "Validate-ProductionBlockerIndex.ps1"
     Invoke-RepoGate -Name "Test production blocker index" -ScriptName "Test-ProductionBlockerIndex.ps1"
     Invoke-RepoGate -Name "Validate CI gate boundary" -ScriptName "Validate-CiGateBoundary.ps1"
+    Invoke-RepoGate -Name "Validate Ink compiler" -ScriptName "Validate-InkCompiler.ps1"
 
     Write-Host "Repo readiness gates passed."
 }

@@ -1,7 +1,8 @@
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
-$inklecate = Join-Path $root "tools\ink\inklecate.exe"
+. (Join-Path $PSScriptRoot "Resolve-InkCompiler.ps1")
+$inklecate = Get-CorpseInkCompilerPath
 $source = Join-Path $root "ink\prologue.ink"
 $outDir = Join-Path $root "ink\build"
 $output = Join-Path $outDir "prologue.ink.json"
@@ -32,4 +33,3 @@ if ($compileOutput -match "(?i)(ERROR|WARNING)") {
 }
 
 Write-Host "Ink compile passed: $output"
-
