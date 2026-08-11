@@ -9,6 +9,7 @@ $shaderMetricsPath = Join-Path $root "docs\art\ink_shader_spike_metrics_status.j
 $runtimeSpriteReportPath = Join-Path $root "docs\art\corvin_runtime_sprite_assets_status.md"
 $playtestReportPath = Join-Path $root "docs\playtest\results\act_i_greybox_auto_report.md"
 $backgroundElementPipelinePath = Join-Path $root "docs\art\act_i_background_element_pipeline.md"
+$backgroundSourceWorklistPath = Join-Path $root "docs\art\act_i_background_source_worklist.md"
 $paintoverPacketPath = Join-Path $root "docs\art\act_i_paintover_packet.md"
 $artReadabilityReviewPath = Join-Path $root "docs\playtest\act_i_art_readability_review.md"
 $reviewContactSheetPath = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
@@ -58,6 +59,7 @@ foreach ($path in @(
     $runtimeSpriteReportPath,
     $playtestReportPath,
     $backgroundElementPipelinePath,
+    $backgroundSourceWorklistPath,
     $paintoverPacketPath,
     $artReadabilityReviewPath,
     $reviewContactSheetPath,
@@ -110,6 +112,7 @@ $shaderMetrics = Get-Content -LiteralPath $shaderMetricsPath -Raw | ConvertFrom-
 $runtimeSpriteReport = Get-Content -LiteralPath $runtimeSpriteReportPath -Raw
 $playtestReport = Get-Content -LiteralPath $playtestReportPath -Raw
 $backgroundElementPipeline = Get-Content -LiteralPath $backgroundElementPipelinePath -Raw
+$backgroundSourceWorklist = Get-Content -LiteralPath $backgroundSourceWorklistPath -Raw
 $paintoverPacketReport = Get-Content -LiteralPath $paintoverPacketPath -Raw
 $artReadabilityReview = Get-Content -LiteralPath $artReadabilityReviewPath -Raw
 $reviewContactSheet = Get-Content -LiteralPath $reviewContactSheetPath -Raw
@@ -249,6 +252,19 @@ foreach ($requiredText in @(
 )) {
     if ($backgroundElementPipeline -notmatch [regex]::Escape($requiredText)) {
         throw "Act I background element pipeline missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Background Source Worklist",
+    "Status: pending source assets",
+    "Meshy source models are helper assets only",
+    "Generated references are concept/reference only",
+    "Interactive layers must remain separate",
+    "Navigation silhouettes are readability tasks"
+)) {
+    if ($backgroundSourceWorklist -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I background source worklist missing readiness text: $requiredText"
     }
 }
 
@@ -646,6 +662,7 @@ $lines = @(
     "- Ink shader yaw metrics: pass, status audited, object pairwise max $objectPairwiseMax% against threshold $pairwiseThreshold%, first-last drift $objectFirstLastDrift% against threshold $firstLastThreshold%; bad-control pairwise max $badControlPairwiseMax% remains the calibration contrast.",
     "- Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.",
     "- Act I background element pipeline: pass, generated source contract keeps Blender greybox/paintover authoritative, limits Meshy to source-prop help, limits generated images to reference, and keeps logic-touched elements separate.",
+    "- Act I background source worklist: pass, generated pending task list tracks Meshy helper models, generated reference boards, separate interactive layers, and navigation silhouettes before final paintover starts.",
     "- Act I paintover packet: pass, generated per-room final-paintover instructions preserve hotspot coordinates, walk-band constraints, palette rules, Grey Float hard-R staging, and Registrar duel-format lock.",
     "- Act I art readability review: pass, generated room-by-room review checklist covers brightest-object readability, walk-band clarity, wet targets, confession-source staging, Grey Float hard-R checks, and Registrar duel-format risk.",
     "- Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.",
@@ -690,6 +707,7 @@ foreach ($requiredText in @(
     "Corvin Act I side locomotion: pass",
     "Ink shader yaw metrics: pass",
     "Act I background element pipeline: pass",
+    "Act I background source worklist: pass",
     "Act I review contact sheet: pass",
     "Step 5 review dashboard: pass",
     "Step 5 human review bundle: pass",
