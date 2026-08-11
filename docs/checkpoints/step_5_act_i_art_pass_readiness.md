@@ -14,6 +14,7 @@ GATES:
 - Act I background source placement: pass, generated placement map routes source outputs into Blender helper geometry, reference boards, separate runtime layers, or navigation readability review without approving final art.
 - Act I background source dropzones: pass, generated source-output folders and README scaffolds exist without creating placeholder binary files or approving final art.
 - Act I background source acquisition: pass, generated per-room checklist marks Meshy/reference outputs ready to acquire now and holds interactive/navigation PSD work for human room review.
+- Act I background ready source packets: pass, generated 22 room/tool packets for the 84 Meshy/imagegen source items safe to acquire now while excluding held interactive/navigation PSD work.
 - Act I paintover packet: pass, generated per-room final-paintover instructions preserve hotspot coordinates, walk-band constraints, palette rules, Grey Float hard-R staging, and Registrar duel-format lock.
 - Act I art readability review: pass, generated room-by-room review checklist covers brightest-object readability, walk-band clarity, wet targets, confession-source staging, Grey Float hard-R checks, and Registrar duel-format risk.
 - Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.

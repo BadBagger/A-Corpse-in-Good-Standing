@@ -15,6 +15,7 @@ $backgroundSourceIntakePath = Join-Path $root "docs\art\act_i_background_source_
 $backgroundSourcePlacementPath = Join-Path $root "docs\art\act_i_background_source_placement.md"
 $backgroundSourceDropzonesPath = Join-Path $root "docs\art\act_i_background_source_dropzones.md"
 $backgroundSourceAcquisitionPath = Join-Path $root "docs\art\act_i_background_source_acquisition.md"
+$backgroundReadySourcePacketsPath = Join-Path $root "docs\art\act_i_background_ready_source_packets.md"
 $paintoverPacketPath = Join-Path $root "docs\art\act_i_paintover_packet.md"
 $artReadabilityReviewPath = Join-Path $root "docs\playtest\act_i_art_readability_review.md"
 $reviewContactSheetPath = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
@@ -70,6 +71,7 @@ foreach ($path in @(
     $backgroundSourcePlacementPath,
     $backgroundSourceDropzonesPath,
     $backgroundSourceAcquisitionPath,
+    $backgroundReadySourcePacketsPath,
     $paintoverPacketPath,
     $artReadabilityReviewPath,
     $reviewContactSheetPath,
@@ -128,6 +130,7 @@ $backgroundSourceIntake = Get-Content -LiteralPath $backgroundSourceIntakePath -
 $backgroundSourcePlacement = Get-Content -LiteralPath $backgroundSourcePlacementPath -Raw
 $backgroundSourceDropzones = Get-Content -LiteralPath $backgroundSourceDropzonesPath -Raw
 $backgroundSourceAcquisition = Get-Content -LiteralPath $backgroundSourceAcquisitionPath -Raw
+$backgroundReadySourcePackets = Get-Content -LiteralPath $backgroundReadySourcePacketsPath -Raw
 $paintoverPacketReport = Get-Content -LiteralPath $paintoverPacketPath -Raw
 $artReadabilityReview = Get-Content -LiteralPath $artReadabilityReviewPath -Raw
 $reviewContactSheet = Get-Content -LiteralPath $reviewContactSheetPath -Raw
@@ -344,6 +347,19 @@ foreach ($requiredText in @(
 )) {
     if ($backgroundSourceAcquisition -notmatch [regex]::Escape($requiredText)) {
         throw "Act I background source acquisition missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Background Ready Source Packets",
+    "Packets include ready-to-generate source assets only",
+    "Packets exclude interactive and navigation PSD work",
+    "Packets must not be used to generate final background plates",
+    "Outputs must be saved exactly to the listed source paths",
+    "Run source intake again after files are saved"
+)) {
+    if ($backgroundReadySourcePackets -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I background ready source packets missing readiness text: $requiredText"
     }
 }
 
@@ -747,6 +763,7 @@ $lines = @(
     "- Act I background source placement: pass, generated placement map routes source outputs into Blender helper geometry, reference boards, separate runtime layers, or navigation readability review without approving final art.",
     "- Act I background source dropzones: pass, generated source-output folders and README scaffolds exist without creating placeholder binary files or approving final art.",
     "- Act I background source acquisition: pass, generated per-room checklist marks Meshy/reference outputs ready to acquire now and holds interactive/navigation PSD work for human room review.",
+    "- Act I background ready source packets: pass, generated 22 room/tool packets for the 84 Meshy/imagegen source items safe to acquire now while excluding held interactive/navigation PSD work.",
     "- Act I paintover packet: pass, generated per-room final-paintover instructions preserve hotspot coordinates, walk-band constraints, palette rules, Grey Float hard-R staging, and Registrar duel-format lock.",
     "- Act I art readability review: pass, generated room-by-room review checklist covers brightest-object readability, walk-band clarity, wet targets, confession-source staging, Grey Float hard-R checks, and Registrar duel-format risk.",
     "- Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.",
@@ -797,6 +814,7 @@ foreach ($requiredText in @(
     "Act I background source placement: pass",
     "Act I background source dropzones: pass",
     "Act I background source acquisition: pass",
+    "Act I background ready source packets: pass",
     "Act I review contact sheet: pass",
     "Step 5 review dashboard: pass",
     "Step 5 human review bundle: pass",

@@ -40,6 +40,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `docs/art/act_i_background_source_placement.json`, `.csv`, and `.md` - generated placement map for routing Act I prompt outputs into Blender helper geometry, reference boards, separate runtime layers, or navigation readability review
 - `docs/art/act_i_background_source_dropzones.json`, `.csv`, and `.md` - generated source-output drop-zone scaffold, with per-folder README files for where Act I Meshy, imagegen, interactive-layer, and navigation-source files should land
 - `docs/art/act_i_background_source_acquisition.json`, `.csv`, and `.md` - generated per-room acquisition checklist that separates source files safe to generate now from PSD layer work held for human room review
+- `docs/art/act_i_background_ready_source_packets.json`, `.csv`, and `.md` plus `docs/art/generation_packets/act_i_background_ready_sources/*.md` - generated ready-source packet index and per-room/tool prompt packets for the 84 Meshy/imagegen source items safe to acquire before human room review
 - `docs/art/act_i_background_asset_status.csv` and `.md` - generated present/pending tracker for Act I background assets
 - `docs/art/act_i_blockout_tasks.json` and `.md` - generated Blender blockout proof tasks for Act I rooms
 - `docs/art/act_i_background_palette_audit.csv` and `.md` - generated G9/G10 palette audit for exported Act I backgrounds
@@ -80,6 +81,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-ActIBackgroundSourcePlacement.ps1` regenerates and validates the placement map for source prompt outputs after intake, keeping Meshy, imagegen, interactive, and navigation outputs routed through their proper review gates.
 - `tools\Validate-ActIBackgroundSourceDropzones.ps1` regenerates and validates source-output drop-zone READMEs. These create folders only; they must not create placeholder `.glb`, `.png`, or `.psd` files.
 - `tools\Validate-ActIBackgroundSourceAcquisition.ps1` regenerates and validates the per-room acquisition checklist: Meshy/reference source files can be generated now, while interactive/navigation PSD work stays held until human room approval.
+- `tools\Validate-ActIBackgroundReadySourcePackets.ps1` regenerates and validates the ready-source generation packets. These include only Meshy/imagegen source items marked `ready_to_generate` and exclude held interactive/navigation PSD work.
 - `tools\Validate-ActIBackgroundAssetStatus.ps1` regenerates the background asset tracker. Pending art is allowed here; malformed or incomplete tracking is not.
 - `tools\Validate-ActIBlockoutTasks.ps1` regenerates the Blender blockout task brief and validates room coverage, wet-verb tasks, close-pair review, and Registrar duel-format lock.
 - `tools\Validate-ActIBackgroundPaletteAudit.ps1` regenerates the palette audit. Pending exports are allowed; existing exported PNGs must satisfy G9/G10.
