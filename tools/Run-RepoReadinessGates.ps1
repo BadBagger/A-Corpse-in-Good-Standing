@@ -54,6 +54,8 @@ try {
 
     Invoke-RepoGate -Name "Validate source-control and LFS readiness" -ScriptName "Validate-SourceControlReadiness.ps1"
     Invoke-RepoGate -Name "Validate text artifact hygiene" -ScriptName "Validate-TextArtifactHygiene.ps1"
+    Invoke-RepoGate -Name "Validate production blocker index" -ScriptName "Validate-ProductionBlockerIndex.ps1"
+    Invoke-RepoGate -Name "Test production blocker index" -ScriptName "Test-ProductionBlockerIndex.ps1"
 
     Write-Host "Repo readiness gates passed."
 }
