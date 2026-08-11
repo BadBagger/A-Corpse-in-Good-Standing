@@ -1,0 +1,59 @@
+name: Act I Human Review
+description: Track the required Step 5 human art/readability review before final paintovers.
+title: "Step 5 Human Review: <room or all rooms>"
+labels:
+  - step-5
+  - human-review
+  - art-readability
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this before final Act I paintover work. The current gate is expected to stay `blocked_pending_human_review` until review decisions are imported.
+  - type: checkboxes
+    id: launch
+    attributes:
+      label: Review Launch
+      options:
+        - label: Ran `powershell -NoProfile -ExecutionPolicy Bypass -File tools\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport`
+        - label: Reviewed `docs/art/act_i_review_contact_sheet.html`
+        - label: Reviewed `docs/art/act_i_hotspot_overlay.svg`
+        - label: Reviewed `docs/checkpoints/step_5_act_i_art_pass_readiness.md`
+        - label: Reviewed `docs/checkpoints/step_5_human_review_bundle.md`
+  - type: dropdown
+    id: decision
+    attributes:
+      label: Decision
+      options:
+        - pending
+        - proceed
+        - revise
+        - stop
+    validations:
+      required: true
+  - type: checkboxes
+    id: locks
+    attributes:
+      label: Rule Locks
+      options:
+        - label: Registrar duel format remains accepted; no alternate confession-spend UI is requested.
+        - label: Grey Float remains hard-R and compliant with the content line.
+        - label: Final paintovers remain blocked until decisions are imported and the start gate reports ready rooms.
+        - label: No Act II/III confession pickups are requested for Act I scenes.
+  - type: textarea
+    id: room-notes
+    attributes:
+      label: Room Notes
+      description: Note room IDs, readability issues, hotspot/walk-band concerns, and any required revisions.
+      placeholder: "R03 Salt Market: ..."
+  - type: input
+    id: reviewer
+    attributes:
+      label: Reviewer
+      placeholder: "Kyle"
+  - type: input
+    id: reviewed-at
+    attributes:
+      label: Reviewed At
+      description: Use YYYY-MM-DD for any non-pending decision.
+      placeholder: "2026-08-11"

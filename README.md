@@ -120,6 +120,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-TextArtifactHygiene.ps1` checks source, narrative, Godot text resources, docs, and repo metadata for illegal control characters.
 - `tools\Run-RepoReadinessGates.ps1` runs the source-control/LFS and text-artifact gates for commit/package hygiene. It does not replace the Step 1-5 build gates.
 - `tools\Validate-StagedSourceSnapshot.ps1` validates a staged initial snapshot, rejecting build output, Godot cache files, Blender backups, temp files, and missing root handoff artifacts while reporting commit identity/remote blockers.
+- `.github\pull_request_template.md` and `.github\ISSUE_TEMPLATE\*.yml` keep GitHub review/work items aligned with the duel-format lock, Grey Float hard-R line, Act I confession gates, and Step 5 human-review/paintover ordering.
 
 ## First Gates
 
