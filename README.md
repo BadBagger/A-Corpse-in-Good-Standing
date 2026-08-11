@@ -20,6 +20,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `docs/vo/vo_commercial_readiness.json` and `.md` - generated commercial-readiness blocker report for scratch/full VO shipping decisions
 - `docs/vo/vo_recording_queue.json`, `.csv`, and `.md` - generated scratch-ready vs blocked VO batch queue
 - `docs/checkpoints/step_5_human_review_bundle.json` and `.md` - compact Step 5 human-review launch bundle and artifact index
+- `docs/checkpoints/production_blocker_index.md` - stable index of current GitHub production blockers and the evidence/commands tied to each one
 - `docs/art/act_i_review_contact_sheet.html` - browser review sheet combining Act I blockout images, walk bands, hotspot markers, and room tables
 - `docs/vo/vo_recording_packets_index.json`, `.csv`, and `.md` plus `docs/vo/recording_packets/scratch_ready/*.md` - generated per-batch scratch VO recording packets
 - `docs/vo/vo_minor_speaker_decisions_template.csv` and `.md` - generated minor-speaker VO casting/consolidation decision handoff
