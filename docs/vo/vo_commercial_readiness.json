@@ -1,0 +1,66 @@
+﻿{
+    "generated_from":  [
+                           "docs/vo/vo_cast_plan.json",
+                           "docs/vo/vo_audio_asset_status.json"
+                       ],
+    "generated_at_utc":  "2026-08-11T20:55:19.4848055Z",
+    "source_modified_utc":  {
+                                "docs/vo/vo_cast_plan.json":  "2026-08-11T20:55:18.1831891Z",
+                                "docs/vo/vo_audio_asset_status.json":  "2026-08-11T20:55:19.0557001Z"
+                            },
+    "purpose":  "Commercial-readiness gate for full VO. This report keeps scratch VO useful for timing while preventing accidental shipping approval.",
+    "status":  "blocked_pending_licensing_review",
+    "shipping_approved":  false,
+    "recording_status":  "unrecorded",
+    "expected_audio_count":  652,
+    "present_audio_count":  0,
+    "missing_audio_count":  652,
+    "scratch_cast_count":  9,
+    "licensing_unverified_scratch_cast_count":  9,
+    "needs_cast_decision_count":  8,
+    "cut_rewrite_blocked_speaker_count":  0,
+    "minor_speaker_work_blocked_count":  8,
+    "total_recordable_lines":  652,
+    "total_words":  5206,
+    "blockers":  [
+                     {
+                         "id":  "voice_license_unverified",
+                         "status":  "blocked",
+                         "detail":  "Scratch voice/provider commercial-game licensing has not been verified for any scratch-cast role."
+                     },
+                     {
+                         "id":  "ai_voice_disclosure_unreviewed",
+                         "status":  "blocked",
+                         "detail":  "Storefront, credits, and player-facing disclosure requirements have not been reviewed for AI/scratch voice use."
+                     },
+                     {
+                         "id":  "minor_speakers_pending",
+                         "status":  "blocked",
+                         "detail":  "8 minor speakers still need cast/consolidation decisions and 0 minor speakers require script cut/rewrite before full scratch generation."
+                     },
+                     {
+                         "id":  "final_audio_missing",
+                         "status":  "blocked",
+                         "detail":  "0 of 652 expected MP3 files are present; missing audio cannot count as recorded or licensed."
+                     },
+                     {
+                         "id":  "human_vo_lock_pending",
+                         "status":  "blocked",
+                         "detail":  "Human Act I review has not locked script cuts, pacing, or line timing before recording."
+                     }
+                 ],
+    "required_evidence_before_shipping":  [
+                                              "Written confirmation that each scratch/final voice may be used in a commercial game under the chosen provider/account terms.",
+                                              "Credits/disclosure text reviewed for the storefront and in-game credits.",
+                                              "Minor-speaker cast/consolidation decisions applied, and cut/rewrite rows resolved through script changes, then regenerated through the VO batch plan.",
+                                              "Final audio files present only at expected manifest paths with no zero-byte or unplanned MP3s.",
+                                              "Human Act I review has locked script cuts before recording."
+                                          ],
+    "rule_locks":  [
+                       "Scratch voices are timing/casting references only until commercial licensing is verified.",
+                       "Do not count missing audio as recorded.",
+                       "Do not count present audio as shippable without licensing/disclosure evidence.",
+                       "Do not start scratch generation for batches whose speaker remains pending or blocked for cut/rewrite.",
+                       "Keep the accepted Litany/Registrar duel format."
+                   ]
+}

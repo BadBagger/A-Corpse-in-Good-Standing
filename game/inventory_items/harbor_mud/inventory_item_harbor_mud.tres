@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PopochiuInventoryItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/popochiu/engine/objects/inventory_item/popochiu_inventory_item_data.gd" id="1_dawx7"]
+
+[resource]
+script = ExtResource("1_dawx7")
+script_name = "HarborMud"
+scene = "res://game/inventory_items/harbor_mud/inventory_item_harbor_mud.tscn"
+

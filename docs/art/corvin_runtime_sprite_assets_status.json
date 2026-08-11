@@ -1,0 +1,41 @@
+﻿{
+    "generated_from":  "tools/Validate-CorvinRuntimeSpriteAssets.ps1",
+    "status":  "audited",
+    "godot_path":  "C:\\Users\\KyleB\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine.Mono_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.6.3-stable_mono_win64\\Godot_v4.6.3-stable_mono_win64_console.exe",
+    "sprite_resources":  [
+                             {
+                                 "resource":  "res://game/characters/corvin/sprites/act_i_clean/idle_side_right.png",
+                                 "role":  "runtime_default",
+                                 "width":  3072,
+                                 "height":  512,
+                                 "frames":  12
+                             },
+                             {
+                                 "resource":  "res://game/characters/corvin/sprites/act_i_clean/idle_side_left.png",
+                                 "role":  "mirrored_navigation_idle",
+                                 "width":  3072,
+                                 "height":  512,
+                                 "frames":  12
+                             },
+                             {
+                                 "resource":  "res://game/characters/corvin/sprites/act_i_clean/walk_side_right.png",
+                                 "role":  "load_validated_next_animation",
+                                 "width":  2048,
+                                 "height":  512,
+                                 "frames":  8
+                             },
+                             {
+                                 "resource":  "res://game/characters/corvin/sprites/act_i_clean/walk_side_left.png",
+                                 "role":  "mirrored_navigation_walk",
+                                 "width":  2048,
+                                 "height":  512,
+                                 "frames":  8
+                             }
+                         ],
+    "runtime_sprite":  "side_right_side_left_idle_walk_switchable",
+    "character_animation_bridge":  "side_right_side_left_idle_walk_switchable_with_current_side_idle",
+    "walk_state_switching":  "implemented_loader_api",
+    "current_side_idle":  "implemented_character_bridge_alias",
+    "known_shutdown_warnings":  "Popochiu UID fallback and Godot headless RID/resource cleanup warnings",
+    "pass_line":  "Corvin sprite asset validation passed: assets=idle_side_right=12frames/21120px, idle_side_left=12frames/21168px, walk_side_right=8frames/14211px, walk_side_left=8frames/14187px, runtimeSprite=side_right_side_left_idle_walk_switchable, characterBridge=side_right_side_left_idle_walk_switchable, idleForegroundSamples=21120"
+}

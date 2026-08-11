@@ -1,0 +1,512 @@
+[gd_scene load_steps=21 format=3]
+
+[ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
+[ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
+[ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
+[ext_resource type="Script" path="res://game/rooms/background_image_loader.gd" id="5_bg_loader"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.164706, 0.227451, 0.25098, 1, 0.894118, 0.862745, 0.784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_1"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_2"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_3"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_4"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_5"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_6"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_7"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_8"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_9"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_10"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_11"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_12"]
+size = Vector2(260, 150)
+
+[node name="RoomSaltMarket" type="Node2D"]
+script = ExtResource("1_room")
+script_name = "SaltMarket"
+has_player = true
+width = 1920
+height = 1080
+room_code = "R03"
+room_title = "Salt Market"
+room_notes = "First public scream, boots, panic, market hub."
+
+[node name="Background" type="Sprite2D" parent="."]
+script = ExtResource("5_bg_loader")
+background_path = "res://game/rooms/salt_market/background/salt_market_bg.png"
+centered = false
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.164706, 0.227451, 0.25098, 0.2)
+polygon = PackedVector2Array(0, 700, 1920, 620, 1920, 1080, 0, 1080)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 44.0
+offset_right = 980.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "R03 / Salt Market"
+
+[node name="NotesLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1180.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "First public scream, boots, panic, market hub."
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="WalkableMain" type="Polygon2D" parent="WalkableAreas"]
+color = Color(0.494118, 0.607843, 0.305882, 0.35)
+polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="ToOldQuay" type="Area2D" parent="Hotspots"]
+position = Vector2(180, 740)
+script = ExtResource("3_exit")
+script_name = "ToOldQuay"
+description = "Old Quay"
+target_room = "OldQuay"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Old Quay. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Old Quay."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToOldQuay"]
+shape = SubResource("RectangleShape2D_exit_1")
+
+[node name="Label" type="Label" parent="Hotspots/ToOldQuay"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Old Quay"
+
+[node name="ToRegistry" type="Area2D" parent="Hotspots"]
+position = Vector2(520, 650)
+script = ExtResource("3_exit")
+script_name = "ToRegistry"
+description = "Registry"
+target_room = "HarborRegistry"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Registry. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Registry."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToRegistry"]
+shape = SubResource("RectangleShape2D_exit_2")
+
+[node name="Label" type="Label" parent="Hotspots/ToRegistry"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Registry"
+
+[node name="ToChandler" type="Area2D" parent="Hotspots"]
+position = Vector2(820, 655)
+script = ExtResource("3_exit")
+script_name = "ToChandler"
+description = "Bone Chandler"
+target_room = "BoneChandler"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Bone Chandler. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Bone Chandler."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToChandler"]
+shape = SubResource("RectangleShape2D_exit_3")
+
+[node name="Label" type="Label" parent="Hotspots/ToChandler"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Bone Chandler"
+
+[node name="ToAlmshouse" type="Area2D" parent="Hotspots"]
+position = Vector2(1120, 655)
+script = ExtResource("3_exit")
+script_name = "ToAlmshouse"
+description = "Almshouse"
+target_room = "Almshouse"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Almshouse. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Almshouse."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToAlmshouse"]
+shape = SubResource("RectangleShape2D_exit_4")
+
+[node name="Label" type="Label" parent="Hotspots/ToAlmshouse"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Almshouse"
+
+[node name="ToFishHall" type="Area2D" parent="Hotspots"]
+position = Vector2(1390, 655)
+script = ExtResource("3_exit")
+script_name = "ToFishHall"
+description = "Fish Hall"
+target_room = "FishHall"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Fish Hall. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Fish Hall."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToFishHall"]
+shape = SubResource("RectangleShape2D_exit_5")
+
+[node name="Label" type="Label" parent="Hotspots/ToFishHall"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Fish Hall"
+
+[node name="ToChurch" type="Area2D" parent="Hotspots"]
+position = Vector2(1660, 650)
+script = ExtResource("3_exit")
+script_name = "ToChurch"
+description = "Church"
+target_room = "ChurchOfTheDrowned"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Church. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Church."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToChurch"]
+shape = SubResource("RectangleShape2D_exit_6")
+
+[node name="Label" type="Label" parent="Hotspots/ToChurch"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Church"
+
+[node name="MarketCrowd" type="Area2D" parent="Hotspots"]
+position = Vector2(960, 760)
+script = ExtResource("4_interaction")
+script_name = "MarketCrowd"
+description = "Crowd"
+interaction_key = "market_crowd"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String](["BorrowedBoots"])
+flags_set = Array[String](["FL_market_recognized", "FL_market_day_hint"])
+confessions_discover = Array[String](["cf_pride_voice"])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "salt_market_public_recognition"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Everyone has noticed Corvin is dead except the people pretending not to."
+use_text = "The boot seller says Vale is dead. The queue screams. Corvin counts six days and takes the fallen boots."
+talk_text = "The market screams once, then starts pricing him."
+walk_text = "Corvin gives the crowd room. They take several more."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/MarketCrowd"]
+shape = SubResource("RectangleShape2D_interaction_7")
+
+[node name="Label" type="Label" parent="Hotspots/MarketCrowd"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Crowd"
+
+[node name="BootStall" type="Area2D" parent="Hotspots"]
+position = Vector2(300, 720)
+script = ExtResource("4_interaction")
+script_name = "BootStall"
+description = "Boot stall"
+interaction_key = "boot_stall"
+requires_items = Array[String](["BorrowedBoots"])
+requires_flags = Array[String](["FL_market_recognized"])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_boot_stall_after_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "salt_market_boot_stall_after"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "The boot stall is only a stall until the market realizes Corvin is dead."
+look_text = "He's rearranging boots that don't need it. He'll be at that all day."
+use_text = "Corvin leaves the table standing, which is more than the table did for itself."
+talk_text = "The seller will not look at Corvin, except when he cannot help it."
+walk_text = "Corvin steps around the fallen boots. Ownership is already complicated enough."
+wet_text = "The stall has suffered enough water for one morning."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/BootStall"]
+shape = SubResource("RectangleShape2D_interaction_8")
+
+[node name="Label" type="Label" parent="Hotspots/BootStall"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Boot stall"
+
+[node name="Fishmonger" type="Area2D" parent="Hotspots"]
+position = Vector2(520, 720)
+script = ExtResource("4_interaction")
+script_name = "Fishmonger"
+description = "Fishmonger"
+interaction_key = "fishmonger"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_fishmonger_seen"])
+confessions_discover = Array[String](["cf_greed_scales", "cf_cow_drink"])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "salt_market_fishmonger"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Two sets of scales under that table. The honest ones are on the wall where you can see them."
+use_text = "Corvin is not buying fish. He can't taste anything and it seems like a waste."
+talk_text = "The fishmonger complains about Corvin dripping on the cod. Corvin calls it a marinade."
+walk_text = "Corvin moves past the scales before arithmetic gets involved."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/Fishmonger"]
+shape = SubResource("RectangleShape2D_interaction_9")
+
+[node name="Label" type="Label" parent="Hotspots/Fishmonger"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Fishmonger"
+
+[node name="ConfessionQueue" type="Area2D" parent="Hotspots"]
+position = Vector2(1180, 720)
+script = ExtResource("4_interaction")
+script_name = "ConfessionQueue"
+description = "Confession queue"
+interaction_key = "confession_queue"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String]([])
+confessions_discover = Array[String](["cf_cruel_funeral", "cf_pride_voice"])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "salt_market_confession_queue"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Eleven people waiting to ask a dead man a question. Eight of them are here about money."
+use_text = "Corvin is on the wrong side of that counter, which is new and not an improvement."
+talk_text = "The queue trades grief, interest rates, and one funeral story nobody should be enjoying."
+walk_text = "Corvin stands close enough to hear what people call closure when it costs a shilling."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ConfessionQueue"]
+shape = SubResource("RectangleShape2D_interaction_10")
+
+[node name="Label" type="Label" parent="Hotspots/ConfessionQueue"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Confession queue"
+
+[node name="ChurchSign" type="Area2D" parent="Hotspots"]
+position = Vector2(1380, 540)
+script = ExtResource("4_interaction")
+script_name = "ChurchSign"
+description = "Church sign"
+interaction_key = "church_sign"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String]([])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String](["FL_church_sign_wet"])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = "salt_market_church_sign_wet"
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = ""
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "THE DROWNED CANNOT LIE - ONE SHILLING. They got a signwriter in. It's good work."
+use_text = "Corvin considers using Church doctrine, but the warranty expired at drowning."
+talk_text = "Corvin argues with the sign. The sign has better funding."
+walk_text = "Corvin stands under the Church tariff and tries not to become a product."
+wet_text = "Corvin lets his sleeve drip over the tariff. The ink runs just enough to make doctrine expensive to read."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ChurchSign"]
+shape = SubResource("RectangleShape2D_interaction_11")
+
+[node name="Label" type="Label" parent="Hotspots/ChurchSign"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Church sign"
+
+[node name="WhaleOilLamp" type="Area2D" parent="Hotspots"]
+position = Vector2(1520, 620)
+script = ExtResource("4_interaction")
+script_name = "WhaleOilLamp"
+description = "Whale-oil lamp"
+interaction_key = "whale_oil_lamp"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_market_lamp_checked"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "salt_market_lamp"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Whale oil. Warm light. Everything warm on this island is something dead being useful."
+use_text = "Corvin holds his hands near the lamp. Nothing. Not cold, not warm. Just reported."
+talk_text = "Corvin asks the lamp if usefulness counts as a second life. It keeps burning."
+walk_text = "Corvin stands in amber light and learns it has no jurisdiction over him."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/WhaleOilLamp"]
+shape = SubResource("RectangleShape2D_interaction_12")
+
+[node name="Label" type="Label" parent="Hotspots/WhaleOilLamp"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Whale-oil lamp"
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Markers"]
+position = Vector2(960, 790)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="PrologueHud" parent="." instance=ExtResource("2_hud")]

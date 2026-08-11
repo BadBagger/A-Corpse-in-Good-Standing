@@ -1,0 +1,266 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
+[ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
+[ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
+[ext_resource type="Script" path="res://game/rooms/background_image_loader.gd" id="5_bg_loader"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.164706, 0.227451, 0.25098, 1, 0.894118, 0.862745, 0.784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_1"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_2"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_3"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_4"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_5"]
+size = Vector2(260, 150)
+
+[node name="RoomAlmshouse" type="Node2D"]
+script = ExtResource("1_room")
+script_name = "Almshouse"
+has_player = true
+width = 1920
+height = 1080
+room_code = "R07"
+room_title = "The Almshouse"
+room_notes = "Rite 3: Debt Forgiven. Prosper forgets and signs."
+
+[node name="Background" type="Sprite2D" parent="."]
+script = ExtResource("5_bg_loader")
+background_path = "res://game/rooms/almshouse/background/almshouse_bg.png"
+centered = false
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.164706, 0.227451, 0.25098, 0.2)
+polygon = PackedVector2Array(0, 700, 1920, 620, 1920, 1080, 0, 1080)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 44.0
+offset_right = 980.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "R07 / The Almshouse"
+
+[node name="NotesLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1180.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Rite 3: Debt Forgiven. Prosper forgets and signs."
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="WalkableMain" type="Polygon2D" parent="WalkableAreas"]
+color = Color(0.494118, 0.607843, 0.305882, 0.35)
+polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="ToBoneChandler" type="Area2D" parent="Hotspots"]
+position = Vector2(180, 740)
+script = ExtResource("3_exit")
+script_name = "ToBoneChandler"
+description = "Bone Chandler"
+target_room = "BoneChandler"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Bone Chandler. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Bone Chandler."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToBoneChandler"]
+shape = SubResource("RectangleShape2D_exit_1")
+
+[node name="Label" type="Label" parent="Hotspots/ToBoneChandler"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Bone Chandler"
+
+[node name="ToSaltMarket" type="Area2D" parent="Hotspots"]
+position = Vector2(1700, 730)
+script = ExtResource("3_exit")
+script_name = "ToSaltMarket"
+description = "Salt Market"
+target_room = "SaltMarket"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Salt Market. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Salt Market."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToSaltMarket"]
+shape = SubResource("RectangleShape2D_exit_2")
+
+[node name="Label" type="Label" parent="Hotspots/ToSaltMarket"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Salt Market"
+
+[node name="Cots" type="Area2D" parent="Hotspots"]
+position = Vector2(560, 720)
+script = ExtResource("4_interaction")
+script_name = "Cots"
+description = "Cots"
+interaction_key = "cots"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_almshouse_cots_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "almshouse_cots"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Twelve cots. Nine occupied. Three of them are past talking and nobody has moved them yet."
+use_text = "Corvin leaves them be."
+talk_text = "Corvin keeps his voice down. Some rooms deserve that much."
+walk_text = "Corvin walks the aisle between bad luck and worse care."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/Cots"]
+shape = SubResource("RectangleShape2D_interaction_3")
+
+[node name="Label" type="Label" parent="Hotspots/Cots"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Cots"
+
+[node name="Window" type="Area2D" parent="Hotspots"]
+position = Vector2(780, 650)
+script = ExtResource("4_interaction")
+script_name = "Window"
+description = "Window"
+interaction_key = "window"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_almshouse_window_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "almshouse_window"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "The window faces the water, which seems cruel until nobody here remembers what it means."
+use_text = "Corvin wipes salt from the sill. It comes back in the grain."
+talk_text = "Corvin asks the harbor to look elsewhere for once."
+walk_text = "Corvin stands in the light and gives it very little to work with."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/Window"]
+shape = SubResource("RectangleShape2D_interaction_4")
+
+[node name="Label" type="Label" parent="Hotspots/Window"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Window"
+
+[node name="HalfCoinProsper" type="Area2D" parent="Hotspots"]
+position = Vector2(980, 700)
+script = ExtResource("4_interaction")
+script_name = "HalfCoinProsper"
+description = "Half-Coin Prosper"
+interaction_key = "prosper"
+requires_items = Array[String](["IT_watch"])
+requires_flags = Array[String]([])
+items_add = Array[String](["IT_forgiveness"])
+flags_set = Array[String](["FL_rite_debt"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "prosper_forgiveness"
+blocked_ink_knot = "prosper_before_watch"
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "Prosper owes a favor only after the watch is returned."
+look_text = "Prosper smiles like he has just met Corvin, because he has."
+use_text = "Corvin returns the watch. Prosper writes the forgiveness before the old anger can find the room."
+talk_text = "Prosper asks who the forgiveness is for. Corvin says his own name. Prosper signs anyway."
+walk_text = "Corvin crosses to Prosper carefully. Memory rot makes witnesses of strangers."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/HalfCoinProsper"]
+shape = SubResource("RectangleShape2D_interaction_5")
+
+[node name="Label" type="Label" parent="Hotspots/HalfCoinProsper"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Half-Coin Prosper"
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Markers"]
+position = Vector2(960, 790)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="PrologueHud" parent="." instance=ExtResource("2_hud")]

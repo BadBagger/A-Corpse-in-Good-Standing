@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://game/inventory_items/borrowed_boots/inventory_item_borrowed_boots.gd" id="1_cql6f"]
+
+[sub_resource type="Gradient" id="Gradient_4bohd"]
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.894118, 0.862745, 0.784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mr04t"]
+gradient = SubResource("Gradient_4bohd")
+width = 64
+height = 64
+
+[node name="InventoryItemBorrowedBoots" type="TextureRect"]
+custom_minimum_size = Vector2(64, 64)
+mouse_filter = 0
+texture = SubResource("GradientTexture2D_mr04t")
+stretch_mode = 5
+script = ExtResource("1_cql6f")
+script_name = "BorrowedBoots"
+description = "borrowed boots"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+

@@ -1,0 +1,24 @@
+﻿{
+    "generated_from":  "tools/Test-InkShaderSpikeMetrics.ps1",
+    "status":  "audited",
+    "required_frame_count":  24,
+    "pairwise_threshold_percent":  6,
+    "first_to_last_drift_threshold_percent":  9,
+    "measurement":  "foreground-bounds-aligned hatch-pixel delta",
+    "sample_stride_pixels":  4,
+    "object_sequence":  {
+                            "directory":  "art/export/shader_spike/yaw_object_anchored",
+                            "frames_found":  24,
+                            "pairwise_max_percent":  0,
+                            "pairwise_average_percent":  0,
+                            "first_to_last_drift_percent":  0
+                        },
+    "bad_control_sequence":  {
+                                 "directory":  "art/export/shader_spike/yaw_screen_space_bad_control",
+                                 "frames_found":  24,
+                                 "pairwise_max_percent":  28.512
+                             },
+    "notes":  [
+                  "Object-anchored candidate passed provisional hatching stability metrics."
+              ]
+}

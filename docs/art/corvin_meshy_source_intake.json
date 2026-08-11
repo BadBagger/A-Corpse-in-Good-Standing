@@ -1,0 +1,128 @@
+﻿{
+    "generated_from":  "tools/Import-CorvinMeshySource.ps1",
+    "canonical_act_i_mesh":  {
+                                 "source_download":  "C:\\Users\\KyleB\\Downloads\\Meshy_AI_Drowned_Gentleman_0810232218_texture.glb",
+                                 "source_present":  true,
+                                 "source_sha256":  "933C4323E44306CD3C0728F83B99174695BC5C3576BD8B5C48E7336F194AA623",
+                                 "target_path":  "art/src/characters/corvin/meshy/corvin_act_i_clean.glb",
+                                 "target_present":  true,
+                                 "target_sha256":  "933C4323E44306CD3C0728F83B99174695BC5C3576BD8B5C48E7336F194AA623",
+                                 "purpose":  "Canonical Act I clean Meshy source for Corvin and the shader spike."
+                             },
+    "biped_zip":  {
+                      "source_download":  "C:\\Users\\KyleB\\Downloads\\Meshy_AI_Drowned_Gentleman_biped.zip",
+                      "source_present":  true,
+                      "source_sha256":  "B9B579D10DF4EC5D2A343FFF8E019513467F2838A9738A0FEE3CC2CFA18CFF6D",
+                      "extracted_character_path":  "art/src/characters/corvin/meshy/source_uploads/meshy_biped_character_output.glb",
+                      "extracted_character_present":  true,
+                      "purpose":  "Rigged/reference motion source. Does not satisfy the full game animation contract by itself.",
+                      "glb_entries":  [
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Angry_Stomp_withSkin.glb",
+                                              "length":  13414496
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Arise_withSkin.glb",
+                                              "length":  13331832
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Cheer_with_Both_Hands_withSkin.glb",
+                                              "length":  13342280
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Collect_Object_withSkin.glb",
+                                              "length":  13381884
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Headache_Relief_withSkin.glb",
+                                              "length":  13369616
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Listening_Gesture_withSkin.glb",
+                                              "length":  13435296
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Look_Around_Dumbfounded_withSkin.glb",
+                                              "length":  13386272
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Push_Forward_and_Stop_withSkin.glb",
+                                              "length":  13341072
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Running_withSkin.glb",
+                                              "length":  13317100
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Sit_to_Stand_Transition_M_withSkin.glb",
+                                              "length":  13384304
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Stand_Up5_withSkin.glb",
+                                              "length":  13446688
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Stand_to_Sit_Transition_M_withSkin.glb",
+                                              "length":  13367072
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Walk_Slowly_and_Look_Around_withSkin.glb",
+                                              "length":  13621200
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_Walking_withSkin.glb",
+                                              "length":  13321712
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_falling_down_withSkin.glb",
+                                              "length":  13337040
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Animation_open_door_1_withSkin.glb",
+                                              "length":  13367692
+                                          },
+                                          {
+                                              "name":  "Meshy_AI_Drowned_Gentleman_biped/Meshy_AI_Drowned_Gentleman_biped_Character_output.glb",
+                                              "length":  13308968
+                                          }
+                                      ]
+                  },
+    "canonical_drop_paths":  {
+                                 "act_i_clean":  "art/src/characters/corvin/meshy/corvin_act_i_clean.glb",
+                                 "act_ii_salting":  "art/src/characters/corvin/meshy/corvin_act_ii_salting.glb",
+                                 "act_iii_crusted":  "art/src/characters/corvin/meshy/corvin_act_iii_crusted.glb",
+                                 "shader_spike_blend":  "art/src/shaders/ink_wash_shader_spike.blend"
+                             },
+    "motion_candidates":  [
+                              {
+                                  "target_animation":  "idle",
+                                  "source_hint":  "Animation_Listening_Gesture_withSkin.glb or Animation_Look_Around_Dumbfounded_withSkin.glb",
+                                  "status":  "candidate_only",
+                                  "notes":  "Needs cleanup into a subtle in-place coat-drip idle."
+                              },
+                              {
+                                  "target_animation":  "walk",
+                                  "source_hint":  "Animation_Walking_withSkin.glb or Animation_Walk_Slowly_and_Look_Around_withSkin.glb",
+                                  "status":  "candidate_only",
+                                  "notes":  "Side profile is production priority; root motion must be measured and made exportable in-place."
+                              },
+                              {
+                                  "target_animation":  "talk",
+                                  "source_hint":  "Animation_Listening_Gesture_withSkin.glb",
+                                  "status":  "candidate_only",
+                                  "notes":  "Body-talk loop only; VO mouth detail remains portrait/face-layer work."
+                              },
+                              {
+                                  "target_animation":  "wet",
+                                  "source_hint":  "No direct Meshy candidate",
+                                  "status":  "custom_required",
+                                  "notes":  "Needs a custom sleeve shake / drip action for Corvin\u0027s wet verb."
+                              },
+                              {
+                                  "target_animation":  "use",
+                                  "source_hint":  "Animation_Collect_Object_withSkin.glb or Animation_open_door_1_withSkin.glb",
+                                  "status":  "candidate_only",
+                                  "notes":  "Use only as a base for point-and-click reach/pickup timing."
+                              }
+                          ]
+}

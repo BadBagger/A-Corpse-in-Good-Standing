@@ -1,0 +1,25 @@
+﻿{
+    "generated_from":  "tools/Render-CorvinActICleanSideWalkSheet.ps1",
+    "status":  "audited",
+    "runtime_candidate":  true,
+    "final_polish":  false,
+    "needs_rigged_walk_polish":  true,
+    "character_id":  "corvin",
+    "variant":  "act_i_clean",
+    "animation":  "walk",
+    "direction":  "side_right",
+    "fps":  12,
+    "frames":  8,
+    "cell_width":  256,
+    "cell_height":  512,
+    "sheet_width":  2048,
+    "sheet_height":  512,
+    "sheet_export":  "art/export/characters/corvin/act_i_clean/walk_side_right.png",
+    "godot_resource":  "game/characters/corvin/sprites/act_i_clean/walk_side_right.png",
+    "source_sheet":  "art/export/characters/corvin/act_i_clean/idle_side_right.png",
+    "notes":  [
+                  "Generated first-pass Act I clean side_right walk sprite sheet from the audited idle/shader silhouette.",
+                  "This is a runtime candidate for scene integration, not final walk polish or rigged locomotion.",
+                  "Final polish still needs a rigged in-place walk pass from the Meshy biped source."
+              ]
+}

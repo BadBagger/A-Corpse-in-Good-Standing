@@ -1,0 +1,127 @@
+﻿{
+    "generated_from":  "AGENTS.md section 8.3 and Corvin animation manifest",
+    "purpose":  "Prove the Blender ink-wash render stack before final sprite-sheet or background art production.",
+    "pipeline":  "Meshy source -\u003e Blender two-tone ink ramp and object-anchored hatching -\u003e locked-palette 2D sprite sheets",
+    "runtime_scope":  "The game still imports only 2D sprites and backgrounds; no live Godot 3D is introduced.",
+    "duel_format_locked":  true,
+    "no_diffusion_per_frame":  true,
+    "test_subject":  {
+                         "character_id":  "corvin",
+                         "variant":  "act_i_clean",
+                         "preferred_direction":  "side_right",
+                         "source_model":  "art/src/characters/corvin/meshy/corvin_act_i_clean.glb",
+                         "blender_source":  "art/src/shaders/ink_wash_shader_spike.blend"
+                     },
+    "render_contract":  {
+                            "fps":  12,
+                            "sequence_frames":  24,
+                            "render_scale":  "2x target",
+                            "camera":  "orthographic side-on adventure-game camera",
+                            "stress_motion":  "yaw_turn",
+                            "pairwise_delta_threshold_percent":  6,
+                            "pairwise_threshold_status":  "provisional until calibrated by good and bad controls",
+                            "first_to_last_drift_required":  true,
+                            "first_to_last_drift_threshold_percent":  9,
+                            "hatching_space":  "object_or_world_anchored",
+                            "forbidden_hatching_space":  "screen_space_only"
+                        },
+    "palette":  [
+                    {
+                        "name":  "bone_paper_white",
+                        "hex":  "#E4DCC8"
+                    },
+                    {
+                        "name":  "wet_black",
+                        "hex":  "#0C1013"
+                    },
+                    {
+                        "name":  "harbor_slate",
+                        "hex":  "#2A3A40"
+                    },
+                    {
+                        "name":  "absinthe_green",
+                        "hex":  "#7D9B4E"
+                    },
+                    {
+                        "name":  "whale_oil_amber",
+                        "hex":  "#C98A3C"
+                    },
+                    {
+                        "name":  "arterial_red",
+                        "hex":  "#8E1B22"
+                    }
+                ],
+    "tests":  [
+                  {
+                      "id":  "r1_raw_side_profile",
+                      "gate":  "R1",
+                      "label":  "Raw side-profile render",
+                      "required":  true,
+                      "source_path":  "art/src/shaders/ink_wash_shader_spike.blend",
+                      "output_path":  "art/export/shader_spike/corvin_act_i_clean_side_raw.png",
+                      "notes":  "Establishes unprocessed Corvin Act I clean side-right framing at 2x target."
+                  },
+                  {
+                      "id":  "r2_two_tone_ink_ramp",
+                      "gate":  "R2",
+                      "label":  "Two-tone ink ramp still",
+                      "required":  true,
+                      "source_path":  "art/src/shaders/ink_wash_shader_spike.blend",
+                      "output_path":  "art/export/shader_spike/corvin_act_i_clean_side_ink_ramp.png",
+                      "notes":  "Proves the flat toon ramp has been replaced by wet black plus highlight ink bands."
+                  },
+                  {
+                      "id":  "r3_object_anchored_hatching_sequence",
+                      "gate":  "R3",
+                      "label":  "Object-anchored hatching yaw sequence",
+                      "required":  true,
+                      "source_path":  "art/src/shaders/ink_wash_shader_spike.blend",
+                      "output_path":  "art/export/shader_spike/yaw_object_anchored/frame_0001.png",
+                      "frame_count":  24,
+                      "motion":  "yaw_turn",
+                      "notes":  "The production candidate. Hatching must stick to Corvin through a yaw turn, not just a walk translation."
+                  },
+                  {
+                      "id":  "r4_screen_space_bad_control",
+                      "gate":  "R4",
+                      "label":  "Screen-space hatching bad control",
+                      "required":  true,
+                      "source_path":  "art/src/shaders/ink_wash_shader_spike.blend",
+                      "output_path":  "art/export/shader_spike/yaw_screen_space_bad_control/frame_0001.png",
+                      "frame_count":  24,
+                      "motion":  "yaw_turn",
+                      "notes":  "Known-bad control for calibrating shimmer. This must not become a production path."
+                  },
+                  {
+                      "id":  "r5_pairwise_hatching_delta",
+                      "gate":  "R5",
+                      "label":  "Pairwise hatching stability report",
+                      "required":  true,
+                      "source_path":  "art/export/shader_spike/yaw_object_anchored/",
+                      "output_path":  "docs/art/ink_shader_spike_pairwise_delta.json",
+                      "frame_count":  24,
+                      "provisional_threshold_percent":  6,
+                      "notes":  "6 percent is provisional until measured against the known-bad and known-good controls."
+                  },
+                  {
+                      "id":  "r6_first_last_hatching_drift",
+                      "gate":  "R6",
+                      "label":  "First-to-last hatch drift report",
+                      "required":  true,
+                      "source_path":  "art/export/shader_spike/yaw_object_anchored/",
+                      "output_path":  "docs/art/ink_shader_spike_first_last_drift.json",
+                      "frame_count":  24,
+                      "notes":  "Catches slow crawl that can pass consecutive-frame checks."
+                  },
+                  {
+                      "id":  "r7_palette_mapped_sequence",
+                      "gate":  "R7",
+                      "label":  "Locked-palette mapped sequence",
+                      "required":  true,
+                      "source_path":  "art/export/shader_spike/yaw_object_anchored/",
+                      "output_path":  "art/export/shader_spike/yaw_palette_mapped/frame_0001.png",
+                      "frame_count":  24,
+                      "notes":  "Rendered sequence must be mapped to the locked project palette before sprite-sheet production."
+                  }
+              ]
+}

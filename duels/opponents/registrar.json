@@ -1,0 +1,60 @@
+{
+  "id": "registrar",
+  "name": "The Registrar",
+  "act_available": 1,
+  "attacks": [
+    {
+      "id": "reg_manifest",
+      "text": "You signed a manifest you never read. Eleven people in that hold.",
+      "category": "PRIDE",
+      "weight": 3
+    },
+    {
+      "id": "reg_collection_plate",
+      "text": "You took from a collection plate and called it liquidity.",
+      "category": "GREED",
+      "weight": 1,
+      "locks_confession_id": "cf_greed_plate"
+    },
+    {
+      "id": "reg_clients_voice",
+      "text": "You lower your voice for clients so theft sounds like counsel.",
+      "category": "PRIDE",
+      "weight": 2,
+      "locks_confession_id": "cf_pride_voice"
+    },
+    {
+      "id": "reg_soup_line",
+      "text": "You sent a hungry man to a closed soup line.",
+      "category": "CRUELTY",
+      "weight": 2,
+      "locks_confession_id": "cf_cruel_soupline"
+    },
+    {
+      "id": "reg_left_room",
+      "text": "You leave rooms before truth can catch up.",
+      "category": "COWARDICE",
+      "weight": 2,
+      "locks_confession_id": "cf_cow_leftroom"
+    },
+    {
+      "id": "reg_float",
+      "text": "You pay at the Float and pretend conversation is not what you bought.",
+      "category": "LUST",
+      "weight": 3,
+      "locks_confession_id": "cf_lust_float"
+    },
+    {
+      "id": "reg_counselor",
+      "text": "You let people call you counselor because fraud sounds better in a clean collar.",
+      "category": "PRIDE",
+      "weight": 3
+    },
+    {
+      "id": "reg_kestrel_number",
+      "text": "You knew the Kestrel number before you took the money.",
+      "category": "PRIDE",
+      "weight": 3
+    }
+  ]
+}

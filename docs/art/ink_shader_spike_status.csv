@@ -1,0 +1,8 @@
+﻿"gate","test_id","status","required","frame_count","motion","source_path","output_path"
+"R1","r1_raw_side_profile","present","True","","","art/src/shaders/ink_wash_shader_spike.blend","art/export/shader_spike/corvin_act_i_clean_side_raw.png"
+"R2","r2_two_tone_ink_ramp","present","True","","","art/src/shaders/ink_wash_shader_spike.blend","art/export/shader_spike/corvin_act_i_clean_side_ink_ramp.png"
+"R3","r3_object_anchored_hatching_sequence","present","True","24","yaw_turn","art/src/shaders/ink_wash_shader_spike.blend","art/export/shader_spike/yaw_object_anchored/frame_0001.png"
+"R4","r4_screen_space_bad_control","present","True","24","yaw_turn","art/src/shaders/ink_wash_shader_spike.blend","art/export/shader_spike/yaw_screen_space_bad_control/frame_0001.png"
+"R5","r5_pairwise_hatching_delta","present","True","24","","art/export/shader_spike/yaw_object_anchored/","docs/art/ink_shader_spike_pairwise_delta.json"
+"R6","r6_first_last_hatching_drift","present","True","24","","art/export/shader_spike/yaw_object_anchored/","docs/art/ink_shader_spike_first_last_drift.json"
+"R7","r7_palette_mapped_sequence","present","True","24","","art/export/shader_spike/yaw_object_anchored/","art/export/shader_spike/yaw_palette_mapped/frame_0001.png"

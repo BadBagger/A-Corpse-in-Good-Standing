@@ -1,0 +1,169 @@
+$ErrorActionPreference = "Stop"
+
+$root = Split-Path -Parent $PSScriptRoot
+$batchManifestPath = Join-Path $root "docs\vo\vo_recording_batches.json"
+$castPlanPath = Join-Path $root "docs\vo\vo_cast_plan.json"
+$jsonPath = Join-Path $root "docs\vo\vo_recording_queue.json"
+$csvPath = Join-Path $root "docs\vo\vo_recording_queue.csv"
+$mdPath = Join-Path $root "docs\vo\vo_recording_queue.md"
+
+foreach ($path in @($batchManifestPath, $castPlanPath)) {
+    if (-not (Test-Path -LiteralPath $path)) {
+        throw "Missing VO recording queue input: $path"
+    }
+}
+
+$inputPaths = [ordered]@{
+    "docs/vo/vo_recording_batches.json" = $batchManifestPath
+    "docs/vo/vo_cast_plan.json" = $castPlanPath
+}
+$sourceModifiedUtc = [ordered]@{}
+foreach ($entry in $inputPaths.GetEnumerator()) {
+    $sourceModifiedUtc[$entry.Key] = (Get-Item -LiteralPath $entry.Value).LastWriteTimeUtc.ToString("o")
+}
+$generatedAtUtc = (Get-Date).ToUniversalTime().ToString("o")
+
+$batchManifest = Get-Content -LiteralPath $batchManifestPath -Raw | ConvertFrom-Json
+$castPlan = Get-Content -LiteralPath $castPlanPath -Raw | ConvertFrom-Json
+$batches = @($batchManifest.batches)
+
+$queueRows = @()
+foreach ($batch in $batches) {
+    $isReady = ([string]$batch.cast_status -eq "scratch_cast")
+    $queueStatus = if ($isReady) { "scratch_ready" } elseif ([string]$batch.cast_status -eq "blocked_cut_or_rewrite") { "blocked_cut_or_rewrite" } else { "blocked_pending_cast_decision" }
+    $queueRows += [pscustomobject][ordered]@{
+        batch_id = [string]$batch.batch_id
+        queue_status = $queueStatus
+        batch_type = [string]$batch.batch_type
+        act = [string]$batch.act
+        speaker = [string]$batch.speaker
+        scratch_voice = [string]$batch.scratch_voice
+        scratch_voice_id = [string]$batch.scratch_voice_id
+        cast_status = [string]$batch.cast_status
+        location = [string]$batch.location
+        knot = [string]$batch.knot
+        category = [string]$batch.category
+        line_count = [int]$batch.line_count
+        word_count = [int]$batch.word_count
+        first_line_id = [string](@($batch.source_line_ids)[0])
+        audio_path_count = @($batch.audio_paths).Count
+        generation_rule = [string]$batch.generation_rule
+        block_reason = if ($isReady) { "" } elseif ($queueStatus -eq "blocked_cut_or_rewrite") { "Script cut or rewrite is required before scratch generation." } else { "Speaker requires cast or consolidation decision before scratch generation." }
+    }
+}
+
+$readyRows = @($queueRows | Where-Object { $_.queue_status -eq "scratch_ready" })
+$blockedRows = @($queueRows | Where-Object { $_.queue_status -eq "blocked_pending_cast_decision" })
+$cutRewriteRows = @($queueRows | Where-Object { $_.queue_status -eq "blocked_cut_or_rewrite" })
+$readyLineCount = (@($readyRows) | Measure-Object line_count -Sum).Sum
+$blockedLineCount = (@($blockedRows) | Measure-Object line_count -Sum).Sum
+$readyWordCount = (@($readyRows) | Measure-Object word_count -Sum).Sum
+$blockedWordCount = (@($blockedRows) | Measure-Object word_count -Sum).Sum
+
+$queue = [ordered]@{
+    generated_from = @(
+        "docs/vo/vo_recording_batches.json",
+        "docs/vo/vo_cast_plan.json"
+    )
+    generated_at_utc = $generatedAtUtc
+    source_modified_utc = $sourceModifiedUtc
+    purpose = "Scratch VO recording queue. Lists safe-to-generate batches separately from batches blocked by pending minor-speaker decisions or cut/rewrite work."
+    recording_status = "unrecorded"
+    shipping_status = "scratch_only_not_shipping_audio"
+    batch_count = $queueRows.Count
+    scratch_ready_batch_count = $readyRows.Count
+    blocked_batch_count = $blockedRows.Count
+    cut_rewrite_blocked_batch_count = $cutRewriteRows.Count
+    scratch_ready_line_count = [int]$readyLineCount
+    blocked_line_count = [int]$blockedLineCount
+    scratch_ready_word_count = [int]$readyWordCount
+    blocked_word_count = [int]$blockedWordCount
+    total_line_count = [int]$batchManifest.line_count
+    total_word_count = [int]$batchManifest.word_count
+    rule_locks = @(
+        "Only scratch_ready batches may be generated for timing tests.",
+        "blocked_pending_cast_decision batches must not be generated.",
+        "blocked_cut_or_rewrite batches must not be generated until script changes are made.",
+        "Do not generate VO line-by-line in isolation.",
+        "Litany batches keep confession and elaboration lines adjacent.",
+        "Scratch output is not shipping audio and remains blocked by VO commercial readiness.",
+        "Keep the accepted Litany/Registrar duel format."
+    )
+    queues = [ordered]@{
+        scratch_ready = $readyRows
+        blocked_pending_cast_decision = $blockedRows
+        blocked_cut_or_rewrite = $cutRewriteRows
+    }
+}
+
+$queue | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $jsonPath -Encoding UTF8
+$queueRows | Export-Csv -LiteralPath $csvPath -NoTypeInformation -Encoding UTF8
+
+$lines = @(
+    "# VO Recording Queue",
+    "",
+    'Generated by `tools/Export-VoRecordingQueue.ps1` from `docs/vo/vo_recording_batches.json` and `docs/vo/vo_cast_plan.json`.',
+    "",
+    "Purpose: scratch VO recording queue. Lists safe-to-generate batches separately from batches blocked by pending minor-speaker decisions or cut/rewrite work.",
+    "",
+    "Generated at UTC: $generatedAtUtc",
+    "",
+    "Source modified UTC:",
+    "- docs/vo/vo_recording_batches.json: $($sourceModifiedUtc["docs/vo/vo_recording_batches.json"])",
+    "- docs/vo/vo_cast_plan.json: $($sourceModifiedUtc["docs/vo/vo_cast_plan.json"])",
+    "",
+    "Recording status: unrecorded",
+    "Shipping status: scratch_only_not_shipping_audio",
+    "Total batches: $($queueRows.Count)",
+    "Scratch-ready batches: $($readyRows.Count)",
+    "Blocked batches: $($blockedRows.Count)",
+    "Cut/rewrite blocked batches: $($cutRewriteRows.Count)",
+    "Scratch-ready lines: $([int]$readyLineCount)",
+    "Blocked lines: $([int]$blockedLineCount)",
+    "Scratch-ready words: $([int]$readyWordCount)",
+    "Blocked words: $([int]$blockedWordCount)",
+    "",
+    "Rule locks:",
+    "- Only scratch_ready batches may be generated for timing tests.",
+    "- blocked_pending_cast_decision batches must not be generated.",
+    "- blocked_cut_or_rewrite batches must not be generated until script changes are made.",
+    "- Do not generate VO line-by-line in isolation.",
+    "- Litany batches keep confession and elaboration lines adjacent.",
+    "- Scratch output is not shipping audio and remains blocked by VO commercial readiness.",
+    "- Keep the accepted Litany/Registrar duel format.",
+    "",
+    "## Scratch-Ready Summary",
+    "",
+    "| Speaker | Batches | Lines | Words |",
+    "|---|---:|---:|---:|"
+)
+
+foreach ($group in ($readyRows | Group-Object speaker | Sort-Object Name)) {
+    $lines += "| $($group.Name) | $($group.Count) | $((@($group.Group) | Measure-Object line_count -Sum).Sum) | $((@($group.Group) | Measure-Object word_count -Sum).Sum) |"
+}
+
+$lines += ""
+$lines += "## Blocked Summary"
+$lines += ""
+$lines += "| Speaker | Batches | Lines | Words | Reason |"
+$lines += "|---|---:|---:|---:|---|"
+foreach ($group in (@($blockedRows + $cutRewriteRows) | Group-Object speaker | Sort-Object Name)) {
+    $reason = if (@($group.Group | Where-Object { $_.queue_status -eq "blocked_cut_or_rewrite" }).Count -gt 0) { "Script cut or rewrite is required before scratch generation." } else { "Speaker requires cast or consolidation decision before scratch generation." }
+    $lines += "| $($group.Name) | $($group.Count) | $((@($group.Group) | Measure-Object line_count -Sum).Sum) | $((@($group.Group) | Measure-Object word_count -Sum).Sum) | $reason |"
+}
+
+$lines += ""
+$lines += "## First 25 Scratch-Ready Batches"
+$lines += ""
+$lines += "| Batch | Speaker | Type | Lines | Words | First line |"
+$lines += "|---|---|---|---:|---:|---|"
+foreach ($row in ($readyRows | Select-Object -First 25)) {
+    $lines += "| $($row.batch_id) | $($row.speaker) | $($row.batch_type) | $($row.line_count) | $($row.word_count) | $($row.first_line_id) |"
+}
+
+Set-Content -LiteralPath $mdPath -Value $lines -Encoding UTF8
+
+Write-Host "Exported VO recording queue JSON -> $jsonPath"
+Write-Host "Exported VO recording queue CSV -> $csvPath"
+Write-Host "Exported VO recording queue report -> $mdPath"
+Write-Host "VO recording queue: ready=$($readyRows.Count) batches/$([int]$readyLineCount) lines, blocked=$($blockedRows.Count) batches/$([int]$blockedLineCount) lines"

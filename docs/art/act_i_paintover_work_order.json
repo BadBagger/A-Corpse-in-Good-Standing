@@ -1,0 +1,20 @@
+﻿{
+    "generated_from":  [
+                           "docs/art/act_i_paintover_start_gate.json",
+                           "docs/art/act_i_paintover_source_scaffold.json",
+                           "docs/art/act_i_paintover_packet.json"
+                       ],
+    "purpose":  "Approved-room final paintover work order for Act I.",
+    "status":  "empty_pending_human_review",
+    "ready_room_count":  0,
+    "blocked_room_count":  11,
+    "rule_locks":  [
+                       "Only rooms with ready_for_paintover true and no blockers may appear here.",
+                       "Do not create placeholder PSDs to satisfy the work order.",
+                       "Accepted Litany/Registrar duel format remains locked.",
+                       "Grey Float remains hard-R: steam, silhouette, privacy, and agency only."
+                   ],
+    "rooms":  [
+
+              ]
+}

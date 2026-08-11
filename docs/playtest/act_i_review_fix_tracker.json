@@ -1,0 +1,672 @@
+﻿{
+    "generated_from":  "docs/art/act_i_paintover_packet.json",
+    "purpose":  "Convert Act I human greybox and art-readability review findings into room-level fixes before final paintover.",
+    "allowed_room_statuses":  [
+                                  "pending_review",
+                                  "approved",
+                                  "revise_before_art",
+                                  "stop_and_redesign"
+                              ],
+    "allowed_hotspot_statuses":  [
+                                     "pending_review",
+                                     "readable",
+                                     "unclear",
+                                     "move_before_paint"
+                                 ],
+    "rooms":  [
+                  {
+                      "room_id":  "mudflats",
+                      "room_code":  "R01",
+                      "title":  "Mudflats",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/mudflats.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/mudflats_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-mudflats",
+                      "risk_tags":  [
+                                        "close_pair_spacing"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "SaltMarketExit",
+                                                    "label":  "road to the Salt Market",
+                                                    "position":  "1765, 665",
+                                                    "roles":  [
+                                                                  "custom_navigation"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+                                                {
+                                                    "pair":  "OwnHands / Coat at 75px",
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  },
+                  {
+                      "room_id":  "old_quay",
+                      "room_code":  "R02",
+                      "title":  "The Old Quay",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/old_quay.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/old_quay_blockout_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-old_quay",
+                      "risk_tags":  [
+                                        "wet_readability",
+                                        "confession_source_readability",
+                                        "close_pair_spacing"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "Tomas",
+                                                    "label":  "Bollard Tomas",
+                                                    "position":  "470, 720",
+                                                    "roles":  [
+                                                                  "conditional_followup",
+                                                                  "confession_source"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "Flask",
+                                                    "label":  "Empty flask",
+                                                    "position":  "1180, 760",
+                                                    "roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "RopeCleat",
+                                                    "label":  "Rope cleat",
+                                                    "position":  "720, 800",
+                                                    "roles":  [
+                                                                  "wet_verb",
+                                                                  "item_reward"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+                                                {
+                                                    "pair":  "BollardLedger / SilentBollards at 40.3px",
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  },
+                  {
+                      "room_id":  "salt_market",
+                      "room_code":  "R03",
+                      "title":  "Salt Market",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/salt_market.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/salt_market_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-salt_market",
+                      "risk_tags":  [
+                                        "wet_readability",
+                                        "confession_source_readability",
+                                        "close_pair_spacing"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ChurchSign",
+                                                    "label":  "Church sign",
+                                                    "position":  "1380, 540",
+                                                    "roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "BootStall",
+                                                    "label":  "Boot stall",
+                                                    "position":  "300, 720",
+                                                    "roles":  [
+                                                                  "gated"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "Fishmonger",
+                                                    "label":  "Fishmonger",
+                                                    "position":  "520, 720",
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "ConfessionQueue",
+                                                    "label":  "Confession queue",
+                                                    "position":  "1180, 720",
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "MarketCrowd",
+                                                    "label":  "Crowd",
+                                                    "position":  "960, 760",
+                                                    "roles":  [
+                                                                  "confession_source",
+                                                                  "item_reward"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+                                                {
+                                                    "pair":  "Fishmonger / ToRegistry at 70px",
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "pair":  "ConfessionQueue / ToAlmshouse at 88.5px",
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  },
+                  {
+                      "room_id":  "harbor_registry",
+                      "room_code":  "R05",
+                      "title":  "Harbor Registry",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/harbor_registry.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/harbor_registry_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-harbor_registry",
+                      "risk_tags":  [
+                                        "wet_readability",
+                                        "confession_source_readability",
+                                        "duel_format_lock"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "KestrelLedger",
+                                                    "label":  "Kestrel ledger",
+                                                    "position":  "1220, 610",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "confession_source",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "DeskLamp",
+                                                    "label":  "Desk lamp",
+                                                    "position":  "890, 650",
+                                                    "roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "Registrar",
+                                                    "label":  "Registrar",
+                                                    "position":  "980, 690",
+                                                    "roles":  [
+                                                                  "duel",
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  },
+                  {
+                      "room_id":  "bone_chandler",
+                      "room_code":  "R06",
+                      "title":  "The Bone Chandler",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/bone_chandler.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/bone_chandler_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-bone_chandler",
+                      "risk_tags":  [
+                                        "general_layout_readability"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ProsperWatch",
+                                                    "label":  "Prosper\u0027s watch",
+                                                    "position":  "1010, 700",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  },
+                  {
+                      "room_id":  "almshouse",
+                      "room_code":  "R07",
+                      "title":  "The Almshouse",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/almshouse.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/almshouse_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-almshouse",
+                      "risk_tags":  [
+                                        "general_layout_readability"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "HalfCoinProsper",
+                                                    "label":  "Half-Coin Prosper",
+                                                    "position":  "980, 700",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  },
+                  {
+                      "room_id":  "fish_hall",
+                      "room_code":  "R08",
+                      "title":  "The Fish Hall",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/fish_hall.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/fish_hall_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-fish_hall",
+                      "risk_tags":  [
+                                        "wet_readability",
+                                        "confession_source_readability"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "VisitorBook",
+                                                    "label":  "Visitor book",
+                                                    "position":  "1260, 690",
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "CoronerTag",
+                                                    "label":  "Coroner tag",
+                                                    "position":  "960, 710",
+                                                    "roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "Drain",
+                                                    "label":  "Drain",
+                                                    "position":  "1500, 780",
+                                                    "roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  },
+                  {
+                      "room_id":  "church_of_the_drowned",
+                      "room_code":  "R09",
+                      "title":  "Church of the Drowned",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/church_of_the_drowned.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/church_of_the_drowned_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-church_of_the_drowned",
+                      "risk_tags":  [
+                                        "confession_source_readability"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ConfessionBooth",
+                                                    "label":  "Confession booth",
+                                                    "position":  "780, 650",
+                                                    "roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "RateCard",
+                                                    "label":  "Teodor\u0027s stall",
+                                                    "position":  "940, 700",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "confession_source",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "PoorBox",
+                                                    "label":  "Poor box",
+                                                    "position":  "620, 720",
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  },
+                  {
+                      "room_id":  "grey_float",
+                      "room_code":  "R10",
+                      "title":  "The Grey Float",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/grey_float.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/grey_float_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-grey_float",
+                      "risk_tags":  [
+                                        "confession_source_readability",
+                                        "hard_r_float_staging",
+                                        "unsafe_amber_exception"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "BilgeRegulator",
+                                                    "label":  "Bilge regulator",
+                                                    "position":  "900, 700",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "StaffCorner",
+                                                    "label":  "Staff corner",
+                                                    "position":  "620, 710",
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                },
+                                                {
+                                                    "name":  "HotPool",
+                                                    "label":  "Hot pool",
+                                                    "position":  "1220, 720",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "gated"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  },
+                  {
+                      "room_id":  "harbormaster_office",
+                      "room_code":  "R11",
+                      "title":  "Harbormaster\u0027s Office",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/harbormaster_office.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/harbormaster_office_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-harbormaster_office",
+                      "risk_tags":  [
+                                        "general_layout_readability"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ChecklistClerk",
+                                                    "label":  "Checklist clerk",
+                                                    "position":  "960, 700",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "gated"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  },
+                  {
+                      "room_id":  "sabine_office",
+                      "room_code":  "R12",
+                      "title":  "Sabine\u0027s Office",
+                      "review_status":  "pending_review",
+                      "paintover_status":  "pending",
+                      "paintover_source":  "art/src/backgrounds/act_i/sabine_office.psd",
+                      "blockout_export":  "art/export/backgrounds/act_i/sabine_office_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-sabine_office",
+                      "risk_tags":  [
+                                        "general_layout_readability"
+                                    ],
+                      "fix_buckets":  {
+                                          "layout":  "",
+                                          "hotspot_readability":  "",
+                                          "walk_band":  "",
+                                          "palette_lighting":  "",
+                                          "content_compliance":  "",
+                                          "duel_format":  "",
+                                          "vo_timing_or_pacing":  ""
+                                      },
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "SabineDesk",
+                                                    "label":  "Sabine\u0027s desk",
+                                                    "position":  "960, 690",
+                                                    "roles":  [
+                                                                  "gated"
+                                                              ],
+                                                    "review_status":  "pending_review",
+                                                    "fix_note":  ""
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false
+                  }
+              ]
+}
+
+
+
+
+
+

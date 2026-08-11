@@ -1,0 +1,763 @@
+﻿{
+    "generated_from":  [
+                           "docs/art/act_i_background_manifest.json",
+                           "docs/art/act_i_blockout_tasks.json",
+                           "docs/art/act_i_background_asset_status.csv",
+                           "docs/art/act_i_background_palette_audit.csv"
+                       ],
+    "purpose":  "Per-room Act I final-paintover packet derived from validated greybox and art-readiness evidence.",
+    "scope":  "Act I only. This does not authorize Acts II-III art pass.",
+    "palette":  {
+                    "bone_paper_white":  "#E4DCC8",
+                    "wet_black":  "#0C1013",
+                    "harbor_slate":  "#2A3A40",
+                    "absinthe_green":  "#7D9B4E",
+                    "whale_oil_amber":  "#C98A3C",
+                    "arterial_red":  "#8E1B22",
+                    "rule":  "amber = alive; green = wrong; arterial red \u003c= 5 scenes across the game"
+                },
+    "rooms":  [
+                  {
+                      "room_id":  "mudflats",
+                      "room_code":  "R01",
+                      "title":  "Mudflats",
+                      "source_blend":  "art/src/backgrounds/act_i/mudflats.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/mudflats_bg.png",
+                      "godot_background":  "game/rooms/mudflats/background/mudflats_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/mudflats.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-mudflats",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "cold dawn mud, low slate horizon, bone ribs as distant readable shapes",
+                      "interaction_priorities":  [
+                                                     "custom_navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Scripted navigation hotspot `road to the Salt Market` must read as a walkable transition around 1765, 665."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "SaltMarketExit",
+                                                    "label":  "road to the Salt Market",
+                                                    "position":  "1765, 665",
+                                                    "roles":  [
+                                                                  "custom_navigation"
+                                                              ],
+                                                    "paintover_note":  "Signal this as a navigation pull even though it is implemented as a scripted hotspot."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+                                                "OwnHands / Coat at 75px"
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  },
+                  {
+                      "room_id":  "old_quay",
+                      "room_code":  "R02",
+                      "title":  "The Old Quay",
+                      "source_blend":  "art/src/backgrounds/act_i/old_quay.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/old_quay_blockout_bg.png",
+                      "godot_background":  "game/rooms/old_quay/background/old_quay_blockout_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/old_quay.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-old_quay",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "wet black pilings, bone bollards, sparse amber lamps, harbor slate negative space",
+                      "interaction_priorities":  [
+                                                     "conditional_followup",
+                                                     "confession_source",
+                                                     "item_reward",
+                                                     "wet_verb",
+                                                     "navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 1700, 700.",
+                                               "Exit `Mudflats` to `Mudflats` must read as a walkable transition around 180, 760."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "Tomas",
+                                                    "label":  "Bollard Tomas",
+                                                    "position":  "470, 720",
+                                                    "roles":  [
+                                                                  "conditional_followup",
+                                                                  "confession_source"
+                                                              ],
+                                                    "paintover_note":  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface. Keep the actor/prop readable for a later revisited interaction state."
+                                                },
+                                                {
+                                                    "name":  "Flask",
+                                                    "label":  "Empty flask",
+                                                    "position":  "1180, 760",
+                                                    "roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                                    "paintover_note":  "Reserve a clear pickup silhouette and hand-height access path."
+                                                },
+                                                {
+                                                    "name":  "RopeCleat",
+                                                    "label":  "Rope cleat",
+                                                    "position":  "720, 800",
+                                                    "roles":  [
+                                                                  "wet_verb",
+                                                                  "item_reward"
+                                                              ],
+                                                    "paintover_note":  "Make the wet interaction target visually reachable from Corvin\u0027s side-on staging and readable before final paint. Reserve a clear pickup silhouette and hand-height access path."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+                                                "BollardLedger / SilentBollards at 40.3px"
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  },
+                  {
+                      "room_id":  "salt_market",
+                      "room_code":  "R03",
+                      "title":  "Salt Market",
+                      "source_blend":  "art/src/backgrounds/act_i/salt_market.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/salt_market_bg.png",
+                      "godot_background":  "game/rooms/salt_market/background/salt_market_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/salt_market.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-salt_market",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "busy public hub, amber life pockets against slate street, boots and queue readable at a glance",
+                      "interaction_priorities":  [
+                                                     "wet_verb",
+                                                     "gated",
+                                                     "confession_source",
+                                                     "item_reward",
+                                                     "navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Exit `Registry` to `HarborRegistry` must read as a walkable transition around 520, 650.",
+                                               "Exit `Church` to `ChurchOfTheDrowned` must read as a walkable transition around 1660, 650.",
+                                               "Exit `Bone Chandler` to `BoneChandler` must read as a walkable transition around 820, 655.",
+                                               "Exit `Almshouse` to `Almshouse` must read as a walkable transition around 1120, 655.",
+                                               "Exit `Fish Hall` to `FishHall` must read as a walkable transition around 1390, 655.",
+                                               "Exit `Old Quay` to `OldQuay` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ChurchSign",
+                                                    "label":  "Church sign",
+                                                    "position":  "1380, 540",
+                                                    "roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                                    "paintover_note":  "Make the wet interaction target visually reachable from Corvin\u0027s side-on staging and readable before final paint."
+                                                },
+                                                {
+                                                    "name":  "BootStall",
+                                                    "label":  "Boot stall",
+                                                    "position":  "300, 720",
+                                                    "roles":  [
+                                                                  "gated"
+                                                              ],
+                                                    "paintover_note":  "Keep as room texture unless later script polish makes it progression-critical."
+                                                },
+                                                {
+                                                    "name":  "Fishmonger",
+                                                    "label":  "Fishmonger",
+                                                    "position":  "520, 720",
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "paintover_note":  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface."
+                                                },
+                                                {
+                                                    "name":  "ConfessionQueue",
+                                                    "label":  "Confession queue",
+                                                    "position":  "1180, 720",
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "paintover_note":  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface."
+                                                },
+                                                {
+                                                    "name":  "MarketCrowd",
+                                                    "label":  "Crowd",
+                                                    "position":  "960, 760",
+                                                    "roles":  [
+                                                                  "confession_source",
+                                                                  "item_reward"
+                                                              ],
+                                                    "paintover_note":  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface. Reserve a clear pickup silhouette and hand-height access path."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+                                                "Fishmonger / ToRegistry at 70px",
+                                                "ConfessionQueue / ToAlmshouse at 88.5px"
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  },
+                  {
+                      "room_id":  "harbor_registry",
+                      "room_code":  "R05",
+                      "title":  "Harbor Registry",
+                      "source_blend":  "art/src/backgrounds/act_i/harbor_registry.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/harbor_registry_bg.png",
+                      "godot_background":  "game/rooms/harbor_registry/background/harbor_registry_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/harbor_registry.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-harbor_registry",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "paper-white ledgers, hard ink shadows, green wrong-light at the desk lamp once wet/smoked",
+                      "interaction_priorities":  [
+                                                     "blocked_feedback",
+                                                     "confession_source",
+                                                     "item_reward",
+                                                     "gated",
+                                                     "wet_verb",
+                                                     "duel",
+                                                     "navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "KestrelLedger",
+                                                    "label":  "Kestrel ledger",
+                                                    "position":  "1220, 610",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "confession_source",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "paintover_note":  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface. Reserve a clear pickup silhouette and hand-height access path. Leave space for a readable blocked-state reaction or staging beat."
+                                                },
+                                                {
+                                                    "name":  "DeskLamp",
+                                                    "label":  "Desk lamp",
+                                                    "position":  "890, 650",
+                                                    "roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                                    "paintover_note":  "Make the wet interaction target visually reachable from Corvin\u0027s side-on staging and readable before final paint."
+                                                },
+                                                {
+                                                    "name":  "Registrar",
+                                                    "label":  "Registrar",
+                                                    "position":  "980, 690",
+                                                    "roles":  [
+                                                                  "duel",
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "paintover_note":  "Frame this as a formal duel position while preserving the existing Litany UI flow; do not add a second confession-spend interface. Reserve a clear pickup silhouette and hand-height access path. Leave space for a readable blocked-state reaction or staging beat."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  },
+                  {
+                      "room_id":  "bone_chandler",
+                      "room_code":  "R06",
+                      "title":  "The Bone Chandler",
+                      "source_blend":  "art/src/backgrounds/act_i/bone_chandler.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/bone_chandler_bg.png",
+                      "godot_background":  "game/rooms/bone_chandler/background/bone_chandler_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/bone_chandler.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-bone_chandler",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "bone-white wares in wet-black racks, dusty amber trade counter, no red accents",
+                      "interaction_priorities":  [
+                                                     "blocked_feedback",
+                                                     "item_reward",
+                                                     "gated",
+                                                     "navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Exit `Almshouse` to `Almshouse` must read as a walkable transition around 1700, 730.",
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ProsperWatch",
+                                                    "label":  "Prosper\u0027s watch",
+                                                    "position":  "1010, 700",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "paintover_note":  "Reserve a clear pickup silhouette and hand-height access path. Leave space for a readable blocked-state reaction or staging beat."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  },
+                  {
+                      "room_id":  "almshouse",
+                      "room_code":  "R07",
+                      "title":  "The Almshouse",
+                      "source_blend":  "art/src/backgrounds/act_i/almshouse.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/almshouse_bg.png",
+                      "godot_background":  "game/rooms/almshouse/background/almshouse_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/almshouse.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-almshouse",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "thin harbor light, salt sheets, low warmth, readable window/cots without softening the rot",
+                      "interaction_priorities":  [
+                                                     "blocked_feedback",
+                                                     "item_reward",
+                                                     "gated",
+                                                     "navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 1700, 730.",
+                                               "Exit `Bone Chandler` to `BoneChandler` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "HalfCoinProsper",
+                                                    "label":  "Half-Coin Prosper",
+                                                    "position":  "980, 700",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "paintover_note":  "Reserve a clear pickup silhouette and hand-height access path. Leave space for a readable blocked-state reaction or staging beat."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  },
+                  {
+                      "room_id":  "fish_hall",
+                      "room_code":  "R08",
+                      "title":  "The Fish Hall",
+                      "source_blend":  "art/src/backgrounds/act_i/fish_hall.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/fish_hall_bg.png",
+                      "godot_background":  "game/rooms/fish_hall/background/fish_hall_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/fish_hall.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-fish_hall",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "ice table and tag as brightest proof objects, cold slate, minimal amber",
+                      "interaction_priorities":  [
+                                                     "confession_source",
+                                                     "item_reward",
+                                                     "wet_verb",
+                                                     "navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "VisitorBook",
+                                                    "label":  "Visitor book",
+                                                    "position":  "1260, 690",
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "paintover_note":  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface."
+                                                },
+                                                {
+                                                    "name":  "CoronerTag",
+                                                    "label":  "Coroner tag",
+                                                    "position":  "960, 710",
+                                                    "roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                                    "paintover_note":  "Reserve a clear pickup silhouette and hand-height access path."
+                                                },
+                                                {
+                                                    "name":  "Drain",
+                                                    "label":  "Drain",
+                                                    "position":  "1500, 780",
+                                                    "roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                                    "paintover_note":  "Make the wet interaction target visually reachable from Corvin\u0027s side-on staging and readable before final paint."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  },
+                  {
+                      "room_id":  "church_of_the_drowned",
+                      "room_code":  "R09",
+                      "title":  "Church of the Drowned",
+                      "source_blend":  "art/src/backgrounds/act_i/church_of_the_drowned.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/church_of_the_drowned_bg.png",
+                      "godot_background":  "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/church_of_the_drowned.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-church_of_the_drowned",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "absinthe-green institutional wrongness, bone paperwork, Church commerce staging",
+                      "interaction_priorities":  [
+                                                     "item_reward",
+                                                     "blocked_feedback",
+                                                     "confession_source",
+                                                     "gated",
+                                                     "navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Exit `Grey Float` to `GreyFloat` must read as a walkable transition around 1700, 730.",
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ConfessionBooth",
+                                                    "label":  "Confession booth",
+                                                    "position":  "780, 650",
+                                                    "roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                                    "paintover_note":  "Reserve a clear pickup silhouette and hand-height access path."
+                                                },
+                                                {
+                                                    "name":  "RateCard",
+                                                    "label":  "Teodor\u0027s stall",
+                                                    "position":  "940, 700",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "confession_source",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "paintover_note":  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface. Reserve a clear pickup silhouette and hand-height access path. Leave space for a readable blocked-state reaction or staging beat."
+                                                },
+                                                {
+                                                    "name":  "PoorBox",
+                                                    "label":  "Poor box",
+                                                    "position":  "620, 720",
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "paintover_note":  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  },
+                  {
+                      "room_id":  "grey_float",
+                      "room_code":  "R10",
+                      "title":  "The Grey Float",
+                      "source_blend":  "art/src/backgrounds/act_i/grey_float.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/grey_float_bg.png",
+                      "godot_background":  "game/rooms/grey_float/background/grey_float_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/grey_float.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-grey_float",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "the only unsafe amber room; steam silhouettes and warm privacy without explicit depiction",
+                      "interaction_priorities":  [
+                                                     "blocked_feedback",
+                                                     "item_reward",
+                                                     "gated",
+                                                     "confession_source",
+                                                     "navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Exit `Harbormaster` to `HarbormasterOffice` must read as a walkable transition around 1700, 730.",
+                                               "Exit `Church` to `ChurchOfTheDrowned` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "BilgeRegulator",
+                                                    "label":  "Bilge regulator",
+                                                    "position":  "900, 700",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "paintover_note":  "Reserve a clear pickup silhouette and hand-height access path. Leave space for a readable blocked-state reaction or staging beat."
+                                                },
+                                                {
+                                                    "name":  "StaffCorner",
+                                                    "label":  "Staff corner",
+                                                    "position":  "620, 710",
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "paintover_note":  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface."
+                                                },
+                                                {
+                                                    "name":  "HotPool",
+                                                    "label":  "Hot pool",
+                                                    "position":  "1220, 720",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "gated"
+                                                              ],
+                                                    "paintover_note":  "Leave space for a readable blocked-state reaction or staging beat."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  },
+                  {
+                      "room_id":  "harbormaster_office",
+                      "room_code":  "R11",
+                      "title":  "Harbormaster\u0027s Office",
+                      "source_blend":  "art/src/backgrounds/act_i/harbormaster_office.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/harbormaster_office_bg.png",
+                      "godot_background":  "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/harbormaster_office.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-harbormaster_office",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "official amber restraint, frosted glass, checklist as the clearest prop",
+                      "interaction_priorities":  [
+                                                     "blocked_feedback",
+                                                     "gated",
+                                                     "navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Exit `Sabine` to `SabineOffice` must read as a walkable transition around 1700, 730.",
+                                               "Exit `Grey Float` to `GreyFloat` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ChecklistClerk",
+                                                    "label":  "Checklist clerk",
+                                                    "position":  "960, 700",
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "gated"
+                                                              ],
+                                                    "paintover_note":  "Leave space for a readable blocked-state reaction or staging beat."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  },
+                  {
+                      "room_id":  "sabine_office",
+                      "room_code":  "R12",
+                      "title":  "Sabine\u0027s Office",
+                      "source_blend":  "art/src/backgrounds/act_i/sabine_office.blend",
+                      "blockout_export":  "art/export/backgrounds/act_i/sabine_office_bg.png",
+                      "godot_background":  "game/rooms/sabine_office/background/sabine_office_bg.png",
+                      "paintover_source":  "art/src/backgrounds/act_i/sabine_office.psd",
+                      "paintover_status":  "pending",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-sabine_office",
+                      "palette_audit":  {
+                                            "status":  "audited",
+                                            "in_gamut_percent":  "100",
+                                            "arterial_red_pixels":  "0",
+                                            "pass":  "True"
+                                        },
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "walk_band":  "y 650-800",
+                                     "side_on":  true
+                                 },
+                      "tone":  "controlled authority, wet-black floor reflection, Sabine\u0027s desk and wrist-check staging space",
+                      "interaction_priorities":  [
+                                                     "gated",
+                                                     "navigation"
+                                                 ],
+                      "navigation_notes":  [
+                                               "Exit `Harbormaster` to `HarbormasterOffice` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "SabineDesk",
+                                                    "label":  "Sabine\u0027s desk",
+                                                    "position":  "960, 690",
+                                                    "roles":  [
+                                                                  "gated"
+                                                              ],
+                                                    "paintover_note":  "Keep as room texture unless later script polish makes it progression-critical."
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "paintover_rules":  [
+                                              "Keep puzzle-relevant objects as the brightest readable shapes in frame.",
+                                              "Do not move hotspot centers without updating the Godot scene and regenerating the hotspot map.",
+                                              "Preserve the y 650-800 walk band as clear navigable ground.",
+                                              "Use only the locked palette family; any exported PNG must pass G9/G10 before shipping.",
+                                              "Do not add explicit sexual imagery; Grey Float stays hard-R through steam, silhouette, labor, and privacy staging."
+                                          ]
+                  }
+              ]
+}

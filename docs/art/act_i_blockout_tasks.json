@@ -1,0 +1,586 @@
+﻿{
+    "generated_from":  "docs/art/act_i_background_manifest.json",
+    "close_pair_threshold_px":  90,
+    "rooms":  [
+                  {
+                      "room_id":  "mudflats",
+                      "room_code":  "R01",
+                      "title":  "Mudflats",
+                      "source_blend":  "art/src/backgrounds/act_i/mudflats.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Scripted navigation hotspot `road to the Salt Market` must read as a walkable transition around 1765, 665."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "SaltMarketExit",
+                                                    "label":  "road to the Salt Market",
+                                                    "x":  1765,
+                                                    "y":  665,
+                                                    "roles":  [
+                                                                  "custom_navigation"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Signal this as a navigation pull even though it is implemented as a scripted hotspot."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+                                                {
+                                                    "a":  "OwnHands",
+                                                    "b":  "Coat",
+                                                    "distance_px":  75
+                                                }
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/mudflats_bg.png"
+                  },
+                  {
+                      "room_id":  "old_quay",
+                      "room_code":  "R02",
+                      "title":  "The Old Quay",
+                      "source_blend":  "art/src/backgrounds/act_i/old_quay.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 1700, 700.",
+                                               "Exit `Mudflats` to `Mudflats` must read as a walkable transition around 180, 760."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "Tomas",
+                                                    "label":  "Bollard Tomas",
+                                                    "x":  470,
+                                                    "y":  720,
+                                                    "roles":  [
+                                                                  "conditional_followup",
+                                                                  "confession_source"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface.",
+                                                                  "Keep the actor/prop readable for a later revisited interaction state."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "Flask",
+                                                    "label":  "Empty flask",
+                                                    "x":  1180,
+                                                    "y":  760,
+                                                    "roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Reserve a clear pickup silhouette and hand-height access path."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "RopeCleat",
+                                                    "label":  "Rope cleat",
+                                                    "x":  720,
+                                                    "y":  800,
+                                                    "roles":  [
+                                                                  "wet_verb",
+                                                                  "item_reward"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Make the wet interaction target visually reachable from Corvin\u0027s side-on staging and readable before final paint.",
+                                                                  "Reserve a clear pickup silhouette and hand-height access path."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+                                                {
+                                                    "a":  "BollardLedger",
+                                                    "b":  "SilentBollards",
+                                                    "distance_px":  40.3
+                                                }
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/old_quay_blockout_bg.png"
+                  },
+                  {
+                      "room_id":  "salt_market",
+                      "room_code":  "R03",
+                      "title":  "Salt Market",
+                      "source_blend":  "art/src/backgrounds/act_i/salt_market.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Exit `Registry` to `HarborRegistry` must read as a walkable transition around 520, 650.",
+                                               "Exit `Church` to `ChurchOfTheDrowned` must read as a walkable transition around 1660, 650.",
+                                               "Exit `Bone Chandler` to `BoneChandler` must read as a walkable transition around 820, 655.",
+                                               "Exit `Almshouse` to `Almshouse` must read as a walkable transition around 1120, 655.",
+                                               "Exit `Fish Hall` to `FishHall` must read as a walkable transition around 1390, 655.",
+                                               "Exit `Old Quay` to `OldQuay` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ChurchSign",
+                                                    "label":  "Church sign",
+                                                    "x":  1380,
+                                                    "y":  540,
+                                                    "roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Make the wet interaction target visually reachable from Corvin\u0027s side-on staging and readable before final paint."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "BootStall",
+                                                    "label":  "Boot stall",
+                                                    "x":  300,
+                                                    "y":  720,
+                                                    "roles":  [
+                                                                  "gated"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Keep as room texture unless later script polish makes it progression-critical."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "Fishmonger",
+                                                    "label":  "Fishmonger",
+                                                    "x":  520,
+                                                    "y":  720,
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "ConfessionQueue",
+                                                    "label":  "Confession queue",
+                                                    "x":  1180,
+                                                    "y":  720,
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "MarketCrowd",
+                                                    "label":  "Crowd",
+                                                    "x":  960,
+                                                    "y":  760,
+                                                    "roles":  [
+                                                                  "confession_source",
+                                                                  "item_reward"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface.",
+                                                                  "Reserve a clear pickup silhouette and hand-height access path."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+                                                {
+                                                    "a":  "Fishmonger",
+                                                    "b":  "ToRegistry",
+                                                    "distance_px":  70
+                                                },
+                                                {
+                                                    "a":  "ConfessionQueue",
+                                                    "b":  "ToAlmshouse",
+                                                    "distance_px":  88.5
+                                                }
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/salt_market_bg.png"
+                  },
+                  {
+                      "room_id":  "harbor_registry",
+                      "room_code":  "R05",
+                      "title":  "Harbor Registry",
+                      "source_blend":  "art/src/backgrounds/act_i/harbor_registry.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "KestrelLedger",
+                                                    "label":  "Kestrel ledger",
+                                                    "x":  1220,
+                                                    "y":  610,
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "confession_source",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface.",
+                                                                  "Reserve a clear pickup silhouette and hand-height access path.",
+                                                                  "Leave space for a readable blocked-state reaction or staging beat."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "DeskLamp",
+                                                    "label":  "Desk lamp",
+                                                    "x":  890,
+                                                    "y":  650,
+                                                    "roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Make the wet interaction target visually reachable from Corvin\u0027s side-on staging and readable before final paint."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "Registrar",
+                                                    "label":  "Registrar",
+                                                    "x":  980,
+                                                    "y":  690,
+                                                    "roles":  [
+                                                                  "duel",
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Frame this as a formal duel position while preserving the existing Litany UI flow; do not add a second confession-spend interface.",
+                                                                  "Reserve a clear pickup silhouette and hand-height access path.",
+                                                                  "Leave space for a readable blocked-state reaction or staging beat."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/harbor_registry_bg.png"
+                  },
+                  {
+                      "room_id":  "bone_chandler",
+                      "room_code":  "R06",
+                      "title":  "The Bone Chandler",
+                      "source_blend":  "art/src/backgrounds/act_i/bone_chandler.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Exit `Almshouse` to `Almshouse` must read as a walkable transition around 1700, 730.",
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ProsperWatch",
+                                                    "label":  "Prosper\u0027s watch",
+                                                    "x":  1010,
+                                                    "y":  700,
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Reserve a clear pickup silhouette and hand-height access path.",
+                                                                  "Leave space for a readable blocked-state reaction or staging beat."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/bone_chandler_bg.png"
+                  },
+                  {
+                      "room_id":  "almshouse",
+                      "room_code":  "R07",
+                      "title":  "The Almshouse",
+                      "source_blend":  "art/src/backgrounds/act_i/almshouse.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 1700, 730.",
+                                               "Exit `Bone Chandler` to `BoneChandler` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "HalfCoinProsper",
+                                                    "label":  "Half-Coin Prosper",
+                                                    "x":  980,
+                                                    "y":  700,
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Reserve a clear pickup silhouette and hand-height access path.",
+                                                                  "Leave space for a readable blocked-state reaction or staging beat."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/almshouse_bg.png"
+                  },
+                  {
+                      "room_id":  "fish_hall",
+                      "room_code":  "R08",
+                      "title":  "The Fish Hall",
+                      "source_blend":  "art/src/backgrounds/act_i/fish_hall.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "VisitorBook",
+                                                    "label":  "Visitor book",
+                                                    "x":  1260,
+                                                    "y":  690,
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "CoronerTag",
+                                                    "label":  "Coroner tag",
+                                                    "x":  960,
+                                                    "y":  710,
+                                                    "roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Reserve a clear pickup silhouette and hand-height access path."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "Drain",
+                                                    "label":  "Drain",
+                                                    "x":  1500,
+                                                    "y":  780,
+                                                    "roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Make the wet interaction target visually reachable from Corvin\u0027s side-on staging and readable before final paint."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/fish_hall_bg.png"
+                  },
+                  {
+                      "room_id":  "church_of_the_drowned",
+                      "room_code":  "R09",
+                      "title":  "Church of the Drowned",
+                      "source_blend":  "art/src/backgrounds/act_i/church_of_the_drowned.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Exit `Grey Float` to `GreyFloat` must read as a walkable transition around 1700, 730.",
+                                               "Exit `Salt Market` to `SaltMarket` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ConfessionBooth",
+                                                    "label":  "Confession booth",
+                                                    "x":  780,
+                                                    "y":  650,
+                                                    "roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Reserve a clear pickup silhouette and hand-height access path."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "RateCard",
+                                                    "label":  "Teodor\u0027s stall",
+                                                    "x":  940,
+                                                    "y":  700,
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "confession_source",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface.",
+                                                                  "Reserve a clear pickup silhouette and hand-height access path.",
+                                                                  "Leave space for a readable blocked-state reaction or staging beat."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "PoorBox",
+                                                    "label":  "Poor box",
+                                                    "x":  620,
+                                                    "y":  720,
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/church_of_the_drowned_bg.png"
+                  },
+                  {
+                      "room_id":  "grey_float",
+                      "room_code":  "R10",
+                      "title":  "The Grey Float",
+                      "source_blend":  "art/src/backgrounds/act_i/grey_float.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Exit `Harbormaster` to `HarbormasterOffice` must read as a walkable transition around 1700, 730.",
+                                               "Exit `Church` to `ChurchOfTheDrowned` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "BilgeRegulator",
+                                                    "label":  "Bilge regulator",
+                                                    "x":  900,
+                                                    "y":  700,
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Reserve a clear pickup silhouette and hand-height access path.",
+                                                                  "Leave space for a readable blocked-state reaction or staging beat."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "StaffCorner",
+                                                    "label":  "Staff corner",
+                                                    "x":  620,
+                                                    "y":  710,
+                                                    "roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Stage this as an overheard or discovered truth source without making it look like a separate duel interface."
+                                                              ]
+                                                },
+                                                {
+                                                    "name":  "HotPool",
+                                                    "label":  "Hot pool",
+                                                    "x":  1220,
+                                                    "y":  720,
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "gated"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Leave space for a readable blocked-state reaction or staging beat."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/grey_float_bg.png"
+                  },
+                  {
+                      "room_id":  "harbormaster_office",
+                      "room_code":  "R11",
+                      "title":  "Harbormaster\u0027s Office",
+                      "source_blend":  "art/src/backgrounds/act_i/harbormaster_office.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Exit `Sabine` to `SabineOffice` must read as a walkable transition around 1700, 730.",
+                                               "Exit `Grey Float` to `GreyFloat` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "ChecklistClerk",
+                                                    "label":  "Checklist clerk",
+                                                    "x":  960,
+                                                    "y":  700,
+                                                    "roles":  [
+                                                                  "blocked_feedback",
+                                                                  "gated"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Leave space for a readable blocked-state reaction or staging beat."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/harbormaster_office_bg.png"
+                  },
+                  {
+                      "room_id":  "sabine_office",
+                      "room_code":  "R12",
+                      "title":  "Sabine\u0027s Office",
+                      "source_blend":  "art/src/backgrounds/act_i/sabine_office.blend",
+                      "camera":  {
+                                     "resolution":  "1920x1080",
+                                     "framing":  "fixed side-on orthographic adventure-game room",
+                                     "walk_band":  "y 650-800"
+                                 },
+                      "navigation_tasks":  [
+                                               "Exit `Harbormaster` to `HarbormasterOffice` must read as a walkable transition around 180, 740."
+                                           ],
+                      "critical_hotspots":  [
+                                                {
+                                                    "name":  "SabineDesk",
+                                                    "label":  "Sabine\u0027s desk",
+                                                    "x":  960,
+                                                    "y":  690,
+                                                    "roles":  [
+                                                                  "gated"
+                                                              ],
+                                                    "tasks":  [
+                                                                  "Keep as room texture unless later script polish makes it progression-critical."
+                                                              ]
+                                                }
+                                            ],
+                      "close_pair_review":  [
+
+                                            ],
+                      "export_target":  "art/export/backgrounds/act_i/sabine_office_bg.png"
+                  }
+              ]
+}

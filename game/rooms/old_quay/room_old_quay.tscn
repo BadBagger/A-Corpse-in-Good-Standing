@@ -1,0 +1,450 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
+[ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
+[ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
+[ext_resource type="Script" path="res://game/rooms/background_image_loader.gd" id="5_bg_loader"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.164706, 0.227451, 0.25098, 1, 0.894118, 0.862745, 0.784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_1"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_2"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_3"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_4"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_5"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_6"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_7"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_8"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_9"]
+size = Vector2(260, 150)
+
+[node name="RoomOldQuay" type="Node2D"]
+script = ExtResource("1_room")
+script_name = "OldQuay"
+has_player = true
+width = 1920
+height = 1080
+room_code = "R02"
+room_title = "The Old Quay"
+room_notes = "Rotting boardwalk, bollards, rope cleat, flask. Tomas unlocks the Act I map."
+
+[node name="Background" type="Sprite2D" parent="."]
+script = ExtResource("5_bg_loader")
+background_path = "res://game/rooms/old_quay/background/old_quay_blockout_bg.png"
+centered = false
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.164706, 0.227451, 0.25098, 0.2)
+polygon = PackedVector2Array(0, 700, 1920, 620, 1920, 1080, 0, 1080)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 44.0
+offset_right = 980.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "R02 / The Old Quay"
+
+[node name="NotesLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1180.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Rotting boardwalk, bollards, rope cleat, flask. Tomas unlocks the Act I map."
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="WalkableMain" type="Polygon2D" parent="WalkableAreas"]
+color = Color(0.494118, 0.607843, 0.305882, 0.35)
+polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="ToMudflats" type="Area2D" parent="Hotspots"]
+position = Vector2(180, 760)
+script = ExtResource("3_exit")
+script_name = "ToMudflats"
+description = "Mudflats"
+target_room = "Mudflats"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Mudflats. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Mudflats."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToMudflats"]
+shape = SubResource("RectangleShape2D_exit_1")
+
+[node name="Label" type="Label" parent="Hotspots/ToMudflats"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Mudflats"
+
+[node name="ToSaltMarket" type="Area2D" parent="Hotspots"]
+position = Vector2(1700, 700)
+script = ExtResource("3_exit")
+script_name = "ToSaltMarket"
+description = "Salt Market"
+target_room = "SaltMarket"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Salt Market. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Salt Market."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToSaltMarket"]
+shape = SubResource("RectangleShape2D_exit_2")
+
+[node name="Label" type="Label" parent="Hotspots/ToSaltMarket"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Salt Market"
+
+[node name="Tomas" type="Area2D" parent="Hotspots"]
+position = Vector2(470, 720)
+script = ExtResource("4_interaction")
+script_name = "Tomas"
+description = "Bollard Tomas"
+interaction_key = "tomas"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_tomas_topics_seen"])
+confessions_discover = Array[String](["cf_pride_list", "cf_cow_leftroom", "cf_greed_widows"])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "old_quay_tomas_topics"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String](["FL_bollard_petra_seen", "FL_bollard_ledger_seen", "FL_bollard_bride_seen"])
+alternate_message = "Tomas notices Corvin has made the whole silent row personal. Mordida does that to a man if he lets it."
+alternate_flags_set = Array[String](["FL_bollard_row_reported"])
+alternate_ink_knot = "old_quay_bollards_all_seen"
+blocked_text = ""
+look_text = "Tomas is the fourth bollard, and the only one with opinions still above water."
+use_text = "Corvin refuses to untie anything from Tomas without a better understanding of maritime law."
+talk_text = "Tomas gives the useful version: warmth, pulse, Prosper, Registry. It is almost kind."
+walk_text = "Corvin crouches to eye level with a mooring post and somehow comes out less dignified."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/Tomas"]
+shape = SubResource("RectangleShape2D_interaction_3")
+
+[node name="Label" type="Label" parent="Hotspots/Tomas"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Bollard Tomas"
+
+[node name="BollardPetra" type="Area2D" parent="Hotspots"]
+position = Vector2(690, 700)
+script = ExtResource("4_interaction")
+script_name = "BollardPetra"
+description = "Bollard Petra"
+interaction_key = "bollard_petra"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_bollard_petra_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "old_quay_bollard_petra"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Petra, if Tomas is right. Salt has sealed her mouth in a line that used to sing."
+use_text = "Corvin keeps his hands off the salt. There are boundaries even here."
+talk_text = "Corvin says Petra's name. The harbor answers for her, badly."
+walk_text = "Corvin stands by the end bollard and lets the rope creak do the talking."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/BollardPetra"]
+shape = SubResource("RectangleShape2D_interaction_4")
+
+[node name="Label" type="Label" parent="Hotspots/BollardPetra"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Bollard Petra"
+
+[node name="BollardLedger" type="Area2D" parent="Hotspots"]
+position = Vector2(870, 705)
+script = ExtResource("4_interaction")
+script_name = "BollardLedger"
+description = "Ledger bollard"
+interaction_key = "bollard_ledger"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_bollard_ledger_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "old_quay_bollard_ledger"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "This one calcified with a rope groove where a collar should have been."
+use_text = "Corvin has no business testing whether a dead neck still remembers pressure."
+talk_text = "Corvin tries hello. Nothing comes back but gulls and bad timing."
+walk_text = "Corvin gives the mooring rope a wide berth. It has practice making people useful."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/BollardLedger"]
+shape = SubResource("RectangleShape2D_interaction_5")
+
+[node name="Label" type="Label" parent="Hotspots/BollardLedger"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Ledger bollard"
+
+[node name="BollardBride" type="Area2D" parent="Hotspots"]
+position = Vector2(1050, 715)
+script = ExtResource("4_interaction")
+script_name = "BollardBride"
+description = "Bride bollard"
+interaction_key = "bollard_bride"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_bollard_bride_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "old_quay_bollard_bride"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "A ring has gone white on one swollen finger. Someone tied boats to a marriage."
+use_text = "Corvin decides not to pry at the ring. That might be growth."
+talk_text = "Corvin apologizes to the bollard and immediately dislikes himself for choosing the easy audience."
+walk_text = "Corvin stands where the quay turns people into hardware and calls it infrastructure."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/BollardBride"]
+shape = SubResource("RectangleShape2D_interaction_6")
+
+[node name="Label" type="Label" parent="Hotspots/BollardBride"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Bride bollard"
+
+[node name="SilentBollards" type="Area2D" parent="Hotspots"]
+position = Vector2(910, 710)
+script = ExtResource("4_interaction")
+script_name = "SilentBollards"
+description = "Silent bollards"
+interaction_key = "silent_bollards"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_silent_bollards_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "old_quay_silent_bollards"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Grey. Person-shaped if you're not careful about it."
+use_text = "Corvin decides not to test whether they still bruise."
+talk_text = "Corvin talks to the silent bollards. Tomas tells him they are past wanting to answer."
+walk_text = "Corvin stands among the town's future hardware and counts too many faces."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/SilentBollards"]
+shape = SubResource("RectangleShape2D_interaction_7")
+
+[node name="Label" type="Label" parent="Hotspots/SilentBollards"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Silent bollards"
+
+[node name="Flask" type="Area2D" parent="Hotspots"]
+position = Vector2(1180, 760)
+script = ExtResource("4_interaction")
+script_name = "Flask"
+description = "Empty flask"
+interaction_key = "flask"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String](["IT_flask"])
+flags_set = Array[String](["FL_flask_taken"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "old_quay_flask"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Somebody's flask. Empty, obviously. This is a working quay."
+use_text = "Corvin takes the empty flask. It is evidence until proven otherwise."
+talk_text = "Corvin asks the flask for courage. The flask has been out of courage for hours."
+walk_text = "Corvin steps around the flask, then thinks better of leaving useful trash behind."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/Flask"]
+shape = SubResource("RectangleShape2D_interaction_8")
+
+[node name="Label" type="Label" parent="Hotspots/Flask"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Empty flask"
+
+[node name="RopeCleat" type="Area2D" parent="Hotspots"]
+position = Vector2(720, 800)
+script = ExtResource("4_interaction")
+script_name = "RopeCleat"
+description = "Rope cleat"
+interaction_key = "rope_cleat"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String](["IT_knuckle_salt"])
+flags_set = Array[String](["FL_salt_scraped"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String](["IT_knuckle_salt"])
+wet_flags_set = Array[String](["FL_salt_scraped"])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = "old_quay_rope_cleat"
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "old_quay_rope_cleat"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "A rope cleat crusted with salt from men who kept walking."
+use_text = "Corvin scrapes fresh salt from his own knuckles against the cleat."
+talk_text = "Corvin asks the cleat for mercy. It remains professionally maritime."
+walk_text = "Corvin stands close enough to regret having feet."
+wet_text = "Corvin presses his wet knuckles to the cleat and scrapes loose fresh salt."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/RopeCleat"]
+shape = SubResource("RectangleShape2D_interaction_9")
+
+[node name="Label" type="Label" parent="Hotspots/RopeCleat"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Rope cleat"
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Markers"]
+position = Vector2(960, 790)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="PrologueHud" parent="." instance=ExtResource("2_hud")]

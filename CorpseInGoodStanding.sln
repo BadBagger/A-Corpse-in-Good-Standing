@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "duels", "duels", "{03E2C6EB-454A-4037-B1BF-8BD6B51041FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corpse.Duels", "duels\Corpse.Duels\Corpse.Duels.csproj", "{0DCB4BFC-5818-4B0D-A397-E2D986DB7E8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A0FDF89F-EF88-4601-83FD-3E5651729130}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corpse.Duels.Tests", "tests\Corpse.Duels.Tests\Corpse.Duels.Tests.csproj", "{CFCFBCF9-1807-4D4A-BE80-0092F4DCF309}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "prototype", "prototype", "{50355185-BFE2-4B12-9144-FFDB2598E1E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corpse.DuelConsole", "prototype\Corpse.DuelConsole\Corpse.DuelConsole.csproj", "{33B7CCEC-CBCA-4E18-A39D-A0C49750AE38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "narrative", "narrative", "{6D200F65-1D47-4AF9-BDAD-22C4E3E9D21F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corpse.Narrative", "narrative\Corpse.Narrative\Corpse.Narrative.csproj", "{A04A53B6-5282-421D-90FC-ABB87CB42351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corpse.Narrative.Tests", "tests\Corpse.Narrative.Tests\Corpse.Narrative.Tests.csproj", "{AC1DF431-C034-467C-80D5-A0759C876B00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DCB4BFC-5818-4B0D-A397-E2D986DB7E8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DCB4BFC-5818-4B0D-A397-E2D986DB7E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DCB4BFC-5818-4B0D-A397-E2D986DB7E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DCB4BFC-5818-4B0D-A397-E2D986DB7E8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFCFBCF9-1807-4D4A-BE80-0092F4DCF309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFCFBCF9-1807-4D4A-BE80-0092F4DCF309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFCFBCF9-1807-4D4A-BE80-0092F4DCF309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFCFBCF9-1807-4D4A-BE80-0092F4DCF309}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33B7CCEC-CBCA-4E18-A39D-A0C49750AE38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33B7CCEC-CBCA-4E18-A39D-A0C49750AE38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33B7CCEC-CBCA-4E18-A39D-A0C49750AE38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33B7CCEC-CBCA-4E18-A39D-A0C49750AE38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A04A53B6-5282-421D-90FC-ABB87CB42351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A04A53B6-5282-421D-90FC-ABB87CB42351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A04A53B6-5282-421D-90FC-ABB87CB42351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A04A53B6-5282-421D-90FC-ABB87CB42351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC1DF431-C034-467C-80D5-A0759C876B00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1DF431-C034-467C-80D5-A0759C876B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1DF431-C034-467C-80D5-A0759C876B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1DF431-C034-467C-80D5-A0759C876B00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DCB4BFC-5818-4B0D-A397-E2D986DB7E8C} = {03E2C6EB-454A-4037-B1BF-8BD6B51041FA}
+		{CFCFBCF9-1807-4D4A-BE80-0092F4DCF309} = {A0FDF89F-EF88-4601-83FD-3E5651729130}
+		{33B7CCEC-CBCA-4E18-A39D-A0C49750AE38} = {50355185-BFE2-4B12-9144-FFDB2598E1E2}
+		{A04A53B6-5282-421D-90FC-ABB87CB42351} = {6D200F65-1D47-4AF9-BDAD-22C4E3E9D21F}
+		{AC1DF431-C034-467C-80D5-A0759C876B00} = {A0FDF89F-EF88-4601-83FD-3E5651729130}
+	EndGlobalSection
+EndGlobal

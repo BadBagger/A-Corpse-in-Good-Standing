@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "act": "I",
+  "description": "Machine-readable Act I greybox puzzle dependency graph. Nodes describe state milestones; edges describe prerequisite flow. This is design review data, not runtime state.",
+  "nodes": [
+    { "id": "start", "type": "start", "label": "Act I start after prologue tutorial" },
+    { "id": "map_open", "type": "flag", "label": "Act I town map is available" },
+
+    { "id": "FL_tomas_topics_seen", "type": "flag", "room": "OldQuay", "label": "Tomas hint hub has covered the three Rites" },
+    { "id": "FL_silent_bollards_seen", "type": "flag", "room": "OldQuay", "label": "Silent bollards foreshadow day-nine calcification" },
+    { "id": "IT_flask", "type": "item", "room": "OldQuay", "label": "Empty flask from the quay" },
+    { "id": "FL_flask_taken", "type": "flag", "room": "OldQuay", "label": "Empty flask pickup recorded" },
+
+    { "id": "BorrowedBoots", "type": "item", "room": "SaltMarket", "label": "Borrowed boots from public recognition beat" },
+    { "id": "FL_market_recognized", "type": "flag", "room": "SaltMarket", "label": "Market recognizes Corvin as returned" },
+    { "id": "FL_market_lamp_checked", "type": "flag", "room": "SaltMarket", "label": "Whale-oil lamp warmth read" },
+    { "id": "FL_church_sign_wet", "type": "flag", "room": "SaltMarket", "label": "Wet verb smears Church tariff sign" },
+
+    { "id": "IT_coroner_tag", "type": "item", "room": "FishHall", "label": "Coroner tag proves day count" },
+    { "id": "FL_knows_daycount", "type": "flag", "room": "FishHall", "label": "Corvin knows the narrative clock" },
+    { "id": "FL_body_fit_confirmed", "type": "flag", "room": "FishHall", "label": "Ice table confirms Corvin's body was held here" },
+    { "id": "FL_sabine_absent_from_book", "type": "flag", "room": "FishHall", "label": "Visitor book shows Sabine did not sign in" },
+
+    { "id": "IT_knuckle_salt", "type": "item", "room": "OldQuay", "label": "Fresh salt scraped from Corvin's knuckles" },
+    { "id": "IT_watch", "type": "item", "room": "BoneChandler", "label": "Prosper's watch recovered from the Chandler" },
+    { "id": "IT_forgiveness", "type": "item", "room": "Almshouse", "label": "Signed debt forgiveness" },
+    { "id": "FL_rite_debt", "type": "rite", "room": "Almshouse", "label": "Rite complete: A Debt Forgiven" },
+
+    { "id": "FL_registry_lamp_smoked", "type": "flag", "room": "HarborRegistry", "label": "Wet verb smokes Registry desk lamp" },
+    { "id": "IT_ledger_page", "type": "item", "room": "HarborRegistry", "label": "Kestrel ledger page" },
+    { "id": "cf_bt_manifest", "type": "confession", "room": "HarborRegistry", "label": "BETRAYAL confession from Kestrel manifest" },
+    { "id": "FL_rite_name", "type": "rite", "room": "HarborRegistry", "label": "Rite complete: A Name Restored" },
+
+    { "id": "IT_chit", "type": "item", "room": "ChurchOfTheDrowned", "label": "Confession chit granting booth access" },
+    { "id": "IT_rate_card", "type": "item", "room": "ChurchOfTheDrowned", "label": "Church rate card from Teodor's stall" },
+    { "id": "FL_teodor_owes", "type": "flag", "room": "ChurchOfTheDrowned", "label": "Teodor owes Corvin after booth coverage" },
+    { "id": "FL_kane_seen", "type": "flag", "room": "ChurchOfTheDrowned", "label": "Kane first appears in the confession booth" },
+    { "id": "IT_regulator", "type": "item", "room": "GreyFloat", "label": "Clockwork bilge regulator from Juno" },
+    { "id": "FL_juno_met", "type": "flag", "room": "GreyFloat", "label": "Juno grants regulator and pool permission" },
+    { "id": "FL_float_warmth_active", "type": "flag", "room": "GreyFloat", "label": "Borrowed warmth from the hot pool" },
+    { "id": "FL_rite_heartbeat", "type": "rite", "room": "HarbormasterOffice", "label": "Rite complete: A Borrowed Heartbeat" },
+
+    { "id": "FL_act_i_complete", "type": "act_gate", "room": "SabineOffice", "label": "Sabine audience reached after all three Rites" }
+  ],
+  "edges": [
+    { "from": "start", "to": "map_open", "kind": "progression" },
+
+    { "from": "map_open", "to": "FL_tomas_topics_seen", "kind": "hint_hub" },
+    { "from": "map_open", "to": "FL_silent_bollards_seen", "kind": "optional_texture" },
+    { "from": "map_open", "to": "IT_flask", "kind": "optional_inventory" },
+    { "from": "IT_flask", "to": "FL_flask_taken", "kind": "pickup_state" },
+
+    { "from": "map_open", "to": "BorrowedBoots", "kind": "discovery" },
+    { "from": "map_open", "to": "FL_market_recognized", "kind": "discovery" },
+    { "from": "map_open", "to": "FL_market_lamp_checked", "kind": "optional_texture" },
+    { "from": "map_open", "to": "FL_church_sign_wet", "kind": "wet_verb" },
+
+    { "from": "map_open", "to": "IT_coroner_tag", "kind": "discovery" },
+    { "from": "IT_coroner_tag", "to": "FL_knows_daycount", "kind": "proof" },
+    { "from": "map_open", "to": "FL_body_fit_confirmed", "kind": "optional_texture" },
+    { "from": "map_open", "to": "FL_sabine_absent_from_book", "kind": "optional_texture" },
+
+    { "from": "map_open", "to": "IT_knuckle_salt", "kind": "wet_verb" },
+    { "from": "IT_knuckle_salt", "to": "IT_watch", "kind": "trade" },
+    { "from": "IT_watch", "to": "IT_forgiveness", "kind": "puzzle" },
+    { "from": "IT_forgiveness", "to": "FL_rite_debt", "kind": "rite_complete" },
+
+    { "from": "map_open", "to": "FL_registry_lamp_smoked", "kind": "wet_verb" },
+    { "from": "FL_registry_lamp_smoked", "to": "IT_ledger_page", "kind": "distraction" },
+    { "from": "IT_ledger_page", "to": "cf_bt_manifest", "kind": "confession_unlock" },
+    { "from": "cf_bt_manifest", "to": "FL_rite_name", "kind": "duel_required_counter" },
+
+    { "from": "map_open", "to": "IT_chit", "kind": "booth_access" },
+    { "from": "IT_chit", "to": "IT_rate_card", "kind": "booth_coverage" },
+    { "from": "IT_rate_card", "to": "FL_teodor_owes", "kind": "side_effect" },
+    { "from": "IT_rate_card", "to": "FL_kane_seen", "kind": "side_effect" },
+    { "from": "IT_rate_card", "to": "IT_regulator", "kind": "trade" },
+    { "from": "IT_regulator", "to": "FL_juno_met", "kind": "permission" },
+    { "from": "FL_juno_met", "to": "FL_float_warmth_active", "kind": "warmth" },
+    { "from": "IT_regulator", "to": "FL_rite_heartbeat", "kind": "fake_pulse" },
+    { "from": "FL_float_warmth_active", "to": "FL_rite_heartbeat", "kind": "warmth_check" },
+
+    { "from": "FL_rite_name", "to": "FL_act_i_complete", "kind": "act_gate" },
+    { "from": "FL_rite_debt", "to": "FL_act_i_complete", "kind": "act_gate" },
+    { "from": "FL_rite_heartbeat", "to": "FL_act_i_complete", "kind": "act_gate" }
+  ],
+  "required_rite_nodes": [
+    "FL_rite_name",
+    "FL_rite_debt",
+    "FL_rite_heartbeat"
+  ],
+  "act_complete_node": "FL_act_i_complete"
+}

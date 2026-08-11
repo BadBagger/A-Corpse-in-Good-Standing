@@ -1,0 +1,279 @@
+﻿{
+    "generated_from":  "docs/art/act_i_paintover_packet.json",
+    "purpose":  "Create safe per-room paintover source scaffolds without marking final PSD paintover sources present.",
+    "rooms":  [
+                  {
+                      "room_id":  "mudflats",
+                      "room_code":  "R01",
+                      "title":  "Mudflats",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/mudflats.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/mudflats.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/mudflats_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-mudflats",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "close_pair_spacing"
+                                    ]
+                  },
+                  {
+                      "room_id":  "old_quay",
+                      "room_code":  "R02",
+                      "title":  "The Old Quay",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/old_quay.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/old_quay.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/old_quay_blockout_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-old_quay",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "wet_readability",
+                                        "confession_source_readability",
+                                        "close_pair_spacing"
+                                    ]
+                  },
+                  {
+                      "room_id":  "salt_market",
+                      "room_code":  "R03",
+                      "title":  "Salt Market",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/salt_market.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/salt_market.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/salt_market_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-salt_market",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "wet_readability",
+                                        "confession_source_readability",
+                                        "close_pair_spacing"
+                                    ]
+                  },
+                  {
+                      "room_id":  "harbor_registry",
+                      "room_code":  "R05",
+                      "title":  "Harbor Registry",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/harbor_registry.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/harbor_registry.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/harbor_registry_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-harbor_registry",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "wet_readability",
+                                        "confession_source_readability",
+                                        "duel_format_lock"
+                                    ]
+                  },
+                  {
+                      "room_id":  "bone_chandler",
+                      "room_code":  "R06",
+                      "title":  "The Bone Chandler",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/bone_chandler.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/bone_chandler.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/bone_chandler_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-bone_chandler",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "general_layout_readability"
+                                    ]
+                  },
+                  {
+                      "room_id":  "almshouse",
+                      "room_code":  "R07",
+                      "title":  "The Almshouse",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/almshouse.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/almshouse.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/almshouse_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-almshouse",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "general_layout_readability"
+                                    ]
+                  },
+                  {
+                      "room_id":  "fish_hall",
+                      "room_code":  "R08",
+                      "title":  "The Fish Hall",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/fish_hall.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/fish_hall.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/fish_hall_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-fish_hall",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "wet_readability",
+                                        "confession_source_readability"
+                                    ]
+                  },
+                  {
+                      "room_id":  "church_of_the_drowned",
+                      "room_code":  "R09",
+                      "title":  "Church of the Drowned",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/church_of_the_drowned.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/church_of_the_drowned.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/church_of_the_drowned_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-church_of_the_drowned",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "confession_source_readability"
+                                    ]
+                  },
+                  {
+                      "room_id":  "grey_float",
+                      "room_code":  "R10",
+                      "title":  "The Grey Float",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/grey_float.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/grey_float.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/grey_float_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-grey_float",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "confession_source_readability",
+                                        "hard_r_float_staging",
+                                        "unsafe_amber_exception"
+                                    ]
+                  },
+                  {
+                      "room_id":  "harbormaster_office",
+                      "room_code":  "R11",
+                      "title":  "Harbormaster\u0027s Office",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/harbormaster_office.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/harbormaster_office.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/harbormaster_office_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-harbormaster_office",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "general_layout_readability"
+                                    ]
+                  },
+                  {
+                      "room_id":  "sabine_office",
+                      "room_code":  "R12",
+                      "title":  "Sabine\u0027s Office",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/sabine_office.paintover.md",
+                      "target_paintover_source":  "art/src/backgrounds/act_i/sabine_office.psd",
+                      "target_status_remains":  "pending",
+                      "blockout_reference":  "art/export/backgrounds/act_i/sabine_office_bg.png",
+                      "overlay":  "docs/art/act_i_hotspot_overlay.svg#room-sabine_office",
+                      "layer_stack":  [
+                                          "00_blockout_reference_locked",
+                                          "01_palette_keys_locked",
+                                          "02_value_silhouette_pass",
+                                          "03_navigation_and_walk_band",
+                                          "04_puzzle_hotspot_readability",
+                                          "05_local_lighting_amber_green",
+                                          "06_ink_hatching_texture",
+                                          "07_final_paint",
+                                          "08_export_notes"
+                                      ],
+                      "risk_tags":  [
+                                        "general_layout_readability"
+                                    ]
+                  }
+              ]
+}

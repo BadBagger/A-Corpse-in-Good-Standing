@@ -1,0 +1,147 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
+[ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
+[ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
+[ext_resource type="Script" path="res://game/rooms/background_image_loader.gd" id="5_bg_loader"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.164706, 0.227451, 0.25098, 1, 0.894118, 0.862745, 0.784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_1"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_2"]
+size = Vector2(260, 150)
+
+[node name="RoomSabineOffice" type="Node2D"]
+script = ExtResource("1_room")
+script_name = "SabineOffice"
+has_player = true
+width = 1920
+height = 1080
+room_code = "R12"
+room_title = "Sabine's Office"
+room_notes = "Act I finale: audience with Sabine after all three Rites."
+
+[node name="Background" type="Sprite2D" parent="."]
+script = ExtResource("5_bg_loader")
+background_path = "res://game/rooms/sabine_office/background/sabine_office_bg.png"
+centered = false
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.164706, 0.227451, 0.25098, 0.2)
+polygon = PackedVector2Array(0, 700, 1920, 620, 1920, 1080, 0, 1080)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 44.0
+offset_right = 980.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "R12 / Sabine's Office"
+
+[node name="NotesLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1180.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Act I finale: audience with Sabine after all three Rites."
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="WalkableMain" type="Polygon2D" parent="WalkableAreas"]
+color = Color(0.494118, 0.607843, 0.305882, 0.35)
+polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="ToHarbormaster" type="Area2D" parent="Hotspots"]
+position = Vector2(180, 740)
+script = ExtResource("3_exit")
+script_name = "ToHarbormaster"
+description = "Harbormaster"
+target_room = "HarbormasterOffice"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Harbormaster. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Harbormaster."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToHarbormaster"]
+shape = SubResource("RectangleShape2D_exit_1")
+
+[node name="Label" type="Label" parent="Hotspots/ToHarbormaster"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Harbormaster"
+
+[node name="SabineDesk" type="Area2D" parent="Hotspots"]
+position = Vector2(960, 690)
+script = ExtResource("4_interaction")
+script_name = "SabineDesk"
+description = "Sabine's desk"
+interaction_key = "sabine_desk"
+requires_items = Array[String]([])
+requires_flags = Array[String](["FL_rite_name", "FL_rite_debt", "FL_rite_heartbeat"])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_act_i_complete"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "sabine_act_i_audience"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "Sabine does not receive the dead without standing. Finish the three Rites first."
+look_text = "Sabine's desk is dry, organized, and already winning the argument."
+use_text = "Sabine checks Corvin's wrist. No pulse. Her hand stays there anyway."
+talk_text = "Sabine lets Corvin decide what her explanation is worth. She does not apologize."
+walk_text = "Corvin crosses the carpet and ruins it."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/SabineDesk"]
+shape = SubResource("RectangleShape2D_interaction_2")
+
+[node name="Label" type="Label" parent="Hotspots/SabineDesk"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Sabine's desk"
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Markers"]
+position = Vector2(960, 790)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="PrologueHud" parent="." instance=ExtResource("2_hud")]

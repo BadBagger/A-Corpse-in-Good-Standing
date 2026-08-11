@@ -1,0 +1,38 @@
+﻿{
+    "generated_from":  "tools/Test-InkShaderSpikeStillImages.ps1",
+    "sample_stride":  4,
+    "tolerance":  13,
+    "audited":  2,
+    "pending":  0,
+    "failed":  0,
+    "rows":  [
+                 {
+                     "id":  "raw",
+                     "label":  "R1 raw side-profile",
+                     "status":  "audited",
+                     "width":  1920,
+                     "height":  1080,
+                     "sampled_pixels":  129600,
+                     "opaque_sample_pixels":  129600,
+                     "opaque_percent":  100,
+                     "distinct_opaque_colors":  875,
+                     "in_palette_percent":  14.618,
+                     "pass":  true,
+                     "path":  "art/export/shader_spike/corvin_act_i_clean_side_raw.png"
+                 },
+                 {
+                     "id":  "ramp",
+                     "label":  "R2 two-tone ink ramp",
+                     "status":  "audited",
+                     "width":  1920,
+                     "height":  1080,
+                     "sampled_pixels":  129600,
+                     "opaque_sample_pixels":  129600,
+                     "opaque_percent":  100,
+                     "distinct_opaque_colors":  873,
+                     "in_palette_percent":  16.931,
+                     "pass":  true,
+                     "path":  "art/export/shader_spike/corvin_act_i_clean_side_ink_ramp.png"
+                 }
+             ]
+}

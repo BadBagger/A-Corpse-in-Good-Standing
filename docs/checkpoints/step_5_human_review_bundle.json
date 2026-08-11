@@ -1,0 +1,212 @@
+﻿{
+    "generated_from":  [
+                           "docs/checkpoints/step_5_review_dashboard.json",
+                           "docs/checkpoints/step_5_act_i_art_pass_readiness.md",
+                           "docs/playtest/results/act_i_human_playtest_latest.md",
+                           "docs/playtest/act_i_review_decisions_template.csv",
+                           "docs/playtest/act_i_review_handoff_sync.md",
+                           "docs/art/act_i_paintover_start_gate.json",
+                           "docs/art/act_i_review_contact_sheet.html",
+                           "docs/art/act_i_hotspot_overlay.svg",
+                           "docs/art/act_i_paintover_packet.md"
+                       ],
+    "generated_at_utc":  "2026-08-11T20:56:32.6616856Z",
+    "source_modified_utc":  [
+                                {
+                                    "path":  "docs/checkpoints/step_5_review_dashboard.json",
+                                    "modified_utc":  "2026-08-11T20:56:31.9975809Z"
+                                },
+                                {
+                                    "path":  "docs/checkpoints/step_5_act_i_art_pass_readiness.md",
+                                    "modified_utc":  "2026-08-11T20:52:06.3036460Z"
+                                },
+                                {
+                                    "path":  "docs/playtest/results/act_i_human_playtest_latest.md",
+                                    "modified_utc":  "2026-08-11T20:54:51.7689900Z"
+                                },
+                                {
+                                    "path":  "docs/playtest/act_i_review_decisions_template.csv",
+                                    "modified_utc":  "2026-08-11T20:55:31.0722963Z"
+                                },
+                                {
+                                    "path":  "docs/playtest/act_i_review_handoff_sync.md",
+                                    "modified_utc":  "2026-08-11T20:52:05.7048452Z"
+                                },
+                                {
+                                    "path":  "docs/art/act_i_paintover_start_gate.json",
+                                    "modified_utc":  "2026-08-11T20:56:21.5285706Z"
+                                },
+                                {
+                                    "path":  "docs/art/act_i_review_contact_sheet.html",
+                                    "modified_utc":  "2026-08-11T20:54:51.0965477Z"
+                                },
+                                {
+                                    "path":  "docs/art/act_i_hotspot_overlay.svg",
+                                    "modified_utc":  "2026-08-11T15:35:48.8208500Z"
+                                },
+                                {
+                                    "path":  "docs/art/act_i_paintover_packet.md",
+                                    "modified_utc":  "2026-08-11T20:54:49.6765960Z"
+                                }
+                            ],
+    "purpose":  "Compact Step 5 human-review launch bundle for Act I art-pass review.",
+    "readiness_state":  "green_for_review",
+    "paintover_gate_status":  "blocked_pending_human_review",
+    "ready_rooms":  0,
+    "blocked_rooms":  11,
+    "decision_rows":  11,
+    "launch_command":  "powershell -NoProfile -ExecutionPolicy Bypass -File tools\\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport",
+    "no_launch_preflight_command":  "powershell -NoProfile -ExecutionPolicy Bypass -File tools\\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport -NoLaunch",
+    "dry_run_decisions_command":  "powershell -NoProfile -ExecutionPolicy Bypass -File tools\\Import-ActIReviewDecisions.ps1 -InputCsv docs\\playtest\\act_i_review_decisions_template.csv -DryRun",
+    "apply_decisions_command":  "powershell -NoProfile -ExecutionPolicy Bypass -File tools\\Import-ActIReviewDecisions.ps1 -InputCsv docs\\playtest\\act_i_review_decisions_template.csv -Apply",
+    "rule_locks":  [
+                       "Keep the accepted Litany/Registrar duel format; do not add a second confession-spend UI.",
+                       "Keep Grey Float hard-R: steam, silhouette, privacy, and agency only.",
+                       "Do not start final paintovers while paintover_gate_status is blocked_pending_human_review."
+                   ],
+    "review_artifacts":  [
+                             "docs/checkpoints/step_5_act_i_art_pass_readiness.md",
+                             "docs/checkpoints/step_5_review_dashboard.md",
+                             "docs/playtest/results/act_i_human_playtest_latest.md",
+                             "docs/playtest/act_i_review_decisions_template.csv",
+                             "docs/playtest/act_i_review_handoff_sync.md",
+                             "docs/art/act_i_review_contact_sheet.html",
+                             "docs/art/act_i_hotspot_overlay.svg",
+                             "docs/art/act_i_paintover_packet.md",
+                             "docs/art/act_i_paintover_start_gate.md"
+                         ],
+    "rooms":  [
+                  {
+                      "room_id":  "mudflats",
+                      "room_code":  "R01",
+                      "title":  "Mudflats",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/mudflats.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "old_quay",
+                      "room_code":  "R02",
+                      "title":  "The Old Quay",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/old_quay.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "salt_market",
+                      "room_code":  "R03",
+                      "title":  "Salt Market",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/salt_market.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "harbor_registry",
+                      "room_code":  "R05",
+                      "title":  "Harbor Registry",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/harbor_registry.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "bone_chandler",
+                      "room_code":  "R06",
+                      "title":  "The Bone Chandler",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/bone_chandler.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "almshouse",
+                      "room_code":  "R07",
+                      "title":  "The Almshouse",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/almshouse.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "fish_hall",
+                      "room_code":  "R08",
+                      "title":  "The Fish Hall",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/fish_hall.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "church_of_the_drowned",
+                      "room_code":  "R09",
+                      "title":  "Church of the Drowned",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/church_of_the_drowned.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "grey_float",
+                      "room_code":  "R10",
+                      "title":  "The Grey Float",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/grey_float.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "harbormaster_office",
+                      "room_code":  "R11",
+                      "title":  "Harbormaster\u0027s Office",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/harbormaster_office.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "sabine_office",
+                      "room_code":  "R12",
+                      "title":  "Sabine\u0027s Office",
+                      "review_status":  "pending_review",
+                      "ready_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/sabine_office.psd",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  }
+              ]
+}

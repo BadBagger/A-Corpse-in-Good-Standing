@@ -1,0 +1,702 @@
+$ErrorActionPreference = "Stop"
+
+$root = Split-Path -Parent $PSScriptRoot
+
+$backgroundStatusPath = Join-Path $root "docs\art\act_i_background_asset_status.csv"
+$paletteAuditPath = Join-Path $root "docs\art\act_i_background_palette_audit.csv"
+$corvinStatusPath = Join-Path $root "docs\art\corvin_animation_asset_status.csv"
+$shaderMetricsPath = Join-Path $root "docs\art\ink_shader_spike_metrics_status.json"
+$runtimeSpriteReportPath = Join-Path $root "docs\art\corvin_runtime_sprite_assets_status.md"
+$playtestReportPath = Join-Path $root "docs\playtest\results\act_i_greybox_auto_report.md"
+$paintoverPacketPath = Join-Path $root "docs\art\act_i_paintover_packet.md"
+$artReadabilityReviewPath = Join-Path $root "docs\playtest\act_i_art_readability_review.md"
+$reviewContactSheetPath = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
+$humanReviewNotesPath = Join-Path $root "docs\playtest\results\act_i_human_review_validation.md"
+$voLineManifestPath = Join-Path $root "docs\vo\act_i_vo_line_manifest.json"
+$voLineManifestReportPath = Join-Path $root "docs\vo\act_i_vo_line_manifest.md"
+$confessionVoManifestPath = Join-Path $root "docs\vo\confession_vo_manifest.json"
+$confessionVoManifestReportPath = Join-Path $root "docs\vo\confession_vo_manifest.md"
+$voRecordingBatchesPath = Join-Path $root "docs\vo\vo_recording_batches.json"
+$voRecordingBatchesReportPath = Join-Path $root "docs\vo\vo_recording_batches.md"
+$voCastPlanPath = Join-Path $root "docs\vo\vo_cast_plan.json"
+$voCastPlanReportPath = Join-Path $root "docs\vo\vo_cast_plan.md"
+$voCommercialReadinessPath = Join-Path $root "docs\vo\vo_commercial_readiness.json"
+$voCommercialReadinessReportPath = Join-Path $root "docs\vo\vo_commercial_readiness.md"
+$voRecordingQueuePath = Join-Path $root "docs\vo\vo_recording_queue.json"
+$voRecordingQueueReportPath = Join-Path $root "docs\vo\vo_recording_queue.md"
+$voRecordingPacketsPath = Join-Path $root "docs\vo\vo_recording_packets_index.json"
+$voRecordingPacketsReportPath = Join-Path $root "docs\vo\vo_recording_packets_index.md"
+$voMinorSpeakerTemplatePath = Join-Path $root "docs\vo\vo_minor_speaker_decisions_template.csv"
+$voMinorSpeakerTemplateReportPath = Join-Path $root "docs\vo\vo_minor_speaker_decisions_template.md"
+$voMinorSpeakerImportReportPath = Join-Path $root "docs\vo\vo_minor_speaker_decision_import_report.md"
+$voAudioStatusPath = Join-Path $root "docs\vo\vo_audio_asset_status.json"
+$voAudioStatusReportPath = Join-Path $root "docs\vo\vo_audio_asset_status.md"
+$reviewDecisionTemplatePath = Join-Path $root "docs\playtest\act_i_review_decisions_template.csv"
+$reviewDecisionTemplateReportPath = Join-Path $root "docs\playtest\act_i_review_decisions_template.md"
+$reviewFixTrackerPath = Join-Path $root "docs\playtest\act_i_review_fix_tracker.md"
+$reviewHandoffSyncPath = Join-Path $root "docs\playtest\act_i_review_handoff_sync.md"
+$paintoverSourceScaffoldPath = Join-Path $root "docs\art\act_i_paintover_source_scaffold.md"
+$paintoverStartGatePath = Join-Path $root "docs\art\act_i_paintover_start_gate.md"
+$paintoverWorkOrderPath = Join-Path $root "docs\art\act_i_paintover_work_order.md"
+$paintoverSourceIntakePath = Join-Path $root "docs\art\act_i_paintover_source_intake.md"
+$finalPaintoverCompletionPath = Join-Path $root "docs\art\act_i_final_paintover_completion.md"
+$paintoverReviewProvenancePath = Join-Path $root "docs\art\act_i_paintover_review_provenance.md"
+$paintoverWorkOrderJsonPath = Join-Path $root "docs\art\act_i_paintover_work_order.json"
+$paintoverSourceIntakeJsonPath = Join-Path $root "docs\art\act_i_paintover_source_intake.json"
+$finalPaintoverCompletionJsonPath = Join-Path $root "docs\art\act_i_final_paintover_completion.json"
+$paintoverReviewProvenanceJsonPath = Join-Path $root "docs\art\act_i_paintover_review_provenance.json"
+$reviewDashboardPath = Join-Path $root "docs\checkpoints\step_5_review_dashboard.md"
+$humanReviewBundlePath = Join-Path $root "docs\checkpoints\step_5_human_review_bundle.md"
+$checkpointPath = Join-Path $root "docs\checkpoints\step_5_act_i_art_pass_readiness.md"
+
+foreach ($path in @(
+    $backgroundStatusPath,
+    $paletteAuditPath,
+    $corvinStatusPath,
+    $shaderMetricsPath,
+    $runtimeSpriteReportPath,
+    $playtestReportPath,
+    $paintoverPacketPath,
+    $artReadabilityReviewPath,
+    $reviewContactSheetPath,
+    $humanReviewNotesPath,
+    $voLineManifestPath,
+    $voLineManifestReportPath,
+    $confessionVoManifestPath,
+    $confessionVoManifestReportPath,
+    $voRecordingBatchesPath,
+    $voRecordingBatchesReportPath,
+    $voCastPlanPath,
+    $voCastPlanReportPath,
+    $voCommercialReadinessPath,
+    $voCommercialReadinessReportPath,
+    $voRecordingQueuePath,
+    $voRecordingQueueReportPath,
+    $voRecordingPacketsPath,
+    $voRecordingPacketsReportPath,
+    $voMinorSpeakerTemplatePath,
+    $voMinorSpeakerTemplateReportPath,
+    $voMinorSpeakerImportReportPath,
+    $voAudioStatusPath,
+    $voAudioStatusReportPath,
+    $reviewDecisionTemplatePath,
+    $reviewDecisionTemplateReportPath,
+    $reviewFixTrackerPath,
+    $reviewHandoffSyncPath,
+    $paintoverSourceScaffoldPath,
+    $paintoverStartGatePath,
+    $paintoverWorkOrderPath,
+    $paintoverSourceIntakePath,
+    $finalPaintoverCompletionPath,
+    $paintoverReviewProvenancePath,
+    $paintoverWorkOrderJsonPath,
+    $paintoverSourceIntakeJsonPath,
+    $finalPaintoverCompletionJsonPath,
+    $paintoverReviewProvenanceJsonPath,
+    $reviewDashboardPath,
+    $humanReviewBundlePath
+)) {
+    if (-not (Test-Path -LiteralPath $path)) {
+        throw "Missing Step 5 readiness input: $path"
+    }
+}
+
+$backgroundRows = @(Import-Csv -LiteralPath $backgroundStatusPath)
+$paletteRows = @(Import-Csv -LiteralPath $paletteAuditPath)
+$corvinRows = @(Import-Csv -LiteralPath $corvinStatusPath)
+$shaderMetrics = Get-Content -LiteralPath $shaderMetricsPath -Raw | ConvertFrom-Json
+$runtimeSpriteReport = Get-Content -LiteralPath $runtimeSpriteReportPath -Raw
+$playtestReport = Get-Content -LiteralPath $playtestReportPath -Raw
+$paintoverPacketReport = Get-Content -LiteralPath $paintoverPacketPath -Raw
+$artReadabilityReview = Get-Content -LiteralPath $artReadabilityReviewPath -Raw
+$reviewContactSheet = Get-Content -LiteralPath $reviewContactSheetPath -Raw
+$humanReviewNotes = Get-Content -LiteralPath $humanReviewNotesPath -Raw
+$voLineManifest = Get-Content -LiteralPath $voLineManifestPath -Raw | ConvertFrom-Json
+$voLineManifestReport = Get-Content -LiteralPath $voLineManifestReportPath -Raw
+$confessionVoManifest = Get-Content -LiteralPath $confessionVoManifestPath -Raw | ConvertFrom-Json
+$confessionVoManifestReport = Get-Content -LiteralPath $confessionVoManifestReportPath -Raw
+$voRecordingBatches = Get-Content -LiteralPath $voRecordingBatchesPath -Raw | ConvertFrom-Json
+$voRecordingBatchesReport = Get-Content -LiteralPath $voRecordingBatchesReportPath -Raw
+$voCastPlan = Get-Content -LiteralPath $voCastPlanPath -Raw | ConvertFrom-Json
+$voCastPlanReport = Get-Content -LiteralPath $voCastPlanReportPath -Raw
+$voCommercialReadiness = Get-Content -LiteralPath $voCommercialReadinessPath -Raw | ConvertFrom-Json
+$voCommercialReadinessReport = Get-Content -LiteralPath $voCommercialReadinessReportPath -Raw
+$voRecordingQueue = Get-Content -LiteralPath $voRecordingQueuePath -Raw | ConvertFrom-Json
+$voRecordingQueueReport = Get-Content -LiteralPath $voRecordingQueueReportPath -Raw
+$voRecordingPackets = Get-Content -LiteralPath $voRecordingPacketsPath -Raw | ConvertFrom-Json
+$voRecordingPacketsReport = Get-Content -LiteralPath $voRecordingPacketsReportPath -Raw
+$voMinorSpeakerRows = @(Import-Csv -LiteralPath $voMinorSpeakerTemplatePath)
+$voMinorSpeakerTemplateReport = Get-Content -LiteralPath $voMinorSpeakerTemplateReportPath -Raw
+$voMinorSpeakerImportReport = Get-Content -LiteralPath $voMinorSpeakerImportReportPath -Raw
+$voAudioStatus = Get-Content -LiteralPath $voAudioStatusPath -Raw | ConvertFrom-Json
+$voAudioStatusReport = Get-Content -LiteralPath $voAudioStatusReportPath -Raw
+$reviewDecisionRows = @(Import-Csv -LiteralPath $reviewDecisionTemplatePath)
+$reviewDecisionTemplateReport = Get-Content -LiteralPath $reviewDecisionTemplateReportPath -Raw
+$reviewFixTracker = Get-Content -LiteralPath $reviewFixTrackerPath -Raw
+$reviewHandoffSync = Get-Content -LiteralPath $reviewHandoffSyncPath -Raw
+$paintoverSourceScaffold = Get-Content -LiteralPath $paintoverSourceScaffoldPath -Raw
+$paintoverStartGate = Get-Content -LiteralPath $paintoverStartGatePath -Raw
+$paintoverWorkOrder = Get-Content -LiteralPath $paintoverWorkOrderPath -Raw
+$paintoverSourceIntake = Get-Content -LiteralPath $paintoverSourceIntakePath -Raw
+$finalPaintoverCompletion = Get-Content -LiteralPath $finalPaintoverCompletionPath -Raw
+$paintoverReviewProvenance = Get-Content -LiteralPath $paintoverReviewProvenancePath -Raw
+$paintoverWorkOrderJson = Get-Content -LiteralPath $paintoverWorkOrderJsonPath -Raw | ConvertFrom-Json
+$paintoverSourceIntakeJson = Get-Content -LiteralPath $paintoverSourceIntakeJsonPath -Raw | ConvertFrom-Json
+$finalPaintoverCompletionJson = Get-Content -LiteralPath $finalPaintoverCompletionJsonPath -Raw | ConvertFrom-Json
+$paintoverReviewProvenanceJson = Get-Content -LiteralPath $paintoverReviewProvenanceJsonPath -Raw | ConvertFrom-Json
+$reviewDashboard = Get-Content -LiteralPath $reviewDashboardPath -Raw
+$humanReviewBundle = Get-Content -LiteralPath $humanReviewBundlePath -Raw
+
+if ($backgroundRows.Count -ne 44) {
+    throw "Act I background asset tracker expected 44 rows, got $($backgroundRows.Count)."
+}
+
+$rooms = @($backgroundRows | Group-Object room_id)
+if ($rooms.Count -ne 11) {
+    throw "Act I background readiness expected 11 rooms, got $($rooms.Count)."
+}
+
+foreach ($room in $rooms) {
+    foreach ($kind in @("blend_blockout", "export_png", "godot_import")) {
+        $row = @($room.Group | Where-Object { $_.asset_kind -eq $kind })[0]
+        if ($null -eq $row) {
+            throw "Room $($room.Name) is missing art asset slot $kind."
+        }
+        if ($row.status -ne "present") {
+            throw "Room $($room.Name) art asset $kind must be present before Act I art-pass review."
+        }
+    }
+}
+
+$paintoverRows = @($backgroundRows | Where-Object { $_.asset_kind -eq "paintover_source" })
+if ($paintoverRows.Count -ne 11) {
+    throw "Expected 11 Act I paintover source rows, got $($paintoverRows.Count)."
+}
+$pendingPaintovers = @($paintoverRows | Where-Object { $_.status -eq "pending" })
+
+if ($paletteRows.Count -ne 11) {
+    throw "Act I palette audit expected 11 rows, got $($paletteRows.Count)."
+}
+$failedPaletteRows = @($paletteRows | Where-Object { $_.status -ne "audited" -or $_.pass -ne "True" })
+if ($failedPaletteRows.Count -gt 0) {
+    throw "Act I palette audit has failed or pending rows: $($failedPaletteRows.room_id -join ', ')"
+}
+
+$requiredCorvinAssets = @(
+    "art/export/characters/corvin/act_i_clean/idle_side_right.png",
+    "art/export/characters/corvin/act_i_clean/idle_side_left.png",
+    "art/export/characters/corvin/act_i_clean/walk_side_right.png",
+    "art/export/characters/corvin/act_i_clean/walk_side_left.png",
+    "game/characters/corvin/sprites/act_i_clean/idle_side_right.png",
+    "game/characters/corvin/sprites/act_i_clean/idle_side_left.png",
+    "game/characters/corvin/sprites/act_i_clean/walk_side_right.png",
+    "game/characters/corvin/sprites/act_i_clean/walk_side_left.png"
+)
+foreach ($relativePath in $requiredCorvinAssets) {
+    $row = @($corvinRows | Where-Object { $_.relative_path -eq $relativePath })[0]
+    if ($null -eq $row) {
+        throw "Corvin animation tracker missing required side locomotion asset: $relativePath"
+    }
+    if ($row.status -ne "present") {
+        throw "Corvin required side locomotion asset is not present: $relativePath"
+    }
+}
+
+if ($shaderMetrics.status -ne "audited") {
+    throw "Ink shader yaw metrics must be audited before Act I art-pass readiness: $($shaderMetrics.status)"
+}
+$objectPairwiseMax = [double]$shaderMetrics.object_sequence.pairwise_max_percent
+$objectFirstLastDrift = [double]$shaderMetrics.object_sequence.first_to_last_drift_percent
+$badControlPairwiseMax = [double]$shaderMetrics.bad_control_sequence.pairwise_max_percent
+$pairwiseThreshold = [double]$shaderMetrics.pairwise_threshold_percent
+$firstLastThreshold = [double]$shaderMetrics.first_to_last_drift_threshold_percent
+if ($objectPairwiseMax -gt $pairwiseThreshold) {
+    throw "Ink shader object-anchored pairwise delta exceeds threshold."
+}
+if ($objectFirstLastDrift -gt $firstLastThreshold) {
+    throw "Ink shader object-anchored first-last drift exceeds threshold."
+}
+
+foreach ($requiredText in @(
+    "side_right_side_left_idle_walk_switchable_with_current_side_idle",
+    "Current-side idle: implemented_character_bridge_alias"
+)) {
+    if ($runtimeSpriteReport -notmatch [regex]::Escape($requiredText)) {
+        throw "Corvin runtime sprite report missing required readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    'Transition animation: `walk_side_right`',
+    'direction-aware transition animations',
+    'idle_current_side'
+)) {
+    if ($playtestReport -notmatch [regex]::Escape($requiredText)) {
+        throw "Automated Act I report missing required animation-readiness evidence: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Paintover Packet",
+    "Scope: Act I only",
+    "Registrar duel art must preserve the accepted Litany UI format",
+    "Hard-R line remains locked"
+)) {
+    if ($paintoverPacketReport -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I paintover packet missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Art Readability Review",
+    "Proceed to paintovers: yes / no",
+    "Contact sheet reviewed: yes / no",
+    "Decision CSV date format checked: yes / no",
+    "Registrar duel staging preserves accepted Litany format",
+    "Hard-R Float staging stays steam/silhouette/privacy only"
+)) {
+    if ($artReadabilityReview -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I art readability review missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Review Contact Sheet",
+    "accepted Litany/Registrar duel format",
+    "Grey Float stays hard-R",
+    "review evidence, not final paintover approval"
+)) {
+    if ($reviewContactSheet -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I review contact sheet missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Human Review Notes",
+    "Greybox Playtest",
+    "Art Readability Review",
+    "Proceed to paintovers: yes / no"
+)) {
+    if ($humanReviewNotes -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I human review notes missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I VO Line Manifest",
+    "recording/editing plan for full VO timing",
+    "Dialogue lines are generated from Ink; do not duplicate confession text here.",
+    "Confession VO remains keyed by `data/confessions.json` ids.",
+    "Keep the accepted Litany/Registrar duel format."
+)) {
+    if ($voLineManifestReport -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I VO line manifest report missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Confession VO Manifest",
+    "One confession line and one elaboration line are required for every confession.",
+    "Audio paths must stay keyed by confession id",
+    'Generated text comes from `data/confessions.json`; Ink references confession ids only.',
+    "Keep the accepted Litany/Registrar duel format and global spend rules."
+)) {
+    if ($confessionVoManifestReport -notmatch [regex]::Escape($requiredText)) {
+        throw "Confession VO manifest report missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "VO Recording Batches",
+    "Generated at UTC:",
+    "Source modified UTC:",
+    "Do not generate VO line-by-line in isolation.",
+    "Scene VO batches are speaker runs grouped by Ink knot and kept in source order.",
+    "Litany batches keep each confession immediately followed by its elaboration.",
+    "Keep the accepted Litany/Registrar duel format."
+)) {
+    if ($voRecordingBatchesReport -notmatch [regex]::Escape($requiredText)) {
+        throw "VO recording batch report missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "VO Cast Plan",
+    "Generated at UTC:",
+    "Source modified UTC:",
+    "manifest-driven scratch VO cast plan",
+    "Shipping status: scratch_only_licensing_unverified",
+    "Scratch voices are timing/casting references only until commercial licensing is verified.",
+    "Do not start scratch generation for batches whose speaker remains pending.",
+    "Keep the accepted Litany/Registrar duel format."
+)) {
+    if ($voCastPlanReport -notmatch [regex]::Escape($requiredText)) {
+        throw "VO cast plan report missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "VO Commercial Readiness",
+    "Generated at UTC:",
+    "Source modified UTC:",
+    "Status: blocked_pending_licensing_review",
+    "Shipping approved: false",
+    "Scratch voices are timing/casting references only until commercial licensing is verified.",
+    "Do not count present audio as shippable without licensing/disclosure evidence.",
+    "Do not start scratch generation for batches whose speaker remains pending or blocked for cut/rewrite.",
+    "Minor speakers blocked for cut/rewrite: 0",
+    "Minor speaker work blockers: 8",
+    "Written confirmation that each scratch/final voice may be used in a commercial game"
+)) {
+    if ($voCommercialReadinessReport -notmatch [regex]::Escape($requiredText)) {
+        throw "VO commercial readiness report missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "VO Recording Queue",
+    "Generated at UTC:",
+    "Source modified UTC:",
+    "Scratch-ready batches: 119",
+    "Blocked batches: 17",
+    "Cut/rewrite blocked batches: 0",
+    "Only scratch_ready batches may be generated for timing tests.",
+    "blocked_pending_cast_decision batches must not be generated.",
+    "blocked_cut_or_rewrite batches must not be generated until script changes are made.",
+    "Scratch output is not shipping audio and remains blocked by VO commercial readiness.",
+    "Keep the accepted Litany/Registrar duel format."
+)) {
+    if ($voRecordingQueueReport -notmatch [regex]::Escape($requiredText)) {
+        throw "VO recording queue report missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "VO Recording Packets Index",
+    "Generated at UTC:",
+    "Source modified UTC:",
+    "Packet count: 119",
+    "Blocked packet count: 0",
+    "Cut/rewrite packet count: 0",
+    "Lines in packets: 600",
+    "Only scratch-ready batches get recording packets.",
+    "Blocked pending-cast batches must not get packet files.",
+    "Cut/rewrite blocked batches must not get packet files.",
+    "Scratch packets are not shipping audio approval.",
+    "Keep the accepted Litany/Registrar duel format."
+)) {
+    if ($voRecordingPacketsReport -notmatch [regex]::Escape($requiredText)) {
+        throw "VO recording packet index report missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "VO Minor Speaker Decision Template",
+    "make minor-speaker casting and consolidation decisions explicit",
+    "Every non-pending decision requires notes explaining the casting, consolidation, or script-change rationale.",
+    "Do not start scratch generation for batches whose speaker remains pending."
+)) {
+    if ($voMinorSpeakerTemplateReport -notmatch [regex]::Escape($requiredText)) {
+        throw "VO minor speaker decision template missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "VO Minor Speaker Decision Import Report",
+    "Mode: dry_run",
+    "Rule locks:",
+    "Do not start scratch generation for batches whose speaker remains pending."
+)) {
+    if ($voMinorSpeakerImportReport -notmatch [regex]::Escape($requiredText)) {
+        throw "VO minor speaker decision import report missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "VO Audio Asset Status",
+    "Generated at UTC:",
+    "Source modified UTC:",
+    "Expected audio paths are generated from VO manifests.",
+    "Scratch-ready expected MP3s come from the VO recording queue.",
+    "Blocked pending-cast and cut/rewrite audio paths must not have MP3 files yet.",
+    "Generated recording packets cover scratch-ready batches only.",
+    "Scratch-ready expected: 600",
+    "Blocked expected: 52",
+    "Pending-cast blocked expected: 52",
+    "Cut/rewrite blocked expected: 0",
+    "Present blocked: 0",
+    "Missing audio is allowed during planning; it must not be counted as recorded.",
+    "Zero-byte expected MP3 files fail validation.",
+    'Unplanned MP3 files under `vo/` fail validation.'
+)) {
+    if ($voAudioStatusReport -notmatch [regex]::Escape($requiredText)) {
+        throw "VO audio status report missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Review Fix Tracker",
+    "Global unresolved state",
+    "duel_format_lock",
+    "hard_r_float_staging"
+)) {
+    if ($reviewFixTracker -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I review fix tracker missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Review Handoff Sync",
+    "Tracker rooms: 11",
+    "Decision CSV rows: 11",
+    "Latest notes must include the accepted Litany/Registrar duel-format prompt.",
+    "Latest notes must include the Grey Float hard-R staging prompt.",
+    "Dashboard must list the stable latest notes, decision CSV, review tracker, and contact sheet artifacts."
+)) {
+    if ($reviewHandoffSync -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I review handoff sync missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Review Decision Template",
+    "machine-readable batch handoff",
+    "Allowed decisions: pending_review, approved, revise_before_art, stop_and_redesign.",
+    "YYYY-MM-DD",
+    "Harbor Registry approval must preserve the accepted Litany/Registrar duel format.",
+    "Harbor Registry non-pending decisions must include a duel_format note",
+    "Grey Float non-pending decisions must include a content_compliance note confirming hard-R staging"
+)) {
+    if ($reviewDecisionTemplateReport -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I review decision template missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Paintover Source Scaffold",
+    "must not be counted as paintover completion",
+    "Status Remains"
+)) {
+    if ($paintoverSourceScaffold -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I paintover source scaffold missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Paintover Start Gate",
+    "Status:",
+    "Ready rooms:",
+    "Blocked rooms:"
+)) {
+    if ($paintoverStartGate -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I paintover start gate missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Paintover Work Order",
+    "Ready rooms in work order:",
+    "Do not create placeholder PSDs",
+    "Accepted Litany/Registrar duel format remains locked",
+    "Grey Float remains hard-R"
+)) {
+    if ($paintoverWorkOrder -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I paintover work order missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Paintover Source Intake",
+    "Unapproved present:",
+    "A PSD can count only when the room appears in the approved-room work order",
+    "Accepted Litany/Registrar duel format remains locked",
+    "Grey Float remains hard-R"
+)) {
+    if ($paintoverSourceIntake -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I paintover source intake missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Final Paintover Completion",
+    "Existing greybox PNGs do not count as final paintover exports",
+    "exported PNG is newer than that PSD",
+    "Accepted Litany/Registrar duel format remains locked",
+    "Grey Float remains hard-R"
+)) {
+    if ($finalPaintoverCompletion -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I final paintover completion missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Act I Paintover Review Provenance",
+    "human-review proof survives every final-art handoff layer",
+    "Start gate, work order, source intake, and final completion proof must match the tracker proof exactly"
+)) {
+    if ($paintoverReviewProvenance -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I paintover review provenance missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Step 5 Review Dashboard",
+    "Generated at UTC:",
+    "Source modified UTC:",
+    "Readiness state: green_for_review",
+    "Paintover gate status:",
+    "Do not start final paintovers while the start gate reports blocked_pending_human_review.",
+    "accepted Litany/Registrar duel format",
+    "Grey Float hard-R",
+    "Test VO commercial readiness against stale upstream inputs."
+)) {
+    if ($reviewDashboard -notmatch [regex]::Escape($requiredText)) {
+        throw "Step 5 review dashboard missing readiness text: $requiredText"
+    }
+}
+
+foreach ($requiredText in @(
+    "Step 5 Human Review Bundle",
+    "Readiness state: green_for_review",
+    "Launch review:",
+    "Dry-run decisions:",
+    "accepted Litany/Registrar duel format",
+    "Grey Float hard-R",
+    "Room Status"
+)) {
+    if ($humanReviewBundle -notmatch [regex]::Escape($requiredText)) {
+        throw "Step 5 human review bundle missing readiness text: $requiredText"
+    }
+}
+
+$backgroundPresent = @($backgroundRows | Where-Object { $_.status -eq "present" }).Count
+$backgroundPending = @($backgroundRows | Where-Object { $_.status -eq "pending" }).Count
+$corvinPresent = @($corvinRows | Where-Object { $_.status -eq "present" }).Count
+$corvinPending = @($corvinRows | Where-Object { $_.status -eq "pending" }).Count
+$redSceneCount = @($paletteRows | Where-Object { [int]$_.arterial_red_pixels -gt 0 }).Count
+$workOrderReadyCount = [int]$paintoverWorkOrderJson.ready_room_count
+$workOrderBlockedCount = [int]$paintoverWorkOrderJson.blocked_room_count
+$intakeAcceptedCount = [int]$paintoverSourceIntakeJson.accepted_present_count
+$intakeUnapprovedCount = [int]$paintoverSourceIntakeJson.unapproved_present_count
+$completionCompleteCount = [int]$finalPaintoverCompletionJson.complete_count
+$completionPendingExportCount = [int]$finalPaintoverCompletionJson.pending_final_export_count
+$completionBlockedCount = [int]$finalPaintoverCompletionJson.blocked_not_started_count
+$provenanceApprovedCount = [int]$paintoverReviewProvenanceJson.approved_count
+$provenanceWorkOrderCount = [int]$paintoverReviewProvenanceJson.work_order_count
+$provenanceAcceptedCount = [int]$paintoverReviewProvenanceJson.accepted_source_count
+$provenanceCompletionApprovedCount = [int]$paintoverReviewProvenanceJson.completion_approved_count
+$voLineCount = [int]$voLineManifest.line_count
+$voRecordableLineCount = [int]$voLineManifest.vo_line_count
+$voStageDirectionCount = [int]$voLineManifest.stage_direction_count
+$voSpeakerCount = [int]$voLineManifest.speaker_count
+$voUncastSpeakerCount = [int]$voLineManifest.uncast_speaker_count
+$confessionVoConfessionCount = [int]$confessionVoManifest.confession_count
+$confessionVoLineCount = [int]$confessionVoManifest.line_count
+$confessionVoWordCount = [int]$confessionVoManifest.word_count
+$confessionVoElaborationLineCount = [int]$confessionVoManifest.elaboration_line_count
+$voBatchCount = [int]$voRecordingBatches.batch_count
+$voBatchLineCount = [int]$voRecordingBatches.line_count
+$voBatchWordCount = [int]$voRecordingBatches.word_count
+$voUncastBatchCount = [int]$voRecordingBatches.uncast_batch_count
+$voCastSpeakerCount = [int]$voCastPlan.speaker_count
+$voScratchCastCount = [int]$voCastPlan.scratch_cast_count
+$voNeedsCastDecisionCount = [int]$voCastPlan.needs_cast_decision_count
+$voCommercialStatus = [string]$voCommercialReadiness.status
+$voCommercialBlockerCount = @($voCommercialReadiness.blockers).Count
+$voQueueReadyBatchCount = [int]$voRecordingQueue.scratch_ready_batch_count
+$voQueueBlockedBatchCount = [int]$voRecordingQueue.blocked_batch_count
+$voQueueReadyLineCount = [int]$voRecordingQueue.scratch_ready_line_count
+$voQueueBlockedLineCount = [int]$voRecordingQueue.blocked_line_count
+$voPacketCount = [int]$voRecordingPackets.packet_count
+$voBlockedPacketCount = [int]$voRecordingPackets.blocked_packet_count
+$voPacketLineCount = [int]$voRecordingPackets.line_count
+$voMinorSpeakerCount = $voMinorSpeakerRows.Count
+$voAudioExpectedCount = [int]$voAudioStatus.expected_count
+$voAudioScratchReadyCount = [int]$voAudioStatus.scratch_ready_expected_count
+$voAudioBlockedCount = [int]$voAudioStatus.blocked_expected_count
+$voAudioPresentBlockedCount = [int]$voAudioStatus.present_blocked_count
+$voAudioPresentCount = [int]$voAudioStatus.present_count
+$voAudioMissingCount = [int]$voAudioStatus.missing_count
+$reviewDecisionRoomCount = $reviewDecisionRows.Count
+
+$lines = @(
+    "CHECKPOINT: Step 5 entry - Act I Art-Pass Readiness",
+    "GATES:",
+    "- Act I background blockouts: pass, 11 rooms have present Blender blockout, exported PNG, and Godot import slots.",
+    "- Act I background asset tracker: pass, $backgroundPresent present / $backgroundPending pending / $($backgroundRows.Count) total; pending rows are paintover sources, not missing greybox blockouts.",
+    "- G9/G10 palette audit: pass, $($paletteRows.Count) exported backgrounds audited, 0 failed, arterial red appears in $redSceneCount scenes against the 5-scene limit.",
+    "- Corvin Act I side locomotion: pass, side-left and side-right idle/walk sheet exports and Godot imports are present and runtime-validated.",
+    "- Corvin animation tracker: pass, $corvinPresent present / $corvinPending pending / $($corvinRows.Count) total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.",
+    "- Ink shader yaw metrics: pass, status audited, object pairwise max $objectPairwiseMax% against threshold $pairwiseThreshold%, first-last drift $objectFirstLastDrift% against threshold $firstLastThreshold%; bad-control pairwise max $badControlPairwiseMax% remains the calibration contrast.",
+    "- Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.",
+    "- Act I paintover packet: pass, generated per-room final-paintover instructions preserve hotspot coordinates, walk-band constraints, palette rules, Grey Float hard-R staging, and Registrar duel-format lock.",
+    "- Act I art readability review: pass, generated room-by-room review checklist covers brightest-object readability, walk-band clarity, wet targets, confession-source staging, Grey Float hard-R checks, and Registrar duel-format risk.",
+    "- Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.",
+    "- Act I human review notes: pass, generated combined review notes include the greybox playtest rubric and the art readability checklist for the same Step 5 run.",
+    "- Act I VO timing manifest: pass, $voLineCount Ink-derived lines across $voSpeakerCount speakers; $voRecordableLineCount recordable VO lines, $voStageDirectionCount stage-direction review lines, and $voUncastSpeakerCount minor speakers needing cast/consolidation decisions before final recording.",
+    "- Confession VO manifest: pass, $confessionVoConfessionCount confessions produce $confessionVoLineCount unrecorded Corvin VO lines, including $confessionVoElaborationLineCount elaboration lines, with $confessionVoWordCount words keyed by confession id.",
+    "- VO recording batches: pass, $voBatchCount batches cover $voBatchLineCount recordable lines and $voBatchWordCount words, with $voUncastBatchCount batches blocked on minor-speaker cast/consolidation decisions.",
+    "- VO cast plan: pass, $voCastSpeakerCount speakers tracked, $voScratchCastCount scratch-cast and $voNeedsCastDecisionCount needing cast/consolidation decisions; scratch voices remain licensing-unverified and pending speakers block scratch generation.",
+    "- VO commercial readiness: pass, status $voCommercialStatus with $voCommercialBlockerCount explicit shipping blockers; scratch VO remains useful for timing but cannot be treated as shipping-approved audio.",
+    "- VO recording queue: pass, $voQueueReadyBatchCount scratch-ready batches / $voQueueReadyLineCount lines and $voQueueBlockedBatchCount blocked batches / $voQueueBlockedLineCount lines; blocked minor-speaker batches cannot be generated.",
+    "- VO recording packets: pass, $voPacketCount scratch-ready packet files cover $voPacketLineCount lines and $voBlockedPacketCount blocked packet files exist.",
+    "- VO minor-speaker decision template: pass, $voMinorSpeakerCount uncast speakers represented and importer dry-run report present; scratch generation remains blocked for pending speakers.",
+    "- VO audio asset status: pass, $voAudioExpectedCount expected MP3s tracked, $voAudioScratchReadyCount scratch-ready, $voAudioBlockedCount blocked pending cast, $voAudioPresentBlockedCount blocked present, $voAudioPresentCount present, $voAudioMissingCount missing; missing audio is not counted as recorded and unplanned/zero-byte/blocked-pending MP3s fail validation.",
+    "- Act I review decision template: pass, $reviewDecisionRoomCount rooms represented with allowed proceed/revise/stop decisions, YYYY-MM-DD review dates, the Registrar duel lock, and explicit Grey Float content-compliance signoff before any non-pending decision.",
+    "- Act I review fix tracker: pass, generated room-level tracker starts all rooms pending_review and preserves fix buckets, close-pair risks, wet/confession readability risks, Grey Float hard-R tags, and Harbor Registry duel-format lock.",
+    "- Act I review handoff sync: pass, latest human notes, decision CSV, review tracker, contact sheet, and Step 5 dashboard all reference the same 11 Act I rooms before approvals are imported.",
+    "- Act I paintover source scaffold: pass, generated per-room source scaffolds provide layer stacks and handoff notes while final PSD paintover sources remain pending until real final art exists.",
+    "- Act I paintover start gate: pass, reports 0 ready / 11 blocked rooms with blocked_pending_human_review as the expected pre-signoff state.",
+    "- Act I paintover work order: pass, reports $workOrderReadyCount ready / $workOrderBlockedCount blocked rooms, includes only start-gate-ready rooms, and preserves reviewer metadata for every approved room.",
+    "- Act I paintover source intake: pass, reports $intakeAcceptedCount accepted present PSDs and $intakeUnapprovedCount unapproved present PSDs; blocked-room PSDs cannot count as final art, and approved rows preserve work-order reviewer metadata.",
+    "- Act I final paintover completion: pass, reports $completionCompleteCount complete / $completionPendingExportCount pending final export / $completionBlockedCount blocked rooms, preserves source-intake reviewer metadata for approved rows, and existing greybox PNGs do not count as final paintover exports.",
+    "- Act I paintover review provenance: pass, reports $provenanceApprovedCount approved tracker rooms / $provenanceWorkOrderCount work-order rooms / $provenanceAcceptedCount accepted sources / $provenanceCompletionApprovedCount completion-approved rows with matching reviewer proof across the final-art handoff chain.",
+    "- Step 5 review dashboard: pass, generated ordered reviewer workflow and artifact index, including the VO commercial stale-input guard, while paintover start gate remains blocked pending human review.",
+    "- Step 5 human review bundle: pass, generated compact launch/index handoff keeps the latest notes, decision CSV, contact sheet, hotspot overlay, paintover packet, duel-format lock, and Grey Float hard-R lock in one review path.",
+    "BLOCKERS:",
+    "1. Final paintover source files are still pending for all 11 Act I rooms. This is the next real Step 5 production task, not a Step 4 regression.",
+    "2. Corvin still needs final-polish animation beyond the current side idle/walk runtime candidates: talk, use, wet, front/back, and later decay variants remain pending.",
+    "3. A human Act I art/readability playtest has not signed off the blockout compositions, hotspot silhouettes, and prop readability for final paintover.",
+    "DEVIATIONS:",
+    "- None to the accepted Registrar duel format. This checkpoint only audits art-pipeline readiness and runtime animation evidence.",
+    "- This is an entry/readiness checkpoint, not a claim that Step 5 final art is complete.",
+    "NEXT:",
+    'Run `tools/Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport` and review `docs/art/act_i_review_contact_sheet.html`, `docs/art/act_i_hotspot_overlay.svg`, and this readiness report before starting room paintovers.'
+)
+
+Set-Content -LiteralPath $checkpointPath -Value $lines -Encoding UTF8
+
+$checkpoint = Get-Content -LiteralPath $checkpointPath -Raw
+foreach ($requiredText in @(
+    "CHECKPOINT: Step 5 entry - Act I Art-Pass Readiness",
+    "Act I background blockouts: pass",
+    "Corvin Act I side locomotion: pass",
+    "Ink shader yaw metrics: pass",
+    "Act I review contact sheet: pass",
+    "Step 5 review dashboard: pass",
+    "Step 5 human review bundle: pass",
+    "Act I VO timing manifest: pass",
+    "Confession VO manifest: pass",
+    "VO recording batches: pass",
+    "VO cast plan: pass",
+    "VO commercial readiness: pass",
+    "VO recording queue: pass",
+    "VO recording packets: pass",
+    "VO minor-speaker decision template: pass",
+    "VO audio asset status: pass",
+    "Act I review decision template: pass",
+    "Act I review handoff sync: pass",
+    "Act I paintover source intake: pass",
+    "Act I final paintover completion: pass",
+    "Act I paintover review provenance: pass",
+    "None to the accepted Registrar duel format"
+)) {
+    if ($checkpoint -notmatch [regex]::Escape($requiredText)) {
+        throw "Step 5 readiness checkpoint missing required text: $requiredText"
+    }
+}
+if ($checkpoint -match "[^\u0000-\u007F]") {
+    throw "Step 5 readiness checkpoint must stay ASCII-only."
+}
+
+Write-Host "Step 5 Act I art-pass readiness validation passed: rooms=$($rooms.Count), backgrounds=$backgroundPresent/$($backgroundRows.Count) present, corvin=$corvinPresent/$($corvinRows.Count) present."

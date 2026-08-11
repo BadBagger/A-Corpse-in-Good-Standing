@@ -1,0 +1,10 @@
+﻿{
+    "generated_from":  "tools/Test-InkShaderSpikeMetrics.ps1",
+    "measurement":  "foreground-bounds-aligned hatch-pixel delta",
+    "sample_stride_pixels":  4,
+    "threshold_percent":  9,
+    "frames_found":  24,
+    "first_frame":  "frame_0001.png",
+    "last_frame":  "frame_0024.png",
+    "first_to_last_drift_percent":  0
+}

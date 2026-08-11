@@ -1,0 +1,38 @@
+﻿{
+    "generated_from":  "tools/Test-BlenderCorvinImport.ps1",
+    "status":  "audited",
+    "timeout_seconds":  120,
+    "blender_path":  "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+    "blender_version":  "Blender 5.2.0 LTS",
+    "source_glb":  "art/src/characters/corvin/meshy/corvin_act_i_clean.glb",
+    "source_glb_present":  true,
+    "character_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+    "character_blend_present":  true,
+    "shader_spike_blend":  "art/src/shaders/ink_wash_shader_spike.blend",
+    "shader_spike_blend_present":  true,
+    "object_count":  1,
+    "mesh_count":  1,
+    "armature_count":  0,
+    "material_count":  3,
+    "action_count":  0,
+    "imported_bounds":  {
+                            "min":  [
+                                        -0.5217,
+                                        -0.2036,
+                                        -0.9508
+                                    ],
+                            "max":  [
+                                        0.5213,
+                                        0.2131,
+                                        0.9504
+                                    ],
+                            "size":  [
+                                         1.043,
+                                         0.4167,
+                                         1.9012
+                                     ]
+                        },
+    "notes":  [
+                  "Blender imported Corvin Act I clean GLB and saved starter blend files."
+              ]
+}

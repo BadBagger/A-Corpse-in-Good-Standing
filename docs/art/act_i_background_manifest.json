@@ -1,0 +1,2005 @@
+﻿{
+    "generated_from":  "docs/art/act_i_hotspot_map.csv",
+    "native_resolution":  {
+                              "height":  1080,
+                              "width":  1920
+                          },
+    "default_walk_band":  {
+                              "y_max":  800,
+                              "y_min":  650
+                          },
+    "rooms":  [
+                  {
+                      "room_id":  "mudflats",
+                      "room_code":  "R01",
+                      "title":  "Mudflats",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/mudflats.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/mudflats.psd",
+                      "export_png":  "art/export/backgrounds/act_i/mudflats_bg.png",
+                      "godot_background_resource":  "game/rooms/mudflats/background/mudflats_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-mudflats",
+                      "exits":  [
+
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "HarborView",
+                                           "label":  "harbor view",
+                                           "type":  "hotspot",
+                                           "x":  1180,
+                                           "y":  620,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "SaltMarketExit",
+                                           "label":  "road to the Salt Market",
+                                           "type":  "hotspot",
+                                           "x":  1765,
+                                           "y":  665,
+                                           "critical_roles":  [
+                                                                  "custom_navigation"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "BollardOfTomas",
+                                           "label":  "Bollard-of-Tomas",
+                                           "type":  "hotspot",
+                                           "x":  390,
+                                           "y":  702,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "OwnHands",
+                                           "label":  "Corvin\u0027s hands",
+                                           "type":  "hotspot",
+                                           "x":  660,
+                                           "y":  760,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "Coat",
+                                           "label":  "coat",
+                                           "type":  "hotspot",
+                                           "x":  735,
+                                           "y":  760,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "MissingBoots",
+                                           "label":  "missing boots",
+                                           "type":  "hotspot",
+                                           "x":  965,
+                                           "y":  910,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "Silt",
+                                           "label":  "silt",
+                                           "type":  "hotspot",
+                                           "x":  500,
+                                           "y":  930,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "old_quay",
+                      "room_code":  "R02",
+                      "title":  "The Old Quay",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/old_quay.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/old_quay.psd",
+                      "export_png":  "art/export/backgrounds/act_i/old_quay_blockout_bg.png",
+                      "godot_background_resource":  "game/rooms/old_quay/background/old_quay_blockout_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-old_quay",
+                      "exits":  [
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "x":  1700,
+                                        "y":  700,
+                                        "target_room":  "SaltMarket",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToMudflats",
+                                        "label":  "Mudflats",
+                                        "x":  180,
+                                        "y":  760,
+                                        "target_room":  "Mudflats",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "BollardPetra",
+                                           "label":  "Bollard Petra",
+                                           "type":  "hotspot",
+                                           "x":  690,
+                                           "y":  700,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_bollard_petra_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "old_quay_bollard_petra",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "BollardLedger",
+                                           "label":  "Ledger bollard",
+                                           "type":  "hotspot",
+                                           "x":  870,
+                                           "y":  705,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_bollard_ledger_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "old_quay_bollard_ledger",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "SilentBollards",
+                                           "label":  "Silent bollards",
+                                           "type":  "hotspot",
+                                           "x":  910,
+                                           "y":  710,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_silent_bollards_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "old_quay_silent_bollards",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "BollardBride",
+                                           "label":  "Bride bollard",
+                                           "type":  "hotspot",
+                                           "x":  1050,
+                                           "y":  715,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_bollard_bride_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "old_quay_bollard_bride",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "Tomas",
+                                           "label":  "Bollard Tomas",
+                                           "type":  "hotspot",
+                                           "x":  470,
+                                           "y":  720,
+                                           "critical_roles":  [
+                                                                  "conditional_followup",
+                                                                  "confession_source"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_tomas_topics_seen"
+                                                          ],
+                                           "confessions_discover":  [
+                                                                        "cf_pride_list",
+                                                                        "cf_cow_leftroom",
+                                                                        "cf_greed_widows"
+                                                                    ],
+                                           "ink_knot":  "old_quay_tomas_topics",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "old_quay_bollards_all_seen",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "Flask",
+                                           "label":  "Empty flask",
+                                           "type":  "hotspot",
+                                           "x":  1180,
+                                           "y":  760,
+                                           "critical_roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "IT_flask"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_flask_taken"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "old_quay_flask",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "RopeCleat",
+                                           "label":  "Rope cleat",
+                                           "type":  "hotspot",
+                                           "x":  720,
+                                           "y":  800,
+                                           "critical_roles":  [
+                                                                  "wet_verb",
+                                                                  "item_reward"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "IT_knuckle_salt"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_salt_scraped"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "old_quay_rope_cleat",
+                                           "wet_ink_knot":  "old_quay_rope_cleat",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "salt_market",
+                      "room_code":  "R03",
+                      "title":  "Salt Market",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/salt_market.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/salt_market.psd",
+                      "export_png":  "art/export/backgrounds/act_i/salt_market_bg.png",
+                      "godot_background_resource":  "game/rooms/salt_market/background/salt_market_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-salt_market",
+                      "exits":  [
+                                    {
+                                        "name":  "ToRegistry",
+                                        "label":  "Registry",
+                                        "x":  520,
+                                        "y":  650,
+                                        "target_room":  "HarborRegistry",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToChurch",
+                                        "label":  "Church",
+                                        "x":  1660,
+                                        "y":  650,
+                                        "target_room":  "ChurchOfTheDrowned",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToChandler",
+                                        "label":  "Bone Chandler",
+                                        "x":  820,
+                                        "y":  655,
+                                        "target_room":  "BoneChandler",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToAlmshouse",
+                                        "label":  "Almshouse",
+                                        "x":  1120,
+                                        "y":  655,
+                                        "target_room":  "Almshouse",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToFishHall",
+                                        "label":  "Fish Hall",
+                                        "x":  1390,
+                                        "y":  655,
+                                        "target_room":  "FishHall",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToOldQuay",
+                                        "label":  "Old Quay",
+                                        "x":  180,
+                                        "y":  740,
+                                        "target_room":  "OldQuay",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "ChurchSign",
+                                           "label":  "Church sign",
+                                           "type":  "hotspot",
+                                           "x":  1380,
+                                           "y":  540,
+                                           "critical_roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "salt_market_church_sign_wet",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "WhaleOilLamp",
+                                           "label":  "Whale-oil lamp",
+                                           "type":  "hotspot",
+                                           "x":  1520,
+                                           "y":  620,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_market_lamp_checked"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "salt_market_lamp",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "BootStall",
+                                           "label":  "Boot stall",
+                                           "type":  "hotspot",
+                                           "x":  300,
+                                           "y":  720,
+                                           "critical_roles":  [
+                                                                  "gated"
+                                                              ],
+                                           "requires_flags":  [
+                                                                  "FL_market_recognized"
+                                                              ],
+                                           "requires_items":  [
+                                                                  "BorrowedBoots"
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_boot_stall_after_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "salt_market_boot_stall_after",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "Fishmonger",
+                                           "label":  "Fishmonger",
+                                           "type":  "hotspot",
+                                           "x":  520,
+                                           "y":  720,
+                                           "critical_roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_fishmonger_seen"
+                                                          ],
+                                           "confessions_discover":  [
+                                                                        "cf_greed_scales",
+                                                                        "cf_cow_drink"
+                                                                    ],
+                                           "ink_knot":  "salt_market_fishmonger",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "ConfessionQueue",
+                                           "label":  "Confession queue",
+                                           "type":  "hotspot",
+                                           "x":  1180,
+                                           "y":  720,
+                                           "critical_roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+                                                                        "cf_cruel_funeral",
+                                                                        "cf_pride_voice"
+                                                                    ],
+                                           "ink_knot":  "salt_market_confession_queue",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "MarketCrowd",
+                                           "label":  "Crowd",
+                                           "type":  "hotspot",
+                                           "x":  960,
+                                           "y":  760,
+                                           "critical_roles":  [
+                                                                  "confession_source",
+                                                                  "item_reward"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "BorrowedBoots"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_market_recognized",
+                                                              "FL_market_day_hint"
+                                                          ],
+                                           "confessions_discover":  [
+                                                                        "cf_pride_voice"
+                                                                    ],
+                                           "ink_knot":  "salt_market_public_recognition",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "harbor_registry",
+                      "room_code":  "R05",
+                      "title":  "Harbor Registry",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/harbor_registry.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/harbor_registry.psd",
+                      "export_png":  "art/export/backgrounds/act_i/harbor_registry_bg.png",
+                      "godot_background_resource":  "game/rooms/harbor_registry/background/harbor_registry_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-harbor_registry",
+                      "exits":  [
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "x":  180,
+                                        "y":  740,
+                                        "target_room":  "SaltMarket",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "KestrelLedger",
+                                           "label":  "Kestrel ledger",
+                                           "type":  "hotspot",
+                                           "x":  1220,
+                                           "y":  610,
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "confession_source",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "requires_flags":  [
+                                                                  "FL_registry_lamp_smoked"
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "IT_ledger_page"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_manifest_known"
+                                                          ],
+                                           "confessions_discover":  [
+                                                                        "cf_bt_manifest"
+                                                                    ],
+                                           "ink_knot":  "registry_ledger_page",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "registry_ledger_blocked",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "DeskLamp",
+                                           "label":  "Desk lamp",
+                                           "type":  "hotspot",
+                                           "x":  890,
+                                           "y":  650,
+                                           "critical_roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "registry_lamp_smoked",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "Ledgers",
+                                           "label":  "Ledgers",
+                                           "type":  "hotspot",
+                                           "x":  420,
+                                           "y":  660,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_registry_ledgers_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "registry_ledgers",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "Registrar",
+                                           "label":  "Registrar",
+                                           "type":  "duel",
+                                           "x":  980,
+                                           "y":  690,
+                                           "critical_roles":  [
+                                                                  "duel",
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "requires_flags":  [
+                                                                  "FL_manifest_known"
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "IT_name_writ"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_rite_name",
+                                                              "FL_registrar_sold_manifest"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "registry_registrar_needs_manifest",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  "registrar"
+                                       },
+                                       {
+                                           "name":  "RollBook",
+                                           "label":  "Open roll",
+                                           "type":  "hotspot",
+                                           "x":  640,
+                                           "y":  700,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "registry_roll_book",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "bone_chandler",
+                      "room_code":  "R06",
+                      "title":  "The Bone Chandler",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/bone_chandler.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/bone_chandler.psd",
+                      "export_png":  "art/export/backgrounds/act_i/bone_chandler_bg.png",
+                      "godot_background_resource":  "game/rooms/bone_chandler/background/bone_chandler_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-bone_chandler",
+                      "exits":  [
+                                    {
+                                        "name":  "ToAlmshouse",
+                                        "label":  "Almshouse",
+                                        "x":  1700,
+                                        "y":  730,
+                                        "target_room":  "Almshouse",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "x":  180,
+                                        "y":  740,
+                                        "target_room":  "SaltMarket",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "ChessSet",
+                                           "label":  "Chess set",
+                                           "type":  "hotspot",
+                                           "x":  790,
+                                           "y":  680,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_chandler_chess_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "chandler_chess_set",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "Wares",
+                                           "label":  "Wares",
+                                           "type":  "hotspot",
+                                           "x":  560,
+                                           "y":  700,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_chandler_wares_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "chandler_wares",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "ProsperWatch",
+                                           "label":  "Prosper\u0027s watch",
+                                           "type":  "hotspot",
+                                           "x":  1010,
+                                           "y":  700,
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+                                                                  "IT_knuckle_salt"
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "IT_watch"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_watch_recovered"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "chandler_watch_trade",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "chandler_needs_salt",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "almshouse",
+                      "room_code":  "R07",
+                      "title":  "The Almshouse",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/almshouse.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/almshouse.psd",
+                      "export_png":  "art/export/backgrounds/act_i/almshouse_bg.png",
+                      "godot_background_resource":  "game/rooms/almshouse/background/almshouse_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-almshouse",
+                      "exits":  [
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "x":  1700,
+                                        "y":  730,
+                                        "target_room":  "SaltMarket",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToBoneChandler",
+                                        "label":  "Bone Chandler",
+                                        "x":  180,
+                                        "y":  740,
+                                        "target_room":  "BoneChandler",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "Window",
+                                           "label":  "Window",
+                                           "type":  "hotspot",
+                                           "x":  780,
+                                           "y":  650,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_almshouse_window_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "almshouse_window",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "HalfCoinProsper",
+                                           "label":  "Half-Coin Prosper",
+                                           "type":  "hotspot",
+                                           "x":  980,
+                                           "y":  700,
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+                                                                  "IT_watch"
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "IT_forgiveness"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_rite_debt"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "prosper_forgiveness",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "prosper_before_watch",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "Cots",
+                                           "label":  "Cots",
+                                           "type":  "hotspot",
+                                           "x":  560,
+                                           "y":  720,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_almshouse_cots_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "almshouse_cots",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "fish_hall",
+                      "room_code":  "R08",
+                      "title":  "The Fish Hall",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/fish_hall.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/fish_hall.psd",
+                      "export_png":  "art/export/backgrounds/act_i/fish_hall_bg.png",
+                      "godot_background_resource":  "game/rooms/fish_hall/background/fish_hall_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-fish_hall",
+                      "exits":  [
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "x":  180,
+                                        "y":  740,
+                                        "target_room":  "SaltMarket",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "VisitorBook",
+                                           "label":  "Visitor book",
+                                           "type":  "hotspot",
+                                           "x":  1260,
+                                           "y":  690,
+                                           "critical_roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_sabine_absent_from_book"
+                                                          ],
+                                           "confessions_discover":  [
+                                                                        "cf_pride_twice"
+                                                                    ],
+                                           "ink_knot":  "fish_hall_visitor_book",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "CoronerTag",
+                                           "label":  "Coroner tag",
+                                           "type":  "hotspot",
+                                           "x":  960,
+                                           "y":  710,
+                                           "critical_roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "IT_coroner_tag"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_day_count_proven",
+                                                              "FL_knows_daycount"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "fish_hall_coroner_tag",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "IceTable",
+                                           "label":  "Ice table",
+                                           "type":  "hotspot",
+                                           "x":  610,
+                                           "y":  720,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_body_fit_confirmed"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "fish_hall_ice_table",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "Drain",
+                                           "label":  "Drain",
+                                           "type":  "hotspot",
+                                           "x":  1500,
+                                           "y":  780,
+                                           "critical_roles":  [
+                                                                  "wet_verb"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "",
+                                           "wet_ink_knot":  "fish_hall_drain",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "church_of_the_drowned",
+                      "room_code":  "R09",
+                      "title":  "Church of the Drowned",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/church_of_the_drowned.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/church_of_the_drowned.psd",
+                      "export_png":  "art/export/backgrounds/act_i/church_of_the_drowned_bg.png",
+                      "godot_background_resource":  "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-church_of_the_drowned",
+                      "exits":  [
+                                    {
+                                        "name":  "ToGreyFloat",
+                                        "label":  "Grey Float",
+                                        "x":  1700,
+                                        "y":  730,
+                                        "target_room":  "GreyFloat",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToSaltMarket",
+                                        "label":  "Salt Market",
+                                        "x":  180,
+                                        "y":  740,
+                                        "target_room":  "SaltMarket",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "ChurchStallSign",
+                                           "label":  "Church stall sign",
+                                           "type":  "hotspot",
+                                           "x":  1100,
+                                           "y":  585,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_church_stall_sign_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "church_stall_sign",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "ConfessionBooth",
+                                           "label":  "Confession booth",
+                                           "type":  "hotspot",
+                                           "x":  780,
+                                           "y":  650,
+                                           "critical_roles":  [
+                                                                  "item_reward"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "IT_chit"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_church_booth_seen",
+                                                              "FL_chit_acquired"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "church_confession_booth",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "RateCard",
+                                           "label":  "Teodor\u0027s stall",
+                                           "type":  "hotspot",
+                                           "x":  940,
+                                           "y":  700,
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "confession_source",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+                                                                  "IT_chit"
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "IT_rate_card"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_teodor_owes",
+                                                              "FL_rate_card",
+                                                              "FL_kane_seen"
+                                                          ],
+                                           "confessions_discover":  [
+                                                                        "cf_cruel_sentences"
+                                                                    ],
+                                           "ink_knot":  "teodor_rate_card_booth",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "teodor_needs_chit",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "PoorBox",
+                                           "label":  "Poor box",
+                                           "type":  "hotspot",
+                                           "x":  620,
+                                           "y":  720,
+                                           "critical_roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+                                                                        "cf_greed_plate"
+                                                                    ],
+                                           "ink_knot":  "church_poor_box",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "grey_float",
+                      "room_code":  "R10",
+                      "title":  "The Grey Float",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/grey_float.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/grey_float.psd",
+                      "export_png":  "art/export/backgrounds/act_i/grey_float_bg.png",
+                      "godot_background_resource":  "game/rooms/grey_float/background/grey_float_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-grey_float",
+                      "exits":  [
+                                    {
+                                        "name":  "ToHarbormaster",
+                                        "label":  "Harbormaster",
+                                        "x":  1700,
+                                        "y":  730,
+                                        "target_room":  "HarbormasterOffice",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToChurch",
+                                        "label":  "Church",
+                                        "x":  180,
+                                        "y":  740,
+                                        "target_room":  "ChurchOfTheDrowned",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "SteamScreen",
+                                           "label":  "Steam screen",
+                                           "type":  "hotspot",
+                                           "x":  1450,
+                                           "y":  650,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_float_steam_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "float_steam_screen",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "JunoTable",
+                                           "label":  "Juno\u0027s table",
+                                           "type":  "hotspot",
+                                           "x":  450,
+                                           "y":  675,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_float_juno_table_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "float_juno_table",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "BilgeRegulator",
+                                           "label":  "Bilge regulator",
+                                           "type":  "hotspot",
+                                           "x":  900,
+                                           "y":  700,
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "item_reward",
+                                                                  "gated"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+                                                                  "IT_rate_card"
+                                                              ],
+                                           "rewards_items":  [
+                                                                 "IT_regulator"
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_juno_met",
+                                                              "FL_regulator_acquired"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "juno_regulator_trade",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "juno_needs_rate_card",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "StaffCorner",
+                                           "label":  "Staff corner",
+                                           "type":  "hotspot",
+                                           "x":  620,
+                                           "y":  710,
+                                           "critical_roles":  [
+                                                                  "confession_source"
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+
+                                                          ],
+                                           "confessions_discover":  [
+                                                                        "cf_lust_float",
+                                                                        "cf_cow_apologize"
+                                                                    ],
+                                           "ink_knot":  "float_staff_corner",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "HotPool",
+                                           "label":  "Hot pool",
+                                           "type":  "hotspot",
+                                           "x":  1220,
+                                           "y":  720,
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "gated"
+                                                              ],
+                                           "requires_flags":  [
+                                                                  "FL_juno_met"
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_float_warmth_active"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "juno_hot_pool_soak",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "juno_pool_before_permission",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "harbormaster_office",
+                      "room_code":  "R11",
+                      "title":  "Harbormaster\u0027s Office",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/harbormaster_office.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/harbormaster_office.psd",
+                      "export_png":  "art/export/backgrounds/act_i/harbormaster_office_bg.png",
+                      "godot_background_resource":  "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-harbormaster_office",
+                      "exits":  [
+                                    {
+                                        "name":  "ToSabine",
+                                        "label":  "Sabine",
+                                        "x":  1700,
+                                        "y":  730,
+                                        "target_room":  "SabineOffice",
+                                        "requires_flags":  [
+                                                               "FL_rite_name",
+                                                               "FL_rite_debt",
+                                                               "FL_rite_heartbeat"
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    },
+                                    {
+                                        "name":  "ToGreyFloat",
+                                        "label":  "Grey Float",
+                                        "x":  180,
+                                        "y":  740,
+                                        "target_room":  "GreyFloat",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "SabineDoor",
+                                           "label":  "Sabine\u0027s door",
+                                           "type":  "hotspot",
+                                           "x":  1500,
+                                           "y":  665,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_harbormaster_sabine_door_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "harbormaster_sabine_door",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "ChecklistDesk",
+                                           "label":  "Checklist desk",
+                                           "type":  "hotspot",
+                                           "x":  740,
+                                           "y":  690,
+                                           "critical_roles":  [
+
+                                                              ],
+                                           "requires_flags":  [
+
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_harbormaster_checklist_seen"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "harbormaster_checklist_desk",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       },
+                                       {
+                                           "name":  "ChecklistClerk",
+                                           "label":  "Checklist clerk",
+                                           "type":  "hotspot",
+                                           "x":  960,
+                                           "y":  700,
+                                           "critical_roles":  [
+                                                                  "blocked_feedback",
+                                                                  "gated"
+                                                              ],
+                                           "requires_flags":  [
+                                                                  "FL_float_warmth_active"
+                                                              ],
+                                           "requires_items":  [
+                                                                  "IT_regulator"
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_rite_heartbeat"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "heartbeat_check_pass",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "heartbeat_check_fail",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  },
+                  {
+                      "room_id":  "sabine_office",
+                      "room_code":  "R12",
+                      "title":  "Sabine\u0027s Office",
+                      "stage":  {
+                                    "height":  1080,
+                                    "width":  1920
+                                },
+                      "walk_band":  {
+                                        "y_max":  800,
+                                        "y_min":  650
+                                    },
+                      "source_blend":  "art/src/backgrounds/act_i/sabine_office.blend",
+                      "paintover_source":  "art/src/backgrounds/act_i/sabine_office.psd",
+                      "export_png":  "art/export/backgrounds/act_i/sabine_office_bg.png",
+                      "godot_background_resource":  "game/rooms/sabine_office/background/sabine_office_bg.png",
+                      "review_overlay":  "docs/art/act_i_hotspot_overlay.svg#room-sabine_office",
+                      "exits":  [
+                                    {
+                                        "name":  "ToHarbormaster",
+                                        "label":  "Harbormaster",
+                                        "x":  180,
+                                        "y":  740,
+                                        "target_room":  "HarbormasterOffice",
+                                        "requires_flags":  [
+
+                                                           ],
+                                        "requires_items":  [
+
+                                                           ]
+                                    }
+                                ],
+                      "hotspots":  [
+                                       {
+                                           "name":  "SabineDesk",
+                                           "label":  "Sabine\u0027s desk",
+                                           "type":  "hotspot",
+                                           "x":  960,
+                                           "y":  690,
+                                           "critical_roles":  [
+                                                                  "gated"
+                                                              ],
+                                           "requires_flags":  [
+                                                                  "FL_rite_name",
+                                                                  "FL_rite_debt",
+                                                                  "FL_rite_heartbeat"
+                                                              ],
+                                           "requires_items":  [
+
+                                                              ],
+                                           "rewards_items":  [
+
+                                                             ],
+                                           "sets_flags":  [
+                                                              "FL_act_i_complete"
+                                                          ],
+                                           "confessions_discover":  [
+
+                                                                    ],
+                                           "ink_knot":  "sabine_act_i_audience",
+                                           "wet_ink_knot":  "",
+                                           "blocked_ink_knot":  "",
+                                           "alternate_ink_knot":  "",
+                                           "duel_opponent":  ""
+                                       }
+                                   ]
+                  }
+              ]
+}

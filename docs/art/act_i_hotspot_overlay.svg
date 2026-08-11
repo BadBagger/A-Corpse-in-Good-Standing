@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2020" height="1640" viewBox="0 0 2020 1640">
+<rect width="100%" height="100%" fill="#0C1013"/>
+<text x="28" y="36" fill="#E4DCC8" font-family="Consolas, monospace" font-size="24">A Corpse in Good Standing - Act I Hotspot Overlay</text>
+<text x="28" y="62" fill="#E4DCC8" font-family="Consolas, monospace" font-size="14">Generated from docs/art/act_i_hotspot_map.csv. Coordinates scaled from 1920x1080 greybox room space.</text>
+<g font-family="Consolas, monospace" font-size="13">
+<circle cx="1410" cy="34" r="7" fill="#4AA3FF"/>
+<text x="1422" y="39" fill="#E4DCC8">exit</text>
+<circle cx="1516" cy="34" r="7" fill="#C98A3C"/>
+<text x="1528" y="39" fill="#E4DCC8">hotspot</text>
+<circle cx="1622" cy="34" r="7" fill="#8E1B22"/>
+<text x="1634" y="39" fill="#E4DCC8">duel</text>
+<circle cx="1728" cy="34" r="7" fill="#7D9B4E"/>
+<text x="1740" y="39" fill="#E4DCC8">wet</text>
+<circle cx="1834" cy="34" r="7" fill="#B48CFF"/>
+<text x="1846" y="39" fill="#E4DCC8">alternate</text>
+</g>
+<g id="room-mudflats">
+<rect x="28" y="106" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="28" y="352" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="28" y1="352" x2="668" y2="352" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="42" y="130" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R01 / Mudflats</text>
+<text x="42" y="450" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="194.666666666667" cy="416" r="7" fill="#C98A3C"><title>hotspot Silt @ 500,930</title></circle>
+<text x="204.666666666667" y="404" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">silt</text>
+<circle cx="248" cy="359.333333333333" r="7" fill="#C98A3C"><title>hotspot OwnHands @ 660,760</title></circle>
+<text x="258" y="347.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Corvin&apos;s hands</text>
+<text x="258" y="359.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">OwnHands</text>
+<circle cx="421.333333333333" cy="312.666666666667" r="7" fill="#C98A3C"><title>hotspot HarborView @ 1180,620</title></circle>
+<text x="431.333333333333" y="300.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">harbor view</text>
+<text x="431.333333333333" y="312.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">HarborView</text>
+<circle cx="273" cy="359.333333333333" r="7" fill="#C98A3C"><title>hotspot Coat @ 735,760</title></circle>
+<text x="283" y="347.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">coat</text>
+<circle cx="158" cy="340" r="7" fill="#C98A3C"><title>hotspot BollardOfTomas @ 390,702</title></circle>
+<text x="168" y="328" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Bollard-of-Tomas</text>
+<text x="168" y="340" fill="#6F858D" font-family="Consolas, monospace" font-size="9">BollardOfTomas</text>
+<circle cx="349.666666666667" cy="409.333333333333" r="7" fill="#C98A3C"><title>hotspot MissingBoots @ 965,910</title></circle>
+<text x="359.666666666667" y="397.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">missing boots</text>
+<text x="359.666666666667" y="409.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">MissingBoots</text>
+<circle cx="616.333333333333" cy="327.666666666667" r="7" fill="#C98A3C"><title>hotspot SaltMarketExit @ 1765,665</title></circle>
+<text x="626.333333333333" y="315.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">road to the Salt Market</text>
+<text x="626.333333333333" y="327.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">SaltMarketExit</text>
+</g>
+<g id="room-old_quay">
+<rect x="690" y="106" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="690" y="352" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="690" y1="352" x2="1330" y2="352" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="704" y="130" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R02 / The Old Quay</text>
+<text x="704" y="450" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="750" cy="359.333333333333" r="8" fill="#4AA3FF"><title>exit ToMudflats @ 180,760</title></circle>
+<text x="760" y="379.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Mudflats</text>
+<text x="760" y="391.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToMudflats</text>
+<circle cx="1256.66666666667" cy="339.333333333333" r="8" fill="#4AA3FF"><title>exit ToSaltMarket @ 1700,700</title></circle>
+<text x="1266.66666666667" y="359.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Salt Market</text>
+<text x="1266.66666666667" y="371.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToSaltMarket</text>
+<rect x="833.666666666667" y="333" width="26" height="26" fill="none" stroke="#B48CFF" stroke-width="2"/>
+<circle cx="846.666666666667" cy="346" r="7" fill="#C98A3C"><title>hotspot Tomas @ 470,720; ink=old_quay_tomas_topics; alternate=old_quay_bollards_all_seen</title></circle>
+<text x="856.666666666667" y="334" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Bollard Tomas</text>
+<text x="856.666666666667" y="346" fill="#6F858D" font-family="Consolas, monospace" font-size="9">Tomas</text>
+<circle cx="920" cy="339.333333333333" r="7" fill="#C98A3C"><title>hotspot BollardPetra @ 690,700; ink=old_quay_bollard_petra</title></circle>
+<text x="930" y="327.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Bollard Petra</text>
+<text x="930" y="339.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">BollardPetra</text>
+<circle cx="980" cy="341" r="7" fill="#C98A3C"><title>hotspot BollardLedger @ 870,705; ink=old_quay_bollard_ledger</title></circle>
+<text x="990" y="329" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Ledger bollard</text>
+<text x="990" y="341" fill="#6F858D" font-family="Consolas, monospace" font-size="9">BollardLedger</text>
+<circle cx="1040" cy="344.333333333333" r="7" fill="#C98A3C"><title>hotspot BollardBride @ 1050,715; ink=old_quay_bollard_bride</title></circle>
+<text x="1050" y="332.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Bride bollard</text>
+<text x="1050" y="344.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">BollardBride</text>
+<circle cx="993.333333333333" cy="342.666666666667" r="7" fill="#C98A3C"><title>hotspot SilentBollards @ 910,710; ink=old_quay_silent_bollards</title></circle>
+<text x="1003.33333333333" y="330.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Silent bollards</text>
+<text x="1003.33333333333" y="342.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">SilentBollards</text>
+<circle cx="1083.33333333333" cy="359.333333333333" r="7" fill="#C98A3C"><title>hotspot Flask @ 1180,760; ink=old_quay_flask</title></circle>
+<text x="1093.33333333333" y="347.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Empty flask</text>
+<text x="1093.33333333333" y="359.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">Flask</text>
+<circle cx="930" cy="372.666666666667" r="12" fill="none" stroke="#7D9B4E" stroke-width="2"/>
+<circle cx="930" cy="372.666666666667" r="7" fill="#C98A3C"><title>hotspot RopeCleat @ 720,800; ink=old_quay_rope_cleat; wet=old_quay_rope_cleat</title></circle>
+<text x="940" y="360.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Rope cleat</text>
+<text x="940" y="372.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">RopeCleat</text>
+</g>
+<g id="room-salt_market">
+<rect x="1352" y="106" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="1352" y="352" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="1352" y1="352" x2="1992" y2="352" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="1366" y="130" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R03 / Salt Market</text>
+<text x="1366" y="450" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="1412" cy="352.666666666667" r="8" fill="#4AA3FF"><title>exit ToOldQuay @ 180,740</title></circle>
+<text x="1422" y="372.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Old Quay</text>
+<text x="1422" y="384.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToOldQuay</text>
+<circle cx="1525.33333333333" cy="322.666666666667" r="8" fill="#4AA3FF"><title>exit ToRegistry @ 520,650</title></circle>
+<text x="1535.33333333333" y="342.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Registry</text>
+<text x="1535.33333333333" y="354.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToRegistry</text>
+<circle cx="1625.33333333333" cy="324.333333333333" r="8" fill="#4AA3FF"><title>exit ToChandler @ 820,655</title></circle>
+<text x="1635.33333333333" y="344.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Bone Chandler</text>
+<text x="1635.33333333333" y="356.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToChandler</text>
+<circle cx="1725.33333333333" cy="324.333333333333" r="8" fill="#4AA3FF"><title>exit ToAlmshouse @ 1120,655</title></circle>
+<text x="1735.33333333333" y="344.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Almshouse</text>
+<text x="1735.33333333333" y="356.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToAlmshouse</text>
+<circle cx="1815.33333333333" cy="324.333333333333" r="8" fill="#4AA3FF"><title>exit ToFishHall @ 1390,655</title></circle>
+<text x="1825.33333333333" y="344.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Fish Hall</text>
+<text x="1825.33333333333" y="356.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToFishHall</text>
+<circle cx="1905.33333333333" cy="322.666666666667" r="8" fill="#4AA3FF"><title>exit ToChurch @ 1660,650</title></circle>
+<text x="1915.33333333333" y="342.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Church</text>
+<text x="1915.33333333333" y="354.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToChurch</text>
+<circle cx="1672" cy="359.333333333333" r="7" fill="#C98A3C"><title>hotspot MarketCrowd @ 960,760; ink=salt_market_public_recognition</title></circle>
+<text x="1682" y="347.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Crowd</text>
+<text x="1682" y="359.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">MarketCrowd</text>
+<circle cx="1452" cy="346" r="7" fill="#C98A3C"><title>hotspot BootStall @ 300,720; ink=salt_market_boot_stall_after</title></circle>
+<text x="1462" y="334" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Boot stall</text>
+<text x="1462" y="346" fill="#6F858D" font-family="Consolas, monospace" font-size="9">BootStall</text>
+<circle cx="1525.33333333333" cy="346" r="7" fill="#C98A3C"><title>hotspot Fishmonger @ 520,720; ink=salt_market_fishmonger</title></circle>
+<text x="1535.33333333333" y="334" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Fishmonger</text>
+<circle cx="1745.33333333333" cy="346" r="7" fill="#C98A3C"><title>hotspot ConfessionQueue @ 1180,720; ink=salt_market_confession_queue</title></circle>
+<text x="1755.33333333333" y="334" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Confession queue</text>
+<text x="1755.33333333333" y="346" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ConfessionQueue</text>
+<circle cx="1812" cy="286" r="12" fill="none" stroke="#7D9B4E" stroke-width="2"/>
+<circle cx="1812" cy="286" r="7" fill="#C98A3C"><title>hotspot ChurchSign @ 1380,540; wet=salt_market_church_sign_wet</title></circle>
+<text x="1822" y="274" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Church sign</text>
+<text x="1822" y="286" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ChurchSign</text>
+<circle cx="1858.66666666667" cy="312.666666666667" r="7" fill="#C98A3C"><title>hotspot WhaleOilLamp @ 1520,620; ink=salt_market_lamp</title></circle>
+<text x="1868.66666666667" y="300.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Whale-oil lamp</text>
+<text x="1868.66666666667" y="312.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">WhaleOilLamp</text>
+</g>
+<g id="room-harbor_registry">
+<rect x="28" y="488" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="28" y="734" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="28" y1="734" x2="668" y2="734" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="42" y="512" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R05 / Harbor Registry</text>
+<text x="42" y="832" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="88" cy="734.666666666667" r="8" fill="#4AA3FF"><title>exit ToSaltMarket @ 180,740</title></circle>
+<text x="98" y="754.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Salt Market</text>
+<text x="98" y="766.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToSaltMarket</text>
+<circle cx="168" cy="708" r="7" fill="#C98A3C"><title>hotspot Ledgers @ 420,660; ink=registry_ledgers</title></circle>
+<text x="178" y="696" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Ledgers</text>
+<circle cx="241.333333333333" cy="721.333333333333" r="7" fill="#C98A3C"><title>hotspot RollBook @ 640,700; ink=registry_roll_book</title></circle>
+<text x="251.333333333333" y="709.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Open roll</text>
+<text x="251.333333333333" y="721.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">RollBook</text>
+<circle cx="324.666666666667" cy="704.666666666667" r="12" fill="none" stroke="#7D9B4E" stroke-width="2"/>
+<circle cx="324.666666666667" cy="704.666666666667" r="7" fill="#C98A3C"><title>hotspot DeskLamp @ 890,650; wet=registry_lamp_smoked</title></circle>
+<text x="334.666666666667" y="692.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Desk lamp</text>
+<text x="334.666666666667" y="704.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">DeskLamp</text>
+<circle cx="434.666666666667" cy="691.333333333333" r="7" fill="#C98A3C"><title>hotspot KestrelLedger @ 1220,610; ink=registry_ledger_page; blocked=registry_ledger_blocked</title></circle>
+<text x="444.666666666667" y="679.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Kestrel ledger</text>
+<text x="444.666666666667" y="691.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">KestrelLedger</text>
+<circle cx="354.666666666667" cy="718" r="9" fill="#8E1B22"><title>duel Registrar @ 980,690; blocked=registry_registrar_needs_manifest</title></circle>
+<text x="364.666666666667" y="706" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Registrar</text>
+</g>
+<g id="room-bone_chandler">
+<rect x="690" y="488" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="690" y="734" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="690" y1="734" x2="1330" y2="734" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="704" y="512" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R06 / The Bone Chandler</text>
+<text x="704" y="832" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="750" cy="734.666666666667" r="8" fill="#4AA3FF"><title>exit ToSaltMarket @ 180,740</title></circle>
+<text x="760" y="754.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Salt Market</text>
+<text x="760" y="766.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToSaltMarket</text>
+<circle cx="1256.66666666667" cy="731.333333333333" r="8" fill="#4AA3FF"><title>exit ToAlmshouse @ 1700,730</title></circle>
+<text x="1266.66666666667" y="751.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Almshouse</text>
+<text x="1266.66666666667" y="763.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToAlmshouse</text>
+<circle cx="876.666666666667" cy="721.333333333333" r="7" fill="#C98A3C"><title>hotspot Wares @ 560,700; ink=chandler_wares</title></circle>
+<text x="886.666666666667" y="709.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Wares</text>
+<circle cx="953.333333333333" cy="714.666666666667" r="7" fill="#C98A3C"><title>hotspot ChessSet @ 790,680; ink=chandler_chess_set</title></circle>
+<text x="963.333333333333" y="702.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Chess set</text>
+<text x="963.333333333333" y="714.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ChessSet</text>
+<circle cx="1026.66666666667" cy="721.333333333333" r="7" fill="#C98A3C"><title>hotspot ProsperWatch @ 1010,700; ink=chandler_watch_trade; blocked=chandler_needs_salt</title></circle>
+<text x="1036.66666666667" y="709.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Prosper&apos;s watch</text>
+<text x="1036.66666666667" y="721.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ProsperWatch</text>
+</g>
+<g id="room-almshouse">
+<rect x="1352" y="488" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="1352" y="734" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="1352" y1="734" x2="1992" y2="734" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="1366" y="512" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R07 / The Almshouse</text>
+<text x="1366" y="832" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="1412" cy="734.666666666667" r="8" fill="#4AA3FF"><title>exit ToBoneChandler @ 180,740</title></circle>
+<text x="1422" y="754.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Bone Chandler</text>
+<text x="1422" y="766.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToBoneChandler</text>
+<circle cx="1918.66666666667" cy="731.333333333333" r="8" fill="#4AA3FF"><title>exit ToSaltMarket @ 1700,730</title></circle>
+<text x="1928.66666666667" y="751.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Salt Market</text>
+<text x="1928.66666666667" y="763.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToSaltMarket</text>
+<circle cx="1538.66666666667" cy="728" r="7" fill="#C98A3C"><title>hotspot Cots @ 560,720; ink=almshouse_cots</title></circle>
+<text x="1548.66666666667" y="716" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Cots</text>
+<circle cx="1612" cy="704.666666666667" r="7" fill="#C98A3C"><title>hotspot Window @ 780,650; ink=almshouse_window</title></circle>
+<text x="1622" y="692.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Window</text>
+<circle cx="1678.66666666667" cy="721.333333333333" r="7" fill="#C98A3C"><title>hotspot HalfCoinProsper @ 980,700; ink=prosper_forgiveness; blocked=prosper_before_watch</title></circle>
+<text x="1688.66666666667" y="709.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Half-Coin Prosper</text>
+<text x="1688.66666666667" y="721.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">HalfCoinProsper</text>
+</g>
+<g id="room-fish_hall">
+<rect x="28" y="870" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="28" y="1116" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="28" y1="1116" x2="668" y2="1116" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="42" y="894" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R08 / The Fish Hall</text>
+<text x="42" y="1214" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="88" cy="1116.666666666667" r="8" fill="#4AA3FF"><title>exit ToSaltMarket @ 180,740</title></circle>
+<text x="98" y="1136.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Salt Market</text>
+<text x="98" y="1148.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToSaltMarket</text>
+<circle cx="231.333333333333" cy="1110" r="7" fill="#C98A3C"><title>hotspot IceTable @ 610,720; ink=fish_hall_ice_table</title></circle>
+<text x="241.333333333333" y="1098" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Ice table</text>
+<text x="241.333333333333" y="1110" fill="#6F858D" font-family="Consolas, monospace" font-size="9">IceTable</text>
+<circle cx="348" cy="1106.666666666667" r="7" fill="#C98A3C"><title>hotspot CoronerTag @ 960,710; ink=fish_hall_coroner_tag</title></circle>
+<text x="358" y="1094.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Coroner tag</text>
+<text x="358" y="1106.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">CoronerTag</text>
+<circle cx="448" cy="1100" r="7" fill="#C98A3C"><title>hotspot VisitorBook @ 1260,690; ink=fish_hall_visitor_book</title></circle>
+<text x="458" y="1088" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Visitor book</text>
+<text x="458" y="1100" fill="#6F858D" font-family="Consolas, monospace" font-size="9">VisitorBook</text>
+<circle cx="528" cy="1130" r="12" fill="none" stroke="#7D9B4E" stroke-width="2"/>
+<circle cx="528" cy="1130" r="7" fill="#C98A3C"><title>hotspot Drain @ 1500,780; wet=fish_hall_drain</title></circle>
+<text x="538" y="1118" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Drain</text>
+</g>
+<g id="room-church_of_the_drowned">
+<rect x="690" y="870" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="690" y="1116" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="690" y1="1116" x2="1330" y2="1116" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="704" y="894" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R09 / Church of the Drowned</text>
+<text x="704" y="1214" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="750" cy="1116.66666666667" r="8" fill="#4AA3FF"><title>exit ToSaltMarket @ 180,740</title></circle>
+<text x="760" y="1136.66666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Salt Market</text>
+<text x="760" y="1148.66666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToSaltMarket</text>
+<circle cx="1256.66666666667" cy="1113.33333333333" r="8" fill="#4AA3FF"><title>exit ToGreyFloat @ 1700,730</title></circle>
+<text x="1266.66666666667" y="1133.33333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Grey Float</text>
+<text x="1266.66666666667" y="1145.33333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToGreyFloat</text>
+<circle cx="896.666666666667" cy="1110" r="7" fill="#C98A3C"><title>hotspot PoorBox @ 620,720; ink=church_poor_box</title></circle>
+<text x="906.666666666667" y="1098" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Poor box</text>
+<text x="906.666666666667" y="1110" fill="#6F858D" font-family="Consolas, monospace" font-size="9">PoorBox</text>
+<circle cx="950" cy="1086.66666666667" r="7" fill="#C98A3C"><title>hotspot ConfessionBooth @ 780,650; ink=church_confession_booth</title></circle>
+<text x="960" y="1074.66666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Confession booth</text>
+<text x="960" y="1086.66666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ConfessionBooth</text>
+<circle cx="1056.66666666667" cy="1065" r="7" fill="#C98A3C"><title>hotspot ChurchStallSign @ 1100,585; ink=church_stall_sign</title></circle>
+<text x="1066.66666666667" y="1053" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Church stall sign</text>
+<text x="1066.66666666667" y="1065" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ChurchStallSign</text>
+<circle cx="1003.33333333333" cy="1103.33333333333" r="7" fill="#C98A3C"><title>hotspot RateCard @ 940,700; ink=teodor_rate_card_booth; blocked=teodor_needs_chit</title></circle>
+<text x="1013.33333333333" y="1091.33333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Teodor&apos;s stall</text>
+<text x="1013.33333333333" y="1103.33333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">RateCard</text>
+</g>
+<g id="room-grey_float">
+<rect x="1352" y="870" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="1352" y="1116" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="1352" y1="1116" x2="1992" y2="1116" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="1366" y="894" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R10 / The Grey Float</text>
+<text x="1366" y="1214" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="1412" cy="1116.66666666667" r="8" fill="#4AA3FF"><title>exit ToChurch @ 180,740</title></circle>
+<text x="1422" y="1136.66666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Church</text>
+<text x="1422" y="1148.66666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToChurch</text>
+<circle cx="1918.66666666667" cy="1113.33333333333" r="8" fill="#4AA3FF"><title>exit ToHarbormaster @ 1700,730</title></circle>
+<text x="1928.66666666667" y="1133.33333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Harbormaster</text>
+<text x="1928.66666666667" y="1145.33333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToHarbormaster</text>
+<circle cx="1502" cy="1095" r="7" fill="#C98A3C"><title>hotspot JunoTable @ 450,675; ink=float_juno_table</title></circle>
+<text x="1512" y="1083" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Juno&apos;s table</text>
+<text x="1512" y="1095" fill="#6F858D" font-family="Consolas, monospace" font-size="9">JunoTable</text>
+<circle cx="1835.33333333333" cy="1086.66666666667" r="7" fill="#C98A3C"><title>hotspot SteamScreen @ 1450,650; ink=float_steam_screen</title></circle>
+<text x="1845.33333333333" y="1074.66666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Steam screen</text>
+<text x="1845.33333333333" y="1086.66666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">SteamScreen</text>
+<circle cx="1652" cy="1103.33333333333" r="7" fill="#C98A3C"><title>hotspot BilgeRegulator @ 900,700; ink=juno_regulator_trade; blocked=juno_needs_rate_card</title></circle>
+<text x="1662" y="1091.33333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Bilge regulator</text>
+<text x="1662" y="1103.33333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">BilgeRegulator</text>
+<circle cx="1558.66666666667" cy="1106.66666666667" r="7" fill="#C98A3C"><title>hotspot StaffCorner @ 620,710; ink=float_staff_corner</title></circle>
+<text x="1568.66666666667" y="1094.66666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Staff corner</text>
+<text x="1568.66666666667" y="1106.66666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">StaffCorner</text>
+<circle cx="1758.66666666667" cy="1110" r="7" fill="#C98A3C"><title>hotspot HotPool @ 1220,720; ink=juno_hot_pool_soak; blocked=juno_pool_before_permission</title></circle>
+<text x="1768.66666666667" y="1098" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Hot pool</text>
+<text x="1768.66666666667" y="1110" fill="#6F858D" font-family="Consolas, monospace" font-size="9">HotPool</text>
+</g>
+<g id="room-harbormaster_office">
+<rect x="28" y="1252" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="28" y="1498" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="28" y1="1498" x2="668" y2="1498" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="42" y="1276" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R11 / Harbormaster&apos;s Office</text>
+<text x="42" y="1596" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="88" cy="1498.666666666667" r="8" fill="#4AA3FF"><title>exit ToGreyFloat @ 180,740</title></circle>
+<text x="98" y="1518.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Grey Float</text>
+<text x="98" y="1530.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToGreyFloat</text>
+<circle cx="594.666666666667" cy="1495.333333333333" r="8" fill="#4AA3FF"><title>exit ToSabine @ 1700,730</title></circle>
+<text x="604.666666666667" y="1515.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Sabine</text>
+<text x="604.666666666667" y="1527.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToSabine</text>
+<circle cx="274.666666666667" cy="1482" r="7" fill="#C98A3C"><title>hotspot ChecklistDesk @ 740,690; ink=harbormaster_checklist_desk</title></circle>
+<text x="284.666666666667" y="1470" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Checklist desk</text>
+<text x="284.666666666667" y="1482" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ChecklistDesk</text>
+<circle cx="528" cy="1473.666666666667" r="7" fill="#C98A3C"><title>hotspot SabineDoor @ 1500,665; ink=harbormaster_sabine_door</title></circle>
+<text x="538" y="1461.666666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Sabine&apos;s door</text>
+<text x="538" y="1473.666666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">SabineDoor</text>
+<circle cx="348" cy="1485.333333333333" r="7" fill="#C98A3C"><title>hotspot ChecklistClerk @ 960,700; ink=heartbeat_check_pass; blocked=heartbeat_check_fail</title></circle>
+<text x="358" y="1473.333333333333" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Checklist clerk</text>
+<text x="358" y="1485.333333333333" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ChecklistClerk</text>
+</g>
+<g id="room-sabine_office">
+<rect x="690" y="1252" width="640" height="360" rx="6" fill="#11181B" stroke="#2A3A40" stroke-width="2"/>
+<rect x="690" y="1498" width="640" height="72" fill="#162227" opacity="0.8"/>
+<line x1="690" y1="1498" x2="1330" y2="1498" stroke="#2A3A40" stroke-width="1" stroke-dasharray="8 8"/>
+<text x="704" y="1276" fill="#E4DCC8" font-family="Consolas, monospace" font-size="16">R12 / Sabine&apos;s Office</text>
+<text x="704" y="1596" fill="#7D9B4E" font-family="Consolas, monospace" font-size="11">walk band / player-scale reference</text>
+<circle cx="750" cy="1498.66666666667" r="8" fill="#4AA3FF"><title>exit ToHarbormaster @ 180,740</title></circle>
+<text x="760" y="1518.66666666667" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Harbormaster</text>
+<text x="760" y="1530.66666666667" fill="#6F858D" font-family="Consolas, monospace" font-size="9">ToHarbormaster</text>
+<circle cx="1010" cy="1482" r="7" fill="#C98A3C"><title>hotspot SabineDesk @ 960,690; ink=sabine_act_i_audience</title></circle>
+<text x="1020" y="1470" fill="#E4DCC8" font-family="Consolas, monospace" font-size="10">Sabine&apos;s desk</text>
+<text x="1020" y="1482" fill="#6F858D" font-family="Consolas, monospace" font-size="9">SabineDesk</text>
+</g>
+</svg>

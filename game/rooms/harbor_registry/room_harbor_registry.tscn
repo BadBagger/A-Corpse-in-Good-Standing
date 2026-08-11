@@ -1,0 +1,331 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
+[ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
+[ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
+[ext_resource type="Script" path="res://game/rooms/background_image_loader.gd" id="5_bg_loader"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.164706, 0.227451, 0.25098, 1, 0.894118, 0.862745, 0.784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_1"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_2"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_3"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_4"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_5"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_6"]
+size = Vector2(260, 150)
+
+[node name="RoomHarborRegistry" type="Node2D"]
+script = ExtResource("1_room")
+script_name = "HarborRegistry"
+has_player = true
+width = 1920
+height = 1080
+room_code = "R05"
+room_title = "Harbor Registry"
+room_notes = "Rite 2: Name Restored. Registrar duel and ledger page."
+
+[node name="Background" type="Sprite2D" parent="."]
+script = ExtResource("5_bg_loader")
+background_path = "res://game/rooms/harbor_registry/background/harbor_registry_bg.png"
+centered = false
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.164706, 0.227451, 0.25098, 0.2)
+polygon = PackedVector2Array(0, 700, 1920, 620, 1920, 1080, 0, 1080)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 44.0
+offset_right = 980.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "R05 / Harbor Registry"
+
+[node name="NotesLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1180.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Rite 2: Name Restored. Registrar duel and ledger page."
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="WalkableMain" type="Polygon2D" parent="WalkableAreas"]
+color = Color(0.494118, 0.607843, 0.305882, 0.35)
+polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="ToSaltMarket" type="Area2D" parent="Hotspots"]
+position = Vector2(180, 740)
+script = ExtResource("3_exit")
+script_name = "ToSaltMarket"
+description = "Salt Market"
+target_room = "SaltMarket"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Salt Market. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Salt Market."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToSaltMarket"]
+shape = SubResource("RectangleShape2D_exit_1")
+
+[node name="Label" type="Label" parent="Hotspots/ToSaltMarket"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Salt Market"
+
+[node name="Ledgers" type="Area2D" parent="Hotspots"]
+position = Vector2(420, 660)
+script = ExtResource("4_interaction")
+script_name = "Ledgers"
+description = "Ledgers"
+interaction_key = "ledgers"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_registry_ledgers_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "registry_ledgers"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Four thousand names in those books and every one of them struck out by the same hand."
+use_text = "Corvin reads the wall of absences. The office has been eating people longer than he has."
+talk_text = "Corvin talks to the ledgers. They have heard worse and filed it."
+walk_text = "Corvin stands under four thousand official absences."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/Ledgers"]
+shape = SubResource("RectangleShape2D_interaction_2")
+
+[node name="Label" type="Label" parent="Hotspots/Ledgers"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Ledgers"
+
+[node name="RollBook" type="Area2D" parent="Hotspots"]
+position = Vector2(640, 700)
+script = ExtResource("4_interaction")
+script_name = "RollBook"
+description = "Open roll"
+interaction_key = "roll_book"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String]([])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "registry_roll_book"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "There. VALE, CORVIN - and a line through it. Not even a neat line."
+use_text = "Corvin reads the scratch again. The insult is administrative and personal."
+talk_text = "Corvin asks the roll to improve its handwriting. It declines."
+walk_text = "Corvin stands over his own absence."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/RollBook"]
+shape = SubResource("RectangleShape2D_interaction_3")
+
+[node name="Label" type="Label" parent="Hotspots/RollBook"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Open roll"
+
+[node name="DeskLamp" type="Area2D" parent="Hotspots"]
+position = Vector2(890, 650)
+script = ExtResource("4_interaction")
+script_name = "DeskLamp"
+description = "Desk lamp"
+interaction_key = "desk_lamp"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String]([])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String](["FL_registry_lamp_smoked"])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = "registry_lamp_smoked"
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = ""
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Oil lamp. Low wick. She likes the dark; it makes people talk faster."
+use_text = "Corvin needs a distraction, not a lamp-owning hobby."
+talk_text = "Corvin apologizes to the lamp. The lamp smokes like it accepts."
+walk_text = "Corvin steps close enough to drip with intent."
+wet_text = "Corvin shakes his sleeve over the lamp. It gutters, smokes, and the Registrar rises to tend it."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/DeskLamp"]
+shape = SubResource("RectangleShape2D_interaction_4")
+
+[node name="Label" type="Label" parent="Hotspots/DeskLamp"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Desk lamp"
+
+[node name="KestrelLedger" type="Area2D" parent="Hotspots"]
+position = Vector2(1220, 610)
+script = ExtResource("4_interaction")
+script_name = "KestrelLedger"
+description = "Kestrel ledger"
+interaction_key = "kestrel_ledger"
+requires_items = Array[String]([])
+requires_flags = Array[String](["FL_registry_lamp_smoked"])
+items_add = Array[String](["IT_ledger_page"])
+flags_set = Array[String](["FL_manifest_known"])
+confessions_discover = Array[String](["cf_bt_manifest"])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "registry_ledger_page"
+blocked_ink_knot = "registry_ledger_blocked"
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "The Kestrel ledger is behind the Registrar's desk. She has not moved."
+look_text = "High shelf, black binding, one torn corner. The kind of book that survives by ruining everyone else."
+use_text = "Corvin tears out the Kestrel page. The Registrar knows. She saves it for the duel."
+talk_text = "The ledger says nothing. That's how ledgers get away with murder."
+walk_text = "Corvin crosses behind the desk while the lamp performs innocence."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/KestrelLedger"]
+shape = SubResource("RectangleShape2D_interaction_5")
+
+[node name="Label" type="Label" parent="Hotspots/KestrelLedger"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Kestrel ledger"
+
+[node name="Registrar" type="Area2D" parent="Hotspots"]
+position = Vector2(980, 690)
+script = ExtResource("4_interaction")
+script_name = "Registrar"
+description = "Registrar"
+interaction_key = "registrar"
+requires_items = Array[String]([])
+requires_flags = Array[String](["FL_manifest_known"])
+items_add = Array[String](["IT_name_writ"])
+flags_set = Array[String](["FL_rite_name", "FL_registrar_sold_manifest"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = "registrar"
+duel_pool = Array[String](["cf_greed_boots", "cf_pride_list", "cf_lust_float", "cf_lust_schedule", "cf_pride_grammar", "cf_pride_counselor", "cf_cruel_soupline", "cf_cruel_sentences", "cf_cow_leftroom", "cf_cow_bigger", "cf_cow_passive"])
+ink_knot = ""
+blocked_ink_knot = "registry_registrar_needs_manifest"
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "The Registrar will duel him, but not while the Kestrel page is still safely above her desk."
+look_text = "The Registrar has struck four thousand names off the roll and remembers every one."
+use_text = "The Registrar opens the book. The Litany answers or it doesn't."
+talk_text = "The Registrar opens the book. The Litany answers or it doesn't."
+walk_text = "Corvin approaches the desk. The desk considers legal action."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/Registrar"]
+shape = SubResource("RectangleShape2D_interaction_6")
+
+[node name="Label" type="Label" parent="Hotspots/Registrar"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Registrar"
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Markers"]
+position = Vector2(960, 790)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="PrologueHud" parent="." instance=ExtResource("2_hud")]

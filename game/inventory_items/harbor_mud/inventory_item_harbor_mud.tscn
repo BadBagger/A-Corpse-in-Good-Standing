@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://game/inventory_items/harbor_mud/inventory_item_harbor_mud.gd" id="1_mgwwp"]
+
+[sub_resource type="Gradient" id="Gradient_5equv"]
+colors = PackedColorArray(0.164706, 0.227451, 0.25098, 1, 0.0470588, 0.0627451, 0.0745098, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xqf20"]
+gradient = SubResource("Gradient_5equv")
+width = 64
+height = 64
+
+[node name="InventoryItemHarborMud" type="TextureRect"]
+custom_minimum_size = Vector2(64, 64)
+mouse_filter = 0
+texture = SubResource("GradientTexture2D_xqf20")
+stretch_mode = 5
+script = ExtResource("1_mgwwp")
+script_name = "HarborMud"
+description = "harbor mud"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+

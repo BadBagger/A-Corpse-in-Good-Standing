@@ -1,0 +1,11 @@
+bin/
+obj/
+.godot/
+.import/
+*.tmp
+*.bak
+*.blend1
+*.blend2
+*.blend@
+*.log
+_incoming_*/

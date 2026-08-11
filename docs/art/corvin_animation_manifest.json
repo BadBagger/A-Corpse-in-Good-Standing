@@ -1,0 +1,545 @@
+﻿{
+    "generated_from":  "AGENTS.md sections 5 and 8.3",
+    "character_id":  "corvin",
+    "character_name":  "Corvin Vale",
+    "pipeline":  "Meshy source -\u003e Blender ink/toon render -\u003e 2D sprite sheets",
+    "runtime_character_scene":  "game/characters/corvin/character_corvin.tscn",
+    "render_fps":  12,
+    "render_scale":  "2x target",
+    "directions":  [
+                       "front",
+                       "side_right",
+                       "back",
+                       "side_left"
+                   ],
+    "variants":  [
+                     {
+                         "id":  "act_i_clean",
+                         "act":  1,
+                         "label":  "Act I clean",
+                         "notes":  "Recently returned, wet coat, barefoot only until boots pickup; salt only at knuckles.",
+                         "meshy_source":  "art/src/characters/corvin/meshy/corvin_act_i_clean.glb",
+                         "blender_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                         "texture_source":  "art/src/characters/corvin/textures/corvin_act_i_clean_ink.png",
+                         "animations":  [
+                                            {
+                                                "id":  "idle",
+                                                "fps":  12,
+                                                "frames":  12,
+                                                "loop":  true,
+                                                "notes":  "Ink-on-twos idle with permanent coat drip.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_i_clean_idle_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/idle_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/idle_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_i_clean_idle_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/idle_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/idle_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_i_clean_idle_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/idle_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/idle_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_i_clean_idle_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/idle_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/idle_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "walk",
+                                                "fps":  12,
+                                                "frames":  8,
+                                                "loop":  true,
+                                                "notes":  "Side profile is production priority; keep root motion measurable and in-place export possible.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_i_clean_walk_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/walk_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/walk_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_i_clean_walk_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/walk_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/walk_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_i_clean_walk_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/walk_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/walk_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_i_clean_walk_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/walk_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/walk_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "talk",
+                                                "fps":  12,
+                                                "frames":  6,
+                                                "loop":  true,
+                                                "notes":  "Body-only talk cycle; full VO mouth detail remains portrait/face-layer work.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_i_clean_talk_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/talk_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/talk_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_i_clean_talk_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/talk_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/talk_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_i_clean_talk_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/talk_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/talk_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_i_clean_talk_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/talk_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/talk_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "wet",
+                                                "fps":  12,
+                                                "frames":  8,
+                                                "loop":  false,
+                                                "notes":  "Sleeve shake / drip action for the permanent wet verb.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_i_clean_wet_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/wet_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/wet_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_i_clean_wet_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/wet_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/wet_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_i_clean_wet_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/wet_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/wet_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_i_clean_wet_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/wet_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/wet_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "use",
+                                                "fps":  12,
+                                                "frames":  8,
+                                                "loop":  false,
+                                                "notes":  "Generic reach/pickup for Act I puzzle items.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_i_clean_use_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/use_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/use_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_i_clean_use_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/use_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/use_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_i_clean_use_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/use_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/use_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_i_clean_use_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_i_clean/use_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/use_side_left.png"
+                                                                   }
+                                                               ]
+                                            }
+                                        ]
+                     },
+                     {
+                         "id":  "act_ii_salting",
+                         "act":  2,
+                         "label":  "Act II salting",
+                         "notes":  "No warmth, no taste; visible salt at joints and coat edges.",
+                         "meshy_source":  "art/src/characters/corvin/meshy/corvin_act_ii_salting.glb",
+                         "blender_source":  "art/src/characters/corvin/corvin_act_ii_salting.blend",
+                         "texture_source":  "art/src/characters/corvin/textures/corvin_act_ii_salting_ink.png",
+                         "animations":  [
+                                            {
+                                                "id":  "idle",
+                                                "fps":  12,
+                                                "frames":  12,
+                                                "loop":  true,
+                                                "notes":  "Ink-on-twos idle with permanent coat drip.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_ii_salting_idle_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/idle_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/idle_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_ii_salting_idle_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/idle_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/idle_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_ii_salting_idle_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/idle_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/idle_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_ii_salting_idle_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/idle_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/idle_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "walk",
+                                                "fps":  12,
+                                                "frames":  8,
+                                                "loop":  true,
+                                                "notes":  "Side profile is production priority; keep root motion measurable and in-place export possible.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_ii_salting_walk_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/walk_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/walk_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_ii_salting_walk_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/walk_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/walk_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_ii_salting_walk_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/walk_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/walk_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_ii_salting_walk_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/walk_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/walk_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "talk",
+                                                "fps":  12,
+                                                "frames":  6,
+                                                "loop":  true,
+                                                "notes":  "Body-only talk cycle; full VO mouth detail remains portrait/face-layer work.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_ii_salting_talk_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/talk_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/talk_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_ii_salting_talk_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/talk_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/talk_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_ii_salting_talk_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/talk_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/talk_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_ii_salting_talk_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/talk_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/talk_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "wet",
+                                                "fps":  12,
+                                                "frames":  8,
+                                                "loop":  false,
+                                                "notes":  "Sleeve shake / drip action for the permanent wet verb.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_ii_salting_wet_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/wet_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/wet_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_ii_salting_wet_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/wet_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/wet_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_ii_salting_wet_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/wet_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/wet_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_ii_salting_wet_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/wet_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/wet_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "use",
+                                                "fps":  12,
+                                                "frames":  8,
+                                                "loop":  false,
+                                                "notes":  "Generic reach/pickup for Act I puzzle items.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_ii_salting_use_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/use_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/use_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_ii_salting_use_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/use_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/use_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_ii_salting_use_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/use_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/use_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_ii_salting_use_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_ii_salting/use_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_ii_salting/use_side_left.png"
+                                                                   }
+                                                               ]
+                                            }
+                                        ]
+                     },
+                     {
+                         "id":  "act_iii_crusted",
+                         "act":  3,
+                         "label":  "Act III crusted",
+                         "notes":  "Memory decay era; crusted silhouette, stiffer hands, worse shoulder asymmetry.",
+                         "meshy_source":  "art/src/characters/corvin/meshy/corvin_act_iii_crusted.glb",
+                         "blender_source":  "art/src/characters/corvin/corvin_act_iii_crusted.blend",
+                         "texture_source":  "art/src/characters/corvin/textures/corvin_act_iii_crusted_ink.png",
+                         "animations":  [
+                                            {
+                                                "id":  "idle",
+                                                "fps":  12,
+                                                "frames":  12,
+                                                "loop":  true,
+                                                "notes":  "Ink-on-twos idle with permanent coat drip.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_iii_crusted_idle_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/idle_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/idle_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_iii_crusted_idle_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/idle_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/idle_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_iii_crusted_idle_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/idle_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/idle_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_iii_crusted_idle_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/idle_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/idle_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "walk",
+                                                "fps":  12,
+                                                "frames":  8,
+                                                "loop":  true,
+                                                "notes":  "Side profile is production priority; keep root motion measurable and in-place export possible.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_iii_crusted_walk_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/walk_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/walk_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_iii_crusted_walk_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/walk_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/walk_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_iii_crusted_walk_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/walk_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/walk_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_iii_crusted_walk_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/walk_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/walk_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "talk",
+                                                "fps":  12,
+                                                "frames":  6,
+                                                "loop":  true,
+                                                "notes":  "Body-only talk cycle; full VO mouth detail remains portrait/face-layer work.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_iii_crusted_talk_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/talk_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/talk_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_iii_crusted_talk_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/talk_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/talk_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_iii_crusted_talk_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/talk_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/talk_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_iii_crusted_talk_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/talk_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/talk_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "wet",
+                                                "fps":  12,
+                                                "frames":  8,
+                                                "loop":  false,
+                                                "notes":  "Sleeve shake / drip action for the permanent wet verb.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_iii_crusted_wet_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/wet_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/wet_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_iii_crusted_wet_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/wet_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/wet_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_iii_crusted_wet_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/wet_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/wet_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_iii_crusted_wet_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/wet_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/wet_side_left.png"
+                                                                   }
+                                                               ]
+                                            },
+                                            {
+                                                "id":  "use",
+                                                "fps":  12,
+                                                "frames":  8,
+                                                "loop":  false,
+                                                "notes":  "Generic reach/pickup for Act I puzzle items.",
+                                                "directions":  [
+                                                                   {
+                                                                       "direction":  "front",
+                                                                       "source_action":  "Corvin_act_iii_crusted_use_front",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/use_front.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/use_front.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_right",
+                                                                       "source_action":  "Corvin_act_iii_crusted_use_side_right",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/use_side_right.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/use_side_right.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "back",
+                                                                       "source_action":  "Corvin_act_iii_crusted_use_back",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/use_back.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/use_back.png"
+                                                                   },
+                                                                   {
+                                                                       "direction":  "side_left",
+                                                                       "source_action":  "Corvin_act_iii_crusted_use_side_left",
+                                                                       "sheet_path":  "art/export/characters/corvin/act_iii_crusted/use_side_left.png",
+                                                                       "godot_resource":  "game/characters/corvin/sprites/act_iii_crusted/use_side_left.png"
+                                                                   }
+                                                               ]
+                                            }
+                                        ]
+                     }
+                 ]
+}

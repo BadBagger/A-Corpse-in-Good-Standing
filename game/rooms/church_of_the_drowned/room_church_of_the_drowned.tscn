@@ -1,0 +1,312 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
+[ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
+[ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
+[ext_resource type="Script" path="res://game/rooms/background_image_loader.gd" id="5_bg_loader"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.164706, 0.227451, 0.25098, 1, 0.894118, 0.862745, 0.784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_1"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_2"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_3"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_4"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_5"]
+size = Vector2(260, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_6"]
+size = Vector2(260, 150)
+
+[node name="RoomChurchOfTheDrowned" type="Node2D"]
+script = ExtResource("1_room")
+script_name = "ChurchOfTheDrowned"
+has_player = true
+width = 1920
+height = 1080
+room_code = "R09"
+room_title = "Church of the Drowned"
+room_notes = "Teodor, confession chit, rate card, confession stall."
+
+[node name="Background" type="Sprite2D" parent="."]
+script = ExtResource("5_bg_loader")
+background_path = "res://game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png"
+centered = false
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.164706, 0.227451, 0.25098, 0.2)
+polygon = PackedVector2Array(0, 700, 1920, 620, 1920, 1080, 0, 1080)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 44.0
+offset_right = 980.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "R09 / Church of the Drowned"
+
+[node name="NotesLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1180.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Teodor, confession chit, rate card, confession stall."
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="WalkableMain" type="Polygon2D" parent="WalkableAreas"]
+color = Color(0.494118, 0.607843, 0.305882, 0.35)
+polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="ToSaltMarket" type="Area2D" parent="Hotspots"]
+position = Vector2(180, 740)
+script = ExtResource("3_exit")
+script_name = "ToSaltMarket"
+description = "Salt Market"
+target_room = "SaltMarket"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Salt Market. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Salt Market."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToSaltMarket"]
+shape = SubResource("RectangleShape2D_exit_1")
+
+[node name="Label" type="Label" parent="Hotspots/ToSaltMarket"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Salt Market"
+
+[node name="ToGreyFloat" type="Area2D" parent="Hotspots"]
+position = Vector2(1700, 730)
+script = ExtResource("3_exit")
+script_name = "ToGreyFloat"
+description = "Grey Float"
+target_room = "GreyFloat"
+requires_flags = Array[String]([])
+blocked_text = ""
+look_text = "Grey Float. The map gets less merciful in that direction."
+use_text = "Corvin considers using the way out as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Grey Float."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToGreyFloat"]
+shape = SubResource("RectangleShape2D_exit_2")
+
+[node name="Label" type="Label" parent="Hotspots/ToGreyFloat"]
+offset_left = -86.0
+offset_top = -118.0
+offset_right = 126.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Grey Float"
+
+[node name="PoorBox" type="Area2D" parent="Hotspots"]
+position = Vector2(620, 720)
+script = ExtResource("4_interaction")
+script_name = "PoorBox"
+description = "Poor box"
+interaction_key = "poor_box"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String]([])
+confessions_discover = Array[String](["cf_greed_plate"])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "church_poor_box"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Poor box. Someone had the lock off and put it back badly."
+use_text = "Corvin finds the bad hinge, the missing notes, and the Church's talent for losing small money."
+talk_text = "Corvin asks the poor box for an audit. It pleads poverty."
+walk_text = "Corvin stands where charity becomes accounting."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/PoorBox"]
+shape = SubResource("RectangleShape2D_interaction_3")
+
+[node name="Label" type="Label" parent="Hotspots/PoorBox"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Poor box"
+
+[node name="ConfessionBooth" type="Area2D" parent="Hotspots"]
+position = Vector2(780, 650)
+script = ExtResource("4_interaction")
+script_name = "ConfessionBooth"
+description = "Confession booth"
+interaction_key = "confession_booth"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String](["IT_chit"])
+flags_set = Array[String](["FL_church_booth_seen", "FL_chit_acquired"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "church_confession_booth"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "A green-lit box with a queue. The Church found a way to make truth billable by the minute."
+use_text = "Teodor issues Corvin a confession chit with the relief of a man stamping his own reprieve."
+talk_text = "Corvin asks the booth if it feels shame. It has excellent margins instead."
+walk_text = "Corvin stands by the booth and watches grief become scheduling."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ConfessionBooth"]
+shape = SubResource("RectangleShape2D_interaction_4")
+
+[node name="Label" type="Label" parent="Hotspots/ConfessionBooth"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Confession booth"
+
+[node name="ChurchStallSign" type="Area2D" parent="Hotspots"]
+position = Vector2(1100, 585)
+script = ExtResource("4_interaction")
+script_name = "ChurchStallSign"
+description = "Church stall sign"
+interaction_key = "church_stall_sign"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_church_stall_sign_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "church_stall_sign"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "THE DROWNED CANNOT LIE - ONE SHILLING. The queue is eleven deep and Teodor is sweating through doctrine."
+use_text = "Corvin reads the tariff and the queue. The Church has turned truth into inventory."
+talk_text = "Corvin asks the sign if shame costs extra. The sign has no small print, which is how they get you."
+walk_text = "Corvin stands under the green tariff light and tries not to become merchandise."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ChurchStallSign"]
+shape = SubResource("RectangleShape2D_interaction_5")
+
+[node name="Label" type="Label" parent="Hotspots/ChurchStallSign"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Church stall sign"
+
+[node name="RateCard" type="Area2D" parent="Hotspots"]
+position = Vector2(940, 700)
+script = ExtResource("4_interaction")
+script_name = "RateCard"
+description = "Teodor's stall"
+interaction_key = "rate_card"
+requires_items = Array[String](["IT_chit"])
+requires_flags = Array[String]([])
+items_add = Array[String](["IT_rate_card"])
+flags_set = Array[String](["FL_teodor_owes", "FL_rate_card", "FL_kane_seen"])
+confessions_discover = Array[String](["cf_cruel_sentences"])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "teodor_rate_card_booth"
+blocked_ink_knot = "teodor_needs_chit"
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "Teodor needs Corvin properly booked into the confession booth before he can hand over Church accounts."
+look_text = "THE DROWNED CANNOT LIE - ONE SHILLING. The queue is eleven deep and Teodor is sweating through doctrine."
+use_text = "Corvin sits the stall for an hour. The Church gets its returned man, Teodor keeps his posting, and the rate card changes hands."
+talk_text = "Teodor explains the discount badly, then realizes Corvin is the discount."
+walk_text = "Corvin steps under the green light and tries not to count the donations."
+wet_text = ""
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/RateCard"]
+shape = SubResource("RectangleShape2D_interaction_6")
+
+[node name="Label" type="Label" parent="Hotspots/RateCard"]
+offset_left = -96.0
+offset_top = -102.0
+offset_right = 156.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Teodor's stall"
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Markers"]
+position = Vector2(960, 790)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="PrologueHud" parent="." instance=ExtResource("2_hud")]

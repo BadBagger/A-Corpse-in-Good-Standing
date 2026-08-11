@@ -1,0 +1,193 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://game/ui/prologue_hud.gd" id="1_nllyp"]
+
+[node name="PrologueHud" type="CanvasLayer"]
+script = ExtResource("1_nllyp")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VerbCoin" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -204.0
+offset_right = 356.0
+offset_bottom = -26.0
+grow_vertical = 0
+mouse_filter = 0
+
+[node name="Margin" type="MarginContainer" parent="Root/VerbCoin"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Grid" type="GridContainer" parent="Root/VerbCoin/Margin"]
+layout_mode = 2
+columns = 2
+
+[node name="WalkButton" type="Button" parent="Root/VerbCoin/Margin/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Walk"
+
+[node name="LookButton" type="Button" parent="Root/VerbCoin/Margin/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Look"
+
+[node name="UseButton" type="Button" parent="Root/VerbCoin/Margin/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Use"
+
+[node name="TalkButton" type="Button" parent="Root/VerbCoin/Margin/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Talk"
+
+[node name="WetButton" type="Button" parent="Root/VerbCoin/Margin/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Wet"
+
+[node name="InventoryPanel" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 390.0
+offset_top = -92.0
+offset_right = -26.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 0
+
+[node name="InventoryMargin" type="MarginContainer" parent="Root/InventoryPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Inventory" type="Label" parent="Root/InventoryPanel/InventoryMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Inventory: empty"
+vertical_alignment = 1
+
+[node name="StatusPanel" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 26.0
+offset_top = 24.0
+offset_right = -26.0
+offset_bottom = 72.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="StatusMargin" type="MarginContainer" parent="Root/StatusPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="Status" type="Label" parent="Root/StatusPanel/StatusMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pick a verb, then click a greybox hotspot."
+vertical_alignment = 1
+
+[node name="DialoguePanel" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 26.0
+offset_top = 86.0
+offset_right = -600.0
+offset_bottom = 286.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="DialogueMargin" type="MarginContainer" parent="Root/DialoguePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Dialogue" type="Label" parent="Root/DialoguePanel/DialogueMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Dialogue: idle"
+autowrap_mode = 3
+
+[node name="JournalPanel" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -560.0
+offset_top = 92.0
+offset_right = -26.0
+offset_bottom = 316.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="JournalMargin" type="MarginContainer" parent="Root/JournalPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Journal" type="Label" parent="Root/JournalPanel/JournalMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Journal: empty"
+autowrap_mode = 3
+
+[node name="LitanyPanel" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -560.0
+offset_top = 330.0
+offset_right = -26.0
+offset_bottom = 382.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="LitanyMargin" type="MarginContainer" parent="Root/LitanyPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="Litany" type="Label" parent="Root/LitanyPanel/LitanyMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Litany: 0 known, 0 spent, 0 locked"
+vertical_alignment = 1

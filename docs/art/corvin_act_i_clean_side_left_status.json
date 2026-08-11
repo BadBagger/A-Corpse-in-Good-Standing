@@ -1,0 +1,35 @@
+﻿{
+    "generated_from":  "tools/Render-CorvinActICleanSideLeftSheets.ps1",
+    "status":  "audited",
+    "runtime_candidate":  true,
+    "final_polish":  false,
+    "character_id":  "corvin",
+    "variant":  "act_i_clean",
+    "direction":  "side_left",
+    "source_direction":  "side_right",
+    "cell_width":  256,
+    "cell_height":  512,
+    "sheets":  [
+                   {
+                       "animation":  "idle",
+                       "frames":  12,
+                       "fps":  12,
+                       "sheet_export":  "art/export/characters/corvin/act_i_clean/idle_side_left.png",
+                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/idle_side_left.png",
+                       "source_sheet":  "art/export/characters/corvin/act_i_clean/idle_side_right.png"
+                   },
+                   {
+                       "animation":  "walk",
+                       "frames":  8,
+                       "fps":  12,
+                       "sheet_export":  "art/export/characters/corvin/act_i_clean/walk_side_left.png",
+                       "godot_resource":  "game/characters/corvin/sprites/act_i_clean/walk_side_left.png",
+                       "source_sheet":  "art/export/characters/corvin/act_i_clean/walk_side_right.png"
+                   }
+               ],
+    "notes":  [
+                  "Generated deterministic side_left runtime candidates by mirroring the audited side_right sheets per frame.",
+                  "This keeps early navigation readable while final rigged locomotion polish remains pending.",
+                  "Asymmetrical coat wear and salt details will need a final art pass after the Meshy/Blender walk cycle is locked."
+              ]
+}

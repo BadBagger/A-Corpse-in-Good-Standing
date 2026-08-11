@@ -1,0 +1,327 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Act I Review Contact Sheet</title>
+  <style>
+    :root { --paper: #E4DCC8; --black: #0C1013; --slate: #2A3A40; --green: #7D9B4E; --amber: #C98A3C; --red: #8E1B22; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: var(--black); color: var(--paper); }
+    header, main { width: min(1440px, calc(100vw - 32px)); margin: 0 auto; }
+    header { padding: 24px 0 12px; }
+    h1 { margin: 0 0 8px; font-size: 28px; font-weight: 700; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 20px; letter-spacing: 0; }
+    p { line-height: 1.45; max-width: 960px; }
+    code { color: var(--amber); }
+    .locks { display: grid; gap: 6px; padding: 12px 0 4px; }
+    .room-card { border-top: 1px solid rgba(228, 220, 200, 0.28); padding: 24px 0; }
+    .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #111; overflow: hidden; border: 1px solid rgba(228, 220, 200, 0.24); }
+    .frame img { width: 100%; height: 100%; display: block; object-fit: contain; }
+    .walk-band { position: absolute; left: 0; right: 0; background: rgba(201, 138, 60, 0.20); border-top: 2px solid rgba(201, 138, 60, 0.85); border-bottom: 2px solid rgba(201, 138, 60, 0.85); pointer-events: none; }
+    .marker { position: absolute; width: 18px; height: 18px; margin-left: -9px; margin-top: -9px; border-radius: 999px; border: 2px solid var(--paper); background: var(--green); box-shadow: 0 0 0 3px rgba(12, 16, 19, 0.8); }
+    .marker.exit { background: var(--amber); }
+    .marker.risk { background: var(--red); }
+    .meta { margin: 8px 0 12px; color: rgba(228, 220, 200, 0.78); font-size: 14px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+    th, td { text-align: left; vertical-align: top; padding: 7px 8px; border-bottom: 1px solid rgba(228, 220, 200, 0.16); }
+    th { color: var(--amber); font-weight: 700; }
+    .muted { color: rgba(228, 220, 200, 0.64); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Act I Review Contact Sheet</h1>
+    <p>Generated at UTC: 2026-08-11T20:54:51.0040695Z</p>
+    <p>Use this during Step 5 human review alongside <code>docs/playtest/results/act_i_human_playtest_latest.md</code> and <code>docs/playtest/act_i_review_decisions_template.csv</code>.</p>
+    <div class="locks">
+      <div>Rule lock: keep the accepted Litany/Registrar duel format; do not add a second confession-spend UI.</div>
+      <div>Rule lock: Grey Float stays hard-R: steam, silhouette, privacy, and agency only.</div>
+      <div>Rule lock: this contact sheet is review evidence, not final paintover approval.</div>
+    </div>
+  </header>
+  <main>
+    <section class="room-card" id="room-mudflats">
+      <h2>R01 Mudflats</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/mudflats.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-mudflats</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/mudflats_bg.png" alt="Mudflats blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker" style="left: 26.042%; top: 86.111%;" title="hotspot: silt (500, 930) roles="></span>
+        <span class="marker" style="left: 34.375%; top: 70.37%;" title="hotspot: Corvin&#39;s hands (660, 760) roles="></span>
+        <span class="marker" style="left: 61.458%; top: 57.407%;" title="hotspot: harbor view (1180, 620) roles="></span>
+        <span class="marker" style="left: 38.281%; top: 70.37%;" title="hotspot: coat (735, 760) roles="></span>
+        <span class="marker" style="left: 20.313%; top: 65%;" title="hotspot: Bollard-of-Tomas (390, 702) roles="></span>
+        <span class="marker" style="left: 50.26%; top: 84.259%;" title="hotspot: missing boots (965, 910) roles="></span>
+        <span class="marker" style="left: 91.927%; top: 61.574%;" title="hotspot: road to the Salt Market (1765, 665) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>hotspot</td><td>silt</td><td>500, 930</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Corvin&#39;s hands</td><td>660, 760</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>harbor view</td><td>1180, 620</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>coat</td><td>735, 760</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Bollard-of-Tomas</td><td>390, 702</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>missing boots</td><td>965, 910</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>road to the Salt Market</td><td>1765, 665</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="room-card" id="room-old_quay">
+      <h2>R02 The Old Quay</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/old_quay.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-old_quay</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/old_quay_blockout_bg.png" alt="The Old Quay blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker exit" style="left: 9.375%; top: 70.37%;" title="exit: Mudflats (180, 760) roles="></span>
+        <span class="marker exit" style="left: 88.542%; top: 64.815%;" title="exit: Salt Market (1700, 700) roles="></span>
+        <span class="marker" style="left: 24.479%; top: 66.667%;" title="hotspot: Bollard Tomas (470, 720) roles="></span>
+        <span class="marker" style="left: 35.938%; top: 64.815%;" title="hotspot: Bollard Petra (690, 700) roles="></span>
+        <span class="marker" style="left: 45.313%; top: 65.278%;" title="hotspot: Ledger bollard (870, 705) roles="></span>
+        <span class="marker" style="left: 54.688%; top: 66.204%;" title="hotspot: Bride bollard (1050, 715) roles="></span>
+        <span class="marker" style="left: 47.396%; top: 65.741%;" title="hotspot: Silent bollards (910, 710) roles="></span>
+        <span class="marker" style="left: 61.458%; top: 70.37%;" title="hotspot: Empty flask (1180, 760) roles="></span>
+        <span class="marker" style="left: 37.5%; top: 74.074%;" title="hotspot: Rope cleat (720, 800) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>exit</td><td>Mudflats</td><td>180, 760</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Salt Market</td><td>1700, 700</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Bollard Tomas</td><td>470, 720</td><td></td><td></td><td>FL_tomas_topics_seen / cf_pride_list|cf_cow_leftroom|cf_greed_widows</td><td>old_quay_tomas_topics</td></tr>
+          <tr><td>hotspot</td><td>Bollard Petra</td><td>690, 700</td><td></td><td></td><td>FL_bollard_petra_seen</td><td>old_quay_bollard_petra</td></tr>
+          <tr><td>hotspot</td><td>Ledger bollard</td><td>870, 705</td><td></td><td></td><td>FL_bollard_ledger_seen</td><td>old_quay_bollard_ledger</td></tr>
+          <tr><td>hotspot</td><td>Bride bollard</td><td>1050, 715</td><td></td><td></td><td>FL_bollard_bride_seen</td><td>old_quay_bollard_bride</td></tr>
+          <tr><td>hotspot</td><td>Silent bollards</td><td>910, 710</td><td></td><td></td><td>FL_silent_bollards_seen</td><td>old_quay_silent_bollards</td></tr>
+          <tr><td>hotspot</td><td>Empty flask</td><td>1180, 760</td><td></td><td></td><td>IT_flask / FL_flask_taken</td><td>old_quay_flask</td></tr>
+          <tr><td>hotspot</td><td>Rope cleat</td><td>720, 800</td><td></td><td></td><td>IT_knuckle_salt / FL_salt_scraped</td><td>old_quay_rope_cleat / old_quay_rope_cleat</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="room-card" id="room-salt_market">
+      <h2>R03 Salt Market</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/salt_market.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-salt_market</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/salt_market_bg.png" alt="Salt Market blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker exit" style="left: 9.375%; top: 68.519%;" title="exit: Old Quay (180, 740) roles="></span>
+        <span class="marker exit" style="left: 27.083%; top: 60.185%;" title="exit: Registry (520, 650) roles="></span>
+        <span class="marker exit" style="left: 42.708%; top: 60.648%;" title="exit: Bone Chandler (820, 655) roles="></span>
+        <span class="marker exit" style="left: 58.333%; top: 60.648%;" title="exit: Almshouse (1120, 655) roles="></span>
+        <span class="marker exit" style="left: 72.396%; top: 60.648%;" title="exit: Fish Hall (1390, 655) roles="></span>
+        <span class="marker exit" style="left: 86.458%; top: 60.185%;" title="exit: Church (1660, 650) roles="></span>
+        <span class="marker" style="left: 50%; top: 70.37%;" title="hotspot: Crowd (960, 760) roles="></span>
+        <span class="marker" style="left: 15.625%; top: 66.667%;" title="hotspot: Boot stall (300, 720) roles="></span>
+        <span class="marker" style="left: 27.083%; top: 66.667%;" title="hotspot: Fishmonger (520, 720) roles="></span>
+        <span class="marker" style="left: 61.458%; top: 66.667%;" title="hotspot: Confession queue (1180, 720) roles="></span>
+        <span class="marker" style="left: 71.875%; top: 50%;" title="hotspot: Church sign (1380, 540) roles="></span>
+        <span class="marker" style="left: 79.167%; top: 57.407%;" title="hotspot: Whale-oil lamp (1520, 620) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>exit</td><td>Old Quay</td><td>180, 740</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Registry</td><td>520, 650</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Bone Chandler</td><td>820, 655</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Almshouse</td><td>1120, 655</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Fish Hall</td><td>1390, 655</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Church</td><td>1660, 650</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Crowd</td><td>960, 760</td><td></td><td></td><td>BorrowedBoots / FL_market_recognized|FL_market_day_hint / cf_pride_voice</td><td>salt_market_public_recognition</td></tr>
+          <tr><td>hotspot</td><td>Boot stall</td><td>300, 720</td><td></td><td>BorrowedBoots / FL_market_recognized</td><td>FL_boot_stall_after_seen</td><td>salt_market_boot_stall_after</td></tr>
+          <tr><td>hotspot</td><td>Fishmonger</td><td>520, 720</td><td></td><td></td><td>FL_fishmonger_seen / cf_greed_scales|cf_cow_drink</td><td>salt_market_fishmonger</td></tr>
+          <tr><td>hotspot</td><td>Confession queue</td><td>1180, 720</td><td></td><td></td><td>cf_cruel_funeral|cf_pride_voice</td><td>salt_market_confession_queue</td></tr>
+          <tr><td>hotspot</td><td>Church sign</td><td>1380, 540</td><td></td><td></td><td></td><td>salt_market_church_sign_wet</td></tr>
+          <tr><td>hotspot</td><td>Whale-oil lamp</td><td>1520, 620</td><td></td><td></td><td>FL_market_lamp_checked</td><td>salt_market_lamp</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="room-card" id="room-harbor_registry">
+      <h2>R05 Harbor Registry</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/harbor_registry.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-harbor_registry</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/harbor_registry_bg.png" alt="Harbor Registry blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker exit" style="left: 9.375%; top: 68.519%;" title="exit: Salt Market (180, 740) roles="></span>
+        <span class="marker" style="left: 21.875%; top: 61.111%;" title="hotspot: Ledgers (420, 660) roles="></span>
+        <span class="marker" style="left: 33.333%; top: 64.815%;" title="hotspot: Open roll (640, 700) roles="></span>
+        <span class="marker" style="left: 46.354%; top: 60.185%;" title="hotspot: Desk lamp (890, 650) roles="></span>
+        <span class="marker" style="left: 63.542%; top: 56.481%;" title="hotspot: Kestrel ledger (1220, 610) roles="></span>
+        <span class="marker" style="left: 51.042%; top: 63.889%;" title="duel: Registrar (980, 690) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>exit</td><td>Salt Market</td><td>180, 740</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Ledgers</td><td>420, 660</td><td></td><td></td><td>FL_registry_ledgers_seen</td><td>registry_ledgers</td></tr>
+          <tr><td>hotspot</td><td>Open roll</td><td>640, 700</td><td></td><td></td><td></td><td>registry_roll_book</td></tr>
+          <tr><td>hotspot</td><td>Desk lamp</td><td>890, 650</td><td></td><td></td><td></td><td>registry_lamp_smoked</td></tr>
+          <tr><td>hotspot</td><td>Kestrel ledger</td><td>1220, 610</td><td></td><td>FL_registry_lamp_smoked</td><td>IT_ledger_page / FL_manifest_known / cf_bt_manifest</td><td>registry_ledger_page / registry_ledger_blocked</td></tr>
+          <tr><td>duel</td><td>Registrar</td><td>980, 690</td><td></td><td>FL_manifest_known</td><td>IT_name_writ / FL_rite_name|FL_registrar_sold_manifest</td><td>registry_registrar_needs_manifest / registrar</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="room-card" id="room-bone_chandler">
+      <h2>R06 The Bone Chandler</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/bone_chandler.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-bone_chandler</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/bone_chandler_bg.png" alt="The Bone Chandler blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker exit" style="left: 9.375%; top: 68.519%;" title="exit: Salt Market (180, 740) roles="></span>
+        <span class="marker exit" style="left: 88.542%; top: 67.593%;" title="exit: Almshouse (1700, 730) roles="></span>
+        <span class="marker" style="left: 29.167%; top: 64.815%;" title="hotspot: Wares (560, 700) roles="></span>
+        <span class="marker" style="left: 41.146%; top: 62.963%;" title="hotspot: Chess set (790, 680) roles="></span>
+        <span class="marker" style="left: 52.604%; top: 64.815%;" title="hotspot: Prosper&#39;s watch (1010, 700) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>exit</td><td>Salt Market</td><td>180, 740</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Almshouse</td><td>1700, 730</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Wares</td><td>560, 700</td><td></td><td></td><td>FL_chandler_wares_seen</td><td>chandler_wares</td></tr>
+          <tr><td>hotspot</td><td>Chess set</td><td>790, 680</td><td></td><td></td><td>FL_chandler_chess_seen</td><td>chandler_chess_set</td></tr>
+          <tr><td>hotspot</td><td>Prosper&#39;s watch</td><td>1010, 700</td><td></td><td>IT_knuckle_salt</td><td>IT_watch / FL_watch_recovered</td><td>chandler_watch_trade / chandler_needs_salt</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="room-card" id="room-almshouse">
+      <h2>R07 The Almshouse</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/almshouse.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-almshouse</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/almshouse_bg.png" alt="The Almshouse blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker exit" style="left: 9.375%; top: 68.519%;" title="exit: Bone Chandler (180, 740) roles="></span>
+        <span class="marker exit" style="left: 88.542%; top: 67.593%;" title="exit: Salt Market (1700, 730) roles="></span>
+        <span class="marker" style="left: 29.167%; top: 66.667%;" title="hotspot: Cots (560, 720) roles="></span>
+        <span class="marker" style="left: 40.625%; top: 60.185%;" title="hotspot: Window (780, 650) roles="></span>
+        <span class="marker" style="left: 51.042%; top: 64.815%;" title="hotspot: Half-Coin Prosper (980, 700) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>exit</td><td>Bone Chandler</td><td>180, 740</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Salt Market</td><td>1700, 730</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Cots</td><td>560, 720</td><td></td><td></td><td>FL_almshouse_cots_seen</td><td>almshouse_cots</td></tr>
+          <tr><td>hotspot</td><td>Window</td><td>780, 650</td><td></td><td></td><td>FL_almshouse_window_seen</td><td>almshouse_window</td></tr>
+          <tr><td>hotspot</td><td>Half-Coin Prosper</td><td>980, 700</td><td></td><td>IT_watch</td><td>IT_forgiveness / FL_rite_debt</td><td>prosper_forgiveness / prosper_before_watch</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="room-card" id="room-fish_hall">
+      <h2>R08 The Fish Hall</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/fish_hall.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-fish_hall</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/fish_hall_bg.png" alt="The Fish Hall blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker exit" style="left: 9.375%; top: 68.519%;" title="exit: Salt Market (180, 740) roles="></span>
+        <span class="marker" style="left: 31.771%; top: 66.667%;" title="hotspot: Ice table (610, 720) roles="></span>
+        <span class="marker" style="left: 50%; top: 65.741%;" title="hotspot: Coroner tag (960, 710) roles="></span>
+        <span class="marker" style="left: 65.625%; top: 63.889%;" title="hotspot: Visitor book (1260, 690) roles="></span>
+        <span class="marker" style="left: 78.125%; top: 72.222%;" title="hotspot: Drain (1500, 780) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>exit</td><td>Salt Market</td><td>180, 740</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Ice table</td><td>610, 720</td><td></td><td></td><td>FL_body_fit_confirmed</td><td>fish_hall_ice_table</td></tr>
+          <tr><td>hotspot</td><td>Coroner tag</td><td>960, 710</td><td></td><td></td><td>IT_coroner_tag / FL_day_count_proven|FL_knows_daycount</td><td>fish_hall_coroner_tag</td></tr>
+          <tr><td>hotspot</td><td>Visitor book</td><td>1260, 690</td><td></td><td></td><td>FL_sabine_absent_from_book / cf_pride_twice</td><td>fish_hall_visitor_book</td></tr>
+          <tr><td>hotspot</td><td>Drain</td><td>1500, 780</td><td></td><td></td><td></td><td>fish_hall_drain</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="room-card" id="room-church_of_the_drowned">
+      <h2>R09 Church of the Drowned</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/church_of_the_drowned.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-church_of_the_drowned</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/church_of_the_drowned_bg.png" alt="Church of the Drowned blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker exit" style="left: 9.375%; top: 68.519%;" title="exit: Salt Market (180, 740) roles="></span>
+        <span class="marker exit" style="left: 88.542%; top: 67.593%;" title="exit: Grey Float (1700, 730) roles="></span>
+        <span class="marker" style="left: 32.292%; top: 66.667%;" title="hotspot: Poor box (620, 720) roles="></span>
+        <span class="marker" style="left: 40.625%; top: 60.185%;" title="hotspot: Confession booth (780, 650) roles="></span>
+        <span class="marker" style="left: 57.292%; top: 54.167%;" title="hotspot: Church stall sign (1100, 585) roles="></span>
+        <span class="marker" style="left: 48.958%; top: 64.815%;" title="hotspot: Teodor&#39;s stall (940, 700) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>exit</td><td>Salt Market</td><td>180, 740</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Grey Float</td><td>1700, 730</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Poor box</td><td>620, 720</td><td></td><td></td><td>cf_greed_plate</td><td>church_poor_box</td></tr>
+          <tr><td>hotspot</td><td>Confession booth</td><td>780, 650</td><td></td><td></td><td>IT_chit / FL_church_booth_seen|FL_chit_acquired</td><td>church_confession_booth</td></tr>
+          <tr><td>hotspot</td><td>Church stall sign</td><td>1100, 585</td><td></td><td></td><td>FL_church_stall_sign_seen</td><td>church_stall_sign</td></tr>
+          <tr><td>hotspot</td><td>Teodor&#39;s stall</td><td>940, 700</td><td></td><td>IT_chit</td><td>IT_rate_card / FL_teodor_owes|FL_rate_card|FL_kane_seen / cf_cruel_sentences</td><td>teodor_rate_card_booth / teodor_needs_chit</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="room-card" id="room-grey_float">
+      <h2>R10 The Grey Float</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/grey_float.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-grey_float</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/grey_float_bg.png" alt="The Grey Float blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker exit" style="left: 9.375%; top: 68.519%;" title="exit: Church (180, 740) roles="></span>
+        <span class="marker exit" style="left: 88.542%; top: 67.593%;" title="exit: Harbormaster (1700, 730) roles="></span>
+        <span class="marker" style="left: 23.438%; top: 62.5%;" title="hotspot: Juno&#39;s table (450, 675) roles="></span>
+        <span class="marker" style="left: 75.521%; top: 60.185%;" title="hotspot: Steam screen (1450, 650) roles="></span>
+        <span class="marker" style="left: 46.875%; top: 64.815%;" title="hotspot: Bilge regulator (900, 700) roles="></span>
+        <span class="marker" style="left: 32.292%; top: 65.741%;" title="hotspot: Staff corner (620, 710) roles="></span>
+        <span class="marker" style="left: 63.542%; top: 66.667%;" title="hotspot: Hot pool (1220, 720) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>exit</td><td>Church</td><td>180, 740</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Harbormaster</td><td>1700, 730</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Juno&#39;s table</td><td>450, 675</td><td></td><td></td><td>FL_float_juno_table_seen</td><td>float_juno_table</td></tr>
+          <tr><td>hotspot</td><td>Steam screen</td><td>1450, 650</td><td></td><td></td><td>FL_float_steam_seen</td><td>float_steam_screen</td></tr>
+          <tr><td>hotspot</td><td>Bilge regulator</td><td>900, 700</td><td></td><td>IT_rate_card</td><td>IT_regulator / FL_juno_met|FL_regulator_acquired</td><td>juno_regulator_trade / juno_needs_rate_card</td></tr>
+          <tr><td>hotspot</td><td>Staff corner</td><td>620, 710</td><td></td><td></td><td>cf_lust_float|cf_cow_apologize</td><td>float_staff_corner</td></tr>
+          <tr><td>hotspot</td><td>Hot pool</td><td>1220, 720</td><td></td><td>FL_juno_met</td><td>FL_float_warmth_active</td><td>juno_hot_pool_soak / juno_pool_before_permission</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="room-card" id="room-harbormaster_office">
+      <h2>R11 Harbormaster&#39;s Office</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/harbormaster_office.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-harbormaster_office</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/harbormaster_office_bg.png" alt="Harbormaster&#39;s Office blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker exit" style="left: 9.375%; top: 68.519%;" title="exit: Grey Float (180, 740) roles="></span>
+        <span class="marker exit" style="left: 88.542%; top: 67.593%;" title="exit: Sabine (1700, 730) roles="></span>
+        <span class="marker" style="left: 38.542%; top: 63.889%;" title="hotspot: Checklist desk (740, 690) roles="></span>
+        <span class="marker" style="left: 78.125%; top: 61.574%;" title="hotspot: Sabine&#39;s door (1500, 665) roles="></span>
+        <span class="marker" style="left: 50%; top: 64.815%;" title="hotspot: Checklist clerk (960, 700) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>exit</td><td>Grey Float</td><td>180, 740</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>exit</td><td>Sabine</td><td>1700, 730</td><td></td><td>FL_rite_name|FL_rite_debt|FL_rite_heartbeat</td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Checklist desk</td><td>740, 690</td><td></td><td></td><td>FL_harbormaster_checklist_seen</td><td>harbormaster_checklist_desk</td></tr>
+          <tr><td>hotspot</td><td>Sabine&#39;s door</td><td>1500, 665</td><td></td><td></td><td>FL_harbormaster_sabine_door_seen</td><td>harbormaster_sabine_door</td></tr>
+          <tr><td>hotspot</td><td>Checklist clerk</td><td>960, 700</td><td></td><td>IT_regulator / FL_float_warmth_active</td><td>FL_rite_heartbeat</td><td>heartbeat_check_pass / heartbeat_check_fail</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="room-card" id="room-sabine_office">
+      <h2>R12 Sabine&#39;s Office</h2>
+      <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/sabine_office.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-sabine_office</code></div>
+      <div class="frame">
+        <img src="../../art/export/backgrounds/act_i/sabine_office_bg.png" alt="Sabine&#39;s Office blockout">
+        <div class="walk-band" title="Walk band" style="top: 60.185%; height: 13.889%;"></div>
+        <span class="marker exit" style="left: 9.375%; top: 68.519%;" title="exit: Harbormaster (180, 740) roles="></span>
+        <span class="marker" style="left: 50%; top: 63.889%;" title="hotspot: Sabine&#39;s desk (960, 690) roles="></span>
+      </div>
+      <table>
+        <thead><tr><th>Type</th><th>Name</th><th>Point</th><th>Roles</th><th>Requires</th><th>Rewards</th><th>Ink</th></tr></thead>
+        <tbody>
+          <tr><td>exit</td><td>Harbormaster</td><td>180, 740</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>hotspot</td><td>Sabine&#39;s desk</td><td>960, 690</td><td></td><td>FL_rite_name|FL_rite_debt|FL_rite_heartbeat</td><td>FL_act_i_complete</td><td>sabine_act_i_audience</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

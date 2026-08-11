@@ -1,0 +1,222 @@
+﻿{
+    "generated_from":  [
+                           "docs/playtest/act_i_review_fix_tracker.json",
+                           "docs/art/act_i_paintover_source_scaffold.json",
+                           "docs/art/act_i_background_asset_status.csv"
+                       ],
+    "purpose":  "Report whether final Act I paintover production may start per room.",
+    "status":  "blocked_pending_human_review",
+    "ready_count":  0,
+    "blocked_count":  11,
+    "rooms":  [
+                  {
+                      "room_id":  "mudflats",
+                      "room_code":  "R01",
+                      "title":  "Mudflats",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/mudflats.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/mudflats.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "old_quay",
+                      "room_code":  "R02",
+                      "title":  "The Old Quay",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/old_quay.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/old_quay.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "salt_market",
+                      "room_code":  "R03",
+                      "title":  "Salt Market",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/salt_market.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/salt_market.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "harbor_registry",
+                      "room_code":  "R05",
+                      "title":  "Harbor Registry",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/harbor_registry.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/harbor_registry.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "bone_chandler",
+                      "room_code":  "R06",
+                      "title":  "The Bone Chandler",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/bone_chandler.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/bone_chandler.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "almshouse",
+                      "room_code":  "R07",
+                      "title":  "The Almshouse",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/almshouse.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/almshouse.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "fish_hall",
+                      "room_code":  "R08",
+                      "title":  "The Fish Hall",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/fish_hall.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/fish_hall.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "church_of_the_drowned",
+                      "room_code":  "R09",
+                      "title":  "Church of the Drowned",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/church_of_the_drowned.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/church_of_the_drowned.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "grey_float",
+                      "room_code":  "R10",
+                      "title":  "The Grey Float",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/grey_float.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/grey_float.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "harbormaster_office",
+                      "room_code":  "R11",
+                      "title":  "Harbormaster\u0027s Office",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/harbormaster_office.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/harbormaster_office.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  },
+                  {
+                      "room_id":  "sabine_office",
+                      "room_code":  "R12",
+                      "title":  "Sabine\u0027s Office",
+                      "ready_for_paintover":  false,
+                      "review_status":  "pending_review",
+                      "reviewer_decision":  "pending_review",
+                      "reviewer":  "",
+                      "reviewed_at":  "",
+                      "decision_note":  "",
+                      "approved_for_paintover":  false,
+                      "target_paintover_source":  "art/src/backgrounds/act_i/sabine_office.psd",
+                      "target_paintover_status":  "pending",
+                      "scaffold":  "art/src/backgrounds/act_i/paintover_scaffolds/sabine_office.paintover.md",
+                      "blockers":  [
+                                       "human_review_pending",
+                                       "not_approved_for_paintover"
+                                   ]
+                  }
+              ]
+}

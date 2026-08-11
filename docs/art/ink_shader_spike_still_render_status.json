@@ -1,0 +1,19 @@
+﻿{
+    "generated_from":  "tools/Render-InkShaderSpikeStills.ps1",
+    "status":  "audited",
+    "timeout_seconds":  120,
+    "blender_path":  "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+    "shader_blend":  "art/src/shaders/ink_wash_shader_spike.blend",
+    "raw_output":  "art/export/shader_spike/corvin_act_i_clean_side_raw.png",
+    "ramp_output":  "art/export/shader_spike/corvin_act_i_clean_side_ink_ramp.png",
+    "raw_present":  true,
+    "ramp_present":  true,
+    "raw_width":  1920,
+    "raw_height":  1080,
+    "ramp_width":  1920,
+    "ramp_height":  1080,
+    "notes":  [
+                  "Existing R1/R2 still proof renders are present and valid.",
+                  "Yaw hatching sequences remain pending; this script intentionally does not satisfy R3/R4."
+              ]
+}

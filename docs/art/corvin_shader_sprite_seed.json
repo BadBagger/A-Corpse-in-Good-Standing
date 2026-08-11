@@ -1,0 +1,28 @@
+﻿{
+    "generated_from":  "tools/Export-CorvinShaderSpriteSeed.ps1",
+    "purpose":  "Bridge the audited ink shader yaw proof into Corvin Act I side-profile sprite production.",
+    "status":  "audited",
+    "runtime_sheet":  false,
+    "warning":  "This is a proof seed/contact sheet, not a final runtime animation sheet.",
+    "character_id":  "corvin",
+    "variant":  "act_i_clean",
+    "direction":  "side_right",
+    "preferred_camera":  "orthographic side-on adventure-game camera",
+    "source_model":  "art/src/characters/corvin/meshy/corvin_act_i_clean.glb",
+    "blender_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+    "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
+    "source_frames":  "art/export/shader_spike/yaw_palette_mapped/frame_0001.png",
+    "source_frame_count":  24,
+    "contact_sheet":  "art/export/characters/corvin/act_i_clean/proof_yaw_side_right_contact.png",
+    "intended_first_runtime_target":  "art/export/characters/corvin/act_i_clean/idle_side_right.png",
+    "intended_godot_resource":  "game/characters/corvin/sprites/act_i_clean/idle_side_right.png",
+    "metrics":  {
+                    "measurement":  "foreground-bounds-aligned hatch-pixel delta",
+                    "object_pairwise_max_percent":  0,
+                    "object_first_last_drift_percent":  0,
+                    "bad_control_pairwise_max_percent":  28.512,
+                    "pairwise_threshold_percent":  6,
+                    "first_to_last_drift_threshold_percent":  9
+                },
+    "next_production_step":  "Render a true in-place side_right idle or walk action through the same shader stack; do not ship the yaw contact sheet as gameplay animation."
+}

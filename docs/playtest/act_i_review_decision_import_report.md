@@ -1,0 +1,29 @@
+﻿# Act I Review Decision Import Report
+
+Mode: apply
+Input CSV: `docs\playtest\results\act_i_review_decision_import_test.csv`
+Rows: 11
+Approved: 1
+Revise before art: 1
+Stop and redesign: 0
+Pending review: 9
+
+Rule locks:
+- Accepted Litany/Registrar duel format remains locked.
+- Grey Float remains hard-R: steam, silhouette, privacy, and agency only.
+- Non-pending decisions require reviewer, reviewed_at, and decision_note.
+- Harbor Registry non-pending decisions require an explicit duel_format note from the reviewer.
+
+| Room | Previous | Incoming | Reviewer | Fix Note |
+|---|---|---|---|---|
+| R01 Mudflats | pending_review | pending_review |  | False |
+| R02 The Old Quay | pending_review | pending_review |  | False |
+| R03 Salt Market | pending_review | pending_review |  | False |
+| R05 Harbor Registry | approved | approved | Automated test | True |
+| R06 The Bone Chandler | pending_review | pending_review |  | False |
+| R07 The Almshouse | pending_review | pending_review |  | False |
+| R08 The Fish Hall | pending_review | pending_review |  | False |
+| R09 Church of the Drowned | pending_review | pending_review |  | False |
+| R10 The Grey Float | revise_before_art | revise_before_art | Automated test | True |
+| R11 Harbormaster's Office | pending_review | pending_review |  | False |
+| R12 Sabine's Office | pending_review | pending_review |  | False |

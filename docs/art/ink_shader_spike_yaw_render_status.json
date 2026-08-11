@@ -1,0 +1,19 @@
+﻿{
+    "generated_from":  "tools/Render-InkShaderSpikeYawSequences.ps1",
+    "status":  "audited",
+    "timeout_seconds":  120,
+    "blender_path":  "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+    "shader_blend":  "art/src/shaders/ink_wash_shader_spike.blend",
+    "silhouette_directory":  "art/export/shader_spike/yaw_silhouette",
+    "object_anchored_directory":  "art/export/shader_spike/yaw_object_anchored",
+    "bad_control_directory":  "art/export/shader_spike/yaw_screen_space_bad_control",
+    "palette_mapped_directory":  "art/export/shader_spike/yaw_palette_mapped",
+    "required_frames":  24,
+    "object_frames":  24,
+    "bad_control_frames":  24,
+    "palette_mapped_frames":  24,
+    "notes":  [
+                  "Rendered 24-frame Blender yaw silhouette sequence.",
+                  "Generated object-bounds-anchored hatch candidate, screen-crawling bad control, and locked-palette mapped sequence."
+              ]
+}

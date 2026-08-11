@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://game/characters/corvin/character_corvin.gd" id="1_yxain"]
+[ext_resource type="Script" path="res://game/characters/corvin/polygon_flip_proxy.gd" id="2_t8vey"]
+[ext_resource type="Script" path="res://game/characters/corvin/runtime_sprite_sheet_loader.gd" id="3_l7c2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gw6n"]
+size = Vector2(80, 230)
+
+[node name="CharacterCorvin" type="Area2D"]
+script = ExtResource("1_yxain")
+script_name = "Corvin"
+description = "Corvin Vale"
+position = Vector2(720, 720)
+interaction_polygon = PackedVector2Array(-36, -210, 46, -210, 58, 52, 20, 210, -54, 210, -62, 42)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Polygon2D" parent="."]
+color = Color(0.0470588, 0.0627451, 0.0745098, 1)
+polygon = PackedVector2Array(-32, -210, 42, -202, 58, 12, 18, 198, -50, 202, -56, 6)
+script = ExtResource("2_t8vey")
+
+[node name="RuntimeSprite" type="Sprite2D" parent="."]
+script = ExtResource("3_l7c2p")
+
+[node name="SaltKnuckles" type="Polygon2D" parent="."]
+color = Color(0.894118, 0.862745, 0.784314, 1)
+polygon = PackedVector2Array(-66, 12, -48, 4, -39, 62, -56, 70)
+
+[node name="Drip" type="Line2D" parent="."]
+points = PackedVector2Array(-4, 202, -4, 248, 8, 278)
+default_color = Color(0.494118, 0.607843, 0.305882, 1)
+width = 4.0
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-36, -210, 46, -210, 58, 52, 20, 210, -54, 210, -62, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0gw6n")
+
+[node name="ObstaclePolygon" type="NavigationObstacle2D" parent="."]
+visible = false
+affect_navigation_mesh = true
+carve_navigation_mesh = true

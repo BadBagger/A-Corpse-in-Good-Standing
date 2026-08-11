@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PopochiuCharacterData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/popochiu/engine/objects/character/popochiu_character_data.gd" id="1_plw61"]
+
+[resource]
+script = ExtResource("1_plw61")
+script_name = "Corvin"
+scene = "res://game/characters/corvin/character_corvin.tscn"
+
