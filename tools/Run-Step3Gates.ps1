@@ -1,6 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
+. (Join-Path $PSScriptRoot "Resolve-Godot.ps1")
 Push-Location $root
 try {
     Write-Host "== Step 3 gates: Ink + narrative persistence =="
@@ -14,10 +15,7 @@ try {
     Write-Host ""
 
     Write-Host "[Step 3] Validate Godot Ink bridge runtime"
-    $godot = "C:\Users\KyleB\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine.Mono_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.6.3-stable_mono_win64\Godot_v4.6.3-stable_mono_win64_console.exe"
-    if (-not (Test-Path -LiteralPath $godot)) {
-        throw "Godot 4.6.3 .NET console executable not found: $godot"
-    }
+    $godot = Get-CorpseGodotPath -Kind Console
     $previousErrorActionPreference = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
     $inkBridgeOutput = & $godot --headless --path $root --script "res://tools/godot_validate_ink_bridge.gd" 2>&1

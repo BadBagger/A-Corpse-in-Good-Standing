@@ -123,6 +123,8 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-ProductionBlockerIndex.ps1` validates that `docs\checkpoints\production_blocker_index.md` keeps the three live production blockers, evidence paths, verification commands, and stop-point guardrails visible.
 - `tools\Test-ProductionBlockerIndex.ps1` proves the blocker-index validator accepts the current index and rejects a missing scratch-VO shipping guardrail before restoring the fixture.
 - `tools\Validate-CiGateBoundary.ps1` validates that GitHub Actions still proves repo hygiene plus Step 1 only, while Step 2-5 remain documented as local-only until portable Godot/render tooling is added to CI.
+- `tools\Resolve-Godot.ps1` centralizes local Godot 4.6.3 .NET executable discovery for Step 2-5 scripts. It honors `CORPSE_GODOT_CONSOLE`, `CORPSE_GODOT_WINDOWED`, or `CORPSE_GODOT_DIR` before checking the current WinGet and Downloads locations.
+- `tools\Validate-GodotResolver.ps1` validates the local Godot resolver on this machine; it is intentionally not part of GitHub Actions until CI installs portable Godot.
 - `tools\Run-RepoReadinessGates.ps1` runs the source-control/LFS and text-artifact gates for commit/package hygiene. It does not replace the Step 1-5 build gates.
 - `tools\Validate-StagedSourceSnapshot.ps1` validates a staged initial snapshot, rejecting build output, Godot cache files, Blender backups, temp files, and missing root handoff artifacts while reporting commit identity/remote blockers.
 - `.github\pull_request_template.md` and `.github\ISSUE_TEMPLATE\*.yml` keep GitHub review/work items aligned with the duel-format lock, Grey Float hard-R line, Act I confession gates, and Step 5 human-review/paintover ordering.

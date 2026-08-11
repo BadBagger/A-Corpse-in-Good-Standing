@@ -8,17 +8,9 @@ param(
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
-$godotDir = "C:\Users\KyleB\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine.Mono_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.6.3-stable_mono_win64"
-$godotWindowed = Join-Path $godotDir "Godot_v4.6.3-stable_mono_win64.exe"
-$godotConsole = Join-Path $godotDir "Godot_v4.6.3-stable_mono_win64_console.exe"
-
-if (-not (Test-Path -LiteralPath $godotWindowed)) {
-    throw "Godot 4.6.3 .NET windowed executable not found: $godotWindowed"
-}
-
-if (-not (Test-Path -LiteralPath $godotConsole)) {
-    throw "Godot 4.6.3 .NET console executable not found: $godotConsole"
-}
+. (Join-Path $PSScriptRoot "Resolve-Godot.ps1")
+$godotWindowed = Get-CorpseGodotPath -Kind Windowed
+$godotConsole = Get-CorpseGodotPath -Kind Console
 
 $projectPath = Join-Path $root "project.godot"
 if (-not (Test-Path -LiteralPath $projectPath)) {

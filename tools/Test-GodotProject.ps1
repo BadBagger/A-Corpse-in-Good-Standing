@@ -1,11 +1,8 @@
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
-$godot = "C:\Users\KyleB\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine.Mono_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.6.3-stable_mono_win64\Godot_v4.6.3-stable_mono_win64_console.exe"
-
-if (-not (Test-Path -LiteralPath $godot)) {
-    throw "Godot 4.6.3 .NET console executable not found: $godot"
-}
+. (Join-Path $PSScriptRoot "Resolve-Godot.ps1")
+$godot = Get-CorpseGodotPath -Kind Console
 
 $required = @(
     "project.godot",

@@ -25,7 +25,9 @@ The `Headless Gates` workflow currently proves:
 
 ## Local-Only Gates
 
-Step 2 and later gates remain local-only right now because the Godot gate scripts call Kyle's installed Godot 4.6.3 .NET console executable directly:
+Step 2 and later gates remain local-only right now because the Godot gate scripts require a local Godot 4.6.3 .NET install resolved by `tools\Resolve-Godot.ps1`.
+
+The current primary local install is:
 
 `C:\Users\KyleB\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine.Mono_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.6.3-stable_mono_win64\Godot_v4.6.3-stable_mono_win64_console.exe`
 
@@ -40,7 +42,7 @@ The local-only boundary covers:
 
 ## Required Before Broadening CI
 
-Do not add Step 2-5 to GitHub Actions until the workflow installs or restores a portable Godot 4.6.3 .NET executable and any required render tools without relying on Kyle's user-profile path.
+Do not add Step 2-5 to GitHub Actions until the workflow installs or restores a portable Godot 4.6.3 .NET executable and any required render tools, then points `CORPSE_GODOT_CONSOLE`, `CORPSE_GODOT_WINDOWED`, or `CORPSE_GODOT_DIR` at that portable install.
 
 When that happens, the workflow must still preserve the project guardrails:
 
