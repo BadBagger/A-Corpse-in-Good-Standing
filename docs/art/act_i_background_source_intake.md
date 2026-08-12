@@ -13,8 +13,8 @@ Guardrails:
 
 Counts:
 - Prompts: 130
-- Present source outputs: 22
-- Pending source outputs: 108
+- Present source outputs: 26
+- Pending source outputs: 104
 - Zero-byte outputs: 0
 - generated_reference: 41
 - interactive_layer: 25
@@ -127,10 +127,10 @@ Counts:
 
 | ID | Kind | Tool | Status | Source | Runtime |
 |---|---|---|---|---|---|
-| fish_hall_generated_reference_grime_texture | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/fish_hall/grime_texture.png` | `-` |
-| fish_hall_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/fish_hall/ink_wash_edge_breakup.png` | `-` |
-| fish_hall_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/fish_hall/non_clickable_dressing_silhouettes.png` | `-` |
-| fish_hall_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/fish_hall/palette_safe_mood_reference.png` | `-` |
+| fish_hall_generated_reference_grime_texture | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/fish_hall/grime_texture.png` | `-` |
+| fish_hall_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/fish_hall/ink_wash_edge_breakup.png` | `-` |
+| fish_hall_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/fish_hall/non_clickable_dressing_silhouettes.png` | `-` |
+| fish_hall_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/fish_hall/palette_safe_mood_reference.png` | `-` |
 | fish_hall_interactive_layer_coroner_tag | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/fish_hall/coronertag.psd` | `game/rooms/fish_hall/props/coronertag.png` |
 | fish_hall_interactive_layer_drain | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/fish_hall/drain.psd` | `game/rooms/fish_hall/props/drain.png` |
 | fish_hall_interactive_layer_visitor_book | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/fish_hall/visitorbook.psd` | `game/rooms/fish_hall/props/visitorbook.png` |
