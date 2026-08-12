@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "act": "II",
+  "title": "The Ferryman's Cut",
+  "status": "planning_only_blocked_until_act_i_human_review",
+  "description": "Machine-readable Act II planning puzzle dependency graph. This is source planning and validation data only; it is not a playable room scaffold or final dialogue lock.",
+  "source_script": "docs/script/act_i_full_script_build_document.md#ACT-II-THE-FERRYMANS-CUT",
+  "build_order_guard": {
+    "act_i_human_review_required_before_greybox": true,
+    "act_ii_final_dialogue_locked": true,
+    "act_ii_final_art_locked": true,
+    "realtime_countdown": false,
+    "narrative_clock_only": true
+  },
+  "narrative_clock": {
+    "start_day": 4,
+    "end_day": 6,
+    "advances_on_act_beats_only": true
+  },
+  "rooms": [
+    {
+      "id": "R13_kane_parlour",
+      "name": "Kane's Parlour",
+      "function": "Kane's offer and the seal theft that opens the paper trail.",
+      "content_tags": ["occult_noir", "non_explicit"]
+    },
+    {
+      "id": "R14_float_lower",
+      "name": "Below Decks, The Grey Float",
+      "function": "Mireille optional memory-book chain and early memory-decay tutorial.",
+      "content_tags": ["hard_r_non_explicit", "adult_labor_agency", "steam_silhouette", "no_cold_girl"]
+    },
+    {
+      "id": "R15_customs",
+      "name": "Customs House",
+      "function": "The impossible ledger and transaction record.",
+      "content_tags": ["paper_trail", "no_final_art"]
+    },
+    {
+      "id": "R16_kestrel_wreck",
+      "name": "The Kestrel at Low Tide",
+      "function": "Timed narrative-window excavation of Tomas's betrayal.",
+      "content_tags": ["low_tide", "body_horror_non_explicit"]
+    },
+    {
+      "id": "R12_sabine_office_return",
+      "name": "Sabine's Office, Return",
+      "function": "Act break reveal that Sabine counter-signed the transaction.",
+      "content_tags": ["act_break", "no_apology"]
+    }
+  ],
+  "nodes": [
+    { "id": "start", "type": "start", "label": "Act II starts after all three Act I Rites and Sabine audience." },
+    { "id": "FL_act_i_human_review_pending", "type": "production_guard", "label": "Act I human review still blocks Act II greybox and final writing." },
+    { "id": "FL_act_ii_started", "type": "flag", "room": "R13_kane_parlour", "label": "Act II narrative clock begins; no realtime countdown is active." },
+
+    { "id": "FL_kane_offer_refused", "type": "flag", "room": "R13_kane_parlour", "label": "Corvin refuses Kane's offer." },
+    { "id": "IT_kane_seal", "type": "item", "room": "R13_kane_parlour", "label": "Kane's wax seal palmed during the handshake." },
+    { "id": "IT_forged_customs_writ", "type": "item", "room": "R13_kane_parlour", "label": "Customs access writ forged with Kane's seal." },
+
+    { "id": "FL_customs_access", "type": "flag", "room": "R15_customs", "label": "Customs House access granted by forged writ." },
+    { "id": "FL_regulator_returned", "type": "flag", "room": "R15_customs", "label": "Act I bilge regulator returned before customs ledger can be opened." },
+    { "id": "IT_cut_paper", "type": "item", "room": "R15_customs", "label": "Transaction record naming a broker and bearing Sabine's counter-signature." },
+    { "id": "IT_tide_table", "type": "item", "room": "R15_customs", "label": "Tide table that opens the Kestrel low-water window." },
+    { "id": "FL_sabine_signature_seen", "type": "flag", "room": "R15_customs", "label": "Player has seen Sabine's signature but not the reason." },
+
+    { "id": "FL_float_lower_access", "type": "flag", "room": "R14_float_lower", "label": "Below-decks Float access granted under hard-R non-explicit staging." },
+    { "id": "IT_mireille_book", "type": "item", "room": "R14_float_lower", "label": "Mireille's memory book." },
+    { "id": "FL_mireille_today_recorded", "type": "flag", "room": "R14_float_lower", "label": "Optional: Corvin writes today's memory for Mireille." },
+    { "id": "FL_memory_decay_tutorial_seen", "type": "flag", "room": "R14_float_lower", "label": "Optional: Act III memory-decay UI introduced early as text-only degradation." },
+
+    { "id": "FL_kestrel_window_open", "type": "flag", "room": "R16_kestrel_wreck", "label": "Low-tide Kestrel window opened by the tide table." },
+    { "id": "IT_tomas_papers", "type": "item", "room": "R16_kestrel_wreck", "label": "Kestrel crew list proving Corvin gave Tomas's name." },
+    { "id": "cf_bt_tomas", "type": "confession", "room": "R16_kestrel_wreck", "label": "BETRAYAL confession excavated from the Kestrel crew list." },
+    { "id": "cf_pride_kestrel", "type": "confession", "room": "R16_kestrel_wreck", "label": "PRIDE confession excavated from the Kestrel papers." },
+
+    { "id": "FL_harbor_assignment_offer_seen", "type": "flag", "room": "R15_customs", "label": "Corvin understands the harbor assignment document Kane can use." },
+    { "id": "FL_harbor_assignment_signed", "type": "committed_action", "room": "R15_customs", "label": "Committed action: Corvin signs Sabine out of her harbor." },
+    { "id": "cf_bt_harbor", "type": "confession", "room": "R15_customs", "requires_committed_action": true, "label": "BETRAYAL confession earned only if the harbor assignment was actually signed." },
+
+    { "id": "FL_church_candles_stolen_and_invoiced", "type": "committed_action", "room": "ChurchOfTheDrowned", "label": "Committed action: Corvin steals Church candles and invoices Teodor for them." },
+    { "id": "cf_greed_candles", "type": "confession", "room": "ChurchOfTheDrowned", "requires_committed_action": true, "label": "COMMITTED GREED confession from actually charging the Church for stolen Church candles." },
+    { "id": "FL_adelie_good_version_allowed", "type": "committed_action", "room": "R13_kane_parlour", "label": "Committed action: Corvin lets Adelie finish the good version after he already knows the bad one." },
+    { "id": "cf_cruel_adelie", "type": "confession", "room": "R13_kane_parlour", "requires_committed_action": true, "label": "COMMITTED CRUELTY confession from letting Adelie finish the good version." },
+
+    { "id": "FL_sabine_reveal_ready", "type": "act_gate", "room": "R12_sabine_office_return", "label": "Cut paper and Tomas evidence are ready for Sabine reveal." },
+    { "id": "FL_sabine_signed_revealed", "type": "flag", "room": "R12_sabine_office_return", "label": "Sabine says she signed for Corvin's death and refuses to give the reason." },
+    { "id": "FL_act_ii_complete", "type": "act_gate", "room": "R12_sabine_office_return", "label": "Act II ends with Corvin walking out." }
+  ],
+  "edges": [
+    { "from": "start", "to": "FL_act_i_human_review_pending", "kind": "production_guard" },
+    { "from": "start", "to": "FL_act_ii_started", "kind": "act_start" },
+
+    { "from": "FL_act_ii_started", "to": "FL_kane_offer_refused", "kind": "scene_progression" },
+    { "from": "FL_kane_offer_refused", "to": "IT_kane_seal", "kind": "theft_on_handshake" },
+    { "from": "IT_kane_seal", "to": "IT_forged_customs_writ", "kind": "forgery" },
+    { "from": "IT_forged_customs_writ", "to": "FL_customs_access", "kind": "room_access" },
+
+    { "from": "FL_customs_access", "to": "FL_regulator_returned", "kind": "act_i_item_return" },
+    { "from": "FL_regulator_returned", "to": "IT_cut_paper", "kind": "ledger_access" },
+    { "from": "IT_cut_paper", "to": "FL_sabine_signature_seen", "kind": "clue" },
+    { "from": "IT_cut_paper", "to": "IT_tide_table", "kind": "same_room_discovery" },
+
+    { "from": "FL_act_ii_started", "to": "FL_float_lower_access", "kind": "optional_room_access" },
+    { "from": "FL_float_lower_access", "to": "IT_mireille_book", "kind": "optional_discovery" },
+    { "from": "IT_mireille_book", "to": "FL_mireille_today_recorded", "kind": "optional_kindness" },
+    { "from": "FL_mireille_today_recorded", "to": "FL_memory_decay_tutorial_seen", "kind": "optional_tutorial" },
+
+    { "from": "IT_tide_table", "to": "FL_kestrel_window_open", "kind": "narrative_timing" },
+    { "from": "FL_kestrel_window_open", "to": "IT_tomas_papers", "kind": "wreck_excavation" },
+    { "from": "IT_tomas_papers", "to": "cf_bt_tomas", "kind": "confession_unlock" },
+    { "from": "IT_tomas_papers", "to": "cf_pride_kestrel", "kind": "confession_unlock" },
+
+    { "from": "IT_cut_paper", "to": "FL_harbor_assignment_offer_seen", "kind": "moral_offer" },
+    { "from": "FL_harbor_assignment_offer_seen", "to": "FL_harbor_assignment_signed", "kind": "committed_action" },
+    { "from": "FL_harbor_assignment_signed", "to": "cf_bt_harbor", "kind": "confession_unlock" },
+
+    { "from": "FL_act_ii_started", "to": "FL_church_candles_stolen_and_invoiced", "kind": "optional_bad_choice" },
+    { "from": "FL_church_candles_stolen_and_invoiced", "to": "cf_greed_candles", "kind": "committed_action" },
+    { "from": "FL_act_ii_started", "to": "FL_adelie_good_version_allowed", "kind": "optional_bad_choice" },
+    { "from": "FL_adelie_good_version_allowed", "to": "cf_cruel_adelie", "kind": "committed_action" },
+
+    { "from": "FL_sabine_signature_seen", "to": "FL_sabine_reveal_ready", "kind": "required_clue" },
+    { "from": "cf_bt_tomas", "to": "FL_sabine_reveal_ready", "kind": "required_clue" },
+    { "from": "FL_sabine_reveal_ready", "to": "FL_sabine_signed_revealed", "kind": "act_break_reveal" },
+    { "from": "FL_sabine_signed_revealed", "to": "FL_act_ii_complete", "kind": "act_gate" }
+  ],
+  "required_spine_nodes": [
+    "FL_kane_offer_refused",
+    "IT_kane_seal",
+    "FL_customs_access",
+    "IT_cut_paper",
+    "IT_tide_table",
+    "IT_tomas_papers",
+    "cf_bt_tomas",
+    "FL_sabine_signed_revealed"
+  ],
+  "act_complete_node": "FL_act_ii_complete",
+  "confession_unlocks": [
+    { "id": "cf_bt_tomas", "source_node": "IT_tomas_papers", "act_available_max": 2, "requires_committed_action": false },
+    { "id": "cf_pride_kestrel", "source_node": "IT_tomas_papers", "act_available_max": 2, "requires_committed_action": false },
+    { "id": "cf_bt_harbor", "source_node": "FL_harbor_assignment_signed", "act_available_max": 2, "requires_committed_action": true },
+    { "id": "cf_greed_candles", "source_node": "FL_church_candles_stolen_and_invoiced", "act_available_max": 2, "requires_committed_action": true },
+    { "id": "cf_cruel_adelie", "source_node": "FL_adelie_good_version_allowed", "act_available_max": 2, "requires_committed_action": true }
+  ],
+  "explicitly_forbidden_until_act_iii": [
+    "cf_bt_again",
+    "kane_null_play",
+    "act_iii_memory_decay_functional_item_removal"
+  ]
+}
