@@ -15,12 +15,29 @@ if ($rooms.Count -ne 11) {
     throw "Act I review decision template expected 11 rooms, got $($rooms.Count)."
 }
 
+$buildCommit = (& git -C $root rev-parse --short=12 HEAD 2>$null)
+if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($buildCommit)) {
+    $buildCommit = "unknown"
+} else {
+    $buildCommit = [string]$buildCommit
+}
+
 $rows = @()
 foreach ($room in $rooms) {
+    $roomBuildCommit = ""
+    if ($room.reviewer_decision -ne "pending_review") {
+        if ($room.PSObject.Properties.Name -contains "build_commit" -and -not [string]::IsNullOrWhiteSpace([string]$room.build_commit)) {
+            $roomBuildCommit = [string]$room.build_commit
+        } else {
+            $roomBuildCommit = $buildCommit
+        }
+    }
+
     $rows += [pscustomobject][ordered]@{
         room_id = $room.room_id
         room_code = $room.room_code
         title = $room.title
+        build_commit = $roomBuildCommit
         decision = $room.reviewer_decision
         reviewer = $room.reviewer
         reviewed_at = $room.reviewed_at
@@ -56,6 +73,7 @@ $lines = @(
     "Allowed decisions: pending_review, approved, revise_before_art, stop_and_redesign.",
     "",
     "Rules:",
+    '- `build_commit` must match the generated human-review notes for every non-pending decision.',
     '- Any non-pending decision must include `reviewer`, `reviewed_at`, and `decision_note`; `reviewed_at` must use `YYYY-MM-DD`.',
     '- `approved` marks the room as paintover-eligible if no start-gate blockers remain.',
     '- `revise_before_art` must include at least one fix bucket note.',

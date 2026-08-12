@@ -13,6 +13,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools\Import-ActIReviewDecis
 Allowed decisions: pending_review, approved, revise_before_art, stop_and_redesign.
 
 Rules:
+- `build_commit` must match the generated human-review notes for every non-pending decision.
 - Any non-pending decision must include `reviewer`, `reviewed_at`, and `decision_note`; `reviewed_at` must use `YYYY-MM-DD`.
 - `approved` marks the room as paintover-eligible if no start-gate blockers remain.
 - `revise_before_art` must include at least one fix bucket note.

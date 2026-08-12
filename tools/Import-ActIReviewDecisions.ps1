@@ -35,6 +35,7 @@ $requiredColumns = @(
     "room_id",
     "room_code",
     "title",
+    "build_commit",
     "decision",
     "reviewer",
     "reviewed_at",
@@ -103,10 +104,17 @@ foreach ($row in $rows) {
     }
 
     $room = $roomsById[$roomId]
+    $buildCommit = [string]$row.build_commit
     $reviewer = [string]$row.reviewer
     $reviewedAt = [string]$row.reviewed_at
     $decisionNote = [string]$row.decision_note
     if ($decision -ne "pending_review") {
+        if ([string]::IsNullOrWhiteSpace($buildCommit)) {
+            throw "Room $roomId has non-pending decision '$decision' and must include build_commit."
+        }
+        if ($buildCommit -notmatch '^(unknown|[0-9a-f]{7,40})$') {
+            throw "Room $roomId has invalid build_commit '$buildCommit'. Expected a git hash or unknown."
+        }
         if ([string]::IsNullOrWhiteSpace($reviewer) -or [string]::IsNullOrWhiteSpace($reviewedAt) -or [string]::IsNullOrWhiteSpace($decisionNote)) {
             throw "Room $roomId has non-pending decision '$decision' and must include reviewer, reviewed_at, and decision_note."
         }
@@ -138,6 +146,7 @@ foreach ($row in $rows) {
     if ($Apply) {
         Set-ReviewProperty -Target $room -Name "review_status" -Value $decision
         Set-ReviewProperty -Target $room -Name "reviewer_decision" -Value $decision
+        Set-ReviewProperty -Target $room -Name "build_commit" -Value $buildCommit
         Set-ReviewProperty -Target $room -Name "reviewer" -Value $reviewer
         Set-ReviewProperty -Target $room -Name "reviewed_at" -Value $reviewedAt
         Set-ReviewProperty -Target $room -Name "decision_note" -Value $decisionNote
@@ -166,6 +175,7 @@ foreach ($row in $rows) {
         title = $room.title
         previous_decision = $room.reviewer_decision
         incoming_decision = $decision
+        build_commit = $buildCommit
         reviewer = $reviewer
         reviewed_at = $reviewedAt
         decision_note = $decisionNote
@@ -208,14 +218,15 @@ $lines = @(
     "Rule locks:",
     "- Accepted Litany/Registrar duel format remains locked.",
     "- Grey Float remains hard-R: steam, silhouette, privacy, and agency only.",
+    "- Non-pending decisions require build_commit from the generated human-review notes.",
     "- Non-pending decisions require reviewer, reviewed_at, and decision_note.",
     "- Harbor Registry non-pending decisions require an explicit duel_format note from the reviewer.",
     "",
-    "| Room | Previous | Incoming | Reviewer | Fix Note |",
-    "|---|---|---|---|---|"
+    "| Room | Previous | Incoming | Build | Reviewer | Fix Note |",
+    "|---|---|---|---|---|---|"
 )
 foreach ($change in $changes) {
-    $lines += "| $($change.room_code) $($change.title) | $($change.previous_decision) | $($change.incoming_decision) | $($change.reviewer) | $($change.has_fix_note) |"
+    $lines += "| $($change.room_code) $($change.title) | $($change.previous_decision) | $($change.incoming_decision) | $($change.build_commit) | $($change.reviewer) | $($change.has_fix_note) |"
 }
 
 Set-Content -LiteralPath $reportPath -Value $lines -Encoding UTF8

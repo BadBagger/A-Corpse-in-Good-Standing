@@ -24,6 +24,12 @@ try {
     }
 
     $tracker = Get-Content -LiteralPath $trackerPath -Raw | ConvertFrom-Json
+    $buildCommit = (& git -C $root rev-parse --short=12 HEAD 2>$null)
+    if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($buildCommit)) {
+        $buildCommit = "unknown"
+    } else {
+        $buildCommit = [string]$buildCommit
+    }
     $rows = @()
     foreach ($room in @($tracker.rooms)) {
         $decision = "pending_review"
@@ -45,6 +51,7 @@ try {
             room_id = $room.room_id
             room_code = $room.room_code
             title = $room.title
+            build_commit = $buildCommit
             decision = $decision
             reviewer = $reviewer
             reviewed_at = $reviewedAt
@@ -62,6 +69,22 @@ try {
         }
     }
     $rows | Export-Csv -LiteralPath $fixturePath -NoTypeInformation -Encoding UTF8
+
+    $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
+    $badRegistry = @($badRows | Where-Object { $_.room_id -eq "harbor_registry" })[0]
+    $badRegistry.build_commit = ""
+    $badRows | Export-Csv -LiteralPath $fixturePath -NoTypeInformation -Encoding UTF8
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $importScript -InputCsv "docs\playtest\results\act_i_review_decision_import_test.csv" -DryRun 2>&1
+    $badExit = $LASTEXITCODE
+    $ErrorActionPreference = $previousErrorActionPreference
+    if ($badExit -eq 0) {
+        throw "Review decision batch import should reject non-pending rows without build_commit."
+    }
+    if (($badOutput -join "`n") -notmatch "must include build_commit") {
+        throw "Review decision batch import build_commit negative control failed for the wrong reason: $($badOutput -join ' ')"
+    }
 
     $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
     $badRegistry = @($badRows | Where-Object { $_.room_id -eq "harbor_registry" })[0]
@@ -97,7 +120,7 @@ try {
 
     $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
     $badRows |
-        Select-Object room_id,room_code,title,decision,reviewer,reviewed_at,decision_note,layout,hotspot_readability,walk_band,palette_lighting,content_compliance,vo_timing_or_pacing,risk_tags,critical_hotspots,close_pairs |
+        Select-Object room_id,room_code,title,build_commit,decision,reviewer,reviewed_at,decision_note,layout,hotspot_readability,walk_band,palette_lighting,content_compliance,vo_timing_or_pacing,risk_tags,critical_hotspots,close_pairs |
         Export-Csv -LiteralPath $fixturePath -NoTypeInformation -Encoding UTF8
     $previousErrorActionPreference = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
