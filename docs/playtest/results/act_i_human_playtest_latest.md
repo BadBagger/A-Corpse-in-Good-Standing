@@ -1,6 +1,7 @@
-﻿# Act I Human Review Notes
+# Act I Human Review Notes
 
-Created: 2026-08-11 16:54:51
+Created: 2026-08-12 01:41:31
+Build commit: ac924ab5f3ce
 Greybox template: `docs/playtest/act_i_human_greybox_playtest.md`
 Automated report: `docs/playtest/results/act_i_greybox_auto_report.md`
 Paintover packet: `docs/art/act_i_paintover_packet.md`
@@ -26,10 +27,10 @@ powershell -ExecutionPolicy Bypass -File tools\Record-ActIGreyboxPlaytest.ps1
 Or use the launcher to refresh the automated route, create timestamped notes, and open the playable Godot build:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File tools\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport
+powershell -ExecutionPolicy Bypass -File tools\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport -ResetNarrativeState
 ```
 
-Then start from a clean save.
+The launcher clears the persisted Act I narrative state before Godot opens.
 
 ## Player Instructions
 
@@ -475,4 +476,3 @@ Confession-source readability risk found: yes / no
 
 Decision notes:
 - 
-

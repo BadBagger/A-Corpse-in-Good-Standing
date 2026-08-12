@@ -33,6 +33,8 @@ foreach ($requiredText in @(
     "Build commit: $expectedCommit",
     "Greybox Playtest",
     "Act I Human Greybox Playtest",
+    "Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport -ResetNarrativeState",
+    "The launcher clears the persisted Act I narrative state before Godot opens.",
     "Art Readability Review",
     "Act I Art Readability Review",
     "Proceed to paintovers: yes / no",

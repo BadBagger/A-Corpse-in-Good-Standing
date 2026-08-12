@@ -167,7 +167,7 @@ foreach ($change in $changes) {
     $lines += "| $($change.speaker) | $($change.decision) | $($change.affected_batches) | $($change.line_count) | $($change.word_count) |"
 }
 
-Set-Content -LiteralPath $reportPath -Value $lines -Encoding UTF8
+Set-Content -LiteralPath $reportPath -Value ($lines -join [Environment]::NewLine) -Encoding UTF8 -NoNewline
 
 Write-Host "VO minor speaker decision import $mode passed: pending=$pendingCount, cast=$castCount, consolidate=$consolidateCount, cutOrRewrite=$cutCount."
 Write-Host "Import report -> $reportPath"

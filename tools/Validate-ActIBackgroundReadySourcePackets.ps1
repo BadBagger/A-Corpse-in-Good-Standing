@@ -18,14 +18,14 @@ $rows = @(Import-Csv -LiteralPath $csvPath)
 $brief = Get-Content -LiteralPath $mdPath -Raw
 $packets = @($payload.packets)
 
-if ($payload.ready_item_count -ne 84) {
-    throw "Act I ready-source packets expected 84 ready items, got $($payload.ready_item_count)."
+if ($payload.ready_item_count -ne 43) {
+    throw "Act I ready-source packets expected 43 remaining ready Meshy items, got $($payload.ready_item_count)."
 }
-if ($payload.held_item_count -ne 46) {
-    throw "Act I ready-source packets expected 46 held items excluded, got $($payload.held_item_count)."
+if ($payload.held_item_count -ne 87) {
+    throw "Act I ready-source packets expected 87 non-ready items excluded, got $($payload.held_item_count)."
 }
-if ($payload.packet_count -ne 22 -or $packets.Count -ne 22 -or $rows.Count -ne 22) {
-    throw "Act I ready-source packets expected 22 room/tool packets, got payload=$($payload.packet_count), json=$($packets.Count), csv=$($rows.Count)."
+if ($payload.packet_count -ne 11 -or $packets.Count -ne 11 -or $rows.Count -ne 11) {
+    throw "Act I ready-source packets expected 11 remaining Meshy room packets, got payload=$($payload.packet_count), json=$($packets.Count), csv=$($rows.Count)."
 }
 
 $allIds = @()
@@ -34,8 +34,8 @@ foreach ($packet in $packets) {
     if (-not (Test-Path -LiteralPath $packetPath -PathType Leaf)) {
         throw "Missing Act I ready-source packet file: $($packet.packet_path)"
     }
-    if ([string]$packet.tool -notin @("Meshy", "imagegen")) {
-        throw "Ready-source packets must only use Meshy or imagegen, got $($packet.tool) in $($packet.packet_id)."
+    if ([string]$packet.tool -ne "Meshy") {
+        throw "Remaining ready-source packets must only use Meshy after generated references are received, got $($packet.tool) in $($packet.packet_id)."
     }
     if ([string]$packet.packet_path -match "\\") {
         throw "Ready-source packet path must use forward slashes: $($packet.packet_path)"
@@ -68,8 +68,8 @@ $duplicates = @($allIds | Group-Object | Where-Object { $_.Count -gt 1 } | ForEa
 if ($duplicates.Count -gt 0) {
     throw "Ready-source packets contain duplicate item ids: $($duplicates -join ', ')"
 }
-if ($allIds.Count -ne 84) {
-    throw "Ready-source packet item id count expected 84, got $($allIds.Count)."
+if ($allIds.Count -ne 43) {
+    throw "Ready-source packet item id count expected 43, got $($allIds.Count)."
 }
 
 foreach ($required in @(
@@ -89,4 +89,4 @@ if ($brief -match "[^\u0000-\u007F]") {
     throw "Act I ready-source packet index must stay ASCII-only."
 }
 
-Write-Host "Act I ready-source packet validation passed: packets=$($payload.packet_count), ready=$($payload.ready_item_count), heldExcluded=$($payload.held_item_count), ids=$($allIds.Count)."
+Write-Host "Act I ready-source packet validation passed: packets=$($payload.packet_count), readyMeshy=$($payload.ready_item_count), excluded=$($payload.held_item_count), ids=$($allIds.Count)."

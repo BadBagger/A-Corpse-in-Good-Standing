@@ -1,4 +1,4 @@
-﻿{
+{
     "generated_from":  "docs/art/act_i_paintover_packet.json",
     "purpose":  "Convert Act I human greybox and art-readability review findings into room-level fixes before final paintover.",
     "allowed_room_statuses":  [
@@ -675,4 +675,3 @@
                   }
               ]
 }
-

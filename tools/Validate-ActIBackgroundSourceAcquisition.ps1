@@ -35,14 +35,17 @@ if ($duplicates.Count -gt 0) {
 $readyNow = @($rows | Where-Object { $_.source_status -eq "ready_to_generate" })
 $held = @($rows | Where-Object { $_.source_status -eq "held_pending_room_review" })
 $received = @($rows | Where-Object { $_.source_status -eq "received_unreviewed" })
-if ($readyNow.Count -ne 84) {
-    throw "Expected 84 ready-to-generate Meshy/reference items, got $($readyNow.Count)."
+$readyMeshy = @($readyNow | Where-Object { $_.kind -eq "meshy_source_model" })
+$readyReference = @($readyNow | Where-Object { $_.kind -eq "generated_reference" })
+$receivedReference = @($received | Where-Object { $_.kind -eq "generated_reference" })
+if ($readyNow.Count -ne 43 -or $readyMeshy.Count -ne 43 -or $readyReference.Count -ne 0) {
+    throw "Expected 43 ready-to-generate Meshy items and 0 ready references after reference intake, got ready=$($readyNow.Count), meshy=$($readyMeshy.Count), references=$($readyReference.Count)."
 }
 if ($held.Count -ne 46) {
     throw "Expected 46 held paintover/navigation PSD items, got $($held.Count)."
 }
-if ($received.Count -ne 0) {
-    throw "Expected no received source files in current acquisition baseline, got $($received.Count)."
+if ($received.Count -ne 41 -or $receivedReference.Count -ne 41) {
+    throw "Expected 41 received generated-reference source files after intake, got received=$($received.Count), references=$($receivedReference.Count)."
 }
 
 foreach ($row in $rows) {
@@ -81,4 +84,4 @@ if ($brief -match "[^\u0000-\u007F]") {
     throw "Act I background source acquisition report must stay ASCII-only."
 }
 
-Write-Host "Act I background source acquisition validation passed: rooms=$($payload.room_count), items=$($payload.item_count), ready=$($readyNow.Count), held=$($held.Count), received=$($received.Count)."
+Write-Host "Act I background source acquisition validation passed: rooms=$($payload.room_count), items=$($payload.item_count), readyMeshy=$($readyMeshy.Count), receivedReferences=$($receivedReference.Count), held=$($held.Count)."

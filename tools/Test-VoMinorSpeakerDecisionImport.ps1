@@ -193,7 +193,7 @@ finally {
         Remove-Item -LiteralPath $decisionJson -Force -ErrorAction SilentlyContinue
     }
     if ($hadImportReport) {
-        Set-Content -LiteralPath $importReport -Value $originalImportReport -Encoding UTF8
+        Set-Content -LiteralPath $importReport -Value ($originalImportReport.TrimEnd("`r", "`n")) -Encoding UTF8 -NoNewline
     } else {
         Remove-Item -LiteralPath $importReport -Force -ErrorAction SilentlyContinue
     }

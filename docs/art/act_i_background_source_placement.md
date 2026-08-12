@@ -26,9 +26,9 @@ Counts:
 | mudflats_meshy_source_model_distant_leviathan_ribs | blender_helper_geometry | pending_source | `art/src/backgrounds/act_i/blockouts/mudflats.blend` | never_import_directly_to_godot | open_room_blend_and_confirm_scale_silhouette_palette_before_paintover |
 | mudflats_meshy_source_model_mud_ridge_reference_forms | blender_helper_geometry | pending_source | `art/src/backgrounds/act_i/blockouts/mudflats.blend` | never_import_directly_to_godot | open_room_blend_and_confirm_scale_silhouette_palette_before_paintover |
 | mudflats_interactive_layer_road_to_the_salt_market | paintover_runtime_layer | pending_source | `game/rooms/mudflats/props/saltmarketexit.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| mudflats_generated_reference_cold_horizon_wash | reference_board | pending_source | `docs/art/reference/act_i/mudflats` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| mudflats_generated_reference_dawn_haze | reference_board | pending_source | `docs/art/reference/act_i/mudflats` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| mudflats_generated_reference_wet_silt_texture | reference_board | pending_source | `docs/art/reference/act_i/mudflats` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| mudflats_generated_reference_cold_horizon_wash | reference_board | source_present_unreviewed | `docs/art/reference/act_i/mudflats` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| mudflats_generated_reference_dawn_haze | reference_board | source_present_unreviewed | `docs/art/reference/act_i/mudflats` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| mudflats_generated_reference_wet_silt_texture | reference_board | source_present_unreviewed | `docs/art/reference/act_i/mudflats` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 
 ## R02 - The Old Quay
 
@@ -43,10 +43,10 @@ Counts:
 | old_quay_interactive_layer_bollard_tomas | paintover_runtime_layer | pending_source | `game/rooms/old_quay/props/tomas.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | old_quay_interactive_layer_empty_flask | paintover_runtime_layer | pending_source | `game/rooms/old_quay/props/flask.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | old_quay_interactive_layer_rope_cleat | paintover_runtime_layer | pending_source | `game/rooms/old_quay/props/ropecleat.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| old_quay_generated_reference_grime_texture | reference_board | pending_source | `docs/art/reference/act_i/old_quay` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| old_quay_generated_reference_ink_wash_edge_breakup | reference_board | pending_source | `docs/art/reference/act_i/old_quay` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| old_quay_generated_reference_non_clickable_dressing_silhouettes | reference_board | pending_source | `docs/art/reference/act_i/old_quay` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| old_quay_generated_reference_palette_safe_mood_reference | reference_board | pending_source | `docs/art/reference/act_i/old_quay` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| old_quay_generated_reference_grime_texture | reference_board | source_present_unreviewed | `docs/art/reference/act_i/old_quay` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| old_quay_generated_reference_ink_wash_edge_breakup | reference_board | source_present_unreviewed | `docs/art/reference/act_i/old_quay` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| old_quay_generated_reference_non_clickable_dressing_silhouettes | reference_board | source_present_unreviewed | `docs/art/reference/act_i/old_quay` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| old_quay_generated_reference_palette_safe_mood_reference | reference_board | source_present_unreviewed | `docs/art/reference/act_i/old_quay` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 
 ## R03 - Salt Market
 
@@ -67,9 +67,9 @@ Counts:
 | salt_market_interactive_layer_confession_queue | paintover_runtime_layer | pending_source | `game/rooms/salt_market/props/confessionqueue.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | salt_market_interactive_layer_crowd | paintover_runtime_layer | pending_source | `game/rooms/salt_market/props/marketcrowd.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | salt_market_interactive_layer_fishmonger | paintover_runtime_layer | pending_source | `game/rooms/salt_market/props/fishmonger.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| salt_market_generated_reference_market_awning_texture | reference_board | pending_source | `docs/art/reference/act_i/salt_market` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| salt_market_generated_reference_public_crowd_mood | reference_board | pending_source | `docs/art/reference/act_i/salt_market` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| salt_market_generated_reference_salt_signage_grime | reference_board | pending_source | `docs/art/reference/act_i/salt_market` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| salt_market_generated_reference_market_awning_texture | reference_board | source_present_unreviewed | `docs/art/reference/act_i/salt_market` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| salt_market_generated_reference_public_crowd_mood | reference_board | source_present_unreviewed | `docs/art/reference/act_i/salt_market` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| salt_market_generated_reference_salt_signage_grime | reference_board | source_present_unreviewed | `docs/art/reference/act_i/salt_market` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 
 ## R05 - Harbor Registry
 
@@ -83,10 +83,10 @@ Counts:
 | harbor_registry_interactive_layer_desk_lamp | paintover_runtime_layer | pending_source | `game/rooms/harbor_registry/props/desklamp.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | harbor_registry_interactive_layer_kestrel_ledger | paintover_runtime_layer | pending_source | `game/rooms/harbor_registry/props/kestrelledger.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | harbor_registry_interactive_layer_registrar | paintover_runtime_layer | pending_source | `game/rooms/harbor_registry/props/registrar.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| harbor_registry_generated_reference_grime_texture | reference_board | pending_source | `docs/art/reference/act_i/harbor_registry` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| harbor_registry_generated_reference_ink_wash_edge_breakup | reference_board | pending_source | `docs/art/reference/act_i/harbor_registry` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| harbor_registry_generated_reference_non_clickable_dressing_silhouettes | reference_board | pending_source | `docs/art/reference/act_i/harbor_registry` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| harbor_registry_generated_reference_palette_safe_mood_reference | reference_board | pending_source | `docs/art/reference/act_i/harbor_registry` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| harbor_registry_generated_reference_grime_texture | reference_board | source_present_unreviewed | `docs/art/reference/act_i/harbor_registry` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| harbor_registry_generated_reference_ink_wash_edge_breakup | reference_board | source_present_unreviewed | `docs/art/reference/act_i/harbor_registry` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| harbor_registry_generated_reference_non_clickable_dressing_silhouettes | reference_board | source_present_unreviewed | `docs/art/reference/act_i/harbor_registry` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| harbor_registry_generated_reference_palette_safe_mood_reference | reference_board | source_present_unreviewed | `docs/art/reference/act_i/harbor_registry` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 
 ## R06 - The Bone Chandler
 
@@ -99,10 +99,10 @@ Counts:
 | bone_chandler_navigation_silhouette_almshouse | paintover_navigation_readability | pending_source | `game/rooms/bone_chandler/background/bone_chandler_bg.png` | preserve_existing_exit_metadata | verify visible exit affordance, walk-band clarity, and no new unplanned route |
 | bone_chandler_navigation_silhouette_salt_market | paintover_navigation_readability | pending_source | `game/rooms/bone_chandler/background/bone_chandler_bg.png` | preserve_existing_exit_metadata | verify visible exit affordance, walk-band clarity, and no new unplanned route |
 | bone_chandler_interactive_layer_prosper_s_watch | paintover_runtime_layer | pending_source | `game/rooms/bone_chandler/props/prosperwatch.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| bone_chandler_generated_reference_grime_texture | reference_board | pending_source | `docs/art/reference/act_i/bone_chandler` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| bone_chandler_generated_reference_ink_wash_edge_breakup | reference_board | pending_source | `docs/art/reference/act_i/bone_chandler` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| bone_chandler_generated_reference_non_clickable_dressing_silhouettes | reference_board | pending_source | `docs/art/reference/act_i/bone_chandler` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| bone_chandler_generated_reference_palette_safe_mood_reference | reference_board | pending_source | `docs/art/reference/act_i/bone_chandler` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| bone_chandler_generated_reference_grime_texture | reference_board | source_present_unreviewed | `docs/art/reference/act_i/bone_chandler` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| bone_chandler_generated_reference_ink_wash_edge_breakup | reference_board | source_present_unreviewed | `docs/art/reference/act_i/bone_chandler` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| bone_chandler_generated_reference_non_clickable_dressing_silhouettes | reference_board | source_present_unreviewed | `docs/art/reference/act_i/bone_chandler` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| bone_chandler_generated_reference_palette_safe_mood_reference | reference_board | source_present_unreviewed | `docs/art/reference/act_i/bone_chandler` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 
 ## R07 - The Almshouse
 
@@ -115,10 +115,10 @@ Counts:
 | almshouse_navigation_silhouette_bone_chandler | paintover_navigation_readability | pending_source | `game/rooms/almshouse/background/almshouse_bg.png` | preserve_existing_exit_metadata | verify visible exit affordance, walk-band clarity, and no new unplanned route |
 | almshouse_navigation_silhouette_salt_market | paintover_navigation_readability | pending_source | `game/rooms/almshouse/background/almshouse_bg.png` | preserve_existing_exit_metadata | verify visible exit affordance, walk-band clarity, and no new unplanned route |
 | almshouse_interactive_layer_half_coin_prosper | paintover_runtime_layer | pending_source | `game/rooms/almshouse/props/halfcoinprosper.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| almshouse_generated_reference_grime_texture | reference_board | pending_source | `docs/art/reference/act_i/almshouse` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| almshouse_generated_reference_ink_wash_edge_breakup | reference_board | pending_source | `docs/art/reference/act_i/almshouse` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| almshouse_generated_reference_non_clickable_dressing_silhouettes | reference_board | pending_source | `docs/art/reference/act_i/almshouse` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| almshouse_generated_reference_palette_safe_mood_reference | reference_board | pending_source | `docs/art/reference/act_i/almshouse` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| almshouse_generated_reference_grime_texture | reference_board | source_present_unreviewed | `docs/art/reference/act_i/almshouse` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| almshouse_generated_reference_ink_wash_edge_breakup | reference_board | source_present_unreviewed | `docs/art/reference/act_i/almshouse` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| almshouse_generated_reference_non_clickable_dressing_silhouettes | reference_board | source_present_unreviewed | `docs/art/reference/act_i/almshouse` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| almshouse_generated_reference_palette_safe_mood_reference | reference_board | source_present_unreviewed | `docs/art/reference/act_i/almshouse` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 
 ## R08 - The Fish Hall
 
@@ -132,10 +132,10 @@ Counts:
 | fish_hall_interactive_layer_coroner_tag | paintover_runtime_layer | pending_source | `game/rooms/fish_hall/props/coronertag.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | fish_hall_interactive_layer_drain | paintover_runtime_layer | pending_source | `game/rooms/fish_hall/props/drain.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | fish_hall_interactive_layer_visitor_book | paintover_runtime_layer | pending_source | `game/rooms/fish_hall/props/visitorbook.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| fish_hall_generated_reference_grime_texture | reference_board | pending_source | `docs/art/reference/act_i/fish_hall` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| fish_hall_generated_reference_ink_wash_edge_breakup | reference_board | pending_source | `docs/art/reference/act_i/fish_hall` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| fish_hall_generated_reference_non_clickable_dressing_silhouettes | reference_board | pending_source | `docs/art/reference/act_i/fish_hall` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| fish_hall_generated_reference_palette_safe_mood_reference | reference_board | pending_source | `docs/art/reference/act_i/fish_hall` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| fish_hall_generated_reference_grime_texture | reference_board | source_present_unreviewed | `docs/art/reference/act_i/fish_hall` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| fish_hall_generated_reference_ink_wash_edge_breakup | reference_board | source_present_unreviewed | `docs/art/reference/act_i/fish_hall` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| fish_hall_generated_reference_non_clickable_dressing_silhouettes | reference_board | source_present_unreviewed | `docs/art/reference/act_i/fish_hall` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| fish_hall_generated_reference_palette_safe_mood_reference | reference_board | source_present_unreviewed | `docs/art/reference/act_i/fish_hall` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 
 ## R09 - Church of the Drowned
 
@@ -150,9 +150,9 @@ Counts:
 | church_of_the_drowned_interactive_layer_confession_booth | paintover_runtime_layer | pending_source | `game/rooms/church_of_the_drowned/props/confessionbooth.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | church_of_the_drowned_interactive_layer_poor_box | paintover_runtime_layer | pending_source | `game/rooms/church_of_the_drowned/props/poorbox.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | church_of_the_drowned_interactive_layer_teodor_s_stall | paintover_runtime_layer | pending_source | `game/rooms/church_of_the_drowned/props/ratecard.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| church_of_the_drowned_generated_reference_institutional_absinthe_green_light | reference_board | pending_source | `docs/art/reference/act_i/church_of_the_drowned` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| church_of_the_drowned_generated_reference_paper_bureaucracy_texture | reference_board | pending_source | `docs/art/reference/act_i/church_of_the_drowned` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| church_of_the_drowned_generated_reference_wet_stone_grime | reference_board | pending_source | `docs/art/reference/act_i/church_of_the_drowned` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| church_of_the_drowned_generated_reference_institutional_absinthe_green_light | reference_board | source_present_unreviewed | `docs/art/reference/act_i/church_of_the_drowned` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| church_of_the_drowned_generated_reference_paper_bureaucracy_texture | reference_board | source_present_unreviewed | `docs/art/reference/act_i/church_of_the_drowned` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| church_of_the_drowned_generated_reference_wet_stone_grime | reference_board | source_present_unreviewed | `docs/art/reference/act_i/church_of_the_drowned` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 
 ## R10 - The Grey Float
 
@@ -167,10 +167,10 @@ Counts:
 | grey_float_interactive_layer_bilge_regulator | paintover_runtime_layer | pending_source | `game/rooms/grey_float/props/bilgeregulator.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | grey_float_interactive_layer_hot_pool | paintover_runtime_layer | pending_source | `game/rooms/grey_float/props/hotpool.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
 | grey_float_interactive_layer_staff_corner | paintover_runtime_layer | pending_source | `game/rooms/grey_float/props/staffcorner.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| grey_float_generated_reference_amber_trap_mood | reference_board | pending_source | `docs/art/reference/act_i/grey_float` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| grey_float_generated_reference_non_explicit_labor_staging | reference_board | pending_source | `docs/art/reference/act_i/grey_float` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| grey_float_generated_reference_steam_density | reference_board | pending_source | `docs/art/reference/act_i/grey_float` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| grey_float_generated_reference_warm_silhouette_privacy_shapes | reference_board | pending_source | `docs/art/reference/act_i/grey_float` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| grey_float_generated_reference_amber_trap_mood | reference_board | source_present_unreviewed | `docs/art/reference/act_i/grey_float` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| grey_float_generated_reference_non_explicit_labor_staging | reference_board | source_present_unreviewed | `docs/art/reference/act_i/grey_float` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| grey_float_generated_reference_steam_density | reference_board | source_present_unreviewed | `docs/art/reference/act_i/grey_float` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| grey_float_generated_reference_warm_silhouette_privacy_shapes | reference_board | source_present_unreviewed | `docs/art/reference/act_i/grey_float` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 
 ## R11 - Harbormaster's Office
 
@@ -183,10 +183,10 @@ Counts:
 | harbormaster_office_navigation_silhouette_grey_float | paintover_navigation_readability | pending_source | `game/rooms/harbormaster_office/background/harbormaster_office_bg.png` | preserve_existing_exit_metadata | verify visible exit affordance, walk-band clarity, and no new unplanned route |
 | harbormaster_office_navigation_silhouette_sabine | paintover_navigation_readability | pending_source | `game/rooms/harbormaster_office/background/harbormaster_office_bg.png` | preserve_existing_exit_metadata | verify visible exit affordance, walk-band clarity, and no new unplanned route |
 | harbormaster_office_interactive_layer_checklist_clerk | paintover_runtime_layer | pending_source | `game/rooms/harbormaster_office/props/checklistclerk.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| harbormaster_office_generated_reference_grime_texture | reference_board | pending_source | `docs/art/reference/act_i/harbormaster_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| harbormaster_office_generated_reference_ink_wash_edge_breakup | reference_board | pending_source | `docs/art/reference/act_i/harbormaster_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| harbormaster_office_generated_reference_non_clickable_dressing_silhouettes | reference_board | pending_source | `docs/art/reference/act_i/harbormaster_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| harbormaster_office_generated_reference_palette_safe_mood_reference | reference_board | pending_source | `docs/art/reference/act_i/harbormaster_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| harbormaster_office_generated_reference_grime_texture | reference_board | source_present_unreviewed | `docs/art/reference/act_i/harbormaster_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| harbormaster_office_generated_reference_ink_wash_edge_breakup | reference_board | source_present_unreviewed | `docs/art/reference/act_i/harbormaster_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| harbormaster_office_generated_reference_non_clickable_dressing_silhouettes | reference_board | source_present_unreviewed | `docs/art/reference/act_i/harbormaster_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| harbormaster_office_generated_reference_palette_safe_mood_reference | reference_board | source_present_unreviewed | `docs/art/reference/act_i/harbormaster_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 
 ## R12 - Sabine's Office
 
@@ -198,8 +198,8 @@ Counts:
 | sabine_office_meshy_source_model_wrist_check_staging_chair | blender_helper_geometry | pending_source | `art/src/backgrounds/act_i/blockouts/sabine_office.blend` | never_import_directly_to_godot | open_room_blend_and_confirm_scale_silhouette_palette_before_paintover |
 | sabine_office_navigation_silhouette_harbormaster | paintover_navigation_readability | pending_source | `game/rooms/sabine_office/background/sabine_office_bg.png` | preserve_existing_exit_metadata | verify visible exit affordance, walk-band clarity, and no new unplanned route |
 | sabine_office_interactive_layer_sabine_s_desk | paintover_runtime_layer | pending_source | `game/rooms/sabine_office/props/sabinedesk.png` | export_separate_png_and_preserve_godot_hotspot_metadata | verify alpha, bounds, hotspot center alignment, and role readability in Godot |
-| sabine_office_generated_reference_grime_texture | reference_board | pending_source | `docs/art/reference/act_i/sabine_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| sabine_office_generated_reference_ink_wash_edge_breakup | reference_board | pending_source | `docs/art/reference/act_i/sabine_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| sabine_office_generated_reference_non_clickable_dressing_silhouettes | reference_board | pending_source | `docs/art/reference/act_i/sabine_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
-| sabine_office_generated_reference_palette_safe_mood_reference | reference_board | pending_source | `docs/art/reference/act_i/sabine_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| sabine_office_generated_reference_grime_texture | reference_board | source_present_unreviewed | `docs/art/reference/act_i/sabine_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| sabine_office_generated_reference_ink_wash_edge_breakup | reference_board | source_present_unreviewed | `docs/art/reference/act_i/sabine_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| sabine_office_generated_reference_non_clickable_dressing_silhouettes | reference_board | source_present_unreviewed | `docs/art/reference/act_i/sabine_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
+| sabine_office_generated_reference_palette_safe_mood_reference | reference_board | source_present_unreviewed | `docs/art/reference/act_i/sabine_office` | never_import_directly_to_godot | compare_against_locked_palette_and_existing_hotspot_readability |
 

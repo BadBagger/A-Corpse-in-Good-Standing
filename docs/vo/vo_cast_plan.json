@@ -4,11 +4,11 @@
                            "docs/vo/confession_vo_manifest.json",
                            "docs/vo/vo_recording_batches.json"
                        ],
-    "generated_at_utc":  "2026-08-11T20:55:18.0549568Z",
+    "generated_at_utc":  "2026-08-12T05:41:58.5973976Z",
     "source_modified_utc":  {
-                                "docs/vo/act_i_vo_line_manifest.json":  "2026-08-11T20:54:52.4901017Z",
-                                "docs/vo/confession_vo_manifest.json":  "2026-08-11T20:54:53.4184223Z",
-                                "docs/vo/vo_recording_batches.json":  "2026-08-11T20:55:14.7636073Z"
+                                "docs/vo/act_i_vo_line_manifest.json":  "2026-08-12T05:41:33.2021352Z",
+                                "docs/vo/confession_vo_manifest.json":  "2026-08-12T05:41:34.1380796Z",
+                                "docs/vo/vo_recording_batches.json":  "2026-08-12T05:41:55.3414811Z"
                             },
     "purpose":  "Manifest-driven scratch VO cast plan for Act I and Litany recording batches.",
     "recording_status":  "unrecorded",

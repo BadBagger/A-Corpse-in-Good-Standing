@@ -25,33 +25,3 @@ Rule locks:
 | MARIN | pending | 1 | 4 | 22 |
 | MONGER | pending | 1 | 3 | 21 |
 | WOMAN | pending | 4 | 8 | 43 |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

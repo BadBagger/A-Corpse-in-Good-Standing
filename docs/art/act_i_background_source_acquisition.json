@@ -21,7 +21,8 @@
                      },
     "status_counts":  {
                           "held_pending_room_review":  46,
-                          "ready_to_generate":  84
+                          "ready_to_generate":  43,
+                          "received_unreviewed":  41
                       },
     "rooms":  [
                   {
@@ -29,9 +30,9 @@
                       "room_id":  "mudflats",
                       "room_title":  "Mudflats",
                       "total_items":  7,
-                      "ready_to_generate":  6,
+                      "ready_to_generate":  3,
                       "held_pending_room_review":  1,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  3,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -44,7 +45,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  3,
                                         "source_statuses":  [
-                                                                "ready_to_generate:3"
+                                                                "received_unreviewed:3"
                                                             ]
                                     },
                                     {
@@ -61,9 +62,9 @@
                       "room_id":  "old_quay",
                       "room_title":  "The Old Quay",
                       "total_items":  13,
-                      "ready_to_generate":  8,
+                      "ready_to_generate":  4,
                       "held_pending_room_review":  5,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  4,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -76,7 +77,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  4,
                                         "source_statuses":  [
-                                                                "ready_to_generate:4"
+                                                                "received_unreviewed:4"
                                                             ]
                                     },
                                     {
@@ -100,9 +101,9 @@
                       "room_id":  "salt_market",
                       "room_title":  "Salt Market",
                       "total_items":  18,
-                      "ready_to_generate":  7,
+                      "ready_to_generate":  4,
                       "held_pending_room_review":  11,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  3,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -115,7 +116,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  3,
                                         "source_statuses":  [
-                                                                "ready_to_generate:3"
+                                                                "received_unreviewed:3"
                                                             ]
                                     },
                                     {
@@ -139,9 +140,9 @@
                       "room_id":  "harbor_registry",
                       "room_title":  "Harbor Registry",
                       "total_items":  12,
-                      "ready_to_generate":  8,
+                      "ready_to_generate":  4,
                       "held_pending_room_review":  4,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  4,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -154,7 +155,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  4,
                                         "source_statuses":  [
-                                                                "ready_to_generate:4"
+                                                                "received_unreviewed:4"
                                                             ]
                                     },
                                     {
@@ -178,9 +179,9 @@
                       "room_id":  "bone_chandler",
                       "room_title":  "The Bone Chandler",
                       "total_items":  11,
-                      "ready_to_generate":  8,
+                      "ready_to_generate":  4,
                       "held_pending_room_review":  3,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  4,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -193,7 +194,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  4,
                                         "source_statuses":  [
-                                                                "ready_to_generate:4"
+                                                                "received_unreviewed:4"
                                                             ]
                                     },
                                     {
@@ -217,9 +218,9 @@
                       "room_id":  "almshouse",
                       "room_title":  "The Almshouse",
                       "total_items":  11,
-                      "ready_to_generate":  8,
+                      "ready_to_generate":  4,
                       "held_pending_room_review":  3,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  4,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -232,7 +233,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  4,
                                         "source_statuses":  [
-                                                                "ready_to_generate:4"
+                                                                "received_unreviewed:4"
                                                             ]
                                     },
                                     {
@@ -256,9 +257,9 @@
                       "room_id":  "fish_hall",
                       "room_title":  "The Fish Hall",
                       "total_items":  12,
-                      "ready_to_generate":  8,
+                      "ready_to_generate":  4,
                       "held_pending_room_review":  4,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  4,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -271,7 +272,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  4,
                                         "source_statuses":  [
-                                                                "ready_to_generate:4"
+                                                                "received_unreviewed:4"
                                                             ]
                                     },
                                     {
@@ -295,9 +296,9 @@
                       "room_id":  "church_of_the_drowned",
                       "room_title":  "Church of the Drowned",
                       "total_items":  12,
-                      "ready_to_generate":  7,
+                      "ready_to_generate":  4,
                       "held_pending_room_review":  5,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  3,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -310,7 +311,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  3,
                                         "source_statuses":  [
-                                                                "ready_to_generate:3"
+                                                                "received_unreviewed:3"
                                                             ]
                                     },
                                     {
@@ -334,9 +335,9 @@
                       "room_id":  "grey_float",
                       "room_title":  "The Grey Float",
                       "total_items":  13,
-                      "ready_to_generate":  8,
+                      "ready_to_generate":  4,
                       "held_pending_room_review":  5,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  4,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -349,7 +350,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  4,
                                         "source_statuses":  [
-                                                                "ready_to_generate:4"
+                                                                "received_unreviewed:4"
                                                             ]
                                     },
                                     {
@@ -373,9 +374,9 @@
                       "room_id":  "harbormaster_office",
                       "room_title":  "Harbormaster\u0027s Office",
                       "total_items":  11,
-                      "ready_to_generate":  8,
+                      "ready_to_generate":  4,
                       "held_pending_room_review":  3,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  4,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -388,7 +389,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  4,
                                         "source_statuses":  [
-                                                                "ready_to_generate:4"
+                                                                "received_unreviewed:4"
                                                             ]
                                     },
                                     {
@@ -412,9 +413,9 @@
                       "room_id":  "sabine_office",
                       "room_title":  "Sabine\u0027s Office",
                       "total_items":  10,
-                      "ready_to_generate":  8,
+                      "ready_to_generate":  4,
                       "held_pending_room_review":  2,
-                      "received_unreviewed":  0,
+                      "received_unreviewed":  4,
                       "lanes":  [
                                     {
                                         "lane":  "A_meshy_helper_geometry",
@@ -427,7 +428,7 @@
                                         "lane":  "B_reference_board",
                                         "count":  4,
                                         "source_statuses":  [
-                                                                "ready_to_generate:4"
+                                                                "received_unreviewed:4"
                                                             ]
                                     },
                                     {
@@ -533,8 +534,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/mudflats/cold_horizon_wash.png",
                       "source_directory":  "docs/art/reference/act_i/mudflats",
                       "dropzone_readme":  "docs/art/reference/act_i/mudflats/README.md",
@@ -557,8 +558,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/mudflats/dawn_haze.png",
                       "source_directory":  "docs/art/reference/act_i/mudflats",
                       "dropzone_readme":  "docs/art/reference/act_i/mudflats/README.md",
@@ -581,8 +582,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/mudflats/wet_silt_texture.png",
                       "source_directory":  "docs/art/reference/act_i/mudflats",
                       "dropzone_readme":  "docs/art/reference/act_i/mudflats/README.md",
@@ -725,8 +726,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/old_quay/grime_texture.png",
                       "source_directory":  "docs/art/reference/act_i/old_quay",
                       "dropzone_readme":  "docs/art/reference/act_i/old_quay/README.md",
@@ -749,8 +750,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/old_quay/ink_wash_edge_breakup.png",
                       "source_directory":  "docs/art/reference/act_i/old_quay",
                       "dropzone_readme":  "docs/art/reference/act_i/old_quay/README.md",
@@ -773,8 +774,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/old_quay/non_clickable_dressing_silhouettes.png",
                       "source_directory":  "docs/art/reference/act_i/old_quay",
                       "dropzone_readme":  "docs/art/reference/act_i/old_quay/README.md",
@@ -797,8 +798,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/old_quay/palette_safe_mood_reference.png",
                       "source_directory":  "docs/art/reference/act_i/old_quay",
                       "dropzone_readme":  "docs/art/reference/act_i/old_quay/README.md",
@@ -1037,8 +1038,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/salt_market/market_awning_texture.png",
                       "source_directory":  "docs/art/reference/act_i/salt_market",
                       "dropzone_readme":  "docs/art/reference/act_i/salt_market/README.md",
@@ -1061,8 +1062,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/salt_market/public_crowd_mood.png",
                       "source_directory":  "docs/art/reference/act_i/salt_market",
                       "dropzone_readme":  "docs/art/reference/act_i/salt_market/README.md",
@@ -1085,8 +1086,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/salt_market/salt_signage_grime.png",
                       "source_directory":  "docs/art/reference/act_i/salt_market",
                       "dropzone_readme":  "docs/art/reference/act_i/salt_market/README.md",
@@ -1469,8 +1470,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/harbor_registry/grime_texture.png",
                       "source_directory":  "docs/art/reference/act_i/harbor_registry",
                       "dropzone_readme":  "docs/art/reference/act_i/harbor_registry/README.md",
@@ -1493,8 +1494,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/harbor_registry/ink_wash_edge_breakup.png",
                       "source_directory":  "docs/art/reference/act_i/harbor_registry",
                       "dropzone_readme":  "docs/art/reference/act_i/harbor_registry/README.md",
@@ -1517,8 +1518,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/harbor_registry/non_clickable_dressing_silhouettes.png",
                       "source_directory":  "docs/art/reference/act_i/harbor_registry",
                       "dropzone_readme":  "docs/art/reference/act_i/harbor_registry/README.md",
@@ -1541,8 +1542,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/harbor_registry/palette_safe_mood_reference.png",
                       "source_directory":  "docs/art/reference/act_i/harbor_registry",
                       "dropzone_readme":  "docs/art/reference/act_i/harbor_registry/README.md",
@@ -1757,8 +1758,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/bone_chandler/grime_texture.png",
                       "source_directory":  "docs/art/reference/act_i/bone_chandler",
                       "dropzone_readme":  "docs/art/reference/act_i/bone_chandler/README.md",
@@ -1781,8 +1782,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/bone_chandler/ink_wash_edge_breakup.png",
                       "source_directory":  "docs/art/reference/act_i/bone_chandler",
                       "dropzone_readme":  "docs/art/reference/act_i/bone_chandler/README.md",
@@ -1805,8 +1806,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/bone_chandler/non_clickable_dressing_silhouettes.png",
                       "source_directory":  "docs/art/reference/act_i/bone_chandler",
                       "dropzone_readme":  "docs/art/reference/act_i/bone_chandler/README.md",
@@ -1829,8 +1830,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/bone_chandler/palette_safe_mood_reference.png",
                       "source_directory":  "docs/art/reference/act_i/bone_chandler",
                       "dropzone_readme":  "docs/art/reference/act_i/bone_chandler/README.md",
@@ -2021,8 +2022,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/almshouse/grime_texture.png",
                       "source_directory":  "docs/art/reference/act_i/almshouse",
                       "dropzone_readme":  "docs/art/reference/act_i/almshouse/README.md",
@@ -2045,8 +2046,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/almshouse/ink_wash_edge_breakup.png",
                       "source_directory":  "docs/art/reference/act_i/almshouse",
                       "dropzone_readme":  "docs/art/reference/act_i/almshouse/README.md",
@@ -2069,8 +2070,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/almshouse/non_clickable_dressing_silhouettes.png",
                       "source_directory":  "docs/art/reference/act_i/almshouse",
                       "dropzone_readme":  "docs/art/reference/act_i/almshouse/README.md",
@@ -2093,8 +2094,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/almshouse/palette_safe_mood_reference.png",
                       "source_directory":  "docs/art/reference/act_i/almshouse",
                       "dropzone_readme":  "docs/art/reference/act_i/almshouse/README.md",
@@ -2285,8 +2286,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/fish_hall/grime_texture.png",
                       "source_directory":  "docs/art/reference/act_i/fish_hall",
                       "dropzone_readme":  "docs/art/reference/act_i/fish_hall/README.md",
@@ -2309,8 +2310,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/fish_hall/ink_wash_edge_breakup.png",
                       "source_directory":  "docs/art/reference/act_i/fish_hall",
                       "dropzone_readme":  "docs/art/reference/act_i/fish_hall/README.md",
@@ -2333,8 +2334,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/fish_hall/non_clickable_dressing_silhouettes.png",
                       "source_directory":  "docs/art/reference/act_i/fish_hall",
                       "dropzone_readme":  "docs/art/reference/act_i/fish_hall/README.md",
@@ -2357,8 +2358,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/fish_hall/palette_safe_mood_reference.png",
                       "source_directory":  "docs/art/reference/act_i/fish_hall",
                       "dropzone_readme":  "docs/art/reference/act_i/fish_hall/README.md",
@@ -2573,8 +2574,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/church_of_the_drowned/institutional_absinthe_green_light.png",
                       "source_directory":  "docs/art/reference/act_i/church_of_the_drowned",
                       "dropzone_readme":  "docs/art/reference/act_i/church_of_the_drowned/README.md",
@@ -2597,8 +2598,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/church_of_the_drowned/paper_bureaucracy_texture.png",
                       "source_directory":  "docs/art/reference/act_i/church_of_the_drowned",
                       "dropzone_readme":  "docs/art/reference/act_i/church_of_the_drowned/README.md",
@@ -2621,8 +2622,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/church_of_the_drowned/wet_stone_grime.png",
                       "source_directory":  "docs/art/reference/act_i/church_of_the_drowned",
                       "dropzone_readme":  "docs/art/reference/act_i/church_of_the_drowned/README.md",
@@ -2861,8 +2862,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/grey_float/amber_trap_mood.png",
                       "source_directory":  "docs/art/reference/act_i/grey_float",
                       "dropzone_readme":  "docs/art/reference/act_i/grey_float/README.md",
@@ -2885,8 +2886,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/grey_float/non_explicit_labor_staging.png",
                       "source_directory":  "docs/art/reference/act_i/grey_float",
                       "dropzone_readme":  "docs/art/reference/act_i/grey_float/README.md",
@@ -2909,8 +2910,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/grey_float/steam_density.png",
                       "source_directory":  "docs/art/reference/act_i/grey_float",
                       "dropzone_readme":  "docs/art/reference/act_i/grey_float/README.md",
@@ -2933,8 +2934,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/grey_float/warm_silhouette_privacy_shapes.png",
                       "source_directory":  "docs/art/reference/act_i/grey_float",
                       "dropzone_readme":  "docs/art/reference/act_i/grey_float/README.md",
@@ -3173,8 +3174,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/harbormaster_office/grime_texture.png",
                       "source_directory":  "docs/art/reference/act_i/harbormaster_office",
                       "dropzone_readme":  "docs/art/reference/act_i/harbormaster_office/README.md",
@@ -3197,8 +3198,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/harbormaster_office/ink_wash_edge_breakup.png",
                       "source_directory":  "docs/art/reference/act_i/harbormaster_office",
                       "dropzone_readme":  "docs/art/reference/act_i/harbormaster_office/README.md",
@@ -3221,8 +3222,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/harbormaster_office/non_clickable_dressing_silhouettes.png",
                       "source_directory":  "docs/art/reference/act_i/harbormaster_office",
                       "dropzone_readme":  "docs/art/reference/act_i/harbormaster_office/README.md",
@@ -3245,8 +3246,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/harbormaster_office/palette_safe_mood_reference.png",
                       "source_directory":  "docs/art/reference/act_i/harbormaster_office",
                       "dropzone_readme":  "docs/art/reference/act_i/harbormaster_office/README.md",
@@ -3437,8 +3438,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/sabine_office/grime_texture.png",
                       "source_directory":  "docs/art/reference/act_i/sabine_office",
                       "dropzone_readme":  "docs/art/reference/act_i/sabine_office/README.md",
@@ -3461,8 +3462,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/sabine_office/ink_wash_edge_breakup.png",
                       "source_directory":  "docs/art/reference/act_i/sabine_office",
                       "dropzone_readme":  "docs/art/reference/act_i/sabine_office/README.md",
@@ -3485,8 +3486,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/sabine_office/non_clickable_dressing_silhouettes.png",
                       "source_directory":  "docs/art/reference/act_i/sabine_office",
                       "dropzone_readme":  "docs/art/reference/act_i/sabine_office/README.md",
@@ -3509,8 +3510,8 @@
                       "acquisition_lane":  "B_reference_board",
                       "priority_order":  20,
                       "blocking_rule":  "can_acquire_before_human_review",
-                      "source_status":  "ready_to_generate",
-                      "content_status":  "missing",
+                      "source_status":  "received_unreviewed",
+                      "content_status":  "present",
                       "source_path":  "docs/art/reference/act_i/sabine_office/palette_safe_mood_reference.png",
                       "source_directory":  "docs/art/reference/act_i/sabine_office",
                       "dropzone_readme":  "docs/art/reference/act_i/sabine_office/README.md",

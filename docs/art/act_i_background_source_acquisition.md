@@ -17,19 +17,20 @@ Counts:
 - generate_now: 84
 - hold_for_room_approval: 46
 - held_pending_room_review: 46
-- ready_to_generate: 84
+- ready_to_generate: 43
+- received_unreviewed: 41
 
 ## R01 - Mudflats
 
 - Total: 7
-- Ready to generate: 6
+- Ready to generate: 3
 - Held pending room review: 1
-- Received unreviewed: 0
+- Received unreviewed: 3
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 3 | ready_to_generate:3 |
-| B_reference_board | 3 | ready_to_generate:3 |
+| B_reference_board | 3 | received_unreviewed:3 |
 | C_interactive_runtime_layer | 1 | held_pending_room_review:1 |
 
 | ID | Tool | Status | Source | Handoff Check |
@@ -37,22 +38,22 @@ Counts:
 | mudflats_meshy_source_model_bollard_silhouettes | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/mudflats/bollard_silhouettes.glb` | import into the room Blender blockout as helper geometry only |
 | mudflats_meshy_source_model_distant_leviathan_ribs | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/mudflats/distant_leviathan_ribs.glb` | import into the room Blender blockout as helper geometry only |
 | mudflats_meshy_source_model_mud_ridge_reference_forms | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/mudflats/mud_ridge_reference_forms.glb` | import into the room Blender blockout as helper geometry only |
-| mudflats_generated_reference_cold_horizon_wash | imagegen | ready_to_generate | `docs/art/reference/act_i/mudflats/cold_horizon_wash.png` | review as mood or texture reference only, never as a final room plate |
-| mudflats_generated_reference_dawn_haze | imagegen | ready_to_generate | `docs/art/reference/act_i/mudflats/dawn_haze.png` | review as mood or texture reference only, never as a final room plate |
-| mudflats_generated_reference_wet_silt_texture | imagegen | ready_to_generate | `docs/art/reference/act_i/mudflats/wet_silt_texture.png` | review as mood or texture reference only, never as a final room plate |
+| mudflats_generated_reference_cold_horizon_wash | imagegen | received_unreviewed | `docs/art/reference/act_i/mudflats/cold_horizon_wash.png` | review as mood or texture reference only, never as a final room plate |
+| mudflats_generated_reference_dawn_haze | imagegen | received_unreviewed | `docs/art/reference/act_i/mudflats/dawn_haze.png` | review as mood or texture reference only, never as a final room plate |
+| mudflats_generated_reference_wet_silt_texture | imagegen | received_unreviewed | `docs/art/reference/act_i/mudflats/wet_silt_texture.png` | review as mood or texture reference only, never as a final room plate |
 | mudflats_interactive_layer_road_to_the_salt_market | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/mudflats/saltmarketexit.psd` | export separate PNG and verify hotspot alignment in Godot |
 
 ## R02 - The Old Quay
 
 - Total: 13
-- Ready to generate: 8
+- Ready to generate: 4
 - Held pending room review: 5
-- Received unreviewed: 0
+- Received unreviewed: 4
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 4 | ready_to_generate:4 |
-| B_reference_board | 4 | ready_to_generate:4 |
+| B_reference_board | 4 | received_unreviewed:4 |
 | C_interactive_runtime_layer | 3 | held_pending_room_review:3 |
 | D_navigation_readability_layer | 2 | held_pending_room_review:2 |
 
@@ -62,10 +63,10 @@ Counts:
 | old_quay_meshy_source_model_dock_pilings | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/old_quay/dock_pilings.glb` | import into the room Blender blockout as helper geometry only |
 | old_quay_meshy_source_model_harbor_rail_fragments | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/old_quay/harbor_rail_fragments.glb` | import into the room Blender blockout as helper geometry only |
 | old_quay_meshy_source_model_rope_cleat | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/old_quay/rope_cleat.glb` | import into the room Blender blockout as helper geometry only |
-| old_quay_generated_reference_grime_texture | imagegen | ready_to_generate | `docs/art/reference/act_i/old_quay/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
-| old_quay_generated_reference_ink_wash_edge_breakup | imagegen | ready_to_generate | `docs/art/reference/act_i/old_quay/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
-| old_quay_generated_reference_non_clickable_dressing_silhouettes | imagegen | ready_to_generate | `docs/art/reference/act_i/old_quay/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
-| old_quay_generated_reference_palette_safe_mood_reference | imagegen | ready_to_generate | `docs/art/reference/act_i/old_quay/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
+| old_quay_generated_reference_grime_texture | imagegen | received_unreviewed | `docs/art/reference/act_i/old_quay/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
+| old_quay_generated_reference_ink_wash_edge_breakup | imagegen | received_unreviewed | `docs/art/reference/act_i/old_quay/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
+| old_quay_generated_reference_non_clickable_dressing_silhouettes | imagegen | received_unreviewed | `docs/art/reference/act_i/old_quay/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
+| old_quay_generated_reference_palette_safe_mood_reference | imagegen | received_unreviewed | `docs/art/reference/act_i/old_quay/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
 | old_quay_interactive_layer_bollard_tomas | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/old_quay/tomas.psd` | export separate PNG and verify hotspot alignment in Godot |
 | old_quay_interactive_layer_empty_flask | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/old_quay/flask.psd` | export separate PNG and verify hotspot alignment in Godot |
 | old_quay_interactive_layer_rope_cleat | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/old_quay/ropecleat.psd` | export separate PNG and verify hotspot alignment in Godot |
@@ -75,14 +76,14 @@ Counts:
 ## R03 - Salt Market
 
 - Total: 18
-- Ready to generate: 7
+- Ready to generate: 4
 - Held pending room review: 11
-- Received unreviewed: 0
+- Received unreviewed: 3
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 4 | ready_to_generate:4 |
-| B_reference_board | 3 | ready_to_generate:3 |
+| B_reference_board | 3 | received_unreviewed:3 |
 | C_interactive_runtime_layer | 5 | held_pending_room_review:5 |
 | D_navigation_readability_layer | 6 | held_pending_room_review:6 |
 
@@ -92,9 +93,9 @@ Counts:
 | salt_market_meshy_source_model_crowd_silhouette_blockers | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/salt_market/crowd_silhouette_blockers.glb` | import into the room Blender blockout as helper geometry only |
 | salt_market_meshy_source_model_hanging_lamps | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/salt_market/hanging_lamps.glb` | import into the room Blender blockout as helper geometry only |
 | salt_market_meshy_source_model_market_stall_shells | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/salt_market/market_stall_shells.glb` | import into the room Blender blockout as helper geometry only |
-| salt_market_generated_reference_market_awning_texture | imagegen | ready_to_generate | `docs/art/reference/act_i/salt_market/market_awning_texture.png` | review as mood or texture reference only, never as a final room plate |
-| salt_market_generated_reference_public_crowd_mood | imagegen | ready_to_generate | `docs/art/reference/act_i/salt_market/public_crowd_mood.png` | review as mood or texture reference only, never as a final room plate |
-| salt_market_generated_reference_salt_signage_grime | imagegen | ready_to_generate | `docs/art/reference/act_i/salt_market/salt_signage_grime.png` | review as mood or texture reference only, never as a final room plate |
+| salt_market_generated_reference_market_awning_texture | imagegen | received_unreviewed | `docs/art/reference/act_i/salt_market/market_awning_texture.png` | review as mood or texture reference only, never as a final room plate |
+| salt_market_generated_reference_public_crowd_mood | imagegen | received_unreviewed | `docs/art/reference/act_i/salt_market/public_crowd_mood.png` | review as mood or texture reference only, never as a final room plate |
+| salt_market_generated_reference_salt_signage_grime | imagegen | received_unreviewed | `docs/art/reference/act_i/salt_market/salt_signage_grime.png` | review as mood or texture reference only, never as a final room plate |
 | salt_market_interactive_layer_boot_stall | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/salt_market/bootstall.psd` | export separate PNG and verify hotspot alignment in Godot |
 | salt_market_interactive_layer_church_sign | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/salt_market/churchsign.psd` | export separate PNG and verify hotspot alignment in Godot |
 | salt_market_interactive_layer_confession_queue | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/salt_market/confessionqueue.psd` | export separate PNG and verify hotspot alignment in Godot |
@@ -110,14 +111,14 @@ Counts:
 ## R05 - Harbor Registry
 
 - Total: 12
-- Ready to generate: 8
+- Ready to generate: 4
 - Held pending room review: 4
-- Received unreviewed: 0
+- Received unreviewed: 4
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 4 | ready_to_generate:4 |
-| B_reference_board | 4 | ready_to_generate:4 |
+| B_reference_board | 4 | received_unreviewed:4 |
 | C_interactive_runtime_layer | 3 | held_pending_room_review:3 |
 | D_navigation_readability_layer | 1 | held_pending_room_review:1 |
 
@@ -127,10 +128,10 @@ Counts:
 | harbor_registry_meshy_source_model_registrar_desk | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/harbor_registry/registrar_desk.glb` | import into the room Blender blockout as helper geometry only |
 | harbor_registry_meshy_source_model_roll_book_lectern | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/harbor_registry/roll_book_lectern.glb` | import into the room Blender blockout as helper geometry only |
 | harbor_registry_meshy_source_model_window_frame | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/harbor_registry/window_frame.glb` | import into the room Blender blockout as helper geometry only |
-| harbor_registry_generated_reference_grime_texture | imagegen | ready_to_generate | `docs/art/reference/act_i/harbor_registry/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
-| harbor_registry_generated_reference_ink_wash_edge_breakup | imagegen | ready_to_generate | `docs/art/reference/act_i/harbor_registry/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
-| harbor_registry_generated_reference_non_clickable_dressing_silhouettes | imagegen | ready_to_generate | `docs/art/reference/act_i/harbor_registry/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
-| harbor_registry_generated_reference_palette_safe_mood_reference | imagegen | ready_to_generate | `docs/art/reference/act_i/harbor_registry/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
+| harbor_registry_generated_reference_grime_texture | imagegen | received_unreviewed | `docs/art/reference/act_i/harbor_registry/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
+| harbor_registry_generated_reference_ink_wash_edge_breakup | imagegen | received_unreviewed | `docs/art/reference/act_i/harbor_registry/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
+| harbor_registry_generated_reference_non_clickable_dressing_silhouettes | imagegen | received_unreviewed | `docs/art/reference/act_i/harbor_registry/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
+| harbor_registry_generated_reference_palette_safe_mood_reference | imagegen | received_unreviewed | `docs/art/reference/act_i/harbor_registry/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
 | harbor_registry_interactive_layer_desk_lamp | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/harbor_registry/desklamp.psd` | export separate PNG and verify hotspot alignment in Godot |
 | harbor_registry_interactive_layer_kestrel_ledger | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/harbor_registry/kestrelledger.psd` | export separate PNG and verify hotspot alignment in Godot |
 | harbor_registry_interactive_layer_registrar | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/harbor_registry/registrar.psd` | export separate PNG and verify hotspot alignment in Godot |
@@ -139,14 +140,14 @@ Counts:
 ## R06 - The Bone Chandler
 
 - Total: 11
-- Ready to generate: 8
+- Ready to generate: 4
 - Held pending room review: 3
-- Received unreviewed: 0
+- Received unreviewed: 4
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 4 | ready_to_generate:4 |
-| B_reference_board | 4 | ready_to_generate:4 |
+| B_reference_board | 4 | received_unreviewed:4 |
 | C_interactive_runtime_layer | 1 | held_pending_room_review:1 |
 | D_navigation_readability_layer | 2 | held_pending_room_review:2 |
 
@@ -156,10 +157,10 @@ Counts:
 | bone_chandler_meshy_source_model_chess_set_scale_prop | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/bone_chandler/chess_set_scale_prop.glb` | import into the room Blender blockout as helper geometry only |
 | bone_chandler_meshy_source_model_prosper_watch_display_block | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/bone_chandler/prosper_watch_display_block.glb` | import into the room Blender blockout as helper geometry only |
 | bone_chandler_meshy_source_model_trade_counter | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/bone_chandler/trade_counter.glb` | import into the room Blender blockout as helper geometry only |
-| bone_chandler_generated_reference_grime_texture | imagegen | ready_to_generate | `docs/art/reference/act_i/bone_chandler/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
-| bone_chandler_generated_reference_ink_wash_edge_breakup | imagegen | ready_to_generate | `docs/art/reference/act_i/bone_chandler/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
-| bone_chandler_generated_reference_non_clickable_dressing_silhouettes | imagegen | ready_to_generate | `docs/art/reference/act_i/bone_chandler/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
-| bone_chandler_generated_reference_palette_safe_mood_reference | imagegen | ready_to_generate | `docs/art/reference/act_i/bone_chandler/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
+| bone_chandler_generated_reference_grime_texture | imagegen | received_unreviewed | `docs/art/reference/act_i/bone_chandler/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
+| bone_chandler_generated_reference_ink_wash_edge_breakup | imagegen | received_unreviewed | `docs/art/reference/act_i/bone_chandler/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
+| bone_chandler_generated_reference_non_clickable_dressing_silhouettes | imagegen | received_unreviewed | `docs/art/reference/act_i/bone_chandler/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
+| bone_chandler_generated_reference_palette_safe_mood_reference | imagegen | received_unreviewed | `docs/art/reference/act_i/bone_chandler/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
 | bone_chandler_interactive_layer_prosper_s_watch | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/bone_chandler/prosperwatch.psd` | export separate PNG and verify hotspot alignment in Godot |
 | bone_chandler_navigation_silhouette_almshouse | paintover | held_pending_room_review | `art/src/backgrounds/act_i/navigation_silhouettes/bone_chandler/toalmshouse.psd` | preserve existing exit metadata and walk-band readability |
 | bone_chandler_navigation_silhouette_salt_market | paintover | held_pending_room_review | `art/src/backgrounds/act_i/navigation_silhouettes/bone_chandler/tosaltmarket.psd` | preserve existing exit metadata and walk-band readability |
@@ -167,14 +168,14 @@ Counts:
 ## R07 - The Almshouse
 
 - Total: 11
-- Ready to generate: 8
+- Ready to generate: 4
 - Held pending room review: 3
-- Received unreviewed: 0
+- Received unreviewed: 4
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 4 | ready_to_generate:4 |
-| B_reference_board | 4 | ready_to_generate:4 |
+| B_reference_board | 4 | received_unreviewed:4 |
 | C_interactive_runtime_layer | 1 | held_pending_room_review:1 |
 | D_navigation_readability_layer | 2 | held_pending_room_review:2 |
 
@@ -184,10 +185,10 @@ Counts:
 | almshouse_meshy_source_model_privacy_screens | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/almshouse/privacy_screens.glb` | import into the room Blender blockout as helper geometry only |
 | almshouse_meshy_source_model_prosper_sitting_silhouette_block | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/almshouse/prosper_sitting_silhouette_block.glb` | import into the room Blender blockout as helper geometry only |
 | almshouse_meshy_source_model_window_frame | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/almshouse/window_frame.glb` | import into the room Blender blockout as helper geometry only |
-| almshouse_generated_reference_grime_texture | imagegen | ready_to_generate | `docs/art/reference/act_i/almshouse/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
-| almshouse_generated_reference_ink_wash_edge_breakup | imagegen | ready_to_generate | `docs/art/reference/act_i/almshouse/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
-| almshouse_generated_reference_non_clickable_dressing_silhouettes | imagegen | ready_to_generate | `docs/art/reference/act_i/almshouse/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
-| almshouse_generated_reference_palette_safe_mood_reference | imagegen | ready_to_generate | `docs/art/reference/act_i/almshouse/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
+| almshouse_generated_reference_grime_texture | imagegen | received_unreviewed | `docs/art/reference/act_i/almshouse/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
+| almshouse_generated_reference_ink_wash_edge_breakup | imagegen | received_unreviewed | `docs/art/reference/act_i/almshouse/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
+| almshouse_generated_reference_non_clickable_dressing_silhouettes | imagegen | received_unreviewed | `docs/art/reference/act_i/almshouse/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
+| almshouse_generated_reference_palette_safe_mood_reference | imagegen | received_unreviewed | `docs/art/reference/act_i/almshouse/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
 | almshouse_interactive_layer_half_coin_prosper | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/almshouse/halfcoinprosper.psd` | export separate PNG and verify hotspot alignment in Godot |
 | almshouse_navigation_silhouette_bone_chandler | paintover | held_pending_room_review | `art/src/backgrounds/act_i/navigation_silhouettes/almshouse/tobonechandler.psd` | preserve existing exit metadata and walk-band readability |
 | almshouse_navigation_silhouette_salt_market | paintover | held_pending_room_review | `art/src/backgrounds/act_i/navigation_silhouettes/almshouse/tosaltmarket.psd` | preserve existing exit metadata and walk-band readability |
@@ -195,14 +196,14 @@ Counts:
 ## R08 - The Fish Hall
 
 - Total: 12
-- Ready to generate: 8
+- Ready to generate: 4
 - Held pending room review: 4
-- Received unreviewed: 0
+- Received unreviewed: 4
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 4 | ready_to_generate:4 |
-| B_reference_board | 4 | ready_to_generate:4 |
+| B_reference_board | 4 | received_unreviewed:4 |
 | C_interactive_runtime_layer | 3 | held_pending_room_review:3 |
 | D_navigation_readability_layer | 1 | held_pending_room_review:1 |
 
@@ -212,10 +213,10 @@ Counts:
 | fish_hall_meshy_source_model_ice_table | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/fish_hall/ice_table.glb` | import into the room Blender blockout as helper geometry only |
 | fish_hall_meshy_source_model_tagged_body_table_silhouette | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/fish_hall/tagged_body_table_silhouette.glb` | import into the room Blender blockout as helper geometry only |
 | fish_hall_meshy_source_model_visitor_book_stand | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/fish_hall/visitor_book_stand.glb` | import into the room Blender blockout as helper geometry only |
-| fish_hall_generated_reference_grime_texture | imagegen | ready_to_generate | `docs/art/reference/act_i/fish_hall/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
-| fish_hall_generated_reference_ink_wash_edge_breakup | imagegen | ready_to_generate | `docs/art/reference/act_i/fish_hall/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
-| fish_hall_generated_reference_non_clickable_dressing_silhouettes | imagegen | ready_to_generate | `docs/art/reference/act_i/fish_hall/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
-| fish_hall_generated_reference_palette_safe_mood_reference | imagegen | ready_to_generate | `docs/art/reference/act_i/fish_hall/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
+| fish_hall_generated_reference_grime_texture | imagegen | received_unreviewed | `docs/art/reference/act_i/fish_hall/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
+| fish_hall_generated_reference_ink_wash_edge_breakup | imagegen | received_unreviewed | `docs/art/reference/act_i/fish_hall/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
+| fish_hall_generated_reference_non_clickable_dressing_silhouettes | imagegen | received_unreviewed | `docs/art/reference/act_i/fish_hall/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
+| fish_hall_generated_reference_palette_safe_mood_reference | imagegen | received_unreviewed | `docs/art/reference/act_i/fish_hall/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
 | fish_hall_interactive_layer_coroner_tag | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/fish_hall/coronertag.psd` | export separate PNG and verify hotspot alignment in Godot |
 | fish_hall_interactive_layer_drain | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/fish_hall/drain.psd` | export separate PNG and verify hotspot alignment in Godot |
 | fish_hall_interactive_layer_visitor_book | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/fish_hall/visitorbook.psd` | export separate PNG and verify hotspot alignment in Godot |
@@ -224,14 +225,14 @@ Counts:
 ## R09 - Church of the Drowned
 
 - Total: 12
-- Ready to generate: 7
+- Ready to generate: 4
 - Held pending room review: 5
-- Received unreviewed: 0
+- Received unreviewed: 3
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 4 | ready_to_generate:4 |
-| B_reference_board | 3 | ready_to_generate:3 |
+| B_reference_board | 3 | received_unreviewed:3 |
 | C_interactive_runtime_layer | 3 | held_pending_room_review:3 |
 | D_navigation_readability_layer | 2 | held_pending_room_review:2 |
 
@@ -241,9 +242,9 @@ Counts:
 | church_of_the_drowned_meshy_source_model_confession_booth | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/church_of_the_drowned/confession_booth.glb` | import into the room Blender blockout as helper geometry only |
 | church_of_the_drowned_meshy_source_model_green_lamp_housings | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/church_of_the_drowned/green_lamp_housings.glb` | import into the room Blender blockout as helper geometry only |
 | church_of_the_drowned_meshy_source_model_receipt_window | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/church_of_the_drowned/receipt_window.glb` | import into the room Blender blockout as helper geometry only |
-| church_of_the_drowned_generated_reference_institutional_absinthe_green_light | imagegen | ready_to_generate | `docs/art/reference/act_i/church_of_the_drowned/institutional_absinthe_green_light.png` | review as mood or texture reference only, never as a final room plate |
-| church_of_the_drowned_generated_reference_paper_bureaucracy_texture | imagegen | ready_to_generate | `docs/art/reference/act_i/church_of_the_drowned/paper_bureaucracy_texture.png` | review as mood or texture reference only, never as a final room plate |
-| church_of_the_drowned_generated_reference_wet_stone_grime | imagegen | ready_to_generate | `docs/art/reference/act_i/church_of_the_drowned/wet_stone_grime.png` | review as mood or texture reference only, never as a final room plate |
+| church_of_the_drowned_generated_reference_institutional_absinthe_green_light | imagegen | received_unreviewed | `docs/art/reference/act_i/church_of_the_drowned/institutional_absinthe_green_light.png` | review as mood or texture reference only, never as a final room plate |
+| church_of_the_drowned_generated_reference_paper_bureaucracy_texture | imagegen | received_unreviewed | `docs/art/reference/act_i/church_of_the_drowned/paper_bureaucracy_texture.png` | review as mood or texture reference only, never as a final room plate |
+| church_of_the_drowned_generated_reference_wet_stone_grime | imagegen | received_unreviewed | `docs/art/reference/act_i/church_of_the_drowned/wet_stone_grime.png` | review as mood or texture reference only, never as a final room plate |
 | church_of_the_drowned_interactive_layer_confession_booth | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned/confessionbooth.psd` | export separate PNG and verify hotspot alignment in Godot |
 | church_of_the_drowned_interactive_layer_poor_box | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned/poorbox.psd` | export separate PNG and verify hotspot alignment in Godot |
 | church_of_the_drowned_interactive_layer_teodor_s_stall | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned/ratecard.psd` | export separate PNG and verify hotspot alignment in Godot |
@@ -253,14 +254,14 @@ Counts:
 ## R10 - The Grey Float
 
 - Total: 13
-- Ready to generate: 8
+- Ready to generate: 4
 - Held pending room review: 5
-- Received unreviewed: 0
+- Received unreviewed: 4
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 4 | ready_to_generate:4 |
-| B_reference_board | 4 | ready_to_generate:4 |
+| B_reference_board | 4 | received_unreviewed:4 |
 | C_interactive_runtime_layer | 3 | held_pending_room_review:3 |
 | D_navigation_readability_layer | 2 | held_pending_room_review:2 |
 
@@ -270,10 +271,10 @@ Counts:
 | grey_float_meshy_source_model_bathhouse_railings | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/grey_float/bathhouse_railings.glb` | import into the room Blender blockout as helper geometry only |
 | grey_float_meshy_source_model_lamp_clusters | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/grey_float/lamp_clusters.glb` | import into the room Blender blockout as helper geometry only |
 | grey_float_meshy_source_model_steam_screen_partitions | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/grey_float/steam_screen_partitions.glb` | import into the room Blender blockout as helper geometry only |
-| grey_float_generated_reference_amber_trap_mood | imagegen | ready_to_generate | `docs/art/reference/act_i/grey_float/amber_trap_mood.png` | review as mood or texture reference only, never as a final room plate |
-| grey_float_generated_reference_non_explicit_labor_staging | imagegen | ready_to_generate | `docs/art/reference/act_i/grey_float/non_explicit_labor_staging.png` | review as mood or texture reference only, never as a final room plate |
-| grey_float_generated_reference_steam_density | imagegen | ready_to_generate | `docs/art/reference/act_i/grey_float/steam_density.png` | review as mood or texture reference only, never as a final room plate |
-| grey_float_generated_reference_warm_silhouette_privacy_shapes | imagegen | ready_to_generate | `docs/art/reference/act_i/grey_float/warm_silhouette_privacy_shapes.png` | review as mood or texture reference only, never as a final room plate |
+| grey_float_generated_reference_amber_trap_mood | imagegen | received_unreviewed | `docs/art/reference/act_i/grey_float/amber_trap_mood.png` | review as mood or texture reference only, never as a final room plate |
+| grey_float_generated_reference_non_explicit_labor_staging | imagegen | received_unreviewed | `docs/art/reference/act_i/grey_float/non_explicit_labor_staging.png` | review as mood or texture reference only, never as a final room plate |
+| grey_float_generated_reference_steam_density | imagegen | received_unreviewed | `docs/art/reference/act_i/grey_float/steam_density.png` | review as mood or texture reference only, never as a final room plate |
+| grey_float_generated_reference_warm_silhouette_privacy_shapes | imagegen | received_unreviewed | `docs/art/reference/act_i/grey_float/warm_silhouette_privacy_shapes.png` | review as mood or texture reference only, never as a final room plate |
 | grey_float_interactive_layer_bilge_regulator | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/grey_float/bilgeregulator.psd` | export separate PNG and verify hotspot alignment in Godot |
 | grey_float_interactive_layer_hot_pool | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/grey_float/hotpool.psd` | export separate PNG and verify hotspot alignment in Godot |
 | grey_float_interactive_layer_staff_corner | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/grey_float/staffcorner.psd` | export separate PNG and verify hotspot alignment in Godot |
@@ -283,14 +284,14 @@ Counts:
 ## R11 - Harbormaster's Office
 
 - Total: 11
-- Ready to generate: 8
+- Ready to generate: 4
 - Held pending room review: 3
-- Received unreviewed: 0
+- Received unreviewed: 4
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 4 | ready_to_generate:4 |
-| B_reference_board | 4 | ready_to_generate:4 |
+| B_reference_board | 4 | received_unreviewed:4 |
 | C_interactive_runtime_layer | 1 | held_pending_room_review:1 |
 | D_navigation_readability_layer | 2 | held_pending_room_review:2 |
 
@@ -300,10 +301,10 @@ Counts:
 | harbormaster_office_meshy_source_model_filing_wall | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/harbormaster_office/filing_wall.glb` | import into the room Blender blockout as helper geometry only |
 | harbormaster_office_meshy_source_model_frosted_glass_door | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/harbormaster_office/frosted_glass_door.glb` | import into the room Blender blockout as helper geometry only |
 | harbormaster_office_meshy_source_model_office_desk | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/harbormaster_office/office_desk.glb` | import into the room Blender blockout as helper geometry only |
-| harbormaster_office_generated_reference_grime_texture | imagegen | ready_to_generate | `docs/art/reference/act_i/harbormaster_office/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
-| harbormaster_office_generated_reference_ink_wash_edge_breakup | imagegen | ready_to_generate | `docs/art/reference/act_i/harbormaster_office/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
-| harbormaster_office_generated_reference_non_clickable_dressing_silhouettes | imagegen | ready_to_generate | `docs/art/reference/act_i/harbormaster_office/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
-| harbormaster_office_generated_reference_palette_safe_mood_reference | imagegen | ready_to_generate | `docs/art/reference/act_i/harbormaster_office/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
+| harbormaster_office_generated_reference_grime_texture | imagegen | received_unreviewed | `docs/art/reference/act_i/harbormaster_office/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
+| harbormaster_office_generated_reference_ink_wash_edge_breakup | imagegen | received_unreviewed | `docs/art/reference/act_i/harbormaster_office/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
+| harbormaster_office_generated_reference_non_clickable_dressing_silhouettes | imagegen | received_unreviewed | `docs/art/reference/act_i/harbormaster_office/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
+| harbormaster_office_generated_reference_palette_safe_mood_reference | imagegen | received_unreviewed | `docs/art/reference/act_i/harbormaster_office/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
 | harbormaster_office_interactive_layer_checklist_clerk | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/harbormaster_office/checklistclerk.psd` | export separate PNG and verify hotspot alignment in Godot |
 | harbormaster_office_navigation_silhouette_grey_float | paintover | held_pending_room_review | `art/src/backgrounds/act_i/navigation_silhouettes/harbormaster_office/togreyfloat.psd` | preserve existing exit metadata and walk-band readability |
 | harbormaster_office_navigation_silhouette_sabine | paintover | held_pending_room_review | `art/src/backgrounds/act_i/navigation_silhouettes/harbormaster_office/tosabine.psd` | preserve existing exit metadata and walk-band readability |
@@ -311,14 +312,14 @@ Counts:
 ## R12 - Sabine's Office
 
 - Total: 10
-- Ready to generate: 8
+- Ready to generate: 4
 - Held pending room review: 2
-- Received unreviewed: 0
+- Received unreviewed: 4
 
 | Lane | Count | Statuses |
 |---|---:|---|
 | A_meshy_helper_geometry | 4 | ready_to_generate:4 |
-| B_reference_board | 4 | ready_to_generate:4 |
+| B_reference_board | 4 | received_unreviewed:4 |
 | C_interactive_runtime_layer | 1 | held_pending_room_review:1 |
 | D_navigation_readability_layer | 1 | held_pending_room_review:1 |
 
@@ -328,10 +329,10 @@ Counts:
 | sabine_office_meshy_source_model_sabine_desk | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/sabine_office/sabine_desk.glb` | import into the room Blender blockout as helper geometry only |
 | sabine_office_meshy_source_model_window_frame | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/sabine_office/window_frame.glb` | import into the room Blender blockout as helper geometry only |
 | sabine_office_meshy_source_model_wrist_check_staging_chair | Meshy | ready_to_generate | `art/src/backgrounds/act_i/source_models/sabine_office/wrist_check_staging_chair.glb` | import into the room Blender blockout as helper geometry only |
-| sabine_office_generated_reference_grime_texture | imagegen | ready_to_generate | `docs/art/reference/act_i/sabine_office/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
-| sabine_office_generated_reference_ink_wash_edge_breakup | imagegen | ready_to_generate | `docs/art/reference/act_i/sabine_office/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
-| sabine_office_generated_reference_non_clickable_dressing_silhouettes | imagegen | ready_to_generate | `docs/art/reference/act_i/sabine_office/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
-| sabine_office_generated_reference_palette_safe_mood_reference | imagegen | ready_to_generate | `docs/art/reference/act_i/sabine_office/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
+| sabine_office_generated_reference_grime_texture | imagegen | received_unreviewed | `docs/art/reference/act_i/sabine_office/grime_texture.png` | review as mood or texture reference only, never as a final room plate |
+| sabine_office_generated_reference_ink_wash_edge_breakup | imagegen | received_unreviewed | `docs/art/reference/act_i/sabine_office/ink_wash_edge_breakup.png` | review as mood or texture reference only, never as a final room plate |
+| sabine_office_generated_reference_non_clickable_dressing_silhouettes | imagegen | received_unreviewed | `docs/art/reference/act_i/sabine_office/non_clickable_dressing_silhouettes.png` | review as mood or texture reference only, never as a final room plate |
+| sabine_office_generated_reference_palette_safe_mood_reference | imagegen | received_unreviewed | `docs/art/reference/act_i/sabine_office/palette_safe_mood_reference.png` | review as mood or texture reference only, never as a final room plate |
 | sabine_office_interactive_layer_sabine_s_desk | paintover | held_pending_room_review | `art/src/backgrounds/act_i/interactive_layers/sabine_office/sabinedesk.psd` | export separate PNG and verify hotspot alignment in Godot |
 | sabine_office_navigation_silhouette_harbormaster | paintover | held_pending_room_review | `art/src/backgrounds/act_i/navigation_silhouettes/sabine_office/toharbormaster.psd` | preserve existing exit metadata and walk-band readability |
 

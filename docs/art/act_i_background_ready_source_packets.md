@@ -12,33 +12,21 @@ Guardrails:
 - Run source intake again after files are saved.
 
 Counts:
-- Ready items: 84
-- Held items excluded: 46
-- Packets: 22
-- imagegen: 41
+- Ready items: 43
+- Held items excluded: 87
+- Packets: 11
 - Meshy: 43
 
 | Packet | Tool | Items | Path |
 |---|---|---:|---|
 | R01_A_meshy_helper_geometry | Meshy | 3 | `docs/art/generation_packets/act_i_background_ready_sources/r01_a_meshy_helper_geometry.md` |
-| R01_B_reference_board | imagegen | 3 | `docs/art/generation_packets/act_i_background_ready_sources/r01_b_reference_board.md` |
 | R02_A_meshy_helper_geometry | Meshy | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r02_a_meshy_helper_geometry.md` |
-| R02_B_reference_board | imagegen | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r02_b_reference_board.md` |
 | R03_A_meshy_helper_geometry | Meshy | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r03_a_meshy_helper_geometry.md` |
-| R03_B_reference_board | imagegen | 3 | `docs/art/generation_packets/act_i_background_ready_sources/r03_b_reference_board.md` |
 | R05_A_meshy_helper_geometry | Meshy | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r05_a_meshy_helper_geometry.md` |
-| R05_B_reference_board | imagegen | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r05_b_reference_board.md` |
 | R06_A_meshy_helper_geometry | Meshy | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r06_a_meshy_helper_geometry.md` |
-| R06_B_reference_board | imagegen | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r06_b_reference_board.md` |
 | R07_A_meshy_helper_geometry | Meshy | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r07_a_meshy_helper_geometry.md` |
-| R07_B_reference_board | imagegen | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r07_b_reference_board.md` |
 | R08_A_meshy_helper_geometry | Meshy | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r08_a_meshy_helper_geometry.md` |
-| R08_B_reference_board | imagegen | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r08_b_reference_board.md` |
 | R09_A_meshy_helper_geometry | Meshy | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r09_a_meshy_helper_geometry.md` |
-| R09_B_reference_board | imagegen | 3 | `docs/art/generation_packets/act_i_background_ready_sources/r09_b_reference_board.md` |
 | R10_A_meshy_helper_geometry | Meshy | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r10_a_meshy_helper_geometry.md` |
-| R10_B_reference_board | imagegen | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r10_b_reference_board.md` |
 | R11_A_meshy_helper_geometry | Meshy | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r11_a_meshy_helper_geometry.md` |
-| R11_B_reference_board | imagegen | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r11_b_reference_board.md` |
 | R12_A_meshy_helper_geometry | Meshy | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r12_a_meshy_helper_geometry.md` |
-| R12_B_reference_board | imagegen | 4 | `docs/art/generation_packets/act_i_background_ready_sources/r12_b_reference_board.md` |

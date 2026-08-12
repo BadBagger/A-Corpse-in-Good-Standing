@@ -12,11 +12,10 @@
                        "Outputs must be saved exactly to the listed source paths.",
                        "Run source intake again after files are saved."
                    ],
-    "ready_item_count":  84,
-    "held_item_count":  46,
-    "packet_count":  22,
+    "ready_item_count":  43,
+    "held_item_count":  87,
+    "packet_count":  11,
     "tool_counts":  {
-                        "imagegen":  41,
                         "Meshy":  43
                     },
     "packet_directory":  "docs/art/generation_packets/act_i_background_ready_sources",
@@ -42,26 +41,6 @@
                                      ]
                     },
                     {
-                        "packet_id":  "R01_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r01_b_reference_board.md",
-                        "room_code":  "R01",
-                        "room_id":  "mudflats",
-                        "room_title":  "Mudflats",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  3,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/mudflats/cold_horizon_wash.png",
-                                             "docs/art/reference/act_i/mudflats/dawn_haze.png",
-                                             "docs/art/reference/act_i/mudflats/wet_silt_texture.png"
-                                         ],
-                        "item_ids":  [
-                                         "mudflats_generated_reference_cold_horizon_wash",
-                                         "mudflats_generated_reference_dawn_haze",
-                                         "mudflats_generated_reference_wet_silt_texture"
-                                     ]
-                    },
-                    {
                         "packet_id":  "R02_A_meshy_helper_geometry",
                         "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r02_a_meshy_helper_geometry.md",
                         "room_code":  "R02",
@@ -81,28 +60,6 @@
                                          "old_quay_meshy_source_model_dock_pilings",
                                          "old_quay_meshy_source_model_harbor_rail_fragments",
                                          "old_quay_meshy_source_model_rope_cleat"
-                                     ]
-                    },
-                    {
-                        "packet_id":  "R02_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r02_b_reference_board.md",
-                        "room_code":  "R02",
-                        "room_id":  "old_quay",
-                        "room_title":  "The Old Quay",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  4,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/old_quay/grime_texture.png",
-                                             "docs/art/reference/act_i/old_quay/ink_wash_edge_breakup.png",
-                                             "docs/art/reference/act_i/old_quay/non_clickable_dressing_silhouettes.png",
-                                             "docs/art/reference/act_i/old_quay/palette_safe_mood_reference.png"
-                                         ],
-                        "item_ids":  [
-                                         "old_quay_generated_reference_grime_texture",
-                                         "old_quay_generated_reference_ink_wash_edge_breakup",
-                                         "old_quay_generated_reference_non_clickable_dressing_silhouettes",
-                                         "old_quay_generated_reference_palette_safe_mood_reference"
                                      ]
                     },
                     {
@@ -128,26 +85,6 @@
                                      ]
                     },
                     {
-                        "packet_id":  "R03_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r03_b_reference_board.md",
-                        "room_code":  "R03",
-                        "room_id":  "salt_market",
-                        "room_title":  "Salt Market",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  3,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/salt_market/market_awning_texture.png",
-                                             "docs/art/reference/act_i/salt_market/public_crowd_mood.png",
-                                             "docs/art/reference/act_i/salt_market/salt_signage_grime.png"
-                                         ],
-                        "item_ids":  [
-                                         "salt_market_generated_reference_market_awning_texture",
-                                         "salt_market_generated_reference_public_crowd_mood",
-                                         "salt_market_generated_reference_salt_signage_grime"
-                                     ]
-                    },
-                    {
                         "packet_id":  "R05_A_meshy_helper_geometry",
                         "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r05_a_meshy_helper_geometry.md",
                         "room_code":  "R05",
@@ -167,28 +104,6 @@
                                          "harbor_registry_meshy_source_model_registrar_desk",
                                          "harbor_registry_meshy_source_model_roll_book_lectern",
                                          "harbor_registry_meshy_source_model_window_frame"
-                                     ]
-                    },
-                    {
-                        "packet_id":  "R05_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r05_b_reference_board.md",
-                        "room_code":  "R05",
-                        "room_id":  "harbor_registry",
-                        "room_title":  "Harbor Registry",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  4,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/harbor_registry/grime_texture.png",
-                                             "docs/art/reference/act_i/harbor_registry/ink_wash_edge_breakup.png",
-                                             "docs/art/reference/act_i/harbor_registry/non_clickable_dressing_silhouettes.png",
-                                             "docs/art/reference/act_i/harbor_registry/palette_safe_mood_reference.png"
-                                         ],
-                        "item_ids":  [
-                                         "harbor_registry_generated_reference_grime_texture",
-                                         "harbor_registry_generated_reference_ink_wash_edge_breakup",
-                                         "harbor_registry_generated_reference_non_clickable_dressing_silhouettes",
-                                         "harbor_registry_generated_reference_palette_safe_mood_reference"
                                      ]
                     },
                     {
@@ -214,28 +129,6 @@
                                      ]
                     },
                     {
-                        "packet_id":  "R06_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r06_b_reference_board.md",
-                        "room_code":  "R06",
-                        "room_id":  "bone_chandler",
-                        "room_title":  "The Bone Chandler",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  4,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/bone_chandler/grime_texture.png",
-                                             "docs/art/reference/act_i/bone_chandler/ink_wash_edge_breakup.png",
-                                             "docs/art/reference/act_i/bone_chandler/non_clickable_dressing_silhouettes.png",
-                                             "docs/art/reference/act_i/bone_chandler/palette_safe_mood_reference.png"
-                                         ],
-                        "item_ids":  [
-                                         "bone_chandler_generated_reference_grime_texture",
-                                         "bone_chandler_generated_reference_ink_wash_edge_breakup",
-                                         "bone_chandler_generated_reference_non_clickable_dressing_silhouettes",
-                                         "bone_chandler_generated_reference_palette_safe_mood_reference"
-                                     ]
-                    },
-                    {
                         "packet_id":  "R07_A_meshy_helper_geometry",
                         "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r07_a_meshy_helper_geometry.md",
                         "room_code":  "R07",
@@ -255,28 +148,6 @@
                                          "almshouse_meshy_source_model_privacy_screens",
                                          "almshouse_meshy_source_model_prosper_sitting_silhouette_block",
                                          "almshouse_meshy_source_model_window_frame"
-                                     ]
-                    },
-                    {
-                        "packet_id":  "R07_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r07_b_reference_board.md",
-                        "room_code":  "R07",
-                        "room_id":  "almshouse",
-                        "room_title":  "The Almshouse",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  4,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/almshouse/grime_texture.png",
-                                             "docs/art/reference/act_i/almshouse/ink_wash_edge_breakup.png",
-                                             "docs/art/reference/act_i/almshouse/non_clickable_dressing_silhouettes.png",
-                                             "docs/art/reference/act_i/almshouse/palette_safe_mood_reference.png"
-                                         ],
-                        "item_ids":  [
-                                         "almshouse_generated_reference_grime_texture",
-                                         "almshouse_generated_reference_ink_wash_edge_breakup",
-                                         "almshouse_generated_reference_non_clickable_dressing_silhouettes",
-                                         "almshouse_generated_reference_palette_safe_mood_reference"
                                      ]
                     },
                     {
@@ -302,28 +173,6 @@
                                      ]
                     },
                     {
-                        "packet_id":  "R08_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r08_b_reference_board.md",
-                        "room_code":  "R08",
-                        "room_id":  "fish_hall",
-                        "room_title":  "The Fish Hall",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  4,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/fish_hall/grime_texture.png",
-                                             "docs/art/reference/act_i/fish_hall/ink_wash_edge_breakup.png",
-                                             "docs/art/reference/act_i/fish_hall/non_clickable_dressing_silhouettes.png",
-                                             "docs/art/reference/act_i/fish_hall/palette_safe_mood_reference.png"
-                                         ],
-                        "item_ids":  [
-                                         "fish_hall_generated_reference_grime_texture",
-                                         "fish_hall_generated_reference_ink_wash_edge_breakup",
-                                         "fish_hall_generated_reference_non_clickable_dressing_silhouettes",
-                                         "fish_hall_generated_reference_palette_safe_mood_reference"
-                                     ]
-                    },
-                    {
                         "packet_id":  "R09_A_meshy_helper_geometry",
                         "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r09_a_meshy_helper_geometry.md",
                         "room_code":  "R09",
@@ -343,26 +192,6 @@
                                          "church_of_the_drowned_meshy_source_model_confession_booth",
                                          "church_of_the_drowned_meshy_source_model_green_lamp_housings",
                                          "church_of_the_drowned_meshy_source_model_receipt_window"
-                                     ]
-                    },
-                    {
-                        "packet_id":  "R09_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r09_b_reference_board.md",
-                        "room_code":  "R09",
-                        "room_id":  "church_of_the_drowned",
-                        "room_title":  "Church of the Drowned",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  3,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/church_of_the_drowned/institutional_absinthe_green_light.png",
-                                             "docs/art/reference/act_i/church_of_the_drowned/paper_bureaucracy_texture.png",
-                                             "docs/art/reference/act_i/church_of_the_drowned/wet_stone_grime.png"
-                                         ],
-                        "item_ids":  [
-                                         "church_of_the_drowned_generated_reference_institutional_absinthe_green_light",
-                                         "church_of_the_drowned_generated_reference_paper_bureaucracy_texture",
-                                         "church_of_the_drowned_generated_reference_wet_stone_grime"
                                      ]
                     },
                     {
@@ -388,28 +217,6 @@
                                      ]
                     },
                     {
-                        "packet_id":  "R10_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r10_b_reference_board.md",
-                        "room_code":  "R10",
-                        "room_id":  "grey_float",
-                        "room_title":  "The Grey Float",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  4,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/grey_float/amber_trap_mood.png",
-                                             "docs/art/reference/act_i/grey_float/non_explicit_labor_staging.png",
-                                             "docs/art/reference/act_i/grey_float/steam_density.png",
-                                             "docs/art/reference/act_i/grey_float/warm_silhouette_privacy_shapes.png"
-                                         ],
-                        "item_ids":  [
-                                         "grey_float_generated_reference_amber_trap_mood",
-                                         "grey_float_generated_reference_non_explicit_labor_staging",
-                                         "grey_float_generated_reference_steam_density",
-                                         "grey_float_generated_reference_warm_silhouette_privacy_shapes"
-                                     ]
-                    },
-                    {
                         "packet_id":  "R11_A_meshy_helper_geometry",
                         "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r11_a_meshy_helper_geometry.md",
                         "room_code":  "R11",
@@ -432,28 +239,6 @@
                                      ]
                     },
                     {
-                        "packet_id":  "R11_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r11_b_reference_board.md",
-                        "room_code":  "R11",
-                        "room_id":  "harbormaster_office",
-                        "room_title":  "Harbormaster\u0027s Office",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  4,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/harbormaster_office/grime_texture.png",
-                                             "docs/art/reference/act_i/harbormaster_office/ink_wash_edge_breakup.png",
-                                             "docs/art/reference/act_i/harbormaster_office/non_clickable_dressing_silhouettes.png",
-                                             "docs/art/reference/act_i/harbormaster_office/palette_safe_mood_reference.png"
-                                         ],
-                        "item_ids":  [
-                                         "harbormaster_office_generated_reference_grime_texture",
-                                         "harbormaster_office_generated_reference_ink_wash_edge_breakup",
-                                         "harbormaster_office_generated_reference_non_clickable_dressing_silhouettes",
-                                         "harbormaster_office_generated_reference_palette_safe_mood_reference"
-                                     ]
-                    },
-                    {
                         "packet_id":  "R12_A_meshy_helper_geometry",
                         "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r12_a_meshy_helper_geometry.md",
                         "room_code":  "R12",
@@ -473,28 +258,6 @@
                                          "sabine_office_meshy_source_model_sabine_desk",
                                          "sabine_office_meshy_source_model_window_frame",
                                          "sabine_office_meshy_source_model_wrist_check_staging_chair"
-                                     ]
-                    },
-                    {
-                        "packet_id":  "R12_B_reference_board",
-                        "packet_path":  "docs/art/generation_packets/act_i_background_ready_sources/r12_b_reference_board.md",
-                        "room_code":  "R12",
-                        "room_id":  "sabine_office",
-                        "room_title":  "Sabine\u0027s Office",
-                        "tool":  "imagegen",
-                        "acquisition_lane":  "B_reference_board",
-                        "item_count":  4,
-                        "source_paths":  [
-                                             "docs/art/reference/act_i/sabine_office/grime_texture.png",
-                                             "docs/art/reference/act_i/sabine_office/ink_wash_edge_breakup.png",
-                                             "docs/art/reference/act_i/sabine_office/non_clickable_dressing_silhouettes.png",
-                                             "docs/art/reference/act_i/sabine_office/palette_safe_mood_reference.png"
-                                         ],
-                        "item_ids":  [
-                                         "sabine_office_generated_reference_grime_texture",
-                                         "sabine_office_generated_reference_ink_wash_edge_breakup",
-                                         "sabine_office_generated_reference_non_clickable_dressing_silhouettes",
-                                         "sabine_office_generated_reference_palette_safe_mood_reference"
                                      ]
                     }
                 ]
