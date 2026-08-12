@@ -88,7 +88,8 @@ $reviewArtifacts = @(
     "docs/playtest/act_i_review_decisions_template.csv",
     "docs/art/act_i_review_contact_sheet.html",
     "docs/art/act_i_hotspot_overlay.svg",
-    "docs/art/act_i_background_ready_source_packets.md"
+    "docs/art/act_i_background_ready_source_packets.md",
+    "docs/art/act_i_look_target_reference.md"
 )
 
 if ($NoLaunch) {

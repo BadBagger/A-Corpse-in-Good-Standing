@@ -3,10 +3,10 @@
                            "docs/vo/vo_cast_plan.json",
                            "docs/vo/vo_audio_asset_status.json"
                        ],
-    "generated_at_utc":  "2026-08-12T06:09:23.9040425Z",
+    "generated_at_utc":  "2026-08-12T06:16:44.5341039Z",
     "source_modified_utc":  {
-                                "docs/vo/vo_cast_plan.json":  "2026-08-12T06:09:22.5237059Z",
-                                "docs/vo/vo_audio_asset_status.json":  "2026-08-12T06:09:23.4382790Z"
+                                "docs/vo/vo_cast_plan.json":  "2026-08-12T06:16:43.2473984Z",
+                                "docs/vo/vo_audio_asset_status.json":  "2026-08-12T06:16:44.0962290Z"
                             },
     "purpose":  "Commercial-readiness gate for full VO. This report keeps scratch VO useful for timing while preventing accidental shipping approval.",
     "status":  "blocked_pending_licensing_review",

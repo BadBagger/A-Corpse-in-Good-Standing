@@ -90,6 +90,8 @@ foreach ($requiredText in @(
     "Grey Float hard-R",
     "steam, silhouette, privacy, and agency only",
     "Treat ready-source packets as Meshy/imagegen source acquisition only; they do not approve final background plates.",
+    "Treat the generated look target as mood/readability reference only",
+    "it is not final room art, hotspot authority, or character sprite source",
     "Do not start final paintovers while paintover_gate_status is blocked_pending_human_review.",
     "docs/playtest/results/act_i_human_playtest_latest.md",
     "docs/playtest/act_i_player_review_card.md",
@@ -98,6 +100,7 @@ foreach ($requiredText in @(
     "docs/art/act_i_review_contact_sheet.html",
     "docs/art/act_i_hotspot_overlay.svg",
     "docs/art/act_i_background_ready_source_packets.md",
+    "docs/art/act_i_look_target_reference.md",
     "docs/art/act_i_paintover_packet.md",
     "docs/art/act_i_paintover_start_gate.md",
     "Room Status"
