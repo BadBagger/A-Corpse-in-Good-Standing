@@ -3,12 +3,13 @@ $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $trackerPath = Join-Path $root "docs\playtest\act_i_review_fix_tracker.json"
 $mdPath = Join-Path $root "docs\playtest\act_i_review_fix_tracker.md"
+$latestNotesPath = Join-Path $root "docs\playtest\results\act_i_human_playtest_latest.md"
 $templateScript = Join-Path $PSScriptRoot "Export-ActIReviewDecisionTemplate.ps1"
 $importScript = Join-Path $PSScriptRoot "Import-ActIReviewDecisions.ps1"
 $validateStartGateScript = Join-Path $PSScriptRoot "Validate-ActIPaintoverStartGate.ps1"
 $fixturePath = Join-Path $root "docs\playtest\results\act_i_review_decision_import_test.csv"
 
-foreach ($path in @($trackerPath, $mdPath, $templateScript, $importScript, $validateStartGateScript)) {
+foreach ($path in @($trackerPath, $mdPath, $latestNotesPath, $templateScript, $importScript, $validateStartGateScript)) {
     if (-not (Test-Path -LiteralPath $path)) {
         throw "Missing Act I batch import test input: $path"
     }
@@ -16,6 +17,21 @@ foreach ($path in @($trackerPath, $mdPath, $templateScript, $importScript, $vali
 
 $originalJson = Get-Content -LiteralPath $trackerPath -Raw
 $originalMd = Get-Content -LiteralPath $mdPath -Raw
+$originalLatestNotes = Get-Content -LiteralPath $latestNotesPath -Raw
+
+function Normalize-TestRestoreText {
+    param([string]$Text)
+    return $Text.TrimEnd("`r", "`n") + "`r`n"
+}
+
+function Restore-TestText {
+    param(
+        [Parameter(Mandatory=$true)][string]$Path,
+        [Parameter(Mandatory=$true)][string]$Text
+    )
+
+    [System.IO.File]::WriteAllText($Path, (Normalize-TestRestoreText $Text), [System.Text.UTF8Encoding]::new($false))
+}
 
 try {
     & powershell -NoProfile -ExecutionPolicy Bypass -File $templateScript
@@ -30,6 +46,12 @@ try {
     } else {
         $buildCommit = [string]$buildCommit
     }
+    if ($originalLatestNotes -match '(?m)^Build commit:\s*(unknown|[0-9a-f]{7,40})\s*$') {
+        $notesForImport = [regex]::Replace($originalLatestNotes, '(?m)^Build commit:\s*(unknown|[0-9a-f]{7,40})\s*$', "Build commit: $buildCommit")
+    } else {
+        $notesForImport = $originalLatestNotes -replace "(?m)^(Created: .*)$", "`$1`r`nBuild commit: $buildCommit"
+    }
+    Restore-TestText -Path $latestNotesPath -Text $notesForImport
     $rows = @()
     foreach ($room in @($tracker.rooms)) {
         $decision = "pending_review"
@@ -84,6 +106,22 @@ try {
     }
     if (($badOutput -join "`n") -notmatch "must include build_commit") {
         throw "Review decision batch import build_commit negative control failed for the wrong reason: $($badOutput -join ' ')"
+    }
+
+    $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
+    $badRegistry = @($badRows | Where-Object { $_.room_id -eq "harbor_registry" })[0]
+    $badRegistry.build_commit = if ($buildCommit -eq "abcdef1") { "abcdef2" } else { "abcdef1" }
+    $badRows | Export-Csv -LiteralPath $fixturePath -NoTypeInformation -Encoding UTF8
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $importScript -InputCsv "docs\playtest\results\act_i_review_decision_import_test.csv" -DryRun 2>&1
+    $badExit = $LASTEXITCODE
+    $ErrorActionPreference = $previousErrorActionPreference
+    if ($badExit -eq 0) {
+        throw "Review decision batch import should reject build_commit values that do not match latest human-review notes."
+    }
+    if (($badOutput -join "`n") -notmatch "must match latest human-review notes build commit") {
+        throw "Review decision batch import build_commit mismatch negative control failed for the wrong reason: $($badOutput -join ' ')"
     }
 
     $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
@@ -205,8 +243,9 @@ try {
     }
 }
 finally {
-    Set-Content -LiteralPath $trackerPath -Value $originalJson -Encoding UTF8
-    Set-Content -LiteralPath $mdPath -Value $originalMd -Encoding UTF8
+    Restore-TestText -Path $trackerPath -Text $originalJson
+    Restore-TestText -Path $mdPath -Text $originalMd
+    Restore-TestText -Path $latestNotesPath -Text $originalLatestNotes
     & powershell -NoProfile -ExecutionPolicy Bypass -File $validateStartGateScript
     if ($LASTEXITCODE -ne 0) {
         throw "Start gate validation failed while restoring after batch import test."

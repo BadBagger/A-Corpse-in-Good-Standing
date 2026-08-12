@@ -15,19 +15,26 @@ if ($DryRun -and $Apply) {
 
 $root = Split-Path -Parent $PSScriptRoot
 $trackerPath = Join-Path $root "docs\playtest\act_i_review_fix_tracker.json"
+$latestNotesPath = Join-Path $root "docs\playtest\results\act_i_human_playtest_latest.md"
 $exportTrackerScript = Join-Path $PSScriptRoot "Export-ActIReviewFixTracker.ps1"
 $startGateScript = Join-Path $PSScriptRoot "Validate-ActIPaintoverStartGate.ps1"
 $reportPath = Join-Path $root "docs\playtest\act_i_review_decision_import_report.md"
 
 $resolvedInput = if ([System.IO.Path]::IsPathRooted($InputCsv)) { $InputCsv } else { Join-Path $root $InputCsv }
 
-foreach ($path in @($trackerPath, $exportTrackerScript, $startGateScript, $resolvedInput)) {
+foreach ($path in @($trackerPath, $latestNotesPath, $exportTrackerScript, $startGateScript, $resolvedInput)) {
     if (-not (Test-Path -LiteralPath $path)) {
         throw "Missing Act I review decision import input: $path"
     }
 }
 
 $tracker = Get-Content -LiteralPath $trackerPath -Raw | ConvertFrom-Json
+$latestNotes = Get-Content -LiteralPath $latestNotesPath -Raw
+$buildMatch = [regex]::Match($latestNotes, '(?m)^Build commit:\s*(?<commit>unknown|[0-9a-f]{7,40})\s*$')
+if (-not $buildMatch.Success) {
+    throw "Latest Act I human review notes must include a valid 'Build commit:' stamp before importing decisions."
+}
+$expectedBuildCommit = [string]$buildMatch.Groups["commit"].Value
 $rooms = @($tracker.rooms)
 $rows = @(Import-Csv -LiteralPath $resolvedInput)
 $allowed = @($tracker.allowed_room_statuses)
@@ -114,6 +121,9 @@ foreach ($row in $rows) {
         }
         if ($buildCommit -notmatch '^(unknown|[0-9a-f]{7,40})$') {
             throw "Room $roomId has invalid build_commit '$buildCommit'. Expected a git hash or unknown."
+        }
+        if ($buildCommit -ne $expectedBuildCommit) {
+            throw "Room $roomId build_commit '$buildCommit' must match latest human-review notes build commit '$expectedBuildCommit'."
         }
         if ([string]::IsNullOrWhiteSpace($reviewer) -or [string]::IsNullOrWhiteSpace($reviewedAt) -or [string]::IsNullOrWhiteSpace($decisionNote)) {
             throw "Room $roomId has non-pending decision '$decision' and must include reviewer, reviewed_at, and decision_note."
