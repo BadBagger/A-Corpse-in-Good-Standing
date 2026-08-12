@@ -1,0 +1,80 @@
+﻿{
+    "generated_from":  "docs/art/corvin_side_action_render_commands.json",
+    "purpose":  "Static and Blender audit-contract validation for Corvin side-action render scripts.",
+    "status":  "blocked_pending_keyed_blender_actions",
+    "timeout_seconds":  120,
+    "renderer":  "art/src/characters/corvin/render_scripts/corvin_side_action_renderer.py",
+    "script_count":  6,
+    "missing_keyed_action_count":  6,
+    "passed_audit_count":  0,
+    "blender_path":  "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+    "rule_locks":  [
+                       "Audit mode must not create PNG sheet outputs.",
+                       "Render scripts must refuse to overwrite existing output without review.",
+                       "Render scripts must fail if the named Blender action is absent.",
+                       "Sheet assembly remains manual/audited until registration checks exist.",
+                       "No placeholder PNGs are permitted."
+                   ],
+    "scripts":  [
+                    {
+                        "animation":  "talk",
+                        "direction":  "side_right",
+                        "render_script":  "art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_talk_side_right.py",
+                        "blender_action":  "Corvin_act_i_clean_talk_side",
+                        "frames":  6,
+                        "fps":  12,
+                        "audit_status":  "blocked_missing_keyed_action",
+                        "audit_note":  "Blender executed the entrypoint and refused output because the keyed action is not present yet."
+                    },
+                    {
+                        "animation":  "talk",
+                        "direction":  "side_left",
+                        "render_script":  "art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_talk_side_left.py",
+                        "blender_action":  "Corvin_act_i_clean_talk_side",
+                        "frames":  6,
+                        "fps":  12,
+                        "audit_status":  "blocked_missing_keyed_action",
+                        "audit_note":  "Blender executed the entrypoint and refused output because the keyed action is not present yet."
+                    },
+                    {
+                        "animation":  "use",
+                        "direction":  "side_right",
+                        "render_script":  "art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_use_side_right.py",
+                        "blender_action":  "Corvin_act_i_clean_use_side",
+                        "frames":  8,
+                        "fps":  12,
+                        "audit_status":  "blocked_missing_keyed_action",
+                        "audit_note":  "Blender executed the entrypoint and refused output because the keyed action is not present yet."
+                    },
+                    {
+                        "animation":  "use",
+                        "direction":  "side_left",
+                        "render_script":  "art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_use_side_left.py",
+                        "blender_action":  "Corvin_act_i_clean_use_side",
+                        "frames":  8,
+                        "fps":  12,
+                        "audit_status":  "blocked_missing_keyed_action",
+                        "audit_note":  "Blender executed the entrypoint and refused output because the keyed action is not present yet."
+                    },
+                    {
+                        "animation":  "wet",
+                        "direction":  "side_right",
+                        "render_script":  "art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_wet_side_right.py",
+                        "blender_action":  "Corvin_act_i_clean_wet_side",
+                        "frames":  8,
+                        "fps":  12,
+                        "audit_status":  "blocked_missing_keyed_action",
+                        "audit_note":  "Blender executed the entrypoint and refused output because the keyed action is not present yet."
+                    },
+                    {
+                        "animation":  "wet",
+                        "direction":  "side_left",
+                        "render_script":  "art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_wet_side_left.py",
+                        "blender_action":  "Corvin_act_i_clean_wet_side",
+                        "frames":  8,
+                        "fps":  12,
+                        "audit_status":  "blocked_missing_keyed_action",
+                        "audit_note":  "Blender executed the entrypoint and refused output because the keyed action is not present yet."
+                    }
+                ]
+}

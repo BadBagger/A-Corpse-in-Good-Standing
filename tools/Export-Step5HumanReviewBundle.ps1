@@ -16,6 +16,7 @@ $sourcePaths = [ordered]@{
     "docs/art/act_i_hotspot_overlay.svg" = Join-Path $root "docs\art\act_i_hotspot_overlay.svg"
     "docs/art/corvin_side_action_scaffold.md" = Join-Path $root "docs\art\corvin_side_action_scaffold.md"
     "docs/art/corvin_side_action_render_queue.md" = Join-Path $root "docs\art\corvin_side_action_render_queue.md"
+    "docs/art/corvin_side_action_render_scripts_status.md" = Join-Path $root "docs\art\corvin_side_action_render_scripts_status.md"
     "docs/art/corvin_side_action_render_commands.md" = Join-Path $root "docs\art\corvin_side_action_render_commands.md"
     "docs/art/act_i_background_ready_source_packets.md" = Join-Path $root "docs\art\act_i_background_ready_source_packets.md"
     "docs/art/act_i_look_target_reference.md" = Join-Path $root "docs\art\act_i_look_target_reference.md"
@@ -84,6 +85,7 @@ $bundle = [ordered]@{
         "docs/art/act_i_hotspot_overlay.svg",
         "docs/art/corvin_side_action_scaffold.md",
         "docs/art/corvin_side_action_render_queue.md",
+        "docs/art/corvin_side_action_render_scripts_status.md",
         "docs/art/corvin_side_action_render_commands.md",
         "docs/art/act_i_background_ready_source_packets.md",
         "docs/art/act_i_look_target_reference.md",
@@ -125,6 +127,7 @@ $lines = @(
     "- Treat ready-source packets as Meshy/imagegen source acquisition only; they do not approve final background plates.",
     "- Treat Corvin side-action scaffolds as Blender handoff notes only; they do not approve pending talk/use/wet PNG sheets.",
     "- Treat the Corvin side-action render queue as pending deterministic Blender work; it forbids placeholder PNGs and does not approve Godot imports until sheets exist.",
+    "- Treat the Corvin side-action render scripts as executable audit scaffolds only until keyed Blender actions exist.",
     "- Treat the Corvin side-action render commands as dry-run handoff commands until matching render scripts and real Blender outputs exist.",
     "- Treat the generated look target as mood/readability reference only; it is not final room art, hotspot authority, or character sprite source.",
     "- Do not start final paintovers while paintover_gate_status is blocked_pending_human_review.",

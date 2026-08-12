@@ -4,6 +4,8 @@ $root = Split-Path -Parent $PSScriptRoot
 $exportScript = Join-Path $PSScriptRoot "Export-CorvinSideActionRenderCommands.ps1"
 $jsonPath = Join-Path $root "docs\art\corvin_side_action_render_commands.json"
 $mdPath = Join-Path $root "docs\art\corvin_side_action_render_commands.md"
+$scriptsStatusPath = Join-Path $root "docs\art\corvin_side_action_render_scripts_status.json"
+$scriptsStatusMdPath = Join-Path $root "docs\art\corvin_side_action_render_scripts_status.md"
 
 if (-not (Test-Path -LiteralPath $exportScript)) {
     throw "Missing Corvin side action render commands exporter: $exportScript"
@@ -20,9 +22,14 @@ foreach ($path in @($jsonPath, $mdPath)) {
     }
 }
 
+if (-not (Test-Path -LiteralPath $scriptsStatusPath) -or -not (Test-Path -LiteralPath $scriptsStatusMdPath)) {
+    throw "Corvin side action render commands require render script status artifacts. Run tools\Validate-CorvinSideActionRenderScripts.ps1."
+}
+
 $payload = Get-Content -LiteralPath $jsonPath -Raw | ConvertFrom-Json
 $report = Get-Content -LiteralPath $mdPath -Raw
 $commands = @($payload.commands)
+$scriptsStatus = Get-Content -LiteralPath $scriptsStatusPath -Raw | ConvertFrom-Json
 
 if ($payload.status -notin @("ready_for_render_scripts", "blocked_blender_not_resolved")) {
     throw "Corvin side action render commands has unexpected status: $($payload.status)"
@@ -32,6 +39,12 @@ if ([int]$payload.timeout_seconds -ne 120) {
 }
 if ($commands.Count -ne 6 -or [int]$payload.command_count -ne 6) {
     throw "Corvin side action render commands expected 6 commands, got $($commands.Count)."
+}
+if ($scriptsStatus.status -notin @("blocked_pending_keyed_blender_actions", "audit_contract_passed", "static_ready_blender_not_resolved", "partial_audit_pending")) {
+    throw "Corvin side action render scripts status is invalid: $($scriptsStatus.status)"
+}
+if ([int]$scriptsStatus.script_count -ne 6) {
+    throw "Corvin side action render scripts status expected 6 scripts, got $($scriptsStatus.script_count)."
 }
 
 $expected = @{
