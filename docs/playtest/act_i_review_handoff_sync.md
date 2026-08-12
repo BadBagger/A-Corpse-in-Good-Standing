@@ -14,18 +14,19 @@ Stop and redesign: 0
 Rule locks:
 - Latest notes must include the accepted Litany/Registrar duel-format prompt.
 - Latest notes must include the Grey Float hard-R staging prompt.
+- Non-pending review decisions must carry matching build_commit, reviewer, reviewed_at, and decision_note proof in the CSV and tracker.
 - Dashboard must list the stable latest notes, decision CSV, review tracker, contact sheet, and ready-source packet artifacts.
 
-| Room | Decision | CSV synced | Notes mention room |
-|---|---|---|---|
-| R01 Mudflats | pending_review | yes | yes |
-| R02 The Old Quay | pending_review | yes | yes |
-| R03 Salt Market | pending_review | yes | yes |
-| R05 Harbor Registry | pending_review | yes | yes |
-| R06 The Bone Chandler | pending_review | yes | yes |
-| R07 The Almshouse | pending_review | yes | yes |
-| R08 The Fish Hall | pending_review | yes | yes |
-| R09 Church of the Drowned | pending_review | yes | yes |
-| R10 The Grey Float | pending_review | yes | yes |
-| R11 Harbormaster's Office | pending_review | yes | yes |
-| R12 Sabine's Office | pending_review | yes | yes |
+| Room | Decision | Build | Reviewer | Reviewed At | CSV synced | Notes mention room |
+|---|---|---|---|---|---|---|
+| R01 Mudflats | pending_review | none | none | none | yes | yes |
+| R02 The Old Quay | pending_review | none | none | none | yes | yes |
+| R03 Salt Market | pending_review | none | none | none | yes | yes |
+| R05 Harbor Registry | pending_review | none | none | none | yes | yes |
+| R06 The Bone Chandler | pending_review | none | none | none | yes | yes |
+| R07 The Almshouse | pending_review | none | none | none | yes | yes |
+| R08 The Fish Hall | pending_review | none | none | none | yes | yes |
+| R09 Church of the Drowned | pending_review | none | none | none | yes | yes |
+| R10 The Grey Float | pending_review | none | none | none | yes | yes |
+| R11 Harbormaster's Office | pending_review | none | none | none | yes | yes |
+| R12 Sabine's Office | pending_review | none | none | none | yes | yes |

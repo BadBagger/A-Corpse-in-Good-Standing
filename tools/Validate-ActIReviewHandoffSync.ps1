@@ -48,6 +48,7 @@ foreach ($row in $decisionRows) {
 $missingFromCsv = @()
 $missingFromNotes = @()
 $decisionMismatches = @()
+$proofMismatches = @()
 foreach ($room in $rooms) {
     $roomId = [string]$room.room_id
     if (-not $csvById.ContainsKey($roomId)) {
@@ -57,6 +58,20 @@ foreach ($room in $rooms) {
     $csvRow = $csvById[$roomId]
     if ([string]$csvRow.decision -ne [string]$room.reviewer_decision) {
         $decisionMismatches += "$roomId tracker=$($room.reviewer_decision) csv=$($csvRow.decision)"
+    }
+    if ([string]$room.reviewer_decision -ne "pending_review" -or [string]$csvRow.decision -ne "pending_review") {
+        foreach ($proofField in @("build_commit", "reviewer", "reviewed_at", "decision_note")) {
+            if ([string]$csvRow.$proofField -ne [string]$room.$proofField) {
+                $proofMismatches += "$roomId $proofField tracker=$($room.$proofField) csv=$($csvRow.$proofField)"
+            }
+        }
+        if ([string]$csvRow.build_commit -notmatch '^(unknown|[0-9a-f]{7,40})$') {
+            $proofMismatches += "$roomId build_commit invalid=$($csvRow.build_commit)"
+        }
+        $parsedReviewedAt = [datetime]::MinValue
+        if (-not [datetime]::TryParseExact([string]$csvRow.reviewed_at, "yyyy-MM-dd", [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$parsedReviewedAt)) {
+            $proofMismatches += "$roomId reviewed_at invalid=$($csvRow.reviewed_at)"
+        }
     }
     foreach ($requiredText in @([string]$room.room_code, [string]$room.title)) {
         if ($latestNotes -notmatch [regex]::Escape($requiredText)) {
@@ -79,6 +94,9 @@ if ($missingFromNotes.Count -gt 0) {
 }
 if ($decisionMismatches.Count -gt 0) {
     throw "Review handoff CSV decisions differ from tracker decisions: $($decisionMismatches -join '; ')"
+}
+if ($proofMismatches.Count -gt 0) {
+    throw "Review handoff CSV proof fields differ from tracker proof: $($proofMismatches -join '; ')"
 }
 
 foreach ($requiredText in @(
@@ -127,19 +145,33 @@ $lines = @(
     "Rule locks:",
     "- Latest notes must include the accepted Litany/Registrar duel-format prompt.",
     "- Latest notes must include the Grey Float hard-R staging prompt.",
+    "- Non-pending review decisions must carry matching build_commit, reviewer, reviewed_at, and decision_note proof in the CSV and tracker.",
     "- Dashboard must list the stable latest notes, decision CSV, review tracker, contact sheet, and ready-source packet artifacts.",
     "",
-    "| Room | Decision | CSV synced | Notes mention room |",
-    "|---|---|---|---|"
+    "| Room | Decision | Build | Reviewer | Reviewed At | CSV synced | Notes mention room |",
+    "|---|---|---|---|---|---|---|"
 )
 
 foreach ($room in $rooms) {
-    $lines += "| $($room.room_code) $($room.title) | $($room.reviewer_decision) | yes | yes |"
+    $buildText = if ([string]::IsNullOrWhiteSpace([string]$room.build_commit)) { "none" } else { [string]$room.build_commit }
+    $reviewerText = if ([string]::IsNullOrWhiteSpace([string]$room.reviewer)) { "none" } else { [string]$room.reviewer }
+    $reviewedAtText = if ([string]::IsNullOrWhiteSpace([string]$room.reviewed_at)) { "none" } else { [string]$room.reviewed_at }
+    $lines += "| $($room.room_code) $($room.title) | $($room.reviewer_decision) | $buildText | $reviewerText | $reviewedAtText | yes | yes |"
 }
 
 Set-Content -LiteralPath $reportPath -Value $lines -Encoding UTF8
 
 $report = Get-Content -LiteralPath $reportPath -Raw
+foreach ($requiredText in @(
+    "Non-pending review decisions must carry matching build_commit, reviewer, reviewed_at, and decision_note proof in the CSV and tracker.",
+    "Build",
+    "Reviewer",
+    "Reviewed At"
+)) {
+    if ($report -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I review handoff sync report missing required proof text: $requiredText"
+    }
+}
 foreach ($forbiddenText in @("System.Object[]", "@{", "Ã¯Â»Â¿", "`t", "	ools/")) {
     if ($report.Contains($forbiddenText)) {
         throw "Act I review handoff sync report contains malformed Markdown: $forbiddenText"
