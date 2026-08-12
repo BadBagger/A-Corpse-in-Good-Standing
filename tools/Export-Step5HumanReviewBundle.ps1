@@ -14,6 +14,7 @@ $sourcePaths = [ordered]@{
     "docs/art/act_i_paintover_start_gate.json" = Join-Path $root "docs\art\act_i_paintover_start_gate.json"
     "docs/art/act_i_review_contact_sheet.html" = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
     "docs/art/act_i_hotspot_overlay.svg" = Join-Path $root "docs\art\act_i_hotspot_overlay.svg"
+    "docs/art/corvin_meshy_motion_source_audit.md" = Join-Path $root "docs\art\corvin_meshy_motion_source_audit.md"
     "docs/art/corvin_side_action_scaffold.md" = Join-Path $root "docs\art\corvin_side_action_scaffold.md"
     "docs/art/corvin_side_action_render_queue.md" = Join-Path $root "docs\art\corvin_side_action_render_queue.md"
     "docs/art/corvin_side_action_render_scripts_status.md" = Join-Path $root "docs\art\corvin_side_action_render_scripts_status.md"
@@ -83,6 +84,7 @@ $bundle = [ordered]@{
         "docs/playtest/act_i_review_handoff_sync.md",
         "docs/art/act_i_review_contact_sheet.html",
         "docs/art/act_i_hotspot_overlay.svg",
+        "docs/art/corvin_meshy_motion_source_audit.md",
         "docs/art/corvin_side_action_scaffold.md",
         "docs/art/corvin_side_action_render_queue.md",
         "docs/art/corvin_side_action_render_scripts_status.md",
@@ -125,6 +127,7 @@ $lines = @(
     "- Keep the accepted Litany/Registrar duel format; do not add a second confession-spend UI.",
     "- Keep Grey Float hard-R: steam, silhouette, privacy, and agency only.",
     "- Treat ready-source packets as Meshy/imagegen source acquisition only; they do not approve final background plates.",
+    "- Treat selected Meshy motion GLBs as action-capable source material only; they do not approve final Corvin sprites or the custom wet action.",
     "- Treat Corvin side-action scaffolds as Blender handoff notes only; they do not approve pending talk/use/wet PNG sheets.",
     "- Treat the Corvin side-action render queue as pending deterministic Blender work; it forbids placeholder PNGs and does not approve Godot imports until sheets exist.",
     "- Treat the Corvin side-action render scripts as executable audit scaffolds only until keyed Blender actions exist.",

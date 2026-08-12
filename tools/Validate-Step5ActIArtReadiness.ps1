@@ -9,6 +9,8 @@ $shaderMetricsPath = Join-Path $root "docs\art\ink_shader_spike_metrics_status.j
 $runtimeSpriteReportPath = Join-Path $root "docs\art\corvin_runtime_sprite_assets_status.md"
 $corvinSidePriorityPath = Join-Path $root "docs\art\corvin_side_priority_work_order.md"
 $corvinSidePriorityJsonPath = Join-Path $root "docs\art\corvin_side_priority_work_order.json"
+$corvinMotionAuditPath = Join-Path $root "docs\art\corvin_meshy_motion_source_audit.md"
+$corvinMotionAuditJsonPath = Join-Path $root "docs\art\corvin_meshy_motion_source_audit.json"
 $corvinSideActionRenderQueuePath = Join-Path $root "docs\art\corvin_side_action_render_queue.md"
 $corvinSideActionRenderQueueJsonPath = Join-Path $root "docs\art\corvin_side_action_render_queue.json"
 $corvinSideActionRenderCommandsPath = Join-Path $root "docs\art\corvin_side_action_render_commands.md"
@@ -80,6 +82,8 @@ foreach ($path in @(
     $runtimeSpriteReportPath,
     $corvinSidePriorityPath,
     $corvinSidePriorityJsonPath,
+    $corvinMotionAuditPath,
+    $corvinMotionAuditJsonPath,
     $corvinSideActionRenderQueuePath,
     $corvinSideActionRenderQueueJsonPath,
     $corvinSideActionRenderScriptsPath,
@@ -154,6 +158,8 @@ $shaderMetrics = Get-Content -LiteralPath $shaderMetricsPath -Raw | ConvertFrom-
 $runtimeSpriteReport = Get-Content -LiteralPath $runtimeSpriteReportPath -Raw
 $corvinSidePriority = Get-Content -LiteralPath $corvinSidePriorityPath -Raw
 $corvinSidePriorityJson = Get-Content -LiteralPath $corvinSidePriorityJsonPath -Raw | ConvertFrom-Json
+$corvinMotionAudit = Get-Content -LiteralPath $corvinMotionAuditPath -Raw
+$corvinMotionAuditJson = Get-Content -LiteralPath $corvinMotionAuditJsonPath -Raw | ConvertFrom-Json
 $corvinSideActionRenderQueue = Get-Content -LiteralPath $corvinSideActionRenderQueuePath -Raw
 $corvinSideActionRenderQueueJson = Get-Content -LiteralPath $corvinSideActionRenderQueueJsonPath -Raw | ConvertFrom-Json
 $corvinSideActionRenderScripts = Get-Content -LiteralPath $corvinSideActionRenderScriptsPath -Raw
@@ -308,6 +314,34 @@ foreach ($requiredText in @(
 )) {
     if ($corvinSidePriority -notmatch [regex]::Escape($requiredText)) {
         throw "Corvin side-priority work order missing readiness text: $requiredText"
+    }
+}
+
+$corvinMotionRows = @($corvinMotionAuditJson.rows)
+if ($corvinMotionAuditJson.status -ne "motion_sources_audited_wet_custom_required") {
+    throw "Corvin Meshy motion source audit has unexpected status: $($corvinMotionAuditJson.status)"
+}
+foreach ($requiredMotion in @("talk", "use", "walk")) {
+    $row = @($corvinMotionRows | Where-Object { $_.target_animation -eq $requiredMotion })[0]
+    if ($null -eq $row -or $row.audit_status -ne "audited_motion_source" -or [int]$row.mesh_count -lt 1 -or [int]$row.armature_count -lt 1 -or [int]$row.action_count -lt 1) {
+        throw "Corvin Meshy motion source audit must prove action-capable $requiredMotion source material."
+    }
+}
+$wetMotion = @($corvinMotionRows | Where-Object { $_.target_animation -eq "wet" })[0]
+if ($null -eq $wetMotion -or $wetMotion.source_role -ne "custom_required" -or $wetMotion.audit_status -ne "not_run") {
+    throw "Corvin wet motion must remain custom_required."
+}
+foreach ($requiredText in @(
+    "Corvin Meshy Motion Source Audit",
+    "No PNG sheet is created by this audit",
+    "Wet remains custom-required",
+    "talk",
+    "use",
+    "walk",
+    "wet"
+)) {
+    if ($corvinMotionAudit -notmatch [regex]::Escape($requiredText)) {
+        throw "Corvin Meshy motion source audit missing readiness text: $requiredText"
     }
 }
 
@@ -902,6 +936,7 @@ $lines = @(
     "- G9/G10 palette audit: pass, $($paletteRows.Count) exported backgrounds audited, 0 failed, arterial red appears in $redSceneCount scenes against the 5-scene limit.",
     "- Corvin Act I side locomotion: pass, side-left and side-right idle/walk sheet exports and Godot imports are present and runtime-validated.",
     "- Corvin side-priority work order: pass, 8 side idle/walk runtime rows present and 12 Act I side talk/use/wet rows pending as the next animation queue before front/back or decay work.",
+    "- Corvin Meshy motion source audit: pass, talk/use/walk source GLBs are action-capable and wet remains custom-required before canonical Blender action authoring.",
     "- Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet remain pending with placeholder PNGs forbidden and post-render checks defined.",
     "- Corvin side-action render scripts: pass, 6 Blender entrypoints exist and audit without creating PNG sheets; status is $($corvinSideActionRenderScriptsJson.status) with $([int]$corvinSideActionRenderScriptsJson.missing_keyed_action_count) keyed actions still pending.",
     "- Corvin side-action render commands: pass, 6 dry-run Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.",
@@ -963,6 +998,7 @@ foreach ($requiredText in @(
     "Act I background blockouts: pass",
     "Corvin Act I side locomotion: pass",
     "Corvin side-priority work order: pass",
+    "Corvin Meshy motion source audit: pass",
     "Corvin side-action render queue: pass",
     "Corvin side-action render scripts: pass",
     "Corvin side-action render commands: pass",

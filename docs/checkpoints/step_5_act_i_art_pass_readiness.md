@@ -5,6 +5,7 @@ GATES:
 - G9/G10 palette audit: pass, 11 exported backgrounds audited, 0 failed, arterial red appears in 0 scenes against the 5-scene limit.
 - Corvin Act I side locomotion: pass, side-left and side-right idle/walk sheet exports and Godot imports are present and runtime-validated.
 - Corvin side-priority work order: pass, 8 side idle/walk runtime rows present and 12 Act I side talk/use/wet rows pending as the next animation queue before front/back or decay work.
+- Corvin Meshy motion source audit: pass, talk/use/walk source GLBs are action-capable and wet remains custom-required before canonical Blender action authoring.
 - Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet remain pending with placeholder PNGs forbidden and post-render checks defined.
 - Corvin side-action render scripts: pass, 6 Blender entrypoints exist and audit without creating PNG sheets; status is blocked_pending_keyed_blender_actions with 6 keyed actions still pending.
 - Corvin side-action render commands: pass, 6 dry-run Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.
