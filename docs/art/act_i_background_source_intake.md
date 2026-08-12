@@ -13,8 +13,8 @@ Guardrails:
 
 Counts:
 - Prompts: 130
-- Present source outputs: 26
-- Pending source outputs: 104
+- Present source outputs: 29
+- Pending source outputs: 101
 - Zero-byte outputs: 0
 - generated_reference: 41
 - interactive_layer: 25
@@ -144,9 +144,9 @@ Counts:
 
 | ID | Kind | Tool | Status | Source | Runtime |
 |---|---|---|---|---|---|
-| church_of_the_drowned_generated_reference_institutional_absinthe_green_light | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/church_of_the_drowned/institutional_absinthe_green_light.png` | `-` |
-| church_of_the_drowned_generated_reference_paper_bureaucracy_texture | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/church_of_the_drowned/paper_bureaucracy_texture.png` | `-` |
-| church_of_the_drowned_generated_reference_wet_stone_grime | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/church_of_the_drowned/wet_stone_grime.png` | `-` |
+| church_of_the_drowned_generated_reference_institutional_absinthe_green_light | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/church_of_the_drowned/institutional_absinthe_green_light.png` | `-` |
+| church_of_the_drowned_generated_reference_paper_bureaucracy_texture | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/church_of_the_drowned/paper_bureaucracy_texture.png` | `-` |
+| church_of_the_drowned_generated_reference_wet_stone_grime | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/church_of_the_drowned/wet_stone_grime.png` | `-` |
 | church_of_the_drowned_interactive_layer_confession_booth | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned/confessionbooth.psd` | `game/rooms/church_of_the_drowned/props/confessionbooth.png` |
 | church_of_the_drowned_interactive_layer_poor_box | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned/poorbox.psd` | `game/rooms/church_of_the_drowned/props/poorbox.png` |
 | church_of_the_drowned_interactive_layer_teodor_s_stall | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/church_of_the_drowned/ratecard.psd` | `game/rooms/church_of_the_drowned/props/ratecard.png` |
