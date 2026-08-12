@@ -19,14 +19,14 @@ Rule locks:
 
 | Room | Previous | Incoming | Build | Reviewer | Fix Note |
 |---|---|---|---|---|---|
-| R01 Mudflats | pending_review | pending_review | ab5bcdfc53c9 |  | False |
-| R02 The Old Quay | pending_review | pending_review | ab5bcdfc53c9 |  | False |
-| R03 Salt Market | pending_review | pending_review | ab5bcdfc53c9 |  | False |
-| R05 Harbor Registry | approved | approved | ab5bcdfc53c9 | Automated test | True |
-| R06 The Bone Chandler | pending_review | pending_review | ab5bcdfc53c9 |  | False |
-| R07 The Almshouse | pending_review | pending_review | ab5bcdfc53c9 |  | False |
-| R08 The Fish Hall | pending_review | pending_review | ab5bcdfc53c9 |  | False |
-| R09 Church of the Drowned | pending_review | pending_review | ab5bcdfc53c9 |  | False |
-| R10 The Grey Float | revise_before_art | revise_before_art | ab5bcdfc53c9 | Automated test | True |
-| R11 Harbormaster's Office | pending_review | pending_review | ab5bcdfc53c9 |  | False |
-| R12 Sabine's Office | pending_review | pending_review | ab5bcdfc53c9 |  | False |
+| R01 Mudflats | pending_review | pending_review | 3c710597fce7 |  | False |
+| R02 The Old Quay | pending_review | pending_review | 3c710597fce7 |  | False |
+| R03 Salt Market | pending_review | pending_review | 3c710597fce7 |  | False |
+| R05 Harbor Registry | approved | approved | 3c710597fce7 | Automated test | True |
+| R06 The Bone Chandler | pending_review | pending_review | 3c710597fce7 |  | False |
+| R07 The Almshouse | pending_review | pending_review | 3c710597fce7 |  | False |
+| R08 The Fish Hall | pending_review | pending_review | 3c710597fce7 |  | False |
+| R09 Church of the Drowned | pending_review | pending_review | 3c710597fce7 |  | False |
+| R10 The Grey Float | revise_before_art | revise_before_art | 3c710597fce7 | Automated test | True |
+| R11 Harbormaster's Office | pending_review | pending_review | 3c710597fce7 |  | False |
+| R12 Sabine's Office | pending_review | pending_review | 3c710597fce7 |  | False |

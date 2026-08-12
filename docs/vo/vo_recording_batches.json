@@ -3,10 +3,10 @@
                            "docs/vo/act_i_vo_line_manifest.json",
                            "docs/vo/confession_vo_manifest.json"
                        ],
-    "generated_at_utc":  "2026-08-12T07:35:32.5830445Z",
+    "generated_at_utc":  "2026-08-12T10:50:10.6555364Z",
     "source_modified_utc":  {
-                                "docs/vo/act_i_vo_line_manifest.json":  "2026-08-12T07:35:10.5171677Z",
-                                "docs/vo/confession_vo_manifest.json":  "2026-08-12T07:35:11.4584706Z"
+                                "docs/vo/act_i_vo_line_manifest.json":  "2026-08-12T10:49:49.6567069Z",
+                                "docs/vo/confession_vo_manifest.json":  "2026-08-12T10:49:50.5538147Z"
                             },
     "purpose":  "Recording-session batch plan for scratch/full VO. Batches preserve scene order and avoid disconnected one-line generation.",
     "batch_count":  136,

@@ -85,6 +85,16 @@ foreach ($entry in $expected.GetEnumerator()) {
     if ($action.blender_action -notin $authoredActionNames) {
         throw "Corvin side action scaffold action $animation missing from authored side-action blend: $($action.blender_action)"
     }
+    $blendAction = @($blendStatus.actions | Where-Object { $_.name -eq $action.blender_action })[0]
+    if ($null -eq $blendAction.stats) {
+        throw "Corvin side action blend action $animation is missing keyed-action stats."
+    }
+    if ([int]$blendAction.stats.fcurve_count -lt 20 -or [int]$blendAction.stats.keyframe_count -lt ([int]$expect.frames * 20)) {
+        throw "Corvin side action blend action $animation has too little keyed data: fcurves=$($blendAction.stats.fcurve_count), keyframes=$($blendAction.stats.keyframe_count)."
+    }
+    if ([int]$blendAction.stats.keyed_frame_count -ne [int]$expect.frames) {
+        throw "Corvin side action blend action $animation has wrong keyed frame count: $($blendAction.stats.keyed_frame_count)."
+    }
     if ($action.render_source_blend -ne $payload.render_source_blend) {
         throw "Corvin side action scaffold action $animation has wrong render source blend."
     }

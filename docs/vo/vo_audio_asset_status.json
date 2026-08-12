@@ -5,12 +5,12 @@
                            "docs/vo/vo_recording_batches.json",
                            "docs/vo/vo_recording_queue.json"
                        ],
-    "generated_at_utc":  "2026-08-12T07:35:43.4997131Z",
+    "generated_at_utc":  "2026-08-12T10:50:20.2628011Z",
     "source_modified_utc":  {
-                                "docs/vo/act_i_vo_line_manifest.json":  "2026-08-12T07:35:10.5171677Z",
-                                "docs/vo/confession_vo_manifest.json":  "2026-08-12T07:35:11.4584706Z",
-                                "docs/vo/vo_recording_batches.json":  "2026-08-12T07:35:33.1655983Z",
-                                "docs/vo/vo_recording_queue.json":  "2026-08-12T07:35:33.9146319Z"
+                                "docs/vo/act_i_vo_line_manifest.json":  "2026-08-12T10:49:49.6567069Z",
+                                "docs/vo/confession_vo_manifest.json":  "2026-08-12T10:49:50.5538147Z",
+                                "docs/vo/vo_recording_batches.json":  "2026-08-12T10:50:11.1808703Z",
+                                "docs/vo/vo_recording_queue.json":  "2026-08-12T10:50:11.8450068Z"
                             },
     "purpose":  "VO audio asset intake/status report. Tracks expected MP3s and separates scratch-ready paths from blocked pending-cast and cut/rewrite paths.",
     "expected_count":  652,

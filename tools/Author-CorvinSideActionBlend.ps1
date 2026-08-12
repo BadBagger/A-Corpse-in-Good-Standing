@@ -123,11 +123,47 @@ def sample_pose(source_action, armature, target_action, target_frame, source_fra
     armature.animation_data.action = source_action
     bpy.context.scene.frame_set(source_frame)
     bpy.context.view_layer.update()
+    sampled_pose = []
     for pose_bone in armature.pose.bones:
+        sampled_pose.append({
+            "name": pose_bone.name,
+            "location": tuple(pose_bone.location),
+            "rotation_mode": pose_bone.rotation_mode,
+            "rotation_quaternion": tuple(pose_bone.rotation_quaternion),
+            "scale": tuple(pose_bone.scale),
+        })
+    armature.animation_data.action = target_action
+    bpy.context.scene.frame_set(target_frame)
+    for sample in sampled_pose:
+        pose_bone = armature.pose.bones[sample["name"]]
+        pose_bone.location = sample["location"]
+        pose_bone.rotation_mode = "QUATERNION"
+        pose_bone.rotation_quaternion = sample["rotation_quaternion"]
+        pose_bone.scale = sample["scale"]
         pose_bone.keyframe_insert(data_path="location", frame=target_frame)
         pose_bone.keyframe_insert(data_path="rotation_quaternion", frame=target_frame)
         pose_bone.keyframe_insert(data_path="scale", frame=target_frame)
-    armature.animation_data.action = target_action
+
+
+def action_stats(action):
+    fcurves = []
+    if hasattr(action, "fcurves"):
+        fcurves = list(action.fcurves)
+    elif hasattr(action, "layers"):
+        for layer in action.layers:
+            for strip in getattr(layer, "strips", []):
+                for channelbag in getattr(strip, "channelbags", []):
+                    fcurves.extend(list(getattr(channelbag, "fcurves", [])))
+    keyed_frames = set()
+    for fcurve in fcurves:
+        for keyframe in fcurve.keyframe_points:
+            keyed_frames.add(int(round(keyframe.co.x)))
+    return {
+        "fcurve_count": len(fcurves),
+        "keyframe_count": sum(len(fcurve.keyframe_points) for fcurve in fcurves),
+        "keyed_frame_count": len(keyed_frames),
+        "keyed_frames": sorted(keyed_frames),
+    }
 
 
 clear_scene()
@@ -160,6 +196,7 @@ for target_name, spec in CELL_ACTIONS.items():
         "frames": spec["target_frames"],
         "source_action": spec["source_action"],
         "source_path": spec["source"],
+        "stats": action_stats(target_action),
     })
     if target_name == "Corvin_act_i_clean_use_side":
         base_armature = armature
@@ -220,6 +257,7 @@ created_actions.append({
     "frames": 8,
     "source_action": "hand_authored_custom_brine",
     "source_path": "",
+    "stats": action_stats(wet),
 })
 
 base_armature.name = "Corvin_Act_I_Clean_Rig"
@@ -312,11 +350,11 @@ $lines = @(
     "- Wet is hand-authored as a custom physical brine action.",
     "- The resulting blend still requires render-script and Godot import audits before any sprite sheet counts as present.",
     "",
-    "| Action | Frames | Source |",
-    "|---|---:|---|"
+    "| Action | Frames | Keyed frames | F-curves | Keyframes | Source |",
+    "|---|---:|---:|---:|---:|---|"
 )
 foreach ($action in $actionRows) {
-    $lines += "| ``$($action.name)`` | $($action.frames) | $($action.source_action) |"
+    $lines += "| ``$($action.name)`` | $($action.frames) | $($action.stats.keyed_frame_count) | $($action.stats.fcurve_count) | $($action.stats.keyframe_count) | $($action.source_action) |"
 }
 Set-Content -LiteralPath $statusMdPath -Value $lines -Encoding UTF8
 

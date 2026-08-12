@@ -20,19 +20,62 @@
                         "name":  "Corvin_act_i_clean_talk_side",
                         "frames":  6,
                         "source_action":  "Armature|Listening_Gesture|baselayer",
-                        "source_path":  "C:\\Users\\KyleB\\Documents\\ChatGPT\\A Corpse in Good Standing\\art\\src\\characters\\corvin\\meshy\\motion_sources\\talk_listening_gesture_withSkin.glb"
+                        "source_path":  "C:\\Users\\KyleB\\Documents\\ChatGPT\\A Corpse in Good Standing\\art\\src\\characters\\corvin\\meshy\\motion_sources\\talk_listening_gesture_withSkin.glb",
+                        "stats":  {
+                                      "fcurve_count":  240,
+                                      "keyframe_count":  1440,
+                                      "keyed_frame_count":  6,
+                                      "keyed_frames":  [
+                                                           1,
+                                                           2,
+                                                           3,
+                                                           4,
+                                                           5,
+                                                           6
+                                                       ]
+                                  }
                     },
                     {
                         "name":  "Corvin_act_i_clean_use_side",
                         "frames":  8,
                         "source_action":  "Armature|Collect_Object|baselayer",
-                        "source_path":  "C:\\Users\\KyleB\\Documents\\ChatGPT\\A Corpse in Good Standing\\art\\src\\characters\\corvin\\meshy\\motion_sources\\use_collect_object_withSkin.glb"
+                        "source_path":  "C:\\Users\\KyleB\\Documents\\ChatGPT\\A Corpse in Good Standing\\art\\src\\characters\\corvin\\meshy\\motion_sources\\use_collect_object_withSkin.glb",
+                        "stats":  {
+                                      "fcurve_count":  240,
+                                      "keyframe_count":  1920,
+                                      "keyed_frame_count":  8,
+                                      "keyed_frames":  [
+                                                           1,
+                                                           2,
+                                                           3,
+                                                           4,
+                                                           5,
+                                                           6,
+                                                           7,
+                                                           8
+                                                       ]
+                                  }
                     },
                     {
                         "name":  "Corvin_act_i_clean_wet_side",
                         "frames":  8,
                         "source_action":  "hand_authored_custom_brine",
-                        "source_path":  ""
+                        "source_path":  "",
+                        "stats":  {
+                                      "fcurve_count":  216,
+                                      "keyframe_count":  1728,
+                                      "keyed_frame_count":  8,
+                                      "keyed_frames":  [
+                                                           1,
+                                                           2,
+                                                           3,
+                                                           4,
+                                                           5,
+                                                           6,
+                                                           7,
+                                                           8
+                                                       ]
+                                  }
                     }
                 ]
 }
