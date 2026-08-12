@@ -10,7 +10,7 @@ GATES:
 - Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet are present and pending final polish review with placeholder PNGs forbidden and post-render checks defined.
 - Corvin side-action render scripts: pass, 6 Blender entrypoints exist, refuse blank sheet assembly, and audit clean; status is audit_contract_passed with 0 missing keyed actions.
 - Corvin side-action render commands: pass, 6 deterministic Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.
-- Corvin side-action rendered sheets: pass, 6 exported sheets and 6 byte-for-byte Godot imports pass dimension, nonblank-frame, and wet arterial-red audits; final animation polish is still not approved.
+- Corvin side-action rendered sheets: pass, 6 exported sheets and 6 byte-for-byte Godot imports pass dimension, nonblank-frame, profile-silhouette, motion-readability, and wet arterial-red audits; final animation polish is still not approved.
 - Corvin animation tracker: pass, 22 present / 107 pending / 129 total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.
 - Ink shader yaw metrics: pass, status audited, object pairwise max 0% against threshold 6%, first-last drift 0% against threshold 9%; bad-control pairwise max 28.512% remains the calibration contrast.
 - Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.

@@ -198,8 +198,9 @@ def configure_camera(direction):
     bpy.context.collection.objects.link(camera)
     bpy.context.scene.camera = camera
     side = 1.0 if direction == "side_right" else -1.0
-    camera.location = (center.x, center.y - (6.0 * side), center.z)
-    camera.rotation_euler = (1.57079632679, 0.0, 0.0 if side > 0 else 3.14159265359)
+    camera.location = (center.x + (6.0 * side), center.y, center.z)
+    aim = center - camera.location
+    camera.rotation_euler = aim.to_track_quat("-Z", "Y").to_euler()
     camera.data.type = "ORTHO"
     camera.data.ortho_scale = max(height * 1.18, width * 1.6, 2.2)
 

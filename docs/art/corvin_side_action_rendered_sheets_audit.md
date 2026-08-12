@@ -9,14 +9,16 @@ Failed: 0
 
 Rule locks:
 - This audit proves dimensions, nonblank frames, and byte-for-byte Godot import parity only.
+- Side sheets must read as profile silhouettes: max sampled frame width/height <= 0.42.
+- Action sheets must show readable motion against frame 1: talk >= 12%, use/wet >= 20% sampled pixel delta.
 - This audit does not approve final animation polish.
 - Wet sheets must contain zero arterial red samples.
 
-| Animation | Direction | Status | Size | Frames nonblank | Byte match | Arterial red samples | Sheet | Godot import |
-|---|---|---|---|---:|---|---:|---|---|
-| talk | side_right | pass | 1536x512 | 6/6 | True | 0 | `art/export/characters/corvin/act_i_clean/talk_side_right.png` | `game/characters/corvin/sprites/act_i_clean/talk_side_right.png` |
-| talk | side_left | pass | 1536x512 | 6/6 | True | 0 | `art/export/characters/corvin/act_i_clean/talk_side_left.png` | `game/characters/corvin/sprites/act_i_clean/talk_side_left.png` |
-| use | side_right | pass | 2048x512 | 8/8 | True | 0 | `art/export/characters/corvin/act_i_clean/use_side_right.png` | `game/characters/corvin/sprites/act_i_clean/use_side_right.png` |
-| use | side_left | pass | 2048x512 | 8/8 | True | 0 | `art/export/characters/corvin/act_i_clean/use_side_left.png` | `game/characters/corvin/sprites/act_i_clean/use_side_left.png` |
-| wet | side_right | pass | 2048x512 | 8/8 | True | 0 | `art/export/characters/corvin/act_i_clean/wet_side_right.png` | `game/characters/corvin/sprites/act_i_clean/wet_side_right.png` |
-| wet | side_left | pass | 2048x512 | 8/8 | True | 0 | `art/export/characters/corvin/act_i_clean/wet_side_left.png` | `game/characters/corvin/sprites/act_i_clean/wet_side_left.png` |
+| Animation | Direction | Status | Size | Frames nonblank | Profile max | Motion max | Motion pass | Byte match | Arterial red samples | Sheet | Godot import |
+|---|---|---|---|---:|---:|---:|---|---|---:|---|---|
+| talk | side_right | pass | 1536x512 | 6/6 | 0.267 | 21.1% | True | True | 0 | `art/export/characters/corvin/act_i_clean/talk_side_right.png` | `game/characters/corvin/sprites/act_i_clean/talk_side_right.png` |
+| talk | side_left | pass | 1536x512 | 6/6 | 0.277 | 23% | True | True | 0 | `art/export/characters/corvin/act_i_clean/talk_side_left.png` | `game/characters/corvin/sprites/act_i_clean/talk_side_left.png` |
+| use | side_right | pass | 2048x512 | 8/8 | 0.288 | 29.7% | True | True | 0 | `art/export/characters/corvin/act_i_clean/use_side_right.png` | `game/characters/corvin/sprites/act_i_clean/use_side_right.png` |
+| use | side_left | pass | 2048x512 | 8/8 | 0.298 | 29.4% | True | True | 0 | `art/export/characters/corvin/act_i_clean/use_side_left.png` | `game/characters/corvin/sprites/act_i_clean/use_side_left.png` |
+| wet | side_right | pass | 2048x512 | 8/8 | 0.298 | 25.5% | True | True | 0 | `art/export/characters/corvin/act_i_clean/wet_side_right.png` | `game/characters/corvin/sprites/act_i_clean/wet_side_right.png` |
+| wet | side_left | pass | 2048x512 | 8/8 | 0.298 | 26.4% | True | True | 0 | `art/export/characters/corvin/act_i_clean/wet_side_left.png` | `game/characters/corvin/sprites/act_i_clean/wet_side_left.png` |

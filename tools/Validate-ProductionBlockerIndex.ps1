@@ -90,7 +90,7 @@ $requiredPhrases = @(
     "6 deterministic Blender render/import rows",
     "records 6 passed render-script action-contract audits",
     "6 timeout-wrapped Blender handoff commands",
-    "proves 6 rendered side-action sheets and byte-for-byte Godot imports",
+    "proves 6 rendered profile-readable side-action sheets and byte-for-byte Godot imports",
     "validates side idle/walk/talk/use/wet runtime registration",
     "Review final animation polish for Act I side talk/use/wet, then plan front/back or Act II-III decay sheets",
     "22 present, 107 pending, 129 total",

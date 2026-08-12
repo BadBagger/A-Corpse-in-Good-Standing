@@ -376,7 +376,7 @@ foreach ($requiredAction in @("Corvin_act_i_clean_talk_side", "Corvin_act_i_clea
 foreach ($requiredText in @(
     "Corvin Side Action Blend Status",
     "This tool authors Blender action source only",
-    "Talk and use are sampled from audited Meshy motion sources",
+    "Talk and use are hand-authored readable side-view gameplay poses after Meshy motion proved too subtle",
     "Wet is hand-authored as a custom physical brine action",
     "corvin_act_i_clean_side_actions.blend"
 )) {
@@ -439,13 +439,15 @@ if ($corvinSideActionRenderedSheetRows.Count -ne 6 -or [int]$corvinSideActionRen
     throw "Corvin side action rendered-sheet audit expected 6 passing rows."
 }
 foreach ($row in $corvinSideActionRenderedSheetRows) {
-    if (-not [bool]$row.byte_for_byte_import -or [int]$row.nonblank_frame_count -ne [int]$row.frames) {
-        throw "Corvin side action rendered-sheet audit row failed import/nonblank proof: $($row.animation) $($row.direction)"
+    if (-not [bool]$row.byte_for_byte_import -or [int]$row.nonblank_frame_count -ne [int]$row.frames -or -not [bool]$row.profile_silhouette_pass -or -not [bool]$row.motion_readability_pass) {
+        throw "Corvin side action rendered-sheet audit row failed import/nonblank/profile/motion proof: $($row.animation) $($row.direction)"
     }
 }
 foreach ($requiredText in @(
     "Corvin Side Action Rendered Sheets Audit",
     "Status: rendered_sheets_audited",
+    "Side sheets must read as profile silhouettes",
+    "Action sheets must show readable motion",
     "This audit does not approve final animation polish",
     "Wet sheets must contain zero arterial red samples",
     "talk",
@@ -831,7 +833,7 @@ foreach ($requiredText in @(
     "Decision CSV rows: 11",
     "Latest notes must include the accepted Litany/Registrar duel-format prompt.",
     "Latest notes must include the Grey Float hard-R staging prompt.",
-    "Dashboard must list the stable latest notes, decision CSV, review tracker, contact sheet, and ready-source packet artifacts."
+    "Dashboard must list the stable latest notes, decision CSV, review tracker, contact sheet, Corvin side-action contact sheet, and ready-source packet artifacts."
 )) {
     if ($reviewHandoffSync -notmatch [regex]::Escape($requiredText)) {
         throw "Act I review handoff sync missing readiness text: $requiredText"
@@ -1013,7 +1015,7 @@ $lines = @(
     "- Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet are present and pending final polish review with placeholder PNGs forbidden and post-render checks defined.",
     "- Corvin side-action render scripts: pass, 6 Blender entrypoints exist, refuse blank sheet assembly, and audit clean; status is $($corvinSideActionRenderScriptsJson.status) with $([int]$corvinSideActionRenderScriptsJson.missing_keyed_action_count) missing keyed actions.",
     "- Corvin side-action render commands: pass, 6 deterministic Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.",
-    "- Corvin side-action rendered sheets: pass, 6 exported sheets and 6 byte-for-byte Godot imports pass dimension, nonblank-frame, and wet arterial-red audits; final animation polish is still not approved.",
+    "- Corvin side-action rendered sheets: pass, 6 exported sheets and 6 byte-for-byte Godot imports pass dimension, nonblank-frame, profile-silhouette, motion-readability, and wet arterial-red audits; final animation polish is still not approved.",
     "- Corvin animation tracker: pass, $corvinPresent present / $corvinPending pending / $($corvinRows.Count) total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.",
     "- Ink shader yaw metrics: pass, status audited, object pairwise max $objectPairwiseMax% against threshold $pairwiseThreshold%, first-last drift $objectFirstLastDrift% against threshold $firstLastThreshold%; bad-control pairwise max $badControlPairwiseMax% remains the calibration contrast.",
     "- Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.",

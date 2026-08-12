@@ -140,7 +140,7 @@ $lines = @(
     "- Treat the Corvin side-action render queue as deterministic Blender work; it forbids placeholder PNGs and tracks export/Godot import presence.",
     "- Treat the Corvin side-action render scripts as executable render entrypoints with audit mode and blank-frame refusal.",
     "- Treat the Corvin side-action render commands as operator handoff commands; rendered outputs still need sheet audit and human animation review.",
-    "- Treat the Corvin side-action rendered-sheet audit as dimension, nonblank-frame, arterial-red, and byte-for-byte import proof only; it does not approve final animation polish.",
+    "- Treat the Corvin side-action rendered-sheet audit as dimension, nonblank-frame, profile-silhouette, arterial-red, and byte-for-byte import proof only; it does not approve final animation polish.",
     "- Treat the generated look target as mood/readability reference only; it is not final room art, hotspot authority, or character sprite source.",
     "- Do not start final paintovers while paintover_gate_status is blocked_pending_human_review.",
     "",

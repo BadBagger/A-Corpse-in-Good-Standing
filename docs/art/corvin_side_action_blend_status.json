@@ -11,7 +11,7 @@
     "bone_count":  24,
     "rule_locks":  [
                        "This tool authors Blender action source only; it does not create PNG sheets.",
-                       "Talk and use are sampled from audited Meshy motion sources.",
+                       "Talk and use are hand-authored readable side-view gameplay poses after Meshy motion proved too subtle.",
                        "Wet is hand-authored as a custom physical brine action.",
                        "The resulting blend still requires render-script and Godot import audits before any sprite sheet counts as present."
                    ],
@@ -19,11 +19,11 @@
                     {
                         "name":  "Corvin_act_i_clean_talk_side",
                         "frames":  6,
-                        "source_action":  "Armature|Listening_Gesture|baselayer",
-                        "source_path":  "C:\\Users\\KyleB\\Documents\\ChatGPT\\A Corpse in Good Standing\\art\\src\\characters\\corvin\\meshy\\motion_sources\\talk_listening_gesture_withSkin.glb",
+                        "source_action":  "hand_authored_readable_talk",
+                        "source_path":  "",
                         "stats":  {
-                                      "fcurve_count":  240,
-                                      "keyframe_count":  1440,
+                                      "fcurve_count":  216,
+                                      "keyframe_count":  1296,
                                       "keyed_frame_count":  6,
                                       "keyed_frames":  [
                                                            1,
@@ -38,11 +38,11 @@
                     {
                         "name":  "Corvin_act_i_clean_use_side",
                         "frames":  8,
-                        "source_action":  "Armature|Collect_Object|baselayer",
-                        "source_path":  "C:\\Users\\KyleB\\Documents\\ChatGPT\\A Corpse in Good Standing\\art\\src\\characters\\corvin\\meshy\\motion_sources\\use_collect_object_withSkin.glb",
+                        "source_action":  "hand_authored_readable_use",
+                        "source_path":  "",
                         "stats":  {
-                                      "fcurve_count":  240,
-                                      "keyframe_count":  1920,
+                                      "fcurve_count":  216,
+                                      "keyframe_count":  1728,
                                       "keyed_frame_count":  8,
                                       "keyed_frames":  [
                                                            1,

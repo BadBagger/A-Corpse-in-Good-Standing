@@ -10,12 +10,12 @@ Bones: 24
 
 Rule locks:
 - This tool authors Blender action source only; it does not create PNG sheets.
-- Talk and use are sampled from audited Meshy motion sources.
+- Talk and use are hand-authored readable side-view gameplay poses after Meshy motion proved too subtle.
 - Wet is hand-authored as a custom physical brine action.
 - The resulting blend still requires render-script and Godot import audits before any sprite sheet counts as present.
 
 | Action | Frames | Keyed frames | F-curves | Keyframes | Source |
 |---|---:|---:|---:|---:|---|
-| `Corvin_act_i_clean_talk_side` | 6 | 6 | 240 | 1440 | Armature|Listening_Gesture|baselayer |
-| `Corvin_act_i_clean_use_side` | 8 | 8 | 240 | 1920 | Armature|Collect_Object|baselayer |
+| `Corvin_act_i_clean_talk_side` | 6 | 6 | 216 | 1296 | hand_authored_readable_talk |
+| `Corvin_act_i_clean_use_side` | 8 | 8 | 216 | 1728 | hand_authored_readable_use |
 | `Corvin_act_i_clean_wet_side` | 8 | 8 | 216 | 1728 | hand_authored_custom_brine |

@@ -111,6 +111,12 @@ try {
 
     Restore-TestText -Path $dashboardPath -Text $originalDashboard
     $dashboard = Get-Content -LiteralPath $dashboardPath -Raw | ConvertFrom-Json
+    $dashboard.artifacts = @($dashboard.artifacts | Where-Object { [string]$_ -ne "docs/art/review/corvin_side_actions_contact_sheet.png" })
+    $dashboard | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $dashboardPath -Encoding UTF8
+    Invoke-ExpectSyncFailure -FailureName "missing Corvin side-action contact-sheet dashboard artifact" -ExpectedPattern "missing review handoff artifact"
+
+    Restore-TestText -Path $dashboardPath -Text $originalDashboard
+    $dashboard = Get-Content -LiteralPath $dashboardPath -Raw | ConvertFrom-Json
     $dashboard.artifacts = @($dashboard.artifacts | Where-Object { [string]$_ -ne "docs/art/act_i_background_ready_source_packets.md" })
     $dashboard | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $dashboardPath -Encoding UTF8
     Invoke-ExpectSyncFailure -FailureName "missing ready-source-packet dashboard artifact" -ExpectedPattern "missing review handoff artifact"
@@ -130,4 +136,4 @@ finally {
     }
 }
 
-Write-Host "Act I review handoff sync tests passed: baseline validates, decision mismatch fails, build-commit proof mismatch fails, missing latest-notes room fails, missing contact-sheet artifact fails, missing ready-source packet artifact fails, cleanup restores validation."
+Write-Host "Act I review handoff sync tests passed: baseline validates, decision mismatch fails, build-commit proof mismatch fails, missing latest-notes room fails, missing contact-sheet artifact fails, missing Corvin side-action contact-sheet artifact fails, missing ready-source packet artifact fails, cleanup restores validation."

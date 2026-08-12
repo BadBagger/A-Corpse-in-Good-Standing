@@ -205,12 +205,36 @@ for target_name, spec in CELL_ACTIONS.items():
 if base_armature is None:
     raise RuntimeError("No base armature remained after action authoring.")
 
-# Hand-authored wet action on the same rig. It is deliberately small: lean, sleeve lift, drip hold, settle.
-wet = bpy.data.actions.new("Corvin_act_i_clean_wet_side")
-wet.use_fake_user = True
-base_armature.animation_data_create()
-base_armature.animation_data.action = wet
 bone_names = [bone.name for bone in base_armature.pose.bones]
+
+for action_name in (
+    "Corvin_act_i_clean_talk_side",
+    "Corvin_act_i_clean_use_side",
+    "Corvin_act_i_clean_wet_side",
+):
+    old_action = bpy.data.actions.get(action_name)
+    if old_action is not None:
+        bpy.data.actions.remove(old_action)
+
+created_actions = []
+
+def create_action(name):
+    action = bpy.data.actions.new(name)
+    action.use_fake_user = True
+    base_armature.animation_data_create()
+    base_armature.animation_data.action = action
+    return action
+
+def reset_pose(frame):
+    bpy.context.scene.frame_set(frame)
+    for pose_bone in base_armature.pose.bones:
+        pose_bone.location = (0.0, 0.0, 0.0)
+        pose_bone.rotation_mode = "XYZ"
+        pose_bone.rotation_euler = (0.0, 0.0, 0.0)
+        pose_bone.scale = (1.0, 1.0, 1.0)
+        pose_bone.keyframe_insert(data_path="location", frame=frame)
+        pose_bone.keyframe_insert(data_path="rotation_euler", frame=frame)
+        pose_bone.keyframe_insert(data_path="scale", frame=frame)
 
 def set_bone_rotation(name, frame, euler_xyz):
     pose_bone = base_armature.pose.bones.get(name)
@@ -227,38 +251,166 @@ def set_bone_location(name, frame, loc):
     pose_bone.location = loc
     pose_bone.keyframe_insert(data_path="location", frame=frame)
 
-for frame in range(1, 9):
-    bpy.context.scene.frame_set(frame)
-    for pose_bone in base_armature.pose.bones:
-        pose_bone.location = (0.0, 0.0, 0.0)
-        pose_bone.rotation_mode = "XYZ"
-        pose_bone.rotation_euler = (0.0, 0.0, 0.0)
-        pose_bone.scale = (1.0, 1.0, 1.0)
-        pose_bone.keyframe_insert(data_path="location", frame=frame)
-        pose_bone.keyframe_insert(data_path="rotation_euler", frame=frame)
-        pose_bone.keyframe_insert(data_path="scale", frame=frame)
-
-wet_poses = {
-    2: {"Spine": (2, 0, -3), "RightArm": (0, 0, -8), "RightForeArm": (0, 0, -12)},
-    3: {"Spine": (4, 0, -6), "RightArm": (0, 0, -20), "RightForeArm": (0, 0, -25)},
-    4: {"Spine": (5, 0, -7), "RightArm": (0, 0, -28), "RightForeArm": (0, 0, -36), "RightHand": (0, 0, -10)},
-    5: {"Spine": (5, 0, -7), "RightArm": (0, 0, -25), "RightForeArm": (0, 0, -32), "RightHand": (0, 0, -14)},
-    6: {"Spine": (3, 0, -4), "RightArm": (0, 0, -14), "RightForeArm": (0, 0, -18)},
-    7: {"Spine": (1, 0, -2), "RightArm": (0, 0, -5), "RightForeArm": (0, 0, -7)},
-}
-for frame, rotations in wet_poses.items():
+def key_pose(frame, rotations=None, locations=None):
+    rotations = rotations or {}
+    locations = locations or {}
     for bone_name, euler_xyz in rotations.items():
         set_bone_rotation(bone_name, frame, euler_xyz)
-set_bone_location("Hips", 4, (0.0, -0.01, 0.0))
-set_bone_location("Hips", 5, (0.0, -0.01, 0.0))
+    for bone_name, loc in locations.items():
+        set_bone_location(bone_name, frame, loc)
 
-created_actions.append({
-    "name": "Corvin_act_i_clean_wet_side",
-    "frames": 8,
-    "source_action": "hand_authored_custom_brine",
-    "source_path": "",
-    "stats": action_stats(wet),
-})
+def author_action(name, frame_count, pose_table, source_label):
+    action = create_action(name)
+    for frame in range(1, frame_count + 1):
+        reset_pose(frame)
+        pose = pose_table.get(frame, {})
+        key_pose(frame, pose.get("rotations", {}), pose.get("locations", {}))
+    created_actions.append({
+        "name": name,
+        "frames": frame_count,
+        "source_action": source_label,
+        "source_path": "",
+        "stats": action_stats(action),
+    })
+
+# Broad authored side-view action beats. These are intentionally readable at
+# 256x512 cells: portrait VO can carry subtlety, but gameplay sprites need
+# silhouette changes a player can recognize while scanning a room.
+talk_poses = {
+    2: {
+        "rotations": {
+            "Spine": (0, 0, -5),
+            "Spine01": (0, 0, -3),
+            "Head": (0, 0, 6),
+            "RightArm": (0, 0, -18),
+            "RightForeArm": (0, 0, -24),
+            "RightHand": (0, 0, -12),
+        },
+        "locations": {"Head": (0.0, 0.0, 0.02)},
+    },
+    3: {
+        "rotations": {
+            "Spine": (0, 0, -8),
+            "Spine01": (0, 0, -5),
+            "Head": (0, 0, -4),
+            "RightArm": (0, 0, -42),
+            "RightForeArm": (0, 0, -58),
+            "RightHand": (0, 0, -25),
+        },
+        "locations": {"RightHand": (0.0, -0.05, 0.04)},
+    },
+    4: {
+        "rotations": {
+            "Spine": (0, 0, -4),
+            "Head": (0, 0, 8),
+            "RightArm": (0, 0, -26),
+            "RightForeArm": (0, 0, -32),
+        },
+    },
+    5: {
+        "rotations": {
+            "Spine": (0, 0, 3),
+            "Head": (0, 0, -6),
+            "LeftArm": (0, 0, 12),
+            "LeftForeArm": (0, 0, 18),
+        },
+    },
+}
+use_poses = {
+    2: {
+        "rotations": {
+            "Spine": (0, 0, -4),
+            "RightArm": (0, 0, -28),
+            "RightForeArm": (0, 0, -25),
+        },
+    },
+    3: {
+        "rotations": {
+            "Spine": (0, 0, -10),
+            "Spine01": (0, 0, -7),
+            "Head": (0, 0, -8),
+            "RightArm": (0, 0, -64),
+            "RightForeArm": (0, 0, -72),
+            "RightHand": (0, 0, -22),
+        },
+        "locations": {"RightHand": (0.0, -0.11, 0.03)},
+    },
+    4: {
+        "rotations": {
+            "Spine": (0, 0, -14),
+            "Spine01": (0, 0, -8),
+            "Head": (0, 0, -10),
+            "RightArm": (0, 0, -82),
+            "RightForeArm": (0, 0, -82),
+            "RightHand": (0, 0, -32),
+        },
+        "locations": {"RightHand": (0.0, -0.16, 0.06)},
+    },
+    5: {
+        "rotations": {
+            "Spine": (0, 0, -12),
+            "Head": (0, 0, -6),
+            "RightArm": (0, 0, -78),
+            "RightForeArm": (0, 0, -72),
+        },
+        "locations": {"RightHand": (0.0, -0.14, 0.05)},
+    },
+    6: {
+        "rotations": {
+            "Spine": (0, 0, -5),
+            "RightArm": (0, 0, -36),
+            "RightForeArm": (0, 0, -34),
+        },
+    },
+    7: {
+        "rotations": {
+            "Spine": (0, 0, 2),
+            "RightArm": (0, 0, -12),
+            "RightForeArm": (0, 0, -12),
+        },
+    },
+}
+wet_poses = {
+    2: {"rotations": {"Spine": (0, 0, -5), "RightArm": (0, 0, -24), "RightForeArm": (0, 0, -30)}},
+    3: {
+        "rotations": {
+            "Spine": (0, 0, -12),
+            "Spine01": (0, 0, -6),
+            "Head": (0, 0, -8),
+            "RightArm": (0, 0, -58),
+            "RightForeArm": (0, 0, -92),
+            "RightHand": (0, 0, -36),
+        },
+        "locations": {"RightHand": (0.0, -0.12, -0.02)},
+    },
+    4: {
+        "rotations": {
+            "Spine": (0, 0, -16),
+            "Spine01": (0, 0, -8),
+            "Head": (0, 0, -10),
+            "RightArm": (0, 0, -72),
+            "RightForeArm": (0, 0, -112),
+            "RightHand": (0, 0, -45),
+        },
+        "locations": {"RightHand": (0.0, -0.18, -0.04)},
+    },
+    5: {
+        "rotations": {
+            "Spine": (0, 0, -16),
+            "Head": (0, 0, -10),
+            "RightArm": (0, 0, -70),
+            "RightForeArm": (0, 0, -118),
+            "RightHand": (0, 0, -55),
+        },
+        "locations": {"RightHand": (0.0, -0.19, -0.05)},
+    },
+    6: {"rotations": {"Spine": (0, 0, -8), "RightArm": (0, 0, -38), "RightForeArm": (0, 0, -52)}},
+    7: {"rotations": {"Spine": (0, 0, -2), "RightArm": (0, 0, -15), "RightForeArm": (0, 0, -18)}},
+}
+
+author_action("Corvin_act_i_clean_talk_side", 6, talk_poses, "hand_authored_readable_talk")
+author_action("Corvin_act_i_clean_use_side", 8, use_poses, "hand_authored_readable_use")
+author_action("Corvin_act_i_clean_wet_side", 8, wet_poses, "hand_authored_custom_brine")
 
 base_armature.name = "Corvin_Act_I_Clean_Rig"
 base_armature.data.name = "Corvin_Act_I_Clean_Armature"
@@ -324,7 +476,7 @@ $status = [ordered]@{
     bone_count = [int]$result.bone_count
     rule_locks = @(
         "This tool authors Blender action source only; it does not create PNG sheets.",
-        "Talk and use are sampled from audited Meshy motion sources.",
+        "Talk and use are hand-authored readable side-view gameplay poses after Meshy motion proved too subtle.",
         "Wet is hand-authored as a custom physical brine action.",
         "The resulting blend still requires render-script and Godot import audits before any sprite sheet counts as present."
     )
@@ -346,7 +498,7 @@ $lines = @(
     "",
     "Rule locks:",
     "- This tool authors Blender action source only; it does not create PNG sheets.",
-    "- Talk and use are sampled from audited Meshy motion sources.",
+    "- Talk and use are hand-authored readable side-view gameplay poses after Meshy motion proved too subtle.",
     "- Wet is hand-authored as a custom physical brine action.",
     "- The resulting blend still requires render-script and Godot import audits before any sprite sheet counts as present.",
     "",

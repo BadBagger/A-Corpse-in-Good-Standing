@@ -2,11 +2,20 @@ $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
 $exportScript = Join-Path $PSScriptRoot "Export-Step5HumanReviewBundle.ps1"
+$exportCorvinContactSheetScript = Join-Path $PSScriptRoot "Export-CorvinSideActionContactSheet.ps1"
 $jsonPath = Join-Path $root "docs\checkpoints\step_5_human_review_bundle.json"
 $mdPath = Join-Path $root "docs\checkpoints\step_5_human_review_bundle.md"
 
 if (-not (Test-Path -LiteralPath $exportScript)) {
     throw "Missing Step 5 human review bundle exporter: $exportScript"
+}
+if (-not (Test-Path -LiteralPath $exportCorvinContactSheetScript)) {
+    throw "Missing Corvin side-action contact sheet exporter: $exportCorvinContactSheetScript"
+}
+
+& powershell -NoProfile -ExecutionPolicy Bypass -File $exportCorvinContactSheetScript
+if ($LASTEXITCODE -ne 0) {
+    throw "Corvin side-action contact sheet export failed."
 }
 
 & powershell -NoProfile -ExecutionPolicy Bypass -File $exportScript
@@ -114,7 +123,7 @@ foreach ($requiredText in @(
     "docs/art/corvin_side_action_render_commands.md",
     "Treat the Corvin side-action render commands as operator handoff commands; rendered outputs still need sheet audit and human animation review.",
     "docs/art/corvin_side_action_rendered_sheets_audit.md",
-    "Treat the Corvin side-action rendered-sheet audit as dimension, nonblank-frame, arterial-red, and byte-for-byte import proof only; it does not approve final animation polish.",
+    "Treat the Corvin side-action rendered-sheet audit as dimension, nonblank-frame, profile-silhouette, arterial-red, and byte-for-byte import proof only; it does not approve final animation polish.",
     "docs/art/act_i_background_ready_source_packets.md",
     "docs/art/act_i_look_target_reference.md",
     "docs/art/act_i_paintover_packet.md",
