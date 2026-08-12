@@ -1,7 +1,7 @@
 ﻿{
     "generated_from":  "docs/art/act_i_background_source_prompts.json",
     "purpose":  "Intake/status report for generated Act I background source prompt outputs.",
-    "status":  "no_source_outputs_present",
+    "status":  "source_outputs_present_unreviewed",
     "guardrails":  [
                        "Source prompt outputs do not count as final background art.",
                        "Meshy GLBs are helper geometry until imported through Blender and paintover.",
@@ -10,11 +10,12 @@
                        "Zero-byte source outputs fail intake."
                    ],
     "prompt_count":  130,
-    "present_count":  0,
-    "pending_count":  130,
+    "present_count":  3,
+    "pending_count":  127,
     "zero_byte_count":  0,
     "status_counts":  {
-                          "pending_source":  130
+                          "pending_source":  127,
+                          "source_present_unreviewed":  3
                       },
     "kind_counts":  {
                         "generated_reference":  41,
@@ -85,12 +86,12 @@
                      "kind":  "generated_reference",
                      "tool":  "imagegen",
                      "name":  "wet silt texture",
-                     "status":  "pending_source",
-                     "content_status":  "missing",
+                     "status":  "source_present_unreviewed",
+                     "content_status":  "present",
                      "expected_file_kind":  "png",
                      "source_path":  "docs/art/reference/act_i/mudflats/wet_silt_texture.png",
-                     "source_exists":  false,
-                     "source_size_bytes":  0,
+                     "source_exists":  true,
+                     "source_size_bytes":  3554576,
                      "runtime_path":  "",
                      "runtime_exists":  false,
                      "runtime_size_bytes":  0
@@ -103,12 +104,12 @@
                      "kind":  "generated_reference",
                      "tool":  "imagegen",
                      "name":  "cold horizon wash",
-                     "status":  "pending_source",
-                     "content_status":  "missing",
+                     "status":  "source_present_unreviewed",
+                     "content_status":  "present",
                      "expected_file_kind":  "png",
                      "source_path":  "docs/art/reference/act_i/mudflats/cold_horizon_wash.png",
-                     "source_exists":  false,
-                     "source_size_bytes":  0,
+                     "source_exists":  true,
+                     "source_size_bytes":  2819641,
                      "runtime_path":  "",
                      "runtime_exists":  false,
                      "runtime_size_bytes":  0
@@ -121,12 +122,12 @@
                      "kind":  "generated_reference",
                      "tool":  "imagegen",
                      "name":  "dawn haze",
-                     "status":  "pending_source",
-                     "content_status":  "missing",
+                     "status":  "source_present_unreviewed",
+                     "content_status":  "present",
                      "expected_file_kind":  "png",
                      "source_path":  "docs/art/reference/act_i/mudflats/dawn_haze.png",
-                     "source_exists":  false,
-                     "source_size_bytes":  0,
+                     "source_exists":  true,
+                     "source_size_bytes":  2761944,
                      "runtime_path":  "",
                      "runtime_exists":  false,
                      "runtime_size_bytes":  0
