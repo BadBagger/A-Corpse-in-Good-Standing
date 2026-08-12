@@ -99,6 +99,8 @@ foreach ($requiredText in @(
     "docs/playtest/act_i_review_handoff_sync.md",
     "docs/art/act_i_review_contact_sheet.html",
     "docs/art/act_i_hotspot_overlay.svg",
+    "docs/art/corvin_side_action_scaffold.md",
+    "Treat Corvin side-action scaffolds as Blender handoff notes only; they do not approve pending talk/use/wet PNG sheets.",
     "docs/art/act_i_background_ready_source_packets.md",
     "docs/art/act_i_look_target_reference.md",
     "docs/art/act_i_paintover_packet.md",
