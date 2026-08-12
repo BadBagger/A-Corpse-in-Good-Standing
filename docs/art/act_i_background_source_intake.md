@@ -13,8 +13,8 @@ Guardrails:
 
 Counts:
 - Prompts: 130
-- Present source outputs: 7
-- Pending source outputs: 123
+- Present source outputs: 10
+- Pending source outputs: 120
 - Zero-byte outputs: 0
 - generated_reference: 41
 - interactive_layer: 25
@@ -55,9 +55,9 @@ Counts:
 
 | ID | Kind | Tool | Status | Source | Runtime |
 |---|---|---|---|---|---|
-| salt_market_generated_reference_market_awning_texture | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/salt_market/market_awning_texture.png` | `-` |
-| salt_market_generated_reference_public_crowd_mood | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/salt_market/public_crowd_mood.png` | `-` |
-| salt_market_generated_reference_salt_signage_grime | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/salt_market/salt_signage_grime.png` | `-` |
+| salt_market_generated_reference_market_awning_texture | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/salt_market/market_awning_texture.png` | `-` |
+| salt_market_generated_reference_public_crowd_mood | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/salt_market/public_crowd_mood.png` | `-` |
+| salt_market_generated_reference_salt_signage_grime | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/salt_market/salt_signage_grime.png` | `-` |
 | salt_market_interactive_layer_boot_stall | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/salt_market/bootstall.psd` | `game/rooms/salt_market/props/bootstall.png` |
 | salt_market_interactive_layer_church_sign | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/salt_market/churchsign.psd` | `game/rooms/salt_market/props/churchsign.png` |
 | salt_market_interactive_layer_confession_queue | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/salt_market/confessionqueue.psd` | `game/rooms/salt_market/props/confessionqueue.png` |
