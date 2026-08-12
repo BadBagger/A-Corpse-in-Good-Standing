@@ -111,7 +111,7 @@ foreach ($requiredText in @(
     "docs/art/act_i_review_contact_sheet.html",
     "Each room blockout appears with walk band, marker positions, hotspot rows, duel-format lock, and Grey Float hard-R lock.",
     "Export, validate, and fill the batch review decision sheet.",
-    "every non-pending decision includes reviewer, reviewed_at, and decision_note",
+    "every non-pending decision includes build_commit, reviewer, reviewed_at, and decision_note",
     "Dry-run the batch review decisions.",
     "Apply the reviewed decision sheet after the dry run is clean.",
     "docs/playtest/act_i_review_decisions_template.csv",
@@ -135,7 +135,7 @@ foreach ($requiredText in @(
     "docs/art/act_i_final_paintover_completion.md",
     "Audit paintover review provenance across all final-art handoff layers.",
     "docs/art/act_i_paintover_review_provenance.md",
-    "Approved rooms carry identical reviewer, reviewed_at, and decision_note proof from tracker through completion."
+    "Approved rooms carry identical build_commit, reviewer, reviewed_at, and decision_note proof from tracker through completion."
 )) {
     if ($report -notmatch [regex]::Escape($requiredText)) {
         throw "Step 5 review dashboard missing required text: $requiredText"

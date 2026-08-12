@@ -106,6 +106,7 @@ $lines = @(
     "",
     "- Launch review: ``$($bundle.launch_command)``",
     "- Preflight without launch: ``$($bundle.no_launch_preflight_command)``",
+    '- Copy the generated `Build commit:` value from `docs/playtest/results/act_i_human_playtest_latest.md` into `build_commit` for every non-pending decision row.',
     "- Dry-run decisions: ``$($bundle.dry_run_decisions_command)``",
     "- Apply decisions after a clean dry run: ``$($bundle.apply_decisions_command)``",
     "",

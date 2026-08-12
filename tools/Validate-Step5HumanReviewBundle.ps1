@@ -81,6 +81,8 @@ foreach ($requiredText in @(
     "Decision CSV rows: 11",
     "Launch review:",
     "Preflight without launch:",
+    'Copy the generated `Build commit:` value',
+    'into `build_commit` for every non-pending decision row',
     "Dry-run decisions:",
     "Apply decisions after a clean dry run:",
     "accepted Litany/Registrar duel format",

@@ -192,7 +192,7 @@ $workflow = @(
         action = "Export, validate, and fill the batch review decision sheet."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIReviewDecisionTemplate.ps1"
         artifact = "docs/playtest/act_i_review_decisions_template.csv"
-        pass_condition = "Template has all 11 rooms, no malformed Markdown, and reviewer records one decision per room; every non-pending decision includes reviewer, reviewed_at, and decision_note."
+        pass_condition = "Template has all 11 rooms, no malformed Markdown, and reviewer records one decision per room; every non-pending decision includes build_commit, reviewer, reviewed_at, and decision_note."
     },
     [ordered]@{
         step = 21
@@ -248,7 +248,7 @@ $workflow = @(
         action = "Audit paintover review provenance across all final-art handoff layers."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverReviewProvenance.ps1"
         artifact = "docs/art/act_i_paintover_review_provenance.md"
-        pass_condition = "Approved rooms carry identical reviewer, reviewed_at, and decision_note proof from tracker through completion."
+        pass_condition = "Approved rooms carry identical build_commit, reviewer, reviewed_at, and decision_note proof from tracker through completion."
     }
 )
 
