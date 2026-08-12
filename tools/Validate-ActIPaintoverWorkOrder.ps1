@@ -50,15 +50,18 @@ foreach ($room in $workRooms) {
     if (@($gateRoom.blockers).Count -gt 0) {
         throw "Paintover work order includes blocked room: $($room.room_id)"
     }
-    foreach ($requiredReviewField in @("review_status", "reviewer_decision", "reviewer", "reviewed_at", "decision_note")) {
+    foreach ($requiredReviewField in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note")) {
         if ($null -eq $room.$requiredReviewField -or [string]$room.$requiredReviewField -eq "") {
             throw "Paintover work order room $($room.room_id) missing review proof field: $requiredReviewField"
         }
     }
+    if ([string]$room.build_commit -notmatch '^(unknown|[0-9a-f]{7,40})$') {
+        throw "Paintover work order room $($room.room_id) has invalid build_commit: $($room.build_commit)"
+    }
     if ($room.review_status -ne "approved" -or $room.reviewer_decision -ne "approved") {
         throw "Paintover work order room $($room.room_id) is not backed by approved review statuses."
     }
-    foreach ($requiredReviewField in @("reviewer", "reviewed_at", "decision_note")) {
+    foreach ($requiredReviewField in @("build_commit", "reviewer", "reviewed_at", "decision_note")) {
         if ([string]$room.$requiredReviewField -ne [string]$gateRoom.$requiredReviewField) {
             throw "Paintover work order room $($room.room_id) review proof does not match start gate field: $requiredReviewField"
         }
@@ -89,7 +92,7 @@ foreach ($requiredText in @(
     }
 }
 if ($workRooms.Count -gt 0) {
-    foreach ($requiredText in @("Reviewer:", "Reviewed at:", "Decision note:")) {
+    foreach ($requiredText in @("Build commit:", "Reviewer:", "Reviewed at:", "Decision note:")) {
         if ($report -notmatch [regex]::Escape($requiredText)) {
             throw "Act I paintover work order report missing review proof text: $requiredText"
         }

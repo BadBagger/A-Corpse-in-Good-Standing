@@ -46,6 +46,7 @@ function Get-Proof {
     return [ordered]@{
         review_status = [string]$Row.review_status
         reviewer_decision = [string]$Row.reviewer_decision
+        build_commit = [string]$Row.build_commit
         reviewer = [string]$Row.reviewer
         reviewed_at = [string]$Row.reviewed_at
         decision_note = [string]$Row.decision_note
@@ -59,10 +60,13 @@ function Assert-ProofPresent {
         $Row
     )
 
-    foreach ($field in @("review_status", "reviewer_decision", "reviewer", "reviewed_at", "decision_note")) {
+    foreach ($field in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note")) {
         if ($null -eq $Row.$field -or [string]$Row.$field -eq "") {
             throw "Room $RoomId has approved $Layer state without review proof field: $field"
         }
+    }
+    if ([string]$Row.build_commit -notmatch '^(unknown|[0-9a-f]{7,40})$') {
+        throw "Room $RoomId has approved $Layer state with invalid build_commit: $($Row.build_commit)"
     }
 }
 
@@ -75,7 +79,7 @@ function Assert-ProofMatches {
         $ToRow
     )
 
-    foreach ($field in @("review_status", "reviewer_decision", "reviewer", "reviewed_at", "decision_note")) {
+    foreach ($field in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note")) {
         if ([string]$FromRow.$field -ne [string]$ToRow.$field) {
             throw "Room $RoomId review proof mismatch from $FromLayer to $ToLayer on field $field."
         }
@@ -124,6 +128,7 @@ foreach ($trackerRoom in $trackerRooms) {
         work_order_present = $null -ne $workOrderRoom
         intake_status = $intakeRow.intake_status
         completion_status = $completionRow.completion_status
+        build_commit = if ($approved) { [string]$trackerRoom.build_commit } else { "" }
         reviewer = if ($approved) { [string]$trackerRoom.reviewer } else { "" }
         reviewed_at = if ($approved) { [string]$trackerRoom.reviewed_at } else { "" }
     }
@@ -168,17 +173,18 @@ $lines = @(
     "Completion-approved rows: $($completionApprovedRows.Count)",
     "",
     "Rule locks:",
-    "- Approved rooms must carry reviewer, reviewed_at, and decision_note.",
+    "- Approved rooms must carry build_commit, reviewer, reviewed_at, and decision_note.",
     "- Start gate, work order, source intake, and final completion proof must match the tracker proof exactly.",
     "- Blocked rooms may have blank reviewer fields but cannot appear as approved downstream.",
     "",
-    "| Room | Decision | Start Ready | Work Order | Intake | Completion | Reviewer | Reviewed At |",
-    "|---|---|---|---|---|---|---|---|"
+    "| Room | Decision | Start Ready | Work Order | Intake | Completion | Build | Reviewer | Reviewed At |",
+    "|---|---|---|---|---|---|---|---|---|"
 )
 foreach ($row in ($auditRows | Sort-Object room_code)) {
+    $buildText = if ([string]::IsNullOrWhiteSpace([string]$row.build_commit)) { "none" } else { [string]$row.build_commit }
     $reviewerText = if ([string]::IsNullOrWhiteSpace([string]$row.reviewer)) { "none" } else { [string]$row.reviewer }
     $reviewedAtText = if ([string]::IsNullOrWhiteSpace([string]$row.reviewed_at)) { "none" } else { [string]$row.reviewed_at }
-    $lines += "| $($row.room_code) $($row.title) | $($row.tracker_decision) | $($row.start_gate_ready) | $($row.work_order_present) | $($row.intake_status) | $($row.completion_status) | $reviewerText | $reviewedAtText |"
+    $lines += "| $($row.room_code) $($row.title) | $($row.tracker_decision) | $($row.start_gate_ready) | $($row.work_order_present) | $($row.intake_status) | $($row.completion_status) | $buildText | $reviewerText | $reviewedAtText |"
 }
 Set-Content -LiteralPath $mdPath -Value $lines -Encoding UTF8
 
@@ -186,7 +192,9 @@ $report = Get-Content -LiteralPath $mdPath -Raw
 foreach ($requiredText in @(
     "Act I Paintover Review Provenance",
     "human-review proof survives every final-art handoff layer",
-    "Start gate, work order, source intake, and final completion proof must match the tracker proof exactly"
+    "Approved rooms must carry build_commit, reviewer, reviewed_at, and decision_note.",
+    "Start gate, work order, source intake, and final completion proof must match the tracker proof exactly",
+    "Build"
 )) {
     if ($report -notmatch [regex]::Escape($requiredText)) {
         throw "Act I paintover review provenance report missing required text: $requiredText"

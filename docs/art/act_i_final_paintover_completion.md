@@ -13,21 +13,21 @@ Blocked not started: 11
 Completion rule:
 - A room is complete only when its PSD is accepted by source intake, its exported PNG is newer than that PSD, and the exported PNG passes G9/G10 palette audit.
 - Accepted PSD sources must carry valid_psd_source proof from asset status into final completion.
-- Approved, pending, or complete final rows must preserve reviewer metadata from source intake.
+- Approved, pending, or complete final rows must preserve build_commit and reviewer metadata from source intake.
 - Existing greybox PNGs do not count as final paintover exports.
 - Accepted Litany/Registrar duel format remains locked.
 - Grey Float remains hard-R: steam, silhouette, privacy, and agency only.
 
-| Room | Approved | Reviewer | Reviewed At | Intake | Source Proof | PSD Bytes | Completion | PSD Present | Export Present | Export Newer | Palette Pass |
-|---|---|---|---|---|---|---:|---|---|---|---|---|
-| R01 Mudflats | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
-| R02 The Old Quay | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
-| R03 Salt Market | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
-| R05 Harbor Registry | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
-| R06 The Bone Chandler | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
-| R07 The Almshouse | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
-| R08 The Fish Hall | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
-| R09 Church of the Drowned | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
-| R10 The Grey Float | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
-| R11 Harbormaster's Office | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
-| R12 Sabine's Office | False | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| Room | Approved | Build | Reviewer | Reviewed At | Intake | Source Proof | PSD Bytes | Completion | PSD Present | Export Present | Export Newer | Palette Pass |
+|---|---|---|---|---|---|---|---:|---|---|---|---|---|
+| R01 Mudflats | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| R02 The Old Quay | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| R03 Salt Market | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| R05 Harbor Registry | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| R06 The Bone Chandler | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| R07 The Almshouse | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| R08 The Fish Hall | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| R09 Church of the Drowned | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| R10 The Grey Float | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| R11 Harbormaster's Office | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |
+| R12 Sabine's Office | False | none | none | none | blocked_pending | missing | 0 | blocked_not_started | False | True | False | True |

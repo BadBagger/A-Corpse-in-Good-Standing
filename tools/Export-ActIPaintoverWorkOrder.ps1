@@ -44,6 +44,7 @@ foreach ($gateRoom in $gateRooms) {
         title = $gateRoom.title
         review_status = $gateRoom.review_status
         reviewer_decision = $gateRoom.reviewer_decision
+        build_commit = $gateRoom.build_commit
         reviewer = $gateRoom.reviewer
         reviewed_at = $gateRoom.reviewed_at
         decision_note = $gateRoom.decision_note
@@ -114,6 +115,7 @@ if ($workRooms.Count -eq 0) {
         $lines += ""
         $lines += "- Review status: $($room.review_status)"
         $lines += "- Reviewer decision: $($room.reviewer_decision)"
+        $lines += "- Build commit: $($room.build_commit)"
         $lines += "- Reviewer: $($room.reviewer)"
         $lines += "- Reviewed at: $($room.reviewed_at)"
         $lines += "- Decision note: $($room.decision_note)"

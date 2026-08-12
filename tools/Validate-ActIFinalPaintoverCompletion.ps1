@@ -49,7 +49,7 @@ foreach ($room in $manifestRooms) {
     }
     $approvedByWorkOrder = $intakeRow.approved_by_work_order -eq "True" -or [bool]$intakeRow.approved_by_work_order
     if ($approvedByWorkOrder) {
-        foreach ($requiredReviewField in @("review_status", "reviewer_decision", "reviewer", "reviewed_at", "decision_note")) {
+        foreach ($requiredReviewField in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note")) {
             if ($null -eq $intakeRow.$requiredReviewField -or [string]$intakeRow.$requiredReviewField -eq "") {
                 throw "Approved final paintover completion input $($room.room_id) is missing intake review proof field: $requiredReviewField"
             }
@@ -90,6 +90,7 @@ foreach ($room in $manifestRooms) {
         approved_by_work_order = $approvedByWorkOrder
         review_status = if ($approvedByWorkOrder) { $intakeRow.review_status } else { "" }
         reviewer_decision = if ($approvedByWorkOrder) { $intakeRow.reviewer_decision } else { "" }
+        build_commit = if ($approvedByWorkOrder) { $intakeRow.build_commit } else { "" }
         reviewer = if ($approvedByWorkOrder) { $intakeRow.reviewer } else { "" }
         reviewed_at = if ($approvedByWorkOrder) { $intakeRow.reviewed_at } else { "" }
         decision_note = if ($approvedByWorkOrder) { $intakeRow.decision_note } else { "" }
@@ -112,7 +113,7 @@ $pendingFinalExportRows = @($completionRows | Where-Object { $_.completion_statu
 $approvedMissingRows = @($completionRows | Where-Object { $_.completion_status -eq "approved_source_missing" })
 $blockedRows = @($completionRows | Where-Object { $_.completion_status -eq "blocked_not_started" })
 foreach ($row in @($completionRows | Where-Object { $_.completion_status -in @("complete", "pending_final_export", "approved_source_missing") })) {
-    foreach ($requiredReviewField in @("review_status", "reviewer_decision", "reviewer", "reviewed_at", "decision_note")) {
+    foreach ($requiredReviewField in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note")) {
         if ($null -eq $row.$requiredReviewField -or [string]$row.$requiredReviewField -eq "") {
             throw "Final paintover completion row $($row.room_id) has approved status without review proof field: $requiredReviewField"
         }
@@ -152,25 +153,26 @@ $lines = @(
     "Completion rule:",
     "- A room is complete only when its PSD is accepted by source intake, its exported PNG is newer than that PSD, and the exported PNG passes G9/G10 palette audit.",
     "- Accepted PSD sources must carry valid_psd_source proof from asset status into final completion.",
-    "- Approved, pending, or complete final rows must preserve reviewer metadata from source intake.",
+    "- Approved, pending, or complete final rows must preserve build_commit and reviewer metadata from source intake.",
     "- Existing greybox PNGs do not count as final paintover exports.",
     "- Accepted Litany/Registrar duel format remains locked.",
     "- Grey Float remains hard-R: steam, silhouette, privacy, and agency only.",
     "",
-    "| Room | Approved | Reviewer | Reviewed At | Intake | Source Proof | PSD Bytes | Completion | PSD Present | Export Present | Export Newer | Palette Pass |",
-    "|---|---|---|---|---|---|---:|---|---|---|---|---|"
+    "| Room | Approved | Build | Reviewer | Reviewed At | Intake | Source Proof | PSD Bytes | Completion | PSD Present | Export Present | Export Newer | Palette Pass |",
+    "|---|---|---|---|---|---|---|---:|---|---|---|---|---|"
 )
 foreach ($row in ($completionRows | Sort-Object room_code)) {
+    $buildText = if ([string]::IsNullOrWhiteSpace([string]$row.build_commit)) { "none" } else { [string]$row.build_commit }
     $reviewerText = if ([string]::IsNullOrWhiteSpace([string]$row.reviewer)) { "none" } else { [string]$row.reviewer }
     $reviewedAtText = if ([string]::IsNullOrWhiteSpace([string]$row.reviewed_at)) { "none" } else { [string]$row.reviewed_at }
-    $lines += "| $($row.room_code) $($row.title) | $($row.approved_by_work_order) | $reviewerText | $reviewedAtText | $($row.intake_status) | $($row.source_content_status) | $($row.source_size_bytes) | $($row.completion_status) | $($row.source_present) | $($row.export_present) | $($row.export_newer_than_source) | $($row.palette_pass) |"
+    $lines += "| $($row.room_code) $($row.title) | $($row.approved_by_work_order) | $buildText | $reviewerText | $reviewedAtText | $($row.intake_status) | $($row.source_content_status) | $($row.source_size_bytes) | $($row.completion_status) | $($row.source_present) | $($row.export_present) | $($row.export_newer_than_source) | $($row.palette_pass) |"
 }
 Set-Content -LiteralPath $mdPath -Value $lines -Encoding UTF8
 
 $report = Get-Content -LiteralPath $mdPath -Raw
 foreach ($requiredText in @(
     "Act I Final Paintover Completion",
-    "Approved, pending, or complete final rows must preserve reviewer metadata from source intake.",
+    "Approved, pending, or complete final rows must preserve build_commit and reviewer metadata from source intake.",
     "Accepted PSD sources must carry valid_psd_source proof",
     "Existing greybox PNGs do not count as final paintover exports",
     "exported PNG is newer than that PSD",

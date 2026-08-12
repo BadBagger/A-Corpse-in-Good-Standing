@@ -192,6 +192,9 @@ foreach ($room in $trackerRooms) {
     $lines += ""
 }
 
+while ($lines.Count -gt 0 -and [string]::IsNullOrWhiteSpace([string]$lines[$lines.Count - 1])) {
+    $lines = @($lines | Select-Object -First ($lines.Count - 1))
+}
 Set-Content -LiteralPath $mdPath -Value $lines -Encoding UTF8
 
 Write-Host "Exported Act I review fix tracker JSON -> $jsonPath"

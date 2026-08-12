@@ -21,8 +21,13 @@ if (Test-Path -LiteralPath $psdPath) {
     throw "Act I paintover source intake test refuses to overwrite existing PSD fixture: $psdPath"
 }
 
-$originalTrackerJson = Get-Content -LiteralPath $trackerPath -Raw
-$originalTrackerMd = Get-Content -LiteralPath $trackerMdPath -Raw
+function Normalize-TestRestoreText {
+    param([string]$Text)
+    return $Text.TrimEnd("`r", "`n") + "`r`n"
+}
+
+$originalTrackerJson = Normalize-TestRestoreText (Get-Content -LiteralPath $trackerPath -Raw)
+$originalTrackerMd = Normalize-TestRestoreText (Get-Content -LiteralPath $trackerMdPath -Raw)
 $originalIntakeJson = if (Test-Path -LiteralPath $intakePath) { Get-Content -LiteralPath $intakePath -Raw } else { $null }
 $originalIntakeMd = if (Test-Path -LiteralPath $intakeMdPath) { Get-Content -LiteralPath $intakeMdPath -Raw } else { $null }
 
@@ -48,7 +53,7 @@ try {
         throw "Paintover source intake failure did not explain unapproved PSD."
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for source-intake simulation; accepted Litany format preserved."
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit "abcdef1" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for source-intake simulation; accepted Litany format preserved."
     if ($LASTEXITCODE -ne 0) { throw "Failed to approve Harbor Registry for intake simulation." }
     & powershell -NoProfile -ExecutionPolicy Bypass -File $startGateScript
     if ($LASTEXITCODE -ne 0) { throw "Start gate validation failed after intake simulation approval." }
@@ -62,8 +67,8 @@ try {
         throw "Paintover source intake did not accept exactly one approved PSD in simulation."
     }
     $registryRow = @($intake.rows | Where-Object { $_.room_id -eq "harbor_registry" })[0]
-    if ($registryRow.reviewer -ne "Automated test" -or $registryRow.reviewed_at -ne "2026-08-11" -or $registryRow.decision_note -notmatch "source-intake simulation") {
-        throw "Paintover source intake did not preserve reviewer metadata from the approved work order."
+    if ($registryRow.build_commit -ne "abcdef1" -or $registryRow.reviewer -ne "Automated test" -or $registryRow.reviewed_at -ne "2026-08-11" -or $registryRow.decision_note -notmatch "source-intake simulation") {
+        throw "Paintover source intake did not preserve build_commit and reviewer metadata from the approved work order."
     }
     if ($registryRow.content_status -ne "valid_psd_source" -or -not [bool]$registryRow.valid_paintover_source) {
         throw "Paintover source intake did not preserve valid PSD source proof."

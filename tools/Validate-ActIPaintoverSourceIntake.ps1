@@ -34,7 +34,7 @@ $workOrder = Get-Content -LiteralPath $workOrderPath -Raw | ConvertFrom-Json
 $approvedRoomIds = @($workOrder.rooms | ForEach-Object { $_.room_id })
 $workOrderByRoom = @{}
 foreach ($approvedRoom in @($workOrder.rooms)) {
-    foreach ($requiredReviewField in @("review_status", "reviewer_decision", "reviewer", "reviewed_at", "decision_note")) {
+    foreach ($requiredReviewField in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note")) {
         if ($null -eq $approvedRoom.$requiredReviewField -or [string]$approvedRoom.$requiredReviewField -eq "") {
             throw "Approved work-order room $($approvedRoom.room_id) is missing review proof field for source intake: $requiredReviewField"
         }
@@ -68,6 +68,7 @@ foreach ($row in $paintoverRows) {
         approved_by_work_order = $approved
         review_status = if ($approved) { $approvedWorkRoom.review_status } else { "" }
         reviewer_decision = if ($approved) { $approvedWorkRoom.reviewer_decision } else { "" }
+        build_commit = if ($approved) { $approvedWorkRoom.build_commit } else { "" }
         reviewer = if ($approved) { $approvedWorkRoom.reviewer } else { "" }
         reviewed_at = if ($approved) { $approvedWorkRoom.reviewed_at } else { "" }
         decision_note = if ($approved) { $approvedWorkRoom.decision_note } else { "" }
@@ -82,7 +83,7 @@ foreach ($row in $paintoverRows) {
 
 foreach ($intakeRow in @($intakeRows | Where-Object { [bool]$_.approved_by_work_order })) {
     $workRoom = $workOrderByRoom[$intakeRow.room_id]
-    foreach ($requiredReviewField in @("review_status", "reviewer_decision", "reviewer", "reviewed_at", "decision_note")) {
+    foreach ($requiredReviewField in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note")) {
         if ($null -eq $intakeRow.$requiredReviewField -or [string]$intakeRow.$requiredReviewField -eq "") {
             throw "Approved intake row $($intakeRow.room_id) is missing review proof field: $requiredReviewField"
         }
@@ -140,18 +141,19 @@ $lines = @(
     "Rule locks:",
     "- A PSD can count only when the room appears in the approved-room work order.",
     "- A PSD can be accepted only when asset status reports valid_psd_source with a nonzero size.",
-    "- Approved or accepted PSD rows must preserve reviewer metadata from the work order.",
+    "- Approved or accepted PSD rows must preserve build_commit and reviewer metadata from the work order.",
     "- Do not create placeholder PSDs for blocked rooms.",
     "- Accepted Litany/Registrar duel format remains locked.",
     "- Grey Float remains hard-R: steam, silhouette, privacy, and agency only.",
     "",
-    "| Room | Work Order Approved | Reviewer | Reviewed At | Source Status | Content Status | Bytes | Intake Status | Path |",
-    "|---|---|---|---|---|---|---:|---|---|"
+    "| Room | Work Order Approved | Build | Reviewer | Reviewed At | Source Status | Content Status | Bytes | Intake Status | Path |",
+    "|---|---|---|---|---|---|---|---:|---|---|"
 )
 foreach ($row in ($intakeRows | Sort-Object room_code)) {
+    $buildText = if ([string]::IsNullOrWhiteSpace([string]$row.build_commit)) { "none" } else { [string]$row.build_commit }
     $reviewerText = if ([string]::IsNullOrWhiteSpace([string]$row.reviewer)) { "none" } else { [string]$row.reviewer }
     $reviewedAtText = if ([string]::IsNullOrWhiteSpace([string]$row.reviewed_at)) { "none" } else { [string]$row.reviewed_at }
-    $lines += "| $($row.room_code) $($row.title) | $($row.approved_by_work_order) | $reviewerText | $reviewedAtText | $($row.source_status) | $($row.content_status) | $($row.size_bytes) | $($row.intake_status) | ``$($row.relative_path)`` |"
+    $lines += "| $($row.room_code) $($row.title) | $($row.approved_by_work_order) | $buildText | $reviewerText | $reviewedAtText | $($row.source_status) | $($row.content_status) | $($row.size_bytes) | $($row.intake_status) | ``$($row.relative_path)`` |"
 }
 Set-Content -LiteralPath $mdPath -Value $lines -Encoding UTF8
 
@@ -165,8 +167,9 @@ if ($report -match "[^\u0000-\u007F]") {
     throw "Act I paintover source intake report must stay ASCII-only."
 }
 foreach ($requiredText in @(
-    "Approved or accepted PSD rows must preserve reviewer metadata from the work order.",
+    "Approved or accepted PSD rows must preserve build_commit and reviewer metadata from the work order.",
     "valid_psd_source",
+    "Build",
     "Reviewer",
     "Reviewed At"
 )) {

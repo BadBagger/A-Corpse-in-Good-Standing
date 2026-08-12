@@ -48,6 +48,12 @@ foreach ($room in $trackerRooms) {
         $blockers += "not_approved_for_paintover"
     }
     if ($room.review_status -ne "pending_review" -or $room.reviewer_decision -ne "pending_review") {
+        if ([string]::IsNullOrWhiteSpace([string]$room.build_commit)) {
+            $blockers += "build_commit_missing"
+        }
+        elseif ([string]$room.build_commit -notmatch '^(unknown|[0-9a-f]{7,40})$') {
+            $blockers += "build_commit_invalid"
+        }
         if ([string]::IsNullOrWhiteSpace([string]$room.reviewer) -or [string]::IsNullOrWhiteSpace([string]$room.reviewed_at) -or [string]::IsNullOrWhiteSpace([string]$room.decision_note)) {
             $blockers += "review_metadata_missing"
         }

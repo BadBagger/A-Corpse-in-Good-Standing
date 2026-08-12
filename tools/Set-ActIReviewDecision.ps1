@@ -8,6 +8,7 @@ param(
     [string]$ContentCompliance = "",
     [string]$DuelFormat = "",
     [string]$VoTimingOrPacing = "",
+    [string]$BuildCommit = "",
     [string]$Reviewer = "",
     [string]$ReviewedAt = "",
     [string]$DecisionNote = "",
@@ -56,12 +57,19 @@ if ($Decision -notin $allowedRoomStatuses) {
 
 Set-ReviewProperty -Target $room -Name "review_status" -Value $Decision
 Set-ReviewProperty -Target $room -Name "reviewer_decision" -Value $Decision
+Set-ReviewProperty -Target $room -Name "build_commit" -Value $BuildCommit
 Set-ReviewProperty -Target $room -Name "reviewer" -Value $Reviewer
 Set-ReviewProperty -Target $room -Name "reviewed_at" -Value $ReviewedAt
 Set-ReviewProperty -Target $room -Name "decision_note" -Value $DecisionNote
 Set-ReviewProperty -Target $room -Name "approved_for_paintover" -Value ($Decision -eq "approved")
 
 if ($Decision -ne "pending_review") {
+    if ([string]::IsNullOrWhiteSpace($BuildCommit)) {
+        throw "Room '$RoomId' has non-pending decision '$Decision' and must include -BuildCommit."
+    }
+    if ($BuildCommit -notmatch '^(unknown|[0-9a-f]{7,40})$') {
+        throw "Room '$RoomId' has invalid -BuildCommit '$BuildCommit'. Expected a git hash or unknown."
+    }
     if ([string]::IsNullOrWhiteSpace($Reviewer) -or [string]::IsNullOrWhiteSpace($ReviewedAt) -or [string]::IsNullOrWhiteSpace($DecisionNote)) {
         throw "Room '$RoomId' has non-pending decision '$Decision' and must include -Reviewer, -ReviewedAt, and -DecisionNote."
     }

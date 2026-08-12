@@ -23,6 +23,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  },
@@ -35,6 +36,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  },
@@ -47,6 +49,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  },
@@ -59,6 +62,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  },
@@ -71,6 +75,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  },
@@ -83,6 +88,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  },
@@ -95,6 +101,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  },
@@ -107,6 +114,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  },
@@ -119,6 +127,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  },
@@ -131,6 +140,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  },
@@ -143,6 +153,7 @@
                      "work_order_present":  false,
                      "intake_status":  "blocked_pending",
                      "completion_status":  "blocked_not_started",
+                     "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  ""
                  }
