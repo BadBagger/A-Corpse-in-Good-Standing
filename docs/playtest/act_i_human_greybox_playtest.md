@@ -15,10 +15,10 @@ powershell -ExecutionPolicy Bypass -File tools\Record-ActIGreyboxPlaytest.ps1
 Or use the launcher to refresh the automated route, create timestamped notes, and open the playable Godot build:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File tools\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport
+powershell -ExecutionPolicy Bypass -File tools\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport -ResetNarrativeState
 ```
 
-Then start from a clean save.
+The launcher clears the persisted Act I narrative state before Godot opens.
 
 ## Player Instructions
 

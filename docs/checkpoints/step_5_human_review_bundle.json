@@ -12,51 +12,51 @@
                            "docs/art/act_i_background_ready_source_packets.md",
                            "docs/art/act_i_paintover_packet.md"
                        ],
-    "generated_at_utc":  "2026-08-12T00:48:36.2848592Z",
+    "generated_at_utc":  "2026-08-12T01:43:41.6907996Z",
     "source_modified_utc":  [
                                 {
                                     "path":  "docs/checkpoints/step_5_review_dashboard.json",
-                                    "modified_utc":  "2026-08-12T00:48:29.7497540Z"
+                                    "modified_utc":  "2026-08-12T01:43:32.6822520Z"
                                 },
                                 {
                                     "path":  "docs/checkpoints/step_5_act_i_art_pass_readiness.md",
-                                    "modified_utc":  "2026-08-12T00:47:59.4819954Z"
+                                    "modified_utc":  "2026-08-12T01:43:41.3057944Z"
                                 },
                                 {
                                     "path":  "docs/playtest/act_i_player_review_card.md",
-                                    "modified_utc":  "2026-08-12T00:48:14.9363926Z"
+                                    "modified_utc":  "2026-08-12T01:43:32.3826555Z"
                                 },
                                 {
                                     "path":  "docs/playtest/results/act_i_human_playtest_latest.md",
-                                    "modified_utc":  "2026-08-12T00:47:44.1645860Z"
+                                    "modified_utc":  "2026-08-12T01:43:22.0631482Z"
                                 },
                                 {
                                     "path":  "docs/playtest/act_i_review_decisions_template.csv",
-                                    "modified_utc":  "2026-08-12T00:47:44.1635840Z"
+                                    "modified_utc":  "2026-08-12T01:43:22.0631482Z"
                                 },
                                 {
                                     "path":  "docs/playtest/act_i_review_handoff_sync.md",
-                                    "modified_utc":  "2026-08-12T00:48:15.6711427Z"
+                                    "modified_utc":  "2026-08-12T01:43:33.0939754Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_paintover_start_gate.json",
-                                    "modified_utc":  "2026-08-12T00:46:44.2925463Z"
+                                    "modified_utc":  "2026-08-12T01:42:14.1206865Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_review_contact_sheet.html",
-                                    "modified_utc":  "2026-08-12T00:47:44.1620785Z"
+                                    "modified_utc":  "2026-08-12T01:43:22.0599325Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_hotspot_overlay.svg",
-                                    "modified_utc":  "2026-08-11T15:35:48.8208500Z"
+                                    "modified_utc":  "2026-08-12T01:08:26.3031506Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_background_ready_source_packets.md",
-                                    "modified_utc":  "2026-08-12T00:48:14.6682245Z"
+                                    "modified_utc":  "2026-08-12T01:43:32.1255337Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_paintover_packet.md",
-                                    "modified_utc":  "2026-08-12T00:45:08.8296524Z"
+                                    "modified_utc":  "2026-08-12T01:40:32.2665626Z"
                                 }
                             ],
     "purpose":  "Compact Step 5 human-review launch bundle for Act I art-pass review.",
@@ -65,8 +65,8 @@
     "ready_rooms":  0,
     "blocked_rooms":  11,
     "decision_rows":  11,
-    "launch_command":  "powershell -NoProfile -ExecutionPolicy Bypass -File tools\\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport",
-    "no_launch_preflight_command":  "powershell -NoProfile -ExecutionPolicy Bypass -File tools\\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport -NoLaunch",
+    "launch_command":  "powershell -NoProfile -ExecutionPolicy Bypass -File tools\\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport -ResetNarrativeState",
+    "no_launch_preflight_command":  "powershell -NoProfile -ExecutionPolicy Bypass -File tools\\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport -ResetNarrativeState -NoLaunch",
     "dry_run_decisions_command":  "powershell -NoProfile -ExecutionPolicy Bypass -File tools\\Import-ActIReviewDecisions.ps1 -InputCsv docs\\playtest\\act_i_review_decisions_template.csv -DryRun",
     "apply_decisions_command":  "powershell -NoProfile -ExecutionPolicy Bypass -File tools\\Import-ActIReviewDecisions.ps1 -InputCsv docs\\playtest\\act_i_review_decisions_template.csv -Apply",
     "rule_locks":  [

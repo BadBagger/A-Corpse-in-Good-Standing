@@ -13,7 +13,7 @@ foreach ($requiredText in @(
     "setlocal",
     'set "ROOT=%~dp0"',
     'cd /d "%ROOT%"',
-    'powershell -NoProfile -ExecutionPolicy Bypass -File "tools\Start-ActIHumanPlaytest.ps1" -RefreshAutomatedReport',
+    'powershell -NoProfile -ExecutionPolicy Bypass -File "tools\Start-ActIHumanPlaytest.ps1" -RefreshAutomatedReport -ResetNarrativeState',
     "exit /b %ERRORLEVEL%"
 )) {
     if ($text -notmatch [regex]::Escape($requiredText)) {
@@ -39,4 +39,4 @@ if ($null -ne $exit -and $exit -ne 0) {
     throw "Act I playable review shortcut target failed launch validation: $($output -join ' ')"
 }
 
-Write-Host "Act I playable review shortcut validation passed: PLAY_ACT_I_REVIEW.cmd targets the validated launch preflight."
+Write-Host "Act I playable review shortcut validation passed: PLAY_ACT_I_REVIEW.cmd targets the validated clean-state launch preflight."

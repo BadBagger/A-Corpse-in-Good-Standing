@@ -214,10 +214,10 @@ To create a timestamped human Act I review notes file with the greybox rubric an
 powershell -ExecutionPolicy Bypass -File tools\New-ActIHumanPlaytestNotes.ps1
 ```
 
-To refresh the automated transcript, create combined human review notes, and launch the playable Godot build:
+To refresh the automated transcript, create combined human review notes, reset the persisted Act I narrative state, and launch the playable Godot build:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File tools\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport
+powershell -ExecutionPolicy Bypass -File tools\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport -ResetNarrativeState
 ```
 
 Or run the root Windows shortcut:
@@ -229,7 +229,7 @@ PLAY_ACT_I_REVIEW.cmd
 For a dry preflight without opening Godot:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File tools\Start-ActIHumanPlaytest.ps1 -NoLaunch
+powershell -ExecutionPolicy Bypass -File tools\Start-ActIHumanPlaytest.ps1 -ResetNarrativeState -NoLaunch
 ```
 
 The corrected Litany gate is `GREED/LUST/PRIDE/CRUELTY/COWARDICE >= 11`, `BETRAYAL == 4`, and `total >= 60`.

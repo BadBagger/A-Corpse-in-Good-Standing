@@ -7,7 +7,22 @@ if (-not (Test-Path -LiteralPath $startScript)) {
     throw "Missing Act I human playtest launcher: $startScript"
 }
 
-$output = & powershell -NoProfile -ExecutionPolicy Bypass -File $startScript -NoLaunch -SkipNotes 2>&1
+$launcherText = Get-Content -LiteralPath $startScript -Raw
+foreach ($requiredLauncherText in @(
+    "ResetNarrativeState",
+    "Clear-ActINarrativeState",
+    "config/name",
+    "Godot\app_userdata",
+    "narrative_state.json",
+    "Remove-Item -LiteralPath",
+    "Refusing to clear narrative state outside Godot app_userdata"
+)) {
+    if ($launcherText -notmatch [regex]::Escape($requiredLauncherText)) {
+        throw "Act I human playtest launcher missing clean-state reset contract: $requiredLauncherText"
+    }
+}
+
+$output = & powershell -NoProfile -ExecutionPolicy Bypass -File $startScript -NoLaunch -SkipNotes -ResetNarrativeState 2>&1
 $exit = $LASTEXITCODE
 if ($null -ne $exit -and $exit -ne 0) {
     throw "Act I human playtest launch preflight failed with exit code $exit. Output: $($output -join ' ')"
@@ -18,6 +33,7 @@ foreach ($requiredText in @(
     "Act I human playtest launch preflight passed.",
     "Godot:",
     "Args: --path",
+    "Reset narrative state:",
     "Review artifacts:",
     "docs/checkpoints/step_5_human_review_bundle.md",
     "docs/playtest/act_i_player_review_card.md",
@@ -56,4 +72,4 @@ foreach ($relativePath in @(
     }
 }
 
-Write-Host "Act I human playtest launch validation passed: no-launch preflight includes synced review artifacts and ready-source packet index."
+Write-Host "Act I human playtest launch validation passed: no-launch preflight includes clean narrative-state reset, synced review artifacts, and ready-source packet index."
