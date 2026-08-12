@@ -1,7 +1,7 @@
-{
+﻿{
     "generated_from":  "docs/art/act_i_paintover_start_gate.json",
-    "generated_at_utc":  "2026-08-12T07:04:13.1584966Z",
-    "source_modified_utc":  "2026-08-12T07:02:50.8874387Z",
+    "generated_at_utc":  "2026-08-12T07:37:07.5978014Z",
+    "source_modified_utc":  "2026-08-12T07:36:47.6517526Z",
     "purpose":  "Ordered Step 5 human-review dashboard and artifact index for Act I final-paintover readiness.",
     "readiness_state":  "green_for_review",
     "paintover_gate_status":  "blocked_pending_human_review",
