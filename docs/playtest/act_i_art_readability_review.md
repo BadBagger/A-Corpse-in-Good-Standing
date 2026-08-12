@@ -10,6 +10,7 @@ Global pass marks:
 - Puzzle-critical objects are the brightest readable shapes in the frame.
 - Exits read as exits before cursor hover.
 - Corvin's side-on walk path remains clear in the y 650-800 band.
+- Corvin's live side actions read in context: talk gestures, use reach, and wet brine/drip intent.
 - Close hotspot pairs are separable by silhouette, value, local shadow, or prop spacing.
 - Wet-verb targets look reachable from Corvin's side-on staging.
 - Confession sources read as overheard/discovered truth sources, not as a second Litany UI.
@@ -24,6 +25,8 @@ Build or commit:
 Automated report reviewed: yes / no
 Contact sheet reviewed: yes / no
 Hotspot overlay reviewed: yes / no
+Corvin side-action contact sheet reviewed: yes / no
+Corvin live verb animations tested in room: yes / no
 Paintover packet reviewed: yes / no
 Decision CSV date format checked: yes / no (reviewed_at uses YYYY-MM-DD for non-pending decisions)
 
@@ -39,6 +42,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 
@@ -63,6 +67,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 - Wet target reads as reusable verb target: yes / mixed / no
@@ -91,6 +96,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 - Wet target reads as reusable verb target: yes / mixed / no
@@ -122,6 +128,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 - Wet target reads as reusable verb target: yes / mixed / no
@@ -151,6 +158,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 
@@ -175,6 +183,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 
@@ -199,6 +208,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 - Wet target reads as reusable verb target: yes / mixed / no
@@ -227,6 +237,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 - Confession-source staging reads as overheard/discovered truth, not a duel UI: yes / mixed / no
@@ -254,6 +265,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 - Confession-source staging reads as overheard/discovered truth, not a duel UI: yes / mixed / no
@@ -283,6 +295,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 
@@ -307,6 +320,7 @@ Room checks:
 - Brightest puzzle object(s) are correct: yes / mixed / no
 - Walk band is visually clear: yes / mixed / no
 - Exits read without explanation: yes / mixed / no
+- Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps: yes / mixed / no
 - Palette intent reads correctly: yes / mixed / no
 - Camera/framing should stay locked: yes / mixed / no
 

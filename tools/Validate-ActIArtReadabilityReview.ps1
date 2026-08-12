@@ -24,9 +24,12 @@ foreach ($requiredText in @(
     "Global pass marks:",
     "Puzzle-critical objects are the brightest readable shapes",
     "Corvin's side-on walk path remains clear in the y 650-800 band",
+    "Corvin's live side actions read in context: talk gestures, use reach, and wet brine/drip intent.",
     "Grey Float stays hard-R",
     "Registrar art preserves the accepted Litany UI format",
     "Contact sheet reviewed: yes / no",
+    "Corvin side-action contact sheet reviewed: yes / no",
+    "Corvin live verb animations tested in room: yes / no",
     "Decision CSV date format checked: yes / no",
     "YYYY-MM-DD",
     "Final Decision",
@@ -58,6 +61,7 @@ foreach ($roomHeading in $requiredRooms) {
 
 foreach ($requiredSpecialCheck in @(
     "Wet target reads as reusable verb target",
+    "Corvin talk/use/wet side actions read without scale jitter or wrong-facing snaps",
     "Confession-source staging reads as overheard/discovered truth, not a duel UI",
     "Registrar duel staging preserves accepted Litany format",
     "Hard-R Float staging stays steam/silhouette/privacy only",
