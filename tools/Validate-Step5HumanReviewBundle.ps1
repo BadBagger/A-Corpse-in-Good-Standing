@@ -90,6 +90,7 @@ foreach ($requiredText in @(
     "Treat ready-source packets as Meshy/imagegen source acquisition only; they do not approve final background plates.",
     "Do not start final paintovers while paintover_gate_status is blocked_pending_human_review.",
     "docs/playtest/results/act_i_human_playtest_latest.md",
+    "docs/playtest/act_i_player_review_card.md",
     "docs/playtest/act_i_review_decisions_template.csv",
     "docs/playtest/act_i_review_handoff_sync.md",
     "docs/art/act_i_review_contact_sheet.html",
@@ -101,6 +102,19 @@ foreach ($requiredText in @(
 )) {
     if ($report -notmatch [regex]::Escape($requiredText)) {
         throw "Step 5 human review bundle missing required text: $requiredText"
+    }
+}
+
+$playerCardPath = Join-Path $root "docs\playtest\act_i_player_review_card.md"
+$playerCard = Get-Content -LiteralPath $playerCardPath -Raw
+foreach ($requiredText in @(
+    "Act I Player Review Card",
+    "Do Not Explain Up Front",
+    "Spoken confessions are spent forever.",
+    "Finished Act I means Corvin reaches Sabine's office"
+)) {
+    if ($playerCard -notmatch [regex]::Escape($requiredText)) {
+        throw "Step 5 human review bundle player card source missing required text: $requiredText"
     }
 }
 

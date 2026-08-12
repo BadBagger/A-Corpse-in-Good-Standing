@@ -64,6 +64,7 @@ try {
     Invoke-Step -Name "Validate Act I art readability review" -ScriptName "Validate-ActIArtReadabilityReview.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I review contact sheet" -ScriptName "Validate-ActIReviewContactSheet.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I human review notes" -ScriptName "Validate-ActIHumanReviewNotes.ps1" -TimeoutSeconds 120
+    Invoke-Step -Name "Validate Act I player review card" -ScriptName "Validate-ActIPlayerReviewCard.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I VO line manifest" -ScriptName "Validate-ActIVoLineManifest.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate confession VO manifest" -ScriptName "Validate-ConfessionVoManifest.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate VO recording batches" -ScriptName "Validate-VoRecordingBatches.ps1" -TimeoutSeconds 120

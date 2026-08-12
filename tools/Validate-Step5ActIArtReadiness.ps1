@@ -58,6 +58,8 @@ $humanReviewBundlePath = Join-Path $root "docs\checkpoints\step_5_human_review_b
 $humanPlaytestLaunchScriptPath = Join-Path $root "tools\Validate-ActIHumanPlaytestLaunch.ps1"
 $humanPlaytestShortcutPath = Join-Path $root "PLAY_ACT_I_REVIEW.cmd"
 $humanPlaytestShortcutValidatorPath = Join-Path $root "tools\Validate-ActIHumanPlaytestShortcut.ps1"
+$playerReviewCardPath = Join-Path $root "docs\playtest\act_i_player_review_card.md"
+$playerReviewCardValidatorPath = Join-Path $root "tools\Validate-ActIPlayerReviewCard.ps1"
 $checkpointPath = Join-Path $root "docs\checkpoints\step_5_act_i_art_pass_readiness.md"
 
 foreach ($path in @(
@@ -116,7 +118,9 @@ foreach ($path in @(
     $humanReviewBundlePath,
     $humanPlaytestLaunchScriptPath,
     $humanPlaytestShortcutPath,
-    $humanPlaytestShortcutValidatorPath
+    $humanPlaytestShortcutValidatorPath,
+    $playerReviewCardPath,
+    $playerReviewCardValidatorPath
 )) {
     if (-not (Test-Path -LiteralPath $path)) {
         throw "Missing Step 5 readiness input: $path"
@@ -795,6 +799,7 @@ $lines = @(
     "- Step 5 review dashboard: pass, generated ordered reviewer workflow and artifact index, including the ready-source packet review step and the VO commercial stale-input guard, while paintover start gate remains blocked pending human review.",
     "- Step 5 human review bundle: pass, generated compact launch/index handoff keeps the latest notes, decision CSV, contact sheet, hotspot overlay, ready-source packet index at docs/art/act_i_background_ready_source_packets.md, paintover packet, duel-format lock, and Grey Float hard-R lock in one review path.",
     "- Act I human playtest launch preflight: pass, no-launch validator proves the launcher refreshes synced review materials and prints the review bundle, latest notes, decision CSV, contact sheet, hotspot overlay, and ready-source packet index before Godot launch.",
+    "- Act I player review card: pass, player-facing handoff exists separately from the internal rubric and withholds Rite names, route order, and duel math while defining the Act I finish mark.",
     "- Act I playable review shortcut: pass, root PLAY_ACT_I_REVIEW.cmd targets the validated launch script with automated report refresh and cannot bypass review preflight.",
     "BLOCKERS:",
     "1. Final paintover source files are still pending for all 11 Act I rooms. This is the next real Step 5 production task, not a Step 4 regression.",
@@ -829,6 +834,7 @@ foreach ($requiredText in @(
     "Step 5 human review bundle: pass",
     "docs/art/act_i_background_ready_source_packets.md",
     "Act I human playtest launch preflight: pass",
+    "Act I player review card: pass",
     "Act I playable review shortcut: pass",
     "Act I VO timing manifest: pass",
     "Confession VO manifest: pass",

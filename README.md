@@ -20,6 +20,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `docs/vo/vo_commercial_readiness.json` and `.md` - generated commercial-readiness blocker report for scratch/full VO shipping decisions
 - `docs/vo/vo_recording_queue.json`, `.csv`, and `.md` - generated scratch-ready vs blocked VO batch queue
 - `docs/checkpoints/step_5_human_review_bundle.json` and `.md` - compact Step 5 human-review launch bundle and artifact index
+- `docs/playtest/act_i_player_review_card.md` - player-facing Act I review handoff that avoids route spoilers while defining setup, stuck marks, and the finish mark
 - `docs/checkpoints/production_blocker_index.md` - stable index of current GitHub production blockers and the evidence/commands tied to each one
 - `docs/checkpoints/ci_gate_boundary.md` - explicit split between GitHub Actions coverage and local-only Godot/Step 2-5 gates
 - `docs/checkpoints/toolchain_status.json` and `.md` - generated local-only Godot/Blender/Ink toolchain audit
@@ -100,6 +101,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-ActIPaintoverPacket.ps1` regenerates and validates `docs\art\act_i_paintover_packet.json` and `.md`, a per-room final-paintover packet derived from validated blockouts, hotspot roles, palette audit, and close-pair warnings.
 - `tools\Validate-ActIArtReadabilityReview.ps1` regenerates and validates `docs\playtest\act_i_art_readability_review.md`, a room-by-room art review checklist for hotspot readability, walk-band clarity, contact-sheet review, special content risks, decision CSV date format, and proceed/revise/stop decisions before paint.
 - `tools\Validate-ActIHumanReviewNotes.ps1` validates that `tools\New-ActIHumanPlaytestNotes.ps1` produces a combined Step 5 human review notes file with both the greybox playtest rubric and art readability checklist, including contact-sheet and `YYYY-MM-DD` decision-date prompts.
+- `tools\Validate-ActIPlayerReviewCard.ps1` regenerates and validates `docs\playtest\act_i_player_review_card.md`, keeping route spoilers, Rite names, exact duel math, and final-art status out of the tester handoff.
 - `tools\Validate-ActIVoLineManifest.ps1` regenerates and validates `docs\vo\act_i_vo_line_manifest.json`, `.csv`, and `.md` from Ink speaker tags; it tracks unrecorded Act I VO lines, stage-direction review lines, scratch-cast speakers, and minor speakers needing cast decisions without duplicating confession text.
 - `tools\Validate-ConfessionVoManifest.ps1` regenerates and validates `docs\vo\confession_vo_manifest.json`, `.csv`, and `.md` from `data\confessions.json`, requiring one confession VO line and one elaboration VO line per confession with audio paths keyed by confession id.
 - `tools\Validate-VoRecordingBatches.ps1` regenerates and validates `docs\vo\vo_recording_batches.json`, `.csv`, and `.md`, grouping Act I scene VO by Ink knot/speaker and Litany VO by act/category so scratch generation does not happen as disconnected one-line fragments.

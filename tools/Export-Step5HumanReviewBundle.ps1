@@ -7,6 +7,7 @@ $mdPath = Join-Path $root "docs\checkpoints\step_5_human_review_bundle.md"
 $sourcePaths = [ordered]@{
     "docs/checkpoints/step_5_review_dashboard.json" = Join-Path $root "docs\checkpoints\step_5_review_dashboard.json"
     "docs/checkpoints/step_5_act_i_art_pass_readiness.md" = Join-Path $root "docs\checkpoints\step_5_act_i_art_pass_readiness.md"
+    "docs/playtest/act_i_player_review_card.md" = Join-Path $root "docs\playtest\act_i_player_review_card.md"
     "docs/playtest/results/act_i_human_playtest_latest.md" = Join-Path $root "docs\playtest\results\act_i_human_playtest_latest.md"
     "docs/playtest/act_i_review_decisions_template.csv" = Join-Path $root "docs\playtest\act_i_review_decisions_template.csv"
     "docs/playtest/act_i_review_handoff_sync.md" = Join-Path $root "docs\playtest\act_i_review_handoff_sync.md"
@@ -71,6 +72,7 @@ $bundle = [ordered]@{
     review_artifacts = @(
         "docs/checkpoints/step_5_act_i_art_pass_readiness.md",
         "docs/checkpoints/step_5_review_dashboard.md",
+        "docs/playtest/act_i_player_review_card.md",
         "docs/playtest/results/act_i_human_playtest_latest.md",
         "docs/playtest/act_i_review_decisions_template.csv",
         "docs/playtest/act_i_review_handoff_sync.md",

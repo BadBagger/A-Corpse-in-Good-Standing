@@ -26,6 +26,7 @@ if (-not $SkipNotes) {
 }
 
 & (Join-Path $PSScriptRoot "Validate-ActIBackgroundReadySourcePackets.ps1")
+& (Join-Path $PSScriptRoot "Validate-ActIPlayerReviewCard.ps1")
 & (Join-Path $PSScriptRoot "Validate-Step5ReviewDashboard.ps1")
 & (Join-Path $PSScriptRoot "Validate-Step5HumanReviewBundle.ps1")
 & (Join-Path $PSScriptRoot "Validate-ActIReviewHandoffSync.ps1")
@@ -37,6 +38,7 @@ if ($Editor) {
 
 $reviewArtifacts = @(
     "docs/checkpoints/step_5_human_review_bundle.md",
+    "docs/playtest/act_i_player_review_card.md",
     "docs/playtest/results/act_i_human_playtest_latest.md",
     "docs/playtest/act_i_review_decisions_template.csv",
     "docs/art/act_i_review_contact_sheet.html",
