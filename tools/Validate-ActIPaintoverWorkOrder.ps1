@@ -50,7 +50,7 @@ foreach ($room in $workRooms) {
     if (@($gateRoom.blockers).Count -gt 0) {
         throw "Paintover work order includes blocked room: $($room.room_id)"
     }
-    foreach ($requiredReviewField in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note", "look_target_reviewed")) {
+    foreach ($requiredReviewField in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note", "look_target_reviewed", "corvin_action_scaffold_reviewed")) {
         if ($null -eq $room.$requiredReviewField -or [string]$room.$requiredReviewField -eq "") {
             throw "Paintover work order room $($room.room_id) missing review proof field: $requiredReviewField"
         }
@@ -61,7 +61,7 @@ foreach ($room in $workRooms) {
     if ($room.review_status -ne "approved" -or $room.reviewer_decision -ne "approved") {
         throw "Paintover work order room $($room.room_id) is not backed by approved review statuses."
     }
-    foreach ($requiredReviewField in @("build_commit", "reviewer", "reviewed_at", "decision_note", "look_target_reviewed")) {
+    foreach ($requiredReviewField in @("build_commit", "reviewer", "reviewed_at", "decision_note", "look_target_reviewed", "corvin_action_scaffold_reviewed")) {
         if ([string]$room.$requiredReviewField -ne [string]$gateRoom.$requiredReviewField) {
             throw "Paintover work order room $($room.room_id) review proof does not match start gate field: $requiredReviewField"
         }
@@ -92,7 +92,7 @@ foreach ($requiredText in @(
     }
 }
 if ($workRooms.Count -gt 0) {
-    foreach ($requiredText in @("Build commit:", "Reviewer:", "Reviewed at:", "Decision note:", "Look target reviewed:")) {
+    foreach ($requiredText in @("Build commit:", "Reviewer:", "Reviewed at:", "Decision note:", "Look target reviewed:", "Corvin action scaffold reviewed:")) {
         if ($report -notmatch [regex]::Escape($requiredText)) {
             throw "Act I paintover work order report missing review proof text: $requiredText"
         }

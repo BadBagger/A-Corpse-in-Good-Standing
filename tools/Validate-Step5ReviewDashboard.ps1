@@ -122,7 +122,7 @@ foreach ($requiredText in @(
     "generated harbor image is treated as a mood/readability target only",
     "not final room art, hotspot authority, or diffusion-per-frame character source",
     "Export, validate, and fill the batch review decision sheet.",
-    "every non-pending decision includes build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed=yes",
+    "every non-pending decision includes build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed=yes, and corvin_action_scaffold_reviewed=yes",
     "Dry-run the batch review decisions.",
     "Apply the reviewed decision sheet after the dry run is clean.",
     "docs/playtest/act_i_review_decisions_template.csv",
@@ -136,17 +136,17 @@ foreach ($requiredText in @(
     "docs/playtest/act_i_review_fix_tracker.md",
     "docs/art/act_i_paintover_start_gate.md",
     "Generate the approved-room paintover work order.",
-    "preserves build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed proof",
+    "preserves build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof",
     "docs/art/act_i_paintover_work_order.md",
     "Validate final PSD source intake against the work order.",
-    "approved rows preserve work-order build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed proof",
+    "approved rows preserve work-order build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof",
     "docs/art/act_i_paintover_source_intake.md",
     "Audit final paintover completion.",
-    "completion rows preserve source-intake build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed proof",
+    "completion rows preserve source-intake build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof",
     "docs/art/act_i_final_paintover_completion.md",
     "Audit paintover review provenance across all final-art handoff layers.",
     "docs/art/act_i_paintover_review_provenance.md",
-    "Approved rooms carry identical build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed proof from tracker through completion."
+    "Approved rooms carry identical build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof from tracker through completion."
 )) {
     if ($report -notmatch [regex]::Escape($requiredText)) {
         throw "Step 5 review dashboard missing required text: $requiredText"

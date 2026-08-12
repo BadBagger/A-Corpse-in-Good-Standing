@@ -53,7 +53,7 @@ try {
         throw "Paintover source intake failure did not explain unapproved PSD."
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit "abcdef1" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for source-intake simulation; accepted Litany format preserved." -LookTargetReviewed "yes"
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit "abcdef1" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for source-intake simulation; accepted Litany format preserved." -LookTargetReviewed "yes" -CorvinActionScaffoldReviewed "yes"
     if ($LASTEXITCODE -ne 0) { throw "Failed to approve Harbor Registry for intake simulation." }
     & powershell -NoProfile -ExecutionPolicy Bypass -File $startGateScript
     if ($LASTEXITCODE -ne 0) { throw "Start gate validation failed after intake simulation approval." }
@@ -72,6 +72,9 @@ try {
     }
     if ($registryRow.look_target_reviewed -ne "yes") {
         throw "Paintover source intake did not preserve look-target acknowledgement from the approved work order."
+    }
+    if ($registryRow.corvin_action_scaffold_reviewed -ne "yes") {
+        throw "Paintover source intake did not preserve Corvin action scaffold acknowledgement from the approved work order."
     }
     if ($registryRow.content_status -ne "valid_psd_source" -or -not [bool]$registryRow.valid_paintover_source) {
         throw "Paintover source intake did not preserve valid PSD source proof."

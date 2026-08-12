@@ -41,7 +41,7 @@ try {
         throw "Initial work order should be empty while no rooms are approved."
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for work-order simulation; accepted Litany format preserved." -LookTargetReviewed "yes"
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for work-order simulation; accepted Litany format preserved." -LookTargetReviewed "yes" -CorvinActionScaffoldReviewed "yes"
     if ($LASTEXITCODE -ne 0) { throw "Failed to approve Harbor Registry for work order simulation." }
     & powershell -NoProfile -ExecutionPolicy Bypass -File $validateStartGateScript
     if ($LASTEXITCODE -ne 0) { throw "Start gate validation failed after simulated approval." }
@@ -65,6 +65,9 @@ try {
     }
     if ($room.look_target_reviewed -ne "yes") {
         throw "Harbor Registry work order did not preserve look-target acknowledgement from the start gate."
+    }
+    if ($room.corvin_action_scaffold_reviewed -ne "yes") {
+        throw "Harbor Registry work order did not preserve Corvin action scaffold acknowledgement from the start gate."
     }
 }
 finally {

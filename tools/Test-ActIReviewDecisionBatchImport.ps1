@@ -75,6 +75,7 @@ try {
         $reviewedAt = if ($decision -eq "pending_review") { "" } else { "2026-08-11" }
         $decisionNote = if ($decision -eq "pending_review") { "" } elseif ($decision -eq "approved") { "Approve Harbor Registry for batch-import simulation; accepted Litany format preserved." } else { "Grey Float needs content staging revision before paint." }
         $lookTargetReviewed = if ($decision -eq "pending_review") { "" } else { "yes" }
+        $corvinActionScaffoldReviewed = if ($decision -eq "pending_review") { "" } else { "yes" }
         $rows += [pscustomobject][ordered]@{
             room_id = $room.room_id
             room_code = $room.room_code
@@ -85,6 +86,7 @@ try {
             reviewed_at = $reviewedAt
             decision_note = $decisionNote
             look_target_reviewed = $lookTargetReviewed
+            corvin_action_scaffold_reviewed = $corvinActionScaffoldReviewed
             layout = $layout
             hotspot_readability = ""
             walk_band = ""
@@ -201,8 +203,24 @@ try {
     }
 
     $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
+    $badRegistry = @($badRows | Where-Object { $_.room_id -eq "harbor_registry" })[0]
+    $badRegistry.corvin_action_scaffold_reviewed = ""
+    $badRows | Export-Csv -LiteralPath $fixturePath -NoTypeInformation -Encoding UTF8
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $importScript -InputCsv "docs\playtest\results\act_i_review_decision_import_test.csv" -DryRun 2>&1
+    $badExit = $LASTEXITCODE
+    $ErrorActionPreference = $previousErrorActionPreference
+    if ($badExit -eq 0) {
+        throw "Review decision batch import should reject non-pending rows without Corvin action scaffold acknowledgement."
+    }
+    if (($badOutput -join "`n") -notmatch "corvin_action_scaffold_reviewed to yes") {
+        throw "Review decision batch import Corvin action scaffold negative control failed for the wrong reason: $($badOutput -join ' ')"
+    }
+
+    $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
     $badRows |
-        Select-Object room_id,room_code,title,build_commit,decision,reviewer,reviewed_at,decision_note,look_target_reviewed,layout,hotspot_readability,walk_band,palette_lighting,content_compliance,vo_timing_or_pacing,risk_tags,critical_hotspots,close_pairs |
+        Select-Object room_id,room_code,title,build_commit,decision,reviewer,reviewed_at,decision_note,look_target_reviewed,corvin_action_scaffold_reviewed,layout,hotspot_readability,walk_band,palette_lighting,content_compliance,vo_timing_or_pacing,risk_tags,critical_hotspots,close_pairs |
         Export-Csv -LiteralPath $fixturePath -NoTypeInformation -Encoding UTF8
     $previousErrorActionPreference = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
@@ -276,6 +294,9 @@ try {
     }
     if ($registry.look_target_reviewed -ne "yes") {
         throw "Batch import did not persist Harbor Registry look-target acknowledgement."
+    }
+    if ($registry.corvin_action_scaffold_reviewed -ne "yes") {
+        throw "Batch import did not persist Harbor Registry Corvin action scaffold acknowledgement."
     }
     if ($float.review_status -ne "revise_before_art" -or [bool]$float.approved_for_paintover) {
         throw "Batch import did not leave Grey Float blocked for revision."

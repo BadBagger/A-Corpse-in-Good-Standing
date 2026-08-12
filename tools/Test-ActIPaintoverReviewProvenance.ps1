@@ -41,7 +41,7 @@ try {
         throw "Initial provenance state should have 0 approved / 0 work-order rooms."
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit "abcdef1" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for end-to-end provenance simulation; accepted Litany format preserved." -LookTargetReviewed "yes"
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit "abcdef1" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for end-to-end provenance simulation; accepted Litany format preserved." -LookTargetReviewed "yes" -CorvinActionScaffoldReviewed "yes"
     if ($LASTEXITCODE -ne 0) { throw "Failed to approve Harbor Registry for provenance simulation." }
     [System.IO.File]::WriteAllBytes($psdPath, [byte[]](0x38, 0x42, 0x50, 0x53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
 
@@ -71,6 +71,9 @@ try {
     }
     if ($registry.look_target_reviewed -ne "yes") {
         throw "Provenance audit did not preserve look-target acknowledgement for Harbor Registry."
+    }
+    if ($registry.corvin_action_scaffold_reviewed -ne "yes") {
+        throw "Provenance audit did not preserve Corvin action scaffold acknowledgement for Harbor Registry."
     }
 }
 finally {

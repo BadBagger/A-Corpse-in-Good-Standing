@@ -12,20 +12,20 @@ Accepted source rows: 0
 Completion-approved rows: 0
 
 Rule locks:
-- Approved rooms must carry build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed.
+- Approved rooms must carry build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed.
 - Start gate, work order, source intake, and final completion proof must match the tracker proof exactly.
 - Blocked rooms may have blank reviewer fields but cannot appear as approved downstream.
 
-| Room | Decision | Start Ready | Work Order | Intake | Completion | Build | Reviewer | Reviewed At | Look Target |
-|---|---|---|---|---|---|---|---|---|---|
-| R01 Mudflats | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
-| R02 The Old Quay | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
-| R03 Salt Market | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
-| R05 Harbor Registry | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
-| R06 The Bone Chandler | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
-| R07 The Almshouse | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
-| R08 The Fish Hall | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
-| R09 Church of the Drowned | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
-| R10 The Grey Float | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
-| R11 Harbormaster's Office | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
-| R12 Sabine's Office | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none |
+| Room | Decision | Start Ready | Work Order | Intake | Completion | Build | Reviewer | Reviewed At | Look Target | Corvin Scaffold |
+|---|---|---|---|---|---|---|---|---|---|---|
+| R01 Mudflats | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R02 The Old Quay | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R03 Salt Market | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R05 Harbor Registry | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R06 The Bone Chandler | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R07 The Almshouse | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R08 The Fish Hall | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R09 Church of the Drowned | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R10 The Grey Float | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R11 Harbormaster's Office | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R12 Sabine's Office | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |

@@ -51,6 +51,7 @@ function Get-Proof {
         reviewed_at = [string]$Row.reviewed_at
         decision_note = [string]$Row.decision_note
         look_target_reviewed = [string]$Row.look_target_reviewed
+        corvin_action_scaffold_reviewed = [string]$Row.corvin_action_scaffold_reviewed
     }
 }
 
@@ -61,7 +62,7 @@ function Assert-ProofPresent {
         $Row
     )
 
-    foreach ($field in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note", "look_target_reviewed")) {
+    foreach ($field in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note", "look_target_reviewed", "corvin_action_scaffold_reviewed")) {
         if ($null -eq $Row.$field -or [string]$Row.$field -eq "") {
             throw "Room $RoomId has approved $Layer state without review proof field: $field"
         }
@@ -80,7 +81,7 @@ function Assert-ProofMatches {
         $ToRow
     )
 
-    foreach ($field in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note", "look_target_reviewed")) {
+    foreach ($field in @("review_status", "reviewer_decision", "build_commit", "reviewer", "reviewed_at", "decision_note", "look_target_reviewed", "corvin_action_scaffold_reviewed")) {
         if ([string]$FromRow.$field -ne [string]$ToRow.$field) {
             throw "Room $RoomId review proof mismatch from $FromLayer to $ToLayer on field $field."
         }
@@ -133,6 +134,7 @@ foreach ($trackerRoom in $trackerRooms) {
         reviewer = if ($approved) { [string]$trackerRoom.reviewer } else { "" }
         reviewed_at = if ($approved) { [string]$trackerRoom.reviewed_at } else { "" }
         look_target_reviewed = if ($approved) { [string]$trackerRoom.look_target_reviewed } else { "" }
+        corvin_action_scaffold_reviewed = if ($approved) { [string]$trackerRoom.corvin_action_scaffold_reviewed } else { "" }
     }
 }
 
@@ -175,19 +177,20 @@ $lines = @(
     "Completion-approved rows: $($completionApprovedRows.Count)",
     "",
     "Rule locks:",
-    "- Approved rooms must carry build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed.",
+    "- Approved rooms must carry build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed.",
     "- Start gate, work order, source intake, and final completion proof must match the tracker proof exactly.",
     "- Blocked rooms may have blank reviewer fields but cannot appear as approved downstream.",
     "",
-    "| Room | Decision | Start Ready | Work Order | Intake | Completion | Build | Reviewer | Reviewed At | Look Target |",
-    "|---|---|---|---|---|---|---|---|---|---|"
+    "| Room | Decision | Start Ready | Work Order | Intake | Completion | Build | Reviewer | Reviewed At | Look Target | Corvin Scaffold |",
+    "|---|---|---|---|---|---|---|---|---|---|---|"
 )
 foreach ($row in ($auditRows | Sort-Object room_code)) {
     $buildText = if ([string]::IsNullOrWhiteSpace([string]$row.build_commit)) { "none" } else { [string]$row.build_commit }
     $reviewerText = if ([string]::IsNullOrWhiteSpace([string]$row.reviewer)) { "none" } else { [string]$row.reviewer }
     $reviewedAtText = if ([string]::IsNullOrWhiteSpace([string]$row.reviewed_at)) { "none" } else { [string]$row.reviewed_at }
     $lookTargetText = if ([string]::IsNullOrWhiteSpace([string]$row.look_target_reviewed)) { "none" } else { [string]$row.look_target_reviewed }
-    $lines += "| $($row.room_code) $($row.title) | $($row.tracker_decision) | $($row.start_gate_ready) | $($row.work_order_present) | $($row.intake_status) | $($row.completion_status) | $buildText | $reviewerText | $reviewedAtText | $lookTargetText |"
+    $corvinScaffoldText = if ([string]::IsNullOrWhiteSpace([string]$row.corvin_action_scaffold_reviewed)) { "none" } else { [string]$row.corvin_action_scaffold_reviewed }
+    $lines += "| $($row.room_code) $($row.title) | $($row.tracker_decision) | $($row.start_gate_ready) | $($row.work_order_present) | $($row.intake_status) | $($row.completion_status) | $buildText | $reviewerText | $reviewedAtText | $lookTargetText | $corvinScaffoldText |"
 }
 Set-Content -LiteralPath $mdPath -Value $lines -Encoding UTF8
 
@@ -195,7 +198,7 @@ $report = Get-Content -LiteralPath $mdPath -Raw
 foreach ($requiredText in @(
     "Act I Paintover Review Provenance",
     "human-review proof survives every final-art handoff layer",
-    "Approved rooms must carry build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed.",
+    "Approved rooms must carry build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed.",
     "Start gate, work order, source intake, and final completion proof must match the tracker proof exactly",
     "Build"
 )) {

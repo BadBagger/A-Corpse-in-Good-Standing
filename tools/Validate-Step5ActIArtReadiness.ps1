@@ -652,6 +652,7 @@ foreach ($requiredText in @(
     "machine-readable batch handoff",
     "Allowed decisions: pending_review, approved, revise_before_art, stop_and_redesign.",
     "YYYY-MM-DD",
+    "corvin_action_scaffold_reviewed",
     "Harbor Registry approval must preserve the accepted Litany/Registrar duel format.",
     "Harbor Registry non-pending decisions must include a duel_format note",
     "Grey Float non-pending decisions must include a content_compliance note confirming hard-R staging"

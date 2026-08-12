@@ -216,7 +216,7 @@ $workflow = @(
         action = "Export, validate, and fill the batch review decision sheet."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIReviewDecisionTemplate.ps1"
         artifact = "docs/playtest/act_i_review_decisions_template.csv"
-        pass_condition = "Template has all 11 rooms, no malformed Markdown, and reviewer records one decision per room; every non-pending decision includes build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed=yes."
+        pass_condition = "Template has all 11 rooms, no malformed Markdown, and reviewer records one decision per room; every non-pending decision includes build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed=yes, and corvin_action_scaffold_reviewed=yes."
     },
     [ordered]@{
         step = 24
@@ -251,28 +251,28 @@ $workflow = @(
         action = "Generate the approved-room paintover work order."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverWorkOrder.ps1"
         artifact = "docs/art/act_i_paintover_work_order.md"
-        pass_condition = "Work order includes only start-gate-ready rooms, preserves build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed proof, and stays empty while all rooms are blocked."
+        pass_condition = "Work order includes only start-gate-ready rooms, preserves build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof, and stays empty while all rooms are blocked."
     },
     [ordered]@{
         step = 29
         action = "Validate final PSD source intake against the work order."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverSourceIntake.ps1"
         artifact = "docs/art/act_i_paintover_source_intake.md"
-        pass_condition = "No blocked-room PSD can count as final paintover source material, and approved rows preserve work-order build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed proof."
+        pass_condition = "No blocked-room PSD can count as final paintover source material, and approved rows preserve work-order build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof."
     },
     [ordered]@{
         step = 30
         action = "Audit final paintover completion."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIFinalPaintoverCompletion.ps1"
         artifact = "docs/art/act_i_final_paintover_completion.md"
-        pass_condition = "A room counts complete only when an accepted PSD has a newer audited final PNG export, and completion rows preserve source-intake build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed proof."
+        pass_condition = "A room counts complete only when an accepted PSD has a newer audited final PNG export, and completion rows preserve source-intake build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof."
     },
     [ordered]@{
         step = 31
         action = "Audit paintover review provenance across all final-art handoff layers."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverReviewProvenance.ps1"
         artifact = "docs/art/act_i_paintover_review_provenance.md"
-        pass_condition = "Approved rooms carry identical build_commit, reviewer, reviewed_at, decision_note, and look_target_reviewed proof from tracker through completion."
+        pass_condition = "Approved rooms carry identical build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof from tracker through completion."
     }
 )
 

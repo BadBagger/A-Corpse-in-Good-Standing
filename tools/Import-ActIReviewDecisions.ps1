@@ -56,6 +56,7 @@ $requiredColumns = @(
     "reviewed_at",
     "decision_note",
     "look_target_reviewed",
+    "corvin_action_scaffold_reviewed",
     "layout",
     "hotspot_readability",
     "walk_band",
@@ -125,6 +126,7 @@ foreach ($row in $rows) {
     $reviewedAt = [string]$row.reviewed_at
     $decisionNote = [string]$row.decision_note
     $lookTargetReviewed = ([string]$row.look_target_reviewed).Trim().ToLowerInvariant()
+    $corvinActionScaffoldReviewed = ([string]$row.corvin_action_scaffold_reviewed).Trim().ToLowerInvariant()
     if ($decision -ne "pending_review") {
         if ([string]::IsNullOrWhiteSpace($buildCommit)) {
             throw "Room $roomId has non-pending decision '$decision' and must include build_commit."
@@ -144,6 +146,9 @@ foreach ($row in $rows) {
         }
         if ($lookTargetReviewed -ne "yes") {
             throw "Room $roomId has non-pending decision '$decision' and must set look_target_reviewed to yes after reviewing the Act I look target as reference-only."
+        }
+        if ($corvinActionScaffoldReviewed -ne "yes") {
+            throw "Room $roomId has non-pending decision '$decision' and must set corvin_action_scaffold_reviewed to yes after reviewing the Corvin side-action scaffold as Blender handoff only."
         }
     }
     $fixValues = @(
@@ -174,6 +179,7 @@ foreach ($row in $rows) {
         Set-ReviewProperty -Target $room -Name "reviewed_at" -Value $reviewedAt
         Set-ReviewProperty -Target $room -Name "decision_note" -Value $decisionNote
         Set-ReviewProperty -Target $room -Name "look_target_reviewed" -Value $lookTargetReviewed
+        Set-ReviewProperty -Target $room -Name "corvin_action_scaffold_reviewed" -Value $corvinActionScaffoldReviewed
         Set-ReviewProperty -Target $room -Name "approved_for_paintover" -Value ($decision -eq "approved")
         $room.fix_buckets.layout = [string]$row.layout
         $room.fix_buckets.hotspot_readability = [string]$row.hotspot_readability
@@ -245,6 +251,7 @@ $lines = @(
     "- Non-pending decisions require build_commit from the generated human-review notes.",
     "- Non-pending decisions require reviewer, reviewed_at, and decision_note.",
     "- Non-pending decisions require look_target_reviewed=yes for the Act I look target reference.",
+    "- Non-pending decisions require corvin_action_scaffold_reviewed=yes for the Corvin side-action Blender handoff.",
     "- Harbor Registry non-pending decisions require an explicit duel_format note from the reviewer.",
     "",
     "| Room | Previous | Incoming | Build | Reviewer | Fix Note |",

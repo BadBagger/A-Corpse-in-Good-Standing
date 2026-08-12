@@ -26,7 +26,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  },
                  {
                      "room_code":  "R02",
@@ -40,7 +41,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  },
                  {
                      "room_code":  "R03",
@@ -54,7 +56,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  },
                  {
                      "room_code":  "R05",
@@ -68,7 +71,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  },
                  {
                      "room_code":  "R06",
@@ -82,7 +86,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  },
                  {
                      "room_code":  "R07",
@@ -96,7 +101,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  },
                  {
                      "room_code":  "R08",
@@ -110,7 +116,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  },
                  {
                      "room_code":  "R09",
@@ -124,7 +131,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  },
                  {
                      "room_code":  "R10",
@@ -138,7 +146,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  },
                  {
                      "room_code":  "R11",
@@ -152,7 +161,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  },
                  {
                      "room_code":  "R12",
@@ -166,7 +176,8 @@
                      "build_commit":  "",
                      "reviewer":  "",
                      "reviewed_at":  "",
-                     "look_target_reviewed":  ""
+                     "look_target_reviewed":  "",
+                     "corvin_action_scaffold_reviewed":  ""
                  }
              ]
 }

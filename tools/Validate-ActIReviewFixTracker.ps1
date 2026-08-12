@@ -83,6 +83,12 @@ foreach ($roomId in $requiredRoomIds) {
         if (-not [datetime]::TryParseExact([string]$room.reviewed_at, "yyyy-MM-dd", [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$parsedReviewedAt)) {
             throw "Room $roomId has non-pending review state and reviewed_at must use YYYY-MM-DD."
         }
+        if ([string]$room.look_target_reviewed -ne "yes") {
+            throw "Room $roomId has non-pending review state and must include look_target_reviewed=yes."
+        }
+        if ([string]$room.corvin_action_scaffold_reviewed -ne "yes") {
+            throw "Room $roomId has non-pending review state and must include corvin_action_scaffold_reviewed=yes."
+        }
     }
     foreach ($bucketName in @("layout", "hotspot_readability", "walk_band", "palette_lighting", "content_compliance", "duel_format", "vo_timing_or_pacing")) {
         if ($null -eq $room.fix_buckets.$bucketName) {
@@ -133,6 +139,8 @@ foreach ($requiredText in @(
     "Build commit:",
     "YYYY-MM-DD",
     "Decision note:",
+    "Look target reviewed:",
+    "Corvin action scaffold reviewed:",
     "Duel format:",
     "Content compliance:",
     "hard_r_float_staging",

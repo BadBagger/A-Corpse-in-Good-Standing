@@ -97,6 +97,7 @@ foreach ($room in $rooms) {
     $reviewedAt = if ($null -ne $existingRoom -and $null -ne $existingRoom.reviewed_at) { [string]$existingRoom.reviewed_at } else { "" }
     $decisionNote = if ($null -ne $existingRoom -and $null -ne $existingRoom.decision_note) { [string]$existingRoom.decision_note } else { "" }
     $lookTargetReviewed = if ($null -ne $existingRoom -and $null -ne $existingRoom.look_target_reviewed) { [string]$existingRoom.look_target_reviewed } else { "" }
+    $corvinActionScaffoldReviewed = if ($null -ne $existingRoom -and $null -ne $existingRoom.corvin_action_scaffold_reviewed) { [string]$existingRoom.corvin_action_scaffold_reviewed } else { "" }
     $buildCommit = if ($null -ne $existingRoom -and $null -ne $existingRoom.build_commit) { [string]$existingRoom.build_commit } else { "" }
 
     $trackerRooms += [ordered]@{
@@ -118,6 +119,7 @@ foreach ($room in $rooms) {
         build_commit = $buildCommit
         decision_note = $decisionNote
         look_target_reviewed = $lookTargetReviewed
+        corvin_action_scaffold_reviewed = $corvinActionScaffoldReviewed
         approved_for_paintover = $approvedForPaintover
     }
 }
@@ -141,7 +143,7 @@ $lines = @(
     "",
     "Allowed room decisions: pending_review, approved, revise_before_art, stop_and_redesign.",
     "Allowed hotspot decisions: pending_review, readable, unclear, move_before_paint.",
-    "Non-pending room decisions require build_commit, reviewer, reviewed_at as YYYY-MM-DD, decision_note, and look_target_reviewed=yes.",
+    "Non-pending room decisions require build_commit, reviewer, reviewed_at as YYYY-MM-DD, decision_note, look_target_reviewed=yes, and corvin_action_scaffold_reviewed=yes.",
     "",
     "Global unresolved state: pending/revise/stop rooms block final paintover until a human Act I art/readability run resolves them.",
     ""
@@ -156,9 +158,11 @@ foreach ($room in $trackerRooms) {
     $lines += "- Reviewed at: $($room.reviewed_at)"
     $buildText = if ([string]::IsNullOrWhiteSpace([string]$room.build_commit)) { "none" } else { [string]$room.build_commit }
     $lookTargetReviewedText = if ([string]::IsNullOrWhiteSpace([string]$room.look_target_reviewed)) { "none" } else { [string]$room.look_target_reviewed }
+    $corvinActionScaffoldReviewedText = if ([string]::IsNullOrWhiteSpace([string]$room.corvin_action_scaffold_reviewed)) { "none" } else { [string]$room.corvin_action_scaffold_reviewed }
     $lines += "- Build commit: $buildText"
     $lines += "- Decision note: $($room.decision_note)"
     $lines += "- Look target reviewed: $lookTargetReviewedText"
+    $lines += "- Corvin action scaffold reviewed: $corvinActionScaffoldReviewedText"
     $lines += "- Approved for paintover: $($room.approved_for_paintover)"
     $lines += "- Paintover source: ``$($room.paintover_source)`` ($($room.paintover_status))"
     $lines += "- Blockout: ``$($room.blockout_export)``"

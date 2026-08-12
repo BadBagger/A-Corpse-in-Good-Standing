@@ -60,6 +60,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -132,6 +133,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -228,6 +230,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -300,6 +303,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -346,6 +350,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -392,6 +397,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -457,6 +463,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -524,6 +531,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -593,6 +601,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -638,6 +647,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -682,6 +692,7 @@
                       "build_commit":  "",
                       "decision_note":  "",
                       "look_target_reviewed":  "",
+                      "corvin_action_scaffold_reviewed":  "",
                       "approved_for_paintover":  false
                   }
               ]

@@ -34,7 +34,7 @@ try {
         throw "Review updater BuildCommit negative control failed for the wrong reason: $($badOutput -join ' ')"
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved." -LookTargetReviewed "yes"
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved." -LookTargetReviewed "yes" -CorvinActionScaffoldReviewed "yes"
     if ($LASTEXITCODE -ne 0) {
         throw "Set-ActIReviewDecision approved smoke failed."
     }
@@ -52,6 +52,9 @@ try {
     }
     if ($registry.look_target_reviewed -ne "yes") {
         throw "Review updater did not persist look-target acknowledgement for Harbor Registry."
+    }
+    if ($registry.corvin_action_scaffold_reviewed -ne "yes") {
+        throw "Review updater did not persist Corvin action scaffold acknowledgement for Harbor Registry."
     }
 
     & powershell -NoProfile -ExecutionPolicy Bypass -File $validateTrackerScript
@@ -99,7 +102,7 @@ try {
 
     $previousErrorActionPreference = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
-    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "August 11" -DecisionNote "Bad date negative control." 2>&1
+    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "August 11" -DecisionNote "Bad date negative control." -LookTargetReviewed "yes" -CorvinActionScaffoldReviewed "yes" 2>&1
     $badExit = $LASTEXITCODE
     $ErrorActionPreference = $previousErrorActionPreference
     if ($badExit -eq 0) {
@@ -121,12 +124,24 @@ try {
         throw "Review updater LookTargetReviewed negative control failed for the wrong reason: $($badOutput -join ' ')"
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved." -LookTargetReviewed "yes"
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Missing Corvin scaffold negative control." -LookTargetReviewed "yes" 2>&1
+    $badExit = $LASTEXITCODE
+    $ErrorActionPreference = $previousErrorActionPreference
+    if ($badExit -eq 0) {
+        throw "Set-ActIReviewDecision should reject non-pending decisions without CorvinActionScaffoldReviewed yes."
+    }
+    if (($badOutput -join "`n") -notmatch "CorvinActionScaffoldReviewed yes") {
+        throw "Review updater CorvinActionScaffoldReviewed negative control failed for the wrong reason: $($badOutput -join ' ')"
+    }
+
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved." -LookTargetReviewed "yes" -CorvinActionScaffoldReviewed "yes"
     if ($LASTEXITCODE -ne 0) {
         throw "Set-ActIReviewDecision failed while restoring approved metadata after negative control."
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "grey_float" -Decision "revise_before_art" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Grey Float needs content staging revision before paint." -LookTargetReviewed "yes" -ContentCompliance "Steam silhouettes need stronger privacy staging before paint."
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "grey_float" -Decision "revise_before_art" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Grey Float needs content staging revision before paint." -LookTargetReviewed "yes" -CorvinActionScaffoldReviewed "yes" -ContentCompliance "Steam silhouettes need stronger privacy staging before paint."
     if ($LASTEXITCODE -ne 0) {
         throw "Set-ActIReviewDecision revise smoke failed."
     }
@@ -144,6 +159,9 @@ try {
     }
     if ($float.look_target_reviewed -ne "yes") {
         throw "Review updater did not persist look-target acknowledgement for Grey Float."
+    }
+    if ($float.corvin_action_scaffold_reviewed -ne "yes") {
+        throw "Review updater did not persist Corvin action scaffold acknowledgement for Grey Float."
     }
 }
 finally {

@@ -13,6 +13,7 @@ param(
     [string]$ReviewedAt = "",
     [string]$DecisionNote = "",
     [string]$LookTargetReviewed = "",
+    [string]$CorvinActionScaffoldReviewed = "",
     [switch]$AllowUnresolvedHotspots
 )
 
@@ -63,6 +64,7 @@ Set-ReviewProperty -Target $room -Name "reviewer" -Value $Reviewer
 Set-ReviewProperty -Target $room -Name "reviewed_at" -Value $ReviewedAt
 Set-ReviewProperty -Target $room -Name "decision_note" -Value $DecisionNote
 Set-ReviewProperty -Target $room -Name "look_target_reviewed" -Value $LookTargetReviewed.Trim().ToLowerInvariant()
+Set-ReviewProperty -Target $room -Name "corvin_action_scaffold_reviewed" -Value $CorvinActionScaffoldReviewed.Trim().ToLowerInvariant()
 Set-ReviewProperty -Target $room -Name "approved_for_paintover" -Value ($Decision -eq "approved")
 
 if ($Decision -ne "pending_review") {
@@ -81,6 +83,9 @@ if ($Decision -ne "pending_review") {
     }
     if ($LookTargetReviewed.Trim().ToLowerInvariant() -ne "yes") {
         throw "Room '$RoomId' has non-pending decision '$Decision' and must include -LookTargetReviewed yes after reviewing the Act I look target as reference-only."
+    }
+    if ($CorvinActionScaffoldReviewed.Trim().ToLowerInvariant() -ne "yes") {
+        throw "Room '$RoomId' has non-pending decision '$Decision' and must include -CorvinActionScaffoldReviewed yes after reviewing the Corvin side-action scaffold as Blender handoff only."
     }
 }
 

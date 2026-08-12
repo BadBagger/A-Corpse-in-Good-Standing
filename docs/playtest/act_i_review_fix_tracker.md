@@ -6,7 +6,7 @@ Purpose: turn one human Step 5 review into exact room/layout fixes before final 
 
 Allowed room decisions: pending_review, approved, revise_before_art, stop_and_redesign.
 Allowed hotspot decisions: pending_review, readable, unclear, move_before_paint.
-Non-pending room decisions require build_commit, reviewer, reviewed_at as YYYY-MM-DD, decision_note, and look_target_reviewed=yes.
+Non-pending room decisions require build_commit, reviewer, reviewed_at as YYYY-MM-DD, decision_note, look_target_reviewed=yes, and corvin_action_scaffold_reviewed=yes.
 
 Global unresolved state: pending/revise/stop rooms block final paintover until a human Act I art/readability run resolves them.
 
@@ -19,6 +19,7 @@ Global unresolved state: pending/revise/stop rooms block final paintover until a
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/mudflats.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/mudflats_bg.png`
@@ -49,6 +50,7 @@ Close-pair review:
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/old_quay.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/old_quay_blockout_bg.png`
@@ -81,6 +83,7 @@ Close-pair review:
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/salt_market.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/salt_market_bg.png`
@@ -116,6 +119,7 @@ Close-pair review:
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/harbor_registry.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/harbor_registry_bg.png`
@@ -148,6 +152,7 @@ Close-pair review:
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/bone_chandler.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/bone_chandler_bg.png`
@@ -178,6 +183,7 @@ Close-pair review:
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/almshouse.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/almshouse_bg.png`
@@ -208,6 +214,7 @@ Close-pair review:
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/fish_hall.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/fish_hall_bg.png`
@@ -240,6 +247,7 @@ Close-pair review:
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/church_of_the_drowned.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/church_of_the_drowned_bg.png`
@@ -272,6 +280,7 @@ Close-pair review:
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/grey_float.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/grey_float_bg.png`
@@ -304,6 +313,7 @@ Close-pair review:
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/harbormaster_office.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/harbormaster_office_bg.png`
@@ -334,6 +344,7 @@ Close-pair review:
 - Build commit: none
 - Decision note: 
 - Look target reviewed: none
+- Corvin action scaffold reviewed: none
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/sabine_office.psd` (pending)
 - Blockout: `art/export/backgrounds/act_i/sabine_office_bg.png`

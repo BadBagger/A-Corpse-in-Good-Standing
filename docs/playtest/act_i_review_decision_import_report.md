@@ -14,18 +14,19 @@ Rule locks:
 - Non-pending decisions require build_commit from the generated human-review notes.
 - Non-pending decisions require reviewer, reviewed_at, and decision_note.
 - Non-pending decisions require look_target_reviewed=yes for the Act I look target reference.
+- Non-pending decisions require corvin_action_scaffold_reviewed=yes for the Corvin side-action Blender handoff.
 - Harbor Registry non-pending decisions require an explicit duel_format note from the reviewer.
 
 | Room | Previous | Incoming | Build | Reviewer | Fix Note |
 |---|---|---|---|---|---|
-| R01 Mudflats | pending_review | pending_review | 7837c851434f |  | False |
-| R02 The Old Quay | pending_review | pending_review | 7837c851434f |  | False |
-| R03 Salt Market | pending_review | pending_review | 7837c851434f |  | False |
-| R05 Harbor Registry | approved | approved | 7837c851434f | Automated test | True |
-| R06 The Bone Chandler | pending_review | pending_review | 7837c851434f |  | False |
-| R07 The Almshouse | pending_review | pending_review | 7837c851434f |  | False |
-| R08 The Fish Hall | pending_review | pending_review | 7837c851434f |  | False |
-| R09 Church of the Drowned | pending_review | pending_review | 7837c851434f |  | False |
-| R10 The Grey Float | revise_before_art | revise_before_art | 7837c851434f | Automated test | True |
-| R11 Harbormaster's Office | pending_review | pending_review | 7837c851434f |  | False |
-| R12 Sabine's Office | pending_review | pending_review | 7837c851434f |  | False |
+| R01 Mudflats | pending_review | pending_review | ab5bcdfc53c9 |  | False |
+| R02 The Old Quay | pending_review | pending_review | ab5bcdfc53c9 |  | False |
+| R03 Salt Market | pending_review | pending_review | ab5bcdfc53c9 |  | False |
+| R05 Harbor Registry | approved | approved | ab5bcdfc53c9 | Automated test | True |
+| R06 The Bone Chandler | pending_review | pending_review | ab5bcdfc53c9 |  | False |
+| R07 The Almshouse | pending_review | pending_review | ab5bcdfc53c9 |  | False |
+| R08 The Fish Hall | pending_review | pending_review | ab5bcdfc53c9 |  | False |
+| R09 Church of the Drowned | pending_review | pending_review | ab5bcdfc53c9 |  | False |
+| R10 The Grey Float | revise_before_art | revise_before_art | ab5bcdfc53c9 | Automated test | True |
+| R11 Harbormaster's Office | pending_review | pending_review | ab5bcdfc53c9 |  | False |
+| R12 Sabine's Office | pending_review | pending_review | ab5bcdfc53c9 |  | False |
