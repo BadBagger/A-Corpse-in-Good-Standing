@@ -37,8 +37,8 @@ GATES:
 - Act I paintover source intake: pass, reports 0 accepted present PSDs and 0 unapproved present PSDs; blocked-room PSDs cannot count as final art, and approved rows preserve work-order reviewer metadata.
 - Act I final paintover completion: pass, reports 0 complete / 0 pending final export / 11 blocked rooms, preserves source-intake reviewer metadata for approved rows, and existing greybox PNGs do not count as final paintover exports.
 - Act I paintover review provenance: pass, reports 0 approved tracker rooms / 0 work-order rooms / 0 accepted sources / 0 completion-approved rows with matching reviewer proof across the final-art handoff chain.
-- Step 5 review dashboard: pass, generated ordered reviewer workflow and artifact index, including the VO commercial stale-input guard, while paintover start gate remains blocked pending human review.
-- Step 5 human review bundle: pass, generated compact launch/index handoff keeps the latest notes, decision CSV, contact sheet, hotspot overlay, paintover packet, duel-format lock, and Grey Float hard-R lock in one review path.
+- Step 5 review dashboard: pass, generated ordered reviewer workflow and artifact index, including the ready-source packet review step and the VO commercial stale-input guard, while paintover start gate remains blocked pending human review.
+- Step 5 human review bundle: pass, generated compact launch/index handoff keeps the latest notes, decision CSV, contact sheet, hotspot overlay, ready-source packet index at docs/art/act_i_background_ready_source_packets.md, paintover packet, duel-format lock, and Grey Float hard-R lock in one review path.
 BLOCKERS:
 1. Final paintover source files are still pending for all 11 Act I rooms. This is the next real Step 5 production task, not a Step 4 regression.
 2. Corvin still needs final-polish animation beyond the current side idle/walk runtime candidates: talk, use, wet, front/back, and later decay variants remain pending.

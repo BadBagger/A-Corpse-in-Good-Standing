@@ -54,11 +54,11 @@ if ($dashboard.paintover_gate_status -notin @("ready", "blocked_pending_human_re
 if ([int]$dashboard.ready_rooms + [int]$dashboard.blocked_rooms -ne 11) {
     throw "Step 5 dashboard ready/blocked room counts must total 11."
 }
-if ($workflow.Count -ne 27) {
-    throw "Step 5 dashboard expected 27 ordered review steps, got $($workflow.Count)."
+if ($workflow.Count -ne 28) {
+    throw "Step 5 dashboard expected 28 ordered review steps, got $($workflow.Count)."
 }
-if ($artifacts.Count -lt 28) {
-    throw "Step 5 dashboard expected at least 28 artifact references, got $($artifacts.Count)."
+if ($artifacts.Count -lt 29) {
+    throw "Step 5 dashboard expected at least 29 artifact references, got $($artifacts.Count)."
 }
 
 foreach ($relativePath in $artifacts) {
@@ -118,6 +118,10 @@ foreach ($requiredText in @(
     "docs/playtest/act_i_review_decisions_template.md",
     "docs/playtest/act_i_review_decision_import_report.md",
     "docs/art/act_i_hotspot_overlay.svg",
+    "Review the ready background source generation packets.",
+    "docs/art/act_i_background_ready_source_packets.md",
+    "Packets include only Meshy helper GLBs and imagegen reference boards that are safe to acquire now",
+    "they are not final background plates and exclude held interactive/navigation PSD work",
     "docs/playtest/act_i_review_fix_tracker.md",
     "docs/art/act_i_paintover_start_gate.md",
     "Generate the approved-room paintover work order.",

@@ -50,8 +50,8 @@ if ([int]$bundle.decision_rows -ne 11) {
 if ($rooms.Count -ne 11) {
     throw "Step 5 human review bundle expected 11 rooms, got $($rooms.Count)."
 }
-if ($sourceStamps.Count -lt 9) {
-    throw "Step 5 human review bundle expected at least 9 source stamps, got $($sourceStamps.Count)."
+if ($sourceStamps.Count -lt 10) {
+    throw "Step 5 human review bundle expected at least 10 source stamps, got $($sourceStamps.Count)."
 }
 
 foreach ($stamp in $sourceStamps) {
@@ -87,12 +87,14 @@ foreach ($requiredText in @(
     "do not add a second confession-spend UI",
     "Grey Float hard-R",
     "steam, silhouette, privacy, and agency only",
+    "Treat ready-source packets as Meshy/imagegen source acquisition only; they do not approve final background plates.",
     "Do not start final paintovers while paintover_gate_status is blocked_pending_human_review.",
     "docs/playtest/results/act_i_human_playtest_latest.md",
     "docs/playtest/act_i_review_decisions_template.csv",
     "docs/playtest/act_i_review_handoff_sync.md",
     "docs/art/act_i_review_contact_sheet.html",
     "docs/art/act_i_hotspot_overlay.svg",
+    "docs/art/act_i_background_ready_source_packets.md",
     "docs/art/act_i_paintover_packet.md",
     "docs/art/act_i_paintover_start_gate.md",
     "Room Status"

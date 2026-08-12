@@ -8,45 +8,50 @@
                            "docs/art/act_i_paintover_start_gate.json",
                            "docs/art/act_i_review_contact_sheet.html",
                            "docs/art/act_i_hotspot_overlay.svg",
+                           "docs/art/act_i_background_ready_source_packets.md",
                            "docs/art/act_i_paintover_packet.md"
                        ],
-    "generated_at_utc":  "2026-08-11T20:56:32.6616856Z",
+    "generated_at_utc":  "2026-08-12T00:02:20.3412650Z",
     "source_modified_utc":  [
                                 {
                                     "path":  "docs/checkpoints/step_5_review_dashboard.json",
-                                    "modified_utc":  "2026-08-11T20:56:31.9975809Z"
+                                    "modified_utc":  "2026-08-12T00:02:19.8340605Z"
                                 },
                                 {
                                     "path":  "docs/checkpoints/step_5_act_i_art_pass_readiness.md",
-                                    "modified_utc":  "2026-08-11T20:52:06.3036460Z"
+                                    "modified_utc":  "2026-08-12T00:02:10.8779638Z"
                                 },
                                 {
                                     "path":  "docs/playtest/results/act_i_human_playtest_latest.md",
-                                    "modified_utc":  "2026-08-11T20:54:51.7689900Z"
+                                    "modified_utc":  "2026-08-12T00:01:55.0014976Z"
                                 },
                                 {
                                     "path":  "docs/playtest/act_i_review_decisions_template.csv",
-                                    "modified_utc":  "2026-08-11T20:55:31.0722963Z"
+                                    "modified_utc":  "2026-08-12T00:01:34.9174014Z"
                                 },
                                 {
                                     "path":  "docs/playtest/act_i_review_handoff_sync.md",
-                                    "modified_utc":  "2026-08-11T20:52:05.7048452Z"
+                                    "modified_utc":  "2026-08-12T00:01:35.1727542Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_paintover_start_gate.json",
-                                    "modified_utc":  "2026-08-11T20:56:21.5285706Z"
+                                    "modified_utc":  "2026-08-12T00:01:21.2621912Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_review_contact_sheet.html",
-                                    "modified_utc":  "2026-08-11T20:54:51.0965477Z"
+                                    "modified_utc":  "2026-08-12T00:01:54.3424899Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_hotspot_overlay.svg",
                                     "modified_utc":  "2026-08-11T15:35:48.8208500Z"
                                 },
                                 {
+                                    "path":  "docs/art/act_i_background_ready_source_packets.md",
+                                    "modified_utc":  "2026-08-11T23:59:47.5802245Z"
+                                },
+                                {
                                     "path":  "docs/art/act_i_paintover_packet.md",
-                                    "modified_utc":  "2026-08-11T20:54:49.6765960Z"
+                                    "modified_utc":  "2026-08-11T23:59:48.3121990Z"
                                 }
                             ],
     "purpose":  "Compact Step 5 human-review launch bundle for Act I art-pass review.",
@@ -72,6 +77,7 @@
                              "docs/playtest/act_i_review_handoff_sync.md",
                              "docs/art/act_i_review_contact_sheet.html",
                              "docs/art/act_i_hotspot_overlay.svg",
+                             "docs/art/act_i_background_ready_source_packets.md",
                              "docs/art/act_i_paintover_packet.md",
                              "docs/art/act_i_paintover_start_gate.md"
                          ],
