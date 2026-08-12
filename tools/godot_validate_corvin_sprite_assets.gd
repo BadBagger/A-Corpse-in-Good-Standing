@@ -32,6 +32,48 @@ const ASSETS := [
 		"height": 512,
 		"frames": 8,
 	},
+	{
+		"name": "talk_side_right",
+		"path": "res://game/characters/corvin/sprites/act_i_clean/talk_side_right.png",
+		"width": 1536,
+		"height": 512,
+		"frames": 6,
+	},
+	{
+		"name": "talk_side_left",
+		"path": "res://game/characters/corvin/sprites/act_i_clean/talk_side_left.png",
+		"width": 1536,
+		"height": 512,
+		"frames": 6,
+	},
+	{
+		"name": "use_side_right",
+		"path": "res://game/characters/corvin/sprites/act_i_clean/use_side_right.png",
+		"width": 2048,
+		"height": 512,
+		"frames": 8,
+	},
+	{
+		"name": "use_side_left",
+		"path": "res://game/characters/corvin/sprites/act_i_clean/use_side_left.png",
+		"width": 2048,
+		"height": 512,
+		"frames": 8,
+	},
+	{
+		"name": "wet_side_right",
+		"path": "res://game/characters/corvin/sprites/act_i_clean/wet_side_right.png",
+		"width": 2048,
+		"height": 512,
+		"frames": 8,
+	},
+	{
+		"name": "wet_side_left",
+		"path": "res://game/characters/corvin/sprites/act_i_clean/wet_side_left.png",
+		"width": 2048,
+		"height": 512,
+		"frames": 8,
+	},
 ]
 
 func _init() -> void:
@@ -202,52 +244,64 @@ func _init() -> void:
 	if bool(character.call("play_runtime_animation", "missing_animation")):
 		_fail("Corvin character bridge accepted an unknown animation.")
 		return
-	if not bool(runtime_sprite.call("is_animation_available", "idle_side_right")):
-		_fail("RuntimeSprite did not report idle_side_right as available.")
-		return
-	if not bool(runtime_sprite.call("is_animation_planned", "talk_side_right")):
-		_fail("RuntimeSprite did not report talk_side_right as planned.")
-		return
-	if bool(runtime_sprite.call("is_animation_available", "talk_side_right")):
-		_fail("RuntimeSprite reported pending talk_side_right as available.")
-		return
+	for asset in ASSETS:
+		var animation_name := String(asset["name"])
+		if not bool(runtime_sprite.call("is_animation_available", animation_name)):
+			_fail("RuntimeSprite did not report %s as available." % animation_name)
+			return
+		if bool(runtime_sprite.call("is_animation_planned", animation_name)):
+			_fail("RuntimeSprite still reports live animation as planned: %s" % animation_name)
+			return
 	if not bool(character.call("play_idle_side_right")):
-		_fail("Corvin character bridge could not restore idle_side_right before pending action checks.")
+		_fail("Corvin character bridge could not restore idle_side_right before action checks.")
 		return
-	for pending_method in [
-		"play_talk_side_right",
-		"play_talk_current_side",
-		"play_use_side_right",
-		"play_use_current_side",
-		"play_wet_side_right",
-		"play_wet_current_side",
+	for action_case in [
+		{"method": "play_talk_side_right", "expected": "talk_side_right", "frames": 6, "side": "side_right"},
+		{"method": "play_talk_current_side", "expected": "talk_side_right", "frames": 6, "side": "side_right"},
+		{"method": "play_use_side_right", "expected": "use_side_right", "frames": 8, "side": "side_right"},
+		{"method": "play_use_current_side", "expected": "use_side_right", "frames": 8, "side": "side_right"},
+		{"method": "play_wet_side_right", "expected": "wet_side_right", "frames": 8, "side": "side_right"},
+		{"method": "play_wet_current_side", "expected": "wet_side_right", "frames": 8, "side": "side_right"},
 	]:
-		if bool(character.call(pending_method)):
-			_fail("Corvin character bridge accepted pending animation method: %s." % pending_method)
-			return
-		if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_right":
-			_fail("Pending animation method changed the active runtime animation: %s." % pending_method)
-			return
-		if fallback is CanvasItem and (fallback as CanvasItem).visible:
-			_fail("Pending animation method showed the polygon fallback: %s." % pending_method)
-			return
+		_validate_character_action(character, runtime_sprite, fallback, action_case)
 	if not bool(character.call("play_idle_side_left")):
-		_fail("Corvin character bridge could not restore idle_side_left before left pending action checks.")
+		_fail("Corvin character bridge could not restore idle_side_left before left action checks.")
 		return
-	for pending_method in ["play_talk_side_left", "play_use_side_left", "play_wet_side_left"]:
-		if bool(character.call(pending_method)):
-			_fail("Corvin character bridge accepted pending left animation method: %s." % pending_method)
-			return
-		if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_left":
-			_fail("Pending left animation method changed the active runtime animation: %s." % pending_method)
-			return
-		if fallback is CanvasItem and (fallback as CanvasItem).visible:
-			_fail("Pending left animation method showed the polygon fallback: %s." % pending_method)
-			return
+	for action_case in [
+		{"method": "play_talk_side_left", "expected": "talk_side_left", "frames": 6, "side": "side_left"},
+		{"method": "play_talk_current_side", "expected": "talk_side_left", "frames": 6, "side": "side_left"},
+		{"method": "play_use_side_left", "expected": "use_side_left", "frames": 8, "side": "side_left"},
+		{"method": "play_use_current_side", "expected": "use_side_left", "frames": 8, "side": "side_left"},
+		{"method": "play_wet_side_left", "expected": "wet_side_left", "frames": 8, "side": "side_left"},
+		{"method": "play_wet_current_side", "expected": "wet_side_left", "frames": 8, "side": "side_left"},
+	]:
+		_validate_character_action(character, runtime_sprite, fallback, action_case)
 	character.free()
 
-	print("Corvin sprite asset validation passed: assets=%s, runtimeSprite=side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe, characterBridge=side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe, idleForegroundSamples=%s" % [", ".join(validation_results), idle_foreground_pixels])
+	print("Corvin sprite asset validation passed: assets=%s, runtimeSprite=side_right_side_left_idle_walk_talk_use_wet_switchable, characterBridge=side_right_side_left_idle_walk_talk_use_wet_switchable_with_current_side_actions, idleForegroundSamples=%s" % [", ".join(validation_results), idle_foreground_pixels])
 	quit(0)
+
+
+func _validate_character_action(character: Node, runtime_sprite: Node, fallback: Node, action_case: Dictionary) -> void:
+	var method := String(action_case["method"])
+	var expected := String(action_case["expected"])
+	var frames := int(action_case["frames"])
+	var side := String(action_case["side"])
+	if not bool(character.call(method)):
+		_fail("Corvin character bridge could not play action method: %s." % method)
+		return
+	if String(runtime_sprite.call("active_animation_for_test")) != expected:
+		_fail("Action method %s resolved to %s instead of %s." % [method, String(runtime_sprite.call("active_animation_for_test")), expected])
+		return
+	if int(runtime_sprite.call("frame_count_for_test")) != frames:
+		_fail("Action method %s loaded wrong frame count." % method)
+		return
+	if String(character.call("active_side_direction_for_test")) != side:
+		_fail("Action method %s did not preserve side direction %s." % [method, side])
+		return
+	if fallback is CanvasItem and (fallback as CanvasItem).visible:
+		_fail("Action method showed the polygon fallback: %s." % method)
+		return
 
 
 func _validate_sprite_asset(asset: Dictionary) -> int:

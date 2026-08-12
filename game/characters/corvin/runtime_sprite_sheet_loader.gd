@@ -22,8 +22,6 @@ const ANIMATIONS := {
 		"path": "res://game/characters/corvin/sprites/act_i_clean/walk_side_left.png",
 		"frames": 8,
 	},
-}
-const PLANNED_ANIMATIONS := {
 	"talk_side_right": {
 		"path": "res://game/characters/corvin/sprites/act_i_clean/talk_side_right.png",
 		"frames": 6,
@@ -94,7 +92,7 @@ func is_animation_available(animation_name: String) -> bool:
 
 
 func is_animation_planned(animation_name: String) -> bool:
-	return PLANNED_ANIMATIONS.has(animation_name)
+	return false
 
 
 func active_animation_for_test() -> String:
@@ -106,9 +104,6 @@ func frame_count_for_test() -> int:
 
 
 func _load_animation(animation_name: String) -> bool:
-	if PLANNED_ANIMATIONS.has(animation_name):
-		return false
-
 	if not ANIMATIONS.has(animation_name):
 		_show_fallback()
 		return false

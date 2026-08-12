@@ -16,7 +16,7 @@ Rules:
 - `build_commit` must match the generated human-review notes for every non-pending decision.
 - Any non-pending decision must include `reviewer`, `reviewed_at`, and `decision_note`; `reviewed_at` must use `YYYY-MM-DD`.
 - Any non-pending decision must set `look_target_reviewed` to `yes`, confirming `docs/art/reference/look_targets/act_i_harbor_look_target_v1.png` was reviewed as mood/readability reference only, not final room art, hotspot authority, or character sprite source.
-- Any non-pending decision must set `corvin_action_scaffold_reviewed` to `yes`, confirming `docs/art/corvin_side_action_scaffold.md` was reviewed as a Blender handoff only, not as approval for pending talk/use/wet PNG sheets.
+- Any non-pending decision must set `corvin_action_scaffold_reviewed` to `yes`, confirming `docs/art/corvin_side_action_scaffold.md` was reviewed as a Blender handoff only, not as approval of final talk/use/wet animation polish.
 - `approved` marks the room as paintover-eligible if no start-gate blockers remain.
 - `revise_before_art` must include at least one fix bucket note.
 - `stop_and_redesign` blocks final paintover until the room is reworked and reviewed again.

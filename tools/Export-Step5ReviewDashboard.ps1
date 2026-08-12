@@ -173,7 +173,7 @@ $workflow = @(
         action = "Review Corvin's Act I side-priority animation work order."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-CorvinSidePriorityWorkOrder.ps1"
         artifact = "docs/art/corvin_side_priority_work_order.md"
-        pass_condition = "Side idle/walk remain runtime candidates, and Act I side talk/use/wet are the next animation targets before front/back or decay sheets."
+        pass_condition = "Side idle/walk/talk/use/wet remain runtime candidates, and Act I side talk/use/wet are registered before front/back or decay sheets."
     },
     [ordered]@{
         step = 17

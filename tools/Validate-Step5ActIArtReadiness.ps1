@@ -300,8 +300,9 @@ if ($objectFirstLastDrift -gt $firstLastThreshold) {
 }
 
 foreach ($requiredText in @(
-    "side_right_side_left_idle_walk_switchable_with_current_side_idle",
-    "Current-side idle: implemented_character_bridge_alias"
+    "side_right_side_left_idle_walk_talk_use_wet_switchable_with_current_side_actions",
+    "Current-side idle: implemented_character_bridge_alias",
+    "Current-side actions: implemented_character_bridge_aliases"
 )) {
     if ($runtimeSpriteReport -notmatch [regex]::Escape($requiredText)) {
         throw "Corvin runtime sprite report missing required readiness text: $requiredText"
@@ -1050,7 +1051,7 @@ $lines = @(
     "- Act I playable review shortcut: pass, root PLAY_ACT_I_REVIEW.cmd targets the validated launch script with automated report refresh and cannot bypass review preflight.",
     "BLOCKERS:",
     "1. Final paintover source files are still pending for all 11 Act I rooms. This is the next real Step 5 production task, not a Step 4 regression.",
-    "2. Corvin talk/use/wet side sheets are rendered and audited, but still need Godot animation registration and final animation polish review; front/back and later decay variants remain pending.",
+    "2. Corvin talk/use/wet side sheets are rendered, audited, and Godot-registered, but still need final animation polish review; front/back and later decay variants remain pending.",
     "3. A human Act I art/readability playtest has not signed off the blockout compositions, hotspot silhouettes, and prop readability for final paintover.",
     "DEVIATIONS:",
     "- None to the accepted Registrar duel format. This checkpoint only audits art-pipeline readiness and runtime animation evidence.",

@@ -52,7 +52,7 @@ GATES:
 - Act I playable review shortcut: pass, root PLAY_ACT_I_REVIEW.cmd targets the validated launch script with automated report refresh and cannot bypass review preflight.
 BLOCKERS:
 1. Final paintover source files are still pending for all 11 Act I rooms. This is the next real Step 5 production task, not a Step 4 regression.
-2. Corvin talk/use/wet side sheets are rendered and audited, but still need Godot animation registration and final animation polish review; front/back and later decay variants remain pending.
+2. Corvin talk/use/wet side sheets are rendered, audited, and Godot-registered, but still need final animation polish review; front/back and later decay variants remain pending.
 3. A human Act I art/readability playtest has not signed off the blockout compositions, hotspot silhouettes, and prop readability for final paintover.
 DEVIATIONS:
 - None to the accepted Registrar duel format. This checkpoint only audits art-pipeline readiness and runtime animation evidence.

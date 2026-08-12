@@ -1,6 +1,6 @@
 # Act I Greybox Automated Playtest Report
 
-- Generated: `2026-08-12 07:17:31`
+- Generated: `2026-08-12 07:29:47`
 - Runner: `tools/godot_record_act_i_greybox_playtest.gd`
 - Scope: critical path from no Act I Rites complete through Sabine's office.
 

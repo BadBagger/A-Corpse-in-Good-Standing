@@ -15,15 +15,24 @@ Walk frames: 8.
 Left walk sprite resource: `res://game/characters/corvin/sprites/act_i_clean/walk_side_left.png`.
 Left walk dimensions: 2048x512.
 Left walk frames: 8.
-Planned side action resources: talk_side_right, talk_side_left, use_side_right, use_side_left, wet_side_right, wet_side_left.
-RuntimeSprite: side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe.
-Character animation bridge: side_right_side_left_idle_walk_switchable_with_current_side_idle_and_pending_action_methods.
+Talk sprite resources: `res://game/characters/corvin/sprites/act_i_clean/talk_side_right.png`, `res://game/characters/corvin/sprites/act_i_clean/talk_side_left.png`.
+Talk dimensions: 1536x512.
+Talk frames: 6.
+Use sprite resources: `res://game/characters/corvin/sprites/act_i_clean/use_side_right.png`, `res://game/characters/corvin/sprites/act_i_clean/use_side_left.png`.
+Use dimensions: 2048x512.
+Use frames: 8.
+Wet sprite resources: `res://game/characters/corvin/sprites/act_i_clean/wet_side_right.png`, `res://game/characters/corvin/sprites/act_i_clean/wet_side_left.png`.
+Wet dimensions: 2048x512.
+Wet frames: 8.
+Registered side action resources: talk_side_right, talk_side_left, use_side_right, use_side_left, wet_side_right, wet_side_left.
+RuntimeSprite: side_right_side_left_idle_walk_talk_use_wet_switchable.
+Character animation bridge: side_right_side_left_idle_walk_talk_use_wet_switchable_with_current_side_actions.
 Walk state switching: implemented_loader_api.
 Current-side idle: implemented_character_bridge_alias.
-Pending action behavior: returns_false_without_switching_active_animation_or_showing_polygon_fallback.
+Current-side actions: implemented_character_bridge_aliases.
 Known shutdown warnings: Popochiu UID fallback and Godot headless RID/resource cleanup warnings.
 
 Pass line:
 ```text
-Corvin sprite asset validation passed: assets=idle_side_right=12frames/21120px, idle_side_left=12frames/21168px, walk_side_right=8frames/14211px, walk_side_left=8frames/14187px, runtimeSprite=side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe, characterBridge=side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe, idleForegroundSamples=21120
+Corvin sprite asset validation passed: assets=idle_side_right=12frames/21120px, idle_side_left=12frames/21168px, walk_side_right=8frames/14211px, walk_side_left=8frames/14187px, talk_side_right=6frames/14230px, talk_side_left=6frames/14332px, use_side_right=8frames/17911px, use_side_left=8frames/17933px, wet_side_right=8frames/18409px, wet_side_left=8frames/18417px, runtimeSprite=side_right_side_left_idle_walk_talk_use_wet_switchable, characterBridge=side_right_side_left_idle_walk_talk_use_wet_switchable_with_current_side_actions, idleForegroundSamples=21120
 ```

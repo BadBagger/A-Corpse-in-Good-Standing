@@ -112,7 +112,7 @@ foreach ($requiredText in @(
     "Each room blockout appears with walk band, marker positions, hotspot rows, duel-format lock, and Grey Float hard-R lock.",
     "Review Corvin's Act I side-priority animation work order.",
     "docs/art/corvin_side_priority_work_order.md",
-    "Act I side talk/use/wet are the next animation targets before front/back or decay sheets.",
+    "Act I side talk/use/wet are registered before front/back or decay sheets.",
     "Review Corvin's selected Meshy motion source audit.",
     "docs/art/corvin_meshy_motion_source_audit.md",
     "Talk/use/walk source GLBs are audited as action-capable source material",
