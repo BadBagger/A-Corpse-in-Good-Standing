@@ -65,6 +65,7 @@ try {
     Write-Host ""
 
     Invoke-PowerShellGate -Name "Validate Act II planning puzzle graph" -ScriptName "Validate-ActIIPuzzleGraph.ps1"
+    Invoke-PowerShellGate -Name "Validate Act II background source worklist" -ScriptName "Validate-ActIIBackgroundSourceWorklist.ps1"
 
     Write-Host "Act II planning gates passed."
 }

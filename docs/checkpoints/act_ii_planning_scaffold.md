@@ -15,12 +15,13 @@ Act II is scaffolded as validated design data only. This intentionally does not 
 | COMMITTED unlock guard | PASS | committed confessions require committed-action nodes/edges | No passive COMMITTED acquisition |
 | Betrayal endgame guard | PASS | `cf_bt_again` is forbidden until Act III | Never unlock before Act III |
 | Float content line | PASS | hard-R non-explicit, agency tag, no Cold Girl tag | Section 2.3 guard preserved |
+| Background source worklist | PASS | 5 rooms, 57 source tasks: 19 Meshy helpers, 15 generated refs, 15 interactive layers, 8 navigation silhouettes | Planning only; no final art before Act I human review |
 
 ## BLOCKERS
 
 1. Act I human review is still required before Act II greybox production.
 2. Act II hotspot/dialogue writing remains locked by the script note: do not write Act II dialogue until Act I has been in front of strangers.
-3. Act II final art remains locked; source planning can continue, but paintover and production sheets should wait.
+3. Act II final art remains locked; source planning is now ready, but paintover and production sheets should wait.
 
 ## DEVIATIONS
 
@@ -28,4 +29,4 @@ None from the build brief. This is a planning scaffold, not an implementation ch
 
 ## NEXT
 
-Use `tools/Run-ActIIPlanningGates.ps1` after any Act II planning change; when Act I review is accepted, convert this graph into the Act II greybox room task list.
+Use `tools/Run-ActIIPlanningGates.ps1` after any Act II planning change; when Act I review is accepted, convert the graph and source worklist into the Act II greybox room task list.
