@@ -56,6 +56,7 @@ try {
     Invoke-Step -Name "Validate Act I background source worklist" -ScriptName "Validate-ActIBackgroundSourceWorklist.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I background source prompts" -ScriptName "Validate-ActIBackgroundSourcePrompts.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I background source intake" -ScriptName "Validate-ActIBackgroundSourceIntake.ps1" -TimeoutSeconds 120
+    Invoke-Step -Name "Validate Act I look target reference" -ScriptName "Validate-ActILookTargetReference.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I background source placement" -ScriptName "Validate-ActIBackgroundSourcePlacement.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I background source dropzones" -ScriptName "Validate-ActIBackgroundSourceDropzones.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I background source acquisition" -ScriptName "Validate-ActIBackgroundSourceAcquisition.ps1" -TimeoutSeconds 120

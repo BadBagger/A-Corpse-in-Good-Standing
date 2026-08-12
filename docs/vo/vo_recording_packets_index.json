@@ -5,12 +5,12 @@
                            "docs/vo/act_i_vo_line_manifest.json",
                            "docs/vo/confession_vo_manifest.json"
                        ],
-    "generated_at_utc":  "2026-08-12T05:55:16.6337364Z",
+    "generated_at_utc":  "2026-08-12T06:09:20.3427606Z",
     "source_modified_utc":  {
-                                "docs/vo/vo_recording_queue.json":  "2026-08-12T05:55:16.0470327Z",
-                                "docs/vo/vo_recording_batches.json":  "2026-08-12T05:55:15.3339723Z",
-                                "docs/vo/act_i_vo_line_manifest.json":  "2026-08-12T05:54:53.4381270Z",
-                                "docs/vo/confession_vo_manifest.json":  "2026-08-12T05:54:54.3652863Z"
+                                "docs/vo/vo_recording_queue.json":  "2026-08-12T06:09:19.7890979Z",
+                                "docs/vo/vo_recording_batches.json":  "2026-08-12T06:09:19.1201063Z",
+                                "docs/vo/act_i_vo_line_manifest.json":  "2026-08-12T06:08:57.2292971Z",
+                                "docs/vo/confession_vo_manifest.json":  "2026-08-12T06:08:58.1141929Z"
                             },
     "purpose":  "Per-batch scratch VO recording packet index. Only scratch-ready batches get packet files.",
     "packet_directory":  "docs/vo/recording_packets/scratch_ready",

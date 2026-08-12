@@ -38,6 +38,7 @@ $artifactPaths = @(
     "docs/playtest/act_i_review_fix_tracker.md",
     "docs/art/act_i_hotspot_overlay.svg",
     "docs/art/act_i_background_ready_source_packets.md",
+    "docs/art/act_i_look_target_reference.md",
     "docs/art/act_i_paintover_packet.md",
     "docs/art/act_i_paintover_source_scaffold.md",
     "docs/art/act_i_paintover_start_gate.md",
@@ -176,83 +177,90 @@ $workflow = @(
     },
     [ordered]@{
         step = 18
+        action = "Review the Act I generated look target reference."
+        command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActILookTargetReference.ps1"
+        artifact = "docs/art/act_i_look_target_reference.md"
+        pass_condition = "The generated harbor image is treated as a mood/readability target only, not final room art, hotspot authority, or diffusion-per-frame character source."
+    },
+    [ordered]@{
+        step = 19
         action = "Review the ready background source generation packets."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIBackgroundReadySourcePackets.ps1"
         artifact = "docs/art/act_i_background_ready_source_packets.md"
         pass_condition = "Packets include only Meshy helper GLBs and imagegen reference boards that are safe to acquire now; they are not final background plates and exclude held interactive/navigation PSD work."
     },
     [ordered]@{
-        step = 19
+        step = 20
         action = "Use the paintover packet as the room-by-room final-art brief."
         command = ""
         artifact = "docs/art/act_i_paintover_packet.md"
         pass_condition = "Painter follows the locked palette, walk band, hotspot coordinates, and risk notes."
     },
     [ordered]@{
-        step = 20
+        step = 21
         action = "Complete the art readability checklist."
         command = ""
         artifact = "docs/playtest/act_i_art_readability_review.md"
         pass_condition = "Every room has a proceed/revise/stop decision before final paint starts."
     },
     [ordered]@{
-        step = 21
+        step = 22
         action = "Export, validate, and fill the batch review decision sheet."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIReviewDecisionTemplate.ps1"
         artifact = "docs/playtest/act_i_review_decisions_template.csv"
         pass_condition = "Template has all 11 rooms, no malformed Markdown, and reviewer records one decision per room; every non-pending decision includes build_commit, reviewer, reviewed_at, and decision_note."
     },
     [ordered]@{
-        step = 22
+        step = 23
         action = "Dry-run the batch review decisions."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Import-ActIReviewDecisions.ps1 -InputCsv docs\playtest\act_i_review_decisions_template.csv -DryRun"
         artifact = "docs/playtest/act_i_review_decision_import_report.md"
         pass_condition = "Dry run reports expected approved/revise/stop/pending counts without changing the tracker."
     },
     [ordered]@{
-        step = 23
+        step = 24
         action = "Apply the reviewed decision sheet after the dry run is clean."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Import-ActIReviewDecisions.ps1 -InputCsv docs\playtest\act_i_review_decisions_template.csv -Apply"
         artifact = "docs/playtest/act_i_review_fix_tracker.md"
         pass_condition = "Rooms remain pending, revise, stop, or explicitly approved; no approval is implied by scaffold existence."
     },
     [ordered]@{
-        step = 24
+        step = 25
         action = "Check the safe paintover source scaffolds."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverSourceScaffold.ps1"
         artifact = "docs/art/act_i_paintover_source_scaffold.md"
         pass_condition = "Scaffolds exist as handoff notes only and do not count as final PSD paintovers."
     },
     [ordered]@{
-        step = 25
+        step = 26
         action = "Re-run the paintover start gate."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverStartGate.ps1"
         artifact = "docs/art/act_i_paintover_start_gate.md"
         pass_condition = "Final paintovers may start only for rooms that are human-approved and unblocked."
     },
     [ordered]@{
-        step = 26
+        step = 27
         action = "Generate the approved-room paintover work order."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverWorkOrder.ps1"
         artifact = "docs/art/act_i_paintover_work_order.md"
         pass_condition = "Work order includes only start-gate-ready rooms, preserves build_commit, reviewer, reviewed_at, and decision_note proof, and stays empty while all rooms are blocked."
     },
     [ordered]@{
-        step = 27
+        step = 28
         action = "Validate final PSD source intake against the work order."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverSourceIntake.ps1"
         artifact = "docs/art/act_i_paintover_source_intake.md"
         pass_condition = "No blocked-room PSD can count as final paintover source material, and approved rows preserve work-order build_commit, reviewer, reviewed_at, and decision_note proof."
     },
     [ordered]@{
-        step = 28
+        step = 29
         action = "Audit final paintover completion."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIFinalPaintoverCompletion.ps1"
         artifact = "docs/art/act_i_final_paintover_completion.md"
         pass_condition = "A room counts complete only when an accepted PSD has a newer audited final PNG export, and completion rows preserve source-intake build_commit, reviewer, reviewed_at, and decision_note proof."
     },
     [ordered]@{
-        step = 29
+        step = 30
         action = "Audit paintover review provenance across all final-art handoff layers."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverReviewProvenance.ps1"
         artifact = "docs/art/act_i_paintover_review_provenance.md"

@@ -54,11 +54,11 @@ if ($dashboard.paintover_gate_status -notin @("ready", "blocked_pending_human_re
 if ([int]$dashboard.ready_rooms + [int]$dashboard.blocked_rooms -ne 11) {
     throw "Step 5 dashboard ready/blocked room counts must total 11."
 }
-if ($workflow.Count -ne 29) {
-    throw "Step 5 dashboard expected 29 ordered review steps, got $($workflow.Count)."
+if ($workflow.Count -ne 30) {
+    throw "Step 5 dashboard expected 30 ordered review steps, got $($workflow.Count)."
 }
-if ($artifacts.Count -lt 30) {
-    throw "Step 5 dashboard expected at least 30 artifact references, got $($artifacts.Count)."
+if ($artifacts.Count -lt 31) {
+    throw "Step 5 dashboard expected at least 31 artifact references, got $($artifacts.Count)."
 }
 
 foreach ($relativePath in $artifacts) {
@@ -113,6 +113,10 @@ foreach ($requiredText in @(
     "Review Corvin's Act I side-priority animation work order.",
     "docs/art/corvin_side_priority_work_order.md",
     "Act I side talk/use/wet are the next animation targets before front/back or decay sheets.",
+    "Review the Act I generated look target reference.",
+    "docs/art/act_i_look_target_reference.md",
+    "generated harbor image is treated as a mood/readability target only",
+    "not final room art, hotspot authority, or diffusion-per-frame character source",
     "Export, validate, and fill the batch review decision sheet.",
     "every non-pending decision includes build_commit, reviewer, reviewed_at, and decision_note",
     "Dry-run the batch review decisions.",

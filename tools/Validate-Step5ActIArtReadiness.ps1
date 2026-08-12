@@ -14,6 +14,8 @@ $backgroundElementPipelinePath = Join-Path $root "docs\art\act_i_background_elem
 $backgroundSourceWorklistPath = Join-Path $root "docs\art\act_i_background_source_worklist.md"
 $backgroundSourcePromptsPath = Join-Path $root "docs\art\act_i_background_source_prompts.md"
 $backgroundSourceIntakePath = Join-Path $root "docs\art\act_i_background_source_intake.md"
+$lookTargetReferencePath = Join-Path $root "docs\art\act_i_look_target_reference.md"
+$lookTargetReferenceJsonPath = Join-Path $root "docs\art\act_i_look_target_reference.json"
 $backgroundSourcePlacementPath = Join-Path $root "docs\art\act_i_background_source_placement.md"
 $backgroundSourceDropzonesPath = Join-Path $root "docs\art\act_i_background_source_dropzones.md"
 $backgroundSourceAcquisitionPath = Join-Path $root "docs\art\act_i_background_source_acquisition.md"
@@ -77,6 +79,8 @@ foreach ($path in @(
     $backgroundSourceWorklistPath,
     $backgroundSourcePromptsPath,
     $backgroundSourceIntakePath,
+    $lookTargetReferencePath,
+    $lookTargetReferenceJsonPath,
     $backgroundSourcePlacementPath,
     $backgroundSourceDropzonesPath,
     $backgroundSourceAcquisitionPath,
@@ -143,6 +147,8 @@ $backgroundElementPipeline = Get-Content -LiteralPath $backgroundElementPipeline
 $backgroundSourceWorklist = Get-Content -LiteralPath $backgroundSourceWorklistPath -Raw
 $backgroundSourcePrompts = Get-Content -LiteralPath $backgroundSourcePromptsPath -Raw
 $backgroundSourceIntake = Get-Content -LiteralPath $backgroundSourceIntakePath -Raw
+$lookTargetReference = Get-Content -LiteralPath $lookTargetReferencePath -Raw
+$lookTargetReferenceJson = Get-Content -LiteralPath $lookTargetReferenceJsonPath -Raw | ConvertFrom-Json
 $backgroundSourcePlacement = Get-Content -LiteralPath $backgroundSourcePlacementPath -Raw
 $backgroundSourceDropzones = Get-Content -LiteralPath $backgroundSourceDropzonesPath -Raw
 $backgroundSourceAcquisition = Get-Content -LiteralPath $backgroundSourceAcquisitionPath -Raw
@@ -345,6 +351,25 @@ foreach ($requiredText in @(
 )) {
     if ($backgroundSourceIntake -notmatch [regex]::Escape($requiredText)) {
         throw "Act I background source intake missing readiness text: $requiredText"
+    }
+}
+
+if ($lookTargetReferenceJson.status -ne "reference_only_review_target") {
+    throw "Act I look target reference has unexpected status: $($lookTargetReferenceJson.status)"
+}
+if ([int]$lookTargetReferenceJson.width -ne 1672 -or [int]$lookTargetReferenceJson.height -ne 941) {
+    throw "Act I look target reference expected 1672x941 image."
+}
+foreach ($requiredText in @(
+    "Act I Look Target Reference",
+    "mood, palette, staging, and side-on adventure-game readability reference",
+    "Not a final room plate.",
+    "Generated images remain reference only",
+    "Blender greybox and paintover remain authoritative",
+    "deterministic 3D-to-Blender-to-2D"
+)) {
+    if ($lookTargetReference -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I look target reference missing readiness text: $requiredText"
     }
 }
 
@@ -798,6 +823,7 @@ $lines = @(
     "- Act I background source worklist: pass, generated pending task list tracks Meshy helper models, generated reference boards, separate interactive layers, and navigation silhouettes before final paintover starts.",
     "- Act I background source prompts: pass, generated guarded prompts cover Meshy helper GLBs, imagegen reference boards, and paintover/runtime-layer tasks without approving final art.",
     "- Act I background source intake: pass, generated source-output intake keeps prompt outputs pending/present without treating Meshy, imagegen, or paintover sources as final room art.",
+    "- Act I look target reference: pass, generated harbor reference is tracked as a $($lookTargetReferenceJson.status) at $($lookTargetReferenceJson.width)x$($lookTargetReferenceJson.height), with guardrails against final-room-plate, hotspot-coordinate, Blender-greybox, or diffusion-per-frame character use.",
     "- Act I background source placement: pass, generated placement map routes source outputs into Blender helper geometry, reference boards, separate runtime layers, or navigation readability review without approving final art.",
     "- Act I background source dropzones: pass, generated source-output folders and README scaffolds exist without creating placeholder binary files or approving final art.",
     "- Act I background source acquisition: pass, generated per-room checklist marks Meshy/reference outputs ready to acquire now and holds interactive/navigation PSD work for human room review.",
@@ -853,6 +879,7 @@ foreach ($requiredText in @(
     "Act I background source worklist: pass",
     "Act I background source prompts: pass",
     "Act I background source intake: pass",
+    "Act I look target reference: pass",
     "Act I background source placement: pass",
     "Act I background source dropzones: pass",
     "Act I background source acquisition: pass",

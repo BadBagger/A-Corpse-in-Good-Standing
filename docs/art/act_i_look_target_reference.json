@@ -1,0 +1,34 @@
+﻿{
+    "status":  "reference_only_review_target",
+    "generated_from":  "chat imagegen preview",
+    "image_path":  "docs/art/reference/look_targets/act_i_harbor_look_target_v1.png",
+    "width":  1672,
+    "height":  941,
+    "size_bytes":  2326257,
+    "purpose":  "Act I mood, palette, staging, and side-on adventure-game readability reference.",
+    "strengths_to_preserve":  [
+                                  "side-on Corvin staging",
+                                  "wet black coat silhouette",
+                                  "barefoot drowned read",
+                                  "amber living warmth versus absinthe wrong-light contrast",
+                                  "leviathan rib architecture",
+                                  "bottom verb/inventory strip scale",
+                                  "walkable harbor foreground"
+                              ],
+    "production_limits":  [
+                              "not a final room plate",
+                              "not a paintover approval",
+                              "not a source of hotspot coordinates",
+                              "not a replacement for Blender greybox perspective",
+                              "not a diffusion-per-frame character source",
+                              "too detailed for direct sprite-scale production"
+                          ],
+    "guardrails":  [
+                       "Use this only as a look target during human review and paintover direction.",
+                       "Blender greybox and paintover remain authoritative for final Act I backgrounds.",
+                       "Generated images remain reference only and must not be imported as finished room plates.",
+                       "Corvin production animation must stay deterministic 3D-to-Blender-to-2D, not diffusion-per-frame.",
+                       "All final room exports still need G9/G10 palette checks.",
+                       "Do not start final paintovers while the start gate reports blocked_pending_human_review."
+                   ]
+}

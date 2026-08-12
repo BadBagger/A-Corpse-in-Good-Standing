@@ -12,6 +12,7 @@ GATES:
 - Act I background source worklist: pass, generated pending task list tracks Meshy helper models, generated reference boards, separate interactive layers, and navigation silhouettes before final paintover starts.
 - Act I background source prompts: pass, generated guarded prompts cover Meshy helper GLBs, imagegen reference boards, and paintover/runtime-layer tasks without approving final art.
 - Act I background source intake: pass, generated source-output intake keeps prompt outputs pending/present without treating Meshy, imagegen, or paintover sources as final room art.
+- Act I look target reference: pass, generated harbor reference is tracked as a reference_only_review_target at 1672x941, with guardrails against final-room-plate, hotspot-coordinate, Blender-greybox, or diffusion-per-frame character use.
 - Act I background source placement: pass, generated placement map routes source outputs into Blender helper geometry, reference boards, separate runtime layers, or navigation readability review without approving final art.
 - Act I background source dropzones: pass, generated source-output folders and README scaffolds exist without creating placeholder binary files or approving final art.
 - Act I background source acquisition: pass, generated per-room checklist marks Meshy/reference outputs ready to acquire now and holds interactive/navigation PSD work for human room review.
