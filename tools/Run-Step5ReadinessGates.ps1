@@ -99,6 +99,7 @@ try {
     Invoke-Step -Name "Validate Act I human playtest launch preflight" -ScriptName "Validate-ActIHumanPlaytestLaunch.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I playable review shortcut" -ScriptName "Validate-ActIHumanPlaytestShortcut.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Corvin side-priority work order" -ScriptName "Validate-CorvinSidePriorityWorkOrder.ps1" -TimeoutSeconds 120
+    Invoke-Step -Name "Validate Corvin side action scaffold" -ScriptName "Validate-CorvinSideActionScaffold.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Step 5 Act I art-pass readiness" -ScriptName "Validate-Step5ActIArtReadiness.ps1" -TimeoutSeconds 120
 
     Write-Host "Step 5 Act I art-pass readiness gates passed."

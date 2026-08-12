@@ -1,0 +1,168 @@
+﻿{
+    "generated_from":  "docs/art/corvin_side_priority_work_order.json",
+    "purpose":  "Concrete Blender action handoff for the next Act I side-view Corvin sheets before rendering talk/use/wet.",
+    "status":  "source_action_scaffold_ready_pending_render",
+    "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+    "shader_blend":  "art/src/shaders/ink_wash_shader_spike.blend",
+    "created_sheet_exports":  0,
+    "created_godot_imports":  0,
+    "rule_locks":  [
+                       "No PNG sheet is created by this scaffold.",
+                       "Do not create diffusion-per-frame production art.",
+                       "Side talk/use/wet remain pending until deterministic Blender sheets exist.",
+                       "The wet action must read as physical brine, not magic."
+                   ],
+    "actions":  [
+                    {
+                        "action_id":  "act_i_clean_talk_side",
+                        "variant":  "act_i_clean",
+                        "animation":  "talk",
+                        "directions":  [
+                                           "side_right",
+                                           "side_left"
+                                       ],
+                        "fps":  12,
+                        "frames":  6,
+                        "loop":  true,
+                        "blender_action":  "Corvin_act_i_clean_talk_side",
+                        "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                        "shader_blend":  "art/src/shaders/ink_wash_shader_spike.blend",
+                        "source_basis":  "Use the canonical Act I clean Blender source and current side idle registration.",
+                        "motion_intent":  "Small dead-notary conversational motion: chin dip, one shoulder settling low, minimal coat sway, no broad acting.",
+                        "mirror_policy":  "Render side_right first, derive side_left by deterministic mirror only if silhouette, coat hang, and drip side remain readable.",
+                        "frame_beats":  [
+                                            "01 neutral side idle registration frame",
+                                            "02 chin drops and near shoulder sinks one pixel-row equivalent",
+                                            "03 mouth/upper torso emphasis frame while coat hem lags",
+                                            "04 return through neutral with drip held visible",
+                                            "05 opposite micro-settle at shoulder and hand",
+                                            "06 seamless return to frame 01"
+                                        ],
+                        "acceptance_checks":  [
+                                                  "6 frames at 12 fps, loop true",
+                                                  "first and last frame register cleanly for looping",
+                                                  "feet remain planted and do not slide",
+                                                  "head/shoulder motion reads at 512px sheet cell scale",
+                                                  "drip remains visible but does not crawl across the silhouette"
+                                              ],
+                        "sheet_export_targets":  [
+                                                     "art/export/characters/corvin/act_i_clean/talk_side_right.png",
+                                                     "art/export/characters/corvin/act_i_clean/talk_side_left.png"
+                                                 ],
+                        "godot_import_targets":  [
+                                                     "game/characters/corvin/sprites/act_i_clean/talk_side_right.png",
+                                                     "game/characters/corvin/sprites/act_i_clean/talk_side_left.png"
+                                                 ],
+                        "sheet_status":  "pending",
+                        "scaffold_status":  "source_action_scaffold_ready_pending_render",
+                        "rule_locks":  [
+                                           "No PNG sheet is created by this scaffold.",
+                                           "Do not create diffusion-per-frame production art.",
+                                           "Use the canonical Act I clean Blender source.",
+                                           "Preserve current side idle registration for first and final frames."
+                                       ]
+                    },
+                    {
+                        "action_id":  "act_i_clean_use_side",
+                        "variant":  "act_i_clean",
+                        "animation":  "use",
+                        "directions":  [
+                                           "side_right",
+                                           "side_left"
+                                       ],
+                        "fps":  12,
+                        "frames":  8,
+                        "loop":  false,
+                        "blender_action":  "Corvin_act_i_clean_use_side",
+                        "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                        "shader_blend":  "art/src/shaders/ink_wash_shader_spike.blend",
+                        "source_basis":  "Use current side idle as frame 01 and preserve side walk scale.",
+                        "motion_intent":  "One restrained reach from the damp coat: hand leaves pocket, touches/indicates object, recoils slightly.",
+                        "mirror_policy":  "Render side_right first; mirror side_left only after contact hand remains readable and no prop-specific lighting is baked into the sheet.",
+                        "frame_beats":  [
+                                            "01 neutral side idle registration frame",
+                                            "02 elbow lifts under heavy wet sleeve",
+                                            "03 hand reaches forward, wrong shoulder stays low",
+                                            "04 contact/indicate pose with coat hem delayed",
+                                            "05 hand withdraws, sleeve leads",
+                                            "06 torso settles back",
+                                            "07 coat/drip follow-through",
+                                            "08 neutral hold for handoff back to idle"
+                                        ],
+                        "acceptance_checks":  [
+                                                  "8 frames at 12 fps, loop false",
+                                                  "frame 01 and frame 08 align with idle-side registration",
+                                                  "contact frame is the brightest/readable motion pose",
+                                                  "no frame moves feet outside the side idle footprint",
+                                                  "usable as a generic hotspot response without implying a specific item"
+                                              ],
+                        "sheet_export_targets":  [
+                                                     "art/export/characters/corvin/act_i_clean/use_side_right.png",
+                                                     "art/export/characters/corvin/act_i_clean/use_side_left.png"
+                                                 ],
+                        "godot_import_targets":  [
+                                                     "game/characters/corvin/sprites/act_i_clean/use_side_right.png",
+                                                     "game/characters/corvin/sprites/act_i_clean/use_side_left.png"
+                                                 ],
+                        "sheet_status":  "pending",
+                        "scaffold_status":  "source_action_scaffold_ready_pending_render",
+                        "rule_locks":  [
+                                           "No PNG sheet is created by this scaffold.",
+                                           "Do not create diffusion-per-frame production art.",
+                                           "Use the canonical Act I clean Blender source.",
+                                           "Preserve current side idle registration for first and final frames."
+                                       ]
+                    },
+                    {
+                        "action_id":  "act_i_clean_wet_side",
+                        "variant":  "act_i_clean",
+                        "animation":  "wet",
+                        "directions":  [
+                                           "side_right",
+                                           "side_left"
+                                       ],
+                        "fps":  12,
+                        "frames":  8,
+                        "loop":  false,
+                        "blender_action":  "Corvin_act_i_clean_wet_side",
+                        "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                        "shader_blend":  "art/src/shaders/ink_wash_shader_spike.blend",
+                        "source_basis":  "Custom required; do not derive from Meshy biped canned motion.",
+                        "motion_intent":  "Corvin leans and squeezes/drips brine from sleeve or coat hem onto the target, dryly practical rather than magical.",
+                        "mirror_policy":  "Render both directions or mirror only after confirming the drip arc reads on the correct interaction side in Godot.",
+                        "frame_beats":  [
+                                            "01 neutral side idle registration frame",
+                                            "02 weight shifts forward without foot slide",
+                                            "03 elbow/coat hem lifts to expose drip source",
+                                            "04 brine drop/splash silhouette reaches target zone",
+                                            "05 held drip frame for readability",
+                                            "06 arm lowers and coat follows",
+                                            "07 shoulders settle into wrong-shouldered stance",
+                                            "08 neutral hold for handoff back to idle"
+                                        ],
+                        "acceptance_checks":  [
+                                                  "8 frames at 12 fps, loop false",
+                                                  "wet action starts and ends on idle registration",
+                                                  "drip/splash is visible without arterial red or off-palette effects",
+                                                  "motion reads as physical brine, not magic",
+                                                  "does not obscure hotspot feedback or Litany UI"
+                                              ],
+                        "sheet_export_targets":  [
+                                                     "art/export/characters/corvin/act_i_clean/wet_side_right.png",
+                                                     "art/export/characters/corvin/act_i_clean/wet_side_left.png"
+                                                 ],
+                        "godot_import_targets":  [
+                                                     "game/characters/corvin/sprites/act_i_clean/wet_side_right.png",
+                                                     "game/characters/corvin/sprites/act_i_clean/wet_side_left.png"
+                                                 ],
+                        "sheet_status":  "pending",
+                        "scaffold_status":  "source_action_scaffold_ready_pending_render",
+                        "rule_locks":  [
+                                           "No PNG sheet is created by this scaffold.",
+                                           "Do not create diffusion-per-frame production art.",
+                                           "Use the canonical Act I clean Blender source.",
+                                           "Preserve current side idle registration for first and final frames."
+                                       ]
+                    }
+                ]
+}
