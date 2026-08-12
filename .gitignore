@@ -9,3 +9,7 @@ obj/
 *.blend@
 *.log
 _incoming_*/
+
+# Deterministic render scratch. Final audited sheets stay tracked.
+art/export/characters/corvin/act_i_clean/*_frames/
+__pycache__/
