@@ -13,8 +13,8 @@ Guardrails:
 
 Counts:
 - Prompts: 130
-- Present source outputs: 18
-- Pending source outputs: 112
+- Present source outputs: 22
+- Pending source outputs: 108
 - Zero-byte outputs: 0
 - generated_reference: 41
 - interactive_layer: 25
@@ -111,10 +111,10 @@ Counts:
 
 | ID | Kind | Tool | Status | Source | Runtime |
 |---|---|---|---|---|---|
-| almshouse_generated_reference_grime_texture | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/almshouse/grime_texture.png` | `-` |
-| almshouse_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/almshouse/ink_wash_edge_breakup.png` | `-` |
-| almshouse_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/almshouse/non_clickable_dressing_silhouettes.png` | `-` |
-| almshouse_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/almshouse/palette_safe_mood_reference.png` | `-` |
+| almshouse_generated_reference_grime_texture | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/almshouse/grime_texture.png` | `-` |
+| almshouse_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/almshouse/ink_wash_edge_breakup.png` | `-` |
+| almshouse_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/almshouse/non_clickable_dressing_silhouettes.png` | `-` |
+| almshouse_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/almshouse/palette_safe_mood_reference.png` | `-` |
 | almshouse_interactive_layer_half_coin_prosper | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/almshouse/halfcoinprosper.psd` | `game/rooms/almshouse/props/halfcoinprosper.png` |
 | almshouse_meshy_source_model_cot_rows | meshy_source_model | Meshy | pending_source | `art/src/backgrounds/act_i/source_models/almshouse/cot_rows.glb` | `-` |
 | almshouse_meshy_source_model_privacy_screens | meshy_source_model | Meshy | pending_source | `art/src/backgrounds/act_i/source_models/almshouse/privacy_screens.glb` | `-` |
