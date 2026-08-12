@@ -83,6 +83,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-ActIBackgroundSourceDropzones.ps1` regenerates and validates source-output drop-zone READMEs. These create folders only; they must not create placeholder `.glb`, `.png`, or `.psd` files.
 - `tools\Validate-ActIBackgroundSourceAcquisition.ps1` regenerates and validates the per-room acquisition checklist: Meshy/reference source files can be generated now, while interactive/navigation PSD work stays held until human room approval.
 - `tools\Validate-ActIBackgroundReadySourcePackets.ps1` regenerates and validates the ready-source generation packets. These include only Meshy/imagegen source items marked `ready_to_generate` and exclude held interactive/navigation PSD work.
+- `tools\Validate-ActIObjectiveHud.ps1` validates the non-spoiler Act I objective HUD contract: standing progress appears in-game without exposing Rite names, route order, or duel math.
 - `tools\Validate-ActIBackgroundAssetStatus.ps1` regenerates the background asset tracker. Pending art is allowed here; malformed or incomplete tracking is not.
 - `tools\Validate-ActIBlockoutTasks.ps1` regenerates the Blender blockout task brief and validates room coverage, wet-verb tasks, close-pair review, and Registrar duel-format lock.
 - `tools\Validate-ActIBackgroundPaletteAudit.ps1` regenerates the palette audit. Pending exports are allowed; existing exported PNGs must satisfy G9/G10.

@@ -118,14 +118,38 @@ layout_mode = 2
 text = "Pick a verb, then click a greybox hotspot."
 vertical_alignment = 1
 
+[node name="ObjectivePanel" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 26.0
+offset_top = 74.0
+offset_right = -600.0
+offset_bottom = 122.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="ObjectiveMargin" type="MarginContainer" parent="Root/ObjectivePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="Objective" type="Label" parent="Root/ObjectivePanel/ObjectiveMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Objective: Reach the Salt Market and find out who recognizes Corvin."
+vertical_alignment = 1
+
 [node name="DialoguePanel" type="PanelContainer" parent="Root"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 26.0
-offset_top = 86.0
+offset_top = 136.0
 offset_right = -600.0
-offset_bottom = 286.0
+offset_bottom = 336.0
 grow_horizontal = 2
 mouse_filter = 2
 

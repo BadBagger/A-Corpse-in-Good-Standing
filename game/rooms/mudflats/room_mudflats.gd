@@ -193,6 +193,8 @@ func _refresh_narrative_hud() -> void:
 		return
 	if _hud.has_method("set_journal_entries"):
 		_hud.set_journal_entries(narrative.get_journal_entries())
+	if _hud.has_method("set_objective_summary") and narrative.has_method("get_act_i_objective_summary"):
+		_hud.set_objective_summary(narrative.get_act_i_objective_summary())
 	if _hud.has_method("set_confession_summary"):
 		_hud.set_confession_summary(narrative.get_confession_summary())
 

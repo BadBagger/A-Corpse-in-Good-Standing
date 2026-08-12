@@ -143,6 +143,19 @@ func consume_float_warmth_room_step() -> bool:
 func are_act_i_rites_complete() -> bool:
 	return has_act_i_flag("FL_rite_name") and has_act_i_flag("FL_rite_debt") and has_act_i_flag("FL_rite_heartbeat")
 
+func get_act_i_objective_summary() -> String:
+	if has_act_i_flag("FL_act_i_complete"):
+		return "Objective: Act I complete. Sabine has received Corvin."
+	if are_act_i_rites_complete():
+		return "Objective: Standing complete. Go to the Harbormaster's Office."
+	if not has_act_i_flag("FL_market_recognized"):
+		return "Objective: Reach the Salt Market and find out who recognizes Corvin."
+	var accepted := 0
+	for flag_id in ["FL_rite_name", "FL_rite_debt", "FL_rite_heartbeat"]:
+		if has_act_i_flag(flag_id):
+			accepted += 1
+	return "Objective: Standing %d/3 proofs accepted. Find any proof the port will honor." % accepted
+
 func apply_ink_tag(tag: String) -> bool:
 	if tag.begins_with("journal:add:"):
 		return add_journal(tag.substr("journal:add:".length()))

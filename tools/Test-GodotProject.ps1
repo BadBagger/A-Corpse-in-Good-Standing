@@ -64,7 +64,7 @@ foreach ($expected in @("HarborMud", "BorrowedBoots", "Corvin", "Mudflats")) {
 }
 
 $hudScene = Get-Content -LiteralPath (Join-Path $root "game\ui\prologue_hud.tscn") -Raw -Encoding UTF8
-foreach ($expected in @("WalkButton", "LookButton", "UseButton", "TalkButton", "WetButton", "Inventory")) {
+foreach ($expected in @("WalkButton", "LookButton", "UseButton", "TalkButton", "WetButton", "Inventory", "Objective")) {
     if ($hudScene -notmatch [regex]::Escape($expected)) {
         throw "Prologue HUD missing expected control: $expected"
     }
@@ -98,7 +98,7 @@ foreach ($expected in @("transition_animation", "walk_side_left", "walk_side_rig
     }
 }
 
-foreach ($expected in @("N=`"*res://game/autoloads/narrative_state.gd`"", "JOURNAL_CATALOG", "apply_ink_tag", "discover_confession", "spend_confession", "lock_opponent_spoken_confession", "degrade_journal", "add_item", "to_snapshot", "apply_snapshot", "clear_runtime_state")) {
+foreach ($expected in @("N=`"*res://game/autoloads/narrative_state.gd`"", "JOURNAL_CATALOG", "apply_ink_tag", "discover_confession", "spend_confession", "lock_opponent_spoken_confession", "degrade_journal", "add_item", "get_act_i_objective_summary", "to_snapshot", "apply_snapshot", "clear_runtime_state")) {
     $target = if ($expected -like "N=*") {
         Get-Content -LiteralPath (Join-Path $root "project.godot") -Raw -Encoding UTF8
     } else {
@@ -140,7 +140,7 @@ foreach ($expected in @("_play_corvin_runtime_animation(`"walk_side_right`")", "
     }
 }
 
-foreach ($expected in @("Journal", "Litany", "Dialogue")) {
+foreach ($expected in @("Journal", "Litany", "Dialogue", "Objective")) {
     if ($hudScene -notmatch [regex]::Escape($expected)) {
         throw "Prologue HUD missing narrative control: $expected"
     }

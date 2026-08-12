@@ -15,6 +15,7 @@ var inventory_items: Array[String] = []
 	"wet": %WetButton,
 }
 @onready var _status: Label = %Status
+@onready var _objective: Label = %Objective
 @onready var _inventory: Label = %Inventory
 @onready var _journal: Label = %Journal
 @onready var _litany: Label = %Litany
@@ -25,6 +26,7 @@ func _ready() -> void:
 		_verb_buttons[verb].pressed.connect(set_selected_verb.bind(verb))
 	set_selected_verb(selected_verb)
 	set_status("Pick a verb, then click a greybox hotspot.")
+	set_objective_summary("Objective: Reach the Salt Market and find out who recognizes Corvin.")
 	_refresh_inventory()
 	set_journal_entries([])
 	set_confession_summary("Litany: 0 known, 0 spent, 0 locked")
@@ -54,6 +56,9 @@ func has_inventory_item(item_name: String) -> bool:
 
 func set_status(message: String) -> void:
 	_status.text = message
+
+func set_objective_summary(summary: String) -> void:
+	_objective.text = summary
 
 func set_journal_entries(entries: Array[Dictionary]) -> void:
 	if entries.is_empty():
