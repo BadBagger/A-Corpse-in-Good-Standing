@@ -15,7 +15,7 @@ Rule locks:
 - Latest notes must include the accepted Litany/Registrar duel-format prompt.
 - Latest notes must include the Grey Float hard-R staging prompt.
 - Non-pending review decisions must carry matching build_commit, reviewer, reviewed_at, and decision_note proof in the CSV and tracker.
-- Dashboard must list the stable latest notes, decision CSV, review tracker, contact sheet, and ready-source packet artifacts.
+- Dashboard must list the stable latest notes, decision CSV, review tracker, contact sheet, Corvin side-action contact sheet, and ready-source packet artifacts.
 
 | Room | Decision | Build | Reviewer | Reviewed At | CSV synced | Notes mention room |
 |---|---|---|---|---|---|---|

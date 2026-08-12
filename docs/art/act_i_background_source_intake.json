@@ -616,7 +616,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  22039
+                     "runtime_size_bytes":  27647
                  },
                  {
                      "id":  "salt_market_navigation_silhouette_church",
@@ -634,7 +634,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  22039
+                     "runtime_size_bytes":  27647
                  },
                  {
                      "id":  "salt_market_navigation_silhouette_bone_chandler",
@@ -652,7 +652,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  22039
+                     "runtime_size_bytes":  27647
                  },
                  {
                      "id":  "salt_market_navigation_silhouette_almshouse",
@@ -670,7 +670,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  22039
+                     "runtime_size_bytes":  27647
                  },
                  {
                      "id":  "salt_market_navigation_silhouette_fish_hall",
@@ -688,7 +688,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  22039
+                     "runtime_size_bytes":  27647
                  },
                  {
                      "id":  "salt_market_navigation_silhouette_old_quay",
@@ -706,7 +706,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/salt_market/background/salt_market_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  22039
+                     "runtime_size_bytes":  27647
                  },
                  {
                      "id":  "harbor_registry_meshy_source_model_registrar_desk",
@@ -922,7 +922,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/harbor_registry/background/harbor_registry_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  34872
+                     "runtime_size_bytes":  25593
                  },
                  {
                      "id":  "bone_chandler_meshy_source_model_bone_shelf_units",
@@ -1102,7 +1102,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/bone_chandler/background/bone_chandler_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  20562
+                     "runtime_size_bytes":  20070
                  },
                  {
                      "id":  "bone_chandler_navigation_silhouette_salt_market",
@@ -1120,7 +1120,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/bone_chandler/background/bone_chandler_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  20562
+                     "runtime_size_bytes":  20070
                  },
                  {
                      "id":  "almshouse_meshy_source_model_cot_rows",
@@ -1300,7 +1300,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/almshouse/background/almshouse_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  21722
+                     "runtime_size_bytes":  23204
                  },
                  {
                      "id":  "almshouse_navigation_silhouette_bone_chandler",
@@ -1318,7 +1318,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/almshouse/background/almshouse_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  21722
+                     "runtime_size_bytes":  23204
                  },
                  {
                      "id":  "fish_hall_meshy_source_model_ice_table",
@@ -1534,7 +1534,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/fish_hall/background/fish_hall_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  16674
+                     "runtime_size_bytes":  16165
                  },
                  {
                      "id":  "church_of_the_drowned_meshy_source_model_confession_booth",
@@ -1732,7 +1732,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  39592
+                     "runtime_size_bytes":  17216
                  },
                  {
                      "id":  "church_of_the_drowned_navigation_silhouette_salt_market",
@@ -1750,7 +1750,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  39592
+                     "runtime_size_bytes":  17216
                  },
                  {
                      "id":  "grey_float_meshy_source_model_barge_wall_ribs",
@@ -1966,7 +1966,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/grey_float/background/grey_float_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  28534
+                     "runtime_size_bytes":  28513
                  },
                  {
                      "id":  "grey_float_navigation_silhouette_church",
@@ -1984,7 +1984,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/grey_float/background/grey_float_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  28534
+                     "runtime_size_bytes":  28513
                  },
                  {
                      "id":  "harbormaster_office_meshy_source_model_office_desk",
@@ -2164,7 +2164,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  21488
+                     "runtime_size_bytes":  20826
                  },
                  {
                      "id":  "harbormaster_office_navigation_silhouette_grey_float",
@@ -2182,7 +2182,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  21488
+                     "runtime_size_bytes":  20826
                  },
                  {
                      "id":  "sabine_office_meshy_source_model_sabine_desk",
@@ -2362,7 +2362,7 @@
                      "source_size_bytes":  0,
                      "runtime_path":  "game/rooms/sabine_office/background/sabine_office_bg.png",
                      "runtime_exists":  true,
-                     "runtime_size_bytes":  18718
+                     "runtime_size_bytes":  22794
                  }
              ]
 }

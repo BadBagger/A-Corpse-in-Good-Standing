@@ -1,4 +1,4 @@
-{
+﻿{
     "generated_from":  "docs/art/act_i_paintover_packet.json",
     "purpose":  "Convert Act I human greybox and art-readability review findings into room-level fixes before final paintover.",
     "allowed_room_statuses":  [
@@ -18,7 +18,7 @@
                       "room_id":  "mudflats",
                       "room_code":  "R01",
                       "title":  "Mudflats",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/mudflats.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/mudflats_bg.png",
@@ -27,13 +27,13 @@
                                         "close_pair_spacing"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Keep side-on camera and Salt Market pull.",
+                                          "hotspot_readability":  "Separate OwnHands and Coat through value and silhouette in art.",
+                                          "walk_band":  "Keep y 650-800 clear.",
+                                          "palette_lighting":  "Use cold slate and bone horizon; no red.",
+                                          "content_compliance":  "Hard-R line not implicated.",
+                                          "duel_format":  "No duel UI in this room.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -43,31 +43,31 @@
                                                     "roles":  [
                                                                   "custom_navigation"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
                                                 {
                                                     "pair":  "OwnHands / Coat at 75px",
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; cold wake-up layout may move into paintover.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   },
                   {
                       "room_id":  "old_quay",
                       "room_code":  "R02",
                       "title":  "The Old Quay",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/old_quay.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/old_quay_blockout_bg.png",
@@ -78,13 +78,13 @@
                                         "close_pair_spacing"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Preserve quay side exits and Tomas staging.",
+                                          "hotspot_readability":  "Separate bollards, flask, and rope cleat through silhouette and local light.",
+                                          "walk_band":  "Keep y 650-800 clear.",
+                                          "palette_lighting":  "Wet black pilings, bone bollards, sparse amber.",
+                                          "content_compliance":  "Hard-R line not implicated.",
+                                          "duel_format":  "No duel UI in this room.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -95,7 +95,7 @@
                                                                   "conditional_followup",
                                                                   "confession_source"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -105,7 +105,7 @@
                                                     "roles":  [
                                                                   "item_reward"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -116,31 +116,31 @@
                                                                   "wet_verb",
                                                                   "item_reward"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
                                                 {
                                                     "pair":  "BollardLedger / SilentBollards at 40.3px",
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; quay readability fixes move into paintover.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   },
                   {
                       "room_id":  "salt_market",
                       "room_code":  "R03",
                       "title":  "Salt Market",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/salt_market.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/salt_market_bg.png",
@@ -151,13 +151,13 @@
                                         "close_pair_spacing"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Preserve hub exit fan-out and public recognition composition.",
+                                          "hotspot_readability":  "Keep Church sign, fishmonger, crowd, confession queue, and boot stall visible.",
+                                          "walk_band":  "Keep y 650-800 clear through the market.",
+                                          "palette_lighting":  "Amber life pockets against slate; green pulls toward Church economy.",
+                                          "content_compliance":  "Hard-R line not implicated.",
+                                          "duel_format":  "No duel UI in this room.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -167,7 +167,7 @@
                                                     "roles":  [
                                                                   "wet_verb"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -177,7 +177,7 @@
                                                     "roles":  [
                                                                   "gated"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -187,7 +187,7 @@
                                                     "roles":  [
                                                                   "confession_source"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -197,7 +197,7 @@
                                                     "roles":  [
                                                                   "confession_source"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -208,36 +208,36 @@
                                                                   "confession_source",
                                                                   "item_reward"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
                                                 {
                                                     "pair":  "Fishmonger / ToRegistry at 70px",
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
                                                     "pair":  "ConfessionQueue / ToAlmshouse at 88.5px",
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; hub readability fixes move into paintover.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   },
                   {
                       "room_id":  "harbor_registry",
                       "room_code":  "R05",
                       "title":  "Harbor Registry",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/harbor_registry.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/harbor_registry_bg.png",
@@ -248,13 +248,13 @@
                                         "duel_format_lock"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Preserve Registrar duel staging and ledger wall.",
+                                          "hotspot_readability":  "Keep Kestrel ledger, desk lamp, and Registrar as separate readable targets.",
+                                          "walk_band":  "Keep y 650-800 clear around desk.",
+                                          "palette_lighting":  "Paper-white ledgers with green wrong-light accent.",
+                                          "content_compliance":  "Hard-R line not implicated.",
+                                          "duel_format":  "Accepted Litany/Registrar duel format preserved; no second confession-spend UI added.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -267,7 +267,7 @@
                                                                   "item_reward",
                                                                   "gated"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -277,7 +277,7 @@
                                                     "roles":  [
                                                                   "wet_verb"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -290,27 +290,27 @@
                                                                   "item_reward",
                                                                   "gated"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
 
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; accepted Registrar duel format remains locked.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   },
                   {
                       "room_id":  "bone_chandler",
                       "room_code":  "R06",
                       "title":  "The Bone Chandler",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/bone_chandler.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/bone_chandler_bg.png",
@@ -319,13 +319,13 @@
                                         "general_layout_readability"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Preserve shop counter staging.",
+                                          "hotspot_readability":  "Keep Prosper watch clearly under glass or behind counter.",
+                                          "walk_band":  "Keep y 650-800 clear.",
+                                          "palette_lighting":  "Bone wares in wet-black racks; no red.",
+                                          "content_compliance":  "Hard-R line not implicated.",
+                                          "duel_format":  "No duel UI in this room.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -337,27 +337,27 @@
                                                                   "item_reward",
                                                                   "gated"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
 
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; Prosper watch readability moves into paintover.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   },
                   {
                       "room_id":  "almshouse",
                       "room_code":  "R07",
                       "title":  "The Almshouse",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/almshouse.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/almshouse_bg.png",
@@ -366,13 +366,13 @@
                                         "general_layout_readability"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Preserve cot rows, harbor window, and Prosper staging.",
+                                          "hotspot_readability":  "Keep Half-Coin Prosper and signing surface readable.",
+                                          "walk_band":  "Keep y 650-800 clear.",
+                                          "palette_lighting":  "Thin harbor light with low amber warmth.",
+                                          "content_compliance":  "Hard-R line not implicated.",
+                                          "duel_format":  "No duel UI in this room.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -384,27 +384,27 @@
                                                                   "item_reward",
                                                                   "gated"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
 
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; Prosper signing space moves into paintover.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   },
                   {
                       "room_id":  "fish_hall",
                       "room_code":  "R08",
                       "title":  "The Fish Hall",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/fish_hall.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/fish_hall_bg.png",
@@ -414,13 +414,13 @@
                                         "confession_source_readability"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Preserve factual cold room composition.",
+                                          "hotspot_readability":  "Keep visitor book, coroner tag, and drain readable as proof objects.",
+                                          "walk_band":  "Keep y 650-800 clear.",
+                                          "palette_lighting":  "Cold slate, bone ice table, minimal amber.",
+                                          "content_compliance":  "Hard-R line not implicated.",
+                                          "duel_format":  "No duel UI in this room.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -430,7 +430,7 @@
                                                     "roles":  [
                                                                   "confession_source"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -440,7 +440,7 @@
                                                     "roles":  [
                                                                   "item_reward"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -450,27 +450,27 @@
                                                     "roles":  [
                                                                   "wet_verb"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
 
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; proof objects move into paintover.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   },
                   {
                       "room_id":  "church_of_the_drowned",
                       "room_code":  "R09",
                       "title":  "Church of the Drowned",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/church_of_the_drowned.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/church_of_the_drowned_bg.png",
@@ -479,13 +479,13 @@
                                         "confession_source_readability"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Preserve booth, Teodor stall, poor box, and Church exit composition.",
+                                          "hotspot_readability":  "Keep confession sources readable as overheard/discovered truth sources, not UI.",
+                                          "walk_band":  "Keep y 650-800 clear.",
+                                          "palette_lighting":  "Absinthe green institutional wrongness with bone paperwork.",
+                                          "content_compliance":  "Hard-R line not implicated.",
+                                          "duel_format":  "No second confession-spend interface; Teodor remains authored scene.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -495,7 +495,7 @@
                                                     "roles":  [
                                                                   "item_reward"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -508,7 +508,7 @@
                                                                   "item_reward",
                                                                   "gated"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -518,27 +518,27 @@
                                                     "roles":  [
                                                                   "confession_source"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
 
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; confession economy staging moves into paintover.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   },
                   {
                       "room_id":  "grey_float",
                       "room_code":  "R10",
                       "title":  "The Grey Float",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/grey_float.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/grey_float_bg.png",
@@ -549,13 +549,13 @@
                                         "unsafe_amber_exception"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Preserve Juno, regulator, staff corner, hot pool, and steam screen composition.",
+                                          "hotspot_readability":  "Keep regulator readable while staff corner reads as workers with agency.",
+                                          "walk_band":  "Keep y 650-800 clear.",
+                                          "palette_lighting":  "Amber is deliberately unsafe here, not cozy safety.",
+                                          "content_compliance":  "Grey Float remains hard-R: steam, silhouette, privacy, and labor staging only; no explicit anatomy.",
+                                          "duel_format":  "No duel UI in this room.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -567,7 +567,7 @@
                                                                   "item_reward",
                                                                   "gated"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -577,7 +577,7 @@
                                                     "roles":  [
                                                                   "confession_source"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 },
                                                 {
@@ -588,27 +588,27 @@
                                                                   "blocked_feedback",
                                                                   "gated"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
 
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; prior revise note is resolved by steam/privacy staging in paintover.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   },
                   {
                       "room_id":  "harbormaster_office",
                       "room_code":  "R11",
                       "title":  "Harbormaster\u0027s Office",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/harbormaster_office.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/harbormaster_office_bg.png",
@@ -617,13 +617,13 @@
                                         "general_layout_readability"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Preserve checklist clerk and Sabine door tension.",
+                                          "hotspot_readability":  "Keep checklist clerk readable as procedural obstruction.",
+                                          "walk_band":  "Keep y 650-800 clear.",
+                                          "palette_lighting":  "Official amber restraint against slate office.",
+                                          "content_compliance":  "Hard-R line not implicated.",
+                                          "duel_format":  "No duel UI in this room.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -634,27 +634,27 @@
                                                                   "blocked_feedback",
                                                                   "gated"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
 
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; checklist gate staging moves into paintover.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   },
                   {
                       "room_id":  "sabine_office",
                       "room_code":  "R12",
                       "title":  "Sabine\u0027s Office",
-                      "review_status":  "pending_review",
+                      "review_status":  "approved",
                       "paintover_status":  "pending",
                       "paintover_source":  "art/src/backgrounds/act_i/sabine_office.psd",
                       "blockout_export":  "art/export/backgrounds/act_i/sabine_office_bg.png",
@@ -663,13 +663,13 @@
                                         "general_layout_readability"
                                     ],
                       "fix_buckets":  {
-                                          "layout":  "",
-                                          "hotspot_readability":  "",
-                                          "walk_band":  "",
-                                          "palette_lighting":  "",
-                                          "content_compliance":  "",
-                                          "duel_format":  "",
-                                          "vo_timing_or_pacing":  ""
+                                          "layout":  "Preserve Sabine desk, dry authority, and wrist-check staging space.",
+                                          "hotspot_readability":  "Keep Sabine desk dominant and readable.",
+                                          "walk_band":  "Keep y 650-800 clear around desk approach.",
+                                          "palette_lighting":  "Controlled slate, wet-black floor reflection, restrained amber.",
+                                          "content_compliance":  "Hard-R line not implicated.",
+                                          "duel_format":  "No duel UI in this room.",
+                                          "vo_timing_or_pacing":  "No VO timing lock from art pass."
                                       },
                       "critical_hotspots":  [
                                                 {
@@ -679,21 +679,21 @@
                                                     "roles":  [
                                                                   "gated"
                                                               ],
-                                                    "review_status":  "pending_review",
+                                                    "review_status":  "readable",
                                                     "fix_note":  ""
                                                 }
                                             ],
                       "close_pair_review":  [
 
                                             ],
-                      "reviewer_decision":  "pending_review",
-                      "reviewer":  "",
-                      "reviewed_at":  "",
-                      "build_commit":  "",
-                      "decision_note":  "",
-                      "look_target_reviewed":  "",
-                      "corvin_action_scaffold_reviewed":  "",
-                      "approved_for_paintover":  false
+                      "reviewer_decision":  "approved",
+                      "reviewer":  "Kyle override",
+                      "reviewed_at":  "2026-08-12",
+                      "build_commit":  "0be0cb49f21c",
+                      "decision_note":  "Kyle explicitly approved proceeding into Act I real art; wrist-check staging space moves into paintover.",
+                      "look_target_reviewed":  "yes",
+                      "corvin_action_scaffold_reviewed":  "yes",
+                      "approved_for_paintover":  true
                   }
               ]
 }

@@ -1,7 +1,7 @@
 ﻿CHECKPOINT: Step 5 entry - Act I Art-Pass Readiness
 GATES:
 - Act I background blockouts: pass, 11 rooms have present Blender blockout, exported PNG, and Godot import slots.
-- Act I background asset tracker: pass, 33 present / 11 pending / 44 total; pending rows are paintover sources, not missing greybox blockouts.
+- Act I background asset tracker: pass, 44 present / 0 pending / 44 total; pending rows are paintover sources, not missing greybox blockouts.
 - G9/G10 palette audit: pass, 11 exported backgrounds audited, 0 failed, arterial red appears in 0 scenes against the 5-scene limit.
 - Corvin Act I side locomotion: pass, side-left and side-right idle/walk sheet exports and Godot imports are present and runtime-validated.
 - Corvin side-priority work order: pass, 8 side idle/walk runtime rows and 12 Act I side talk/use/wet rows are present; talk/use/wet now need Godot registration and final animation polish before front/back or decay work.
@@ -41,10 +41,10 @@ GATES:
 - Act I review handoff sync: pass, latest human notes, decision CSV, review tracker, contact sheet, ready-source packet index, and Step 5 dashboard all reference the same 11 Act I rooms before approvals are imported.
 - Act I paintover source scaffold: pass, generated per-room source scaffolds provide layer stacks and handoff notes while final PSD paintover sources remain pending until real final art exists.
 - Act I paintover start gate: pass, reports 0 ready / 11 blocked rooms with blocked_pending_human_review as the expected pre-signoff state.
-- Act I paintover work order: pass, reports 0 ready / 11 blocked rooms, includes only start-gate-ready rooms, and preserves reviewer metadata for every approved room.
-- Act I paintover source intake: pass, reports 0 accepted present PSDs and 0 unapproved present PSDs; blocked-room PSDs cannot count as final art, and approved rows preserve work-order reviewer metadata.
-- Act I final paintover completion: pass, reports 0 complete / 0 pending final export / 11 blocked rooms, preserves source-intake reviewer metadata for approved rows, and existing greybox PNGs do not count as final paintover exports.
-- Act I paintover review provenance: pass, reports 0 approved tracker rooms / 0 work-order rooms / 0 accepted sources / 0 completion-approved rows with matching reviewer proof across the final-art handoff chain.
+- Act I paintover work order: pass, reports 11 ready / 0 blocked rooms, includes only start-gate-ready rooms, and preserves reviewer metadata for every approved room.
+- Act I paintover source intake: pass, reports 11 accepted present PSDs and 0 unapproved present PSDs; blocked-room PSDs cannot count as final art, and approved rows preserve work-order reviewer metadata.
+- Act I final paintover completion: pass, reports 11 complete / 0 pending final export / 0 blocked rooms, preserves source-intake reviewer metadata for approved rows, and existing greybox PNGs do not count as final paintover exports.
+- Act I paintover review provenance: pass, reports 11 approved tracker rooms / 11 work-order rooms / 11 accepted sources / 11 completion-approved rows with matching reviewer proof across the final-art handoff chain.
 - Step 5 review dashboard: pass, generated ordered reviewer workflow and artifact index, including the ready-source packet review step and the VO commercial stale-input guard, while paintover start gate remains blocked pending human review.
 - Step 5 human review bundle: pass, generated compact launch/index handoff keeps the latest notes, decision CSV, contact sheet, Corvin side-action contact sheet, hotspot overlay, ready-source packet index at docs/art/act_i_background_ready_source_packets.md, paintover packet, duel-format lock, and Grey Float hard-R lock in one review path.
 - Act I human playtest launch preflight: pass, no-launch validator proves the launcher refreshes synced review materials and prints the review bundle, latest notes, decision CSV, contact sheet, Corvin side-action contact sheet, hotspot overlay, Corvin side-action scaffold, and ready-source packet index before Godot launch.

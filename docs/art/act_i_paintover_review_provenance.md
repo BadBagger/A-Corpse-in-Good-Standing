@@ -6,10 +6,10 @@ Purpose: verify that human-review proof survives every final-art handoff layer.
 
 Status: pass
 Rooms: 11
-Approved tracker rooms: 0
-Work-order rooms: 0
-Accepted source rows: 0
-Completion-approved rows: 0
+Approved tracker rooms: 11
+Work-order rooms: 11
+Accepted source rows: 11
+Completion-approved rows: 11
 
 Rule locks:
 - Approved rooms must carry build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed.
@@ -18,14 +18,14 @@ Rule locks:
 
 | Room | Decision | Start Ready | Work Order | Intake | Completion | Build | Reviewer | Reviewed At | Look Target | Corvin Scaffold |
 |---|---|---|---|---|---|---|---|---|---|---|
-| R01 Mudflats | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
-| R02 The Old Quay | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
-| R03 Salt Market | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
-| R05 Harbor Registry | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
-| R06 The Bone Chandler | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
-| R07 The Almshouse | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
-| R08 The Fish Hall | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
-| R09 Church of the Drowned | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
-| R10 The Grey Float | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
-| R11 Harbormaster's Office | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
-| R12 Sabine's Office | pending_review | False | False | blocked_pending | blocked_not_started | none | none | none | none | none |
+| R01 Mudflats | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R02 The Old Quay | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R03 Salt Market | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R05 Harbor Registry | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R06 The Bone Chandler | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R07 The Almshouse | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R08 The Fish Hall | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R09 Church of the Drowned | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R10 The Grey Float | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R11 Harbormaster's Office | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R12 Sabine's Office | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |

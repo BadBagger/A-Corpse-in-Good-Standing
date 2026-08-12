@@ -3,10 +3,10 @@
 Mode: apply
 Input CSV: `docs\playtest\results\act_i_review_decision_import_test.csv`
 Rows: 11
-Approved: 1
-Revise before art: 1
+Approved: 11
+Revise before art: 0
 Stop and redesign: 0
-Pending review: 9
+Pending review: 0
 
 Rule locks:
 - Accepted Litany/Registrar duel format remains locked.
@@ -19,14 +19,14 @@ Rule locks:
 
 | Room | Previous | Incoming | Build | Reviewer | Fix Note |
 |---|---|---|---|---|---|
-| R01 Mudflats | pending_review | pending_review | 8d43c2702613 |  | False |
-| R02 The Old Quay | pending_review | pending_review | 8d43c2702613 |  | False |
-| R03 Salt Market | pending_review | pending_review | 8d43c2702613 |  | False |
-| R05 Harbor Registry | approved | approved | 8d43c2702613 | Automated test | True |
-| R06 The Bone Chandler | pending_review | pending_review | 8d43c2702613 |  | False |
-| R07 The Almshouse | pending_review | pending_review | 8d43c2702613 |  | False |
-| R08 The Fish Hall | pending_review | pending_review | 8d43c2702613 |  | False |
-| R09 Church of the Drowned | pending_review | pending_review | 8d43c2702613 |  | False |
-| R10 The Grey Float | revise_before_art | revise_before_art | 8d43c2702613 | Automated test | True |
-| R11 Harbormaster's Office | pending_review | pending_review | 8d43c2702613 |  | False |
-| R12 Sabine's Office | pending_review | pending_review | 8d43c2702613 |  | False |
+| R01 Mudflats | approved | approved | 0be0cb49f21c | Kyle override | True |
+| R02 The Old Quay | approved | approved | 0be0cb49f21c | Kyle override | True |
+| R03 Salt Market | approved | approved | 0be0cb49f21c | Kyle override | True |
+| R05 Harbor Registry | approved | approved | 0be0cb49f21c | Kyle override | True |
+| R06 The Bone Chandler | approved | approved | 0be0cb49f21c | Kyle override | True |
+| R07 The Almshouse | approved | approved | 0be0cb49f21c | Kyle override | True |
+| R08 The Fish Hall | approved | approved | 0be0cb49f21c | Kyle override | True |
+| R09 Church of the Drowned | approved | approved | 0be0cb49f21c | Kyle override | True |
+| R10 The Grey Float | approved | approved | 0be0cb49f21c | Kyle override | True |
+| R11 Harbormaster's Office | approved | approved | 0be0cb49f21c | Kyle override | True |
+| R12 Sabine's Office | approved | approved | 0be0cb49f21c | Kyle override | True |

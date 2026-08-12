@@ -2,8 +2,13 @@ $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
 $roomsRoot = Join-Path $root "game\rooms"
+$manifestPath = Join-Path $root "docs\art\act_i_background_manifest.json"
 $outDir = Join-Path $root "docs\art"
 $outPath = Join-Path $outDir "act_i_hotspot_map.csv"
+
+if (-not (Test-Path -LiteralPath $manifestPath)) {
+    throw "Missing Act I background manifest: $manifestPath"
+}
 
 New-Item -ItemType Directory -Force -Path $outDir | Out-Null
 
@@ -77,6 +82,11 @@ function Get-Position {
 }
 
 $rows = New-Object System.Collections.Generic.List[object]
+$manifest = Get-Content -LiteralPath $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
+$actIRoomIds = @($manifest.rooms | ForEach-Object { [string]$_.room_id })
+if ($actIRoomIds.Count -ne 11) {
+    throw "Act I hotspot map expected 11 Act I manifest rooms, got $($actIRoomIds.Count)."
+}
 $roomMetadataFallback = @{
     mudflats = @{ Code = "R01"; Title = "Mudflats" }
 }
@@ -88,6 +98,9 @@ Get-ChildItem -LiteralPath $roomsRoot -Recurse -Filter "room_*.tscn" | Sort-Obje
         return
     }
     $roomId = Split-Path -Leaf (Split-Path -Parent $scenePath)
+    if ($roomId -notin $actIRoomIds) {
+        return
+    }
     $roomCode = ""
     $roomTitle = ""
 

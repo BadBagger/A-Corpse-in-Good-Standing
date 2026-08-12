@@ -1,0 +1,160 @@
+{
+  "generated_from": "tools/Generate-ActIRealArtPass.py",
+  "purpose": "Generate locked-palette Act I production-art plates from current room manifest and hotspot layout.",
+  "palette": {
+    "bone": [
+      228,
+      220,
+      200
+    ],
+    "black": [
+      12,
+      16,
+      19
+    ],
+    "slate": [
+      42,
+      58,
+      64
+    ],
+    "green": [
+      125,
+      155,
+      78
+    ],
+    "amber": [
+      201,
+      138,
+      60
+    ],
+    "red": [
+      142,
+      27,
+      34
+    ]
+  },
+  "contact_sheet": "docs/art/review/act_i_real_art_contact_sheet.png",
+  "rooms": [
+    {
+      "room_id": "mudflats",
+      "room_code": "R01",
+      "title": "Mudflats",
+      "tone": "cold dawn mud and distant rib silhouettes",
+      "paintover_source": "art/src/backgrounds/act_i/mudflats.psd",
+      "export_png": "art/export/backgrounds/act_i/mudflats_bg.png",
+      "godot_background_resource": "game/rooms/mudflats/background/mudflats_bg.png",
+      "export_bytes": 20016,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "old_quay",
+      "room_code": "R02",
+      "title": "The Old Quay",
+      "tone": "wet pilings, separate bollards, sparse amber lamps",
+      "paintover_source": "art/src/backgrounds/act_i/old_quay.psd",
+      "export_png": "art/export/backgrounds/act_i/old_quay_blockout_bg.png",
+      "godot_background_resource": "game/rooms/old_quay/background/old_quay_blockout_bg.png",
+      "export_bytes": 15493,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "salt_market",
+      "room_code": "R03",
+      "title": "Salt Market",
+      "tone": "public hub with amber commerce pockets and Church pull",
+      "paintover_source": "art/src/backgrounds/act_i/salt_market.psd",
+      "export_png": "art/export/backgrounds/act_i/salt_market_bg.png",
+      "godot_background_resource": "game/rooms/salt_market/background/salt_market_bg.png",
+      "export_bytes": 27647,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "harbor_registry",
+      "room_code": "R05",
+      "title": "Harbor Registry",
+      "tone": "paper-white ledgers and green institutional wrong-light",
+      "paintover_source": "art/src/backgrounds/act_i/harbor_registry.psd",
+      "export_png": "art/export/backgrounds/act_i/harbor_registry_bg.png",
+      "godot_background_resource": "game/rooms/harbor_registry/background/harbor_registry_bg.png",
+      "export_bytes": 25593,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "bone_chandler",
+      "room_code": "R06",
+      "title": "The Bone Chandler",
+      "tone": "bone-white wares in wet-black racks",
+      "paintover_source": "art/src/backgrounds/act_i/bone_chandler.psd",
+      "export_png": "art/export/backgrounds/act_i/bone_chandler_bg.png",
+      "godot_background_resource": "game/rooms/bone_chandler/background/bone_chandler_bg.png",
+      "export_bytes": 20070,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "almshouse",
+      "room_code": "R07",
+      "title": "The Almshouse",
+      "tone": "thin harbor light, cots, salt sheets, low warmth",
+      "paintover_source": "art/src/backgrounds/act_i/almshouse.psd",
+      "export_png": "art/export/backgrounds/act_i/almshouse_bg.png",
+      "godot_background_resource": "game/rooms/almshouse/background/almshouse_bg.png",
+      "export_bytes": 23204,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "fish_hall",
+      "room_code": "R08",
+      "title": "The Fish Hall",
+      "tone": "cold factual room with ice table and record objects",
+      "paintover_source": "art/src/backgrounds/act_i/fish_hall.psd",
+      "export_png": "art/export/backgrounds/act_i/fish_hall_bg.png",
+      "godot_background_resource": "game/rooms/fish_hall/background/fish_hall_bg.png",
+      "export_bytes": 16165,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "church_of_the_drowned",
+      "room_code": "R09",
+      "title": "Church of the Drowned",
+      "tone": "absinthe-green confession economy and paid grief",
+      "paintover_source": "art/src/backgrounds/act_i/church_of_the_drowned.psd",
+      "export_png": "art/export/backgrounds/act_i/church_of_the_drowned_bg.png",
+      "godot_background_resource": "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
+      "export_bytes": 17216,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "grey_float",
+      "room_code": "R10",
+      "title": "The Grey Float",
+      "tone": "unsafe amber bathhouse with steam privacy silhouettes",
+      "paintover_source": "art/src/backgrounds/act_i/grey_float.psd",
+      "export_png": "art/export/backgrounds/act_i/grey_float_bg.png",
+      "godot_background_resource": "game/rooms/grey_float/background/grey_float_bg.png",
+      "export_bytes": 28513,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "harbormaster_office",
+      "room_code": "R11",
+      "title": "Harbormaster's Office",
+      "tone": "official restraint, checklist, frosted glass tension",
+      "paintover_source": "art/src/backgrounds/act_i/harbormaster_office.psd",
+      "export_png": "art/export/backgrounds/act_i/harbormaster_office_bg.png",
+      "godot_background_resource": "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
+      "export_bytes": 20826,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "sabine_office",
+      "room_code": "R12",
+      "title": "Sabine's Office",
+      "tone": "controlled authority, dry desk, wet floor reflection",
+      "paintover_source": "art/src/backgrounds/act_i/sabine_office.psd",
+      "export_png": "art/export/backgrounds/act_i/sabine_office_bg.png",
+      "godot_background_resource": "game/rooms/sabine_office/background/sabine_office_bg.png",
+      "export_bytes": 22794,
+      "psd_bytes": 6220840
+    }
+  ]
+}
