@@ -13,8 +13,8 @@ Guardrails:
 
 Counts:
 - Prompts: 130
-- Present source outputs: 10
-- Pending source outputs: 120
+- Present source outputs: 14
+- Pending source outputs: 116
 - Zero-byte outputs: 0
 - generated_reference: 41
 - interactive_layer: 25
@@ -78,10 +78,10 @@ Counts:
 
 | ID | Kind | Tool | Status | Source | Runtime |
 |---|---|---|---|---|---|
-| harbor_registry_generated_reference_grime_texture | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/harbor_registry/grime_texture.png` | `-` |
-| harbor_registry_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/harbor_registry/ink_wash_edge_breakup.png` | `-` |
-| harbor_registry_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/harbor_registry/non_clickable_dressing_silhouettes.png` | `-` |
-| harbor_registry_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/harbor_registry/palette_safe_mood_reference.png` | `-` |
+| harbor_registry_generated_reference_grime_texture | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/harbor_registry/grime_texture.png` | `-` |
+| harbor_registry_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/harbor_registry/ink_wash_edge_breakup.png` | `-` |
+| harbor_registry_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/harbor_registry/non_clickable_dressing_silhouettes.png` | `-` |
+| harbor_registry_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/harbor_registry/palette_safe_mood_reference.png` | `-` |
 | harbor_registry_interactive_layer_desk_lamp | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/harbor_registry/desklamp.psd` | `game/rooms/harbor_registry/props/desklamp.png` |
 | harbor_registry_interactive_layer_kestrel_ledger | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/harbor_registry/kestrelledger.psd` | `game/rooms/harbor_registry/props/kestrelledger.png` |
 | harbor_registry_interactive_layer_registrar | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/harbor_registry/registrar.psd` | `game/rooms/harbor_registry/props/registrar.png` |
