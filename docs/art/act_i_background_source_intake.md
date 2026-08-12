@@ -13,8 +13,8 @@ Guardrails:
 
 Counts:
 - Prompts: 130
-- Present source outputs: 33
-- Pending source outputs: 97
+- Present source outputs: 37
+- Pending source outputs: 93
 - Zero-byte outputs: 0
 - generated_reference: 41
 - interactive_layer: 25
@@ -179,10 +179,10 @@ Counts:
 
 | ID | Kind | Tool | Status | Source | Runtime |
 |---|---|---|---|---|---|
-| harbormaster_office_generated_reference_grime_texture | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/harbormaster_office/grime_texture.png` | `-` |
-| harbormaster_office_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/harbormaster_office/ink_wash_edge_breakup.png` | `-` |
-| harbormaster_office_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/harbormaster_office/non_clickable_dressing_silhouettes.png` | `-` |
-| harbormaster_office_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/harbormaster_office/palette_safe_mood_reference.png` | `-` |
+| harbormaster_office_generated_reference_grime_texture | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/harbormaster_office/grime_texture.png` | `-` |
+| harbormaster_office_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/harbormaster_office/ink_wash_edge_breakup.png` | `-` |
+| harbormaster_office_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/harbormaster_office/non_clickable_dressing_silhouettes.png` | `-` |
+| harbormaster_office_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/harbormaster_office/palette_safe_mood_reference.png` | `-` |
 | harbormaster_office_interactive_layer_checklist_clerk | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/harbormaster_office/checklistclerk.psd` | `game/rooms/harbormaster_office/props/checklistclerk.png` |
 | harbormaster_office_meshy_source_model_checklist_board | meshy_source_model | Meshy | pending_source | `art/src/backgrounds/act_i/source_models/harbormaster_office/checklist_board.glb` | `-` |
 | harbormaster_office_meshy_source_model_filing_wall | meshy_source_model | Meshy | pending_source | `art/src/backgrounds/act_i/source_models/harbormaster_office/filing_wall.glb` | `-` |
