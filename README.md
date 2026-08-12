@@ -86,6 +86,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-ActIObjectiveHud.ps1` validates the non-spoiler Act I objective HUD contract: standing progress appears in-game without exposing Rite names, route order, or duel math.
 - `tools\Validate-ActIHotspotHoverFeedback.ps1` validates the in-game hover affordance: every Act I hotspot can show the active verb plus a non-spoiler target label, including the hand-authored Mudflats tutorial room.
 - `tools\Validate-ActIWetVerbDiscoverability.ps1` validates that Mudflats teaches Corvin's wetness as a reusable verb through journal state without naming later wet-verb solutions.
+- `tools\Validate-DuelPanelReadability.ps1` validates Registrar duel readability affordances: rule hints, Salt stakes, and rejection reasons appear without exposing exact counters or adding a second confession-spend UI.
 - `tools\Validate-ActIBackgroundAssetStatus.ps1` regenerates the background asset tracker. Pending art is allowed here; malformed or incomplete tracking is not.
 - `tools\Validate-ActIBlockoutTasks.ps1` regenerates the Blender blockout task brief and validates room coverage, wet-verb tasks, close-pair review, and Registrar duel-format lock.
 - `tools\Validate-ActIBackgroundPaletteAudit.ps1` regenerates the palette audit. Pending exports are allowed; existing exported PNGs must satisfy G9/G10.

@@ -8,6 +8,7 @@ const CONFESSIONS_PATH := "res://data/confessions.json"
 const OPPONENT_PATH_TEMPLATE := "res://duels/opponents/%s.json"
 const DAMAGE_REQUIRED := 2
 const MAX_SALT := 3
+const DUEL_RULE_HINT := "Rule: counter weight must be higher, and sin must match or trump. Spoken cards are spent."
 const PALETTE := {
 	"bone": Color("#E4DCC8"),
 	"wet_black": Color("#0C1013"),
@@ -87,7 +88,7 @@ func play_confession(confession_id: String) -> Dictionary:
 			current_attack_damage = 0
 	else:
 		salt += 1
-		last_message = "Rejected. Salt %d/%d." % [salt, MAX_SALT]
+		last_message = "Rejected: %s Salt %d/%d." % [_rejection_reason(attack, confession), salt, MAX_SALT]
 
 	var won := attack_index >= _attacks().size()
 	var lost := salt >= MAX_SALT
@@ -170,6 +171,16 @@ func _available_confession_ids() -> Array[String]:
 func _is_valid_counter(attack: Dictionary, confession: Dictionary) -> bool:
 	return int(confession.get("weight", 0)) > int(attack.get("weight", 0)) \
 		and CATEGORIES.find(String(confession.get("category", ""))) >= CATEGORIES.find(String(attack.get("category", "")))
+
+func _rejection_reason(attack: Dictionary, confession: Dictionary) -> String:
+	var reasons: Array[String] = []
+	if int(confession.get("weight", 0)) <= int(attack.get("weight", 0)):
+		reasons.append("weight is not higher than the accusation")
+	if CATEGORIES.find(String(confession.get("category", ""))) < CATEGORIES.find(String(attack.get("category", ""))):
+		reasons.append("sin category does not match or trump")
+	if reasons.is_empty():
+		return "the salt refuses it."
+	return "%s." % "; ".join(reasons)
 
 func _attacks() -> Array:
 	return opponent.get("attacks", [])
@@ -284,7 +295,7 @@ func _build_ui() -> void:
 
 	_option_hint = Label.new()
 	_option_hint.name = "OptionHint"
-	_option_hint.text = "Choose one confession. Spoken confessions are spent forever."
+	_option_hint.text = DUEL_RULE_HINT
 	_option_hint.add_theme_color_override("font_color", PALETTE.amber)
 	_option_hint.add_theme_font_size_override("font_size", 13)
 	layout.add_child(_option_hint)
@@ -317,11 +328,12 @@ func _render() -> void:
 	_subtitle.text = "The Drowned respect only what is volunteered."
 	_round_label.text = "Accusation %d/%d" % [min(attack_index + 1, _attacks().size()), _attacks().size()]
 	_salt_label.text = "Salt %d/%d" % [salt, MAX_SALT]
+	var attack := {}
 	if attack_index >= _attacks().size():
 		_attack_meta.text = "Resolved"
 		_attack.text = "The salt has heard enough."
 	else:
-		var attack := _begin_current_attack()
+		attack = _begin_current_attack()
 		_attack_meta.text = "%s accusation - %s %d" % [
 			String(opponent.get("name", "Opponent")).to_upper(),
 			String(attack.get("category", "")),
@@ -329,10 +341,24 @@ func _render() -> void:
 		]
 		_attack.text = "\"%s\"" % String(attack.get("text", ""))
 
-	_status.text = "%s\nSalt %d/%d. A confession must strictly outweigh the accusation and match or trump its sin." % [
+	_status.tooltip_text = "%s Salt is taken on failed counters. At %d Salt, the duel is lost." % [
+		DUEL_RULE_HINT,
+		MAX_SALT
+	]
+	if attack_index >= _attacks().size():
+		_option_hint.text = DUEL_RULE_HINT
+	else:
+		_option_hint.text = "%s Current accusation: %s %d." % [
+			DUEL_RULE_HINT,
+			String(attack.get("category", "")),
+			int(attack.get("weight", 0))
+		]
+
+	_status.text = "%s\nSalt %d/%d. %s" % [
 		last_message if not last_message.is_empty() else "Pick a confession from the Litany.",
 		salt,
-		MAX_SALT
+		MAX_SALT,
+		DUEL_RULE_HINT
 	]
 
 	_first_option_button = null
