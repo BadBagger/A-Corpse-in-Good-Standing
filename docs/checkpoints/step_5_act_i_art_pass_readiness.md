@@ -4,6 +4,7 @@ GATES:
 - Act I background asset tracker: pass, 33 present / 11 pending / 44 total; pending rows are paintover sources, not missing greybox blockouts.
 - G9/G10 palette audit: pass, 11 exported backgrounds audited, 0 failed, arterial red appears in 0 scenes against the 5-scene limit.
 - Corvin Act I side locomotion: pass, side-left and side-right idle/walk sheet exports and Godot imports are present and runtime-validated.
+- Corvin side-priority work order: pass, 8 side idle/walk runtime rows present and 12 Act I side talk/use/wet rows pending as the next animation queue before front/back or decay work.
 - Corvin animation tracker: pass, 10 present / 119 pending / 129 total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.
 - Ink shader yaw metrics: pass, status audited, object pairwise max 0% against threshold 6%, first-last drift 0% against threshold 9%; bad-control pairwise max 28.512% remains the calibration contrast.
 - Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.

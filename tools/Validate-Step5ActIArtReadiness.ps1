@@ -7,6 +7,8 @@ $paletteAuditPath = Join-Path $root "docs\art\act_i_background_palette_audit.csv
 $corvinStatusPath = Join-Path $root "docs\art\corvin_animation_asset_status.csv"
 $shaderMetricsPath = Join-Path $root "docs\art\ink_shader_spike_metrics_status.json"
 $runtimeSpriteReportPath = Join-Path $root "docs\art\corvin_runtime_sprite_assets_status.md"
+$corvinSidePriorityPath = Join-Path $root "docs\art\corvin_side_priority_work_order.md"
+$corvinSidePriorityJsonPath = Join-Path $root "docs\art\corvin_side_priority_work_order.json"
 $playtestReportPath = Join-Path $root "docs\playtest\results\act_i_greybox_auto_report.md"
 $backgroundElementPipelinePath = Join-Path $root "docs\art\act_i_background_element_pipeline.md"
 $backgroundSourceWorklistPath = Join-Path $root "docs\art\act_i_background_source_worklist.md"
@@ -68,6 +70,8 @@ foreach ($path in @(
     $corvinStatusPath,
     $shaderMetricsPath,
     $runtimeSpriteReportPath,
+    $corvinSidePriorityPath,
+    $corvinSidePriorityJsonPath,
     $playtestReportPath,
     $backgroundElementPipelinePath,
     $backgroundSourceWorklistPath,
@@ -132,6 +136,8 @@ $paletteRows = @(Import-Csv -LiteralPath $paletteAuditPath)
 $corvinRows = @(Import-Csv -LiteralPath $corvinStatusPath)
 $shaderMetrics = Get-Content -LiteralPath $shaderMetricsPath -Raw | ConvertFrom-Json
 $runtimeSpriteReport = Get-Content -LiteralPath $runtimeSpriteReportPath -Raw
+$corvinSidePriority = Get-Content -LiteralPath $corvinSidePriorityPath -Raw
+$corvinSidePriorityJson = Get-Content -LiteralPath $corvinSidePriorityJsonPath -Raw | ConvertFrom-Json
 $playtestReport = Get-Content -LiteralPath $playtestReportPath -Raw
 $backgroundElementPipeline = Get-Content -LiteralPath $backgroundElementPipelinePath -Raw
 $backgroundSourceWorklist = Get-Content -LiteralPath $backgroundSourceWorklistPath -Raw
@@ -257,6 +263,27 @@ foreach ($requiredText in @(
 )) {
     if ($runtimeSpriteReport -notmatch [regex]::Escape($requiredText)) {
         throw "Corvin runtime sprite report missing required readiness text: $requiredText"
+    }
+}
+
+$corvinSidePriorityRows = @($corvinSidePriorityJson.work_order)
+if ($corvinSidePriorityJson.status -ne "side_runtime_present_next_sheets_pending") {
+    throw "Corvin side-priority work order has unexpected status: $($corvinSidePriorityJson.status)"
+}
+if ($corvinSidePriorityRows.Count -ne 20 -or [int]$corvinSidePriorityJson.counts.present -ne 8 -or [int]$corvinSidePriorityJson.counts.pending -ne 12) {
+    throw "Corvin side-priority work order expected 20 rows, 8 present, 12 pending."
+}
+foreach ($requiredText in @(
+    "Corvin Side Priority Work Order",
+    "Current playable side locomotion",
+    "Next production side sheets",
+    "talk_side_right",
+    "use_side_left",
+    "wet_side_right",
+    "Do not use diffusion-per-frame character sheets"
+)) {
+    if ($corvinSidePriority -notmatch [regex]::Escape($requiredText)) {
+        throw "Corvin side-priority work order missing readiness text: $requiredText"
     }
 }
 
@@ -763,6 +790,7 @@ $lines = @(
     "- Act I background asset tracker: pass, $backgroundPresent present / $backgroundPending pending / $($backgroundRows.Count) total; pending rows are paintover sources, not missing greybox blockouts.",
     "- G9/G10 palette audit: pass, $($paletteRows.Count) exported backgrounds audited, 0 failed, arterial red appears in $redSceneCount scenes against the 5-scene limit.",
     "- Corvin Act I side locomotion: pass, side-left and side-right idle/walk sheet exports and Godot imports are present and runtime-validated.",
+    "- Corvin side-priority work order: pass, 8 side idle/walk runtime rows present and 12 Act I side talk/use/wet rows pending as the next animation queue before front/back or decay work.",
     "- Corvin animation tracker: pass, $corvinPresent present / $corvinPending pending / $($corvinRows.Count) total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.",
     "- Ink shader yaw metrics: pass, status audited, object pairwise max $objectPairwiseMax% against threshold $pairwiseThreshold%, first-last drift $objectFirstLastDrift% against threshold $firstLastThreshold%; bad-control pairwise max $badControlPairwiseMax% remains the calibration contrast.",
     "- Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.",
@@ -819,6 +847,7 @@ foreach ($requiredText in @(
     "CHECKPOINT: Step 5 entry - Act I Art-Pass Readiness",
     "Act I background blockouts: pass",
     "Corvin Act I side locomotion: pass",
+    "Corvin side-priority work order: pass",
     "Ink shader yaw metrics: pass",
     "Act I background element pipeline: pass",
     "Act I background source worklist: pass",

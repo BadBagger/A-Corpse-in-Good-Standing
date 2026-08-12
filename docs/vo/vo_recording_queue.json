@@ -3,10 +3,10 @@
                            "docs/vo/vo_recording_batches.json",
                            "docs/vo/vo_cast_plan.json"
                        ],
-    "generated_at_utc":  "2026-08-12T05:41:55.9188110Z",
+    "generated_at_utc":  "2026-08-12T05:55:15.9523809Z",
     "source_modified_utc":  {
-                                "docs/vo/vo_recording_batches.json":  "2026-08-12T05:41:55.3414811Z",
-                                "docs/vo/vo_cast_plan.json":  "2026-08-12T05:41:52.8362207Z"
+                                "docs/vo/vo_recording_batches.json":  "2026-08-12T05:55:15.3339723Z",
+                                "docs/vo/vo_cast_plan.json":  "2026-08-12T05:55:12.8864158Z"
                             },
     "purpose":  "Scratch VO recording queue. Lists safe-to-generate batches separately from batches blocked by pending minor-speaker decisions or cut/rewrite work.",
     "recording_status":  "unrecorded",
