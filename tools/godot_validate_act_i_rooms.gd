@@ -57,6 +57,12 @@ const MUDFLATS_HOTSPOT_HANDLERS := {
 	"MissingBoots": "_handle_boots",
 	"SaltMarketExit": "_handle_exit",
 }
+const GENERATED_ROOM_SCRIPT_PATH := "res://game/rooms/act_i_greybox_room.gd"
+const VERB_ACTION_CONTRACT := {
+	"talk": "talk_current_side",
+	"use": "use_current_side",
+	"wet": "wet_current_side",
+}
 
 const REQUIRED_VERBS := ["look", "use", "talk", "walk", "wet"]
 const PLACEHOLDER_PATTERNS := [
@@ -134,6 +140,7 @@ func _run() -> void:
 		instance.free()
 
 	_validate_reachability(exit_graph, failures)
+	_validate_room_verb_action_contract(failures)
 
 	if not failures.is_empty():
 		for failure in failures:
@@ -233,6 +240,50 @@ func _validate_mudflats_custom_handlers(failures: Array[String]) -> void:
 		for verb in REQUIRED_VERBS:
 			if not handler_block.contains("\"%s\":" % verb):
 				failures.append("Mudflats custom handler %s has no explicit %s response." % [handler_name, verb])
+
+func _validate_room_verb_action_contract(failures: Array[String]) -> void:
+	_validate_room_source_verb_action_contract(
+		"generated Act I room",
+		GENERATED_ROOM_SCRIPT_PATH,
+		"_on_interaction_hotspot_input",
+		failures
+	)
+	_validate_room_source_verb_action_contract(
+		"Mudflats custom room",
+		MUDFLATS_SCRIPT_PATH,
+		"_on_hotspot_input",
+		failures
+	)
+
+func _validate_room_source_verb_action_contract(label: String, script_path: String, input_function: String, failures: Array[String]) -> void:
+	var source := FileAccess.get_file_as_string(script_path)
+	if source.is_empty():
+		failures.append("Could not read %s script for Corvin verb-action contract: %s" % [label, script_path])
+		return
+	if not source.contains("func _play_corvin_verb_action(verb: String) -> bool:"):
+		failures.append("%s missing _play_corvin_verb_action helper." % label)
+	for verb in VERB_ACTION_CONTRACT.keys():
+		var animation_name := String(VERB_ACTION_CONTRACT[verb])
+		if not source.contains("\"%s\":" % verb):
+			failures.append("%s verb-action helper missing %s match arm." % [label, verb])
+		if not source.contains("\"%s\"" % animation_name):
+			failures.append("%s verb-action helper missing %s animation alias." % [label, animation_name])
+
+	var input_block := _extract_function_block(source, input_function)
+	if input_block.is_empty():
+		failures.append("%s missing input function %s for verb-action contract." % [label, input_function])
+		return
+	if not input_block.contains("_play_corvin_verb_action(verb)"):
+		failures.append("%s input function %s does not call _play_corvin_verb_action(verb)." % [label, input_function])
+	if not _source_order_before(input_block, "_play_corvin_verb_action(verb)", "handle_room_verb") and input_function == "_on_interaction_hotspot_input":
+		failures.append("%s must call _play_corvin_verb_action before handle_room_verb." % label)
+	if not _source_order_before(input_block, "_play_corvin_verb_action(verb)", "match hotspot.name") and input_function == "_on_hotspot_input":
+		failures.append("%s must call _play_corvin_verb_action before hotspot dispatch." % label)
+
+func _source_order_before(source: String, first: String, second: String) -> bool:
+	var first_index := source.find(first)
+	var second_index := source.find(second)
+	return first_index != -1 and second_index != -1 and first_index < second_index
 
 func _extract_function_block(source: String, function_name: String) -> String:
 	var start := source.find("func %s(" % function_name)

@@ -70,6 +70,7 @@ func _on_interaction_hotspot_input(_viewport: Node, event: InputEvent, _shape_id
 	if _hud:
 		verb = _hud.selected_verb
 
+	_play_corvin_verb_action(verb)
 	if hotspot.has_method("handle_room_verb"):
 		var result: Dictionary = hotspot.handle_room_verb(verb)
 		_apply_interaction_result(result)
