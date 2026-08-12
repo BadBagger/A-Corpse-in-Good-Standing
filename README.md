@@ -110,6 +110,7 @@ This repo is intentionally separate from `C:\dev\mha` and *Lost & Underfound*.
 - `tools\Validate-VoRecordingPackets.ps1` regenerates and validates per-batch scratch VO recording packets, requiring one packet per scratch-ready batch and none for pending-cast or cut/rewrite blocked minor-speaker batches.
 - `tools\Validate-Step5HumanReviewBundle.ps1` regenerates and validates the compact Step 5 human-review bundle, keeping the launch command, latest notes, decision CSV, contact sheet, hotspot overlay, ready-source packet index, paintover packet, duel-format lock, and Grey Float hard-R lock together.
 - `tools\Validate-ActIHumanPlaytestLaunch.ps1` validates the no-launch Act I playtest preflight, including the synced review bundle, latest notes, decision CSV, contact sheet, hotspot overlay, and ready-source packet index.
+- `tools\Validate-ActIHumanPlaytestShortcut.ps1` validates `PLAY_ACT_I_REVIEW.cmd`, the root Windows shortcut for the preflighted Act I playable-review launcher.
 - `tools\Validate-ActIReviewContactSheet.ps1` regenerates and validates the Act I browser contact sheet for human review, proving all 11 blockouts, marker counts, walk bands, duel-format lock, and Grey Float hard-R lock are present.
 - `tools\Validate-VoMinorSpeakerDecisionTemplate.ps1` regenerates and validates `docs\vo\vo_minor_speaker_decisions_template.csv` and `.md` for minor speakers still blocking VO batch generation.
 - `tools\Test-VoMinorSpeakerDecisionImport.ps1` proves minor-speaker cast/consolidate/cut decisions can be dry-run/applied into durable `docs\vo\vo_minor_speaker_decisions.json`, regenerated into VO batches, queue, packets, audio status, and commercial readiness, restored, and that incomplete cast rows fail.
@@ -211,6 +212,12 @@ To refresh the automated transcript, create combined human review notes, and lau
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File tools\Start-ActIHumanPlaytest.ps1 -RefreshAutomatedReport
+```
+
+Or run the root Windows shortcut:
+
+```cmd
+PLAY_ACT_I_REVIEW.cmd
 ```
 
 For a dry preflight without opening Godot:
