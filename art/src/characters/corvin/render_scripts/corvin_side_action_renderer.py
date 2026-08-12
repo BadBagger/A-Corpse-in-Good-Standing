@@ -12,6 +12,7 @@ import sys
 
 try:
     import bpy
+    import mathutils
 except ImportError as exc:
     raise SystemExit("This renderer must be executed by Blender Python.") from exc
 
@@ -101,7 +102,7 @@ def parse_args(expected_animation=None, expected_direction=None):
             f"Cell contract mismatch: expected {CELL_WIDTH}x{CELL_HEIGHT}, "
             f"got {args.cell_width}x{args.cell_height}."
         )
-    if os.path.exists(args.out):
+    if os.path.exists(args.out) and not args.audit_contract:
         raise SystemExit(f"Refusing to overwrite existing render output without review: {args.out}")
     if not os.path.exists(args.shader_blend):
         raise SystemExit(f"Missing shader blend: {args.shader_blend}")
@@ -136,36 +137,149 @@ def find_render_armature():
 
 
 def configure_scene(args):
+    bpy.context.scene.render.engine = "BLENDER_WORKBENCH"
     bpy.context.scene.render.fps = args.fps
     bpy.context.scene.frame_start = 1
     bpy.context.scene.frame_end = args.frames
     bpy.context.scene.render.resolution_x = args.cell_width
     bpy.context.scene.render.resolution_y = args.cell_height
+    bpy.context.scene.render.resolution_percentage = 100
     bpy.context.scene.render.film_transparent = True
     bpy.context.scene.render.image_settings.file_format = "PNG"
     bpy.context.scene.render.image_settings.color_mode = "RGBA"
+    bpy.context.scene.display.shading.light = "STUDIO"
+    bpy.context.scene.display.shading.color_type = "MATERIAL"
+    bpy.context.scene.display.shading.background_type = "WORLD"
+    bpy.context.scene.world.color = (0.047, 0.063, 0.075)
 
 
-def render_frames(args, action):
+def configure_materials(animation):
+    palette = {
+        "body": (0.164, 0.227, 0.251, 1.0),
+        "bone": (0.894, 0.863, 0.784, 1.0),
+        "green": (0.490, 0.608, 0.306, 1.0),
+    }
+    color = palette["body"]
+    if animation == "wet":
+        color = palette["green"]
+    for mesh in [obj for obj in bpy.context.scene.objects if obj.type == "MESH"]:
+        material = bpy.data.materials.new(f"Corvin_{animation}_ink_runtime")
+        material.diffuse_color = color
+        mesh.data.materials.clear()
+        mesh.data.materials.append(material)
+
+
+def scene_bounds(objects):
+    min_corner = mathutils.Vector((float("inf"), float("inf"), float("inf")))
+    max_corner = mathutils.Vector((float("-inf"), float("-inf"), float("-inf")))
+    for obj in objects:
+        for corner in obj.bound_box:
+            world = obj.matrix_world @ mathutils.Vector(corner)
+            min_corner.x = min(min_corner.x, world.x)
+            min_corner.y = min(min_corner.y, world.y)
+            min_corner.z = min(min_corner.z, world.z)
+            max_corner.x = max(max_corner.x, world.x)
+            max_corner.y = max(max_corner.y, world.y)
+            max_corner.z = max(max_corner.z, world.z)
+    if min_corner.x == float("inf"):
+        raise SystemExit("Cannot frame Corvin render: no mesh bounds found.")
+    return min_corner, max_corner
+
+
+def configure_camera(direction):
+    meshes = [obj for obj in bpy.context.scene.objects if obj.type == "MESH"]
+    min_corner, max_corner = scene_bounds(meshes)
+    center = (min_corner + max_corner) * 0.5
+    height = max(0.1, max_corner.z - min_corner.z)
+    width = max(0.1, max(max_corner.x - min_corner.x, max_corner.y - min_corner.y))
+
+    camera_data = bpy.data.cameras.new("Corvin_Side_Action_Camera")
+    camera = bpy.data.objects.new("Corvin_Side_Action_Camera", camera_data)
+    bpy.context.collection.objects.link(camera)
+    bpy.context.scene.camera = camera
+    side = 1.0 if direction == "side_right" else -1.0
+    camera.location = (center.x, center.y - (6.0 * side), center.z)
+    camera.rotation_euler = (1.57079632679, 0.0, 0.0 if side > 0 else 3.14159265359)
+    camera.data.type = "ORTHO"
+    camera.data.ortho_scale = max(height * 1.18, width * 1.6, 2.2)
+
+
+def frame_nonblank(image):
+    pixels = list(image.pixels)
+    alpha = pixels[3::4]
+    return sum(1 for value in alpha if value > 0.01) > 200
+
+
+def assemble_sheet(frame_paths, out_path, cell_width, cell_height):
+    sheet = bpy.data.images.new(
+        "Corvin_side_action_sheet",
+        width=cell_width * len(frame_paths),
+        height=cell_height,
+        alpha=True,
+        float_buffer=False,
+    )
+    sheet_pixels = [0.0] * (sheet.size[0] * sheet.size[1] * 4)
+    nonblank_frames = 0
+
+    for frame_index, frame_path in enumerate(frame_paths):
+        image = bpy.data.images.load(frame_path, check_existing=False)
+        try:
+            if image.size[0] != cell_width or image.size[1] != cell_height:
+                raise SystemExit(
+                    f"Rendered frame has wrong size: {frame_path} got {image.size[0]}x{image.size[1]}."
+                )
+            pixels = list(image.pixels)
+            if frame_nonblank(image):
+                nonblank_frames += 1
+            for y in range(cell_height):
+                for x in range(cell_width):
+                    src = ((y * cell_width) + x) * 4
+                    dst_x = (frame_index * cell_width) + x
+                    dst = ((y * sheet.size[0]) + dst_x) * 4
+                    sheet_pixels[dst : dst + 4] = pixels[src : src + 4]
+        finally:
+            bpy.data.images.remove(image)
+
+    if nonblank_frames != len(frame_paths):
+        raise SystemExit(
+            f"Refusing to write sprite sheet: {nonblank_frames}/{len(frame_paths)} frames are nonblank."
+        )
+
+    sheet.pixels.foreach_set(sheet_pixels)
+    sheet.file_format = "PNG"
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    sheet.save(filepath=out_path)
+    bpy.data.images.remove(sheet)
+
+
+def render_frames(args, action, animation):
     armature = find_render_armature()
     armature.animation_data_create()
     armature.animation_data.action = action
     configure_scene(args)
+    configure_materials(animation)
+    configure_camera(args.direction)
 
     output_dir = os.path.dirname(args.out)
     os.makedirs(output_dir, exist_ok=True)
     stem = os.path.splitext(os.path.basename(args.out))[0]
     frame_dir = os.path.join(output_dir, f"{stem}_frames")
     os.makedirs(frame_dir, exist_ok=True)
+    frame_paths = []
 
     for frame in range(1, args.frames + 1):
         bpy.context.scene.frame_set(frame)
-        bpy.context.scene.render.filepath = os.path.join(frame_dir, f"{stem}_{frame:04d}.png")
+        frame_path = os.path.join(frame_dir, f"{stem}_{frame:04d}.png")
+        if os.path.exists(frame_path):
+            os.remove(frame_path)
+        bpy.context.scene.render.filepath = frame_path
         bpy.ops.render.render(write_still=True)
+        frame_paths.append(frame_path)
 
-    raise SystemExit(
-        "Frame renders complete but sheet assembly is intentionally not automatic yet. "
-        "Audit frame registration and assemble the sprite sheet before copying to Godot."
+    assemble_sheet(frame_paths, args.out, args.cell_width, args.cell_height)
+    print(
+        f"Corvin side-action sheet rendered: action={args.action}, "
+        f"direction={args.direction}, frames={args.frames}, out={args.out}"
     )
 
 
@@ -178,7 +292,7 @@ def main(expected_animation=None, expected_direction=None):
             f"direction={args.direction}, frames={args.frames}, cell={args.cell_width}x{args.cell_height}"
         )
         return
-    render_frames(args, action)
+    render_frames(args, action, _animation)
 
 
 if __name__ == "__main__":

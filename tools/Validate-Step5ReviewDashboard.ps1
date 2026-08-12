@@ -54,11 +54,11 @@ if ($dashboard.paintover_gate_status -notin @("ready", "blocked_pending_human_re
 if ([int]$dashboard.ready_rooms + [int]$dashboard.blocked_rooms -ne 11) {
     throw "Step 5 dashboard ready/blocked room counts must total 11."
 }
-if ($workflow.Count -ne 36) {
-    throw "Step 5 dashboard expected 36 ordered review steps, got $($workflow.Count)."
+if ($workflow.Count -ne 37) {
+    throw "Step 5 dashboard expected 37 ordered review steps, got $($workflow.Count)."
 }
-if ($artifacts.Count -lt 37) {
-    throw "Step 5 dashboard expected at least 37 artifact references, got $($artifacts.Count)."
+if ($artifacts.Count -lt 38) {
+    throw "Step 5 dashboard expected at least 38 artifact references, got $($artifacts.Count)."
 }
 
 foreach ($relativePath in $artifacts) {
@@ -121,14 +121,14 @@ foreach ($requiredText in @(
     "Review Corvin's authored side-action Blender source.",
     "docs/art/corvin_side_action_blend_status.md",
     "The authored source blend contains talk/use/wet actions and a valid rig",
-    "still does not approve PNG sheets or Godot imports",
+    "rendered sheets still require audit and final animation polish review",
     "Review Corvin's side-action Blender scaffold.",
     "docs/art/corvin_side_action_scaffold.md",
     "Talk/use/wet handoffs name exact Blender actions, frame beats, export targets",
-    "keep all PNG sheets pending until deterministic renders exist.",
+    "require rendered-sheet audits before final animation polish review.",
     "Review Corvin's side-action deterministic render queue.",
     "docs/art/corvin_side_action_render_queue.md",
-    "Talk/use/wet side-left and side-right rows remain pending until deterministic Blender PNG sheets and byte-for-byte Godot imports exist",
+    "Talk/use/wet side-left and side-right rows track deterministic Blender PNG sheets and byte-for-byte Godot imports",
     "placeholder PNGs stay forbidden.",
     "Review Corvin's side-action render script status.",
     "docs/art/corvin_side_action_render_scripts_status.md",
@@ -136,6 +136,9 @@ foreach ($requiredText in @(
     "Review Corvin's side-action render command handoff.",
     "docs/art/corvin_side_action_render_commands.md",
     "Each queued talk/use/wet side render has a timeout-wrapped Blender command, byte-for-byte Godot import command, and render-queue audit command without creating placeholder PNGs.",
+    "Review Corvin's rendered side-action sheet audit.",
+    "docs/art/corvin_side_action_rendered_sheets_audit.md",
+    "All six talk/use/wet side sheets exist in export and Godot paths, match byte-for-byte, have correct dimensions and nonblank frames, and still do not approve final animation polish.",
     "Review the Act I generated look target reference.",
     "docs/art/act_i_look_target_reference.md",
     "generated harbor image is treated as a mood/readability target only",

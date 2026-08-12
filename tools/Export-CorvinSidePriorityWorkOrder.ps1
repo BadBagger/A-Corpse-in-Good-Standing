@@ -124,11 +124,15 @@ foreach ($animation in @($actI.animations | Sort-Object { $animationPriority[[st
 
             $priority = if ($animation.id -in @("idle", "walk") -and $statusRow.status -eq "present") {
                 "P0_polish_runtime_candidate"
+            } elseif ($animation.id -in @("talk", "use", "wet") -and $statusRow.status -eq "present") {
+                "P1_side_action_present_pending_polish"
             } else {
                 "P1_next_side_sheet"
             }
             $nextAction = if ($priority -eq "P0_polish_runtime_candidate") {
                 "Polish timing, foot contact, registration, and drip readability without replacing the accepted runtime bridge."
+            } elseif ($priority -eq "P1_side_action_present_pending_polish") {
+                "Run Godot animation registration and human polish review before treating the side action as final."
             } elseif ($asset.Kind -eq "sheet_export") {
                 "Render deterministic Blender ink sheet from the canonical Act I clean source."
             } else {
@@ -155,18 +159,19 @@ foreach ($animation in @($actI.animations | Sort-Object { $animationPriority[[st
 $presentCount = @($rows | Where-Object { $_.status -eq "present" }).Count
 $pendingCount = @($rows | Where-Object { $_.status -eq "pending" }).Count
 $runtimePresent = @($rows | Where-Object { $_.priority -eq "P0_polish_runtime_candidate" -and $_.status -eq "present" }).Count
+$sideActionPresent = @($rows | Where-Object { $_.priority -eq "P1_side_action_present_pending_polish" -and $_.status -eq "present" }).Count
 $nextPending = @($rows | Where-Object { $_.priority -eq "P1_next_side_sheet" -and $_.status -eq "pending" }).Count
 $rowArray = @($rows.ToArray())
 
 $payload = [ordered]@{
     generated_from = "docs/art/corvin_animation_manifest.json and docs/art/corvin_animation_asset_status.csv"
     purpose = "Narrow Corvin Act I side-view production work order for the adventure-game camera before front/back and decay variants."
-    status = "side_runtime_present_next_sheets_pending"
+    status = if ($nextPending -eq 0) { "side_action_sheets_present_pending_polish" } else { "side_runtime_present_next_sheets_pending" }
     rule_locks = @(
         "Side-on adventure-game staging is the Act I production priority.",
         "Do not use diffusion-per-frame character sheets for production animation.",
         "Do not treat present side idle/walk candidates as final polish-approved animation.",
-        "Do not start Act II or Act III decay sheets before Act I side talk/use/wet are planned and reviewed."
+        "Do not start Act II or Act III decay sheets before Act I side talk/use/wet are registered and reviewed."
     )
     side_sheet_specs = $sideSheetSpecs
     counts = [ordered]@{
@@ -174,6 +179,7 @@ $payload = [ordered]@{
         present = $presentCount
         pending = $pendingCount
         runtime_present = $runtimePresent
+        side_action_present = $sideActionPresent
         next_pending = $nextPending
     }
     work_order = $rowArray
@@ -189,18 +195,19 @@ $lines = @(
     "",
     "Purpose: turn the full Corvin production animation contract into the next side-view queue the Act I adventure-game camera actually needs.",
     "",
-    "Status: side_runtime_present_next_sheets_pending",
+    "Status: $($payload.status)",
     "Total side-view rows: $($rows.Count)",
     "Present: $presentCount",
     "Pending: $pendingCount",
     "Runtime-present polish rows: $runtimePresent",
+    "Side-action rows present pending polish: $sideActionPresent",
     "Next pending side-sheet rows: $nextPending",
     "",
     "Current playable side locomotion:",
     '- `idle_side_right`, `idle_side_left`, `walk_side_right`, and `walk_side_left` have sheet exports and Godot imports.',
     "- These are runtime candidates. They remain subject to timing, registration, foot-contact, and drip-readability polish.",
     "",
-    "Next production side sheets:",
+    "Side action sheets present pending polish:",
     '- `talk_side_right` and `talk_side_left` for body-language during full-VO dialogue.',
     '- `use_side_right` and `use_side_left` for generic Act I item interactions.',
     '- `wet_side_right` and `wet_side_left` for Corvin''s permanent wet verb.',
@@ -235,7 +242,7 @@ $lines += @(
     "- Side-on adventure-game staging is the Act I production priority.",
     "- Do not use diffusion-per-frame character sheets for production animation.",
     "- Do not treat present side idle/walk candidates as final polish-approved animation.",
-    "- Do not start Act II or Act III decay sheets before Act I side talk/use/wet are planned and reviewed.",
+    "- Do not start Act II or Act III decay sheets before Act I side talk/use/wet are registered and reviewed.",
     "",
     "| Priority | Animation | Direction | Asset | Frames | FPS | Loop | Status | Path |",
     "|---|---|---|---|---:|---:|---|---|---|"

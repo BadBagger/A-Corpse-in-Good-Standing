@@ -12,7 +12,7 @@
                        "Audit mode must not create PNG sheet outputs.",
                        "Render scripts must refuse to overwrite existing output without review.",
                        "Render scripts must fail if the named Blender action is absent.",
-                       "Sheet assembly remains manual/audited until registration checks exist.",
+                       "Sheet assembly must refuse blank frame outputs.",
                        "No placeholder PNGs are permitted."
                    ],
     "scripts":  [

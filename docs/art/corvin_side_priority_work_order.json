@@ -1,12 +1,12 @@
 ﻿{
     "generated_from":  "docs/art/corvin_animation_manifest.json and docs/art/corvin_animation_asset_status.csv",
     "purpose":  "Narrow Corvin Act I side-view production work order for the adventure-game camera before front/back and decay variants.",
-    "status":  "side_runtime_present_next_sheets_pending",
+    "status":  "side_action_sheets_present_pending_polish",
     "rule_locks":  [
                        "Side-on adventure-game staging is the Act I production priority.",
                        "Do not use diffusion-per-frame character sheets for production animation.",
                        "Do not treat present side idle/walk candidates as final polish-approved animation.",
-                       "Do not start Act II or Act III decay sheets before Act I side talk/use/wet are planned and reviewed."
+                       "Do not start Act II or Act III decay sheets before Act I side talk/use/wet are registered and reviewed."
                    ],
     "side_sheet_specs":  {
                              "talk":  {
@@ -85,10 +85,11 @@
                          },
     "counts":  {
                    "total":  20,
-                   "present":  8,
-                   "pending":  12,
+                   "present":  20,
+                   "pending":  0,
                    "runtime_present":  8,
-                   "next_pending":  12
+                   "side_action_present":  12,
+                   "next_pending":  0
                },
     "work_order":  [
                        {
@@ -196,7 +197,7 @@
                            "next_action":  "Polish timing, foot contact, registration, and drip readability without replacing the accepted runtime bridge."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "talk",
                            "direction":  "side_right",
@@ -204,12 +205,12 @@
                            "frames":  6,
                            "fps":  12,
                            "loop":  true,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "art/export/characters/corvin/act_i_clean/talk_side_right.png",
-                           "next_action":  "Render deterministic Blender ink sheet from the canonical Act I clean source."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "talk",
                            "direction":  "side_right",
@@ -217,12 +218,12 @@
                            "frames":  6,
                            "fps":  12,
                            "loop":  true,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "game/characters/corvin/sprites/act_i_clean/talk_side_right.png",
-                           "next_action":  "Import the matching sheet into Godot after the sheet export exists."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "talk",
                            "direction":  "side_left",
@@ -230,12 +231,12 @@
                            "frames":  6,
                            "fps":  12,
                            "loop":  true,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "art/export/characters/corvin/act_i_clean/talk_side_left.png",
-                           "next_action":  "Render deterministic Blender ink sheet from the canonical Act I clean source."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "talk",
                            "direction":  "side_left",
@@ -243,12 +244,12 @@
                            "frames":  6,
                            "fps":  12,
                            "loop":  true,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "game/characters/corvin/sprites/act_i_clean/talk_side_left.png",
-                           "next_action":  "Import the matching sheet into Godot after the sheet export exists."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "use",
                            "direction":  "side_right",
@@ -256,12 +257,12 @@
                            "frames":  8,
                            "fps":  12,
                            "loop":  false,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "art/export/characters/corvin/act_i_clean/use_side_right.png",
-                           "next_action":  "Render deterministic Blender ink sheet from the canonical Act I clean source."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "use",
                            "direction":  "side_right",
@@ -269,12 +270,12 @@
                            "frames":  8,
                            "fps":  12,
                            "loop":  false,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "game/characters/corvin/sprites/act_i_clean/use_side_right.png",
-                           "next_action":  "Import the matching sheet into Godot after the sheet export exists."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "use",
                            "direction":  "side_left",
@@ -282,12 +283,12 @@
                            "frames":  8,
                            "fps":  12,
                            "loop":  false,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "art/export/characters/corvin/act_i_clean/use_side_left.png",
-                           "next_action":  "Render deterministic Blender ink sheet from the canonical Act I clean source."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "use",
                            "direction":  "side_left",
@@ -295,12 +296,12 @@
                            "frames":  8,
                            "fps":  12,
                            "loop":  false,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "game/characters/corvin/sprites/act_i_clean/use_side_left.png",
-                           "next_action":  "Import the matching sheet into Godot after the sheet export exists."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "wet",
                            "direction":  "side_right",
@@ -308,12 +309,12 @@
                            "frames":  8,
                            "fps":  12,
                            "loop":  false,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "art/export/characters/corvin/act_i_clean/wet_side_right.png",
-                           "next_action":  "Render deterministic Blender ink sheet from the canonical Act I clean source."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "wet",
                            "direction":  "side_right",
@@ -321,12 +322,12 @@
                            "frames":  8,
                            "fps":  12,
                            "loop":  false,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "game/characters/corvin/sprites/act_i_clean/wet_side_right.png",
-                           "next_action":  "Import the matching sheet into Godot after the sheet export exists."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "wet",
                            "direction":  "side_left",
@@ -334,12 +335,12 @@
                            "frames":  8,
                            "fps":  12,
                            "loop":  false,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "art/export/characters/corvin/act_i_clean/wet_side_left.png",
-                           "next_action":  "Render deterministic Blender ink sheet from the canonical Act I clean source."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        },
                        {
-                           "priority":  "P1_next_side_sheet",
+                           "priority":  "P1_side_action_present_pending_polish",
                            "variant":  "act_i_clean",
                            "animation":  "wet",
                            "direction":  "side_left",
@@ -347,9 +348,9 @@
                            "frames":  8,
                            "fps":  12,
                            "loop":  false,
-                           "status":  "pending",
+                           "status":  "present",
                            "relative_path":  "game/characters/corvin/sprites/act_i_clean/wet_side_left.png",
-                           "next_action":  "Import the matching sheet into Godot after the sheet export exists."
+                           "next_action":  "Run Godot animation registration and human polish review before treating the side action as final."
                        }
                    ]
 }

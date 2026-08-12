@@ -9,7 +9,7 @@ Timeout seconds: 120
 Command count: 6
 
 Rule locks:
-- These commands are dry-run handoff commands until real Blender outputs are rendered and reviewed.
+- These commands are deterministic render handoff commands; rendered outputs still require sheet audit and final animation review.
 - Do not create placeholder PNGs to satisfy sheet exports.
 - Every successful sheet render must be copied byte-for-byte to its Godot import target.
 - Run the render queue validator after each import.
@@ -18,7 +18,7 @@ Rule locks:
 ## Commands
 
 ### talk side_right
-- Status: pending_render
+- Status: present_pending_dimension_audit
 - Render script: `art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_talk_side_right.py`
 - Sheet: `art/export/characters/corvin/act_i_clean/talk_side_right.png`
 - Godot import: `game/characters/corvin/sprites/act_i_clean/talk_side_right.png`
@@ -33,7 +33,7 @@ Rule locks:
   `powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-CorvinSideActionRenderQueue.ps1`
 
 ### talk side_left
-- Status: pending_render
+- Status: present_pending_dimension_audit
 - Render script: `art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_talk_side_left.py`
 - Sheet: `art/export/characters/corvin/act_i_clean/talk_side_left.png`
 - Godot import: `game/characters/corvin/sprites/act_i_clean/talk_side_left.png`
@@ -48,7 +48,7 @@ Rule locks:
   `powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-CorvinSideActionRenderQueue.ps1`
 
 ### use side_right
-- Status: pending_render
+- Status: present_pending_dimension_audit
 - Render script: `art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_use_side_right.py`
 - Sheet: `art/export/characters/corvin/act_i_clean/use_side_right.png`
 - Godot import: `game/characters/corvin/sprites/act_i_clean/use_side_right.png`
@@ -63,7 +63,7 @@ Rule locks:
   `powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-CorvinSideActionRenderQueue.ps1`
 
 ### use side_left
-- Status: pending_render
+- Status: present_pending_dimension_audit
 - Render script: `art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_use_side_left.py`
 - Sheet: `art/export/characters/corvin/act_i_clean/use_side_left.png`
 - Godot import: `game/characters/corvin/sprites/act_i_clean/use_side_left.png`
@@ -78,7 +78,7 @@ Rule locks:
   `powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-CorvinSideActionRenderQueue.ps1`
 
 ### wet side_right
-- Status: pending_render
+- Status: present_pending_dimension_audit
 - Render script: `art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_wet_side_right.py`
 - Sheet: `art/export/characters/corvin/act_i_clean/wet_side_right.png`
 - Godot import: `game/characters/corvin/sprites/act_i_clean/wet_side_right.png`
@@ -93,7 +93,7 @@ Rule locks:
   `powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-CorvinSideActionRenderQueue.ps1`
 
 ### wet side_left
-- Status: pending_render
+- Status: present_pending_dimension_audit
 - Render script: `art/src/characters/corvin/render_scripts/render_corvin_act_i_clean_wet_side_left.py`
 - Sheet: `art/export/characters/corvin/act_i_clean/wet_side_left.png`
 - Godot import: `game/characters/corvin/sprites/act_i_clean/wet_side_left.png`

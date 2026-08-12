@@ -38,6 +38,7 @@ $artifactPaths = @(
     "docs/art/corvin_side_action_render_queue.md",
     "docs/art/corvin_side_action_render_scripts_status.md",
     "docs/art/corvin_side_action_render_commands.md",
+    "docs/art/corvin_side_action_rendered_sheets_audit.md",
     "docs/playtest/act_i_review_decisions_template.csv",
     "docs/playtest/act_i_review_decisions_template.md",
     "docs/playtest/act_i_review_decision_import_report.md",
@@ -186,21 +187,21 @@ $workflow = @(
         action = "Review Corvin's authored side-action Blender source."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Author-CorvinSideActionBlend.ps1"
         artifact = "docs/art/corvin_side_action_blend_status.md"
-        pass_condition = "The authored source blend contains talk/use/wet actions and a valid rig, but still does not approve PNG sheets or Godot imports."
+        pass_condition = "The authored source blend contains talk/use/wet actions and a valid rig; rendered sheets still require audit and final animation polish review."
     },
     [ordered]@{
         step = 19
         action = "Review Corvin's side-action Blender scaffold."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-CorvinSideActionScaffold.ps1"
         artifact = "docs/art/corvin_side_action_scaffold.md"
-        pass_condition = "Talk/use/wet handoffs name exact Blender actions, frame beats, export targets, and keep all PNG sheets pending until deterministic renders exist."
+        pass_condition = "Talk/use/wet handoffs name exact Blender actions, frame beats, export targets, and require rendered-sheet audits before final animation polish review."
     },
     [ordered]@{
         step = 20
         action = "Review Corvin's side-action deterministic render queue."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-CorvinSideActionRenderQueue.ps1"
         artifact = "docs/art/corvin_side_action_render_queue.md"
-        pass_condition = "Talk/use/wet side-left and side-right rows remain pending until deterministic Blender PNG sheets and byte-for-byte Godot imports exist; placeholder PNGs stay forbidden."
+        pass_condition = "Talk/use/wet side-left and side-right rows track deterministic Blender PNG sheets and byte-for-byte Godot imports; placeholder PNGs stay forbidden."
     },
     [ordered]@{
         step = 21
@@ -218,97 +219,104 @@ $workflow = @(
     },
     [ordered]@{
         step = 23
+        action = "Review Corvin's rendered side-action sheet audit."
+        command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-CorvinSideActionRenderedSheets.ps1"
+        artifact = "docs/art/corvin_side_action_rendered_sheets_audit.md"
+        pass_condition = "All six talk/use/wet side sheets exist in export and Godot paths, match byte-for-byte, have correct dimensions and nonblank frames, and still do not approve final animation polish."
+    },
+    [ordered]@{
+        step = 24
         action = "Inspect the hotspot overlay against each room composition."
         command = ""
         artifact = "docs/art/act_i_hotspot_overlay.svg"
         pass_condition = "Puzzle props, exits, wet targets, and confession-source props read at the intended camera distance."
     },
     [ordered]@{
-        step = 24
+        step = 25
         action = "Review the Act I generated look target reference."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActILookTargetReference.ps1"
         artifact = "docs/art/act_i_look_target_reference.md"
         pass_condition = "The generated harbor image is treated as a mood/readability target only, not final room art, hotspot authority, or diffusion-per-frame character source."
     },
     [ordered]@{
-        step = 25
+        step = 26
         action = "Review the ready background source generation packets."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIBackgroundReadySourcePackets.ps1"
         artifact = "docs/art/act_i_background_ready_source_packets.md"
         pass_condition = "Packets include only Meshy helper GLBs and imagegen reference boards that are safe to acquire now; they are not final background plates and exclude held interactive/navigation PSD work."
     },
     [ordered]@{
-        step = 26
+        step = 27
         action = "Use the paintover packet as the room-by-room final-art brief."
         command = ""
         artifact = "docs/art/act_i_paintover_packet.md"
         pass_condition = "Painter follows the locked palette, walk band, hotspot coordinates, and risk notes."
     },
     [ordered]@{
-        step = 27
+        step = 28
         action = "Complete the art readability checklist."
         command = ""
         artifact = "docs/playtest/act_i_art_readability_review.md"
         pass_condition = "Every room has a proceed/revise/stop decision before final paint starts."
     },
     [ordered]@{
-        step = 28
+        step = 29
         action = "Export, validate, and fill the batch review decision sheet."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIReviewDecisionTemplate.ps1"
         artifact = "docs/playtest/act_i_review_decisions_template.csv"
         pass_condition = "Template has all 11 rooms, no malformed Markdown, and reviewer records one decision per room; every non-pending decision includes build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed=yes, and corvin_action_scaffold_reviewed=yes."
     },
     [ordered]@{
-        step = 29
+        step = 30
         action = "Dry-run the batch review decisions."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Import-ActIReviewDecisions.ps1 -InputCsv docs\playtest\act_i_review_decisions_template.csv -DryRun"
         artifact = "docs/playtest/act_i_review_decision_import_report.md"
         pass_condition = "Dry run reports expected approved/revise/stop/pending counts without changing the tracker."
     },
     [ordered]@{
-        step = 30
+        step = 31
         action = "Apply the reviewed decision sheet after the dry run is clean."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Import-ActIReviewDecisions.ps1 -InputCsv docs\playtest\act_i_review_decisions_template.csv -Apply"
         artifact = "docs/playtest/act_i_review_fix_tracker.md"
         pass_condition = "Rooms remain pending, revise, stop, or explicitly approved; no approval is implied by scaffold existence."
     },
     [ordered]@{
-        step = 31
+        step = 32
         action = "Check the safe paintover source scaffolds."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverSourceScaffold.ps1"
         artifact = "docs/art/act_i_paintover_source_scaffold.md"
         pass_condition = "Scaffolds exist as handoff notes only and do not count as final PSD paintovers."
     },
     [ordered]@{
-        step = 32
+        step = 33
         action = "Re-run the paintover start gate."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverStartGate.ps1"
         artifact = "docs/art/act_i_paintover_start_gate.md"
         pass_condition = "Final paintovers may start only for rooms that are human-approved and unblocked."
     },
     [ordered]@{
-        step = 33
+        step = 34
         action = "Generate the approved-room paintover work order."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverWorkOrder.ps1"
         artifact = "docs/art/act_i_paintover_work_order.md"
         pass_condition = "Work order includes only start-gate-ready rooms, preserves build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof, and stays empty while all rooms are blocked."
     },
     [ordered]@{
-        step = 34
+        step = 35
         action = "Validate final PSD source intake against the work order."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverSourceIntake.ps1"
         artifact = "docs/art/act_i_paintover_source_intake.md"
         pass_condition = "No blocked-room PSD can count as final paintover source material, and approved rows preserve work-order build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof."
     },
     [ordered]@{
-        step = 35
+        step = 36
         action = "Audit final paintover completion."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIFinalPaintoverCompletion.ps1"
         artifact = "docs/art/act_i_final_paintover_completion.md"
         pass_condition = "A room counts complete only when an accepted PSD has a newer audited final PNG export, and completion rows preserve source-intake build_commit, reviewer, reviewed_at, decision_note, look_target_reviewed, and corvin_action_scaffold_reviewed proof."
     },
     [ordered]@{
-        step = 36
+        step = 37
         action = "Audit paintover review provenance across all final-art handoff layers."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverReviewProvenance.ps1"
         artifact = "docs/art/act_i_paintover_review_provenance.md"

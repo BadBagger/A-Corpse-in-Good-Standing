@@ -107,8 +107,8 @@ foreach ($entry in $expected.GetEnumerator()) {
     if ($action.scaffold_status -ne "source_action_scaffold_ready_pending_render") {
         throw "Corvin side action scaffold action $animation has unexpected status: $($action.scaffold_status)"
     }
-    if ($action.sheet_status -ne "pending") {
-        throw "Corvin side action scaffold action $animation should still have pending sheets, got $($action.sheet_status)."
+    if ($action.sheet_status -notin @("pending", "render_or_import_exists_review_required")) {
+        throw "Corvin side action scaffold action $animation has unexpected sheet status: $($action.sheet_status)."
     }
     if (@($action.directions).Count -ne 2 -or "side_right" -notin @($action.directions) -or "side_left" -notin @($action.directions)) {
         throw "Corvin side action scaffold action $animation must target side_right and side_left."
@@ -130,10 +130,6 @@ foreach ($entry in $expected.GetEnumerator()) {
     foreach ($target in $sheetTargets + $godotTargets) {
         if ([string]::IsNullOrWhiteSpace([string]$target) -or [string]$target -match "\\") {
             throw "Corvin side action scaffold target must be repo-relative with forward slashes: $target"
-        }
-        $absoluteTarget = Join-Path $root ([string]$target -replace "/", "\")
-        if (Test-Path -LiteralPath $absoluteTarget) {
-            throw "Corvin side action scaffold must not report existing pending target: $target"
         }
     }
 
@@ -165,7 +161,7 @@ foreach ($requiredText in @(
     "Render source blend",
     "corvin_act_i_clean_side_actions.blend",
     "physical brine",
-    "side talk/use/wet remain pending"
+    "rendered-sheet audits before final animation polish review"
 )) {
     if ($report -notmatch [regex]::Escape($requiredText)) {
         throw "Corvin side action scaffold report missing required text: $requiredText"

@@ -10,7 +10,7 @@
     "rule_locks":  [
                        "No PNG sheet is created by this scaffold.",
                        "Do not create diffusion-per-frame production art.",
-                       "Side talk/use/wet remain pending until deterministic Blender sheets exist.",
+                       "Side talk/use/wet require deterministic Blender sheets and rendered-sheet audits before final animation polish review.",
                        "The wet action must read as physical brine, not magic."
                    ],
     "actions":  [
@@ -55,7 +55,7 @@
                                                      "game/characters/corvin/sprites/act_i_clean/talk_side_right.png",
                                                      "game/characters/corvin/sprites/act_i_clean/talk_side_left.png"
                                                  ],
-                        "sheet_status":  "pending",
+                        "sheet_status":  "render_or_import_exists_review_required",
                         "scaffold_status":  "source_action_scaffold_ready_pending_render",
                         "rule_locks":  [
                                            "No PNG sheet is created by this scaffold.",
@@ -107,7 +107,7 @@
                                                      "game/characters/corvin/sprites/act_i_clean/use_side_right.png",
                                                      "game/characters/corvin/sprites/act_i_clean/use_side_left.png"
                                                  ],
-                        "sheet_status":  "pending",
+                        "sheet_status":  "render_or_import_exists_review_required",
                         "scaffold_status":  "source_action_scaffold_ready_pending_render",
                         "rule_locks":  [
                                            "No PNG sheet is created by this scaffold.",
@@ -159,7 +159,7 @@
                                                      "game/characters/corvin/sprites/act_i_clean/wet_side_right.png",
                                                      "game/characters/corvin/sprites/act_i_clean/wet_side_left.png"
                                                  ],
-                        "sheet_status":  "pending",
+                        "sheet_status":  "render_or_import_exists_review_required",
                         "scaffold_status":  "source_action_scaffold_ready_pending_render",
                         "rule_locks":  [
                                            "No PNG sheet is created by this scaffold.",

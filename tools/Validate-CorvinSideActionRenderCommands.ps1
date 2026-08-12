@@ -124,7 +124,7 @@ foreach ($animation in @("talk", "use", "wet")) {
 
 foreach ($requiredText in @(
     "Corvin Side Action Render Commands",
-    "dry-run handoff commands",
+    "deterministic render handoff commands",
     "Do not create placeholder PNGs",
     "byte-for-byte",
     "Run the render queue validator after each import",

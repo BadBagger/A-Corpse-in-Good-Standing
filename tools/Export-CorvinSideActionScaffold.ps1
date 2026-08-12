@@ -158,7 +158,7 @@ $payload = [ordered]@{
     rule_locks = @(
         "No PNG sheet is created by this scaffold.",
         "Do not create diffusion-per-frame production art.",
-        "Side talk/use/wet remain pending until deterministic Blender sheets exist.",
+        "Side talk/use/wet require deterministic Blender sheets and rendered-sheet audits before final animation polish review.",
         "The wet action must read as physical brine, not magic."
     )
     actions = @($actions.ToArray())
@@ -185,7 +185,7 @@ $lines = @(
     "",
     "Rule locks:",
     "- Do not create diffusion-per-frame production art.",
-    "- Side talk/use/wet remain pending until deterministic Blender sheets exist.",
+    "- Side talk/use/wet require deterministic Blender sheets and rendered-sheet audits before final animation polish review.",
     "- The wet action must read as physical brine, not magic.",
     "",
     "Actions:"

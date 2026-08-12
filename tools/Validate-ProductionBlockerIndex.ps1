@@ -49,6 +49,7 @@ $requiredEvidencePaths = @(
     "docs/art/corvin_side_action_render_queue.md",
     "docs/art/corvin_side_action_render_scripts_status.md",
     "docs/art/corvin_side_action_render_commands.md",
+    "docs/art/corvin_side_action_rendered_sheets_audit.md",
     "docs/art/corvin_animation_asset_status.md"
 )
 
@@ -83,14 +84,15 @@ $requiredPhrases = @(
     "0 ready / 11 blocked",
     "blocked_pending_licensing_review",
     "652 expected MP3s, 0 present",
-    "8 present / 12 pending",
+    "20 present / 0 pending",
     "proves talk/use/walk candidate GLBs are action-capable while wet remains custom",
     "records authored talk/use/wet Blender actions",
-    "6 pending deterministic Blender render/import rows",
+    "6 deterministic Blender render/import rows",
     "records 6 passed render-script action-contract audits",
     "6 timeout-wrapped Blender handoff commands",
-    "Render/import Act I side talk/use/wet sheets from the authored side-action blend, then run registration and Godot import audits before front/back or Act II-III decay sheets",
-    "10 present, 119 pending, 129 total",
+    "proves 6 rendered side-action sheets and byte-for-byte Godot imports",
+    "Run registration/Godot animation audits on Act I side talk/use/wet sheets, then review animation polish before front/back or Act II-III decay sheets",
+    "22 present, 107 pending, 129 total",
     "Do not start final Act I paintovers",
     "Do not treat scratch VO as shipping-approved audio",
     "Do not replace the accepted Litany/Registrar duel format",

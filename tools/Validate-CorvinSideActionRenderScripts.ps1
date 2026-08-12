@@ -28,7 +28,8 @@ foreach ($requiredText in @(
     "Refusing to overwrite existing render output without review",
     "Required Blender action is missing",
     "No PNG was written",
-    "Frame renders complete but sheet assembly is intentionally not automatic yet",
+    "Corvin side-action sheet rendered",
+    "Refusing to write sprite sheet",
     "audit_contract",
     "film_transparent"
 )) {
@@ -131,9 +132,6 @@ foreach ($command in $commands) {
             }
         }
 
-        if (Test-Path -LiteralPath $outPath) {
-            throw "Corvin render script audit must not create sheet output: $($command.sheet_export)"
-        }
         if ($auditStatus -eq "failed") {
             $auditFailures.Add("$($command.animation) $($command.direction): $auditNote")
         }
@@ -180,7 +178,7 @@ $payload = [ordered]@{
         "Audit mode must not create PNG sheet outputs.",
         "Render scripts must refuse to overwrite existing output without review.",
         "Render scripts must fail if the named Blender action is absent.",
-        "Sheet assembly remains manual/audited until registration checks exist.",
+        "Sheet assembly must refuse blank frame outputs.",
         "No placeholder PNGs are permitted."
     )
     scripts = @($results.ToArray())
@@ -205,7 +203,7 @@ $lines = @(
     "- Audit mode must not create PNG sheet outputs.",
     "- Render scripts must refuse to overwrite existing output without review.",
     "- Render scripts must fail if the named Blender action is absent.",
-    "- Sheet assembly remains manual/audited until registration checks exist.",
+    "- Sheet assembly must refuse blank frame outputs.",
     "- No placeholder PNGs are permitted.",
     "",
     "| Animation | Direction | Script | Audit |",

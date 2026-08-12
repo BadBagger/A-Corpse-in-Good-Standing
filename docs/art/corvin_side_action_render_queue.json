@@ -1,13 +1,13 @@
 ﻿{
     "generated_from":  "docs/art/corvin_side_action_scaffold.json",
     "purpose":  "Deterministic render and import queue for Act I clean side talk/use/wet Corvin sheets.",
-    "status":  "pending_deterministic_blender_renders",
+    "status":  "render_outputs_present_pending_audit",
     "cell_width":  256,
     "cell_height":  512,
     "total_rows":  6,
-    "pending_render_count":  6,
-    "sheet_present_count":  0,
-    "godot_present_count":  0,
+    "pending_render_count":  0,
+    "sheet_present_count":  6,
+    "godot_present_count":  6,
     "rule_locks":  [
                        "Do not create placeholder PNGs to clear this queue.",
                        "Only deterministic Blender renders from the canonical Act I clean source may satisfy sheet_export rows.",
@@ -38,11 +38,11 @@
                      "expected_sheet_height":  512,
                      "sheet_export":  "art/export/characters/corvin/act_i_clean/talk_side_right.png",
                      "godot_import":  "game/characters/corvin/sprites/act_i_clean/talk_side_right.png",
-                     "status":  "pending_render",
-                     "sheet_present":  false,
-                     "godot_present":  false,
+                     "status":  "present_pending_dimension_audit",
+                     "sheet_present":  true,
+                     "godot_present":  true,
                      "blockers":  [
-                                      "sheet_export_missing"
+
                                   ],
                      "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
                      "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
@@ -70,11 +70,11 @@
                      "expected_sheet_height":  512,
                      "sheet_export":  "art/export/characters/corvin/act_i_clean/talk_side_left.png",
                      "godot_import":  "game/characters/corvin/sprites/act_i_clean/talk_side_left.png",
-                     "status":  "pending_render",
-                     "sheet_present":  false,
-                     "godot_present":  false,
+                     "status":  "present_pending_dimension_audit",
+                     "sheet_present":  true,
+                     "godot_present":  true,
                      "blockers":  [
-                                      "sheet_export_missing"
+
                                   ],
                      "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
                      "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
@@ -102,11 +102,11 @@
                      "expected_sheet_height":  512,
                      "sheet_export":  "art/export/characters/corvin/act_i_clean/use_side_right.png",
                      "godot_import":  "game/characters/corvin/sprites/act_i_clean/use_side_right.png",
-                     "status":  "pending_render",
-                     "sheet_present":  false,
-                     "godot_present":  false,
+                     "status":  "present_pending_dimension_audit",
+                     "sheet_present":  true,
+                     "godot_present":  true,
                      "blockers":  [
-                                      "sheet_export_missing"
+
                                   ],
                      "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
                      "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
@@ -134,11 +134,11 @@
                      "expected_sheet_height":  512,
                      "sheet_export":  "art/export/characters/corvin/act_i_clean/use_side_left.png",
                      "godot_import":  "game/characters/corvin/sprites/act_i_clean/use_side_left.png",
-                     "status":  "pending_render",
-                     "sheet_present":  false,
-                     "godot_present":  false,
+                     "status":  "present_pending_dimension_audit",
+                     "sheet_present":  true,
+                     "godot_present":  true,
                      "blockers":  [
-                                      "sheet_export_missing"
+
                                   ],
                      "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
                      "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
@@ -166,11 +166,11 @@
                      "expected_sheet_height":  512,
                      "sheet_export":  "art/export/characters/corvin/act_i_clean/wet_side_right.png",
                      "godot_import":  "game/characters/corvin/sprites/act_i_clean/wet_side_right.png",
-                     "status":  "pending_render",
-                     "sheet_present":  false,
-                     "godot_present":  false,
+                     "status":  "present_pending_dimension_audit",
+                     "sheet_present":  true,
+                     "godot_present":  true,
                      "blockers":  [
-                                      "sheet_export_missing"
+
                                   ],
                      "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
                      "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
@@ -198,11 +198,11 @@
                      "expected_sheet_height":  512,
                      "sheet_export":  "art/export/characters/corvin/act_i_clean/wet_side_left.png",
                      "godot_import":  "game/characters/corvin/sprites/act_i_clean/wet_side_left.png",
-                     "status":  "pending_render",
-                     "sheet_present":  false,
-                     "godot_present":  false,
+                     "status":  "present_pending_dimension_audit",
+                     "sheet_present":  true,
+                     "godot_present":  true,
                      "blockers":  [
-                                      "sheet_export_missing"
+
                                   ],
                      "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
                      "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",

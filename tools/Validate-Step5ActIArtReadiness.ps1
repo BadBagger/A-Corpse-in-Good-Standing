@@ -19,6 +19,8 @@ $corvinSideActionRenderCommandsPath = Join-Path $root "docs\art\corvin_side_acti
 $corvinSideActionRenderCommandsJsonPath = Join-Path $root "docs\art\corvin_side_action_render_commands.json"
 $corvinSideActionRenderScriptsPath = Join-Path $root "docs\art\corvin_side_action_render_scripts_status.md"
 $corvinSideActionRenderScriptsJsonPath = Join-Path $root "docs\art\corvin_side_action_render_scripts_status.json"
+$corvinSideActionRenderedSheetsPath = Join-Path $root "docs\art\corvin_side_action_rendered_sheets_audit.md"
+$corvinSideActionRenderedSheetsJsonPath = Join-Path $root "docs\art\corvin_side_action_rendered_sheets_audit.json"
 $playtestReportPath = Join-Path $root "docs\playtest\results\act_i_greybox_auto_report.md"
 $backgroundElementPipelinePath = Join-Path $root "docs\art\act_i_background_element_pipeline.md"
 $backgroundSourceWorklistPath = Join-Path $root "docs\art\act_i_background_source_worklist.md"
@@ -92,6 +94,8 @@ foreach ($path in @(
     $corvinSideActionRenderQueueJsonPath,
     $corvinSideActionRenderScriptsPath,
     $corvinSideActionRenderScriptsJsonPath,
+    $corvinSideActionRenderedSheetsPath,
+    $corvinSideActionRenderedSheetsJsonPath,
     $corvinSideActionRenderCommandsPath,
     $corvinSideActionRenderCommandsJsonPath,
     $playtestReportPath,
@@ -170,6 +174,8 @@ $corvinSideActionRenderQueue = Get-Content -LiteralPath $corvinSideActionRenderQ
 $corvinSideActionRenderQueueJson = Get-Content -LiteralPath $corvinSideActionRenderQueueJsonPath -Raw | ConvertFrom-Json
 $corvinSideActionRenderScripts = Get-Content -LiteralPath $corvinSideActionRenderScriptsPath -Raw
 $corvinSideActionRenderScriptsJson = Get-Content -LiteralPath $corvinSideActionRenderScriptsJsonPath -Raw | ConvertFrom-Json
+$corvinSideActionRenderedSheets = Get-Content -LiteralPath $corvinSideActionRenderedSheetsPath -Raw
+$corvinSideActionRenderedSheetsJson = Get-Content -LiteralPath $corvinSideActionRenderedSheetsJsonPath -Raw | ConvertFrom-Json
 $corvinSideActionRenderCommands = Get-Content -LiteralPath $corvinSideActionRenderCommandsPath -Raw
 $corvinSideActionRenderCommandsJson = Get-Content -LiteralPath $corvinSideActionRenderCommandsJsonPath -Raw | ConvertFrom-Json
 $playtestReport = Get-Content -LiteralPath $playtestReportPath -Raw
@@ -303,16 +309,19 @@ foreach ($requiredText in @(
 }
 
 $corvinSidePriorityRows = @($corvinSidePriorityJson.work_order)
-if ($corvinSidePriorityJson.status -ne "side_runtime_present_next_sheets_pending") {
+if ($corvinSidePriorityJson.status -ne "side_action_sheets_present_pending_polish") {
     throw "Corvin side-priority work order has unexpected status: $($corvinSidePriorityJson.status)"
 }
-if ($corvinSidePriorityRows.Count -ne 20 -or [int]$corvinSidePriorityJson.counts.present -ne 8 -or [int]$corvinSidePriorityJson.counts.pending -ne 12) {
-    throw "Corvin side-priority work order expected 20 rows, 8 present, 12 pending."
+if ($corvinSidePriorityRows.Count -ne 20 -or [int]$corvinSidePriorityJson.counts.present -ne 20 -or [int]$corvinSidePriorityJson.counts.pending -ne 0) {
+    throw "Corvin side-priority work order expected 20 rows, 20 present, 0 pending."
+}
+if ([int]$corvinSidePriorityJson.counts.runtime_present -ne 8 -or [int]$corvinSidePriorityJson.counts.side_action_present -ne 12 -or [int]$corvinSidePriorityJson.counts.next_pending -ne 0) {
+    throw "Corvin side-priority work order expected 8 runtime-present rows, 12 side-action-present rows, and 0 next-pending rows."
 }
 foreach ($requiredText in @(
     "Corvin Side Priority Work Order",
     "Current playable side locomotion",
-    "Next production side sheets",
+    "Side action sheets present pending polish",
     "talk_side_right",
     "use_side_left",
     "wet_side_right",
@@ -376,11 +385,11 @@ foreach ($requiredText in @(
 }
 
 $corvinSideActionRows = @($corvinSideActionRenderQueueJson.rows)
-if ($corvinSideActionRenderQueueJson.status -ne "pending_deterministic_blender_renders") {
+if ($corvinSideActionRenderQueueJson.status -ne "render_outputs_present_pending_audit") {
     throw "Corvin side action render queue has unexpected status: $($corvinSideActionRenderQueueJson.status)"
 }
-if ($corvinSideActionRows.Count -ne 6 -or [int]$corvinSideActionRenderQueueJson.pending_render_count -ne 6) {
-    throw "Corvin side action render queue expected 6 pending render/import rows."
+if ($corvinSideActionRows.Count -ne 6 -or [int]$corvinSideActionRenderQueueJson.pending_render_count -ne 0 -or [int]$corvinSideActionRenderQueueJson.sheet_present_count -ne 6 -or [int]$corvinSideActionRenderQueueJson.godot_present_count -ne 6) {
+    throw "Corvin side action render queue expected 6 rendered sheet/import rows."
 }
 foreach ($requiredText in @(
     "Corvin Side Action Render Queue",
@@ -388,6 +397,8 @@ foreach ($requiredText in @(
     "Only deterministic Blender renders",
     "Godot imports must be byte-for-byte copied",
     "No arterial red may appear in wet brine frames",
+    "Sheet outputs present: 6",
+    "Godot imports present: 6",
     "talk",
     "use",
     "wet"
@@ -408,7 +419,7 @@ foreach ($requiredText in @(
     "Corvin Side Action Render Scripts Status",
     "Audit mode must not create PNG sheet outputs",
     "Render scripts must fail if the named Blender action is absent",
-    "Sheet assembly remains manual/audited until registration checks exist",
+    "Sheet assembly must refuse blank frame outputs",
     "No placeholder PNGs are permitted",
     "talk",
     "use",
@@ -416,6 +427,32 @@ foreach ($requiredText in @(
 )) {
     if ($corvinSideActionRenderScripts -notmatch [regex]::Escape($requiredText)) {
         throw "Corvin side action render scripts missing readiness text: $requiredText"
+    }
+}
+
+$corvinSideActionRenderedSheetRows = @($corvinSideActionRenderedSheetsJson.rows)
+if ($corvinSideActionRenderedSheetsJson.status -ne "rendered_sheets_audited") {
+    throw "Corvin side action rendered-sheet audit has unexpected status: $($corvinSideActionRenderedSheetsJson.status)"
+}
+if ($corvinSideActionRenderedSheetRows.Count -ne 6 -or [int]$corvinSideActionRenderedSheetsJson.passed_count -ne 6 -or [int]$corvinSideActionRenderedSheetsJson.failed_count -ne 0) {
+    throw "Corvin side action rendered-sheet audit expected 6 passing rows."
+}
+foreach ($row in $corvinSideActionRenderedSheetRows) {
+    if (-not [bool]$row.byte_for_byte_import -or [int]$row.nonblank_frame_count -ne [int]$row.frames) {
+        throw "Corvin side action rendered-sheet audit row failed import/nonblank proof: $($row.animation) $($row.direction)"
+    }
+}
+foreach ($requiredText in @(
+    "Corvin Side Action Rendered Sheets Audit",
+    "Status: rendered_sheets_audited",
+    "This audit does not approve final animation polish",
+    "Wet sheets must contain zero arterial red samples",
+    "talk",
+    "use",
+    "wet"
+)) {
+    if ($corvinSideActionRenderedSheets -notmatch [regex]::Escape($requiredText)) {
+        throw "Corvin side action rendered-sheet audit missing readiness text: $requiredText"
     }
 }
 
@@ -428,7 +465,7 @@ if ($corvinSideActionCommandsRows.Count -ne 6 -or [int]$corvinSideActionRenderCo
 }
 foreach ($requiredText in @(
     "Corvin Side Action Render Commands",
-    "dry-run handoff commands",
+    "deterministic render handoff commands",
     "Do not create placeholder PNGs",
     "byte-for-byte",
     "Run the render queue validator after each import",
@@ -965,12 +1002,13 @@ $lines = @(
     "- Act I background asset tracker: pass, $backgroundPresent present / $backgroundPending pending / $($backgroundRows.Count) total; pending rows are paintover sources, not missing greybox blockouts.",
     "- G9/G10 palette audit: pass, $($paletteRows.Count) exported backgrounds audited, 0 failed, arterial red appears in $redSceneCount scenes against the 5-scene limit.",
     "- Corvin Act I side locomotion: pass, side-left and side-right idle/walk sheet exports and Godot imports are present and runtime-validated.",
-    "- Corvin side-priority work order: pass, 8 side idle/walk runtime rows present and 12 Act I side talk/use/wet rows pending as the next animation queue before front/back or decay work.",
+    "- Corvin side-priority work order: pass, 8 side idle/walk runtime rows and 12 Act I side talk/use/wet rows are present; talk/use/wet now need Godot registration and final animation polish before front/back or decay work.",
     "- Corvin Meshy motion source audit: pass, talk/use/walk source GLBs are action-capable and wet remains custom-required before canonical Blender action authoring.",
-    "- Corvin side-action blend: pass, authored side-action Blender source contains talk/use/wet actions and a valid 24-bone rig while PNG sheets remain pending.",
-    "- Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet remain pending with placeholder PNGs forbidden and post-render checks defined.",
-    "- Corvin side-action render scripts: pass, 6 Blender entrypoints exist and audit without creating PNG sheets; status is $($corvinSideActionRenderScriptsJson.status) with $([int]$corvinSideActionRenderScriptsJson.missing_keyed_action_count) keyed actions still pending.",
-    "- Corvin side-action render commands: pass, 6 dry-run Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.",
+    "- Corvin side-action blend: pass, authored side-action Blender source contains talk/use/wet actions and a valid 24-bone rig; rendered PNG sheets are audited separately.",
+    "- Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet are present and pending final polish review with placeholder PNGs forbidden and post-render checks defined.",
+    "- Corvin side-action render scripts: pass, 6 Blender entrypoints exist, refuse blank sheet assembly, and audit clean; status is $($corvinSideActionRenderScriptsJson.status) with $([int]$corvinSideActionRenderScriptsJson.missing_keyed_action_count) missing keyed actions.",
+    "- Corvin side-action render commands: pass, 6 deterministic Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.",
+    "- Corvin side-action rendered sheets: pass, 6 exported sheets and 6 byte-for-byte Godot imports pass dimension, nonblank-frame, and wet arterial-red audits; final animation polish is still not approved.",
     "- Corvin animation tracker: pass, $corvinPresent present / $corvinPending pending / $($corvinRows.Count) total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.",
     "- Ink shader yaw metrics: pass, status audited, object pairwise max $objectPairwiseMax% against threshold $pairwiseThreshold%, first-last drift $objectFirstLastDrift% against threshold $firstLastThreshold%; bad-control pairwise max $badControlPairwiseMax% remains the calibration contrast.",
     "- Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.",
@@ -1012,7 +1050,7 @@ $lines = @(
     "- Act I playable review shortcut: pass, root PLAY_ACT_I_REVIEW.cmd targets the validated launch script with automated report refresh and cannot bypass review preflight.",
     "BLOCKERS:",
     "1. Final paintover source files are still pending for all 11 Act I rooms. This is the next real Step 5 production task, not a Step 4 regression.",
-    "2. Corvin still needs final-polish animation beyond the current side idle/walk runtime candidates: talk, use, wet, front/back, and later decay variants remain pending.",
+    "2. Corvin talk/use/wet side sheets are rendered and audited, but still need Godot animation registration and final animation polish review; front/back and later decay variants remain pending.",
     "3. A human Act I art/readability playtest has not signed off the blockout compositions, hotspot silhouettes, and prop readability for final paintover.",
     "DEVIATIONS:",
     "- None to the accepted Registrar duel format. This checkpoint only audits art-pipeline readiness and runtime animation evidence.",
@@ -1034,6 +1072,7 @@ foreach ($requiredText in @(
     "Corvin side-action render queue: pass",
     "Corvin side-action render scripts: pass",
     "Corvin side-action render commands: pass",
+    "Corvin side-action rendered sheets: pass",
     "Ink shader yaw metrics: pass",
     "Act I background element pipeline: pass",
     "Act I background source worklist: pass",

@@ -16,7 +16,7 @@ Sources:
 
 Rule locks:
 - Do not create diffusion-per-frame production art.
-- Side talk/use/wet remain pending until deterministic Blender sheets exist.
+- Side talk/use/wet require deterministic Blender sheets and rendered-sheet audits before final animation polish review.
 - The wet action must read as physical brine, not magic.
 
 Actions:
@@ -27,7 +27,7 @@ Actions:
 - Frames: 6 at 12 fps
 - Loop: True
 - Scaffold status: source_action_scaffold_ready_pending_render
-- Sheet status: pending
+- Sheet status: render_or_import_exists_review_required
 - Motion intent: Small dead-notary conversational motion: chin dip, one shoulder settling low, minimal coat sway, no broad acting.
 - Mirror policy: Render side_right first, derive side_left by deterministic mirror only if silhouette, coat hang, and drip side remain readable.
 - Frame beats:
@@ -56,7 +56,7 @@ Actions:
 - Frames: 8 at 12 fps
 - Loop: False
 - Scaffold status: source_action_scaffold_ready_pending_render
-- Sheet status: pending
+- Sheet status: render_or_import_exists_review_required
 - Motion intent: One restrained reach from the damp coat: hand leaves pocket, touches/indicates object, recoils slightly.
 - Mirror policy: Render side_right first; mirror side_left only after contact hand remains readable and no prop-specific lighting is baked into the sheet.
 - Frame beats:
@@ -87,7 +87,7 @@ Actions:
 - Frames: 8 at 12 fps
 - Loop: False
 - Scaffold status: source_action_scaffold_ready_pending_render
-- Sheet status: pending
+- Sheet status: render_or_import_exists_review_required
 - Motion intent: Corvin leans and squeezes/drips brine from sleeve or coat hem onto the target, dryly practical rather than magical.
 - Mirror policy: Render both directions or mirror only after confirming the drip arc reads on the correct interaction side in Godot.
 - Frame beats:

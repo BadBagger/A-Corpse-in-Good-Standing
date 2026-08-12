@@ -104,6 +104,7 @@ try {
     Invoke-Step -Name "Validate Corvin side action render queue" -ScriptName "Validate-CorvinSideActionRenderQueue.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Corvin side action render scripts" -ScriptName "Validate-CorvinSideActionRenderScripts.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Corvin side action render commands" -ScriptName "Validate-CorvinSideActionRenderCommands.ps1" -TimeoutSeconds 120
+    Invoke-Step -Name "Validate Corvin side action rendered sheets" -ScriptName "Validate-CorvinSideActionRenderedSheets.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Step 5 Act I art-pass readiness" -ScriptName "Validate-Step5ActIArtReadiness.ps1" -TimeoutSeconds 120
 
     Write-Host "Step 5 Act I art-pass readiness gates passed."

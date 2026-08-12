@@ -4,13 +4,14 @@ GATES:
 - Act I background asset tracker: pass, 33 present / 11 pending / 44 total; pending rows are paintover sources, not missing greybox blockouts.
 - G9/G10 palette audit: pass, 11 exported backgrounds audited, 0 failed, arterial red appears in 0 scenes against the 5-scene limit.
 - Corvin Act I side locomotion: pass, side-left and side-right idle/walk sheet exports and Godot imports are present and runtime-validated.
-- Corvin side-priority work order: pass, 8 side idle/walk runtime rows present and 12 Act I side talk/use/wet rows pending as the next animation queue before front/back or decay work.
+- Corvin side-priority work order: pass, 8 side idle/walk runtime rows and 12 Act I side talk/use/wet rows are present; talk/use/wet now need Godot registration and final animation polish before front/back or decay work.
 - Corvin Meshy motion source audit: pass, talk/use/walk source GLBs are action-capable and wet remains custom-required before canonical Blender action authoring.
-- Corvin side-action blend: pass, authored side-action Blender source contains talk/use/wet actions and a valid 24-bone rig while PNG sheets remain pending.
-- Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet remain pending with placeholder PNGs forbidden and post-render checks defined.
-- Corvin side-action render scripts: pass, 6 Blender entrypoints exist and audit without creating PNG sheets; status is audit_contract_passed with 0 keyed actions still pending.
-- Corvin side-action render commands: pass, 6 dry-run Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.
-- Corvin animation tracker: pass, 10 present / 119 pending / 129 total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.
+- Corvin side-action blend: pass, authored side-action Blender source contains talk/use/wet actions and a valid 24-bone rig; rendered PNG sheets are audited separately.
+- Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet are present and pending final polish review with placeholder PNGs forbidden and post-render checks defined.
+- Corvin side-action render scripts: pass, 6 Blender entrypoints exist, refuse blank sheet assembly, and audit clean; status is audit_contract_passed with 0 missing keyed actions.
+- Corvin side-action render commands: pass, 6 deterministic Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.
+- Corvin side-action rendered sheets: pass, 6 exported sheets and 6 byte-for-byte Godot imports pass dimension, nonblank-frame, and wet arterial-red audits; final animation polish is still not approved.
+- Corvin animation tracker: pass, 22 present / 107 pending / 129 total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.
 - Ink shader yaw metrics: pass, status audited, object pairwise max 0% against threshold 6%, first-last drift 0% against threshold 9%; bad-control pairwise max 28.512% remains the calibration contrast.
 - Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.
 - Act I background element pipeline: pass, generated source contract keeps Blender greybox/paintover authoritative, limits Meshy to source-prop help, limits generated images to reference, and keeps logic-touched elements separate.
@@ -51,7 +52,7 @@ GATES:
 - Act I playable review shortcut: pass, root PLAY_ACT_I_REVIEW.cmd targets the validated launch script with automated report refresh and cannot bypass review preflight.
 BLOCKERS:
 1. Final paintover source files are still pending for all 11 Act I rooms. This is the next real Step 5 production task, not a Step 4 regression.
-2. Corvin still needs final-polish animation beyond the current side idle/walk runtime candidates: talk, use, wet, front/back, and later decay variants remain pending.
+2. Corvin talk/use/wet side sheets are rendered and audited, but still need Godot animation registration and final animation polish review; front/back and later decay variants remain pending.
 3. A human Act I art/readability playtest has not signed off the blockout compositions, hotspot silhouettes, and prop readability for final paintover.
 DEVIATIONS:
 - None to the accepted Registrar duel format. This checkpoint only audits art-pipeline readiness and runtime animation evidence.
