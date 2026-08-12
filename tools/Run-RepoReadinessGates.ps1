@@ -59,6 +59,7 @@ try {
     Invoke-RepoGate -Name "Validate VO cast sheet status" -ScriptName "Validate-VoCastSheetStatus.ps1"
     Invoke-RepoGate -Name "Validate CI gate boundary" -ScriptName "Validate-CiGateBoundary.ps1"
     Invoke-RepoGate -Name "Validate Ink compiler" -ScriptName "Validate-InkCompiler.ps1"
+    Invoke-RepoGate -Name "Validate project visual target reference" -ScriptName "Validate-ProjectVisualTargetReference.ps1"
     Invoke-RepoGate -Name "Validate Act I background source intake" -ScriptName "Validate-ActIBackgroundSourceIntake.ps1"
     Invoke-RepoGate -Name "Validate Act I ready source packets" -ScriptName "Validate-ActIBackgroundReadySourcePackets.ps1"
     Invoke-RepoGate -Name "Validate Act I Meshy queue" -ScriptName "Validate-ActIBackgroundMeshyQueue.ps1"

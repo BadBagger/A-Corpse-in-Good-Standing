@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "project_visual_target_mockup_v1",
+  "status": "reference_only",
+  "image_path": "docs/art/review/project_visual_target_mockup_v1.png",
+  "generated_from": "imagegen",
+  "purpose": "Mood, composition, lighting, and UI-feel target for A Corpse in Good Standing.",
+  "allowed_uses": [
+    "mood reference",
+    "composition reference",
+    "amber_green_lighting_reference",
+    "side_view_readability_reference",
+    "ui_density_reference"
+  ],
+  "forbidden_uses": [
+    "runtime_background",
+    "final_room_art",
+    "sprite_source",
+    "hotspot_authority",
+    "palette_gate_proof",
+    "blender_greybox_replacement"
+  ],
+  "must_keep": [
+    "fixed side-view point-and-click framing",
+    "Corvin reads primarily from side profile",
+    "wet black coat silhouette",
+    "leviathan ribcage harbor architecture",
+    "amber equals alive and green equals wrong",
+    "bottom verb and inventory UI remains compact"
+  ],
+  "known_issues": [
+    "Corvin is slightly three-quarter rather than strict side profile",
+    "UI text is mockup quality only",
+    "hotspot labels are illustrative and not authoritative",
+    "palette must still be audited through G9 and G10",
+    "final assets must still come through Meshy, Blender, paintover, and Godot layer separation"
+  ],
+  "pipeline_contract": [
+    "Use Meshy only for helper geometry and character source models.",
+    "Use Blender blockouts and ink-wash passes for deterministic source renders.",
+    "Use paintover for final 2D room plates.",
+    "Keep props and hotspots as separate runtime layers when state can change.",
+    "Do not import this mockup as final art."
+  ]
+}
