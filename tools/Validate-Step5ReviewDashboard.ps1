@@ -54,11 +54,11 @@ if ($dashboard.paintover_gate_status -notin @("ready", "blocked_pending_human_re
 if ([int]$dashboard.ready_rooms + [int]$dashboard.blocked_rooms -ne 11) {
     throw "Step 5 dashboard ready/blocked room counts must total 11."
 }
-if ($workflow.Count -ne 31) {
-    throw "Step 5 dashboard expected 31 ordered review steps, got $($workflow.Count)."
+if ($workflow.Count -ne 32) {
+    throw "Step 5 dashboard expected 32 ordered review steps, got $($workflow.Count)."
 }
-if ($artifacts.Count -lt 32) {
-    throw "Step 5 dashboard expected at least 32 artifact references, got $($artifacts.Count)."
+if ($artifacts.Count -lt 33) {
+    throw "Step 5 dashboard expected at least 33 artifact references, got $($artifacts.Count)."
 }
 
 foreach ($relativePath in $artifacts) {
@@ -117,6 +117,10 @@ foreach ($requiredText in @(
     "docs/art/corvin_side_action_scaffold.md",
     "Talk/use/wet handoffs name exact Blender actions, frame beats, export targets",
     "keep all PNG sheets pending until deterministic renders exist.",
+    "Review Corvin's side-action deterministic render queue.",
+    "docs/art/corvin_side_action_render_queue.md",
+    "Talk/use/wet side-left and side-right rows remain pending until deterministic Blender PNG sheets and byte-for-byte Godot imports exist",
+    "placeholder PNGs stay forbidden.",
     "Review the Act I generated look target reference.",
     "docs/art/act_i_look_target_reference.md",
     "generated harbor image is treated as a mood/readability target only",

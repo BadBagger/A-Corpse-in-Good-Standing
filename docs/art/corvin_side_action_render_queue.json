@@ -1,0 +1,213 @@
+﻿{
+    "generated_from":  "docs/art/corvin_side_action_scaffold.json",
+    "purpose":  "Deterministic render and import queue for Act I clean side talk/use/wet Corvin sheets.",
+    "status":  "pending_deterministic_blender_renders",
+    "cell_width":  256,
+    "cell_height":  512,
+    "total_rows":  6,
+    "pending_render_count":  6,
+    "sheet_present_count":  0,
+    "godot_present_count":  0,
+    "rule_locks":  [
+                       "Do not create placeholder PNGs to clear this queue.",
+                       "Only deterministic Blender renders from the canonical Act I clean source may satisfy sheet_export rows.",
+                       "Godot imports must be byte-for-byte copied from matching sheet exports until a reviewed import transform exists.",
+                       "Wet action must read as physical brine, not magic.",
+                       "These rows do not approve final animation polish."
+                   ],
+    "post_render_checks":  [
+                               "Each PNG must match frames * 256 by 512 pixels.",
+                               "Each sheet must contain nonblank readable foreground in every frame.",
+                               "Frame 1 and the final frame must align with side idle registration for use and wet.",
+                               "Talk must loop cleanly from final frame to frame 1.",
+                               "No arterial red may appear in wet brine frames."
+                           ],
+    "rows":  [
+                 {
+                     "priority":  "P1_next_side_sheet",
+                     "variant":  "act_i_clean",
+                     "animation":  "talk",
+                     "direction":  "side_right",
+                     "blender_action":  "Corvin_act_i_clean_talk_side",
+                     "frames":  6,
+                     "fps":  12,
+                     "loop":  true,
+                     "cell_width":  256,
+                     "cell_height":  512,
+                     "expected_sheet_width":  1536,
+                     "expected_sheet_height":  512,
+                     "sheet_export":  "art/export/characters/corvin/act_i_clean/talk_side_right.png",
+                     "godot_import":  "game/characters/corvin/sprites/act_i_clean/talk_side_right.png",
+                     "status":  "pending_render",
+                     "sheet_present":  false,
+                     "godot_present":  false,
+                     "blockers":  [
+                                      "sheet_export_missing"
+                                  ],
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
+                     "acceptance_checks":  [
+                                               "6 frames at 12 fps, loop true",
+                                               "first and last frame register cleanly for looping",
+                                               "feet remain planted and do not slide",
+                                               "head/shoulder motion reads at 512px sheet cell scale",
+                                               "drip remains visible but does not crawl across the silhouette"
+                                           ]
+                 },
+                 {
+                     "priority":  "P1_next_side_sheet",
+                     "variant":  "act_i_clean",
+                     "animation":  "talk",
+                     "direction":  "side_left",
+                     "blender_action":  "Corvin_act_i_clean_talk_side",
+                     "frames":  6,
+                     "fps":  12,
+                     "loop":  true,
+                     "cell_width":  256,
+                     "cell_height":  512,
+                     "expected_sheet_width":  1536,
+                     "expected_sheet_height":  512,
+                     "sheet_export":  "art/export/characters/corvin/act_i_clean/talk_side_left.png",
+                     "godot_import":  "game/characters/corvin/sprites/act_i_clean/talk_side_left.png",
+                     "status":  "pending_render",
+                     "sheet_present":  false,
+                     "godot_present":  false,
+                     "blockers":  [
+                                      "sheet_export_missing"
+                                  ],
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
+                     "acceptance_checks":  [
+                                               "6 frames at 12 fps, loop true",
+                                               "first and last frame register cleanly for looping",
+                                               "feet remain planted and do not slide",
+                                               "head/shoulder motion reads at 512px sheet cell scale",
+                                               "drip remains visible but does not crawl across the silhouette"
+                                           ]
+                 },
+                 {
+                     "priority":  "P1_next_side_sheet",
+                     "variant":  "act_i_clean",
+                     "animation":  "use",
+                     "direction":  "side_right",
+                     "blender_action":  "Corvin_act_i_clean_use_side",
+                     "frames":  8,
+                     "fps":  12,
+                     "loop":  false,
+                     "cell_width":  256,
+                     "cell_height":  512,
+                     "expected_sheet_width":  2048,
+                     "expected_sheet_height":  512,
+                     "sheet_export":  "art/export/characters/corvin/act_i_clean/use_side_right.png",
+                     "godot_import":  "game/characters/corvin/sprites/act_i_clean/use_side_right.png",
+                     "status":  "pending_render",
+                     "sheet_present":  false,
+                     "godot_present":  false,
+                     "blockers":  [
+                                      "sheet_export_missing"
+                                  ],
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
+                     "acceptance_checks":  [
+                                               "8 frames at 12 fps, loop false",
+                                               "frame 01 and frame 08 align with idle-side registration",
+                                               "contact frame is the brightest/readable motion pose",
+                                               "no frame moves feet outside the side idle footprint",
+                                               "usable as a generic hotspot response without implying a specific item"
+                                           ]
+                 },
+                 {
+                     "priority":  "P1_next_side_sheet",
+                     "variant":  "act_i_clean",
+                     "animation":  "use",
+                     "direction":  "side_left",
+                     "blender_action":  "Corvin_act_i_clean_use_side",
+                     "frames":  8,
+                     "fps":  12,
+                     "loop":  false,
+                     "cell_width":  256,
+                     "cell_height":  512,
+                     "expected_sheet_width":  2048,
+                     "expected_sheet_height":  512,
+                     "sheet_export":  "art/export/characters/corvin/act_i_clean/use_side_left.png",
+                     "godot_import":  "game/characters/corvin/sprites/act_i_clean/use_side_left.png",
+                     "status":  "pending_render",
+                     "sheet_present":  false,
+                     "godot_present":  false,
+                     "blockers":  [
+                                      "sheet_export_missing"
+                                  ],
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
+                     "acceptance_checks":  [
+                                               "8 frames at 12 fps, loop false",
+                                               "frame 01 and frame 08 align with idle-side registration",
+                                               "contact frame is the brightest/readable motion pose",
+                                               "no frame moves feet outside the side idle footprint",
+                                               "usable as a generic hotspot response without implying a specific item"
+                                           ]
+                 },
+                 {
+                     "priority":  "P1_next_side_sheet",
+                     "variant":  "act_i_clean",
+                     "animation":  "wet",
+                     "direction":  "side_right",
+                     "blender_action":  "Corvin_act_i_clean_wet_side",
+                     "frames":  8,
+                     "fps":  12,
+                     "loop":  false,
+                     "cell_width":  256,
+                     "cell_height":  512,
+                     "expected_sheet_width":  2048,
+                     "expected_sheet_height":  512,
+                     "sheet_export":  "art/export/characters/corvin/act_i_clean/wet_side_right.png",
+                     "godot_import":  "game/characters/corvin/sprites/act_i_clean/wet_side_right.png",
+                     "status":  "pending_render",
+                     "sheet_present":  false,
+                     "godot_present":  false,
+                     "blockers":  [
+                                      "sheet_export_missing"
+                                  ],
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
+                     "acceptance_checks":  [
+                                               "8 frames at 12 fps, loop false",
+                                               "wet action starts and ends on idle registration",
+                                               "drip/splash is visible without arterial red or off-palette effects",
+                                               "motion reads as physical brine, not magic",
+                                               "does not obscure hotspot feedback or Litany UI"
+                                           ]
+                 },
+                 {
+                     "priority":  "P1_next_side_sheet",
+                     "variant":  "act_i_clean",
+                     "animation":  "wet",
+                     "direction":  "side_left",
+                     "blender_action":  "Corvin_act_i_clean_wet_side",
+                     "frames":  8,
+                     "fps":  12,
+                     "loop":  false,
+                     "cell_width":  256,
+                     "cell_height":  512,
+                     "expected_sheet_width":  2048,
+                     "expected_sheet_height":  512,
+                     "sheet_export":  "art/export/characters/corvin/act_i_clean/wet_side_left.png",
+                     "godot_import":  "game/characters/corvin/sprites/act_i_clean/wet_side_left.png",
+                     "status":  "pending_render",
+                     "sheet_present":  false,
+                     "godot_present":  false,
+                     "blockers":  [
+                                      "sheet_export_missing"
+                                  ],
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
+                     "acceptance_checks":  [
+                                               "8 frames at 12 fps, loop false",
+                                               "wet action starts and ends on idle registration",
+                                               "drip/splash is visible without arterial red or off-palette effects",
+                                               "motion reads as physical brine, not magic",
+                                               "does not obscure hotspot feedback or Litany UI"
+                                           ]
+                 }
+             ]
+}

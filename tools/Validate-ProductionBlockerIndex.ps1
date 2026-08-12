@@ -44,6 +44,7 @@ $requiredEvidencePaths = @(
     "docs/vo/vo_minor_speaker_decisions_template.csv",
     "docs/art/corvin_runtime_sprite_assets_status.json",
     "docs/art/corvin_side_priority_work_order.md",
+    "docs/art/corvin_side_action_render_queue.md",
     "docs/art/corvin_animation_asset_status.md"
 )
 
@@ -79,6 +80,7 @@ $requiredPhrases = @(
     "blocked_pending_licensing_review",
     "652 expected MP3s, 0 present",
     "8 present / 12 pending",
+    "6 pending deterministic Blender render/import rows",
     "Polish side idle/walk, then complete Act I side talk/use/wet before front/back or Act II-III decay sheets",
     "10 present, 119 pending, 129 total",
     "Do not start final Act I paintovers",
