@@ -87,6 +87,7 @@ $reviewArtifacts = @(
     "docs/playtest/results/act_i_human_playtest_latest.md",
     "docs/playtest/act_i_review_decisions_template.csv",
     "docs/art/act_i_review_contact_sheet.html",
+    "docs/art/review/corvin_side_actions_contact_sheet.png",
     "docs/art/act_i_hotspot_overlay.svg",
     "docs/art/corvin_side_action_scaffold.md",
     "docs/art/act_i_background_ready_source_packets.md",
