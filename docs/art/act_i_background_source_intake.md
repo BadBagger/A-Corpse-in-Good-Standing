@@ -13,8 +13,8 @@ Guardrails:
 
 Counts:
 - Prompts: 130
-- Present source outputs: 14
-- Pending source outputs: 116
+- Present source outputs: 18
+- Pending source outputs: 112
 - Zero-byte outputs: 0
 - generated_reference: 41
 - interactive_layer: 25
@@ -95,10 +95,10 @@ Counts:
 
 | ID | Kind | Tool | Status | Source | Runtime |
 |---|---|---|---|---|---|
-| bone_chandler_generated_reference_grime_texture | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/bone_chandler/grime_texture.png` | `-` |
-| bone_chandler_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/bone_chandler/ink_wash_edge_breakup.png` | `-` |
-| bone_chandler_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/bone_chandler/non_clickable_dressing_silhouettes.png` | `-` |
-| bone_chandler_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/bone_chandler/palette_safe_mood_reference.png` | `-` |
+| bone_chandler_generated_reference_grime_texture | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/bone_chandler/grime_texture.png` | `-` |
+| bone_chandler_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/bone_chandler/ink_wash_edge_breakup.png` | `-` |
+| bone_chandler_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/bone_chandler/non_clickable_dressing_silhouettes.png` | `-` |
+| bone_chandler_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/bone_chandler/palette_safe_mood_reference.png` | `-` |
 | bone_chandler_interactive_layer_prosper_s_watch | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/bone_chandler/prosperwatch.psd` | `game/rooms/bone_chandler/props/prosperwatch.png` |
 | bone_chandler_meshy_source_model_bone_shelf_units | meshy_source_model | Meshy | pending_source | `art/src/backgrounds/act_i/source_models/bone_chandler/bone_shelf_units.glb` | `-` |
 | bone_chandler_meshy_source_model_chess_set_scale_prop | meshy_source_model | Meshy | pending_source | `art/src/backgrounds/act_i/source_models/bone_chandler/chess_set_scale_prop.glb` | `-` |
