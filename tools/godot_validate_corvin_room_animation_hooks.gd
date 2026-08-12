@@ -38,15 +38,9 @@ func _run() -> void:
 		_fail("Mudflats room helper did not switch Corvin to walk_side_right.")
 		return
 	if not bool(_character.call("play_idle_side_right")):
-		_fail("Corvin bridge could not reset to side-right idle before Mudflats pending verb validation.")
+		_fail("Corvin bridge could not reset to side-right idle before Mudflats verb validation.")
 		return
-	for verb in ["talk", "use", "wet"]:
-		if bool(mudflats.call("_play_corvin_verb_action", verb)):
-			_fail("Mudflats room helper accepted pending Corvin %s action." % verb)
-			return
-		if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_right":
-			_fail("Mudflats pending Corvin %s action changed the active animation." % verb)
-			return
+	_validate_room_verb_actions(mudflats, runtime_sprite, "Mudflats", "side_right")
 	if not bool(_character.call("play_idle_side_right")):
 		_fail("Corvin bridge could not reset to idle before generated-room validation.")
 		return
@@ -67,15 +61,9 @@ func _run() -> void:
 		_fail("Generated Act I room helper did not switch Corvin to walk_side_right.")
 		return
 	if not bool(_character.call("play_idle_side_right")):
-		_fail("Corvin bridge could not reset to side-right idle before generated pending verb validation.")
+		_fail("Corvin bridge could not reset to side-right idle before generated verb validation.")
 		return
-	for verb in ["talk", "use", "wet"]:
-		if bool(generated_room.call("_play_corvin_verb_action", verb)):
-			_fail("Generated Act I room helper accepted pending Corvin %s action." % verb)
-			return
-		if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_right":
-			_fail("Generated Act I pending Corvin %s action changed the active animation." % verb)
-			return
+	_validate_room_verb_actions(generated_room, runtime_sprite, "Generated Act I", "side_right")
 	generated_room.call("_on_room_transition_finished")
 	if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_right":
 		_fail("Generated Act I room transition-finished hook did not preserve side-right idle after rightward walk.")
@@ -90,8 +78,32 @@ func _run() -> void:
 	if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_left":
 		_fail("Generated Act I room transition-finished hook did not preserve side-left idle after leftward walk.")
 		return
-	print("Corvin room animation hook validation passed: mudflats=current-side-idle/walk/pending-verb-actions, generatedActIRoom=current-side-idle/walk-left/walk-right/pending-verb-actions.")
+	_validate_room_verb_actions(generated_room, runtime_sprite, "Generated Act I", "side_left")
+	print("Corvin room animation hook validation passed: mudflats=current-side-idle/walk/live-verb-actions, generatedActIRoom=current-side-idle/walk-left/walk-right/live-verb-actions.")
 	quit(0)
+
+
+func _validate_room_verb_actions(room: Node, runtime_sprite: Node, label: String, side: String) -> void:
+	var expected := {
+		"talk": "talk_%s" % side,
+		"use": "use_%s" % side,
+		"wet": "wet_%s" % side,
+	}
+	var expected_frames := {
+		"talk": 6,
+		"use": 8,
+		"wet": 8,
+	}
+	for verb in ["talk", "use", "wet"]:
+		if not bool(room.call("_play_corvin_verb_action", verb)):
+			_fail("%s room helper could not play live Corvin %s action." % [label, verb])
+			return
+		if String(runtime_sprite.call("active_animation_for_test")) != String(expected[verb]):
+			_fail("%s room helper resolved %s to %s instead of %s." % [label, verb, String(runtime_sprite.call("active_animation_for_test")), String(expected[verb])])
+			return
+		if int(runtime_sprite.call("frame_count_for_test")) != int(expected_frames[verb]):
+			_fail("%s room helper loaded wrong frame count for %s." % [label, verb])
+			return
 
 
 func _instantiate_scene(path: String) -> Node:
