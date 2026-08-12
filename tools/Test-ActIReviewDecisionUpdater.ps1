@@ -14,9 +14,27 @@ foreach ($path in @($trackerPath, $mdPath, $setScript, $validateTrackerScript)) 
 
 $originalJson = Get-Content -LiteralPath $trackerPath -Raw
 $originalMd = Get-Content -LiteralPath $mdPath -Raw
+$buildCommit = (& git -C $root rev-parse --short=12 HEAD 2>$null)
+if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($buildCommit)) {
+    $buildCommit = "unknown"
+} else {
+    $buildCommit = [string]$buildCommit
+}
 
 try {
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved."
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Missing build commit negative control." 2>&1
+    $badExit = $LASTEXITCODE
+    $ErrorActionPreference = $previousErrorActionPreference
+    if ($badExit -eq 0) {
+        throw "Set-ActIReviewDecision should reject non-pending decisions without BuildCommit."
+    }
+    if (($badOutput -join "`n") -notmatch "must include -BuildCommit") {
+        throw "Review updater BuildCommit negative control failed for the wrong reason: $($badOutput -join ' ')"
+    }
+
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved."
     if ($LASTEXITCODE -ne 0) {
         throw "Set-ActIReviewDecision approved smoke failed."
     }
@@ -78,7 +96,7 @@ try {
 
     $previousErrorActionPreference = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
-    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -Reviewer "Automated test" -ReviewedAt "August 11" -DecisionNote "Bad date negative control." 2>&1
+    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "August 11" -DecisionNote "Bad date negative control." 2>&1
     $badExit = $LASTEXITCODE
     $ErrorActionPreference = $previousErrorActionPreference
     if ($badExit -eq 0) {
@@ -88,12 +106,12 @@ try {
         throw "Review updater ReviewedAt negative control failed for the wrong reason: $($badOutput -join ' ')"
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved."
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved."
     if ($LASTEXITCODE -ne 0) {
         throw "Set-ActIReviewDecision failed while restoring approved metadata after negative control."
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "grey_float" -Decision "revise_before_art" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Grey Float needs content staging revision before paint." -ContentCompliance "Steam silhouettes need stronger privacy staging before paint."
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "grey_float" -Decision "revise_before_art" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Grey Float needs content staging revision before paint." -ContentCompliance "Steam silhouettes need stronger privacy staging before paint."
     if ($LASTEXITCODE -ne 0) {
         throw "Set-ActIReviewDecision revise smoke failed."
     }

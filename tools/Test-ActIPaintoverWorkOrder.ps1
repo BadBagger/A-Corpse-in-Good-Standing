@@ -23,6 +23,12 @@ $originalStartGateJson = if (Test-Path -LiteralPath $startGatePath) { Get-Conten
 $originalStartGateMd = if (Test-Path -LiteralPath $startGateMdPath) { Get-Content -LiteralPath $startGateMdPath -Raw } else { $null }
 $originalWorkOrderJson = if (Test-Path -LiteralPath $workOrderPath) { Get-Content -LiteralPath $workOrderPath -Raw } else { $null }
 $originalWorkOrderMd = if (Test-Path -LiteralPath $workOrderMdPath) { Get-Content -LiteralPath $workOrderMdPath -Raw } else { $null }
+$buildCommit = (& git -C $root rev-parse --short=12 HEAD 2>$null)
+if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($buildCommit)) {
+    $buildCommit = "unknown"
+} else {
+    $buildCommit = [string]$buildCommit
+}
 
 try {
     & powershell -NoProfile -ExecutionPolicy Bypass -File $validateStartGateScript
@@ -35,7 +41,7 @@ try {
         throw "Initial work order should be empty while no rooms are approved."
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for work-order simulation; accepted Litany format preserved."
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for work-order simulation; accepted Litany format preserved."
     if ($LASTEXITCODE -ne 0) { throw "Failed to approve Harbor Registry for work order simulation." }
     & powershell -NoProfile -ExecutionPolicy Bypass -File $validateStartGateScript
     if ($LASTEXITCODE -ne 0) { throw "Start gate validation failed after simulated approval." }
@@ -54,7 +60,7 @@ try {
     if ("duel_format_lock" -notin @($room.risk_tags)) {
         throw "Harbor Registry work order must preserve duel_format_lock risk tag."
     }
-    if ($room.reviewer -ne "Automated test" -or $room.reviewed_at -ne "2026-08-11" -or $room.decision_note -notmatch "work-order simulation") {
+    if ($room.build_commit -ne $buildCommit -or $room.reviewer -ne "Automated test" -or $room.reviewed_at -ne "2026-08-11" -or $room.decision_note -notmatch "work-order simulation") {
         throw "Harbor Registry work order did not preserve reviewer metadata from the start gate."
     }
 }
