@@ -55,6 +55,7 @@ $finalPaintoverCompletionJsonPath = Join-Path $root "docs\art\act_i_final_painto
 $paintoverReviewProvenanceJsonPath = Join-Path $root "docs\art\act_i_paintover_review_provenance.json"
 $reviewDashboardPath = Join-Path $root "docs\checkpoints\step_5_review_dashboard.md"
 $humanReviewBundlePath = Join-Path $root "docs\checkpoints\step_5_human_review_bundle.md"
+$humanPlaytestLaunchScriptPath = Join-Path $root "tools\Validate-ActIHumanPlaytestLaunch.ps1"
 $checkpointPath = Join-Path $root "docs\checkpoints\step_5_act_i_art_pass_readiness.md"
 
 foreach ($path in @(
@@ -110,7 +111,8 @@ foreach ($path in @(
     $finalPaintoverCompletionJsonPath,
     $paintoverReviewProvenanceJsonPath,
     $reviewDashboardPath,
-    $humanReviewBundlePath
+    $humanReviewBundlePath,
+    $humanPlaytestLaunchScriptPath
 )) {
     if (-not (Test-Path -LiteralPath $path)) {
         throw "Missing Step 5 readiness input: $path"
@@ -788,6 +790,7 @@ $lines = @(
     "- Act I paintover review provenance: pass, reports $provenanceApprovedCount approved tracker rooms / $provenanceWorkOrderCount work-order rooms / $provenanceAcceptedCount accepted sources / $provenanceCompletionApprovedCount completion-approved rows with matching reviewer proof across the final-art handoff chain.",
     "- Step 5 review dashboard: pass, generated ordered reviewer workflow and artifact index, including the ready-source packet review step and the VO commercial stale-input guard, while paintover start gate remains blocked pending human review.",
     "- Step 5 human review bundle: pass, generated compact launch/index handoff keeps the latest notes, decision CSV, contact sheet, hotspot overlay, ready-source packet index at docs/art/act_i_background_ready_source_packets.md, paintover packet, duel-format lock, and Grey Float hard-R lock in one review path.",
+    "- Act I human playtest launch preflight: pass, no-launch validator proves the launcher refreshes synced review materials and prints the review bundle, latest notes, decision CSV, contact sheet, hotspot overlay, and ready-source packet index before Godot launch.",
     "BLOCKERS:",
     "1. Final paintover source files are still pending for all 11 Act I rooms. This is the next real Step 5 production task, not a Step 4 regression.",
     "2. Corvin still needs final-polish animation beyond the current side idle/walk runtime candidates: talk, use, wet, front/back, and later decay variants remain pending.",
@@ -820,6 +823,7 @@ foreach ($requiredText in @(
     "ready-source packet review step",
     "Step 5 human review bundle: pass",
     "docs/art/act_i_background_ready_source_packets.md",
+    "Act I human playtest launch preflight: pass",
     "Act I VO timing manifest: pass",
     "Confession VO manifest: pass",
     "VO recording batches: pass",

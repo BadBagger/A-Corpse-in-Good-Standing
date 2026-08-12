@@ -93,6 +93,7 @@ try {
     Invoke-Step -Name "Validate Step 5 human review bundle" -ScriptName "Validate-Step5HumanReviewBundle.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I review handoff sync" -ScriptName "Validate-ActIReviewHandoffSync.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Test Act I review handoff sync" -ScriptName "Test-ActIReviewHandoffSync.ps1" -TimeoutSeconds 120
+    Invoke-Step -Name "Validate Act I human playtest launch preflight" -ScriptName "Validate-ActIHumanPlaytestLaunch.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Step 5 Act I art-pass readiness" -ScriptName "Validate-Step5ActIArtReadiness.ps1" -TimeoutSeconds 120
 
     Write-Host "Step 5 Act I art-pass readiness gates passed."
