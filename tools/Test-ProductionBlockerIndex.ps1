@@ -58,6 +58,25 @@ try {
     if (-not $failedAsExpected) {
         throw "Production blocker index validator accepted a missing scratch-VO shipping guardrail."
     }
+
+    Set-Content -LiteralPath $indexPath -Value $originalText -NoNewline
+
+    $mutatedText = $originalText.Replace("read-only Blender import proof", "Blender probe evidence")
+    if ($mutatedText -eq $originalText) {
+        throw "Step 4 mutation failed to alter the production blocker index."
+    }
+
+    Set-Content -LiteralPath $indexPath -Value $mutatedText -NoNewline
+
+    $step4Mutation = Invoke-ValidatorProcess
+    $step4FailedAsExpected = $step4Mutation.ExitCode -ne 0
+    if ($step4Mutation.Output -notlike "*read-only Blender import proof*") {
+        throw "Production blocker index validator failed for the wrong reason after Step 4 evidence mutation: $($step4Mutation.Output)"
+    }
+
+    if (-not $step4FailedAsExpected) {
+        throw "Production blocker index validator accepted missing read-only Step 4 Blender proof."
+    }
 }
 finally {
     Set-Content -LiteralPath $indexPath -Value $originalText -NoNewline
@@ -69,4 +88,4 @@ if ($restored.ExitCode -ne 0) {
     throw "Production blocker index validation failed after restoring mutation test fixture: $($restored.Output)"
 }
 
-Write-Host "Production blocker index tests passed: baseline validates, missing VO guardrail fails, fixture restored."
+Write-Host "Production blocker index tests passed: baseline validates, missing VO guardrail fails, missing Step 4 Blender proof fails, fixture restored."

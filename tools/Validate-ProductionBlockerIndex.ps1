@@ -37,6 +37,7 @@ foreach ($issue in $requiredIssues) {
 }
 
 $requiredEvidencePaths = @(
+    "docs/checkpoints/step_4_act_i_greybox_room_graph.md",
     "docs/checkpoints/step_5_act_i_art_pass_readiness.md",
     "docs/vo/vo_commercial_readiness.md",
     "docs/vo/vo_audio_asset_status.md",
@@ -60,6 +61,7 @@ foreach ($relativePath in $requiredEvidencePaths) {
 
 $requiredCommands = @(
     "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Run-RepoReadinessGates.ps1",
+    "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Run-Step4Gates.ps1",
     "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Run-Step5ReadinessGates.ps1",
     "gh issue list --repo BadBagger/A-Corpse-in-Good-Standing --state open --limit 10"
 )
@@ -71,6 +73,8 @@ foreach ($command in $requiredCommands) {
 }
 
 $requiredPhrases = @(
+    "Local Step 2, Step 3, and Step 4 gates are green",
+    "read-only Blender import proof",
     "0 ready / 11 blocked",
     "blocked_pending_licensing_review",
     "652 expected MP3s, 0 present",

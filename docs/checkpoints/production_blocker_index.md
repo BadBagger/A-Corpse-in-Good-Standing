@@ -8,6 +8,7 @@ This is a stable handoff index, not a generated gate report. The authoritative g
 
 - Repo source snapshot is published to `BadBagger/A-Corpse-in-Good-Standing`.
 - Headless GitHub Actions gates are green for repo readiness and Step 1.
+- Local Step 2, Step 3, and Step 4 gates are green under the local Godot/Blender toolchain; `docs/checkpoints/step_4_act_i_greybox_room_graph.md` records Act I quest-flow, six Rite permutations, room graph, blockout, shader, and read-only Blender import proof.
 - Local Step 5 readiness gate is green for human review.
 - Final Act I paintover work is intentionally blocked until human art/readability signoff.
 - Full VO is selected, but shipping VO remains blocked until licensing and minor-speaker decisions are resolved.
@@ -25,6 +26,7 @@ This is a stable handoff index, not a generated gate report. The authoritative g
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File tools\Run-RepoReadinessGates.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\Run-Step4Gates.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File tools\Run-Step5ReadinessGates.ps1
 gh issue list --repo BadBagger/A-Corpse-in-Good-Standing --state open --limit 10
 ```
