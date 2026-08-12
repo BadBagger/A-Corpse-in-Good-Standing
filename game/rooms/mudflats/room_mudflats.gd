@@ -131,6 +131,9 @@ func _handle_coat(verb: String) -> void:
 		"look":
 			_say("Wool. Was expensive. Is now a sponge with buttons.")
 		"use":
+			var narrative := _narrative()
+			if narrative and narrative.has_method("add_journal"):
+				narrative.add_journal("j_corvin_drips")
 			_say("Corvin wrings out a sleeve. The puddle forms like it has tenure.")
 		"talk":
 			_say("It is a coat, and Corvin is not that far gone. Yet.")

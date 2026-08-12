@@ -17,6 +17,10 @@ const JOURNAL_CATALOG := {
 	"j_corvin_died_thursday": {
 		"title": "Thursday",
 		"text": "Corvin died on Thursday. The week after that is missing."
+	},
+	"j_corvin_drips": {
+		"title": "Wet Work",
+		"text": "Corvin's coat does not stop dripping. Paper, lamps, salt, and dignity should plan accordingly."
 	}
 }
 
