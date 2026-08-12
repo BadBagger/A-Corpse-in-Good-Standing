@@ -78,9 +78,44 @@ foreach ($expected in @("RuntimeSprite", "runtime_sprite_sheet_loader.gd", "Spri
 }
 
 $corvinScript = Get-Content -LiteralPath (Join-Path $root "game\characters\corvin\character_corvin.gd") -Raw -Encoding UTF8
-foreach ($expected in @("play_runtime_animation", "play_idle_side_right", "play_idle_side_left", "play_walk_side_right", "play_walk_side_left", "play_idle_current_side", "active_side_direction_for_test")) {
+foreach ($expected in @(
+    "play_runtime_animation",
+    "play_idle_side_right",
+    "play_idle_side_left",
+    "play_walk_side_right",
+    "play_walk_side_left",
+    "play_talk_side_right",
+    "play_talk_side_left",
+    "play_talk_current_side",
+    "play_use_side_right",
+    "play_use_side_left",
+    "play_use_current_side",
+    "play_wet_side_right",
+    "play_wet_side_left",
+    "play_wet_current_side",
+    "play_idle_current_side",
+    "active_side_direction_for_test"
+)) {
     if ($corvinScript -notmatch [regex]::Escape($expected)) {
         throw "Corvin character script missing expected runtime animation bridge: $expected"
+    }
+}
+
+$runtimeSpriteLoader = Get-Content -LiteralPath (Join-Path $root "game\characters\corvin\runtime_sprite_sheet_loader.gd") -Raw -Encoding UTF8
+foreach ($expected in @(
+    "PLANNED_ANIMATIONS",
+    "talk_side_right",
+    "talk_side_left",
+    "use_side_right",
+    "use_side_left",
+    "wet_side_right",
+    "wet_side_left",
+    "is_animation_available",
+    "is_animation_planned",
+    "PLANNED_ANIMATIONS.has(animation_name)"
+)) {
+    if ($runtimeSpriteLoader -notmatch [regex]::Escape($expected)) {
+        throw "Corvin runtime sprite loader missing expected planned-action contract: $expected"
     }
 }
 

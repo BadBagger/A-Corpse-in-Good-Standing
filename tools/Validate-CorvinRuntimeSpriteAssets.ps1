@@ -79,10 +79,19 @@ try {
                 frames = 8
             }
         )
-        runtime_sprite = "side_right_side_left_idle_walk_switchable"
-        character_animation_bridge = "side_right_side_left_idle_walk_switchable_with_current_side_idle"
+        planned_sprite_actions = @(
+            "talk_side_right",
+            "talk_side_left",
+            "use_side_right",
+            "use_side_left",
+            "wet_side_right",
+            "wet_side_left"
+        )
+        runtime_sprite = "side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe"
+        character_animation_bridge = "side_right_side_left_idle_walk_switchable_with_current_side_idle_and_pending_action_methods"
         walk_state_switching = "implemented_loader_api"
         current_side_idle = "implemented_character_bridge_alias"
+        pending_action_behavior = "returns_false_without_switching_active_animation_or_showing_polygon_fallback"
         known_shutdown_warnings = "Popochiu UID fallback and Godot headless RID/resource cleanup warnings"
         pass_line = [string]$passLine
     }
@@ -106,10 +115,12 @@ try {
         'Left walk sprite resource: `res://game/characters/corvin/sprites/act_i_clean/walk_side_left.png`.',
         "Left walk dimensions: 2048x512.",
         "Left walk frames: 8.",
-        "RuntimeSprite: side_right_side_left_idle_walk_switchable.",
-        "Character animation bridge: side_right_side_left_idle_walk_switchable_with_current_side_idle.",
+        "Planned side action resources: talk_side_right, talk_side_left, use_side_right, use_side_left, wet_side_right, wet_side_left.",
+        "RuntimeSprite: side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe.",
+        "Character animation bridge: side_right_side_left_idle_walk_switchable_with_current_side_idle_and_pending_action_methods.",
         "Walk state switching: implemented_loader_api.",
         "Current-side idle: implemented_character_bridge_alias.",
+        "Pending action behavior: returns_false_without_switching_active_animation_or_showing_polygon_fallback.",
         "Known shutdown warnings: Popochiu UID fallback and Godot headless RID/resource cleanup warnings.",
         "",
         "Pass line:",

@@ -51,7 +51,23 @@ func _init() -> void:
 	if not character.has_method("play_runtime_animation"):
 		_fail("Corvin character is missing play_runtime_animation().")
 		return
-	for bridge_method in ["play_idle_side_right", "play_idle_side_left", "play_walk_side_right", "play_walk_side_left", "play_idle_current_side", "active_side_direction_for_test"]:
+	for bridge_method in [
+		"play_idle_side_right",
+		"play_idle_side_left",
+		"play_walk_side_right",
+		"play_walk_side_left",
+		"play_talk_side_right",
+		"play_talk_side_left",
+		"play_talk_current_side",
+		"play_use_side_right",
+		"play_use_side_left",
+		"play_use_current_side",
+		"play_wet_side_right",
+		"play_wet_side_left",
+		"play_wet_current_side",
+		"play_idle_current_side",
+		"active_side_direction_for_test",
+	]:
 		if not character.has_method(bridge_method):
 			_fail("Corvin character is missing animation bridge method: %s." % bridge_method)
 			return
@@ -67,6 +83,9 @@ func _init() -> void:
 		return
 	if not runtime_sprite.has_method("play_animation"):
 		_fail("RuntimeSprite is missing play_animation().")
+		return
+	if not runtime_sprite.has_method("is_animation_available") or not runtime_sprite.has_method("is_animation_planned"):
+		_fail("RuntimeSprite is missing animation availability hooks.")
 		return
 	if not runtime_sprite.has_method("advance_for_test") or not runtime_sprite.has_method("current_frame_for_test"):
 		_fail("RuntimeSprite is missing animation test hooks.")
@@ -183,9 +202,51 @@ func _init() -> void:
 	if bool(character.call("play_runtime_animation", "missing_animation")):
 		_fail("Corvin character bridge accepted an unknown animation.")
 		return
+	if not bool(runtime_sprite.call("is_animation_available", "idle_side_right")):
+		_fail("RuntimeSprite did not report idle_side_right as available.")
+		return
+	if not bool(runtime_sprite.call("is_animation_planned", "talk_side_right")):
+		_fail("RuntimeSprite did not report talk_side_right as planned.")
+		return
+	if bool(runtime_sprite.call("is_animation_available", "talk_side_right")):
+		_fail("RuntimeSprite reported pending talk_side_right as available.")
+		return
+	if not bool(character.call("play_idle_side_right")):
+		_fail("Corvin character bridge could not restore idle_side_right before pending action checks.")
+		return
+	for pending_method in [
+		"play_talk_side_right",
+		"play_talk_current_side",
+		"play_use_side_right",
+		"play_use_current_side",
+		"play_wet_side_right",
+		"play_wet_current_side",
+	]:
+		if bool(character.call(pending_method)):
+			_fail("Corvin character bridge accepted pending animation method: %s." % pending_method)
+			return
+		if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_right":
+			_fail("Pending animation method changed the active runtime animation: %s." % pending_method)
+			return
+		if fallback is CanvasItem and (fallback as CanvasItem).visible:
+			_fail("Pending animation method showed the polygon fallback: %s." % pending_method)
+			return
+	if not bool(character.call("play_idle_side_left")):
+		_fail("Corvin character bridge could not restore idle_side_left before left pending action checks.")
+		return
+	for pending_method in ["play_talk_side_left", "play_use_side_left", "play_wet_side_left"]:
+		if bool(character.call(pending_method)):
+			_fail("Corvin character bridge accepted pending left animation method: %s." % pending_method)
+			return
+		if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_left":
+			_fail("Pending left animation method changed the active runtime animation: %s." % pending_method)
+			return
+		if fallback is CanvasItem and (fallback as CanvasItem).visible:
+			_fail("Pending left animation method showed the polygon fallback: %s." % pending_method)
+			return
 	character.free()
 
-	print("Corvin sprite asset validation passed: assets=%s, runtimeSprite=side_right_side_left_idle_walk_switchable, characterBridge=side_right_side_left_idle_walk_switchable, idleForegroundSamples=%s" % [", ".join(validation_results), idle_foreground_pixels])
+	print("Corvin sprite asset validation passed: assets=%s, runtimeSprite=side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe, characterBridge=side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe, idleForegroundSamples=%s" % [", ".join(validation_results), idle_foreground_pixels])
 	quit(0)
 
 

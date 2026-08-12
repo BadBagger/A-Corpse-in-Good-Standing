@@ -15,13 +15,15 @@ Walk frames: 8.
 Left walk sprite resource: `res://game/characters/corvin/sprites/act_i_clean/walk_side_left.png`.
 Left walk dimensions: 2048x512.
 Left walk frames: 8.
-RuntimeSprite: side_right_side_left_idle_walk_switchable.
-Character animation bridge: side_right_side_left_idle_walk_switchable_with_current_side_idle.
+Planned side action resources: talk_side_right, talk_side_left, use_side_right, use_side_left, wet_side_right, wet_side_left.
+RuntimeSprite: side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe.
+Character animation bridge: side_right_side_left_idle_walk_switchable_with_current_side_idle_and_pending_action_methods.
 Walk state switching: implemented_loader_api.
 Current-side idle: implemented_character_bridge_alias.
+Pending action behavior: returns_false_without_switching_active_animation_or_showing_polygon_fallback.
 Known shutdown warnings: Popochiu UID fallback and Godot headless RID/resource cleanup warnings.
 
 Pass line:
 ```text
-Corvin sprite asset validation passed: assets=idle_side_right=12frames/21120px, idle_side_left=12frames/21168px, walk_side_right=8frames/14211px, walk_side_left=8frames/14187px, runtimeSprite=side_right_side_left_idle_walk_switchable, characterBridge=side_right_side_left_idle_walk_switchable, idleForegroundSamples=21120
+Corvin sprite asset validation passed: assets=idle_side_right=12frames/21120px, idle_side_left=12frames/21168px, walk_side_right=8frames/14211px, walk_side_left=8frames/14187px, runtimeSprite=side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe, characterBridge=side_right_side_left_idle_walk_switchable_pending_talk_use_wet_safe, idleForegroundSamples=21120
 ```

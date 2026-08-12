@@ -29,6 +29,33 @@ func play_walk_side_right() -> bool:
 func play_walk_side_left() -> bool:
 	return play_runtime_animation("walk_side_left")
 
+func play_talk_side_right() -> bool:
+	return play_runtime_animation("talk_side_right")
+
+func play_talk_side_left() -> bool:
+	return play_runtime_animation("talk_side_left")
+
+func play_talk_current_side() -> bool:
+	return play_runtime_animation("talk_%s" % _last_side_direction)
+
+func play_use_side_right() -> bool:
+	return play_runtime_animation("use_side_right")
+
+func play_use_side_left() -> bool:
+	return play_runtime_animation("use_side_left")
+
+func play_use_current_side() -> bool:
+	return play_runtime_animation("use_%s" % _last_side_direction)
+
+func play_wet_side_right() -> bool:
+	return play_runtime_animation("wet_side_right")
+
+func play_wet_side_left() -> bool:
+	return play_runtime_animation("wet_side_left")
+
+func play_wet_current_side() -> bool:
+	return play_runtime_animation("wet_%s" % _last_side_direction)
+
 func play_idle_current_side() -> bool:
 	return play_runtime_animation("idle_current_side")
 
