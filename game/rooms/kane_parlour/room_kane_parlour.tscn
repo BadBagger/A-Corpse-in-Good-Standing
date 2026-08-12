@@ -1,0 +1,266 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
+[ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
+[ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.164706, 0.227451, 0.25098, 1, 0.494118, 0.607843, 0.305882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_1"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_2"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_3"]
+size = Vector2(280, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_4"]
+size = Vector2(280, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_5"]
+size = Vector2(280, 160)
+
+[node name="RoomKaneParlour" type="Node2D"]
+script = ExtResource("1_room")
+script_name = "KaneParlour"
+has_player = true
+width = 1920
+height = 1080
+room_code = "R13"
+room_title = "Kane's Parlour"
+room_notes = "Act II opening. Refuse Kane, steal the seal, begin the paper trail."
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_bg")
+centered = false
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.164706, 0.227451, 0.25098, 0.65)
+polygon = PackedVector2Array(0, 700, 1920, 620, 1920, 1080, 0, 1080)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 44.0
+offset_right = 1120.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "R13 / Kane's Parlour"
+
+[node name="NotesLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1320.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Act II opening. Refuse Kane, steal the seal, begin the paper trail."
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="WalkableMain" type="Polygon2D" parent="WalkableAreas"]
+color = Color(0.494118, 0.607843, 0.305882, 0.35)
+polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="ToFloat" type="Area2D" parent="Hotspots"]
+position = Vector2(220, 740)
+script = ExtResource("3_exit")
+script_name = "ToFloat"
+description = "The Grey Float"
+target_room = "FloatLower"
+requires_flags = Array[String]([])
+requires_items = Array[String]([])
+blocked_text = ""
+look_text = "The Grey Float. The way through is visible. That does not make it innocent."
+use_text = "Corvin considers using the exit as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for The Grey Float."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToFloat"]
+shape = SubResource("RectangleShape2D_exit_1")
+
+[node name="Label" type="Label" parent="Hotspots/ToFloat"]
+offset_left = -96.0
+offset_top = -118.0
+offset_right = 156.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "The Grey Float"
+
+[node name="ToCustoms" type="Area2D" parent="Hotspots"]
+position = Vector2(1680, 730)
+script = ExtResource("3_exit")
+script_name = "ToCustoms"
+description = "Customs House"
+target_room = "CustomsHouse"
+requires_flags = Array[String]([])
+requires_items = Array[String](["IT_forged_customs_writ"])
+blocked_text = "The Customs House needs an official-looking lie first."
+look_text = "Customs House. The way through is visible. That does not make it innocent."
+use_text = "Corvin considers using the exit as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Customs House."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToCustoms"]
+shape = SubResource("RectangleShape2D_exit_2")
+
+[node name="Label" type="Label" parent="Hotspots/ToCustoms"]
+offset_left = -96.0
+offset_top = -118.0
+offset_right = 156.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Customs House"
+
+[node name="Kane" type="Area2D" parent="Hotspots"]
+position = Vector2(790, 660)
+script = ExtResource("4_interaction")
+script_name = "Kane"
+description = "Ossuary Kane"
+interaction_key = "kane"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_act_ii_started", "FL_kane_offer_refused", "FL_kane_offer_heard"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_kane_offer"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Kane is immaculate from the waist up and reef from the waist down."
+use_text = "Kane offers Corvin six days without the fear. Corvin refuses, because apparently he has principles now."
+talk_text = "Kane gives the reasonable offer. That is the dangerous part."
+walk_text = "Corvin stops at the edge of Kane's green light."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/Kane"]
+shape = SubResource("RectangleShape2D_interaction_3")
+
+[node name="Label" type="Label" parent="Hotspots/Kane"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Ossuary Kane"
+
+[node name="WaxSeal" type="Area2D" parent="Hotspots"]
+position = Vector2(1040, 720)
+script = ExtResource("4_interaction")
+script_name = "WaxSeal"
+description = "Kane's wax seal"
+interaction_key = "wax_seal"
+requires_items = Array[String]([])
+requires_flags = Array[String](["FL_kane_offer_refused"])
+items_add = Array[String](["IT_kane_seal"])
+flags_set = Array[String](["FL_kane_seal_stolen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_kane_seal"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "Kane has not offered his hand yet."
+look_text = "Kane's seal waits on the desk like a small official sin."
+use_text = "Corvin palms the seal during the handshake Kane insists on."
+talk_text = "Corvin asks the seal if it has standards. It has a crest instead."
+walk_text = "Corvin stands close enough to steal something useful."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/WaxSeal"]
+shape = SubResource("RectangleShape2D_interaction_4")
+
+[node name="Label" type="Label" parent="Hotspots/WaxSeal"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Kane's wax seal"
+
+[node name="ForgeWrit" type="Area2D" parent="Hotspots"]
+position = Vector2(1220, 700)
+script = ExtResource("4_interaction")
+script_name = "ForgeWrit"
+description = "blank customs writ"
+interaction_key = "forge_writ"
+requires_items = Array[String](["IT_kane_seal"])
+requires_flags = Array[String]([])
+items_add = Array[String](["IT_forged_customs_writ"])
+flags_set = Array[String](["FL_customs_writ_forged"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_forge_writ"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "The paper needs Kane's seal before it can lie convincingly."
+look_text = "Blank paper. Official paper. The difference is wax and confidence."
+use_text = "Corvin presses Kane's seal into the writ. It becomes legal enough for Mordida."
+talk_text = "Corvin tells the paper to behave like authority. It has been waiting for that."
+walk_text = "Corvin stands over the desk and makes fraud look clerical."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ForgeWrit"]
+shape = SubResource("RectangleShape2D_interaction_5")
+
+[node name="Label" type="Label" parent="Hotspots/ForgeWrit"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "blank customs writ"
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Markers"]
+position = Vector2(960, 790)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="PrologueHud" parent="." instance=ExtResource("2_hud")]

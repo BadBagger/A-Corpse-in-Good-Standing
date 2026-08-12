@@ -7,6 +7,7 @@ extends PopochiuHotspot
 @export_multiline var use_text := ""
 @export_multiline var talk_text := ""
 @export_multiline var walk_text := ""
+@export var requires_items: Array[String] = []
 @export var requires_flags: Array[String] = []
 @export_multiline var blocked_text := ""
 @export var room_midpoint_x := 960.0
@@ -29,6 +30,7 @@ func handle_room_verb(verb: String) -> Dictionary:
 				"message": walk_text if not walk_text.is_empty() else "Corvin goes that way, because the plot has manners.",
 				"target_room": target_room,
 				"transition_animation": _transition_animation(),
+				"requires_items": requires_items,
 				"requires_flags": requires_flags,
 				"blocked_text": blocked_text
 			}

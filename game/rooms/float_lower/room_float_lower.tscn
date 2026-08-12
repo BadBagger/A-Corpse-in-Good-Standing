@@ -1,0 +1,266 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
+[ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
+[ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.164706, 0.227451, 0.25098, 1, 0.494118, 0.607843, 0.305882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_1"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_2"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_3"]
+size = Vector2(280, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_4"]
+size = Vector2(280, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_5"]
+size = Vector2(280, 160)
+
+[node name="RoomFloatLower" type="Node2D"]
+script = ExtResource("1_room")
+script_name = "FloatLower"
+has_player = true
+width = 1920
+height = 1080
+room_code = "R14"
+room_title = "Below Decks, The Grey Float"
+room_notes = "Mireille memory-book chain. Hard-R non-explicit staging only."
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_bg")
+centered = false
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.164706, 0.227451, 0.25098, 0.65)
+polygon = PackedVector2Array(0, 700, 1920, 620, 1920, 1080, 0, 1080)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 44.0
+offset_right = 1120.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "R14 / Below Decks, The Grey Float"
+
+[node name="NotesLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1320.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Mireille memory-book chain. Hard-R non-explicit staging only."
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="WalkableMain" type="Polygon2D" parent="WalkableAreas"]
+color = Color(0.494118, 0.607843, 0.305882, 0.35)
+polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="ToKane" type="Area2D" parent="Hotspots"]
+position = Vector2(180, 740)
+script = ExtResource("3_exit")
+script_name = "ToKane"
+description = "Kane's Parlour"
+target_room = "KaneParlour"
+requires_flags = Array[String]([])
+requires_items = Array[String]([])
+blocked_text = ""
+look_text = "Kane's Parlour. The way through is visible. That does not make it innocent."
+use_text = "Corvin considers using the exit as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Kane's Parlour."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToKane"]
+shape = SubResource("RectangleShape2D_exit_1")
+
+[node name="Label" type="Label" parent="Hotspots/ToKane"]
+offset_left = -96.0
+offset_top = -118.0
+offset_right = 156.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Kane's Parlour"
+
+[node name="ToCustoms" type="Area2D" parent="Hotspots"]
+position = Vector2(1700, 720)
+script = ExtResource("3_exit")
+script_name = "ToCustoms"
+description = "Customs House"
+target_room = "CustomsHouse"
+requires_flags = Array[String]([])
+requires_items = Array[String](["IT_forged_customs_writ"])
+blocked_text = "Customs still wants paper with the right wrong seal."
+look_text = "Customs House. The way through is visible. That does not make it innocent."
+use_text = "Corvin considers using the exit as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Customs House."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToCustoms"]
+shape = SubResource("RectangleShape2D_exit_2")
+
+[node name="Label" type="Label" parent="Hotspots/ToCustoms"]
+offset_left = -96.0
+offset_top = -118.0
+offset_right = 156.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Customs House"
+
+[node name="Mireille" type="Area2D" parent="Hotspots"]
+position = Vector2(740, 680)
+script = ExtResource("4_interaction")
+script_name = "Mireille"
+description = "Mireille Dax"
+interaction_key = "mireille"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String](["IT_mireille_book"])
+flags_set = Array[String](["FL_mireille_today_recorded", "FL_memory_decay_tutorial_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_mireille_book"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Mireille is on day eight and still winning the room by pretending she is not leaving it."
+use_text = "Corvin writes today down for her: the light, the joke, the part where she was funny first."
+talk_text = "Mireille says she is not tragic, just early."
+walk_text = "Corvin stands where the steam gives grief manners."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/Mireille"]
+shape = SubResource("RectangleShape2D_interaction_3")
+
+[node name="Label" type="Label" parent="Hotspots/Mireille"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Mireille Dax"
+
+[node name="SteamScreens" type="Area2D" parent="Hotspots"]
+position = Vector2(1180, 650)
+script = ExtResource("4_interaction")
+script_name = "SteamScreens"
+description = "steam screens"
+interaction_key = "steam_screens"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_float_lower_access"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_float_screens"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "Steam, amber light, silhouettes, privacy. The Float sells boundaries by the minute."
+use_text = "Corvin lets the steam hide him. It cannot make him warm."
+talk_text = "The screens keep counsel better than most clients."
+walk_text = "Corvin passes the screens without making anyone into scenery."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/SteamScreens"]
+shape = SubResource("RectangleShape2D_interaction_4")
+
+[node name="Label" type="Label" parent="Hotspots/SteamScreens"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "steam screens"
+
+[node name="LampValve" type="Area2D" parent="Hotspots"]
+position = Vector2(1450, 700)
+script = ExtResource("4_interaction")
+script_name = "LampValve"
+description = "lamp valve"
+interaction_key = "lamp_valve"
+requires_items = Array[String]([])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_float_lamp_dimmed"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_float_lamp"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = ""
+look_text = "A brass valve feeds amber light through the lower deck."
+use_text = "Corvin lowers the flame. The room becomes kinder and less honest."
+talk_text = "Corvin asks the valve for discretion. It gives him atmosphere."
+walk_text = "Corvin stands where amber pretends to be safety."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/LampValve"]
+shape = SubResource("RectangleShape2D_interaction_5")
+
+[node name="Label" type="Label" parent="Hotspots/LampValve"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "lamp valve"
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Markers"]
+position = Vector2(960, 790)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="PrologueHud" parent="." instance=ExtResource("2_hud")]

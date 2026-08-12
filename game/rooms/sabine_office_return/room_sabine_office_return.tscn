@@ -1,0 +1,192 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
+[ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
+[ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.164706, 0.227451, 0.25098, 1, 0.494118, 0.607843, 0.305882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_1"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_2"]
+size = Vector2(280, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_3"]
+size = Vector2(280, 160)
+
+[node name="RoomSabineOfficeReturn" type="Node2D"]
+script = ExtResource("1_room")
+script_name = "SabineOfficeReturn"
+has_player = true
+width = 1920
+height = 1080
+room_code = "R12B"
+room_title = "Sabine's Office, Return"
+room_notes = "Act II reveal. Sabine signed for Corvin's death and gives fact, not reason."
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_bg")
+centered = false
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.164706, 0.227451, 0.25098, 0.65)
+polygon = PackedVector2Array(0, 700, 1920, 620, 1920, 1080, 0, 1080)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 44.0
+offset_right = 1120.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "R12B / Sabine's Office, Return"
+
+[node name="NotesLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1320.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Act II reveal. Sabine signed for Corvin's death and gives fact, not reason."
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="WalkableMain" type="Polygon2D" parent="WalkableAreas"]
+color = Color(0.494118, 0.607843, 0.305882, 0.35)
+polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="ToCustoms" type="Area2D" parent="Hotspots"]
+position = Vector2(180, 740)
+script = ExtResource("3_exit")
+script_name = "ToCustoms"
+description = "Customs House"
+target_room = "CustomsHouse"
+requires_flags = Array[String]([])
+requires_items = Array[String]([])
+blocked_text = ""
+look_text = "Customs House. The way through is visible. That does not make it innocent."
+use_text = "Corvin considers using the exit as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Customs House."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToCustoms"]
+shape = SubResource("RectangleShape2D_exit_1")
+
+[node name="Label" type="Label" parent="Hotspots/ToCustoms"]
+offset_left = -96.0
+offset_top = -118.0
+offset_right = 156.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Customs House"
+
+[node name="SabineDesk" type="Area2D" parent="Hotspots"]
+position = Vector2(870, 680)
+script = ExtResource("4_interaction")
+script_name = "SabineDesk"
+description = "Sabine's desk"
+interaction_key = "sabine_desk_return"
+requires_items = Array[String](["IT_cut_paper", "IT_tomas_papers"])
+requires_flags = Array[String]([])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_sabine_signed_revealed", "FL_act_ii_complete"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_sabine_reveal"
+blocked_ink_knot = "act_ii_sabine_not_ready"
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "Corvin needs both the cut paper and the Tomas papers before he can force this conversation."
+look_text = "Sabine's desk is dry again. Corvin fixes that by existing near it."
+use_text = "Corvin sets the cut paper on the desk. Sabine does not look down. She already knows what it is."
+talk_text = "Sabine says she signed for his death. She gives him the fact and keeps the reason."
+walk_text = "Corvin crosses the Persian and leaves a tide line."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/SabineDesk"]
+shape = SubResource("RectangleShape2D_interaction_2")
+
+[node name="Label" type="Label" parent="Hotspots/SabineDesk"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "Sabine's desk"
+
+[node name="DoorOut" type="Area2D" parent="Hotspots"]
+position = Vector2(1500, 710)
+script = ExtResource("4_interaction")
+script_name = "DoorOut"
+description = "door out"
+interaction_key = "door_out"
+requires_items = Array[String]([])
+requires_flags = Array[String](["FL_act_ii_complete"])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_act_ii_walkout"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_walkout"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "The argument has not landed yet."
+look_text = "The door Corvin will use because staying would require a better man."
+use_text = "Corvin leaves before either of them can make the room smaller."
+talk_text = "The door does not apologize either."
+walk_text = "Corvin walks out. Act II knows where to cut."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/DoorOut"]
+shape = SubResource("RectangleShape2D_interaction_3")
+
+[node name="Label" type="Label" parent="Hotspots/DoorOut"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "door out"
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Markers"]
+position = Vector2(960, 790)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="PrologueHud" parent="." instance=ExtResource("2_hud")]

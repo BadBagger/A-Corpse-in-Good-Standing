@@ -1,0 +1,294 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
+[ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
+[ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
+[ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
+
+[sub_resource type="Gradient" id="Gradient_bg"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0.0470588, 0.0627451, 0.0745098, 1, 0.164706, 0.227451, 0.25098, 1, 0.494118, 0.607843, 0.305882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg"]
+gradient = SubResource("Gradient_bg")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_1"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_2"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_3"]
+size = Vector2(240, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_4"]
+size = Vector2(280, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_5"]
+size = Vector2(280, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction_6"]
+size = Vector2(280, 160)
+
+[node name="RoomCustomsHouse" type="Node2D"]
+script = ExtResource("1_room")
+script_name = "CustomsHouse"
+has_player = true
+width = 1920
+height = 1080
+room_code = "R15"
+room_title = "Customs House"
+room_notes = "The impossible ledger, cut paper, tide table, and optional harbor betrayal."
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_bg")
+centered = false
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.164706, 0.227451, 0.25098, 0.65)
+polygon = PackedVector2Array(0, 700, 1920, 620, 1920, 1080, 0, 1080)
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 44.0
+offset_right = 1120.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "R15 / Customs House"
+
+[node name="NotesLabel" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1320.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "The impossible ledger, cut paper, tide table, and optional harbor betrayal."
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="WalkableMain" type="Polygon2D" parent="WalkableAreas"]
+color = Color(0.494118, 0.607843, 0.305882, 0.35)
+polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="ToKane" type="Area2D" parent="Hotspots"]
+position = Vector2(180, 740)
+script = ExtResource("3_exit")
+script_name = "ToKane"
+description = "Kane's Parlour"
+target_room = "KaneParlour"
+requires_flags = Array[String]([])
+requires_items = Array[String]([])
+blocked_text = ""
+look_text = "Kane's Parlour. The way through is visible. That does not make it innocent."
+use_text = "Corvin considers using the exit as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Kane's Parlour."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToKane"]
+shape = SubResource("RectangleShape2D_exit_1")
+
+[node name="Label" type="Label" parent="Hotspots/ToKane"]
+offset_left = -96.0
+offset_top = -118.0
+offset_right = 156.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Kane's Parlour"
+
+[node name="ToKestrel" type="Area2D" parent="Hotspots"]
+position = Vector2(1700, 730)
+script = ExtResource("3_exit")
+script_name = "ToKestrel"
+description = "Kestrel Wreck"
+target_room = "KestrelWreck"
+requires_flags = Array[String]([])
+requires_items = Array[String](["IT_tide_table"])
+blocked_text = "The wreck only opens at low tide. The table knows when."
+look_text = "Kestrel Wreck. The way through is visible. That does not make it innocent."
+use_text = "Corvin considers using the exit as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Kestrel Wreck."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToKestrel"]
+shape = SubResource("RectangleShape2D_exit_2")
+
+[node name="Label" type="Label" parent="Hotspots/ToKestrel"]
+offset_left = -96.0
+offset_top = -118.0
+offset_right = 156.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Kestrel Wreck"
+
+[node name="ToSabine" type="Area2D" parent="Hotspots"]
+position = Vector2(960, 620)
+script = ExtResource("3_exit")
+script_name = "ToSabine"
+description = "Sabine's Office"
+target_room = "SabineOfficeReturn"
+requires_flags = Array[String](["FL_sabine_reveal_ready"])
+requires_items = Array[String]([])
+blocked_text = "Corvin has the signature. He still needs the Tomas papers before this hurts properly."
+look_text = "Sabine's Office. The way through is visible. That does not make it innocent."
+use_text = "Corvin considers using the exit as evidence. It declines."
+talk_text = "Corvin tells the exit to wait. It does."
+walk_text = "Corvin heads for Sabine's Office."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/ToSabine"]
+shape = SubResource("RectangleShape2D_exit_3")
+
+[node name="Label" type="Label" parent="Hotspots/ToSabine"]
+offset_left = -96.0
+offset_top = -118.0
+offset_right = 156.0
+offset_bottom = -82.0
+theme_override_colors/font_color = Color(0.894118, 0.862745, 0.784314, 1)
+text = "Sabine's Office"
+
+[node name="LedgerCabinet" type="Area2D" parent="Hotspots"]
+position = Vector2(720, 670)
+script = ExtResource("4_interaction")
+script_name = "LedgerCabinet"
+description = "impossible ledger"
+interaction_key = "ledger_cabinet"
+requires_items = Array[String](["IT_forged_customs_writ"])
+requires_flags = Array[String]([])
+items_add = Array[String](["IT_cut_paper"])
+flags_set = Array[String](["FL_customs_access", "FL_sabine_signature_seen", "FL_harbor_assignment_offer_seen"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_cut_paper"
+blocked_ink_knot = "act_ii_customs_locked"
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "The cabinet wants authority. Kane's stolen seal should do."
+look_text = "The ledger should not exist. Naturally, Customs gave it a cabinet."
+use_text = "The writ opens the cabinet. The transaction names a broker, not a killer, and Sabine's hand is on the counter-signature."
+talk_text = "Corvin asks the ledger who sold him. The ledger answers in fees."
+walk_text = "Corvin stands where paper learns to drown people."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/LedgerCabinet"]
+shape = SubResource("RectangleShape2D_interaction_4")
+
+[node name="Label" type="Label" parent="Hotspots/LedgerCabinet"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "impossible ledger"
+
+[node name="TideTable" type="Area2D" parent="Hotspots"]
+position = Vector2(1120, 680)
+script = ExtResource("4_interaction")
+script_name = "TideTable"
+description = "tide table"
+interaction_key = "tide_table"
+requires_items = Array[String](["IT_cut_paper"])
+requires_flags = Array[String]([])
+items_add = Array[String](["IT_tide_table"])
+flags_set = Array[String](["FL_kestrel_window_known"])
+confessions_discover = Array[String]([])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_tide_table"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "The tide table matters after the transaction points at the Kestrel."
+look_text = "Tides, tariffs, and one low-water window by the Kestrel."
+use_text = "Corvin takes the tide table. The wreck has an appointment with the mud."
+talk_text = "Corvin asks the table for mercy. It offers timing."
+walk_text = "Corvin stands under dates that do not care who is dead."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/TideTable"]
+shape = SubResource("RectangleShape2D_interaction_5")
+
+[node name="Label" type="Label" parent="Hotspots/TideTable"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "tide table"
+
+[node name="HarborAssignment" type="Area2D" parent="Hotspots"]
+position = Vector2(1390, 705)
+script = ExtResource("4_interaction")
+script_name = "HarborAssignment"
+description = "harbor assignment"
+interaction_key = "harbor_assignment"
+requires_items = Array[String]([])
+requires_flags = Array[String](["FL_harbor_assignment_offer_seen"])
+items_add = Array[String]([])
+flags_set = Array[String](["FL_harbor_assignment_signed"])
+confessions_discover = Array[String](["cf_bt_harbor"])
+confessions_spend = Array[String]([])
+wet_items_add = Array[String]([])
+wet_flags_set = Array[String]([])
+wet_confessions_discover = Array[String]([])
+wet_confessions_spend = Array[String]([])
+wet_ink_knot = ""
+duel_opponent = ""
+duel_pool = Array[String]([])
+ink_knot = "act_ii_harbor_assignment"
+blocked_ink_knot = ""
+alternate_requires_flags = Array[String]([])
+alternate_message = ""
+alternate_flags_set = Array[String]([])
+alternate_ink_knot = ""
+blocked_text = "The assignment is not visible until the impossible ledger is open."
+look_text = "A document that would sign Sabine out of her own harbor."
+use_text = "Corvin notarizes the harbor assignment anyway. The ink takes too well."
+talk_text = "Corvin tells the paper it is only paper. The paper knows better."
+walk_text = "Corvin stands over the kind of choice that becomes a confession."
+wet_text = "Corvin drips on it. Mordida makes a note and charges nobody."
+
+[node name="Shape" type="CollisionShape2D" parent="Hotspots/HarborAssignment"]
+shape = SubResource("RectangleShape2D_interaction_6")
+
+[node name="Label" type="Label" parent="Hotspots/HarborAssignment"]
+offset_left = -110.0
+offset_top = -104.0
+offset_right = 190.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(0.788235, 0.541176, 0.235294, 1)
+text = "harbor assignment"
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PlayerStart" type="Marker2D" parent="Markers"]
+position = Vector2(960, 790)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="PrologueHud" parent="." instance=ExtResource("2_hud")]
