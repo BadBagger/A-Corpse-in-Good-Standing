@@ -56,6 +56,7 @@ try {
     Invoke-RepoGate -Name "Validate text artifact hygiene" -ScriptName "Validate-TextArtifactHygiene.ps1"
     Invoke-RepoGate -Name "Validate production blocker index" -ScriptName "Validate-ProductionBlockerIndex.ps1"
     Invoke-RepoGate -Name "Test production blocker index" -ScriptName "Test-ProductionBlockerIndex.ps1"
+    Invoke-RepoGate -Name "Validate VO cast sheet status" -ScriptName "Validate-VoCastSheetStatus.ps1"
     Invoke-RepoGate -Name "Validate CI gate boundary" -ScriptName "Validate-CiGateBoundary.ps1"
     Invoke-RepoGate -Name "Validate Ink compiler" -ScriptName "Validate-InkCompiler.ps1"
     Invoke-RepoGate -Name "Validate Act I background source intake" -ScriptName "Validate-ActIBackgroundSourceIntake.ps1"

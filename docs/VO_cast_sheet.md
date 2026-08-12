@@ -113,15 +113,16 @@ This cast is a **temp track** for timing, pacing, and testing whether lines land
 
 ---
 
-## 7. OPEN BLOCKERS — NOT VO
+## 7. PROJECT BLOCKERS LIVE ELSEWHERE
 
-Captured here so they don't get lost. None of these moved while casting happened.
+This scratch VO sheet should not carry stale project blockers. Use `docs/checkpoints/production_blocker_index.md` as the current source of truth for non-VO blockers.
 
-1. **Duel prototype "is it fun with 12 confessions" checkpoint** — unmet. Gates the remaining 50 confessions and everything downstream. This is build step 1 and the highest-value next action.
-2. **`game/gui/gui.tscn` missing** — Popochiu GUI variant never instantiated. Small fix, but blocks calling the scaffold checkpoint green.
-3. **Ink-wash shader spike** — specced with calibrated gates (R5 24-frame yaw turn, good/bad controls), never run.
-4. **Pixel art vs 3D-toon hybrid** — undecided. If pixel wins, the shader spike is void and the salt-decay slider becomes 3× the character budget instead of a parameter. **Decide before running the spike, not after.**
+Current non-VO state, summarized from the checkpoint index:
 
+1. **Step 5 human review** blocks final Act I paintovers until all 11 rooms are reviewed and the decision CSV is imported.
+2. **Corvin production animation** remains incomplete beyond the validated side idle/walk candidates; Act I side talk/use/wet are next.
+3. **Duel format is locked** to the accepted Litany/Registrar prototype unless Kyle explicitly reopens that decision.
+4. **The game pipeline is the 3D-to-Blender-to-2D hybrid**; diffusion-per-frame character sheets are reference only, not production source.
 ---
 
 ## 8. FILE NAMING
