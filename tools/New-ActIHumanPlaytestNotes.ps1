@@ -23,6 +23,12 @@ if (-not (Test-Path -LiteralPath $resultsDir)) {
 
 $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $createdAt = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+$gitCommit = (& git -C $root rev-parse --short=12 HEAD 2>$null)
+if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($gitCommit)) {
+    $gitCommit = "unknown"
+} else {
+    $gitCommit = [string]$gitCommit
+}
 $outPath = if ([string]::IsNullOrWhiteSpace($OutputPath)) {
     Join-Path $resultsDir "act_i_human_playtest_$timestamp.md"
 } else {
@@ -40,6 +46,7 @@ $sections = @(
     "# Act I Human Review Notes",
     "",
     "Created: $createdAt",
+    "Build commit: $gitCommit",
     'Greybox template: `docs/playtest/act_i_human_greybox_playtest.md`',
     'Automated report: `docs/playtest/results/act_i_greybox_auto_report.md`',
     'Paintover packet: `docs/art/act_i_paintover_packet.md`',

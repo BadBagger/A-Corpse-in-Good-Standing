@@ -21,8 +21,16 @@ if (-not (Test-Path -LiteralPath $validationPath)) {
 $notes = Get-Content -LiteralPath $validationPath -Raw
 [System.IO.File]::WriteAllText($latestPath, $notes, [System.Text.UTF8Encoding]::new($false))
 
+$expectedCommit = (& git -C $root rev-parse --short=12 HEAD 2>$null)
+if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($expectedCommit)) {
+    $expectedCommit = "unknown"
+} else {
+    $expectedCommit = [string]$expectedCommit
+}
+
 foreach ($requiredText in @(
     "Act I Human Review Notes",
+    "Build commit: $expectedCommit",
     "Greybox Playtest",
     "Act I Human Greybox Playtest",
     "Art Readability Review",
