@@ -97,7 +97,8 @@ foreach ($requiredArtifact in @(
     "docs/playtest/results/act_i_human_playtest_latest.md",
     "docs/playtest/act_i_review_decisions_template.csv",
     "docs/playtest/act_i_review_fix_tracker.md",
-    "docs/art/act_i_review_contact_sheet.html"
+    "docs/art/act_i_review_contact_sheet.html",
+    "docs/art/act_i_background_ready_source_packets.md"
 )) {
     if ($requiredArtifact -notin $dashboardArtifacts) {
         throw "Step 5 dashboard missing review handoff artifact: $requiredArtifact"
@@ -126,7 +127,7 @@ $lines = @(
     "Rule locks:",
     "- Latest notes must include the accepted Litany/Registrar duel-format prompt.",
     "- Latest notes must include the Grey Float hard-R staging prompt.",
-    "- Dashboard must list the stable latest notes, decision CSV, review tracker, and contact sheet artifacts.",
+    "- Dashboard must list the stable latest notes, decision CSV, review tracker, contact sheet, and ready-source packet artifacts.",
     "",
     "| Room | Decision | CSV synced | Notes mention room |",
     "|---|---|---|---|"

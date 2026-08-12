@@ -71,6 +71,12 @@ try {
     $dashboard.artifacts = @($dashboard.artifacts | Where-Object { [string]$_ -ne "docs/art/act_i_review_contact_sheet.html" })
     $dashboard | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $dashboardPath -Encoding UTF8
     Invoke-ExpectSyncFailure -FailureName "missing contact-sheet dashboard artifact" -ExpectedPattern "missing review handoff artifact"
+
+    Set-Content -LiteralPath $dashboardPath -Value $originalDashboard -Encoding UTF8
+    $dashboard = Get-Content -LiteralPath $dashboardPath -Raw | ConvertFrom-Json
+    $dashboard.artifacts = @($dashboard.artifacts | Where-Object { [string]$_ -ne "docs/art/act_i_background_ready_source_packets.md" })
+    $dashboard | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $dashboardPath -Encoding UTF8
+    Invoke-ExpectSyncFailure -FailureName "missing ready-source-packet dashboard artifact" -ExpectedPattern "missing review handoff artifact"
 }
 finally {
     Set-Content -LiteralPath $latestNotesPath -Value $originalNotes -Encoding UTF8
@@ -85,4 +91,4 @@ finally {
     }
 }
 
-Write-Host "Act I review handoff sync tests passed: baseline validates, decision mismatch fails, missing latest-notes room fails, missing contact-sheet artifact fails, cleanup restores validation."
+Write-Host "Act I review handoff sync tests passed: baseline validates, decision mismatch fails, missing latest-notes room fails, missing contact-sheet artifact fails, missing ready-source packet artifact fails, cleanup restores validation."

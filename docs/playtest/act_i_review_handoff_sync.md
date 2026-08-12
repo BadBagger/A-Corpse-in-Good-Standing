@@ -14,7 +14,7 @@ Stop and redesign: 0
 Rule locks:
 - Latest notes must include the accepted Litany/Registrar duel-format prompt.
 - Latest notes must include the Grey Float hard-R staging prompt.
-- Dashboard must list the stable latest notes, decision CSV, review tracker, and contact sheet artifacts.
+- Dashboard must list the stable latest notes, decision CSV, review tracker, contact sheet, and ready-source packet artifacts.
 
 | Room | Decision | CSV synced | Notes mention room |
 |---|---|---|---|

@@ -30,7 +30,7 @@ GATES:
 - VO audio asset status: pass, 652 expected MP3s tracked, 600 scratch-ready, 52 blocked pending cast, 0 blocked present, 0 present, 652 missing; missing audio is not counted as recorded and unplanned/zero-byte/blocked-pending MP3s fail validation.
 - Act I review decision template: pass, 11 rooms represented with allowed proceed/revise/stop decisions, YYYY-MM-DD review dates, the Registrar duel lock, and explicit Grey Float content-compliance signoff before any non-pending decision.
 - Act I review fix tracker: pass, generated room-level tracker starts all rooms pending_review and preserves fix buckets, close-pair risks, wet/confession readability risks, Grey Float hard-R tags, and Harbor Registry duel-format lock.
-- Act I review handoff sync: pass, latest human notes, decision CSV, review tracker, contact sheet, and Step 5 dashboard all reference the same 11 Act I rooms before approvals are imported.
+- Act I review handoff sync: pass, latest human notes, decision CSV, review tracker, contact sheet, ready-source packet index, and Step 5 dashboard all reference the same 11 Act I rooms before approvals are imported.
 - Act I paintover source scaffold: pass, generated per-room source scaffolds provide layer stacks and handoff notes while final PSD paintover sources remain pending until real final art exists.
 - Act I paintover start gate: pass, reports 0 ready / 11 blocked rooms with blocked_pending_human_review as the expected pre-signoff state.
 - Act I paintover work order: pass, reports 0 ready / 11 blocked rooms, includes only start-gate-ready rooms, and preserves reviewer metadata for every approved room.
