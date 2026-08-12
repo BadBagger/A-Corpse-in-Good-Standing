@@ -1,4 +1,4 @@
-{
+﻿{
     "generated_from":  "docs/art/act_i_paintover_packet.json",
     "purpose":  "Convert Act I human greybox and art-readability review findings into room-level fixes before final paintover.",
     "allowed_room_statuses":  [
@@ -59,6 +59,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -130,6 +131,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -225,6 +227,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -296,6 +299,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -341,6 +345,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -386,6 +391,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -450,6 +456,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -516,6 +523,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -584,6 +592,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -628,6 +637,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   },
                   {
@@ -671,6 +681,7 @@
                       "reviewed_at":  "",
                       "build_commit":  "",
                       "decision_note":  "",
+                      "look_target_reviewed":  "",
                       "approved_for_paintover":  false
                   }
               ]

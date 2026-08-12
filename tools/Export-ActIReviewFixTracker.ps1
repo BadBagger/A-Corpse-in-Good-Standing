@@ -96,6 +96,7 @@ foreach ($room in $rooms) {
     $reviewer = if ($null -ne $existingRoom -and $null -ne $existingRoom.reviewer) { [string]$existingRoom.reviewer } else { "" }
     $reviewedAt = if ($null -ne $existingRoom -and $null -ne $existingRoom.reviewed_at) { [string]$existingRoom.reviewed_at } else { "" }
     $decisionNote = if ($null -ne $existingRoom -and $null -ne $existingRoom.decision_note) { [string]$existingRoom.decision_note } else { "" }
+    $lookTargetReviewed = if ($null -ne $existingRoom -and $null -ne $existingRoom.look_target_reviewed) { [string]$existingRoom.look_target_reviewed } else { "" }
     $buildCommit = if ($null -ne $existingRoom -and $null -ne $existingRoom.build_commit) { [string]$existingRoom.build_commit } else { "" }
 
     $trackerRooms += [ordered]@{
@@ -116,6 +117,7 @@ foreach ($room in $rooms) {
         reviewed_at = $reviewedAt
         build_commit = $buildCommit
         decision_note = $decisionNote
+        look_target_reviewed = $lookTargetReviewed
         approved_for_paintover = $approvedForPaintover
     }
 }
@@ -139,7 +141,7 @@ $lines = @(
     "",
     "Allowed room decisions: pending_review, approved, revise_before_art, stop_and_redesign.",
     "Allowed hotspot decisions: pending_review, readable, unclear, move_before_paint.",
-    "Non-pending room decisions require build_commit, reviewer, reviewed_at as YYYY-MM-DD, and decision_note.",
+    "Non-pending room decisions require build_commit, reviewer, reviewed_at as YYYY-MM-DD, decision_note, and look_target_reviewed=yes.",
     "",
     "Global unresolved state: pending/revise/stop rooms block final paintover until a human Act I art/readability run resolves them.",
     ""
@@ -153,8 +155,10 @@ foreach ($room in $trackerRooms) {
     $lines += "- Reviewer: $($room.reviewer)"
     $lines += "- Reviewed at: $($room.reviewed_at)"
     $buildText = if ([string]::IsNullOrWhiteSpace([string]$room.build_commit)) { "none" } else { [string]$room.build_commit }
+    $lookTargetReviewedText = if ([string]::IsNullOrWhiteSpace([string]$room.look_target_reviewed)) { "none" } else { [string]$room.look_target_reviewed }
     $lines += "- Build commit: $buildText"
     $lines += "- Decision note: $($room.decision_note)"
+    $lines += "- Look target reviewed: $lookTargetReviewedText"
     $lines += "- Approved for paintover: $($room.approved_for_paintover)"
     $lines += "- Paintover source: ``$($room.paintover_source)`` ($($room.paintover_status))"
     $lines += "- Blockout: ``$($room.blockout_export)``"

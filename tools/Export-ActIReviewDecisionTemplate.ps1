@@ -42,6 +42,7 @@ foreach ($room in $rooms) {
         reviewer = $room.reviewer
         reviewed_at = $room.reviewed_at
         decision_note = $room.decision_note
+        look_target_reviewed = $room.look_target_reviewed
         layout = $room.fix_buckets.layout
         hotspot_readability = $room.fix_buckets.hotspot_readability
         walk_band = $room.fix_buckets.walk_band
@@ -75,6 +76,7 @@ $lines = @(
     "Rules:",
     '- `build_commit` must match the generated human-review notes for every non-pending decision.',
     '- Any non-pending decision must include `reviewer`, `reviewed_at`, and `decision_note`; `reviewed_at` must use `YYYY-MM-DD`.',
+    '- Any non-pending decision must set `look_target_reviewed` to `yes`, confirming `docs/art/reference/look_targets/act_i_harbor_look_target_v1.png` was reviewed as mood/readability reference only, not final room art, hotspot authority, or character sprite source.',
     '- `approved` marks the room as paintover-eligible if no start-gate blockers remain.',
     '- `revise_before_art` must include at least one fix bucket note.',
     '- `stop_and_redesign` blocks final paintover until the room is reworked and reviewed again.',

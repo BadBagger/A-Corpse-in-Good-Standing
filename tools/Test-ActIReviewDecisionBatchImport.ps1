@@ -74,6 +74,7 @@ try {
         $reviewer = if ($decision -eq "pending_review") { "" } else { "Automated test" }
         $reviewedAt = if ($decision -eq "pending_review") { "" } else { "2026-08-11" }
         $decisionNote = if ($decision -eq "pending_review") { "" } elseif ($decision -eq "approved") { "Approve Harbor Registry for batch-import simulation; accepted Litany format preserved." } else { "Grey Float needs content staging revision before paint." }
+        $lookTargetReviewed = if ($decision -eq "pending_review") { "" } else { "yes" }
         $rows += [pscustomobject][ordered]@{
             room_id = $room.room_id
             room_code = $room.room_code
@@ -83,6 +84,7 @@ try {
             reviewer = $reviewer
             reviewed_at = $reviewedAt
             decision_note = $decisionNote
+            look_target_reviewed = $lookTargetReviewed
             layout = $layout
             hotspot_readability = ""
             walk_band = ""
@@ -183,8 +185,24 @@ try {
     }
 
     $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
+    $badRegistry = @($badRows | Where-Object { $_.room_id -eq "harbor_registry" })[0]
+    $badRegistry.look_target_reviewed = ""
+    $badRows | Export-Csv -LiteralPath $fixturePath -NoTypeInformation -Encoding UTF8
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $importScript -InputCsv "docs\playtest\results\act_i_review_decision_import_test.csv" -DryRun 2>&1
+    $badExit = $LASTEXITCODE
+    $ErrorActionPreference = $previousErrorActionPreference
+    if ($badExit -eq 0) {
+        throw "Review decision batch import should reject non-pending rows without look-target acknowledgement."
+    }
+    if (($badOutput -join "`n") -notmatch "look_target_reviewed to yes") {
+        throw "Review decision batch import look-target negative control failed for the wrong reason: $($badOutput -join ' ')"
+    }
+
+    $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
     $badRows |
-        Select-Object room_id,room_code,title,build_commit,decision,reviewer,reviewed_at,decision_note,layout,hotspot_readability,walk_band,palette_lighting,content_compliance,vo_timing_or_pacing,risk_tags,critical_hotspots,close_pairs |
+        Select-Object room_id,room_code,title,build_commit,decision,reviewer,reviewed_at,decision_note,look_target_reviewed,layout,hotspot_readability,walk_band,palette_lighting,content_compliance,vo_timing_or_pacing,risk_tags,critical_hotspots,close_pairs |
         Export-Csv -LiteralPath $fixturePath -NoTypeInformation -Encoding UTF8
     $previousErrorActionPreference = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
@@ -255,6 +273,9 @@ try {
     }
     if ($registry.fix_buckets.duel_format -notmatch "Accepted Litany/Registrar duel format preserved") {
         throw "Batch import did not add Registrar duel-format lock note."
+    }
+    if ($registry.look_target_reviewed -ne "yes") {
+        throw "Batch import did not persist Harbor Registry look-target acknowledgement."
     }
     if ($float.review_status -ne "revise_before_art" -or [bool]$float.approved_for_paintover) {
         throw "Batch import did not leave Grey Float blocked for revision."
