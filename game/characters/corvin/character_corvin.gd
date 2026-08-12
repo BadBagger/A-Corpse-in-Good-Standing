@@ -9,6 +9,12 @@ var _last_side_direction := "side_right"
 func play_runtime_animation(animation_name: String) -> bool:
 	if animation_name == "idle_current_side":
 		animation_name = "idle_%s" % _last_side_direction
+	elif animation_name == "talk_current_side":
+		animation_name = "talk_%s" % _last_side_direction
+	elif animation_name == "use_current_side":
+		animation_name = "use_%s" % _last_side_direction
+	elif animation_name == "wet_current_side":
+		animation_name = "wet_%s" % _last_side_direction
 	var runtime_sprite := get_node_or_null("RuntimeSprite")
 	if runtime_sprite == null or not runtime_sprite.has_method("play_animation"):
 		return false

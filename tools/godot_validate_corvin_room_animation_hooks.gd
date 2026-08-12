@@ -38,6 +38,16 @@ func _run() -> void:
 		_fail("Mudflats room helper did not switch Corvin to walk_side_right.")
 		return
 	if not bool(_character.call("play_idle_side_right")):
+		_fail("Corvin bridge could not reset to side-right idle before Mudflats pending verb validation.")
+		return
+	for verb in ["talk", "use", "wet"]:
+		if bool(mudflats.call("_play_corvin_verb_action", verb)):
+			_fail("Mudflats room helper accepted pending Corvin %s action." % verb)
+			return
+		if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_right":
+			_fail("Mudflats pending Corvin %s action changed the active animation." % verb)
+			return
+	if not bool(_character.call("play_idle_side_right")):
 		_fail("Corvin bridge could not reset to idle before generated-room validation.")
 		return
 
@@ -56,6 +66,16 @@ func _run() -> void:
 	if String(runtime_sprite.call("active_animation_for_test")) != "walk_side_right":
 		_fail("Generated Act I room helper did not switch Corvin to walk_side_right.")
 		return
+	if not bool(_character.call("play_idle_side_right")):
+		_fail("Corvin bridge could not reset to side-right idle before generated pending verb validation.")
+		return
+	for verb in ["talk", "use", "wet"]:
+		if bool(generated_room.call("_play_corvin_verb_action", verb)):
+			_fail("Generated Act I room helper accepted pending Corvin %s action." % verb)
+			return
+		if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_right":
+			_fail("Generated Act I pending Corvin %s action changed the active animation." % verb)
+			return
 	generated_room.call("_on_room_transition_finished")
 	if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_right":
 		_fail("Generated Act I room transition-finished hook did not preserve side-right idle after rightward walk.")
@@ -70,7 +90,7 @@ func _run() -> void:
 	if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_left":
 		_fail("Generated Act I room transition-finished hook did not preserve side-left idle after leftward walk.")
 		return
-	print("Corvin room animation hook validation passed: mudflats=current-side-idle/walk, generatedActIRoom=current-side-idle/walk-left/walk-right.")
+	print("Corvin room animation hook validation passed: mudflats=current-side-idle/walk/pending-verb-actions, generatedActIRoom=current-side-idle/walk-left/walk-right/pending-verb-actions.")
 	quit(0)
 
 

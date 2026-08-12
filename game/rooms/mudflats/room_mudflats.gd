@@ -65,6 +65,7 @@ func _on_hotspot_input(_viewport: Node, event: InputEvent, _shape_idx: int, hots
 	if _hud and "selected_verb" in _hud:
 		verb = _hud.selected_verb
 
+	_play_corvin_verb_action(verb)
 	match hotspot.name:
 		"Silt":
 			_handle_silt(verb)
@@ -239,6 +240,17 @@ func _play_corvin_runtime_animation(animation_name: String) -> bool:
 	if corvin == null or not corvin.has_method("play_runtime_animation"):
 		return false
 	return bool(corvin.call("play_runtime_animation", animation_name))
+
+func _play_corvin_verb_action(verb: String) -> bool:
+	match verb:
+		"talk":
+			return _play_corvin_runtime_animation("talk_current_side")
+		"use":
+			return _play_corvin_runtime_animation("use_current_side")
+		"wet":
+			return _play_corvin_runtime_animation("wet_current_side")
+		_:
+			return false
 
 func _format_node_label(value: String) -> String:
 	var words: Array[String] = []

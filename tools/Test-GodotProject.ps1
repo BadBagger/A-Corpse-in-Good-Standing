@@ -120,10 +120,10 @@ foreach ($expected in @(
 }
 
 $actIRoomScript = Get-Content -LiteralPath (Join-Path $root "game\rooms\act_i_greybox_room.gd") -Raw -Encoding UTF8
-foreach ($expected in @("_play_corvin_runtime_animation", "transition_animation", "walk_side_right", "idle_current_side", "R.goto_room")) {
-    if ($actIRoomScript -notmatch [regex]::Escape($expected)) {
-        throw "Act I greybox room script missing expected Corvin transition animation hook: $expected"
-    }
+foreach ($expected in @("_play_corvin_runtime_animation", "_play_corvin_verb_action", "talk_current_side", "use_current_side", "wet_current_side", "transition_animation", "walk_side_right", "idle_current_side", "R.goto_room")) {
+	if ($actIRoomScript -notmatch [regex]::Escape($expected)) {
+		throw "Act I greybox room script missing expected Corvin transition animation hook: $expected"
+	}
 }
 
 $exitHotspotScript = Get-Content -LiteralPath (Join-Path $root "game\rooms\act_i_exit_hotspot.gd") -Raw -Encoding UTF8
@@ -169,10 +169,10 @@ foreach ($expected in @("_play_ink_knot(`"old_quay_tomas`")", "_play_ink_knot(`"
         throw "Mudflats room is not applying expected Ink knot tags: $expected"
     }
 }
-foreach ($expected in @("_play_corvin_runtime_animation(`"walk_side_right`")", "_play_corvin_runtime_animation(`"idle_current_side`")", "R.goto_room(`"SaltMarket`", false, true)")) {
-    if ($mudflatsRoom -notmatch [regex]::Escape($expected)) {
-        throw "Mudflats room is missing expected animated Salt Market transition contract: $expected"
-    }
+foreach ($expected in @("_play_corvin_runtime_animation(`"walk_side_right`")", "_play_corvin_runtime_animation(`"idle_current_side`")", "_play_corvin_verb_action", "talk_current_side", "use_current_side", "wet_current_side", "R.goto_room(`"SaltMarket`", false, true)")) {
+	if ($mudflatsRoom -notmatch [regex]::Escape($expected)) {
+		throw "Mudflats room is missing expected animated Salt Market transition contract: $expected"
+	}
 }
 
 foreach ($expected in @("Journal", "Litany", "Dialogue", "Objective")) {

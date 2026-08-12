@@ -55,6 +55,7 @@ func _on_exit_hotspot_input(_viewport: Node, event: InputEvent, _shape_idx: int,
 	if _hud:
 		verb = _hud.selected_verb
 
+	_play_corvin_verb_action(verb)
 	if hotspot.has_method("handle_room_verb"):
 		var result: Dictionary = hotspot.handle_room_verb(verb)
 		_apply_interaction_result(result)
@@ -148,6 +149,17 @@ func _play_corvin_runtime_animation(animation_name: String) -> bool:
 	if corvin == null or not corvin.has_method("play_runtime_animation"):
 		return false
 	return bool(corvin.call("play_runtime_animation", animation_name))
+
+func _play_corvin_verb_action(verb: String) -> bool:
+	match verb:
+		"talk":
+			return _play_corvin_runtime_animation("talk_current_side")
+		"use":
+			return _play_corvin_runtime_animation("use_current_side")
+		"wet":
+			return _play_corvin_runtime_animation("wet_current_side")
+		_:
+			return false
 
 func _start_duel(opponent_id: String, result: Dictionary) -> void:
 	var narrative := _narrative()
