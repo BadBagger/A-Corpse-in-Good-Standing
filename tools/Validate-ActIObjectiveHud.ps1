@@ -46,6 +46,10 @@ foreach ($requiredText in @(
     "are_act_i_rites_complete()",
     "FL_market_recognized",
     "Standing %d/3 proofs accepted",
+    "_act_i_standing_checklist",
+    "living body",
+    "name on roll",
+    "forgiven debt",
     "Find any proof the port will honor"
 )) {
     if ($narrative -notmatch [regex]::Escape($requiredText)) {

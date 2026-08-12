@@ -158,7 +158,17 @@ func get_act_i_objective_summary() -> String:
 	for flag_id in ["FL_rite_name", "FL_rite_debt", "FL_rite_heartbeat"]:
 		if has_act_i_flag(flag_id):
 			accepted += 1
-	return "Objective: Standing %d/3 proofs accepted. Find any proof the port will honor." % accepted
+	return "Objective: Standing %d/3 proofs accepted.\n%s\nFind any proof the port will honor." % [accepted, _act_i_standing_checklist()]
+
+func _act_i_standing_checklist() -> String:
+	var parts: Array[String] = []
+	parts.append("%s living body" % _objective_mark("FL_rite_heartbeat"))
+	parts.append("%s name on roll" % _objective_mark("FL_rite_name"))
+	parts.append("%s forgiven debt" % _objective_mark("FL_rite_debt"))
+	return " / ".join(parts)
+
+func _objective_mark(flag_id: String) -> String:
+	return "x" if has_act_i_flag(flag_id) else "-"
 
 func apply_ink_tag(tag: String) -> bool:
 	if tag.begins_with("journal:add:"):
