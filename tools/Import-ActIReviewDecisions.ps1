@@ -29,14 +29,22 @@ foreach ($path in @($trackerPath, $latestNotesPath, $exportTrackerScript, $start
 }
 
 $tracker = Get-Content -LiteralPath $trackerPath -Raw | ConvertFrom-Json
-$latestNotes = Get-Content -LiteralPath $latestNotesPath -Raw
-$buildMatch = [regex]::Match($latestNotes, '(?m)^Build commit:\s*(?<commit>unknown|[0-9a-f]{7,40})\s*$')
-if (-not $buildMatch.Success) {
-    throw "Latest Act I human review notes must include a valid 'Build commit:' stamp before importing decisions."
-}
-$expectedBuildCommit = [string]$buildMatch.Groups["commit"].Value
 $rooms = @($tracker.rooms)
 $rows = @(Import-Csv -LiteralPath $resolvedInput)
+$hasNonPendingDecision = @($rows | Where-Object {
+    $decisionText = [string]$_.decision
+    if ($decisionText.Length -eq 0) { $decisionText = "pending_review" }
+    $decisionText -ne "pending_review"
+}).Count -gt 0
+$expectedBuildCommit = $null
+if ($hasNonPendingDecision) {
+    $latestNotes = Get-Content -LiteralPath $latestNotesPath -Raw
+    $buildMatch = [regex]::Match($latestNotes, '(?m)^Build commit:\s*(?<commit>unknown|[0-9a-f]{7,40})\s*$')
+    if (-not $buildMatch.Success) {
+        throw "Latest Act I human review notes must include a valid 'Build commit:' stamp before importing non-pending decisions."
+    }
+    $expectedBuildCommit = [string]$buildMatch.Groups["commit"].Value
+}
 $allowed = @($tracker.allowed_room_statuses)
 $requiredColumns = @(
     "room_id",

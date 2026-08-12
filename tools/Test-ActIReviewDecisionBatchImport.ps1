@@ -39,6 +39,11 @@ try {
         throw "Review decision template export failed."
     }
 
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $importScript -InputCsv "docs\playtest\act_i_review_decisions_template.csv" -DryRun
+    if ($LASTEXITCODE -ne 0) {
+        throw "Pending-only review decision template dry-run failed without a generated build stamp."
+    }
+
     $tracker = Get-Content -LiteralPath $trackerPath -Raw | ConvertFrom-Json
     $buildCommit = (& git -C $root rev-parse --short=12 HEAD 2>$null)
     if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($buildCommit)) {
@@ -91,6 +96,27 @@ try {
         }
     }
     $rows | Export-Csv -LiteralPath $fixturePath -NoTypeInformation -Encoding UTF8
+
+    $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
+    if ($originalLatestNotes -match '(?m)^Build commit:\s*(unknown|[0-9a-f]{7,40})\s*$') {
+        $notesWithoutBuild = [regex]::Replace($originalLatestNotes, '(?m)^Build commit:\s*(unknown|[0-9a-f]{7,40})\s*\r?\n?', "")
+    } else {
+        $notesWithoutBuild = $originalLatestNotes
+    }
+    Restore-TestText -Path $latestNotesPath -Text $notesWithoutBuild
+    $badRows | Export-Csv -LiteralPath $fixturePath -NoTypeInformation -Encoding UTF8
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $importScript -InputCsv "docs\playtest\results\act_i_review_decision_import_test.csv" -DryRun 2>&1
+    $badExit = $LASTEXITCODE
+    $ErrorActionPreference = $previousErrorActionPreference
+    if ($badExit -eq 0) {
+        throw "Review decision batch import should reject non-pending rows when latest notes lack a build stamp."
+    }
+    if (($badOutput -join "`n") -notmatch "Build commit:' stamp before importing non-pending decisions") {
+        throw "Review decision batch import missing-notes-build negative control failed for the wrong reason: $($badOutput -join ' ')"
+    }
+    Restore-TestText -Path $latestNotesPath -Text $notesForImport
 
     $badRows = @($rows | ForEach-Object { $_.PSObject.Copy() })
     $badRegistry = @($badRows | Where-Object { $_.room_id -eq "harbor_registry" })[0]
