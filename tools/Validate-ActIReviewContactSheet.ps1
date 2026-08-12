@@ -5,6 +5,8 @@ $exportScript = Join-Path $PSScriptRoot "Export-ActIReviewContactSheet.ps1"
 $manifestPath = Join-Path $root "docs\art\act_i_background_manifest.json"
 $hotspotMapPath = Join-Path $root "docs\art\act_i_hotspot_map.csv"
 $htmlPath = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
+$lookTargetPath = Join-Path $root "docs\art\reference\look_targets\act_i_harbor_look_target_v1.png"
+$lookTargetReportPath = Join-Path $root "docs\art\act_i_look_target_reference.md"
 
 if (-not (Test-Path -LiteralPath $exportScript)) {
     throw "Missing Act I review contact sheet exporter: $exportScript"
@@ -17,6 +19,11 @@ if ($LASTEXITCODE -ne 0) {
 
 if (-not (Test-Path -LiteralPath $htmlPath)) {
     throw "Missing generated Act I review contact sheet: $htmlPath"
+}
+foreach ($path in @($lookTargetPath, $lookTargetReportPath)) {
+    if (-not (Test-Path -LiteralPath $path)) {
+        throw "Act I contact sheet expected look-target artifact: $path"
+    }
 }
 
 $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
@@ -53,6 +60,17 @@ foreach ($room in $rooms) {
 
 foreach ($requiredText in @(
     "Act I Review Contact Sheet",
+    "Act I Look Target",
+    "../../docs/art/reference/look_targets/act_i_harbor_look_target_v1.png",
+    "docs/art/act_i_look_target_reference.md",
+    "mood/readability target",
+    "side-on Corvin read",
+    "wet black coat silhouette",
+    "amber/green lighting logic",
+    "not final room art",
+    "not hotspot authority",
+    "not a Blender greybox replacement",
+    "not a character sprite source",
     "docs/playtest/results/act_i_human_playtest_latest.md",
     "docs/playtest/act_i_review_decisions_template.csv",
     "accepted Litany/Registrar duel format",

@@ -3,6 +3,8 @@ $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $manifestPath = Join-Path $root "docs\art\act_i_background_manifest.json"
 $hotspotMapPath = Join-Path $root "docs\art\act_i_hotspot_map.csv"
+$lookTargetPath = Join-Path $root "docs\art\reference\look_targets\act_i_harbor_look_target_v1.png"
+$lookTargetReportPath = Join-Path $root "docs\art\act_i_look_target_reference.md"
 $htmlPath = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
 
 if (-not (Test-Path -LiteralPath $manifestPath)) {
@@ -10,6 +12,12 @@ if (-not (Test-Path -LiteralPath $manifestPath)) {
 }
 if (-not (Test-Path -LiteralPath $hotspotMapPath)) {
     throw "Missing Act I hotspot map: $hotspotMapPath"
+}
+if (-not (Test-Path -LiteralPath $lookTargetPath)) {
+    throw "Missing Act I look target image: $lookTargetPath"
+}
+if (-not (Test-Path -LiteralPath $lookTargetReportPath)) {
+    throw "Missing Act I look target report: $lookTargetReportPath"
 }
 
 $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
@@ -52,6 +60,11 @@ $lines = @(
     "    p { line-height: 1.45; max-width: 960px; }",
     "    code { color: var(--amber); }",
     "    .locks { display: grid; gap: 6px; padding: 12px 0 4px; }",
+    "    .look-target { border-top: 1px solid rgba(228, 220, 200, 0.28); padding: 20px 0 24px; }",
+    "    .look-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr); gap: 18px; align-items: start; }",
+    "    .look-frame { width: 100%; aspect-ratio: 16 / 9; background: #111; overflow: hidden; border: 1px solid rgba(228, 220, 200, 0.24); }",
+    "    .look-frame img { width: 100%; height: 100%; display: block; object-fit: contain; }",
+    "    .look-notes { display: grid; gap: 8px; color: rgba(228, 220, 200, 0.82); font-size: 14px; line-height: 1.45; }",
     "    .room-card { border-top: 1px solid rgba(228, 220, 200, 0.28); padding: 24px 0; }",
     "    .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #111; overflow: hidden; border: 1px solid rgba(228, 220, 200, 0.24); }",
     "    .frame img { width: 100%; height: 100%; display: block; object-fit: contain; }",
@@ -64,6 +77,7 @@ $lines = @(
     "    th, td { text-align: left; vertical-align: top; padding: 7px 8px; border-bottom: 1px solid rgba(228, 220, 200, 0.16); }",
     "    th { color: var(--amber); font-weight: 700; }",
     "    .muted { color: rgba(228, 220, 200, 0.64); }",
+    "    @media (max-width: 860px) { .look-grid { grid-template-columns: 1fr; } }",
     "  </style>",
     "</head>",
     "<body>",
@@ -77,7 +91,19 @@ $lines = @(
     "      <div>Rule lock: this contact sheet is review evidence, not final paintover approval.</div>",
     "    </div>",
     "  </header>",
-    "  <main>"
+    "  <main>",
+    "    <section class=`"look-target`" id=`"act-i-look-target`">",
+    "      <h2>Act I Look Target</h2>",
+    "      <div class=`"look-grid`">",
+    "        <div class=`"look-frame`"><img src=`"../../docs/art/reference/look_targets/act_i_harbor_look_target_v1.png`" alt=`"Generated Act I harbor look target`"></div>",
+    "        <div class=`"look-notes`">",
+    "          <div>Use this as a mood/readability target for side-on staging, silhouette strength, foreground walkability, and amber/green lighting logic.</div>",
+    "          <div>Preserve the side-on Corvin read, wet black coat silhouette, barefoot drowned read, leviathan rib architecture, and bottom verb/inventory strip scale.</div>",
+    "          <div>Guardrail: this is not final room art, not hotspot authority, not a Blender greybox replacement, and not a character sprite source.</div>",
+    "          <div>Reference contract: <code>docs/art/act_i_look_target_reference.md</code></div>",
+    "        </div>",
+    "      </div>",
+    "    </section>"
 )
 
 foreach ($room in $rooms) {

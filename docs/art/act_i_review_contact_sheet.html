@@ -15,6 +15,11 @@
     p { line-height: 1.45; max-width: 960px; }
     code { color: var(--amber); }
     .locks { display: grid; gap: 6px; padding: 12px 0 4px; }
+    .look-target { border-top: 1px solid rgba(228, 220, 200, 0.28); padding: 20px 0 24px; }
+    .look-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr); gap: 18px; align-items: start; }
+    .look-frame { width: 100%; aspect-ratio: 16 / 9; background: #111; overflow: hidden; border: 1px solid rgba(228, 220, 200, 0.24); }
+    .look-frame img { width: 100%; height: 100%; display: block; object-fit: contain; }
+    .look-notes { display: grid; gap: 8px; color: rgba(228, 220, 200, 0.82); font-size: 14px; line-height: 1.45; }
     .room-card { border-top: 1px solid rgba(228, 220, 200, 0.28); padding: 24px 0; }
     .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #111; overflow: hidden; border: 1px solid rgba(228, 220, 200, 0.24); }
     .frame img { width: 100%; height: 100%; display: block; object-fit: contain; }
@@ -27,12 +32,13 @@
     th, td { text-align: left; vertical-align: top; padding: 7px 8px; border-bottom: 1px solid rgba(228, 220, 200, 0.16); }
     th { color: var(--amber); font-weight: 700; }
     .muted { color: rgba(228, 220, 200, 0.64); }
+    @media (max-width: 860px) { .look-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <header>
     <h1>Act I Review Contact Sheet</h1>
-    <p>Generated at UTC: 2026-08-12T06:16:15.7696392Z</p>
+    <p>Generated at UTC: 2026-08-12T06:23:20.3550073Z</p>
     <p>Use this during Step 5 human review alongside <code>docs/playtest/results/act_i_human_playtest_latest.md</code> and <code>docs/playtest/act_i_review_decisions_template.csv</code>.</p>
     <div class="locks">
       <div>Rule lock: keep the accepted Litany/Registrar duel format; do not add a second confession-spend UI.</div>
@@ -41,6 +47,18 @@
     </div>
   </header>
   <main>
+    <section class="look-target" id="act-i-look-target">
+      <h2>Act I Look Target</h2>
+      <div class="look-grid">
+        <div class="look-frame"><img src="../../docs/art/reference/look_targets/act_i_harbor_look_target_v1.png" alt="Generated Act I harbor look target"></div>
+        <div class="look-notes">
+          <div>Use this as a mood/readability target for side-on staging, silhouette strength, foreground walkability, and amber/green lighting logic.</div>
+          <div>Preserve the side-on Corvin read, wet black coat silhouette, barefoot drowned read, leviathan rib architecture, and bottom verb/inventory strip scale.</div>
+          <div>Guardrail: this is not final room art, not hotspot authority, not a Blender greybox replacement, and not a character sprite source.</div>
+          <div>Reference contract: <code>docs/art/act_i_look_target_reference.md</code></div>
+        </div>
+      </div>
+    </section>
     <section class="room-card" id="room-mudflats">
       <h2>R01 Mudflats</h2>
       <div class="meta">Paintover source: <code>art/src/backgrounds/act_i/mudflats.psd</code> | Overlay anchor: <code>docs/art/act_i_hotspot_overlay.svg#room-mudflats</code></div>

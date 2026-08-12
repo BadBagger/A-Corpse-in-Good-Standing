@@ -1,7 +1,7 @@
 # Act I Human Review Notes
 
-Created: 2026-08-12 02:16:16
-Build commit: 91a223f788d9
+Created: 2026-08-12 02:23:21
+Build commit: e26b0444396d
 Greybox template: `docs/playtest/act_i_human_greybox_playtest.md`
 Automated report: `docs/playtest/results/act_i_greybox_auto_report.md`
 Paintover packet: `docs/art/act_i_paintover_packet.md`
