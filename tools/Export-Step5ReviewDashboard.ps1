@@ -227,21 +227,21 @@ $workflow = @(
         action = "Generate the approved-room paintover work order."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverWorkOrder.ps1"
         artifact = "docs/art/act_i_paintover_work_order.md"
-        pass_condition = "Work order includes only start-gate-ready rooms, preserves reviewer proof, and stays empty while all rooms are blocked."
+        pass_condition = "Work order includes only start-gate-ready rooms, preserves build_commit, reviewer, reviewed_at, and decision_note proof, and stays empty while all rooms are blocked."
     },
     [ordered]@{
         step = 26
         action = "Validate final PSD source intake against the work order."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIPaintoverSourceIntake.ps1"
         artifact = "docs/art/act_i_paintover_source_intake.md"
-        pass_condition = "No blocked-room PSD can count as final paintover source material, and approved rows preserve work-order reviewer proof."
+        pass_condition = "No blocked-room PSD can count as final paintover source material, and approved rows preserve work-order build_commit, reviewer, reviewed_at, and decision_note proof."
     },
     [ordered]@{
         step = 27
         action = "Audit final paintover completion."
         command = "powershell -NoProfile -ExecutionPolicy Bypass -File tools\Validate-ActIFinalPaintoverCompletion.ps1"
         artifact = "docs/art/act_i_final_paintover_completion.md"
-        pass_condition = "A room counts complete only when an accepted PSD has a newer audited final PNG export, and completion rows preserve source-intake reviewer proof."
+        pass_condition = "A room counts complete only when an accepted PSD has a newer audited final PNG export, and completion rows preserve source-intake build_commit, reviewer, reviewed_at, and decision_note proof."
     },
     [ordered]@{
         step = 28
