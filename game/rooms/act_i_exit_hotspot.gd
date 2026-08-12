@@ -1,6 +1,7 @@
 @tool
 extends PopochiuHotspot
 
+@export var display_name := ""
 @export var target_room := ""
 @export_multiline var look_text := ""
 @export_multiline var use_text := ""
@@ -13,6 +14,13 @@ extends PopochiuHotspot
 func _ready() -> void:
 	if not is_in_group("act_i_exit_hotspot"):
 		add_to_group("act_i_exit_hotspot")
+
+func get_hover_label() -> String:
+	if not display_name.is_empty():
+		return display_name
+	if not target_room.is_empty():
+		return _format_hover_label(target_room)
+	return _format_hover_label(name)
 
 func handle_room_verb(verb: String) -> Dictionary:
 	match verb:
@@ -38,3 +46,25 @@ func _transition_animation() -> String:
 	if position.x < room_midpoint_x:
 		return "walk_side_left"
 	return "walk_side_right"
+
+func _format_hover_label(value: String) -> String:
+	var words: Array[String] = []
+	var current := ""
+	for index in value.length():
+		var character := value.substr(index, 1)
+		if character == "_":
+			if not current.is_empty():
+				words.append(current)
+				current = ""
+			continue
+		if index > 0 and character == character.to_upper() and character != character.to_lower() and not current.is_empty():
+			words.append(current)
+			current = character
+		else:
+			current += character
+	if not current.is_empty():
+		words.append(current)
+	var normalized := " ".join(words).strip_edges()
+	if normalized.is_empty():
+		return "Exit"
+	return normalized.capitalize()

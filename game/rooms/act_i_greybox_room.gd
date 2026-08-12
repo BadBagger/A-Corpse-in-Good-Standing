@@ -20,10 +20,29 @@ func _ready() -> void:
 		_refresh_narrative_hud()
 	for hotspot in get_tree().get_nodes_in_group("act_i_exit_hotspot"):
 		if is_ancestor_of(hotspot) and hotspot is Area2D:
-			hotspot.input_event.connect(_on_exit_hotspot_input.bind(hotspot))
+			_bind_hotspot_feedback(hotspot, _on_exit_hotspot_input)
 	for hotspot in get_tree().get_nodes_in_group("act_i_interaction_hotspot"):
 		if is_ancestor_of(hotspot) and hotspot is Area2D:
-			hotspot.input_event.connect(_on_interaction_hotspot_input.bind(hotspot))
+			_bind_hotspot_feedback(hotspot, _on_interaction_hotspot_input)
+	_refresh_status()
+
+func _bind_hotspot_feedback(hotspot: Area2D, input_handler: Callable) -> void:
+	var input_callable := input_handler.bind(hotspot)
+	var entered_callable := _on_hotspot_mouse_entered.bind(hotspot)
+	if not hotspot.input_event.is_connected(input_callable):
+		hotspot.input_event.connect(input_callable)
+	if not hotspot.mouse_entered.is_connected(entered_callable):
+		hotspot.mouse_entered.connect(entered_callable)
+	if not hotspot.mouse_exited.is_connected(_on_hotspot_mouse_exited):
+		hotspot.mouse_exited.connect(_on_hotspot_mouse_exited)
+
+func _on_hotspot_mouse_entered(hotspot: Area2D) -> void:
+	var verb := "look"
+	if _hud and "selected_verb" in _hud:
+		verb = _hud.selected_verb
+	_say("%s: %s" % [verb.capitalize(), _hover_label(hotspot)])
+
+func _on_hotspot_mouse_exited() -> void:
 	_refresh_status()
 
 func _on_exit_hotspot_input(_viewport: Node, event: InputEvent, _shape_idx: int, hotspot: Area2D) -> void:
@@ -72,6 +91,11 @@ func _say(message: String) -> void:
 		_hud.set_status(message)
 	else:
 		print(message)
+
+func _hover_label(hotspot: Area2D) -> String:
+	if hotspot.has_method("get_hover_label"):
+		return String(hotspot.call("get_hover_label"))
+	return _format_node_label(hotspot.name)
 
 func _apply_interaction_result(result: Dictionary) -> void:
 	var narrative := _narrative()
@@ -205,3 +229,25 @@ func _refresh_narrative_hud() -> void:
 
 func _narrative() -> Node:
 	return get_node_or_null("/root/N")
+
+func _format_node_label(value: String) -> String:
+	var words: Array[String] = []
+	var current := ""
+	for index in value.length():
+		var character := value.substr(index, 1)
+		if character == "_":
+			if not current.is_empty():
+				words.append(current)
+				current = ""
+			continue
+		if index > 0 and character == character.to_upper() and character != character.to_lower() and not current.is_empty():
+			words.append(current)
+			current = character
+		else:
+			current += character
+	if not current.is_empty():
+		words.append(current)
+	var normalized := " ".join(words).strip_edges()
+	if normalized.is_empty():
+		return "Hotspot"
+	return normalized.capitalize()

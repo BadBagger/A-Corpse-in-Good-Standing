@@ -2,6 +2,15 @@
 extends PopochiuRoom
 
 const Data := preload("room_mudflats_state.gd")
+const HOVER_LABELS := {
+	"Silt": "Silt",
+	"OwnHands": "Own hands",
+	"HarborView": "Harbor view",
+	"Coat": "Wet coat",
+	"BollardOfTomas": "Bollard of Tomas",
+	"MissingBoots": "Missing boots",
+	"SaltMarketExit": "Salt Market"
+}
 
 var state: Data = Data.new()
 var _hud: CanvasLayer
@@ -18,6 +27,21 @@ func _ready() -> void:
 	for hotspot in $Hotspots.get_children():
 		if hotspot is Area2D:
 			hotspot.input_event.connect(_on_hotspot_input.bind(hotspot))
+			hotspot.mouse_entered.connect(_on_hotspot_mouse_entered.bind(hotspot))
+			hotspot.mouse_exited.connect(_on_hotspot_mouse_exited)
+	_refresh_status()
+
+func _on_hotspot_mouse_entered(hotspot: Area2D) -> void:
+	var verb := "look"
+	if _hud and "selected_verb" in _hud:
+		verb = _hud.selected_verb
+	_say("%s: %s" % [verb.capitalize(), _hover_label(hotspot)])
+
+func _on_hotspot_mouse_exited() -> void:
+	_refresh_status()
+
+func _refresh_status() -> void:
+	_say("R01 / Mudflats")
 
 func _on_room_entered() -> void:
 	pass
@@ -180,6 +204,9 @@ func _say(message: String) -> void:
 	else:
 		print(message)
 
+func _hover_label(hotspot: Area2D) -> String:
+	return String(HOVER_LABELS.get(String(hotspot.name), _format_node_label(String(hotspot.name))))
+
 func _play_ink_knot(knot_name: String) -> void:
 	var bridge := get_node_or_null("/root/InkBridge")
 	if bridge and bridge.has_method("play_knot"):
@@ -209,3 +236,25 @@ func _play_corvin_runtime_animation(animation_name: String) -> bool:
 	if corvin == null or not corvin.has_method("play_runtime_animation"):
 		return false
 	return bool(corvin.call("play_runtime_animation", animation_name))
+
+func _format_node_label(value: String) -> String:
+	var words: Array[String] = []
+	var current := ""
+	for index in value.length():
+		var character := value.substr(index, 1)
+		if character == "_":
+			if not current.is_empty():
+				words.append(current)
+				current = ""
+			continue
+		if index > 0 and character == character.to_upper() and character != character.to_lower() and not current.is_empty():
+			words.append(current)
+			current = character
+		else:
+			current += character
+	if not current.is_empty():
+		words.append(current)
+	var normalized := " ".join(words).strip_edges()
+	if normalized.is_empty():
+		return "Hotspot"
+	return normalized.capitalize()

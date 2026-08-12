@@ -17,6 +17,10 @@ try {
     powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "Validate-ActIObjectiveHud.ps1")
     Write-Host ""
 
+    Write-Host "[Step 2] Validate Act I hotspot hover feedback"
+    powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "Validate-ActIHotspotHoverFeedback.ps1")
+    Write-Host ""
+
     Write-Host "[Step 2] Validate Corvin runtime sprite assets"
     powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "Validate-CorvinRuntimeSpriteAssets.ps1")
     Write-Host ""

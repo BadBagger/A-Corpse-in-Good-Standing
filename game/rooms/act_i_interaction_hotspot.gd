@@ -1,6 +1,7 @@
 @tool
 extends PopochiuHotspot
 
+@export var display_name := ""
 @export var interaction_key := ""
 @export_multiline var look_text := ""
 @export_multiline var use_text := ""
@@ -32,6 +33,13 @@ extends PopochiuHotspot
 func _ready() -> void:
 	if not is_in_group("act_i_interaction_hotspot"):
 		add_to_group("act_i_interaction_hotspot")
+
+func get_hover_label() -> String:
+	if not display_name.is_empty():
+		return display_name
+	if not interaction_key.is_empty():
+		return _format_hover_label(interaction_key)
+	return _format_hover_label(name)
 
 func handle_room_verb(verb: String) -> Dictionary:
 	var result := {
@@ -92,3 +100,9 @@ func handle_room_verb(verb: String) -> Dictionary:
 	if String(result.get("message", "")).is_empty():
 		result["message"] = "Corvin studies %s and finds it suspiciously willing to be noticed." % interaction_key
 	return result
+
+func _format_hover_label(value: String) -> String:
+	var normalized := value.replace("_", " ").strip_edges()
+	if normalized.is_empty():
+		return "Hotspot"
+	return normalized.capitalize()
