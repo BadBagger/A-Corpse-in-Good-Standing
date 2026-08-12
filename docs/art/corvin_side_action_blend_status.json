@@ -1,0 +1,38 @@
+﻿{
+    "generated_from":  "tools/Author-CorvinSideActionBlend.ps1",
+    "status":  "authored_actions_pending_render_audit",
+    "timeout_seconds":  120,
+    "blend_path":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
+    "blend_present":  true,
+    "blender_path":  "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe",
+    "armature":  "Corvin_Act_I_Clean_Rig",
+    "armature_count":  1,
+    "mesh_count":  1,
+    "bone_count":  24,
+    "rule_locks":  [
+                       "This tool authors Blender action source only; it does not create PNG sheets.",
+                       "Talk and use are sampled from audited Meshy motion sources.",
+                       "Wet is hand-authored as a custom physical brine action.",
+                       "The resulting blend still requires render-script and Godot import audits before any sprite sheet counts as present."
+                   ],
+    "actions":  [
+                    {
+                        "name":  "Corvin_act_i_clean_talk_side",
+                        "frames":  6,
+                        "source_action":  "Armature|Listening_Gesture|baselayer",
+                        "source_path":  "C:\\Users\\KyleB\\Documents\\ChatGPT\\A Corpse in Good Standing\\art\\src\\characters\\corvin\\meshy\\motion_sources\\talk_listening_gesture_withSkin.glb"
+                    },
+                    {
+                        "name":  "Corvin_act_i_clean_use_side",
+                        "frames":  8,
+                        "source_action":  "Armature|Collect_Object|baselayer",
+                        "source_path":  "C:\\Users\\KyleB\\Documents\\ChatGPT\\A Corpse in Good Standing\\art\\src\\characters\\corvin\\meshy\\motion_sources\\use_collect_object_withSkin.glb"
+                    },
+                    {
+                        "name":  "Corvin_act_i_clean_wet_side",
+                        "frames":  8,
+                        "source_action":  "hand_authored_custom_brine",
+                        "source_path":  ""
+                    }
+                ]
+}

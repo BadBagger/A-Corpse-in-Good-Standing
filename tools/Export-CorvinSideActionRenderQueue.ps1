@@ -95,7 +95,8 @@ foreach ($action in $actions) {
             sheet_present = [bool]$targetStatus.sheet_present
             godot_present = [bool]$targetStatus.godot_present
             blockers = @($targetStatus.blockers)
-            render_source = [string]$action.source_blend
+            render_source = if ([string]::IsNullOrWhiteSpace([string]$action.render_source_blend)) { [string]$action.source_blend } else { [string]$action.render_source_blend }
+            source_blend = [string]$action.source_blend
             shader_source = [string]$action.shader_blend
             acceptance_checks = @($action.acceptance_checks)
         })

@@ -62,6 +62,9 @@ foreach ($animation in @("talk", "use", "wet")) {
         if ($command.variant -ne "act_i_clean") {
             throw "Corvin side action render command $animation $direction has wrong variant."
         }
+        if ($command.render_source -ne "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend") {
+            throw "Corvin side action render command $animation $direction must use the authored side-action blend: $($command.render_source)"
+        }
         if ($command.blender_action -ne $expected[$animation].action) {
             throw "Corvin side action render command $animation $direction has wrong Blender action: $($command.blender_action)"
         }

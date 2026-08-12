@@ -84,7 +84,7 @@ $payload = [ordered]@{
     timeout_seconds = 120
     command_count = $commands.Count
     rule_locks = @(
-        "These commands are dry-run handoff commands until matching render scripts exist.",
+        "These commands are dry-run handoff commands until real Blender outputs are rendered and reviewed.",
         "Do not create placeholder PNGs to satisfy sheet exports.",
         "Every successful sheet render must be copied byte-for-byte to its Godot import target.",
         "Run the render queue validator after each import.",
@@ -107,7 +107,7 @@ $lines = @(
     "Command count: $($commands.Count)",
     "",
     "Rule locks:",
-    "- These commands are dry-run handoff commands until matching render scripts exist.",
+    "- These commands are dry-run handoff commands until real Blender outputs are rendered and reviewed.",
     "- Do not create placeholder PNGs to satisfy sheet exports.",
     "- Every successful sheet render must be copied byte-for-byte to its Godot import target.",
     "- Run the render queue validator after each import.",

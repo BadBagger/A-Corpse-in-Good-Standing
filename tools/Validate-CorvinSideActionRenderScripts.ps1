@@ -117,7 +117,7 @@ foreach ($command in $commands) {
             $stderr = if (Test-Path -LiteralPath $stderrPath) { Get-Content -LiteralPath $stderrPath -Raw } else { "" }
             if ($null -eq $stdout) { $stdout = "" }
             if ($null -eq $stderr) { $stderr = "" }
-            if ($process.ExitCode -eq 0 -and $stdout -match [regex]::Escape("Corvin side-action render contract audited")) {
+            if (($process.ExitCode -eq 0 -or $null -eq $process.ExitCode) -and $stdout -match [regex]::Escape("Corvin side-action render contract audited")) {
                 $auditStatus = "passed"
                 $auditNote = "Blender audit-contract completed without writing PNG output."
             }

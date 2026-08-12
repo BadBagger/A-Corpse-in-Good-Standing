@@ -15,6 +15,7 @@ $sourcePaths = [ordered]@{
     "docs/art/act_i_review_contact_sheet.html" = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
     "docs/art/act_i_hotspot_overlay.svg" = Join-Path $root "docs\art\act_i_hotspot_overlay.svg"
     "docs/art/corvin_meshy_motion_source_audit.md" = Join-Path $root "docs\art\corvin_meshy_motion_source_audit.md"
+    "docs/art/corvin_side_action_blend_status.md" = Join-Path $root "docs\art\corvin_side_action_blend_status.md"
     "docs/art/corvin_side_action_scaffold.md" = Join-Path $root "docs\art\corvin_side_action_scaffold.md"
     "docs/art/corvin_side_action_render_queue.md" = Join-Path $root "docs\art\corvin_side_action_render_queue.md"
     "docs/art/corvin_side_action_render_scripts_status.md" = Join-Path $root "docs\art\corvin_side_action_render_scripts_status.md"
@@ -85,6 +86,7 @@ $bundle = [ordered]@{
         "docs/art/act_i_review_contact_sheet.html",
         "docs/art/act_i_hotspot_overlay.svg",
         "docs/art/corvin_meshy_motion_source_audit.md",
+        "docs/art/corvin_side_action_blend_status.md",
         "docs/art/corvin_side_action_scaffold.md",
         "docs/art/corvin_side_action_render_queue.md",
         "docs/art/corvin_side_action_render_scripts_status.md",
@@ -128,10 +130,11 @@ $lines = @(
     "- Keep Grey Float hard-R: steam, silhouette, privacy, and agency only.",
     "- Treat ready-source packets as Meshy/imagegen source acquisition only; they do not approve final background plates.",
     "- Treat selected Meshy motion GLBs as action-capable source material only; they do not approve final Corvin sprites or the custom wet action.",
+    "- Treat the authored Corvin side-action blend as source action data only; it does not approve PNG sheets or Godot imports.",
     "- Treat Corvin side-action scaffolds as Blender handoff notes only; they do not approve pending talk/use/wet PNG sheets.",
     "- Treat the Corvin side-action render queue as pending deterministic Blender work; it forbids placeholder PNGs and does not approve Godot imports until sheets exist.",
     "- Treat the Corvin side-action render scripts as executable audit scaffolds only until keyed Blender actions exist.",
-    "- Treat the Corvin side-action render commands as dry-run handoff commands until matching render scripts and real Blender outputs exist.",
+    "- Treat the Corvin side-action render commands as dry-run handoff commands until real Blender outputs are rendered and reviewed.",
     "- Treat the generated look target as mood/readability reference only; it is not final room art, hotspot authority, or character sprite source.",
     "- Do not start final paintovers while paintover_gate_status is blocked_pending_human_review.",
     "",

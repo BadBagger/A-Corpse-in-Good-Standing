@@ -44,7 +44,8 @@
                      "blockers":  [
                                       "sheet_export_missing"
                                   ],
-                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
+                     "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
                      "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
                      "acceptance_checks":  [
                                                "6 frames at 12 fps, loop true",
@@ -75,7 +76,8 @@
                      "blockers":  [
                                       "sheet_export_missing"
                                   ],
-                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
+                     "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
                      "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
                      "acceptance_checks":  [
                                                "6 frames at 12 fps, loop true",
@@ -106,7 +108,8 @@
                      "blockers":  [
                                       "sheet_export_missing"
                                   ],
-                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
+                     "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
                      "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
                      "acceptance_checks":  [
                                                "8 frames at 12 fps, loop false",
@@ -137,7 +140,8 @@
                      "blockers":  [
                                       "sheet_export_missing"
                                   ],
-                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
+                     "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
                      "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
                      "acceptance_checks":  [
                                                "8 frames at 12 fps, loop false",
@@ -168,7 +172,8 @@
                      "blockers":  [
                                       "sheet_export_missing"
                                   ],
-                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
+                     "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
                      "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
                      "acceptance_checks":  [
                                                "8 frames at 12 fps, loop false",
@@ -199,7 +204,8 @@
                      "blockers":  [
                                       "sheet_export_missing"
                                   ],
-                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean.blend",
+                     "render_source":  "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend",
+                     "source_blend":  "art/src/characters/corvin/corvin_act_i_clean.blend",
                      "shader_source":  "art/src/shaders/ink_wash_shader_spike.blend",
                      "acceptance_checks":  [
                                                "8 frames at 12 fps, loop false",

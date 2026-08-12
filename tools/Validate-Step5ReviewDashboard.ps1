@@ -54,11 +54,11 @@ if ($dashboard.paintover_gate_status -notin @("ready", "blocked_pending_human_re
 if ([int]$dashboard.ready_rooms + [int]$dashboard.blocked_rooms -ne 11) {
     throw "Step 5 dashboard ready/blocked room counts must total 11."
 }
-if ($workflow.Count -ne 35) {
-    throw "Step 5 dashboard expected 35 ordered review steps, got $($workflow.Count)."
+if ($workflow.Count -ne 36) {
+    throw "Step 5 dashboard expected 36 ordered review steps, got $($workflow.Count)."
 }
-if ($artifacts.Count -lt 36) {
-    throw "Step 5 dashboard expected at least 36 artifact references, got $($artifacts.Count)."
+if ($artifacts.Count -lt 37) {
+    throw "Step 5 dashboard expected at least 37 artifact references, got $($artifacts.Count)."
 }
 
 foreach ($relativePath in $artifacts) {
@@ -118,6 +118,10 @@ foreach ($requiredText in @(
     "Talk/use/walk source GLBs are audited as action-capable source material",
     "wet remains custom-required",
     "no PNG sheets are created",
+    "Review Corvin's authored side-action Blender source.",
+    "docs/art/corvin_side_action_blend_status.md",
+    "The authored source blend contains talk/use/wet actions and a valid rig",
+    "still does not approve PNG sheets or Godot imports",
     "Review Corvin's side-action Blender scaffold.",
     "docs/art/corvin_side_action_scaffold.md",
     "Talk/use/wet handoffs name exact Blender actions, frame beats, export targets",

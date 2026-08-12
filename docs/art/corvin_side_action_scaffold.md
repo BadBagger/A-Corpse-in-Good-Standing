@@ -11,6 +11,7 @@ Created Godot imports: 0
 
 Sources:
 - Source blend: `art/src/characters/corvin/corvin_act_i_clean.blend`
+- Render source blend: `art/src/characters/corvin/corvin_act_i_clean_side_actions.blend`
 - Shader blend: `art/src/shaders/ink_wash_shader_spike.blend`
 
 Rule locks:

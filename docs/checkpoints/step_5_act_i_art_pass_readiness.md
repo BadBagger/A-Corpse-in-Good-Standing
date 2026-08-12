@@ -6,8 +6,9 @@ GATES:
 - Corvin Act I side locomotion: pass, side-left and side-right idle/walk sheet exports and Godot imports are present and runtime-validated.
 - Corvin side-priority work order: pass, 8 side idle/walk runtime rows present and 12 Act I side talk/use/wet rows pending as the next animation queue before front/back or decay work.
 - Corvin Meshy motion source audit: pass, talk/use/walk source GLBs are action-capable and wet remains custom-required before canonical Blender action authoring.
+- Corvin side-action blend: pass, authored side-action Blender source contains talk/use/wet actions and a valid 24-bone rig while PNG sheets remain pending.
 - Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet remain pending with placeholder PNGs forbidden and post-render checks defined.
-- Corvin side-action render scripts: pass, 6 Blender entrypoints exist and audit without creating PNG sheets; status is blocked_pending_keyed_blender_actions with 6 keyed actions still pending.
+- Corvin side-action render scripts: pass, 6 Blender entrypoints exist and audit without creating PNG sheets; status is audit_contract_passed with 0 keyed actions still pending.
 - Corvin side-action render commands: pass, 6 dry-run Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.
 - Corvin animation tracker: pass, 10 present / 119 pending / 129 total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.
 - Ink shader yaw metrics: pass, status audited, object pairwise max 0% against threshold 6%, first-last drift 0% against threshold 9%; bad-control pairwise max 28.512% remains the calibration contrast.

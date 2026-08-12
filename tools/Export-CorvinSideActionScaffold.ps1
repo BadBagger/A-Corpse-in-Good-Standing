@@ -6,6 +6,7 @@ $jsonPath = Join-Path $root "docs\art\corvin_side_action_scaffold.json"
 $mdPath = Join-Path $root "docs\art\corvin_side_action_scaffold.md"
 $actionDir = Join-Path $root "art\src\characters\corvin\actions\act_i_clean"
 $sourceBlend = "art/src/characters/corvin/corvin_act_i_clean.blend"
+$renderSourceBlend = "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend"
 $shaderBlend = "art/src/shaders/ink_wash_shader_spike.blend"
 
 if (-not (Test-Path -LiteralPath $workOrderPath)) {
@@ -18,7 +19,7 @@ if ($null -eq $sideSheetSpecs) {
     throw "Corvin side action scaffold requires side_sheet_specs in $workOrderPath."
 }
 
-foreach ($repoRelative in @($sourceBlend, $shaderBlend)) {
+foreach ($repoRelative in @($sourceBlend, $renderSourceBlend, $shaderBlend)) {
     $absolute = Join-Path $root ($repoRelative -replace "/", "\")
     if (-not (Test-Path -LiteralPath $absolute)) {
         throw "Missing Corvin side action scaffold source: $repoRelative"
@@ -66,6 +67,7 @@ foreach ($animation in $expectedAnimations) {
         loop = $loop
         blender_action = [string]$spec.blender_action
         source_blend = $sourceBlend
+        render_source_blend = $renderSourceBlend
         shader_blend = $shaderBlend
         source_basis = [string]$spec.source_basis
         motion_intent = [string]$spec.motion_intent
@@ -149,6 +151,7 @@ $payload = [ordered]@{
     purpose = "Concrete Blender action handoff for the next Act I side-view Corvin sheets before rendering talk/use/wet."
     status = "source_action_scaffold_ready_pending_render"
     source_blend = $sourceBlend
+    render_source_blend = $renderSourceBlend
     shader_blend = $shaderBlend
     created_sheet_exports = 0
     created_godot_imports = 0
@@ -177,6 +180,7 @@ $lines = @(
     "",
     "Sources:",
     ('- Source blend: `{0}`' -f $sourceBlend),
+    ('- Render source blend: `{0}`' -f $renderSourceBlend),
     ('- Shader blend: `{0}`' -f $shaderBlend),
     "",
     "Rule locks:",

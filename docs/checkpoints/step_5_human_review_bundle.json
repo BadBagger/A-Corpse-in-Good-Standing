@@ -10,6 +10,7 @@
                            "docs/art/act_i_review_contact_sheet.html",
                            "docs/art/act_i_hotspot_overlay.svg",
                            "docs/art/corvin_meshy_motion_source_audit.md",
+                           "docs/art/corvin_side_action_blend_status.md",
                            "docs/art/corvin_side_action_scaffold.md",
                            "docs/art/corvin_side_action_render_queue.md",
                            "docs/art/corvin_side_action_render_scripts_status.md",
@@ -18,39 +19,39 @@
                            "docs/art/act_i_look_target_reference.md",
                            "docs/art/act_i_paintover_packet.md"
                        ],
-    "generated_at_utc":  "2026-08-12T10:21:14.6077992Z",
+    "generated_at_utc":  "2026-08-12T10:39:00.3968948Z",
     "source_modified_utc":  [
                                 {
                                     "path":  "docs/checkpoints/step_5_review_dashboard.json",
-                                    "modified_utc":  "2026-08-12T10:21:14.3117016Z"
+                                    "modified_utc":  "2026-08-12T10:39:00.0475478Z"
                                 },
                                 {
                                     "path":  "docs/checkpoints/step_5_act_i_art_pass_readiness.md",
-                                    "modified_utc":  "2026-08-12T10:18:48.4116466Z"
+                                    "modified_utc":  "2026-08-12T10:36:37.9721348Z"
                                 },
                                 {
                                     "path":  "docs/playtest/act_i_player_review_card.md",
-                                    "modified_utc":  "2026-08-12T10:21:13.9921272Z"
+                                    "modified_utc":  "2026-08-12T10:38:59.7101606Z"
                                 },
                                 {
                                     "path":  "docs/playtest/results/act_i_human_playtest_latest.md",
-                                    "modified_utc":  "2026-08-12T10:21:10.3491513Z"
+                                    "modified_utc":  "2026-08-12T10:38:55.9119355Z"
                                 },
                                 {
                                     "path":  "docs/playtest/act_i_review_decisions_template.csv",
-                                    "modified_utc":  "2026-08-12T10:21:10.3491513Z"
+                                    "modified_utc":  "2026-08-12T10:38:55.9119355Z"
                                 },
                                 {
                                     "path":  "docs/playtest/act_i_review_handoff_sync.md",
-                                    "modified_utc":  "2026-08-12T10:21:12.5120582Z"
+                                    "modified_utc":  "2026-08-12T10:38:58.1979326Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_paintover_start_gate.json",
-                                    "modified_utc":  "2026-08-12T10:20:54.9311577Z"
+                                    "modified_utc":  "2026-08-12T10:38:40.3379958Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_review_contact_sheet.html",
-                                    "modified_utc":  "2026-08-12T10:19:18.2898561Z"
+                                    "modified_utc":  "2026-08-12T10:37:06.6645523Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_hotspot_overlay.svg",
@@ -58,35 +59,39 @@
                                 },
                                 {
                                     "path":  "docs/art/corvin_meshy_motion_source_audit.md",
-                                    "modified_utc":  "2026-08-12T10:18:38.7786488Z"
+                                    "modified_utc":  "2026-08-12T10:21:24.0914602Z"
+                                },
+                                {
+                                    "path":  "docs/art/corvin_side_action_blend_status.md",
+                                    "modified_utc":  "2026-08-12T10:36:07.0937728Z"
                                 },
                                 {
                                     "path":  "docs/art/corvin_side_action_scaffold.md",
-                                    "modified_utc":  "2026-08-12T10:03:53.4866662Z"
+                                    "modified_utc":  "2026-08-12T10:36:07.3641622Z"
                                 },
                                 {
                                     "path":  "docs/art/corvin_side_action_render_queue.md",
-                                    "modified_utc":  "2026-08-12T10:03:54.2956953Z"
+                                    "modified_utc":  "2026-08-12T10:36:16.6558880Z"
                                 },
                                 {
                                     "path":  "docs/art/corvin_side_action_render_scripts_status.md",
-                                    "modified_utc":  "2026-08-12T10:04:07.7350878Z"
+                                    "modified_utc":  "2026-08-12T10:36:27.5280614Z"
                                 },
                                 {
                                     "path":  "docs/art/corvin_side_action_render_commands.md",
-                                    "modified_utc":  "2026-08-12T10:04:08.4583506Z"
+                                    "modified_utc":  "2026-08-12T10:36:28.0160829Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_background_ready_source_packets.md",
-                                    "modified_utc":  "2026-08-12T10:21:13.7257443Z"
+                                    "modified_utc":  "2026-08-12T10:38:59.4184501Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_look_target_reference.md",
-                                    "modified_utc":  "2026-08-12T10:19:11.9344756Z"
+                                    "modified_utc":  "2026-08-12T10:37:00.2713320Z"
                                 },
                                 {
                                     "path":  "docs/art/act_i_paintover_packet.md",
-                                    "modified_utc":  "2026-08-12T10:19:16.8896023Z"
+                                    "modified_utc":  "2026-08-12T10:37:05.2416934Z"
                                 }
                             ],
     "purpose":  "Compact Step 5 human-review launch bundle for Act I art-pass review.",
@@ -114,6 +119,7 @@
                              "docs/art/act_i_review_contact_sheet.html",
                              "docs/art/act_i_hotspot_overlay.svg",
                              "docs/art/corvin_meshy_motion_source_audit.md",
+                             "docs/art/corvin_side_action_blend_status.md",
                              "docs/art/corvin_side_action_scaffold.md",
                              "docs/art/corvin_side_action_render_queue.md",
                              "docs/art/corvin_side_action_render_scripts_status.md",

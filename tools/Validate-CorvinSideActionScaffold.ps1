@@ -4,10 +4,12 @@ $root = Split-Path -Parent $PSScriptRoot
 $jsonPath = Join-Path $root "docs\art\corvin_side_action_scaffold.json"
 $mdPath = Join-Path $root "docs\art\corvin_side_action_scaffold.md"
 $actionDir = Join-Path $root "art\src\characters\corvin\actions\act_i_clean"
+$actionBlendStatusPath = Join-Path $root "docs\art\corvin_side_action_blend_status.json"
 
+powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "Author-CorvinSideActionBlend.ps1")
 powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "Export-CorvinSideActionScaffold.ps1")
 
-foreach ($path in @($jsonPath, $mdPath, $actionDir)) {
+foreach ($path in @($jsonPath, $mdPath, $actionDir, $actionBlendStatusPath)) {
     if (-not (Test-Path -LiteralPath $path)) {
         throw "Missing Corvin side action scaffold artifact: $path"
     }
@@ -15,6 +17,7 @@ foreach ($path in @($jsonPath, $mdPath, $actionDir)) {
 
 $payload = Get-Content -LiteralPath $jsonPath -Raw | ConvertFrom-Json
 $report = Get-Content -LiteralPath $mdPath -Raw
+$blendStatus = Get-Content -LiteralPath $actionBlendStatusPath -Raw | ConvertFrom-Json
 $actions = @($payload.actions)
 
 if ($payload.status -ne "source_action_scaffold_ready_pending_render") {
@@ -29,6 +32,13 @@ foreach ($source in @($payload.source_blend, $payload.shader_blend)) {
         throw "Corvin side action scaffold source missing: $source"
     }
 }
+if ($payload.render_source_blend -ne "art/src/characters/corvin/corvin_act_i_clean_side_actions.blend") {
+    throw "Corvin side action scaffold must use the authored side-action render source blend."
+}
+if ($blendStatus.status -ne "authored_actions_pending_render_audit" -or $blendStatus.blend_path -ne $payload.render_source_blend) {
+    throw "Corvin side action blend status does not match scaffold render source."
+}
+$authoredActionNames = @($blendStatus.actions | ForEach-Object { $_.name })
 if ($actions.Count -ne 3) {
     throw "Corvin side action scaffold expected 3 actions, got $($actions.Count)."
 }
@@ -71,6 +81,12 @@ foreach ($entry in $expected.GetEnumerator()) {
     }
     if ($action.blender_action -ne $expect.blender_action) {
         throw "Corvin side action scaffold action $animation has wrong Blender action: $($action.blender_action)"
+    }
+    if ($action.blender_action -notin $authoredActionNames) {
+        throw "Corvin side action scaffold action $animation missing from authored side-action blend: $($action.blender_action)"
+    }
+    if ($action.render_source_blend -ne $payload.render_source_blend) {
+        throw "Corvin side action scaffold action $animation has wrong render source blend."
     }
     if ([int]$action.frames -ne [int]$expect.frames -or @($action.frame_beats).Count -ne [int]$expect.frames) {
         throw "Corvin side action scaffold action $animation has wrong frame count."
@@ -136,6 +152,8 @@ foreach ($requiredText in @(
     "Corvin_act_i_clean_talk_side",
     "Corvin_act_i_clean_use_side",
     "Corvin_act_i_clean_wet_side",
+    "Render source blend",
+    "corvin_act_i_clean_side_actions.blend",
     "physical brine",
     "side talk/use/wet remain pending"
 )) {
