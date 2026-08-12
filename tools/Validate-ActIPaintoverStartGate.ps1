@@ -56,6 +56,12 @@ foreach ($room in $rooms) {
         if ([string]::IsNullOrWhiteSpace([string]$room.reviewer) -or [string]::IsNullOrWhiteSpace([string]$room.reviewed_at) -or [string]::IsNullOrWhiteSpace([string]$room.decision_note)) {
             throw "Room $($room.room_id) is ready_for_paintover without reviewer metadata."
         }
+        if ([string]::IsNullOrWhiteSpace([string]$room.build_commit)) {
+            throw "Room $($room.room_id) is ready_for_paintover without build_commit."
+        }
+        if ([string]$room.build_commit -notmatch '^(unknown|[0-9a-f]{7,40})$') {
+            throw "Room $($room.room_id) has invalid build_commit: $($room.build_commit)"
+        }
     } else {
         if ($blockers.Count -eq 0) {
             throw "Room $($room.room_id) is blocked but has no blocker list."
@@ -72,6 +78,7 @@ foreach ($requiredText in @(
     "Status: $($gate.status)",
     "Ready rooms: $($gate.ready_count)",
     "Blocked rooms: $($gate.blocked_count)",
+    "Build",
     "Reviewer",
     "Reviewed At",
     "expected to remain blocked until human Act I art/readability review signs off"

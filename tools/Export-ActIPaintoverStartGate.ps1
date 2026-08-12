@@ -66,6 +66,7 @@ foreach ($room in $trackerRooms) {
         reviewer_decision = $room.reviewer_decision
         reviewer = $room.reviewer
         reviewed_at = $room.reviewed_at
+        build_commit = $room.build_commit
         decision_note = $room.decision_note
         approved_for_paintover = [bool]$room.approved_for_paintover
         target_paintover_source = $room.paintover_source
@@ -107,14 +108,15 @@ $lines = @(
     "",
     "This report is expected to remain blocked until human Act I art/readability review signs off room layouts.",
     "",
-    "| Room | Ready | Review | Reviewer | Reviewed At | Approved | Target PSD Status | Blockers |",
-    "|---|---|---|---|---|---|---|---|"
+    "| Room | Ready | Review | Build | Reviewer | Reviewed At | Approved | Target PSD Status | Blockers |",
+    "|---|---|---|---|---|---|---|---|---|"
 )
 foreach ($room in $gateRooms) {
     $blockerText = if (@($room.blockers).Count -eq 0) { "none" } else { @($room.blockers) -join ", " }
+    $buildText = if ([string]::IsNullOrWhiteSpace([string]$room.build_commit)) { "none" } else { [string]$room.build_commit }
     $reviewerText = if ([string]::IsNullOrWhiteSpace([string]$room.reviewer)) { "none" } else { [string]$room.reviewer }
     $reviewedAtText = if ([string]::IsNullOrWhiteSpace([string]$room.reviewed_at)) { "none" } else { [string]$room.reviewed_at }
-    $lines += "| $($room.room_code) $($room.title) | $($room.ready_for_paintover) | $($room.review_status) | $reviewerText | $reviewedAtText | $($room.approved_for_paintover) | $($room.target_paintover_status) | $blockerText |"
+    $lines += "| $($room.room_code) $($room.title) | $($room.ready_for_paintover) | $($room.review_status) | $buildText | $reviewerText | $reviewedAtText | $($room.approved_for_paintover) | $($room.target_paintover_status) | $blockerText |"
 }
 
 Set-Content -LiteralPath $mdPath -Value $lines -Encoding UTF8

@@ -57,6 +57,7 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   },
@@ -127,6 +128,7 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   },
@@ -221,6 +223,7 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   },
@@ -291,6 +294,7 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   },
@@ -335,6 +339,7 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   },
@@ -379,6 +384,7 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   },
@@ -442,6 +448,7 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   },
@@ -507,6 +514,7 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   },
@@ -574,6 +582,7 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   },
@@ -617,6 +626,7 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   },
@@ -659,14 +669,10 @@
                       "reviewer_decision":  "pending_review",
                       "reviewer":  "",
                       "reviewed_at":  "",
+                      "build_commit":  "",
                       "decision_note":  "",
                       "approved_for_paintover":  false
                   }
               ]
 }
-
-
-
-
-
 

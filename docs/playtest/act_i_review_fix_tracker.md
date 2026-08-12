@@ -6,7 +6,7 @@ Purpose: turn one human Step 5 review into exact room/layout fixes before final 
 
 Allowed room decisions: pending_review, approved, revise_before_art, stop_and_redesign.
 Allowed hotspot decisions: pending_review, readable, unclear, move_before_paint.
-Non-pending room decisions require reviewer, reviewed_at as YYYY-MM-DD, and decision_note.
+Non-pending room decisions require build_commit, reviewer, reviewed_at as YYYY-MM-DD, and decision_note.
 
 Global unresolved state: pending/revise/stop rooms block final paintover until a human Act I art/readability run resolves them.
 
@@ -16,6 +16,7 @@ Global unresolved state: pending/revise/stop rooms block final paintover until a
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/mudflats.psd` (pending)
@@ -44,6 +45,7 @@ Close-pair review:
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/old_quay.psd` (pending)
@@ -74,6 +76,7 @@ Close-pair review:
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/salt_market.psd` (pending)
@@ -107,6 +110,7 @@ Close-pair review:
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/harbor_registry.psd` (pending)
@@ -137,6 +141,7 @@ Close-pair review:
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/bone_chandler.psd` (pending)
@@ -165,6 +170,7 @@ Close-pair review:
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/almshouse.psd` (pending)
@@ -193,6 +199,7 @@ Close-pair review:
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/fish_hall.psd` (pending)
@@ -223,6 +230,7 @@ Close-pair review:
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/church_of_the_drowned.psd` (pending)
@@ -253,6 +261,7 @@ Close-pair review:
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/grey_float.psd` (pending)
@@ -283,6 +292,7 @@ Close-pair review:
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/harbormaster_office.psd` (pending)
@@ -311,6 +321,7 @@ Close-pair review:
 - Reviewer decision: pending_review
 - Reviewer: 
 - Reviewed at: 
+- Build commit: none
 - Decision note: 
 - Approved for paintover: False
 - Paintover source: `art/src/backgrounds/act_i/sabine_office.psd` (pending)
@@ -332,10 +343,5 @@ Critical hotspots:
 
 Close-pair review:
 - None.
-
-
-
-
-
 
 

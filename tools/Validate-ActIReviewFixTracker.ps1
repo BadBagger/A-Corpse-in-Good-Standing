@@ -70,6 +70,12 @@ foreach ($roomId in $requiredRoomIds) {
         throw "Room $roomId has approved review_status but approved_for_paintover is false."
     }
     if ($room.review_status -ne "pending_review" -or $room.reviewer_decision -ne "pending_review") {
+        if ([string]::IsNullOrWhiteSpace([string]$room.build_commit)) {
+            throw "Room $roomId has non-pending review state and must include build_commit."
+        }
+        if ([string]$room.build_commit -notmatch '^(unknown|[0-9a-f]{7,40})$') {
+            throw "Room $roomId has invalid build_commit: $($room.build_commit)"
+        }
         if ([string]::IsNullOrWhiteSpace([string]$room.reviewer) -or [string]::IsNullOrWhiteSpace([string]$room.reviewed_at) -or [string]::IsNullOrWhiteSpace([string]$room.decision_note)) {
             throw "Room $roomId has non-pending review state and must include reviewer, reviewed_at, and decision_note."
         }
@@ -124,6 +130,7 @@ foreach ($requiredText in @(
     "Global unresolved state",
     "Reviewer:",
     "Reviewed at:",
+    "Build commit:",
     "YYYY-MM-DD",
     "Decision note:",
     "Duel format:",
