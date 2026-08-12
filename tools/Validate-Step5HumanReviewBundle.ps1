@@ -103,6 +103,8 @@ foreach ($requiredText in @(
     "Treat Corvin side-action scaffolds as Blender handoff notes only; they do not approve pending talk/use/wet PNG sheets.",
     "docs/art/corvin_side_action_render_queue.md",
     "Treat the Corvin side-action render queue as pending deterministic Blender work; it forbids placeholder PNGs and does not approve Godot imports until sheets exist.",
+    "docs/art/corvin_side_action_render_commands.md",
+    "Treat the Corvin side-action render commands as dry-run handoff commands until matching render scripts and real Blender outputs exist.",
     "docs/art/act_i_background_ready_source_packets.md",
     "docs/art/act_i_look_target_reference.md",
     "docs/art/act_i_paintover_packet.md",

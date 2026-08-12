@@ -11,6 +11,8 @@ $corvinSidePriorityPath = Join-Path $root "docs\art\corvin_side_priority_work_or
 $corvinSidePriorityJsonPath = Join-Path $root "docs\art\corvin_side_priority_work_order.json"
 $corvinSideActionRenderQueuePath = Join-Path $root "docs\art\corvin_side_action_render_queue.md"
 $corvinSideActionRenderQueueJsonPath = Join-Path $root "docs\art\corvin_side_action_render_queue.json"
+$corvinSideActionRenderCommandsPath = Join-Path $root "docs\art\corvin_side_action_render_commands.md"
+$corvinSideActionRenderCommandsJsonPath = Join-Path $root "docs\art\corvin_side_action_render_commands.json"
 $playtestReportPath = Join-Path $root "docs\playtest\results\act_i_greybox_auto_report.md"
 $backgroundElementPipelinePath = Join-Path $root "docs\art\act_i_background_element_pipeline.md"
 $backgroundSourceWorklistPath = Join-Path $root "docs\art\act_i_background_source_worklist.md"
@@ -78,6 +80,8 @@ foreach ($path in @(
     $corvinSidePriorityJsonPath,
     $corvinSideActionRenderQueuePath,
     $corvinSideActionRenderQueueJsonPath,
+    $corvinSideActionRenderCommandsPath,
+    $corvinSideActionRenderCommandsJsonPath,
     $playtestReportPath,
     $backgroundElementPipelinePath,
     $backgroundSourceWorklistPath,
@@ -148,6 +152,8 @@ $corvinSidePriority = Get-Content -LiteralPath $corvinSidePriorityPath -Raw
 $corvinSidePriorityJson = Get-Content -LiteralPath $corvinSidePriorityJsonPath -Raw | ConvertFrom-Json
 $corvinSideActionRenderQueue = Get-Content -LiteralPath $corvinSideActionRenderQueuePath -Raw
 $corvinSideActionRenderQueueJson = Get-Content -LiteralPath $corvinSideActionRenderQueueJsonPath -Raw | ConvertFrom-Json
+$corvinSideActionRenderCommands = Get-Content -LiteralPath $corvinSideActionRenderCommandsPath -Raw
+$corvinSideActionRenderCommandsJson = Get-Content -LiteralPath $corvinSideActionRenderCommandsJsonPath -Raw | ConvertFrom-Json
 $playtestReport = Get-Content -LiteralPath $playtestReportPath -Raw
 $backgroundElementPipeline = Get-Content -LiteralPath $backgroundElementPipelinePath -Raw
 $backgroundSourceWorklist = Get-Content -LiteralPath $backgroundSourceWorklistPath -Raw
@@ -318,6 +324,29 @@ foreach ($requiredText in @(
 )) {
     if ($corvinSideActionRenderQueue -notmatch [regex]::Escape($requiredText)) {
         throw "Corvin side action render queue missing readiness text: $requiredText"
+    }
+}
+
+$corvinSideActionCommandsRows = @($corvinSideActionRenderCommandsJson.commands)
+if ($corvinSideActionRenderCommandsJson.status -notin @("ready_for_render_scripts", "blocked_blender_not_resolved")) {
+    throw "Corvin side action render commands has unexpected status: $($corvinSideActionRenderCommandsJson.status)"
+}
+if ($corvinSideActionCommandsRows.Count -ne 6 -or [int]$corvinSideActionRenderCommandsJson.command_count -ne 6 -or [int]$corvinSideActionRenderCommandsJson.timeout_seconds -ne 120) {
+    throw "Corvin side action render commands expected 6 commands with 120 second timeout."
+}
+foreach ($requiredText in @(
+    "Corvin Side Action Render Commands",
+    "dry-run handoff commands",
+    "Do not create placeholder PNGs",
+    "byte-for-byte",
+    "Run the render queue validator after each import",
+    "Timeout-wrapped command",
+    "talk side_right",
+    "use side_left",
+    "wet side_right"
+)) {
+    if ($corvinSideActionRenderCommands -notmatch [regex]::Escape($requiredText)) {
+        throw "Corvin side action render commands missing readiness text: $requiredText"
     }
 }
 
@@ -846,6 +875,7 @@ $lines = @(
     "- Corvin Act I side locomotion: pass, side-left and side-right idle/walk sheet exports and Godot imports are present and runtime-validated.",
     "- Corvin side-priority work order: pass, 8 side idle/walk runtime rows present and 12 Act I side talk/use/wet rows pending as the next animation queue before front/back or decay work.",
     "- Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet remain pending with placeholder PNGs forbidden and post-render checks defined.",
+    "- Corvin side-action render commands: pass, 6 dry-run Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.",
     "- Corvin animation tracker: pass, $corvinPresent present / $corvinPending pending / $($corvinRows.Count) total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.",
     "- Ink shader yaw metrics: pass, status audited, object pairwise max $objectPairwiseMax% against threshold $pairwiseThreshold%, first-last drift $objectFirstLastDrift% against threshold $firstLastThreshold%; bad-control pairwise max $badControlPairwiseMax% remains the calibration contrast.",
     "- Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.",
@@ -905,6 +935,7 @@ foreach ($requiredText in @(
     "Corvin Act I side locomotion: pass",
     "Corvin side-priority work order: pass",
     "Corvin side-action render queue: pass",
+    "Corvin side-action render commands: pass",
     "Ink shader yaw metrics: pass",
     "Act I background element pipeline: pass",
     "Act I background source worklist: pass",
