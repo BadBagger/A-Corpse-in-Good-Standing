@@ -13,8 +13,8 @@ Guardrails:
 
 Counts:
 - Prompts: 130
-- Present source outputs: 3
-- Pending source outputs: 127
+- Present source outputs: 7
+- Pending source outputs: 123
 - Zero-byte outputs: 0
 - generated_reference: 41
 - interactive_layer: 25
@@ -37,10 +37,10 @@ Counts:
 
 | ID | Kind | Tool | Status | Source | Runtime |
 |---|---|---|---|---|---|
-| old_quay_generated_reference_grime_texture | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/old_quay/grime_texture.png` | `-` |
-| old_quay_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/old_quay/ink_wash_edge_breakup.png` | `-` |
-| old_quay_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/old_quay/non_clickable_dressing_silhouettes.png` | `-` |
-| old_quay_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/old_quay/palette_safe_mood_reference.png` | `-` |
+| old_quay_generated_reference_grime_texture | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/old_quay/grime_texture.png` | `-` |
+| old_quay_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/old_quay/ink_wash_edge_breakup.png` | `-` |
+| old_quay_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/old_quay/non_clickable_dressing_silhouettes.png` | `-` |
+| old_quay_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/old_quay/palette_safe_mood_reference.png` | `-` |
 | old_quay_interactive_layer_bollard_tomas | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/old_quay/tomas.psd` | `game/rooms/old_quay/props/tomas.png` |
 | old_quay_interactive_layer_empty_flask | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/old_quay/flask.psd` | `game/rooms/old_quay/props/flask.png` |
 | old_quay_interactive_layer_rope_cleat | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/old_quay/ropecleat.psd` | `game/rooms/old_quay/props/ropecleat.png` |
