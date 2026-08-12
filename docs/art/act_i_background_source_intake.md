@@ -13,8 +13,8 @@ Guardrails:
 
 Counts:
 - Prompts: 130
-- Present source outputs: 37
-- Pending source outputs: 93
+- Present source outputs: 41
+- Pending source outputs: 89
 - Zero-byte outputs: 0
 - generated_reference: 41
 - interactive_layer: 25
@@ -195,10 +195,10 @@ Counts:
 
 | ID | Kind | Tool | Status | Source | Runtime |
 |---|---|---|---|---|---|
-| sabine_office_generated_reference_grime_texture | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/sabine_office/grime_texture.png` | `-` |
-| sabine_office_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/sabine_office/ink_wash_edge_breakup.png` | `-` |
-| sabine_office_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/sabine_office/non_clickable_dressing_silhouettes.png` | `-` |
-| sabine_office_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/sabine_office/palette_safe_mood_reference.png` | `-` |
+| sabine_office_generated_reference_grime_texture | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/sabine_office/grime_texture.png` | `-` |
+| sabine_office_generated_reference_ink_wash_edge_breakup | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/sabine_office/ink_wash_edge_breakup.png` | `-` |
+| sabine_office_generated_reference_non_clickable_dressing_silhouettes | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/sabine_office/non_clickable_dressing_silhouettes.png` | `-` |
+| sabine_office_generated_reference_palette_safe_mood_reference | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/sabine_office/palette_safe_mood_reference.png` | `-` |
 | sabine_office_interactive_layer_sabine_s_desk | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/sabine_office/sabinedesk.psd` | `game/rooms/sabine_office/props/sabinedesk.png` |
 | sabine_office_meshy_source_model_persian_rug_plane | meshy_source_model | Meshy | pending_source | `art/src/backgrounds/act_i/source_models/sabine_office/persian_rug_plane.glb` | `-` |
 | sabine_office_meshy_source_model_sabine_desk | meshy_source_model | Meshy | pending_source | `art/src/backgrounds/act_i/source_models/sabine_office/sabine_desk.glb` | `-` |
