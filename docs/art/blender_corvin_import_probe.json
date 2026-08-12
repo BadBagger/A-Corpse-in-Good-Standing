@@ -33,6 +33,6 @@
                                      ]
                         },
     "notes":  [
-                  "Blender imported Corvin Act I clean GLB and saved starter blend files."
+                  "Blender imported Corvin Act I clean GLB and validated existing source blend files without modifying them."
               ]
 }
