@@ -17,6 +17,7 @@ $payload = Get-Content -LiteralPath $jsonPath -Raw | ConvertFrom-Json
 $rows = @(Import-Csv -LiteralPath $csvPath)
 $report = Get-Content -LiteralPath $mdPath -Raw
 $workOrder = @($payload.work_order)
+$sideSheetSpecs = $payload.side_sheet_specs
 
 if ($payload.status -ne "side_runtime_present_next_sheets_pending") {
     throw "Corvin side-priority work order has unexpected status: $($payload.status)"
@@ -29,6 +30,9 @@ if ($payload.counts.present -ne 8 -or $payload.counts.pending -ne 12) {
 }
 if ($payload.counts.runtime_present -ne 8 -or $payload.counts.next_pending -ne 12) {
     throw "Corvin side-priority expected 8 runtime-present rows and 12 next-pending rows, got runtime=$($payload.counts.runtime_present), next=$($payload.counts.next_pending)."
+}
+if ($null -eq $sideSheetSpecs) {
+    throw "Corvin side-priority work order missing side_sheet_specs."
 }
 
 $allowedDirections = @("side_right", "side_left")
@@ -64,6 +68,56 @@ if ($pendingNext.Count -ne 12) {
     throw "Corvin side-priority work order expected 12 pending next side-sheet rows, got $($pendingNext.Count)."
 }
 
+$requiredSpecs = [ordered]@{
+    talk = @{
+        order = 1
+        action = "Corvin_act_i_clean_talk_side"
+        frames = 6
+        phrases = @("full-VO dialogue", "feet remain planted", "first and last frame register cleanly")
+    }
+    use = @{
+        order = 2
+        action = "Corvin_act_i_clean_use_side"
+        frames = 8
+        phrases = @("Generic side-view item interaction", "contact frame", "generic hotspot response")
+    }
+    wet = @{
+        order = 3
+        action = "Corvin_act_i_clean_wet_side"
+        frames = 8
+        phrases = @("Signature wet-verb", "physical brine", "does not obscure hotspot feedback")
+    }
+}
+
+foreach ($entry in $requiredSpecs.GetEnumerator()) {
+    $name = $entry.Key
+    $expected = $entry.Value
+    $spec = $sideSheetSpecs.$name
+    if ($null -eq $spec) {
+        throw "Corvin side-priority side_sheet_specs missing: $name"
+    }
+    if ([int]$spec.production_order -ne [int]$expected.order) {
+        throw "Corvin side-priority spec $name has wrong production_order: $($spec.production_order)"
+    }
+    if ([string]$spec.blender_action -ne [string]$expected.action) {
+        throw "Corvin side-priority spec $name has wrong blender_action: $($spec.blender_action)"
+    }
+    if (@($spec.frame_beats).Count -ne [int]$expected.frames) {
+        throw "Corvin side-priority spec $name expected $($expected.frames) frame beats, got $(@($spec.frame_beats).Count)."
+    }
+    if (@($spec.acceptance_checks).Count -lt 5) {
+        throw "Corvin side-priority spec $name expected at least 5 acceptance checks."
+    }
+    if ([string]::IsNullOrWhiteSpace([string]$spec.motion_intent) -or [string]::IsNullOrWhiteSpace([string]$spec.mirror_policy)) {
+        throw "Corvin side-priority spec $name must include motion_intent and mirror_policy."
+    }
+    foreach ($phrase in @($expected.phrases)) {
+        if ($report -notmatch [regex]::Escape($phrase)) {
+            throw "Corvin side-priority report missing required $name spec phrase: $phrase"
+        }
+    }
+}
+
 foreach ($required in @(
     "idle_side_right",
     "idle_side_left",
@@ -84,6 +138,10 @@ foreach ($requiredText in @(
     "Corvin Side Priority Work Order",
     "Current playable side locomotion",
     "Next production side sheets",
+    "Side sheet specs",
+    "Blender action",
+    "Frame beats",
+    "Acceptance checks",
     "full-VO dialogue",
     "permanent wet verb",
     "Do not use diffusion-per-frame character sheets"

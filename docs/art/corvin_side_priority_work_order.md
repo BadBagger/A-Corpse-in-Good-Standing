@@ -20,6 +20,76 @@ Next production side sheets:
 - `use_side_right` and `use_side_left` for generic Act I item interactions.
 - `wet_side_right` and `wet_side_left` for Corvin's permanent wet verb.
 
+Side sheet specs:
+
+### talk
+- Production order: 1
+- Purpose: Loopable side-view body-language layer for full-VO dialogue while portraits carry facial emotion.
+- Blender action: `Corvin_act_i_clean_talk_side`
+- Source basis: Use the canonical Act I clean Blender source and current side idle registration.
+- Motion intent: Small dead-notary conversational motion: chin dip, one shoulder settling low, minimal coat sway, no broad acting.
+- Mirror policy: Render side_right first, derive side_left by deterministic mirror only if silhouette, coat hang, and drip side remain readable.
+- Frame beats:
+  - 01 neutral side idle registration frame
+  - 02 chin drops and near shoulder sinks one pixel-row equivalent
+  - 03 mouth/upper torso emphasis frame while coat hem lags
+  - 04 return through neutral with drip held visible
+  - 05 opposite micro-settle at shoulder and hand
+  - 06 seamless return to frame 01
+- Acceptance checks:
+  - 6 frames at 12 fps, loop true
+  - first and last frame register cleanly for looping
+  - feet remain planted and do not slide
+  - head/shoulder motion reads at 512px sheet cell scale
+  - drip remains visible but does not crawl across the silhouette
+
+### use
+- Production order: 2
+- Purpose: Generic side-view item interaction for Act I hotspots before bespoke puzzle poses exist.
+- Blender action: `Corvin_act_i_clean_use_side`
+- Source basis: Use current side idle as frame 01 and preserve side walk scale.
+- Motion intent: One restrained reach from the damp coat: hand leaves pocket, touches/indicates object, recoils slightly.
+- Mirror policy: Render side_right first; mirror side_left only after contact hand remains readable and no prop-specific lighting is baked into the sheet.
+- Frame beats:
+  - 01 neutral side idle registration frame
+  - 02 elbow lifts under heavy wet sleeve
+  - 03 hand reaches forward, wrong shoulder stays low
+  - 04 contact/indicate pose with coat hem delayed
+  - 05 hand withdraws, sleeve leads
+  - 06 torso settles back
+  - 07 coat/drip follow-through
+  - 08 neutral hold for handoff back to idle
+- Acceptance checks:
+  - 8 frames at 12 fps, loop false
+  - frame 01 and frame 08 align with idle-side registration
+  - contact frame is the brightest/readable motion pose
+  - no frame moves feet outside the side idle footprint
+  - usable as a generic hotspot response without implying a specific item
+
+### wet
+- Production order: 3
+- Purpose: Signature wet-verb side-view action showing Corvin weaponizing the fact that he is permanently dripping.
+- Blender action: `Corvin_act_i_clean_wet_side`
+- Source basis: Custom required; do not derive from Meshy biped canned motion.
+- Motion intent: Corvin leans and squeezes/drips brine from sleeve or coat hem onto the target, dryly practical rather than magical.
+- Mirror policy: Render both directions or mirror only after confirming the drip arc reads on the correct interaction side in Godot.
+- Frame beats:
+  - 01 neutral side idle registration frame
+  - 02 weight shifts forward without foot slide
+  - 03 elbow/coat hem lifts to expose drip source
+  - 04 brine drop/splash silhouette reaches target zone
+  - 05 held drip frame for readability
+  - 06 arm lowers and coat follows
+  - 07 shoulders settle into wrong-shouldered stance
+  - 08 neutral hold for handoff back to idle
+- Acceptance checks:
+  - 8 frames at 12 fps, loop false
+  - wet action starts and ends on idle registration
+  - drip/splash is visible without arterial red or off-palette effects
+  - motion reads as physical brine, not magic
+  - does not obscure hotspot feedback or Litany UI
+
+
 Rule locks:
 - Side-on adventure-game staging is the Act I production priority.
 - Do not use diffusion-per-frame character sheets for production animation.
