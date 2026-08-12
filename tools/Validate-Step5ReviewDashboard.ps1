@@ -54,11 +54,11 @@ if ($dashboard.paintover_gate_status -notin @("ready", "blocked_pending_human_re
 if ([int]$dashboard.ready_rooms + [int]$dashboard.blocked_rooms -ne 11) {
     throw "Step 5 dashboard ready/blocked room counts must total 11."
 }
-if ($workflow.Count -ne 37) {
-    throw "Step 5 dashboard expected 37 ordered review steps, got $($workflow.Count)."
+if ($workflow.Count -ne 38) {
+    throw "Step 5 dashboard expected 38 ordered review steps, got $($workflow.Count)."
 }
-if ($artifacts.Count -lt 38) {
-    throw "Step 5 dashboard expected at least 38 artifact references, got $($artifacts.Count)."
+if ($artifacts.Count -lt 39) {
+    throw "Step 5 dashboard expected at least 39 artifact references, got $($artifacts.Count)."
 }
 
 foreach ($relativePath in $artifacts) {
@@ -110,6 +110,9 @@ foreach ($requiredText in @(
     "Open the Act I review contact sheet.",
     "docs/art/act_i_review_contact_sheet.html",
     "Each room blockout appears with walk band, marker positions, hotspot rows, duel-format lock, and Grey Float hard-R lock.",
+    "Open Corvin's rendered side-action contact sheet.",
+    "docs/art/review/corvin_side_actions_contact_sheet.png",
+    "Reviewer checks talk/use/wet side-left and side-right frames for scale jitter, wrong-facing snaps, and readable brine/drip intent before marking Corvin side-action contact sheet reviewed.",
     "Review Corvin's Act I side-priority animation work order.",
     "docs/art/corvin_side_priority_work_order.md",
     "Act I side talk/use/wet are registered before front/back or decay sheets.",

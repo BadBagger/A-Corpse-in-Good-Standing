@@ -13,6 +13,7 @@ $sourcePaths = [ordered]@{
     "docs/playtest/act_i_review_handoff_sync.md" = Join-Path $root "docs\playtest\act_i_review_handoff_sync.md"
     "docs/art/act_i_paintover_start_gate.json" = Join-Path $root "docs\art\act_i_paintover_start_gate.json"
     "docs/art/act_i_review_contact_sheet.html" = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
+    "docs/art/review/corvin_side_actions_contact_sheet.png" = Join-Path $root "docs\art\review\corvin_side_actions_contact_sheet.png"
     "docs/art/act_i_hotspot_overlay.svg" = Join-Path $root "docs\art\act_i_hotspot_overlay.svg"
     "docs/art/corvin_meshy_motion_source_audit.md" = Join-Path $root "docs\art\corvin_meshy_motion_source_audit.md"
     "docs/art/corvin_side_action_blend_status.md" = Join-Path $root "docs\art\corvin_side_action_blend_status.md"
@@ -85,6 +86,7 @@ $bundle = [ordered]@{
         "docs/playtest/act_i_review_decisions_template.csv",
         "docs/playtest/act_i_review_handoff_sync.md",
         "docs/art/act_i_review_contact_sheet.html",
+        "docs/art/review/corvin_side_actions_contact_sheet.png",
         "docs/art/act_i_hotspot_overlay.svg",
         "docs/art/corvin_meshy_motion_source_audit.md",
         "docs/art/corvin_side_action_blend_status.md",
@@ -133,6 +135,7 @@ $lines = @(
     "- Treat ready-source packets as Meshy/imagegen source acquisition only; they do not approve final background plates.",
     "- Treat selected Meshy motion GLBs as action-capable source material only; they do not approve final Corvin sprites or the custom wet action.",
     "- Treat the authored Corvin side-action blend as source action data only; rendered PNG sheets still require audits and final animation polish review.",
+    "- Review `docs/art/review/corvin_side_actions_contact_sheet.png` directly before marking Corvin side-action contact sheet reviewed.",
     "- Treat Corvin side-action scaffolds as Blender handoff notes only; they do not approve final animation polish.",
     "- Treat the Corvin side-action render queue as deterministic Blender work; it forbids placeholder PNGs and tracks export/Godot import presence.",
     "- Treat the Corvin side-action render scripts as executable render entrypoints with audit mode and blank-frame refusal.",
