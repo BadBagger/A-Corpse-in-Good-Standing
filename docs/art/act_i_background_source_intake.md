@@ -13,8 +13,8 @@ Guardrails:
 
 Counts:
 - Prompts: 130
-- Present source outputs: 29
-- Pending source outputs: 101
+- Present source outputs: 33
+- Pending source outputs: 97
 - Zero-byte outputs: 0
 - generated_reference: 41
 - interactive_layer: 25
@@ -161,10 +161,10 @@ Counts:
 
 | ID | Kind | Tool | Status | Source | Runtime |
 |---|---|---|---|---|---|
-| grey_float_generated_reference_amber_trap_mood | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/grey_float/amber_trap_mood.png` | `-` |
-| grey_float_generated_reference_non_explicit_labor_staging | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/grey_float/non_explicit_labor_staging.png` | `-` |
-| grey_float_generated_reference_steam_density | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/grey_float/steam_density.png` | `-` |
-| grey_float_generated_reference_warm_silhouette_privacy_shapes | generated_reference | imagegen | pending_source | `docs/art/reference/act_i/grey_float/warm_silhouette_privacy_shapes.png` | `-` |
+| grey_float_generated_reference_amber_trap_mood | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/grey_float/amber_trap_mood.png` | `-` |
+| grey_float_generated_reference_non_explicit_labor_staging | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/grey_float/non_explicit_labor_staging.png` | `-` |
+| grey_float_generated_reference_steam_density | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/grey_float/steam_density.png` | `-` |
+| grey_float_generated_reference_warm_silhouette_privacy_shapes | generated_reference | imagegen | source_present_unreviewed | `docs/art/reference/act_i/grey_float/warm_silhouette_privacy_shapes.png` | `-` |
 | grey_float_interactive_layer_bilge_regulator | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/grey_float/bilgeregulator.psd` | `game/rooms/grey_float/props/bilgeregulator.png` |
 | grey_float_interactive_layer_hot_pool | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/grey_float/hotpool.psd` | `game/rooms/grey_float/props/hotpool.png` |
 | grey_float_interactive_layer_staff_corner | interactive_layer | paintover | pending_source | `art/src/backgrounds/act_i/interactive_layers/grey_float/staffcorner.psd` | `game/rooms/grey_float/props/staffcorner.png` |
