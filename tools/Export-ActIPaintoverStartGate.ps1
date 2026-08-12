@@ -57,6 +57,9 @@ foreach ($room in $trackerRooms) {
         if ([string]::IsNullOrWhiteSpace([string]$room.reviewer) -or [string]::IsNullOrWhiteSpace([string]$room.reviewed_at) -or [string]::IsNullOrWhiteSpace([string]$room.decision_note)) {
             $blockers += "review_metadata_missing"
         }
+        if ([string]$room.look_target_reviewed -ne "yes") {
+            $blockers += "look_target_review_missing"
+        }
     }
     if ($scaffoldRoom.target_status_remains -ne "pending") {
         $blockers += "scaffold_does_not_preserve_pending_status"
@@ -74,6 +77,7 @@ foreach ($room in $trackerRooms) {
         reviewed_at = $room.reviewed_at
         build_commit = $room.build_commit
         decision_note = $room.decision_note
+        look_target_reviewed = $room.look_target_reviewed
         approved_for_paintover = [bool]$room.approved_for_paintover
         target_paintover_source = $room.paintover_source
         target_paintover_status = $paintoverStatus.status
@@ -114,15 +118,16 @@ $lines = @(
     "",
     "This report is expected to remain blocked until human Act I art/readability review signs off room layouts.",
     "",
-    "| Room | Ready | Review | Build | Reviewer | Reviewed At | Approved | Target PSD Status | Blockers |",
-    "|---|---|---|---|---|---|---|---|---|"
+    "| Room | Ready | Review | Build | Reviewer | Reviewed At | Look Target | Approved | Target PSD Status | Blockers |",
+    "|---|---|---|---|---|---|---|---|---|---|"
 )
 foreach ($room in $gateRooms) {
     $blockerText = if (@($room.blockers).Count -eq 0) { "none" } else { @($room.blockers) -join ", " }
     $buildText = if ([string]::IsNullOrWhiteSpace([string]$room.build_commit)) { "none" } else { [string]$room.build_commit }
     $reviewerText = if ([string]::IsNullOrWhiteSpace([string]$room.reviewer)) { "none" } else { [string]$room.reviewer }
     $reviewedAtText = if ([string]::IsNullOrWhiteSpace([string]$room.reviewed_at)) { "none" } else { [string]$room.reviewed_at }
-    $lines += "| $($room.room_code) $($room.title) | $($room.ready_for_paintover) | $($room.review_status) | $buildText | $reviewerText | $reviewedAtText | $($room.approved_for_paintover) | $($room.target_paintover_status) | $blockerText |"
+    $lookTargetText = if ([string]::IsNullOrWhiteSpace([string]$room.look_target_reviewed)) { "none" } else { [string]$room.look_target_reviewed }
+    $lines += "| $($room.room_code) $($room.title) | $($room.ready_for_paintover) | $($room.review_status) | $buildText | $reviewerText | $reviewedAtText | $lookTargetText | $($room.approved_for_paintover) | $($room.target_paintover_status) | $blockerText |"
 }
 
 Set-Content -LiteralPath $mdPath -Value $lines -Encoding UTF8

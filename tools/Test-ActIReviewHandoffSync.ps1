@@ -78,7 +78,7 @@ try {
         throw "Act I review handoff sync did not recover after restoring CSV."
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit "abcdef1" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for handoff proof simulation; accepted Litany format preserved."
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit "abcdef1" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for handoff proof simulation; accepted Litany format preserved." -LookTargetReviewed "yes"
     if ($LASTEXITCODE -ne 0) { throw "Failed to approve Harbor Registry for handoff proof simulation." }
     $rows = @(Import-Csv -LiteralPath $decisionCsvPath)
     $registry = @($rows | Where-Object { $_.room_id -eq "harbor_registry" })[0]
@@ -87,6 +87,7 @@ try {
     $registry.reviewer = "Automated test"
     $registry.reviewed_at = "2026-08-11"
     $registry.decision_note = "Approve Harbor Registry for handoff proof simulation; accepted Litany format preserved."
+    $registry.look_target_reviewed = "yes"
     $rows | Export-Csv -LiteralPath $decisionCsvPath -NoTypeInformation -Encoding UTF8
     Invoke-ExpectSyncFailure -FailureName "build commit proof mismatch" -ExpectedPattern "proof fields differ"
 

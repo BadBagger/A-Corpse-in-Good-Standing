@@ -34,7 +34,7 @@ try {
         throw "Review updater BuildCommit negative control failed for the wrong reason: $($badOutput -join ' ')"
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved."
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved." -LookTargetReviewed "yes"
     if ($LASTEXITCODE -ne 0) {
         throw "Set-ActIReviewDecision approved smoke failed."
     }
@@ -49,6 +49,9 @@ try {
     }
     if ($registry.fix_buckets.duel_format -notmatch "Accepted Litany/Registrar duel format preserved") {
         throw "Review updater did not preserve the Registrar duel-format approval note."
+    }
+    if ($registry.look_target_reviewed -ne "yes") {
+        throw "Review updater did not persist look-target acknowledgement for Harbor Registry."
     }
 
     & powershell -NoProfile -ExecutionPolicy Bypass -File $validateTrackerScript
@@ -106,12 +109,24 @@ try {
         throw "Review updater ReviewedAt negative control failed for the wrong reason: $($badOutput -join ' ')"
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved."
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    $badOutput = & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Missing look-target negative control." 2>&1
+    $badExit = $LASTEXITCODE
+    $ErrorActionPreference = $previousErrorActionPreference
+    if ($badExit -eq 0) {
+        throw "Set-ActIReviewDecision should reject non-pending decisions without LookTargetReviewed yes."
+    }
+    if (($badOutput -join "`n") -notmatch "LookTargetReviewed yes") {
+        throw "Review updater LookTargetReviewed negative control failed for the wrong reason: $($badOutput -join ' ')"
+    }
+
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for paintover simulation; accepted Litany format preserved." -LookTargetReviewed "yes"
     if ($LASTEXITCODE -ne 0) {
         throw "Set-ActIReviewDecision failed while restoring approved metadata after negative control."
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "grey_float" -Decision "revise_before_art" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Grey Float needs content staging revision before paint." -ContentCompliance "Steam silhouettes need stronger privacy staging before paint."
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setScript -RoomId "grey_float" -Decision "revise_before_art" -BuildCommit $buildCommit -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Grey Float needs content staging revision before paint." -LookTargetReviewed "yes" -ContentCompliance "Steam silhouettes need stronger privacy staging before paint."
     if ($LASTEXITCODE -ne 0) {
         throw "Set-ActIReviewDecision revise smoke failed."
     }
@@ -126,6 +141,9 @@ try {
     }
     if ($float.fix_buckets.content_compliance -notmatch "Steam silhouettes") {
         throw "Review updater did not record Grey Float content compliance fix note."
+    }
+    if ($float.look_target_reviewed -ne "yes") {
+        throw "Review updater did not persist look-target acknowledgement for Grey Float."
     }
 }
 finally {

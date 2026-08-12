@@ -12,6 +12,7 @@ param(
     [string]$Reviewer = "",
     [string]$ReviewedAt = "",
     [string]$DecisionNote = "",
+    [string]$LookTargetReviewed = "",
     [switch]$AllowUnresolvedHotspots
 )
 
@@ -61,6 +62,7 @@ Set-ReviewProperty -Target $room -Name "build_commit" -Value $BuildCommit
 Set-ReviewProperty -Target $room -Name "reviewer" -Value $Reviewer
 Set-ReviewProperty -Target $room -Name "reviewed_at" -Value $ReviewedAt
 Set-ReviewProperty -Target $room -Name "decision_note" -Value $DecisionNote
+Set-ReviewProperty -Target $room -Name "look_target_reviewed" -Value $LookTargetReviewed.Trim().ToLowerInvariant()
 Set-ReviewProperty -Target $room -Name "approved_for_paintover" -Value ($Decision -eq "approved")
 
 if ($Decision -ne "pending_review") {
@@ -76,6 +78,9 @@ if ($Decision -ne "pending_review") {
     $parsedReviewedAt = [datetime]::MinValue
     if (-not [datetime]::TryParseExact($ReviewedAt, "yyyy-MM-dd", [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$parsedReviewedAt)) {
         throw "Room '$RoomId' has non-pending decision '$Decision' and -ReviewedAt must use YYYY-MM-DD."
+    }
+    if ($LookTargetReviewed.Trim().ToLowerInvariant() -ne "yes") {
+        throw "Room '$RoomId' has non-pending decision '$Decision' and must include -LookTargetReviewed yes after reviewing the Act I look target as reference-only."
     }
 }
 

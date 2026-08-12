@@ -48,6 +48,7 @@ foreach ($gateRoom in $gateRooms) {
         reviewer = $gateRoom.reviewer
         reviewed_at = $gateRoom.reviewed_at
         decision_note = $gateRoom.decision_note
+        look_target_reviewed = $gateRoom.look_target_reviewed
         target_paintover_source = $gateRoom.target_paintover_source
         scaffold = $gateRoom.scaffold
         blockout_reference = $scaffoldRoom.blockout_reference
@@ -119,6 +120,7 @@ if ($workRooms.Count -eq 0) {
         $lines += "- Reviewer: $($room.reviewer)"
         $lines += "- Reviewed at: $($room.reviewed_at)"
         $lines += "- Decision note: $($room.decision_note)"
+        $lines += "- Look target reviewed: $($room.look_target_reviewed)"
         $lines += "- Target PSD: ``$($room.target_paintover_source)``"
         $lines += "- Scaffold: ``$($room.scaffold)``"
         $lines += "- Blockout reference: ``$($room.blockout_reference)``"

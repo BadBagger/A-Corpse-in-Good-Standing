@@ -59,6 +59,9 @@ foreach ($room in $rooms) {
         if ([string]::IsNullOrWhiteSpace([string]$room.build_commit)) {
             throw "Room $($room.room_id) is ready_for_paintover without build_commit."
         }
+        if ([string]$room.look_target_reviewed -ne "yes") {
+            throw "Room $($room.room_id) is ready_for_paintover without look_target_reviewed=yes."
+        }
         if ([string]$room.build_commit -notmatch '^(unknown|[0-9a-f]{7,40})$') {
             throw "Room $($room.room_id) has invalid build_commit: $($room.build_commit)"
         }
@@ -81,6 +84,7 @@ foreach ($requiredText in @(
     "Build",
     "Reviewer",
     "Reviewed At",
+    "Look Target",
     "expected to remain blocked until human Act I art/readability review signs off"
 )) {
     if ($report -notmatch [regex]::Escape($requiredText)) {

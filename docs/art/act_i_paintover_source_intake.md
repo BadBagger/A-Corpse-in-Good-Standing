@@ -13,21 +13,21 @@ Unapproved present: 0
 Rule locks:
 - A PSD can count only when the room appears in the approved-room work order.
 - A PSD can be accepted only when asset status reports valid_psd_source with a nonzero size.
-- Approved or accepted PSD rows must preserve build_commit and reviewer metadata from the work order.
+- Approved or accepted PSD rows must preserve build_commit, reviewer metadata, and look_target_reviewed from the work order.
 - Do not create placeholder PSDs for blocked rooms.
 - Accepted Litany/Registrar duel format remains locked.
 - Grey Float remains hard-R: steam, silhouette, privacy, and agency only.
 
-| Room | Work Order Approved | Build | Reviewer | Reviewed At | Source Status | Content Status | Bytes | Intake Status | Path |
-|---|---|---|---|---|---|---|---:|---|---|
-| R01 Mudflats | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/mudflats.psd` |
-| R02 The Old Quay | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/old_quay.psd` |
-| R03 Salt Market | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/salt_market.psd` |
-| R05 Harbor Registry | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/harbor_registry.psd` |
-| R06 The Bone Chandler | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/bone_chandler.psd` |
-| R07 The Almshouse | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/almshouse.psd` |
-| R08 The Fish Hall | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/fish_hall.psd` |
-| R09 Church of the Drowned | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/church_of_the_drowned.psd` |
-| R10 The Grey Float | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/grey_float.psd` |
-| R11 Harbormaster's Office | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/harbormaster_office.psd` |
-| R12 Sabine's Office | False | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/sabine_office.psd` |
+| Room | Work Order Approved | Build | Reviewer | Reviewed At | Look Target | Source Status | Content Status | Bytes | Intake Status | Path |
+|---|---|---|---|---|---|---|---|---:|---|---|
+| R01 Mudflats | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/mudflats.psd` |
+| R02 The Old Quay | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/old_quay.psd` |
+| R03 Salt Market | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/salt_market.psd` |
+| R05 Harbor Registry | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/harbor_registry.psd` |
+| R06 The Bone Chandler | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/bone_chandler.psd` |
+| R07 The Almshouse | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/almshouse.psd` |
+| R08 The Fish Hall | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/fish_hall.psd` |
+| R09 Church of the Drowned | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/church_of_the_drowned.psd` |
+| R10 The Grey Float | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/grey_float.psd` |
+| R11 Harbormaster's Office | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/harbormaster_office.psd` |
+| R12 Sabine's Office | False | none | none | none | none | pending | missing | 0 | blocked_pending | `art/src/backgrounds/act_i/sabine_office.psd` |

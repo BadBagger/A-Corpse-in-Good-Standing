@@ -40,7 +40,7 @@ try {
         throw "Initial final paintover completion state should be 0 complete / 11 blocked."
     }
 
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit "abcdef1" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for final-paintover completion simulation; accepted Litany format preserved."
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $setDecisionScript -RoomId "harbor_registry" -Decision "approved" -BuildCommit "abcdef1" -Reviewer "Automated test" -ReviewedAt "2026-08-11" -DecisionNote "Approve Harbor Registry for final-paintover completion simulation; accepted Litany format preserved." -LookTargetReviewed "yes"
     if ($LASTEXITCODE -ne 0) { throw "Failed to approve Harbor Registry for completion simulation." }
     [System.IO.File]::WriteAllBytes($psdPath, [byte[]](0x38, 0x42, 0x50, 0x53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
     Start-Sleep -Milliseconds 50
@@ -61,6 +61,9 @@ try {
     }
     if ($registry.build_commit -ne "abcdef1" -or $registry.reviewer -ne "Automated test" -or $registry.reviewed_at -ne "2026-08-11" -or $registry.decision_note -notmatch "final-paintover completion simulation") {
         throw "Final paintover completion did not preserve build_commit and reviewer metadata from source intake."
+    }
+    if ($registry.look_target_reviewed -ne "yes") {
+        throw "Final paintover completion did not preserve look-target acknowledgement from source intake."
     }
     if ($registry.source_content_status -ne "valid_psd_source" -or -not [bool]$registry.valid_paintover_source -or [int64]$registry.source_size_bytes -le 0) {
         throw "Final paintover completion did not preserve valid PSD source proof from source intake."

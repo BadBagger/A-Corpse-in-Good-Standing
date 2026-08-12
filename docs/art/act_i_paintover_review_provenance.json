@@ -25,7 +25,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  },
                  {
                      "room_code":  "R02",
@@ -38,7 +39,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  },
                  {
                      "room_code":  "R03",
@@ -51,7 +53,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  },
                  {
                      "room_code":  "R05",
@@ -64,7 +67,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  },
                  {
                      "room_code":  "R06",
@@ -77,7 +81,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  },
                  {
                      "room_code":  "R07",
@@ -90,7 +95,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  },
                  {
                      "room_code":  "R08",
@@ -103,7 +109,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  },
                  {
                      "room_code":  "R09",
@@ -116,7 +123,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  },
                  {
                      "room_code":  "R10",
@@ -129,7 +137,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  },
                  {
                      "room_code":  "R11",
@@ -142,7 +151,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  },
                  {
                      "room_code":  "R12",
@@ -155,7 +165,8 @@
                      "completion_status":  "blocked_not_started",
                      "build_commit":  "",
                      "reviewer":  "",
-                     "reviewed_at":  ""
+                     "reviewed_at":  "",
+                     "look_target_reviewed":  ""
                  }
              ]
 }
