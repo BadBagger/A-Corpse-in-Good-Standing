@@ -1,0 +1,76 @@
+{
+  "props": [
+    {
+      "id": "prosper_watch_display",
+      "name": "Prosper watch display",
+      "source_sheet": "art/src/props/bone_chandler/openai/bone_chandler_props_openai_raw.png",
+      "raw_export": "art/export/props/bone_chandler/prosper_watch_display_raw.png",
+      "game_resource": "game/rooms/bone_chandler/props/prosper_watch_display.png",
+      "width": 155,
+      "height": 155,
+      "target_height": 155,
+      "position": [
+        1018,
+        612
+      ],
+      "z": 5,
+      "hotspot": "ProsperWatch",
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "bone_trade_counter",
+      "name": "Bone trade counter",
+      "source_sheet": "art/src/props/bone_chandler/openai/bone_chandler_props_openai_raw.png",
+      "raw_export": "art/export/props/bone_chandler/bone_trade_counter_raw.png",
+      "game_resource": "game/rooms/bone_chandler/props/bone_trade_counter.png",
+      "width": 208,
+      "height": 215,
+      "target_height": 215,
+      "position": [
+        690,
+        545
+      ],
+      "z": 3,
+      "hotspot": "Wares",
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "salt_trade_tray",
+      "name": "Salt trade tray",
+      "source_sheet": "art/src/props/bone_chandler/openai/bone_chandler_props_openai_raw.png",
+      "raw_export": "art/export/props/bone_chandler/salt_trade_tray_raw.png",
+      "game_resource": "game/rooms/bone_chandler/props/salt_trade_tray.png",
+      "width": 128,
+      "height": 128,
+      "target_height": 128,
+      "position": [
+        650,
+        760
+      ],
+      "z": 4,
+      "hotspot": "Wares",
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "bone_shelf_cluster",
+      "name": "Bone shelf collateral",
+      "source_sheet": "art/src/props/bone_chandler/openai/bone_chandler_props_openai_raw.png",
+      "raw_export": "art/export/props/bone_chandler/bone_shelf_cluster_raw.png",
+      "game_resource": "game/rooms/bone_chandler/props/bone_shelf_cluster.png",
+      "width": 204,
+      "height": 205,
+      "target_height": 205,
+      "position": [
+        1325,
+        500
+      ],
+      "z": 3,
+      "hotspot": "ChessSet",
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}
