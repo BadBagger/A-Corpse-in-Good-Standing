@@ -1,9 +1,22 @@
 {
   "status": "exported",
-  "frame_count": 8,
+  "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_runtime_frame_contact_sheet.png",
   "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, standee wet-floor reflections, room-specific dialogue captions, first-frame overlays, and generated HUD skin",
   "rooms": [
+    {
+      "room_code": "R01",
+      "room_id": "mudflats",
+      "title": "Mudflats",
+      "output": "docs/art/review/act_i_runtime_frames/mudflats_runtime_frame.png",
+      "base": "docs/art/review/mudflats_openai_prop_composite.png",
+      "standee_count": 0,
+      "standee_reflection_count": 0,
+      "overlay_count": 1,
+      "dialogue_caption": "Mudflats. The tide brought Corvin back and kept the boots.",
+      "includes_corvin": true,
+      "includes_hud": true
+    },
     {
       "room_code": "R02",
       "room_id": "old_quay",

@@ -18,8 +18,8 @@ $report = Get-Content -LiteralPath $jsonPath -Raw | ConvertFrom-Json
 if ($report.status -ne "exported") {
     throw "Act I runtime review frame report must have status exported."
 }
-if ([int]$report.frame_count -ne 8) {
-    throw "Act I runtime review frame report expected 8 frames, got $($report.frame_count)."
+if ([int]$report.frame_count -ne 9) {
+    throw "Act I runtime review frame report expected 9 frames, got $($report.frame_count)."
 }
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_runtime_frame_contact_sheet.png") {
     throw "Act I runtime review frame contact sheet path is not stable."
@@ -36,11 +36,11 @@ if ([string]$report.runtime_evidence -notmatch "room-specific dialogue captions"
 
 Add-Type -AssemblyName System.Drawing
 $rooms = @($report.rooms)
-if ($rooms.Count -ne 8) {
-    throw "Act I runtime review frame report expected 8 room records, got $($rooms.Count)."
+if ($rooms.Count -ne 9) {
+    throw "Act I runtime review frame report expected 9 room records, got $($rooms.Count)."
 }
 
-$requiredCodes = @("R02", "R03", "R05", "R06", "R07", "R09", "R10", "R12")
+$requiredCodes = @("R01", "R02", "R03", "R05", "R06", "R07", "R09", "R10", "R12")
 $seen = @{}
 foreach ($room in $rooms) {
     $code = [string]$room.room_code
@@ -133,6 +133,11 @@ $builder = Get-Content -LiteralPath $builderPath -Raw
 foreach ($requiredText in @("ROOM_CAPTIONS", "wrap_text", "dialogue_caption")) {
     if (-not $builder.Contains($requiredText)) {
         throw "Act I runtime review builder missing dialogue caption text: $requiredText"
+    }
+}
+foreach ($requiredText in @("mudflats_tide_glint", "mudflats_openai_prop_composite.png")) {
+    if (-not $builder.Contains($requiredText)) {
+        throw "Act I runtime review builder missing Mudflats runtime review text: $requiredText"
     }
 }
 if ($builder.Contains("Corvin: dead, damp, and still doing the voice.")) {

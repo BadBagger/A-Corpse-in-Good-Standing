@@ -3,11 +3,12 @@
 Generated player-view review frames using runtime foreground prop composites, prop grounding, Corvin side sprites, NPC standees, room-specific dialogue captions, first-frame atmosphere/setpieces, contact shadows, wet-floor reflections, and the generated noir HUD skin.
 
 - Contact sheet: `docs/art/review/act_i_runtime_frame_contact_sheet.png`
-- Frame count: 8
+- Frame count: 9
 - Purpose: prove the current Act I presentation looks like an in-game screen, not only isolated art assets.
 
 | Room | Runtime frame | Includes |
 |---|---|---|
+| R01 / Mudflats | `docs/art/review/act_i_runtime_frames/mudflats_runtime_frame.png` | Corvin, HUD, 1 overlay(s); caption: Mudflats. The tide brought Corvin back and kept the boots. |
 | R02 / The Old Quay | `docs/art/review/act_i_runtime_frames/old_quay_runtime_frame.png` | Corvin, HUD, 1 standee(s), 1 standee reflection(s), 1 overlay(s); caption: Corvin: Tomas, you look moored. Tomas: I contain multitudes and two unpaid bar tabs. |
 | R03 / Salt Market | `docs/art/review/act_i_runtime_frames/salt_market_runtime_frame.png` | Corvin, HUD, 2 overlay(s); caption: The crowd notices Corvin is dead. Commerce handles it poorly. |
 | R05 / Harbor Registry | `docs/art/review/act_i_runtime_frames/harbor_registry_runtime_frame.png` | Corvin, HUD, 1 standee(s), 1 standee reflection(s), 1 overlay(s); caption: Registrar: Dead men do not have standing. Corvin: That explains my posture. |

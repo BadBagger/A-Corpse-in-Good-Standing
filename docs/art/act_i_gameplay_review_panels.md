@@ -3,11 +3,12 @@
 Generated from the current Godot runtime frame proof. These larger crops make the playable band, generated room art, Corvin, NPC standees, foreground props, HUD, and room-specific dialogue captions easier to inspect than the full-room contact sheet.
 
 - Contact sheet: `docs/art/review/act_i_gameplay_review_panels_contact_sheet.png`
-- Panel count: 8
+- Panel count: 9
 - Crop box: `480,360,1680,1080` from each 1920x1080 frame
 
 | Room | Panel | Dialogue caption |
 |---|---|---|
+| R01 / Mudflats | `docs/art/review/act_i_gameplay_review_panels/mudflats_gameplay_panel.png` | Mudflats. The tide brought Corvin back and kept the boots. |
 | R02 / The Old Quay | `docs/art/review/act_i_gameplay_review_panels/old_quay_gameplay_panel.png` | Corvin: Tomas, you look moored. Tomas: I contain multitudes and two unpaid bar tabs. |
 | R03 / Salt Market | `docs/art/review/act_i_gameplay_review_panels/salt_market_gameplay_panel.png` | The crowd notices Corvin is dead. Commerce handles it poorly. |
 | R05 / Harbor Registry | `docs/art/review/act_i_gameplay_review_panels/harbor_registry_gameplay_panel.png` | Registrar: Dead men do not have standing. Corvin: That explains my posture. |

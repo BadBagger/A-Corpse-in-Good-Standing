@@ -1,10 +1,28 @@
 {
   "status": "exported",
   "source": "docs/art/act_i_godot_runtime_frames.json",
-  "panel_count": 8,
+  "panel_count": 9,
   "contact_sheet": "docs/art/review/act_i_gameplay_review_panels_contact_sheet.png",
   "purpose": "larger cropped gameplay panels for mobile/human review of runtime art, Corvin, NPCs, foreground props, HUD, and room-specific dialogue captions",
   "panels": [
+    {
+      "room_code": "R01",
+      "room_id": "mudflats",
+      "title": "Mudflats",
+      "source_frame": "docs/art/review/act_i_godot_runtime_frames/mudflats_godot_runtime_frame.png",
+      "output": "docs/art/review/act_i_gameplay_review_panels/mudflats_gameplay_panel.png",
+      "width": 1200,
+      "height": 720,
+      "crop_box": [
+        480,
+        360,
+        1680,
+        1080
+      ],
+      "dialogue_caption": "Mudflats. The tide brought Corvin back and kept the boots.",
+      "includes_hud_crop": true,
+      "includes_runtime_art": true
+    },
     {
       "room_code": "R02",
       "room_id": "old_quay",

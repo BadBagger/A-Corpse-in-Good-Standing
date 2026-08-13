@@ -1,10 +1,30 @@
 {
   "status": "captured",
   "capture": "godot_runtime_composition",
-  "frame_count": 8,
+  "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png",
   "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, room-specific dialogue captions, atmosphere, HUD, NPC standees, and the actual Corvin character scene using RuntimeSprite loader.",
   "rooms": [
+    {
+      "room_code": "R01",
+      "room_id": "mudflats",
+      "title": "Mudflats",
+      "output": "docs/art/review/act_i_godot_runtime_frames/mudflats_godot_runtime_frame.png",
+      "base": "docs/art/review/mudflats_openai_prop_composite.png",
+      "includes_godot_runtime_composition": true,
+      "includes_actual_corvin_scene": true,
+      "includes_corvin_runtime_sprite_loader": true,
+      "uses_room_scene_background": true,
+      "uses_shared_room_art_constants": true,
+      "uses_direct_png_loading": true,
+      "foreground_prop_count": 3,
+      "contact_shadow_count": 3,
+      "wet_reflection_count": 3,
+      "standee_count": 0,
+      "standee_reflection_count": 0,
+      "overlay_count": 1,
+      "dialogue_caption": "Mudflats. The tide brought Corvin back and kept the boots."
+    },
     {
       "room_code": "R02",
       "room_id": "old_quay",

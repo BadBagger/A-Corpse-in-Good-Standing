@@ -20,6 +20,7 @@ PALETTE = {
 }
 
 ROOM_CAPTIONS = {
+    "R01": "Mudflats. The tide brought Corvin back and kept the boots.",
     "R02": "Corvin: Tomas, you look moored. Tomas: I contain multitudes and two unpaid bar tabs.",
     "R03": "The crowd notices Corvin is dead. Commerce handles it poorly.",
     "R05": "Registrar: Dead men do not have standing. Corvin: That explains my posture.",
@@ -31,6 +32,16 @@ ROOM_CAPTIONS = {
 }
 
 ROOMS = [
+    {
+        "code": "R01",
+        "title": "Mudflats",
+        "room_id": "mudflats",
+        "base": "docs/art/review/mudflats_openai_prop_composite.png",
+        "player": (840, 790, "idle_side_right"),
+        "foreground_prop_count": 3,
+        "standees": [],
+        "overlays": [("mudflats_tide_glint", "game/rooms/mudflats/atmosphere/mudflats_tide_glint.png", 0, 610, 1920, 360, 8)],
+    },
     {
         "code": "R02",
         "title": "The Old Quay",

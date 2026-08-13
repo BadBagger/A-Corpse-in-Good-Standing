@@ -20,8 +20,8 @@ if ($report.status -ne "captured") {
 if ([string]$report.capture -ne "godot_runtime_composition") {
     throw "Act I Godot runtime frame report must identify the capture as godot_runtime_composition."
 }
-if ([int]$report.frame_count -ne 8) {
-    throw "Act I Godot runtime frame report expected 8 frames, got $($report.frame_count)."
+if ([int]$report.frame_count -ne 9) {
+    throw "Act I Godot runtime frame report expected 9 frames, got $($report.frame_count)."
 }
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png") {
     throw "Act I Godot runtime frame contact sheet path is not stable."
@@ -33,10 +33,10 @@ foreach ($requiredText in @("actual room scene background paths", "shared runtim
 }
 
 Add-Type -AssemblyName System.Drawing
-$requiredCodes = @("R02", "R03", "R05", "R06", "R07", "R09", "R10", "R12")
+$requiredCodes = @("R01", "R02", "R03", "R05", "R06", "R07", "R09", "R10", "R12")
 $rooms = @($report.rooms)
-if ($rooms.Count -ne 8) {
-    throw "Act I Godot runtime report expected 8 room records, got $($rooms.Count)."
+if ($rooms.Count -ne 9) {
+    throw "Act I Godot runtime report expected 9 room records, got $($rooms.Count)."
 }
 $seen = @{}
 foreach ($room in $rooms) {
@@ -120,6 +120,11 @@ $captureScript = Get-Content -LiteralPath $captureScriptPath -Raw
 foreach ($requiredText in @("act_i_godot_runtime_frames", "godot_runtime_composition", "foreground_prop_count", "draw_wet_floor_reflection", "standee_reflection_count", "ROOM_CAPTIONS", "wrap_text", "dialogue_caption", 'game" / "characters" / "corvin', "RuntimeSprite", "direct PNG loading")) {
     if (-not $captureScript.Contains($requiredText)) {
         throw "Act I Godot runtime capture script missing required text: $requiredText"
+    }
+}
+foreach ($requiredText in @("mudflats_tide_glint", "mudflats_openai_prop_composite.png")) {
+    if (-not $captureScript.Contains($requiredText)) {
+        throw "Act I Godot runtime capture script missing Mudflats runtime review text: $requiredText"
     }
 }
 if ($captureScript.Contains("Corvin: dead, damp, and still doing the voice.")) {

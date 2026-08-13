@@ -19,8 +19,8 @@ if ($report.status -ne "exported") {
 if ([string]$report.source -ne "docs/art/act_i_godot_runtime_frames.json") {
     throw "Act I gameplay review panels must source the Godot runtime frame report."
 }
-if ([int]$report.panel_count -ne 8) {
-    throw "Act I gameplay review panel report expected 8 panels, got $($report.panel_count)."
+if ([int]$report.panel_count -ne 9) {
+    throw "Act I gameplay review panel report expected 9 panels, got $($report.panel_count)."
 }
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_gameplay_review_panels_contact_sheet.png") {
     throw "Act I gameplay review panel contact sheet path is not stable."
@@ -32,7 +32,7 @@ foreach ($requiredText in @("larger cropped gameplay panels", "runtime art", "Co
 }
 
 Add-Type -AssemblyName System.Drawing
-$requiredCodes = @("R02", "R03", "R05", "R06", "R07", "R09", "R10", "R12")
+$requiredCodes = @("R01", "R02", "R03", "R05", "R06", "R07", "R09", "R10", "R12")
 $seen = @{}
 $panels = @($report.panels)
 foreach ($panel in $panels) {

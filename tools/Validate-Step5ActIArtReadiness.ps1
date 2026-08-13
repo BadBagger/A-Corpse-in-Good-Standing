@@ -1149,8 +1149,8 @@ if ($LASTEXITCODE -ne 0) {
     throw "Act I runtime review frame validator failed."
 }
 
-if ($runtimeReviewFramesJson.status -ne "exported" -or [int]$runtimeReviewFramesJson.frame_count -ne 8) {
-    throw "Act I runtime review frames must export 8 player-view frames."
+if ($runtimeReviewFramesJson.status -ne "exported" -or [int]$runtimeReviewFramesJson.frame_count -ne 9) {
+    throw "Act I runtime review frames must export 9 player-view frames."
 }
 foreach ($requiredText in @(
     "Act I Runtime Review Frames",
@@ -1170,8 +1170,8 @@ if ($LASTEXITCODE -ne 0) {
     throw "Act I Godot runtime frame validator failed."
 }
 
-if ($godotRuntimeFramesJson.status -ne "captured" -or [int]$godotRuntimeFramesJson.frame_count -ne 8) {
-    throw "Act I Godot runtime frames must capture 8 player-view frames."
+if ($godotRuntimeFramesJson.status -ne "captured" -or [int]$godotRuntimeFramesJson.frame_count -ne 9) {
+    throw "Act I Godot runtime frames must capture 9 player-view frames."
 }
 foreach ($requiredText in @(
     "Act I Godot Runtime Frames",
@@ -1191,8 +1191,8 @@ if ($LASTEXITCODE -ne 0) {
     throw "Act I gameplay review panel validator failed."
 }
 
-if ($gameplayReviewPanelsJson.status -ne "exported" -or [int]$gameplayReviewPanelsJson.panel_count -ne 8) {
-    throw "Act I gameplay review panels must export 8 readable gameplay crops."
+if ($gameplayReviewPanelsJson.status -ne "exported" -or [int]$gameplayReviewPanelsJson.panel_count -ne 9) {
+    throw "Act I gameplay review panels must export 9 readable gameplay crops."
 }
 foreach ($requiredText in @(
     "Act I Gameplay Review Panels",
