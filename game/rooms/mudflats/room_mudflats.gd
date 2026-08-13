@@ -12,6 +12,8 @@ const HOVER_LABELS := {
 	"SaltMarketExit": "Salt Market"
 }
 
+@export var show_debug_layout := false
+
 var state: Data = Data.new()
 var _hud: CanvasLayer
 
@@ -19,6 +21,7 @@ func _ready() -> void:
 	super()
 	if Engine.is_editor_hint():
 		return
+	_apply_real_art_presentation()
 	_hud = $PrologueHud
 	var narrative := _narrative()
 	if narrative:
@@ -50,7 +53,24 @@ func _on_room_transition_finished() -> void:
 	if Engine.is_editor_hint():
 		return
 	_play_corvin_runtime_animation("idle_current_side")
-	print("PROLOGUE: Wet - mudflats greybox ready")
+
+func _apply_real_art_presentation() -> void:
+	_set_debug_layout_visible(show_debug_layout)
+
+func _set_debug_layout_visible(is_visible: bool) -> void:
+	for node_name in ["LeviathanRibs", "MudShelf", "HarborWater", "GreyboxLabels", "WalkableAreas", "Props/CorvinPlaceholder"]:
+		var node := get_node_or_null(node_name)
+		if node is CanvasItem:
+			node.visible = is_visible
+	var hotspots := get_node_or_null("Hotspots")
+	if hotspots:
+		_set_child_labels_visible(hotspots, is_visible)
+
+func _set_child_labels_visible(parent: Node, is_visible: bool) -> void:
+	for child in parent.get_children():
+		if child is Label:
+			child.visible = is_visible
+		_set_child_labels_visible(child, is_visible)
 
 func _on_room_exited() -> void:
 	pass

@@ -25,7 +25,7 @@ func _ready() -> void:
 	for verb in VERBS:
 		_verb_buttons[verb].pressed.connect(set_selected_verb.bind(verb))
 	set_selected_verb(selected_verb)
-	set_status("Pick a verb, then click a greybox hotspot.")
+	set_status("Choose a verb, then test Mordida's patience.")
 	set_objective_summary("Objective: Reach the Salt Market and find out who recognizes Corvin.")
 	_refresh_inventory()
 	set_journal_entries([])

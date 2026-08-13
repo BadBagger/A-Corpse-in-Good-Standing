@@ -115,7 +115,7 @@ theme_override_constants/margin_bottom = 8
 [node name="Status" type="Label" parent="Root/StatusPanel/StatusMargin"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Pick a verb, then click a greybox hotspot."
+text = "Choose a verb, then test Mordida's patience."
 vertical_alignment = 1
 
 [node name="ObjectivePanel" type="PanelContainer" parent="Root"]
