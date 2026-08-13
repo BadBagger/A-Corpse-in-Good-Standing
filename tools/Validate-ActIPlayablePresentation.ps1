@@ -31,6 +31,19 @@ foreach ($source in @($hudScript, $hudScene)) {
     }
 }
 
+foreach ($requiredText in @(
+    "offset_left = 560.0",
+    "offset_top = -166.0",
+    "offset_right = -390.0",
+    "theme_override_constants/margin_left = 84",
+    "theme_override_constants/margin_top = 28",
+    'Vector2(-122, -18)'
+)) {
+    if (-not (($hudScene + $hudScript).Contains($requiredText))) {
+        throw "Playable HUD dialogue plaque is not aligned to the generated lower-screen proof layout: $requiredText"
+    }
+}
+
 if ($mainScript -match "greybox") {
     throw "Main runtime log must not describe the playable scene as greybox."
 }

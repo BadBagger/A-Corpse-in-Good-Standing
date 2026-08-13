@@ -105,7 +105,7 @@ func _refresh_inventory() -> void:
 
 func _apply_noir_skin() -> void:
 	_add_texture_backdrop(%Status, "status_strip.png", Vector2(8, 30), Vector2(0.325, 0.50), -1, Rect2i(0, 0, 430, 112))
-	_add_texture_backdrop(%Dialogue, "dialogue_panel.png", Vector2(-128, -8), Vector2(1.15, 0.56), -1)
+	_add_texture_backdrop(%Dialogue, "dialogue_panel.png", Vector2(-122, -18), Vector2(1.15, 0.56), -1)
 	_add_texture_backdrop(%Inventory, "bottom_inventory_panel.png", Vector2(-14, -86), Vector2(0.63, 0.34), -1)
 	_add_texture_backdrop(%Litany, "small_icon_frame.png", Vector2(-74, -30), Vector2(0.34, 0.34), -1)
 	_style_panel(%WalkButton.get_parent().get_parent().get_parent(), Color(PALETTE.wet_black, 0.62))
