@@ -8,6 +8,77 @@ extends PopochiuRoom
 
 const ACT_I_STANDEE_BASE := "res://game/standees/act_i/%s.png"
 const SECTIONAL_SETPIECE_PLAYER := preload("res://game/rooms/sectional_setpiece_player.gd")
+const ACT_I_PROPS_BY_ROOM := {
+	"R01": [
+		{"id": "brine_silt", "path": "res://game/rooms/mudflats/props/brine_silt.png", "position": Vector2(846, 825), "z": 3},
+		{"id": "tomas_bollard", "path": "res://game/rooms/mudflats/props/tomas_bollard.png", "position": Vector2(268, 405), "z": 3},
+		{"id": "missing_boots", "path": "res://game/rooms/mudflats/props/missing_boots.png", "position": Vector2(897, 785), "z": 3},
+	],
+	"R02": [
+		{"id": "calcified_bollard_row", "path": "res://game/rooms/old_quay/props/calcified_bollard_row.png", "position": Vector2(760, 620), "z": 3},
+		{"id": "salt_rope_cleat", "path": "res://game/rooms/old_quay/props/salt_rope_cleat.png", "position": Vector2(655, 740), "z": 3},
+		{"id": "empty_flask", "path": "res://game/rooms/old_quay/props/empty_flask.png", "position": Vector2(1115, 735), "z": 3},
+		{"id": "quay_crate_cluster", "path": "res://game/rooms/old_quay/props/quay_crate_cluster.png", "position": Vector2(1365, 700), "z": 3},
+	],
+	"R03": [
+		{"id": "boot_stall", "path": "res://game/rooms/salt_market/props/boot_stall.png", "position": Vector2(92, 548), "z": 3},
+		{"id": "market_crowd_dressing", "path": "res://game/rooms/salt_market/props/market_crowd_dressing.png", "position": Vector2(760, 545), "z": 3},
+		{"id": "church_sign", "path": "res://game/rooms/salt_market/props/church_sign.png", "position": Vector2(1295, 405), "z": 3},
+		{"id": "confession_queue", "path": "res://game/rooms/salt_market/props/confession_queue.png", "position": Vector2(1165, 500), "z": 3},
+		{"id": "fishmonger", "path": "res://game/rooms/salt_market/props/fishmonger.png", "position": Vector2(430, 625), "z": 3},
+	],
+	"R05": [
+		{"id": "registry_roll_book", "path": "res://game/rooms/harbor_registry/props/registry_roll_book.png", "position": Vector2(520, 555), "z": 3},
+		{"id": "registry_candles", "path": "res://game/rooms/harbor_registry/props/registry_candles.png", "position": Vector2(910, 642), "z": 3},
+		{"id": "registry_confession_slips", "path": "res://game/rooms/harbor_registry/props/registry_confession_slips.png", "position": Vector2(1065, 720), "z": 3},
+		{"id": "registry_inkstand", "path": "res://game/rooms/harbor_registry/props/registry_inkstand.png", "position": Vector2(790, 720), "z": 3},
+	],
+	"R06": [
+		{"id": "bone_trade_counter", "path": "res://game/rooms/bone_chandler/props/bone_trade_counter.png", "position": Vector2(690, 545), "z": 3},
+		{"id": "prosper_watch_display", "path": "res://game/rooms/bone_chandler/props/prosper_watch_display.png", "position": Vector2(1018, 612), "z": 3},
+		{"id": "bone_shelf_cluster", "path": "res://game/rooms/bone_chandler/props/bone_shelf_cluster.png", "position": Vector2(1325, 500), "z": 3},
+		{"id": "salt_trade_tray", "path": "res://game/rooms/bone_chandler/props/salt_trade_tray.png", "position": Vector2(650, 760), "z": 3},
+	],
+	"R07": [
+		{"id": "salt_window", "path": "res://game/rooms/almshouse/props/salt_window.png", "position": Vector2(705, 420), "z": 3},
+		{"id": "cot_row", "path": "res://game/rooms/almshouse/props/cot_row.png", "position": Vector2(350, 560), "z": 3},
+		{"id": "privacy_screen_laundry", "path": "res://game/rooms/almshouse/props/privacy_screen_laundry.png", "position": Vector2(1245, 540), "z": 3},
+		{"id": "prosper_chair_table", "path": "res://game/rooms/almshouse/props/prosper_chair_table.png", "position": Vector2(890, 585), "z": 3},
+		{"id": "forgiveness_watch_tray", "path": "res://game/rooms/almshouse/props/forgiveness_watch_tray.png", "position": Vector2(1055, 655), "z": 3},
+	],
+	"R08": [
+		{"id": "ice_table_body_outline", "path": "res://game/rooms/fish_hall/props/ice_table_body_outline.png", "position": Vector2(330, 565), "z": 3},
+		{"id": "day_count_board", "path": "res://game/rooms/fish_hall/props/day_count_board.png", "position": Vector2(1350, 510), "z": 3},
+		{"id": "coroner_tag_tray", "path": "res://game/rooms/fish_hall/props/coroner_tag_tray.png", "position": Vector2(900, 645), "z": 3},
+		{"id": "visitor_book", "path": "res://game/rooms/fish_hall/props/visitor_book.png", "position": Vector2(1110, 610), "z": 3},
+		{"id": "floor_drain_grate", "path": "res://game/rooms/fish_hall/props/floor_drain_grate.png", "position": Vector2(1410, 725), "z": 3},
+	],
+	"R09": [
+		{"id": "poor_box", "path": "res://game/rooms/church_of_the_drowned/props/poor_box.png", "position": Vector2(545, 690), "z": 3},
+		{"id": "confession_booth", "path": "res://game/rooms/church_of_the_drowned/props/confession_booth.png", "position": Vector2(705, 535), "z": 3},
+		{"id": "church_ledger_desk", "path": "res://game/rooms/church_of_the_drowned/props/church_ledger_desk.png", "position": Vector2(875, 665), "z": 3},
+		{"id": "church_tariff_sign", "path": "res://game/rooms/church_of_the_drowned/props/church_tariff_sign.png", "position": Vector2(1105, 645), "z": 3},
+	],
+	"R10": [
+		{"id": "juno_ledger_table", "path": "res://game/rooms/grey_float/props/juno_ledger_table.png", "position": Vector2(290, 560), "z": 3},
+		{"id": "bilge_regulator", "path": "res://game/rooms/grey_float/props/bilge_regulator.png", "position": Vector2(860, 465), "z": 3},
+		{"id": "privacy_screen", "path": "res://game/rooms/grey_float/props/privacy_screen.png", "position": Vector2(1335, 440), "z": 3},
+		{"id": "hot_pool_steps", "path": "res://game/rooms/grey_float/props/hot_pool_steps.png", "position": Vector2(1135, 665), "z": 3},
+	],
+	"R11": [
+		{"id": "permit_board", "path": "res://game/rooms/harbormaster_office/props/permit_board.png", "position": Vector2(420, 425), "z": 3},
+		{"id": "sabine_door_panel", "path": "res://game/rooms/harbormaster_office/props/sabine_door_panel.png", "position": Vector2(1340, 415), "z": 3},
+		{"id": "checklist_desk", "path": "res://game/rooms/harbormaster_office/props/checklist_desk.png", "position": Vector2(540, 575), "z": 3},
+		{"id": "clerk_counter", "path": "res://game/rooms/harbormaster_office/props/clerk_counter.png", "position": Vector2(880, 575), "z": 3},
+		{"id": "queue_rail_sign", "path": "res://game/rooms/harbormaster_office/props/queue_rail_sign.png", "position": Vector2(1185, 690), "z": 3},
+	],
+	"R12": [
+		{"id": "frosted_sabine_door", "path": "res://game/rooms/sabine_office/props/frosted_sabine_door.png", "position": Vector2(110, 220), "z": 3},
+		{"id": "damp_persian_rug", "path": "res://game/rooms/sabine_office/props/damp_persian_rug.png", "position": Vector2(430, 760), "z": 3},
+		{"id": "harbormaster_desk", "path": "res://game/rooms/sabine_office/props/harbormaster_desk.png", "position": Vector2(845, 565), "z": 3},
+		{"id": "harbor_chart_board", "path": "res://game/rooms/sabine_office/props/harbor_chart_board.png", "position": Vector2(1495, 495), "z": 3},
+	],
+}
 const ACT_I_STANDEES_BY_ROOM := {
 	"R02": [
 		{"id": "tomas_bollard", "position": Vector2(400, 735), "z": 4},
@@ -187,6 +258,7 @@ func _ready() -> void:
 
 func _apply_real_art_presentation() -> void:
 	_set_debug_layout_visible(show_debug_layout)
+	_add_act_i_props()
 	_add_act_i_standees()
 	_add_act_i_setpieces()
 	_add_act_i_atmosphere()
@@ -205,6 +277,78 @@ func _set_child_labels_visible(parent: Node, is_visible: bool) -> void:
 		if child is Label:
 			child.visible = is_visible
 		_set_child_labels_visible(child, is_visible)
+
+func _add_act_i_props() -> void:
+	if not ACT_I_PROPS_BY_ROOM.has(room_code):
+		return
+	var props := get_node_or_null("Props")
+	if props == null:
+		props = self
+	var container := props.get_node_or_null("ActIForegroundProps")
+	if container:
+		container.queue_free()
+	container = Node2D.new()
+	container.name = "ActIForegroundProps"
+	props.add_child(container)
+	for prop in ACT_I_PROPS_BY_ROOM[room_code]:
+		_add_act_i_prop(container, prop)
+
+func _add_act_i_prop(container: Node, prop: Dictionary) -> void:
+	var prop_id := String(prop.get("id", ""))
+	var path := String(prop.get("path", ""))
+	if prop_id.is_empty() or path.is_empty():
+		return
+	if not FileAccess.file_exists(path):
+		push_warning("Missing Act I foreground prop: %s" % path)
+		return
+	var image := Image.new()
+	var err := image.load(path)
+	if err != OK:
+		push_warning("Could not load Act I foreground prop %s: %s" % [path, error_string(err)])
+		return
+	var texture := ImageTexture.create_from_image(image)
+	var position: Vector2 = prop.get("position", Vector2.ZERO)
+	var z := int(prop.get("z", 3))
+
+	var shadow := _make_act_i_prop_shadow(prop_id, image)
+	shadow.position = Vector2(position.x + float(image.get_width()) * 0.5, position.y + float(image.get_height()) * 0.90)
+	shadow.z_index = z - 1
+	container.add_child(shadow)
+
+	var reflection := Sprite2D.new()
+	reflection.name = "%sWetReflection" % prop_id.to_pascal_case()
+	reflection.texture = texture
+	reflection.centered = false
+	reflection.flip_v = true
+	reflection.position = Vector2(position.x, position.y + float(image.get_height()) * 0.90)
+	reflection.scale = Vector2(1.0, 0.28)
+	reflection.modulate = Color(0.43, 0.48, 0.46, 0.13)
+	reflection.z_index = z - 1
+	container.add_child(reflection)
+
+	var sprite := Sprite2D.new()
+	sprite.name = "%sProp" % prop_id.to_pascal_case()
+	sprite.texture = texture
+	sprite.centered = false
+	sprite.position = position
+	sprite.z_index = z
+	container.add_child(sprite)
+
+func _make_act_i_prop_shadow(prop_id: String, image: Image) -> Polygon2D:
+	var shadow := Polygon2D.new()
+	shadow.name = "%sContactShadow" % prop_id.to_pascal_case()
+	var width := clampf(float(image.get_width()) * 0.32, 32.0, 170.0)
+	var height := clampf(float(image.get_height()) * 0.045, 8.0, 32.0)
+	shadow.polygon = PackedVector2Array([
+		Vector2(-width, 0.0),
+		Vector2(-width * 0.58, -height),
+		Vector2(width * 0.58, -height),
+		Vector2(width, 0.0),
+		Vector2(width * 0.58, height),
+		Vector2(-width * 0.58, height)
+	])
+	shadow.color = Color(0.0470588, 0.0627451, 0.0745098, 0.36)
+	return shadow
 
 func _add_act_i_standees() -> void:
 	if not ACT_I_STANDEES_BY_ROOM.has(room_code):

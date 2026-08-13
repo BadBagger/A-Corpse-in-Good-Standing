@@ -37,6 +37,19 @@ const ACT_I_GENERATED_ROOMS := [
 	"HarbormasterOffice",
 	"SabineOffice",
 ]
+const ACT_I_RUNTIME_PROP_COUNTS := {
+	"Mudflats": 3,
+	"OldQuay": 4,
+	"SaltMarket": 5,
+	"HarborRegistry": 4,
+	"BoneChandler": 4,
+	"Almshouse": 5,
+	"FishHall": 5,
+	"ChurchOfTheDrowned": 4,
+	"GreyFloat": 4,
+	"HarbormasterOffice": 5,
+	"SabineOffice": 4,
+}
 
 const MUDFLATS_REQUIRED_HOTSPOTS := [
 	"Silt",
@@ -115,6 +128,7 @@ func _run() -> void:
 		for child_path in REQUIRED_CHILDREN:
 			if instance.get_node_or_null(child_path) == null:
 				failures.append("Room %s missing required child: %s" % [room_name, child_path])
+		_validate_act_i_runtime_prop_layer(room_name, instance, failures)
 
 		var hotspots := instance.get_node_or_null("Hotspots")
 		if hotspots != null:
@@ -240,6 +254,41 @@ func _validate_mudflats_custom_handlers(failures: Array[String]) -> void:
 		for verb in REQUIRED_VERBS:
 			if not handler_block.contains("\"%s\":" % verb):
 				failures.append("Mudflats custom handler %s has no explicit %s response." % [handler_name, verb])
+
+func _validate_act_i_runtime_prop_layer(room_name: String, instance: Node, failures: Array[String]) -> void:
+	if not ACT_I_RUNTIME_PROP_COUNTS.has(room_name):
+		return
+	if not instance.has_method("_apply_real_art_presentation"):
+		failures.append("Room %s cannot apply real art presentation." % room_name)
+		return
+	instance.call("_apply_real_art_presentation")
+	var container := instance.get_node_or_null("Props/ActIForegroundProps")
+	if container == null:
+		failures.append("Room %s missing runtime ActIForegroundProps container." % room_name)
+		return
+	var expected_props := int(ACT_I_RUNTIME_PROP_COUNTS[room_name])
+	var prop_sprites := 0
+	var contact_shadows := 0
+	var wet_reflections := 0
+	for child in container.get_children():
+		if String(child.name).ends_with("Prop"):
+			prop_sprites += 1
+		elif String(child.name).ends_with("ContactShadow"):
+			contact_shadows += 1
+		elif String(child.name).ends_with("WetReflection"):
+			wet_reflections += 1
+	if room_name == "Mudflats":
+		var props := instance.get_node_or_null("Props")
+		if props != null:
+			for prop_name in ["BrineSiltProp", "TomasBollardProp", "MissingBootsProp"]:
+				if props.get_node_or_null(prop_name) is Sprite2D:
+					prop_sprites += 1
+	if prop_sprites != expected_props:
+		failures.append("Room %s runtime prop sprite count mismatch: got %d expected %d." % [room_name, prop_sprites, expected_props])
+	if contact_shadows != expected_props:
+		failures.append("Room %s runtime prop contact-shadow count mismatch: got %d expected %d." % [room_name, contact_shadows, expected_props])
+	if wet_reflections != expected_props:
+		failures.append("Room %s runtime wet-reflection count mismatch: got %d expected %d." % [room_name, wet_reflections, expected_props])
 
 func _validate_room_verb_action_contract(failures: Array[String]) -> void:
 	_validate_room_source_verb_action_contract(

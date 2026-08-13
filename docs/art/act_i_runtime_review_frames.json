@@ -2,7 +2,7 @@
   "status": "exported",
   "frame_count": 8,
   "contact_sheet": "docs/art/review/act_i_runtime_frame_contact_sheet.png",
-  "runtime_evidence": "room prop composites plus runtime Corvin, standees, first-frame overlays, and generated HUD skin",
+  "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, first-frame overlays, and generated HUD skin",
   "rooms": [
     {
       "room_code": "R02",

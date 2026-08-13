@@ -4,9 +4,10 @@ $root = Split-Path -Parent $PSScriptRoot
 $jsonPath = Join-Path $root "docs\art\act_i_prop_grounding_pass.json"
 $mdPath = Join-Path $root "docs\art\act_i_prop_grounding_pass.md"
 $scriptPath = Join-Path $root "tools\Enhance-ActIOpenAIPropComposites.py"
+$runtimeScriptPath = Join-Path $root "game\rooms\act_i_greybox_room.gd"
 $contactSheetPath = Join-Path $root "docs\art\review\act_i_openai_prop_composite_contact_sheet.png"
 
-foreach ($path in @($jsonPath, $mdPath, $scriptPath, $contactSheetPath)) {
+foreach ($path in @($jsonPath, $mdPath, $scriptPath, $runtimeScriptPath, $contactSheetPath)) {
     if (-not (Test-Path -LiteralPath $path)) {
         throw "Missing Act I prop grounding artifact: $path"
     }
@@ -70,6 +71,25 @@ $script = Get-Content -LiteralPath $scriptPath -Raw
 foreach ($requiredText in @("def contact_shadow", "def reflection", "contact_shadow_and_wet_reflection")) {
     if (-not $script.Contains($requiredText)) {
         throw "Act I prop grounding script missing required text: $requiredText"
+    }
+}
+
+$runtimeScript = Get-Content -LiteralPath $runtimeScriptPath -Raw
+foreach ($requiredText in @(
+    "ACT_I_PROPS_BY_ROOM",
+    "ActIForegroundProps",
+    "_add_act_i_props",
+    "_make_act_i_prop_shadow",
+    "WetReflection"
+)) {
+    if (-not $runtimeScript.Contains($requiredText)) {
+        throw "Act I runtime prop layer missing required text: $requiredText"
+    }
+}
+foreach ($asset in $requiredRooms) {
+    # Folder names are the stable source paths for all runtime prop PNGs.
+    if (-not $runtimeScript.Contains("game/rooms/$asset/props/")) {
+        throw "Act I runtime prop layer missing prop source folder: $asset"
     }
 }
 

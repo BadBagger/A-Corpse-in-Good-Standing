@@ -24,8 +24,8 @@ if ([int]$report.frame_count -ne 8) {
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_runtime_frame_contact_sheet.png") {
     throw "Act I runtime review frame contact sheet path is not stable."
 }
-if ([string]$report.runtime_evidence -notmatch "runtime Corvin" -or [string]$report.runtime_evidence -notmatch "generated HUD skin") {
-    throw "Act I runtime review frame report must state runtime Corvin and generated HUD evidence."
+if ([string]$report.runtime_evidence -notmatch "runtime foreground props" -or [string]$report.runtime_evidence -notmatch "Corvin" -or [string]$report.runtime_evidence -notmatch "generated HUD skin") {
+    throw "Act I runtime review frame report must state runtime foreground props, Corvin, and generated HUD evidence."
 }
 
 Add-Type -AssemblyName System.Drawing
@@ -89,8 +89,9 @@ foreach ($code in $requiredCodes) {
 $md = Get-Content -LiteralPath $mdPath -Raw
 foreach ($requiredText in @(
     "Act I Runtime Review Frames",
-    "runtime room composites",
+    "runtime foreground prop composites",
     "Corvin side sprites",
+    "wet-floor reflections",
     "generated noir HUD skin",
     "looks like an in-game screen"
 )) {

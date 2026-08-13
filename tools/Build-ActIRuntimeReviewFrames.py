@@ -222,14 +222,14 @@ def main() -> None:
         "status": "exported",
         "frame_count": len(records),
         "contact_sheet": CONTACT_PATH.relative_to(ROOT).as_posix(),
-        "runtime_evidence": "room prop composites plus runtime Corvin, standees, first-frame overlays, and generated HUD skin",
+        "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, first-frame overlays, and generated HUD skin",
         "rooms": records,
     }
     REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     lines = [
         "# Act I Runtime Review Frames",
         "",
-        "Generated player-view review frames using runtime room composites, Corvin side sprites, NPC standees, first-frame atmosphere/setpieces, contact shadows, and the generated noir HUD skin.",
+        "Generated player-view review frames using runtime foreground prop composites, prop grounding, Corvin side sprites, NPC standees, first-frame atmosphere/setpieces, contact shadows, wet-floor reflections, and the generated noir HUD skin.",
         "",
         f"- Contact sheet: `{report['contact_sheet']}`",
         f"- Frame count: {len(records)}",

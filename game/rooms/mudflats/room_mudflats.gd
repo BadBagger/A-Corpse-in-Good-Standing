@@ -56,6 +56,7 @@ func _on_room_transition_finished() -> void:
 
 func _apply_real_art_presentation() -> void:
 	_set_debug_layout_visible(show_debug_layout)
+	_ground_mudflats_props()
 
 func _set_debug_layout_visible(is_visible: bool) -> void:
 	for node_name in ["LeviathanRibs", "MudShelf", "HarborWater", "GreyboxLabels", "WalkableAreas", "Props/CorvinPlaceholder"]:
@@ -71,6 +72,68 @@ func _set_child_labels_visible(parent: Node, is_visible: bool) -> void:
 		if child is Label:
 			child.visible = is_visible
 		_set_child_labels_visible(child, is_visible)
+
+func _ground_mudflats_props() -> void:
+	var props := get_node_or_null("Props")
+	if props == null:
+		return
+	var container := props.get_node_or_null("ActIForegroundProps")
+	if container:
+		container.queue_free()
+	container = Node2D.new()
+	container.name = "ActIForegroundProps"
+	props.add_child(container)
+	for prop_name in ["BrineSiltProp", "TomasBollardProp", "MissingBootsProp"]:
+		var sprite := props.get_node_or_null(prop_name)
+		if not sprite is Sprite2D:
+			continue
+		_ensure_mudflats_prop_texture(sprite)
+		if sprite.texture == null:
+			continue
+		var texture_size: Vector2 = sprite.texture.get_size()
+		var shadow := _make_mudflats_prop_shadow(prop_name, texture_size)
+		shadow.position = sprite.position + Vector2(texture_size.x * 0.5, texture_size.y * 0.90)
+		shadow.z_index = sprite.z_index - 1
+		container.add_child(shadow)
+		var reflection := Sprite2D.new()
+		reflection.name = "%sWetReflection" % prop_name
+		reflection.texture = sprite.texture
+		reflection.centered = false
+		reflection.flip_v = true
+		reflection.position = sprite.position + Vector2(0.0, texture_size.y * 0.90)
+		reflection.scale = Vector2(1.0, 0.28)
+		reflection.modulate = Color(0.43, 0.48, 0.46, 0.13)
+		reflection.z_index = sprite.z_index - 1
+		container.add_child(reflection)
+
+func _ensure_mudflats_prop_texture(sprite: Sprite2D) -> void:
+	if sprite.texture != null:
+		return
+	var path := String(sprite.get("prop_path") if sprite.get("prop_path") != null else "")
+	if path.is_empty():
+		return
+	var image := Image.new()
+	var err := image.load(path)
+	if err != OK:
+		push_warning("Could not load Mudflats prop %s: %s" % [path, error_string(err)])
+		return
+	sprite.texture = ImageTexture.create_from_image(image)
+
+func _make_mudflats_prop_shadow(prop_name: String, texture_size: Vector2) -> Polygon2D:
+	var shadow := Polygon2D.new()
+	shadow.name = "%sContactShadow" % prop_name
+	var width := clampf(texture_size.x * 0.32, 32.0, 170.0)
+	var height := clampf(texture_size.y * 0.045, 8.0, 32.0)
+	shadow.polygon = PackedVector2Array([
+		Vector2(-width, 0.0),
+		Vector2(-width * 0.58, -height),
+		Vector2(width * 0.58, -height),
+		Vector2(width, 0.0),
+		Vector2(width * 0.58, height),
+		Vector2(-width * 0.58, height)
+	])
+	shadow.color = Color(0.0470588, 0.0627451, 0.0745098, 0.36)
+	return shadow
 
 func _on_room_exited() -> void:
 	pass

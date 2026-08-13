@@ -1114,8 +1114,9 @@ if ($runtimeReviewFramesJson.status -ne "exported" -or [int]$runtimeReviewFrames
 }
 foreach ($requiredText in @(
     "Act I Runtime Review Frames",
-    "runtime room composites",
+    "runtime foreground prop composites",
     "Corvin side sprites",
+    "wet-floor reflections",
     "generated noir HUD skin",
     "looks like an in-game screen"
 )) {
