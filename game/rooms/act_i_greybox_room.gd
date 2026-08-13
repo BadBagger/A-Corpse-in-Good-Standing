@@ -247,6 +247,18 @@ const ACT_I_INTERACTION_PULSES := {
 		"drain": {"position": Vector2(1410, 725), "radius": 96.0, "color": Color(0.894118, 0.862745, 0.784314, 0.54), "effect": "drain"},
 	},
 }
+const ACT_I_ROOM_STATUS_LINES := {
+	"R02": "The Old Quay. The water gives everything back except mercy.",
+	"R03": "Salt Market. Commerce resumes once the screaming stops.",
+	"R05": "Harbor Registry. The dead wait politely to be denied standing.",
+	"R06": "The Bone Chandler. Everything here used to belong to someone.",
+	"R07": "The Almshouse. Charity, itemized and badly lit.",
+	"R08": "The Fish Hall. The cold keeps better records than the Church.",
+	"R09": "Church of the Drowned. Forgiveness has office hours.",
+	"R10": "The Grey Float. Warmth for rent, sensation not guaranteed.",
+	"R11": "Harbormaster's Office. Process with a knife behind it.",
+	"R12": "Sabine's Office. Dry carpet. Bad odds.",
+}
 
 var _hud: CanvasLayer
 var _duel_panel: CanvasLayer
@@ -665,7 +677,10 @@ func _on_room_transition_finished() -> void:
 func _refresh_status() -> void:
 	if room_code.is_empty() and room_title.is_empty():
 		return
-	_say("%s / %s" % [room_code, room_title])
+	if ACT_I_ROOM_STATUS_LINES.has(room_code):
+		_say(String(ACT_I_ROOM_STATUS_LINES[room_code]))
+	elif not room_title.is_empty():
+		_say(room_title)
 
 func _say(message: String) -> void:
 	if message.is_empty():

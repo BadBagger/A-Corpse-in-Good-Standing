@@ -63,5 +63,21 @@ foreach ($requiredText in @(
 if ($mudflatsScript -match "PROLOGUE: Wet - mudflats greybox ready") {
     throw "Mudflats runtime must not print the old greybox-ready log line."
 }
+if ($mudflatsScript -match 'R01 / Mudflats') {
+    throw "Mudflats runtime status must not expose room-code scaffold text."
+}
+if ($actIRoomScript -match '%s / %s') {
+    throw "Shared Act I runtime status must not expose room-code/title scaffold formatting."
+}
+foreach ($requiredText in @(
+    "Mudflats. The tide brought Corvin back and kept the boots.",
+    "ACT_I_ROOM_STATUS_LINES",
+    "Salt Market. Commerce resumes once the screaming stops.",
+    "Sabine's Office. Dry carpet. Bad odds."
+)) {
+    if (-not (($mudflatsScript + $actIRoomScript).Contains($requiredText))) {
+        throw "Act I runtime status copy missing required in-world text: $requiredText"
+    }
+}
 
 Write-Host "Act I playable presentation validation passed: HUD copy and debug layout hiding are runtime-safe."

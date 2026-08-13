@@ -44,7 +44,7 @@ func _on_hotspot_mouse_exited() -> void:
 	_refresh_status()
 
 func _refresh_status() -> void:
-	_say("R01 / Mudflats")
+	_say("Mudflats. The tide brought Corvin back and kept the boots.")
 
 func _on_room_entered() -> void:
 	pass
