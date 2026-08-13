@@ -22,11 +22,11 @@ if ([int]$report.current_asset_count -ne 11) {
 if ([string]$report.palette_rule -notmatch "green reserved for wrong light") {
     throw "Act I character palette report must state the green-as-wrong-light rule."
 }
-if ([double]$report.person_slate_cap_percent -ne 46.0) {
-    throw "Act I character palette report must keep the person slate cap at 46.0%."
+if ([double]$report.person_slate_cap_percent -ne 34.0) {
+    throw "Act I character palette report must keep the person slate cap at 34.0%."
 }
-if ([double]$report.setpiece_slate_cap_percent -ne 58.0) {
-    throw "Act I character palette report must keep the setpiece slate cap at 58.0%."
+if ([double]$report.setpiece_slate_cap_percent -ne 40.0) {
+    throw "Act I character palette report must keep the setpiece slate cap at 40.0%."
 }
 
 $assets = @($report.current_assets)

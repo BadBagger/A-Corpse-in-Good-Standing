@@ -21,8 +21,8 @@ AMBER = (201, 138, 60)
 BONE = (228, 220, 200)
 BLACK = (12, 16, 19)
 
-PERSON_SLATE_CAP_PERCENT = 46.0
-SETPIECE_SLATE_CAP_PERCENT = 58.0
+PERSON_SLATE_CAP_PERCENT = 34.0
+SETPIECE_SLATE_CAP_PERCENT = 40.0
 
 def clamp(value: float) -> int:
     return max(0, min(255, round(value)))
@@ -121,14 +121,20 @@ def grade_pixel(r: int, g: int, b: int, a: int) -> tuple[int, int, int, int]:
         b = clamp((b * (1.0 - blend)) + (target[2] * blend))
 
     # Character clothes were drifting into the same blue-green mass as the room
-    # shadows. Keep slate as the outline/shadow language, but warm midtones so
-    # people read as bodies inside the scene instead of background pieces.
+    # shadows. Keep slate as a narrow outline/shadow language, but warm midtones
+    # aggressively so people read as bodies inside the scene instead of green
+    # background pieces.
     luminance = (r * 0.30) + (g * 0.52) + (b * 0.18)
     if color_distance((r, g, b), SLATE) < color_distance((r, g, b), BLACK) and luminance > 33:
-        blend = 0.16 if luminance < 74 else 0.25
+        blend = 0.28 if luminance < 74 else 0.42
         r = clamp((r * (1.0 - blend)) + (AMBER[0] * blend))
-        g = clamp((g * (1.0 - blend)) + (AMBER[1] * blend) - 6)
-        b = clamp((b * (1.0 - blend)) + (AMBER[2] * blend) - 8)
+        g = clamp((g * (1.0 - blend)) + (AMBER[1] * blend) - 14)
+        b = clamp((b * (1.0 - blend)) + (AMBER[2] * blend) - 18)
+
+    if g > r * 1.02 and g > b * 0.92 and luminance > 28:
+        r = clamp(r + 10)
+        g = clamp(g - 12)
+        b = clamp(b - 8)
 
     # Transparent edges picked up green halos from generated cutouts. Warm them
     # slightly so subpixel fringes sit on amber/slate plates instead of glowing.

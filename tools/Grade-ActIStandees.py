@@ -13,7 +13,7 @@ CONTACT_PATH = ROOT / "docs" / "art" / "review" / "act_i_openai_standees_contact
 
 CHARACTER_PALETTE = (
     (0x0C, 0x10, 0x13),
-    (0x2A, 0x3A, 0x40),
+    (0x1E, 0x1B, 0x18),
     (0xE4, 0xDC, 0xC8),
     (0xC9, 0x8A, 0x3C),
 )
@@ -61,15 +61,16 @@ def grade_pixel(r: int, g: int, b: int, a: int) -> tuple[int, int, int, int]:
         g = int(round((g * 0.38) + (luminance * 0.44) + 4))
         b = int(round((b * 0.52) + (luminance * 0.28)))
 
-    # Pull all opaque standee pixels slightly toward the room's slate/amber bias.
+    # Pull all opaque standee pixels toward the room's black/amber bias. Harbor
+    # slate is fine in the plate, but on people it reads as green-blue skin/cloth.
     if max(r, g, b) > 86:
-        r = int(round(r * 1.04 + 5))
-        g = int(round(g * 0.91))
-        b = int(round(b * 0.92))
+        r = int(round(r * 1.08 + 8))
+        g = int(round(g * 0.84))
+        b = int(round(b * 0.84))
     else:
-        r = int(round(r * 0.96))
-        g = int(round(g * 0.91))
-        b = int(round(b * 0.96))
+        r = int(round(r * 0.92))
+        g = int(round(g * 0.82))
+        b = int(round(b * 0.88))
 
     r, g, b = max(0, min(255, r)), max(0, min(255, g)), max(0, min(255, b))
     r, g, b = nearest_character_color(r, g, b)

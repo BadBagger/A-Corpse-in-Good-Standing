@@ -28,8 +28,8 @@ STATES = [
 ]
 
 
-def clamp(value: int) -> int:
-    return max(0, min(255, value))
+def clamp(value: float) -> int:
+    return max(0, min(255, round(value)))
 
 
 def neutralize_crowd_green(image: Image.Image) -> Image.Image:
@@ -46,6 +46,42 @@ def neutralize_crowd_green(image: Image.Image) -> Image.Image:
                 g = int(round((g * 0.50) + (luminance * 0.24)))
                 b = int(round((b * 0.42) + (luminance * 0.20) + 4))
                 pixels[x, y] = (clamp(r), clamp(g), clamp(b), a)
+            elif g > r * 1.02 and g > b * 0.92 and g > 44:
+                luminance = int(round((r * 0.30) + (g * 0.52) + (b * 0.18)))
+                if luminance > 96:
+                    target = (201, 138, 60)
+                    blend = 0.34
+                elif luminance > 54:
+                    target = (30, 27, 24)
+                    blend = 0.46
+                else:
+                    target = (12, 16, 19)
+                    blend = 0.38
+                r = int(round((r * (1.0 - blend)) + (target[0] * blend) + 8))
+                g = int(round((g * (1.0 - blend)) + (target[1] * blend) - 14))
+                b = int(round((b * (1.0 - blend)) + (target[2] * blend) - 8))
+                pixels[x, y] = (clamp(r), clamp(g), clamp(b), a)
+            r, g, b, a = pixels[x, y]
+            if a > 16 and g > r * 1.04 and g > b * 0.88 and g > 32:
+                luminance = int(round((r * 0.30) + (g * 0.52) + (b * 0.18)))
+                if luminance > 88:
+                    target = (201, 138, 60)
+                    blend = 0.52
+                elif luminance > 48:
+                    target = (30, 27, 24)
+                    blend = 0.64
+                else:
+                    target = (12, 16, 19)
+                    blend = 0.58
+                pixels[x, y] = (
+                    clamp((r * (1.0 - blend)) + (target[0] * blend) + 10),
+                    clamp((g * (1.0 - blend)) + (target[1] * blend) - 22),
+                    clamp((b * (1.0 - blend)) + (target[2] * blend) - 12),
+                    a,
+                )
+            r, g, b, a = pixels[x, y]
+            if a > 16 and max(r, g, b) < 42 and g >= r and g >= b:
+                pixels[x, y] = (clamp(r + 5), clamp(g - 4), clamp(b - 3), a)
     return rgba
 
 

@@ -3,8 +3,8 @@
   "asset_count": 0,
   "current_asset_count": 11,
   "palette_rule": "Act I character overlays keep green reserved for wrong light; standee and crowd shadows are biased toward wet black and whale-oil amber. Slate is capped on character overlays so people do not collapse into the green-blue room shadow mass.",
-  "person_slate_cap_percent": 46.0,
-  "setpiece_slate_cap_percent": 58.0,
+  "person_slate_cap_percent": 34.0,
+  "setpiece_slate_cap_percent": 40.0,
   "records": [],
   "current_assets": [
     {
@@ -13,8 +13,8 @@
       "height": 430,
       "wrong_light_green_percent": 0.0,
       "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 34.19,
-      "slate_cap_percent": 46.0,
+      "slate_proximity_percent": 0.0,
+      "slate_cap_percent": 34.0,
       "slate_cap_pass": true
     },
     {
@@ -23,8 +23,8 @@
       "height": 470,
       "wrong_light_green_percent": 0.0,
       "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 26.41,
-      "slate_cap_percent": 46.0,
+      "slate_proximity_percent": 0.0,
+      "slate_cap_percent": 34.0,
       "slate_cap_pass": true
     },
     {
@@ -33,8 +33,8 @@
       "height": 430,
       "wrong_light_green_percent": 0.0,
       "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 38.55,
-      "slate_cap_percent": 46.0,
+      "slate_proximity_percent": 0.0,
+      "slate_cap_percent": 34.0,
       "slate_cap_pass": true
     },
     {
@@ -43,8 +43,8 @@
       "height": 360,
       "wrong_light_green_percent": 0.0,
       "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 34.49,
-      "slate_cap_percent": 46.0,
+      "slate_proximity_percent": 0.0,
+      "slate_cap_percent": 34.0,
       "slate_cap_pass": true
     },
     {
@@ -53,8 +53,8 @@
       "height": 420,
       "wrong_light_green_percent": 0.0,
       "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 23.32,
-      "slate_cap_percent": 46.0,
+      "slate_proximity_percent": 0.0,
+      "slate_cap_percent": 34.0,
       "slate_cap_pass": true
     },
     {
@@ -63,8 +63,8 @@
       "height": 460,
       "wrong_light_green_percent": 0.0,
       "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 26.4,
-      "slate_cap_percent": 46.0,
+      "slate_proximity_percent": 0.0,
+      "slate_cap_percent": 34.0,
       "slate_cap_pass": true
     },
     {
@@ -73,8 +73,8 @@
       "height": 420,
       "wrong_light_green_percent": 0.0,
       "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 32.78,
-      "slate_cap_percent": 46.0,
+      "slate_proximity_percent": 0.0,
+      "slate_cap_percent": 34.0,
       "slate_cap_pass": true
     },
     {
@@ -83,8 +83,8 @@
       "height": 400,
       "wrong_light_green_percent": 0.0,
       "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 38.45,
-      "slate_cap_percent": 46.0,
+      "slate_proximity_percent": 0.0,
+      "slate_cap_percent": 34.0,
       "slate_cap_pass": true
     },
     {
@@ -93,8 +93,8 @@
       "height": 330,
       "wrong_light_green_percent": 0.0,
       "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 26.46,
-      "slate_cap_percent": 58.0,
+      "slate_proximity_percent": 3.84,
+      "slate_cap_percent": 40.0,
       "slate_cap_pass": true
     },
     {
@@ -103,8 +103,8 @@
       "height": 330,
       "wrong_light_green_percent": 0.0,
       "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 28.54,
-      "slate_cap_percent": 58.0,
+      "slate_proximity_percent": 6.43,
+      "slate_cap_percent": 40.0,
       "slate_cap_pass": true
     },
     {
@@ -112,9 +112,9 @@
       "width": 5200,
       "height": 330,
       "wrong_light_green_percent": 0.0,
-      "green_dominance_percent": 0.0,
-      "slate_proximity_percent": 28.09,
-      "slate_cap_percent": 58.0,
+      "green_dominance_percent": 0.03,
+      "slate_proximity_percent": 12.12,
+      "slate_cap_percent": 40.0,
       "slate_cap_pass": true
     }
   ]
