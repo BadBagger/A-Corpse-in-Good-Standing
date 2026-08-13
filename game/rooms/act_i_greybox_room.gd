@@ -4,6 +4,35 @@ extends PopochiuRoom
 @export var room_code := ""
 @export var room_title := ""
 @export var room_notes := ""
+@export var show_debug_layout := false
+
+const ACT_I_STANDEE_BASE := "res://game/standees/act_i/%s.png"
+const ACT_I_STANDEES_BY_ROOM := {
+	"R02": [
+		{"id": "tomas_bollard", "position": Vector2(400, 735), "z": 4},
+	],
+	"R03": [
+		{"id": "market_crowd", "position": Vector2(1010, 790), "z": 4},
+	],
+	"R05": [
+		{"id": "registrar", "position": Vector2(1230, 705), "z": 4},
+	],
+	"R06": [
+		{"id": "bone_chandler", "position": Vector2(1200, 760), "z": 4},
+	],
+	"R07": [
+		{"id": "prosper", "position": Vector2(1190, 775), "z": 4},
+	],
+	"R09": [
+		{"id": "teodor", "position": Vector2(1230, 740), "z": 4},
+	],
+	"R10": [
+		{"id": "juno", "position": Vector2(1250, 745), "z": 4},
+	],
+	"R12": [
+		{"id": "sabine", "position": Vector2(1260, 735), "z": 4},
+	],
+}
 
 var _hud: CanvasLayer
 var _duel_panel: CanvasLayer
@@ -13,6 +42,7 @@ func _ready() -> void:
 	super()
 	if Engine.is_editor_hint():
 		return
+	_apply_real_art_presentation()
 	_hud = get_node_or_null("PrologueHud")
 	var narrative := _narrative()
 	if narrative:
@@ -25,6 +55,62 @@ func _ready() -> void:
 		if is_ancestor_of(hotspot) and hotspot is Area2D:
 			_bind_hotspot_feedback(hotspot, _on_interaction_hotspot_input)
 	_refresh_status()
+
+func _apply_real_art_presentation() -> void:
+	_set_debug_layout_visible(show_debug_layout)
+	_add_act_i_standees()
+
+func _set_debug_layout_visible(is_visible: bool) -> void:
+	for node_name in ["Floor", "WalkableAreas", "TitleLabel", "NotesLabel"]:
+		var node := get_node_or_null(node_name)
+		if node is CanvasItem:
+			node.visible = is_visible
+	var hotspots := get_node_or_null("Hotspots")
+	if hotspots:
+		_set_child_labels_visible(hotspots, is_visible)
+
+func _set_child_labels_visible(parent: Node, is_visible: bool) -> void:
+	for child in parent.get_children():
+		if child is Label:
+			child.visible = is_visible
+		_set_child_labels_visible(child, is_visible)
+
+func _add_act_i_standees() -> void:
+	if not ACT_I_STANDEES_BY_ROOM.has(room_code):
+		return
+	var props := get_node_or_null("Props")
+	if props == null:
+		props = self
+	var container := props.get_node_or_null("ActIStandees")
+	if container:
+		container.queue_free()
+	container = Node2D.new()
+	container.name = "ActIStandees"
+	props.add_child(container)
+	for standee in ACT_I_STANDEES_BY_ROOM[room_code]:
+		_add_act_i_standee(container, standee)
+
+func _add_act_i_standee(container: Node, standee: Dictionary) -> void:
+	var standee_id := String(standee.get("id", ""))
+	if standee_id.is_empty():
+		return
+	var path := ACT_I_STANDEE_BASE % standee_id
+	if not FileAccess.file_exists(path):
+		push_warning("Missing Act I standee: %s" % path)
+		return
+	var image := Image.new()
+	var err := image.load(path)
+	if err != OK:
+		push_warning("Could not load Act I standee %s: %s" % [path, error_string(err)])
+		return
+	var sprite := Sprite2D.new()
+	sprite.name = "%sStandee" % standee_id.to_pascal_case()
+	sprite.texture = ImageTexture.create_from_image(image)
+	sprite.centered = false
+	var foot_position: Vector2 = standee.get("position", Vector2.ZERO)
+	sprite.position = Vector2(foot_position.x - float(image.get_width()) / 2.0, foot_position.y - float(image.get_height()))
+	sprite.z_index = int(standee.get("z", 0))
+	container.add_child(sprite)
 
 func _bind_hotspot_feedback(hotspot: Area2D, input_handler: Callable) -> void:
 	var input_callable := input_handler.bind(hotspot)

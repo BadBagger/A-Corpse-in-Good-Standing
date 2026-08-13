@@ -1,0 +1,100 @@
+{
+  "standees": [
+    {
+      "id": "registrar",
+      "name": "The Registrar",
+      "raw_export": "art/export/standees/act_i/registrar_raw.png",
+      "game_resource": "game/standees/act_i/registrar.png",
+      "source_sheet": "art/src/standees/act_i/openai/act_i_npc_standees_a_openai_raw.png",
+      "width": 223,
+      "height": 420,
+      "target_height": 420,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "juno",
+      "name": "Juno Ash",
+      "raw_export": "art/export/standees/act_i/juno_raw.png",
+      "game_resource": "game/standees/act_i/juno.png",
+      "source_sheet": "art/src/standees/act_i/openai/act_i_npc_standees_a_openai_raw.png",
+      "width": 316,
+      "height": 470,
+      "target_height": 470,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "prosper",
+      "name": "Half-Coin Prosper",
+      "raw_export": "art/export/standees/act_i/prosper_raw.png",
+      "game_resource": "game/standees/act_i/prosper.png",
+      "source_sheet": "art/src/standees/act_i/openai/act_i_npc_standees_a_openai_raw.png",
+      "width": 279,
+      "height": 360,
+      "target_height": 360,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "tomas_bollard",
+      "name": "Bollard-of-Tomas",
+      "raw_export": "art/export/standees/act_i/tomas_bollard_raw.png",
+      "game_resource": "game/standees/act_i/tomas_bollard.png",
+      "source_sheet": "art/src/standees/act_i/openai/act_i_npc_standees_a_openai_raw.png",
+      "width": 327,
+      "height": 400,
+      "target_height": 400,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "sabine",
+      "name": "Sabine Croix",
+      "raw_export": "art/export/standees/act_i/sabine_raw.png",
+      "game_resource": "game/standees/act_i/sabine.png",
+      "source_sheet": "art/src/standees/act_i/openai/act_i_npc_standees_b_openai_raw.png",
+      "width": 248,
+      "height": 460,
+      "target_height": 460,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "teodor",
+      "name": "Brother Teodor",
+      "raw_export": "art/export/standees/act_i/teodor_raw.png",
+      "game_resource": "game/standees/act_i/teodor.png",
+      "source_sheet": "art/src/standees/act_i/openai/act_i_npc_standees_b_openai_raw.png",
+      "width": 175,
+      "height": 420,
+      "target_height": 420,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "bone_chandler",
+      "name": "The Bone Chandler",
+      "raw_export": "art/export/standees/act_i/bone_chandler_raw.png",
+      "game_resource": "game/standees/act_i/bone_chandler.png",
+      "source_sheet": "art/src/standees/act_i/openai/act_i_npc_standees_b_openai_raw.png",
+      "width": 227,
+      "height": 430,
+      "target_height": 430,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "market_crowd",
+      "name": "Salt Market Crowd",
+      "raw_export": "art/export/standees/act_i/market_crowd_raw.png",
+      "game_resource": "game/standees/act_i/market_crowd.png",
+      "source_sheet": "art/src/standees/act_i/openai/act_i_npc_standees_b_openai_raw.png",
+      "width": 465,
+      "height": 430,
+      "target_height": 430,
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}
