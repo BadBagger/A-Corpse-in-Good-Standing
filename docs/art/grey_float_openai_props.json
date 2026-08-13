@@ -1,0 +1,72 @@
+{
+  "props": [
+    {
+      "id": "juno_ledger_table",
+      "name": "Juno ledger table",
+      "source_sheet": "art/src/props/grey_float/openai/grey_float_props_openai_raw.png",
+      "raw_export": "art/export/props/grey_float/juno_ledger_table_raw.png",
+      "game_resource": "game/rooms/grey_float/props/juno_ledger_table.png",
+      "width": 224,
+      "height": 215,
+      "target_height": 215,
+      "position": [
+        290,
+        560
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "bilge_regulator",
+      "name": "Bilge regulator",
+      "source_sheet": "art/src/props/grey_float/openai/grey_float_props_openai_raw.png",
+      "raw_export": "art/export/props/grey_float/bilge_regulator_raw.png",
+      "game_resource": "game/rooms/grey_float/props/bilge_regulator.png",
+      "width": 304,
+      "height": 320,
+      "target_height": 320,
+      "position": [
+        860,
+        465
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "privacy_screen",
+      "name": "Privacy screen",
+      "source_sheet": "art/src/props/grey_float/openai/grey_float_props_openai_raw.png",
+      "raw_export": "art/export/props/grey_float/privacy_screen_raw.png",
+      "game_resource": "game/rooms/grey_float/props/privacy_screen.png",
+      "width": 298,
+      "height": 310,
+      "target_height": 310,
+      "position": [
+        1335,
+        440
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "hot_pool_steps",
+      "name": "Hot pool steps",
+      "source_sheet": "art/src/props/grey_float/openai/grey_float_props_openai_raw.png",
+      "raw_export": "art/export/props/grey_float/hot_pool_steps_raw.png",
+      "game_resource": "game/rooms/grey_float/props/hot_pool_steps.png",
+      "width": 235,
+      "height": 235,
+      "target_height": 235,
+      "position": [
+        1135,
+        665
+      ],
+      "z": 5,
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}

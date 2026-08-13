@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
 [ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
 [ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
 [ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
 [ext_resource type="Script" path="res://game/rooms/background_image_loader.gd" id="5_bg_loader"]
+[ext_resource type="Script" path="res://game/rooms/prop_image_loader.gd" id="6_prop_loader"]
 
 [sub_resource type="Gradient" id="Gradient_bg"]
 offsets = PackedFloat32Array(0, 0.58, 1)
@@ -80,6 +81,34 @@ color = Color(0.494118, 0.607843, 0.305882, 0.35)
 polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
 
 [node name="Props" type="Node2D" parent="."]
+
+[node name="JunoLedgerTableProp" type="Sprite2D" parent="Props"]
+position = Vector2(290, 560)
+z_index = 4
+script = ExtResource("6_prop_loader")
+prop_path = "res://game/rooms/grey_float/props/juno_ledger_table.png"
+centered = false
+
+[node name="BilgeRegulatorProp" type="Sprite2D" parent="Props"]
+position = Vector2(860, 465)
+z_index = 4
+script = ExtResource("6_prop_loader")
+prop_path = "res://game/rooms/grey_float/props/bilge_regulator.png"
+centered = false
+
+[node name="PrivacyScreenProp" type="Sprite2D" parent="Props"]
+position = Vector2(1335, 440)
+z_index = 4
+script = ExtResource("6_prop_loader")
+prop_path = "res://game/rooms/grey_float/props/privacy_screen.png"
+centered = false
+
+[node name="HotPoolStepsProp" type="Sprite2D" parent="Props"]
+position = Vector2(1135, 665)
+z_index = 5
+script = ExtResource("6_prop_loader")
+prop_path = "res://game/rooms/grey_float/props/hot_pool_steps.png"
+centered = false
 
 [node name="Hotspots" type="Node2D" parent="."]
 
