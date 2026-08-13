@@ -1,0 +1,89 @@
+{
+  "props": [
+    {
+      "id": "checklist_desk",
+      "name": "Checklist desk",
+      "source_sheet": "art/src/props/harbormaster_office/openai/harbormaster_office_props_openai_raw.png",
+      "raw_export": "art/export/props/harbormaster_office/checklist_desk_raw.png",
+      "game_resource": "game/rooms/harbormaster_office/props/checklist_desk.png",
+      "width": 343,
+      "height": 235,
+      "target_height": 235,
+      "position": [
+        540,
+        575
+      ],
+      "z": 5,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "sabine_door_panel",
+      "name": "Sabine door panel",
+      "source_sheet": "art/src/props/harbormaster_office/openai/harbormaster_office_props_openai_raw.png",
+      "raw_export": "art/export/props/harbormaster_office/sabine_door_panel_raw.png",
+      "game_resource": "game/rooms/harbormaster_office/props/sabine_door_panel.png",
+      "width": 193,
+      "height": 330,
+      "target_height": 330,
+      "position": [
+        1340,
+        415
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "clerk_counter",
+      "name": "Clerk counter",
+      "source_sheet": "art/src/props/harbormaster_office/openai/harbormaster_office_props_openai_raw.png",
+      "raw_export": "art/export/props/harbormaster_office/clerk_counter_raw.png",
+      "game_resource": "game/rooms/harbormaster_office/props/clerk_counter.png",
+      "width": 218,
+      "height": 230,
+      "target_height": 230,
+      "position": [
+        880,
+        575
+      ],
+      "z": 5,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "permit_board",
+      "name": "Permit board",
+      "source_sheet": "art/src/props/harbormaster_office/openai/harbormaster_office_props_openai_raw.png",
+      "raw_export": "art/export/props/harbormaster_office/permit_board_raw.png",
+      "game_resource": "game/rooms/harbormaster_office/props/permit_board.png",
+      "width": 306,
+      "height": 225,
+      "target_height": 225,
+      "position": [
+        420,
+        425
+      ],
+      "z": 3,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "queue_rail_sign",
+      "name": "Queue rail and sign",
+      "source_sheet": "art/src/props/harbormaster_office/openai/harbormaster_office_props_openai_raw.png",
+      "raw_export": "art/export/props/harbormaster_office/queue_rail_sign_raw.png",
+      "game_resource": "game/rooms/harbormaster_office/props/queue_rail_sign.png",
+      "width": 178,
+      "height": 185,
+      "target_height": 185,
+      "position": [
+        1185,
+        690
+      ],
+      "z": 6,
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}
