@@ -36,7 +36,7 @@ $characterZones = @(
     @{ room = "harbor_registry"; label = "Corvin/Registrar"; x1 = 690; y1 = 395; x2 = 1375; y2 = 795; maxGreenDominance = 6.0; minAmber = 0.06 },
     @{ room = "bone_chandler"; label = "Corvin/Chandler"; x1 = 650; y1 = 410; x2 = 1365; y2 = 820; maxGreenDominance = 6.0; minAmber = 0.06 },
     @{ room = "almshouse"; label = "Corvin/Prosper"; x1 = 745; y1 = 430; x2 = 1360; y2 = 825; maxGreenDominance = 6.0; minAmber = 0.06 },
-    @{ room = "church_of_the_drowned"; label = "Corvin/Teodor"; x1 = 760; y1 = 380; x2 = 1390; y2 = 780; maxGreenDominance = 9.0; minAmber = 0.04 },
+    @{ room = "church_of_the_drowned"; label = "Corvin/Teodor"; x1 = 775; y1 = 455; x2 = 1345; y2 = 790; maxGreenDominance = 9.0; minAmber = 0.04 },
     @{ room = "grey_float"; label = "Corvin/Juno"; x1 = 710; y1 = 380; x2 = 1425; y2 = 790; maxGreenDominance = 6.0; minAmber = 0.08 },
     @{ room = "sabine_office"; label = "Corvin/Sabine"; x1 = 700; y1 = 370; x2 = 1400; y2 = 790; maxGreenDominance = 5.0; minAmber = 0.06 }
 )

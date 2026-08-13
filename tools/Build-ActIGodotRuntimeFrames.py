@@ -29,6 +29,42 @@ CHARACTER_INTEGRATION_RIM_OFFSETS = [(-1, 0), (1, 0), (0, -1)]
 HOTSPOT_GLINT_COLOR = (201, 138, 60, 132)
 HOTSPOT_GLINT_CORE = (228, 220, 200, 168)
 HOTSPOT_GLINT_LIMIT = 3
+LIVING_SCENE_CUES = {
+    "R01": [
+        {"id": "tide_breath", "kind": "pool", "position": (900, 835), "radius": (720, 70), "color": (42, 58, 64, 51)},
+        {"id": "harbor_lamp", "kind": "pool", "position": (130, 880), "radius": (125, 28), "color": (201, 138, 60, 61)},
+    ],
+    "R02": [
+        {"id": "quay_water_breath", "kind": "pool", "position": (890, 835), "radius": (760, 62), "color": (42, 58, 64, 43)},
+        {"id": "lantern_lick", "kind": "pool", "position": (1085, 402), "radius": (135, 48), "color": (201, 138, 60, 56)},
+    ],
+    "R03": [
+        {"id": "stall_lamp_breathe", "kind": "pool", "position": (1075, 592), "radius": (310, 76), "color": (201, 138, 60, 51)},
+        {"id": "market_floor_sheen", "kind": "pool", "position": (810, 810), "radius": (780, 66), "color": (42, 58, 64, 41)},
+    ],
+    "R05": [
+        {"id": "ledger_wrong_light", "kind": "pool", "position": (1045, 585), "radius": (205, 66), "color": (126, 155, 78, 28)},
+        {"id": "desk_amber_edge", "kind": "pool", "position": (870, 725), "radius": (380, 44), "color": (201, 138, 60, 41)},
+    ],
+    "R06": [
+        {"id": "counter_lamp_pool", "kind": "pool", "position": (870, 740), "radius": (420, 58), "color": (201, 138, 60, 46)},
+    ],
+    "R07": [
+        {"id": "almshouse_window_breath", "kind": "pool", "position": (775, 668), "radius": (390, 70), "color": (201, 138, 60, 36)},
+    ],
+    "R09": [
+        {"id": "confession_hall_wrong_light", "kind": "pool", "position": (895, 445), "radius": (300, 72), "color": (126, 155, 78, 46)},
+        {"id": "altar_floor_sheen", "kind": "pool", "position": (850, 790), "radius": (620, 58), "color": (42, 58, 64, 38)},
+    ],
+    "R10": [
+        {"id": "float_warmth_trap", "kind": "pool", "position": (1140, 680), "radius": (620, 104), "color": (201, 138, 60, 51)},
+        {"id": "steam_cut", "kind": "streaks", "position": (910, 465), "radius": (500, 118), "color": (228, 220, 200, 33)},
+    ],
+    "R12": [
+        {"id": "sabine_lamp_hold", "kind": "pool", "position": (1110, 655), "radius": (420, 72), "color": (201, 138, 60, 46)},
+        {"id": "window_rain_silver", "kind": "streaks", "position": (1225, 305), "radius": (330, 190), "color": (228, 220, 200, 31)},
+    ],
+}
 
 ROOM_CAPTIONS = {
     "R01": "Mudflats. The tide brought Corvin back and kept the boots.",
@@ -240,6 +276,42 @@ def draw_character_integration_rim(image: Image.Image, sprite: Image.Image, x: i
         image.alpha_composite(rim, (x + offset_x, y + offset_y))
 
 
+def draw_living_scene_cues(image: Image.Image, room_code: str) -> int:
+    cues = LIVING_SCENE_CUES.get(room_code, [])
+    overlay = Image.new("RGBA", image.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay, "RGBA")
+    for cue in cues:
+        x, y = cue["position"]
+        radius_x, radius_y = cue["radius"]
+        color = cue["color"]
+        if cue["kind"] == "streaks":
+            for index in range(5):
+                sx = x - radius_x * 0.5 + index * radius_x * 0.25
+                sy = y - radius_y * 0.45 + (index % 2) * radius_y * 0.18
+                draw.line(
+                    (sx, sy, sx + radius_x * 0.18, sy + radius_y * 0.72),
+                    fill=color,
+                    width=2,
+                )
+        else:
+            red, green, blue, alpha = color
+            for index in range(4):
+                falloff = 1.0 - index * 0.21
+                alpha_scale = 0.22 + index * 0.18
+                fill = (red, green, blue, round(alpha * alpha_scale))
+                draw.ellipse(
+                    (
+                        x - radius_x * falloff,
+                        y - radius_y * falloff,
+                        x + radius_x * falloff,
+                        y + radius_y * falloff,
+                    ),
+                    fill=fill,
+                )
+    image.alpha_composite(overlay)
+    return len(cues)
+
+
 def paste_character_occluder(image: Image.Image, rel_path: str, x: int, y: int, crop_top_ratio: float) -> None:
     prop = Image.open(ROOT / rel_path).convert("RGBA")
     crop_y = max(1, min(prop.height - 1, round(prop.height * crop_top_ratio)))
@@ -373,6 +445,8 @@ def build_frame(room: dict) -> dict:
         frame = first_frame(ROOT / rel_path, width, height)
         image.alpha_composite(frame, (x, y))
 
+    living_scene_cue_count = draw_living_scene_cues(image, room["code"])
+
     for standee_id, foot_x, foot_y, scale in room["standees"]:
         standee_path = ROOT / "game" / "standees" / "act_i" / f"{standee_id}.png"
         standee = Image.open(standee_path).convert("RGBA")
@@ -416,6 +490,8 @@ def build_frame(room: dict) -> dict:
         "standee_character_integration_rim_count": len(room["standees"]),
         "character_occluder_count": len(character_occluders),
         "overlay_count": len(room["overlays"]),
+        "living_scene_cue_count": living_scene_cue_count,
+        "living_scene_cues": [cue["id"] for cue in LIVING_SCENE_CUES.get(room["code"], [])],
         "hotspot_glint_count": len(hotspot_glints),
         "hotspot_glints": hotspot_glints,
         "dialogue_caption": caption,
@@ -460,7 +536,7 @@ def main() -> None:
         "capture": "godot_runtime_composition",
         "frame_count": len(records),
         "contact_sheet": CONTACT_PATH.relative_to(ROOT).as_posix(),
-        "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, foreground character occluders, speaker portraits embedded in the generated in-frame HUD, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
+        "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, foreground character occluders, looping living scene cues for water shimmer, lamp breath, steam, rain, and wrong-light pools, speaker portraits embedded in the generated in-frame HUD, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
         "rooms": records,
     }
     REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
@@ -469,16 +545,16 @@ def main() -> None:
         "",
         "Generated by `tools/Build-ActIGodotRuntimeFrames.py`.",
         "",
-        "These Godot runtime-composition review frames use actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, foreground character occluders, speaker portraits embedded in the generated in-frame HUD, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere overlays, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and Corvin side sprites matching the actual Corvin character scene using the RuntimeSprite loader with a subtle amber readability rim. The compositor uses direct PNG loading so this proof survives headless renderer/import-cache differences.",
+        "These Godot runtime-composition review frames use actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, foreground character occluders, looping living scene cues for water shimmer, lamp breath, steam, rain, and wrong-light pools, speaker portraits embedded in the generated in-frame HUD, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere overlays, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and Corvin side sprites matching the actual Corvin character scene using the RuntimeSprite loader with a subtle amber readability rim. The compositor uses direct PNG loading so this proof survives headless renderer/import-cache differences.",
         "",
         f"- Contact sheet: `{report['contact_sheet']}`",
         f"- Frame count: {len(records)}",
         "",
-        "| Room | Captured frame | Props | Glints | Portrait | Embedded HUD dialogue |",
-        "|---|---|---:|---:|---|---|",
+        "| Room | Captured frame | Props | Glints | Living cues | Portrait | Embedded HUD dialogue |",
+        "|---|---|---:|---:|---:|---|---|",
     ]
     for record in records:
-        lines.append(f"| {record['room_code']} / {record['title']} | `{record['output']}` | {record['foreground_prop_count']} | {record['hotspot_glint_count']} | `{record['dialogue_portrait']}` | {record['dialogue_caption']} |")
+        lines.append(f"| {record['room_code']} / {record['title']} | `{record['output']}` | {record['foreground_prop_count']} | {record['hotspot_glint_count']} | {record['living_scene_cue_count']} | `{record['dialogue_portrait']}` | {record['dialogue_caption']} |")
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"runtime_frames={len(records)}")
     print(f"contact_sheet={CONTACT_PATH.relative_to(ROOT)}")

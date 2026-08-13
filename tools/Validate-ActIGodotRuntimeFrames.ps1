@@ -26,7 +26,7 @@ if ([int]$report.frame_count -ne 9) {
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png") {
     throw "Act I Godot runtime frame contact sheet path is not stable."
 }
-foreach ($requiredText in @("actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "standee wet-floor reflections", "foreground character occluders", "speaker portraits embedded in the generated in-frame HUD", "room-specific dialogue captions and status text embedded in the generated in-frame HUD", "actual Corvin character scene", "RuntimeSprite loader", "hotspot glints")) {
+foreach ($requiredText in @("actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "standee wet-floor reflections", "foreground character occluders", "looping living scene cues", "water shimmer", "lamp breath", "steam", "rain", "wrong-light pools", "speaker portraits embedded in the generated in-frame HUD", "room-specific dialogue captions and status text embedded in the generated in-frame HUD", "actual Corvin character scene", "RuntimeSprite loader", "hotspot glints")) {
     if ([string]$report.runtime_evidence -notmatch [regex]::Escape($requiredText)) {
         throw "Act I Godot runtime report missing runtime evidence text: $requiredText"
     }
@@ -84,6 +84,13 @@ foreach ($room in $rooms) {
     if ([int]$room.hotspot_glint_count -lt 1 -or [int]$room.hotspot_glint_count -gt 3) {
         throw "Act I Godot runtime frame $code must include 1-3 in-world hotspot glints."
     }
+    $cueCount = [int]$room.living_scene_cue_count
+    if ($cueCount -lt 1 -or $cueCount -gt 2) {
+        throw "Act I Godot runtime frame $code must include 1-2 living scene cues, got $cueCount."
+    }
+    if (@($room.living_scene_cues).Count -ne $cueCount) {
+        throw "Act I Godot runtime frame $code cue-count metadata does not match cue id list."
+    }
     $caption = [string]$room.dialogue_caption
     if ([string]::IsNullOrWhiteSpace($caption) -or $caption -eq "Corvin: dead, damp, and still doing the voice.") {
         throw "Act I Godot runtime frame $code must include a room-specific dialogue caption."
@@ -125,7 +132,7 @@ finally {
 }
 
 $md = Get-Content -LiteralPath $mdPath -Raw
-foreach ($requiredText in @("Act I Godot Runtime Frames", "Godot runtime", "actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "standee wet-floor reflections", "foreground character occluders", "speaker portraits embedded", "Portrait", "room-specific dialogue captions and status text embedded in the generated in-frame HUD", "Embedded HUD dialogue", "actual Corvin character scene", "in-world hotspot glints")) {
+foreach ($requiredText in @("Act I Godot Runtime Frames", "Godot runtime", "actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "standee wet-floor reflections", "foreground character occluders", "looping living scene cues", "Living cues", "speaker portraits embedded", "Portrait", "room-specific dialogue captions and status text embedded in the generated in-frame HUD", "Embedded HUD dialogue", "actual Corvin character scene", "in-world hotspot glints")) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I Godot runtime report missing required text: $requiredText"
     }
@@ -135,7 +142,7 @@ if ($md -match "[^\u0000-\u007F]") {
 }
 
 $captureScript = Get-Content -LiteralPath $captureScriptPath -Raw
-foreach ($requiredText in @("act_i_godot_runtime_frames", "godot_runtime_composition", "foreground_prop_count", "draw_wet_floor_reflection", "standee_reflection_count", "character_occluder_count", "paste_character_occluder", "ROOM_CAPTIONS", "ROOM_SPEAKER_PORTRAITS", "wrap_text", "dialogue_caption", "dialogue_portrait", "dialogue_portrait_embedded_in_hud", "dialogue_text_embedded_in_hud", "status_text_embedded_in_generated_hud", "caption_font", "prepare_status_strip", 'game" / "characters" / "corvin', "RuntimeSprite", "direct PNG loading", "load_hotspot_glints", "draw_hotspot_glints")) {
+foreach ($requiredText in @("act_i_godot_runtime_frames", "godot_runtime_composition", "foreground_prop_count", "draw_wet_floor_reflection", "standee_reflection_count", "character_occluder_count", "paste_character_occluder", "ROOM_CAPTIONS", "ROOM_SPEAKER_PORTRAITS", "LIVING_SCENE_CUES", "draw_living_scene_cues", "living_scene_cue_count", "living_scene_cues", "wrap_text", "dialogue_caption", "dialogue_portrait", "dialogue_portrait_embedded_in_hud", "dialogue_text_embedded_in_hud", "status_text_embedded_in_generated_hud", "caption_font", "prepare_status_strip", 'game" / "characters" / "corvin', "RuntimeSprite", "direct PNG loading", "load_hotspot_glints", "draw_hotspot_glints")) {
     if (-not $captureScript.Contains($requiredText)) {
         throw "Act I Godot runtime capture script missing required text: $requiredText"
     }
@@ -154,7 +161,7 @@ if ($captureScript.Contains("draw.rectangle((18, 16")) {
 
 $roomScriptPath = Join-Path $root "game\rooms\act_i_greybox_room.gd"
 $roomScript = Get-Content -LiteralPath $roomScriptPath -Raw
-foreach ($requiredText in @("_make_act_i_standee_reflection", "WetFloorReflection", "reflection_image.flip_y", "ACT_I_CHARACTER_OCCLUDERS_BY_ROOM", "ActICharacterOccluders")) {
+foreach ($requiredText in @("_make_act_i_standee_reflection", "WetFloorReflection", "reflection_image.flip_y", "ACT_I_CHARACTER_OCCLUDERS_BY_ROOM", "ActICharacterOccluders", "ACT_I_LIVING_SCENE_CUES_BY_ROOM", "ActILivingSceneCues", "_add_act_i_living_light_pool", "_animate_act_i_living_scene_cue")) {
     if (-not $roomScript.Contains($requiredText)) {
         throw "Act I Godot room script missing standee reflection text: $requiredText"
     }

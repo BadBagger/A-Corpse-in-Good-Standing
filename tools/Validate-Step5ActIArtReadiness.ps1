@@ -61,6 +61,7 @@ $godotRuntimeFramesJsonPath = Join-Path $root "docs\art\act_i_godot_runtime_fram
 $godotRuntimeFramesImagePath = Join-Path $root "docs\art\review\act_i_godot_runtime_frame_contact_sheet.png"
 $godotRuntimeFramesValidatorPath = Join-Path $root "tools\Validate-ActIGodotRuntimeFrames.ps1"
 $dialoguePortraitHudValidatorPath = Join-Path $root "tools\Validate-ActIDialoguePortraitHud.ps1"
+$livingSceneCuesValidatorPath = Join-Path $root "tools\Validate-ActILivingSceneCues.ps1"
 $corvinRuntimeReadabilityRimValidatorPath = Join-Path $root "tools\Validate-CorvinRuntimeReadabilityRim.ps1"
 $hotspotGlintReviewValidatorPath = Join-Path $root "tools\Validate-ActIHotspotGlintReview.ps1"
 $gameplayReviewPanelsPath = Join-Path $root "docs\art\act_i_gameplay_review_panels.md"
@@ -188,6 +189,7 @@ foreach ($path in @(
     $godotRuntimeFramesImagePath,
     $godotRuntimeFramesValidatorPath,
     $dialoguePortraitHudValidatorPath,
+    $livingSceneCuesValidatorPath,
     $corvinRuntimeReadabilityRimValidatorPath,
     $hotspotGlintReviewValidatorPath,
     $gameplayReviewPanelsPath,
@@ -1217,6 +1219,11 @@ if ($LASTEXITCODE -ne 0) {
     throw "Act I dialogue portrait HUD validator failed."
 }
 
+& powershell -NoProfile -ExecutionPolicy Bypass -File $livingSceneCuesValidatorPath
+if ($LASTEXITCODE -ne 0) {
+    throw "Act I living scene cue validator failed."
+}
+
 & powershell -NoProfile -ExecutionPolicy Bypass -File $corvinRuntimeReadabilityRimValidatorPath
 if ($LASTEXITCODE -ne 0) {
     throw "Corvin runtime readability rim validator failed."
@@ -1443,8 +1450,9 @@ $lines = @(
     "- Act I atmosphere setpieces: pass, $atmosphereSetpieceCount transparent runtime overlays add tide glint, water glint, lamp flicker, smoke, steam, and window rain to OpenAI room plates without changing puzzle coordinates.",
     "- Act I OpenAI HUD skin: pass, $hudSkinAssetCount generated noir UI texture assets are imported and wired into the playable prologue HUD without storing dialogue or puzzle state in image files.",
     "- Act I runtime review frames: pass, $runtimeReviewFrameCount player-view frames composite runtime room art, Corvin side sprites, NPC standees, first-frame atmosphere/setpieces, contact shadows, and the generated HUD skin.",
-    "- Act I Godot runtime frames: pass, $godotRuntimeFrameCount runtime-composition player-view frames show actual room scene background paths, shared art constants, foreground props, wet-floor reflections, HUD textures, speaker portraits embedded in the dialogue HUD, NPC standees, in-world hotspot glints, Corvin side sprites, Corvin's subtle amber readability rim, standee character integration rims, and foreground character occluders.",
+    "- Act I Godot runtime frames: pass, $godotRuntimeFrameCount runtime-composition player-view frames show actual room scene background paths, shared art constants, foreground props, wet-floor reflections, HUD textures, looping living scene cues, speaker portraits embedded in the dialogue HUD, NPC standees, in-world hotspot glints, Corvin side sprites, Corvin's subtle amber readability rim, standee character integration rims, and foreground character occluders.",
     "- Act I dialogue portrait HUD: pass, generated speaker portraits are embedded in the playable HUD and runtime review frames for Corvin, Tomas, Registrar, Prosper, Juno, and Sabine.",
+    "- Act I living scene cues: pass, playable rooms add looping water shimmer, lamp breath, steam/rain streaks, and intentional Church wrong-light pools while runtime screenshots keep the cues palette-bounded.",
     "- Act I gameplay review panels: pass, $gameplayReviewPanelCount larger cropped panels show the playable band, generated room art, Corvin, NPCs, foreground props, HUD, and room-specific dialogue captions at human-review scale.",
     "- Corvin action runtime frames: pass, $corvinActionRuntimeFrameCount renderer-captured action frames show actual character_corvin.tscn idle/talk/use/wet side animations through the RuntimeSprite loader.",
     "- Act I in-scene action review: pass, $inSceneActionFrameCount room-composition frames show Corvin talk/use/wet actions in context, including the Salt Market crowd turn_to_corvin state, named NPC dialogue/counter staging, text-free wet interaction effects, and zoom crops for action readability.",
@@ -1521,6 +1529,7 @@ foreach ($requiredText in @(
     "Act I runtime review frames: pass",
     "Corvin's subtle amber readability rim",
     "Act I dialogue portrait HUD: pass",
+    "Act I living scene cues: pass",
     "in-world hotspot glints",
     "Act I in-scene action review: pass",
     "Act I character palette grade: pass",

@@ -3,7 +3,7 @@
   "capture": "godot_runtime_composition",
   "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png",
-  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, foreground character occluders, speaker portraits embedded in the generated in-frame HUD, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
+  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, foreground character occluders, looping living scene cues for water shimmer, lamp breath, steam, rain, and wrong-light pools, speaker portraits embedded in the generated in-frame HUD, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
   "rooms": [
     {
       "room_code": "R01",
@@ -26,6 +26,11 @@
       "standee_character_integration_rim_count": 0,
       "character_occluder_count": 0,
       "overlay_count": 1,
+      "living_scene_cue_count": 2,
+      "living_scene_cues": [
+        "tide_breath",
+        "harbor_lamp"
+      ],
       "hotspot_glint_count": 3,
       "hotspot_glints": [
         {
@@ -80,6 +85,11 @@
       "standee_character_integration_rim_count": 1,
       "character_occluder_count": 0,
       "overlay_count": 1,
+      "living_scene_cue_count": 2,
+      "living_scene_cues": [
+        "quay_water_breath",
+        "lantern_lick"
+      ],
       "hotspot_glint_count": 3,
       "hotspot_glints": [
         {
@@ -134,6 +144,11 @@
       "standee_character_integration_rim_count": 0,
       "character_occluder_count": 0,
       "overlay_count": 2,
+      "living_scene_cue_count": 2,
+      "living_scene_cues": [
+        "stall_lamp_breathe",
+        "market_floor_sheen"
+      ],
       "hotspot_glint_count": 3,
       "hotspot_glints": [
         {
@@ -188,6 +203,11 @@
       "standee_character_integration_rim_count": 1,
       "character_occluder_count": 1,
       "overlay_count": 1,
+      "living_scene_cue_count": 2,
+      "living_scene_cues": [
+        "ledger_wrong_light",
+        "desk_amber_edge"
+      ],
       "hotspot_glint_count": 3,
       "hotspot_glints": [
         {
@@ -242,6 +262,10 @@
       "standee_character_integration_rim_count": 1,
       "character_occluder_count": 1,
       "overlay_count": 0,
+      "living_scene_cue_count": 1,
+      "living_scene_cues": [
+        "counter_lamp_pool"
+      ],
       "hotspot_glint_count": 3,
       "hotspot_glints": [
         {
@@ -296,6 +320,10 @@
       "standee_character_integration_rim_count": 1,
       "character_occluder_count": 1,
       "overlay_count": 0,
+      "living_scene_cue_count": 1,
+      "living_scene_cues": [
+        "almshouse_window_breath"
+      ],
       "hotspot_glint_count": 3,
       "hotspot_glints": [
         {
@@ -350,6 +378,11 @@
       "standee_character_integration_rim_count": 1,
       "character_occluder_count": 1,
       "overlay_count": 0,
+      "living_scene_cue_count": 2,
+      "living_scene_cues": [
+        "confession_hall_wrong_light",
+        "altar_floor_sheen"
+      ],
       "hotspot_glint_count": 3,
       "hotspot_glints": [
         {
@@ -404,6 +437,11 @@
       "standee_character_integration_rim_count": 1,
       "character_occluder_count": 2,
       "overlay_count": 1,
+      "living_scene_cue_count": 2,
+      "living_scene_cues": [
+        "float_warmth_trap",
+        "steam_cut"
+      ],
       "hotspot_glint_count": 3,
       "hotspot_glints": [
         {
@@ -458,6 +496,11 @@
       "standee_character_integration_rim_count": 1,
       "character_occluder_count": 2,
       "overlay_count": 1,
+      "living_scene_cue_count": 2,
+      "living_scene_cues": [
+        "sabine_lamp_hold",
+        "window_rain_silver"
+      ],
       "hotspot_glint_count": 1,
       "hotspot_glints": [
         {

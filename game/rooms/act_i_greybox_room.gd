@@ -271,6 +271,42 @@ const ACT_I_INTERACTION_PULSES := {
 		"drain": {"position": Vector2(1410, 725), "radius": 96.0, "color": Color(0.894118, 0.862745, 0.784314, 0.54), "effect": "drain"},
 	},
 }
+const ACT_I_LIVING_SCENE_CUES_BY_ROOM := {
+	"R01": [
+		{"id": "tide_breath", "kind": "pool", "position": Vector2(900, 835), "radius": Vector2(720, 70), "color": Color(0.164706, 0.227451, 0.25098, 0.20), "z": 2, "pulse": 0.08, "seconds": 3.2},
+		{"id": "harbor_lamp", "kind": "pool", "position": Vector2(130, 880), "radius": Vector2(125, 28), "color": Color(0.788235, 0.541176, 0.235294, 0.24), "z": 3, "pulse": 0.12, "seconds": 1.7},
+	],
+	"R02": [
+		{"id": "quay_water_breath", "kind": "pool", "position": Vector2(890, 835), "radius": Vector2(760, 62), "color": Color(0.164706, 0.227451, 0.25098, 0.17), "z": 2, "pulse": 0.08, "seconds": 3.6},
+		{"id": "lantern_lick", "kind": "pool", "position": Vector2(1085, 402), "radius": Vector2(135, 48), "color": Color(0.788235, 0.541176, 0.235294, 0.22), "z": 3, "pulse": 0.12, "seconds": 1.4},
+	],
+	"R03": [
+		{"id": "stall_lamp_breathe", "kind": "pool", "position": Vector2(1075, 592), "radius": Vector2(310, 76), "color": Color(0.788235, 0.541176, 0.235294, 0.20), "z": 5, "pulse": 0.10, "seconds": 1.5},
+		{"id": "market_floor_sheen", "kind": "pool", "position": Vector2(810, 810), "radius": Vector2(780, 66), "color": Color(0.164706, 0.227451, 0.25098, 0.16), "z": 2, "pulse": 0.07, "seconds": 3.0},
+	],
+	"R05": [
+		{"id": "ledger_wrong_light", "kind": "pool", "position": Vector2(1045, 585), "radius": Vector2(205, 66), "color": Color(0.494118, 0.607843, 0.305882, 0.11), "z": 4, "pulse": 0.06, "seconds": 2.1},
+		{"id": "desk_amber_edge", "kind": "pool", "position": Vector2(870, 725), "radius": Vector2(380, 44), "color": Color(0.788235, 0.541176, 0.235294, 0.16), "z": 5, "pulse": 0.08, "seconds": 1.6},
+	],
+	"R06": [
+		{"id": "counter_lamp_pool", "kind": "pool", "position": Vector2(870, 740), "radius": Vector2(420, 58), "color": Color(0.788235, 0.541176, 0.235294, 0.18), "z": 5, "pulse": 0.08, "seconds": 1.8},
+	],
+	"R07": [
+		{"id": "almshouse_window_breath", "kind": "pool", "position": Vector2(775, 668), "radius": Vector2(390, 70), "color": Color(0.788235, 0.541176, 0.235294, 0.14), "z": 4, "pulse": 0.08, "seconds": 2.4},
+	],
+	"R09": [
+		{"id": "confession_hall_wrong_light", "kind": "pool", "position": Vector2(895, 445), "radius": Vector2(300, 72), "color": Color(0.494118, 0.607843, 0.305882, 0.18), "z": 3, "pulse": 0.07, "seconds": 2.2},
+		{"id": "altar_floor_sheen", "kind": "pool", "position": Vector2(850, 790), "radius": Vector2(620, 58), "color": Color(0.164706, 0.227451, 0.25098, 0.15), "z": 2, "pulse": 0.07, "seconds": 3.5},
+	],
+	"R10": [
+		{"id": "float_warmth_trap", "kind": "pool", "position": Vector2(1140, 680), "radius": Vector2(620, 104), "color": Color(0.788235, 0.541176, 0.235294, 0.20), "z": 6, "pulse": 0.10, "seconds": 1.9},
+		{"id": "steam_cut", "kind": "streaks", "position": Vector2(910, 465), "radius": Vector2(500, 118), "color": Color(0.894118, 0.862745, 0.784314, 0.13), "z": 7, "pulse": 0.08, "seconds": 3.0},
+	],
+	"R12": [
+		{"id": "sabine_lamp_hold", "kind": "pool", "position": Vector2(1110, 655), "radius": Vector2(420, 72), "color": Color(0.788235, 0.541176, 0.235294, 0.18), "z": 5, "pulse": 0.08, "seconds": 1.7},
+		{"id": "window_rain_silver", "kind": "streaks", "position": Vector2(1225, 305), "radius": Vector2(330, 190), "color": Color(0.894118, 0.862745, 0.784314, 0.12), "z": 4, "pulse": 0.07, "seconds": 2.8},
+	],
+}
 const ACT_I_ROOM_STATUS_LINES := {
 	"R02": "The Old Quay. The water gives everything back except mercy.",
 	"R03": "Salt Market. Commerce resumes once the screaming stops.",
@@ -314,6 +350,7 @@ func _apply_real_art_presentation() -> void:
 	_add_act_i_standees()
 	_add_act_i_setpieces()
 	_add_act_i_atmosphere()
+	_add_act_i_living_scene_cues()
 	_add_act_i_character_occluders()
 	_add_act_i_interaction_pulse_layer()
 	_add_act_i_hover_focus_layer()
@@ -551,6 +588,82 @@ func _add_act_i_character_occluder(container: Node, occluder: Dictionary) -> voi
 	sprite.position = position + Vector2(0, crop_y)
 	sprite.z_index = int(occluder.get("z", 8))
 	container.add_child(sprite)
+
+func _add_act_i_living_scene_cues() -> void:
+	if not ACT_I_LIVING_SCENE_CUES_BY_ROOM.has(room_code):
+		return
+	var props := get_node_or_null("Props")
+	if props == null:
+		props = self
+	var container := props.get_node_or_null("ActILivingSceneCues")
+	if container:
+		container.queue_free()
+	container = Node2D.new()
+	container.name = "ActILivingSceneCues"
+	props.add_child(container)
+	for cue in ACT_I_LIVING_SCENE_CUES_BY_ROOM[room_code]:
+		_add_act_i_living_scene_cue(container, cue)
+
+func _add_act_i_living_scene_cue(container: Node2D, cue: Dictionary) -> void:
+	var cue_id := String(cue.get("id", "scene_cue"))
+	var kind := String(cue.get("kind", "pool"))
+	var position: Vector2 = cue.get("position", Vector2.ZERO)
+	var radius: Vector2 = cue.get("radius", Vector2(180, 50))
+	var color: Color = cue.get("color", Color(0.788235, 0.541176, 0.235294, 0.16))
+	var z := int(cue.get("z", 3))
+	var node := Node2D.new()
+	node.name = "%sLivingSceneCue" % cue_id.to_pascal_case()
+	node.position = position
+	node.z_index = z
+	container.add_child(node)
+	if kind == "streaks":
+		_add_act_i_living_streaks(node, cue_id, radius, color)
+	else:
+		_add_act_i_living_light_pool(node, cue_id, radius, color)
+	_animate_act_i_living_scene_cue(node, float(cue.get("pulse", 0.08)), float(cue.get("seconds", 2.0)))
+
+func _add_act_i_living_light_pool(parent: Node2D, cue_id: String, radius: Vector2, color: Color) -> void:
+	for index in 4:
+		var falloff := 1.0 - float(index) * 0.21
+		var alpha_scale := 0.22 + float(index) * 0.18
+		var pool := Polygon2D.new()
+		pool.name = "%sLightPool%d" % [cue_id.to_pascal_case(), index + 1]
+		pool.color = Color(color.r, color.g, color.b, color.a * alpha_scale)
+		pool.polygon = _make_act_i_ellipse_polygon(radius.x * falloff, radius.y * falloff, 28)
+		parent.add_child(pool)
+
+func _add_act_i_living_streaks(parent: Node2D, cue_id: String, radius: Vector2, color: Color) -> void:
+	for index in 5:
+		var line := Line2D.new()
+		line.name = "%sLivingStreak%d" % [cue_id.to_pascal_case(), index + 1]
+		line.width = 2.0
+		line.default_color = color
+		var x := -radius.x * 0.5 + float(index) * radius.x * 0.25
+		var y := -radius.y * 0.45 + float(index % 2) * radius.y * 0.18
+		line.points = PackedVector2Array([
+			Vector2(x, y),
+			Vector2(x + radius.x * 0.18, y + radius.y * 0.72)
+		])
+		parent.add_child(line)
+
+func _animate_act_i_living_scene_cue(node: Node2D, pulse: float, seconds: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	var tween := create_tween()
+	tween.set_loops()
+	var low_alpha := clampf(1.0 - pulse, 0.70, 1.0)
+	var high_scale := Vector2(1.0 + pulse, 1.0 + pulse * 0.32)
+	tween.tween_property(node, "scale", high_scale, seconds)
+	tween.parallel().tween_property(node, "modulate:a", low_alpha, seconds)
+	tween.tween_property(node, "scale", Vector2.ONE, seconds)
+	tween.parallel().tween_property(node, "modulate:a", 1.0, seconds)
+
+func _make_act_i_ellipse_polygon(radius_x: float, radius_y: float, point_count: int) -> PackedVector2Array:
+	var points := PackedVector2Array()
+	for index in point_count:
+		var angle := (TAU * float(index)) / float(point_count)
+		points.append(Vector2(cos(angle) * radius_x, sin(angle) * radius_y))
+	return points
 
 func _add_act_i_setpieces() -> void:
 	if not ACT_I_SETPIECES_BY_ROOM.has(room_code):
