@@ -1,0 +1,153 @@
+{
+  "status": "exported",
+  "source": "docs/art/act_i_godot_runtime_frames.json",
+  "panel_count": 8,
+  "contact_sheet": "docs/art/review/act_i_gameplay_review_panels_contact_sheet.png",
+  "purpose": "larger cropped gameplay panels for mobile/human review of runtime art, Corvin, NPCs, foreground props, HUD, and room-specific dialogue captions",
+  "panels": [
+    {
+      "room_code": "R02",
+      "room_id": "old_quay",
+      "title": "The Old Quay",
+      "source_frame": "docs/art/review/act_i_godot_runtime_frames/old_quay_godot_runtime_frame.png",
+      "output": "docs/art/review/act_i_gameplay_review_panels/old_quay_gameplay_panel.png",
+      "width": 1200,
+      "height": 720,
+      "crop_box": [
+        480,
+        360,
+        1680,
+        1080
+      ],
+      "dialogue_caption": "Corvin: Tomas, you look moored. Tomas: I contain multitudes and two unpaid bar tabs.",
+      "includes_hud_crop": true,
+      "includes_runtime_art": true
+    },
+    {
+      "room_code": "R03",
+      "room_id": "salt_market",
+      "title": "Salt Market",
+      "source_frame": "docs/art/review/act_i_godot_runtime_frames/salt_market_godot_runtime_frame.png",
+      "output": "docs/art/review/act_i_gameplay_review_panels/salt_market_gameplay_panel.png",
+      "width": 1200,
+      "height": 720,
+      "crop_box": [
+        480,
+        360,
+        1680,
+        1080
+      ],
+      "dialogue_caption": "The crowd notices Corvin is dead. Commerce handles it poorly.",
+      "includes_hud_crop": true,
+      "includes_runtime_art": true
+    },
+    {
+      "room_code": "R05",
+      "room_id": "harbor_registry",
+      "title": "Harbor Registry",
+      "source_frame": "docs/art/review/act_i_godot_runtime_frames/harbor_registry_godot_runtime_frame.png",
+      "output": "docs/art/review/act_i_gameplay_review_panels/harbor_registry_gameplay_panel.png",
+      "width": 1200,
+      "height": 720,
+      "crop_box": [
+        480,
+        360,
+        1680,
+        1080
+      ],
+      "dialogue_caption": "Registrar: Dead men do not have standing. Corvin: That explains my posture.",
+      "includes_hud_crop": true,
+      "includes_runtime_art": true
+    },
+    {
+      "room_code": "R06",
+      "room_id": "bone_chandler",
+      "title": "The Bone Chandler",
+      "source_frame": "docs/art/review/act_i_godot_runtime_frames/bone_chandler_godot_runtime_frame.png",
+      "output": "docs/art/review/act_i_gameplay_review_panels/bone_chandler_gameplay_panel.png",
+      "width": 1200,
+      "height": 720,
+      "crop_box": [
+        480,
+        360,
+        1680,
+        1080
+      ],
+      "dialogue_caption": "The Bone Chandler smiles like a receipt with teeth.",
+      "includes_hud_crop": true,
+      "includes_runtime_art": true
+    },
+    {
+      "room_code": "R07",
+      "room_id": "almshouse",
+      "title": "The Almshouse",
+      "source_frame": "docs/art/review/act_i_godot_runtime_frames/almshouse_godot_runtime_frame.png",
+      "output": "docs/art/review/act_i_gameplay_review_panels/almshouse_gameplay_panel.png",
+      "width": 1200,
+      "height": 720,
+      "crop_box": [
+        480,
+        360,
+        1680,
+        1080
+      ],
+      "dialogue_caption": "Prosper forgets the debt. The kindness stays, annoyingly.",
+      "includes_hud_crop": true,
+      "includes_runtime_art": true
+    },
+    {
+      "room_code": "R09",
+      "room_id": "church_of_the_drowned",
+      "title": "Church of the Drowned",
+      "source_frame": "docs/art/review/act_i_godot_runtime_frames/church_of_the_drowned_godot_runtime_frame.png",
+      "output": "docs/art/review/act_i_gameplay_review_panels/church_of_the_drowned_gameplay_panel.png",
+      "width": 1200,
+      "height": 720,
+      "crop_box": [
+        480,
+        360,
+        1680,
+        1080
+      ],
+      "dialogue_caption": "Teodor sells paid truth with the expression of a man losing money on God.",
+      "includes_hud_crop": true,
+      "includes_runtime_art": true
+    },
+    {
+      "room_code": "R10",
+      "room_id": "grey_float",
+      "title": "The Grey Float",
+      "source_frame": "docs/art/review/act_i_godot_runtime_frames/grey_float_godot_runtime_frame.png",
+      "output": "docs/art/review/act_i_gameplay_review_panels/grey_float_gameplay_panel.png",
+      "width": 1200,
+      "height": 720,
+      "crop_box": [
+        480,
+        360,
+        1680,
+        1080
+      ],
+      "dialogue_caption": "Juno: Everybody comes here to feel something. You are just honest about failing.",
+      "includes_hud_crop": true,
+      "includes_runtime_art": true
+    },
+    {
+      "room_code": "R12",
+      "room_id": "sabine_office",
+      "title": "Sabine's Office",
+      "source_frame": "docs/art/review/act_i_godot_runtime_frames/sabine_office_godot_runtime_frame.png",
+      "output": "docs/art/review/act_i_gameplay_review_panels/sabine_office_gameplay_panel.png",
+      "width": 1200,
+      "height": 720,
+      "crop_box": [
+        480,
+        360,
+        1680,
+        1080
+      ],
+      "dialogue_caption": "Sabine checks for a pulse. Her hand stays there anyway.",
+      "includes_hud_crop": true,
+      "includes_runtime_art": true
+    }
+  ]
+}

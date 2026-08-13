@@ -60,6 +60,10 @@ $godotRuntimeFramesPath = Join-Path $root "docs\art\act_i_godot_runtime_frames.m
 $godotRuntimeFramesJsonPath = Join-Path $root "docs\art\act_i_godot_runtime_frames.json"
 $godotRuntimeFramesImagePath = Join-Path $root "docs\art\review\act_i_godot_runtime_frame_contact_sheet.png"
 $godotRuntimeFramesValidatorPath = Join-Path $root "tools\Validate-ActIGodotRuntimeFrames.ps1"
+$gameplayReviewPanelsPath = Join-Path $root "docs\art\act_i_gameplay_review_panels.md"
+$gameplayReviewPanelsJsonPath = Join-Path $root "docs\art\act_i_gameplay_review_panels.json"
+$gameplayReviewPanelsImagePath = Join-Path $root "docs\art\review\act_i_gameplay_review_panels_contact_sheet.png"
+$gameplayReviewPanelsValidatorPath = Join-Path $root "tools\Validate-ActIGameplayReviewPanels.ps1"
 $corvinActionRuntimeFramesPath = Join-Path $root "docs\art\corvin_action_runtime_frames.md"
 $corvinActionRuntimeFramesJsonPath = Join-Path $root "docs\art\corvin_action_runtime_frames.json"
 $corvinActionRuntimeFramesImagePath = Join-Path $root "docs\art\review\corvin_action_runtime_contact_sheet.png"
@@ -173,6 +177,10 @@ foreach ($path in @(
     $godotRuntimeFramesJsonPath,
     $godotRuntimeFramesImagePath,
     $godotRuntimeFramesValidatorPath,
+    $gameplayReviewPanelsPath,
+    $gameplayReviewPanelsJsonPath,
+    $gameplayReviewPanelsImagePath,
+    $gameplayReviewPanelsValidatorPath,
     $corvinActionRuntimeFramesPath,
     $corvinActionRuntimeFramesJsonPath,
     $corvinActionRuntimeFramesImagePath,
@@ -278,6 +286,8 @@ $runtimeReviewFrames = Get-Content -LiteralPath $runtimeReviewFramesPath -Raw
 $runtimeReviewFramesJson = Get-Content -LiteralPath $runtimeReviewFramesJsonPath -Raw | ConvertFrom-Json
 $godotRuntimeFrames = Get-Content -LiteralPath $godotRuntimeFramesPath -Raw
 $godotRuntimeFramesJson = Get-Content -LiteralPath $godotRuntimeFramesJsonPath -Raw | ConvertFrom-Json
+$gameplayReviewPanels = Get-Content -LiteralPath $gameplayReviewPanelsPath -Raw
+$gameplayReviewPanelsJson = Get-Content -LiteralPath $gameplayReviewPanelsJsonPath -Raw | ConvertFrom-Json
 $corvinActionRuntimeFrames = Get-Content -LiteralPath $corvinActionRuntimeFramesPath -Raw
 $corvinActionRuntimeFramesJson = Get-Content -LiteralPath $corvinActionRuntimeFramesJsonPath -Raw | ConvertFrom-Json
 $inSceneActionReview = Get-Content -LiteralPath $inSceneActionReviewPath -Raw
@@ -1176,6 +1186,25 @@ foreach ($requiredText in @(
     }
 }
 
+& powershell -NoProfile -ExecutionPolicy Bypass -File $gameplayReviewPanelsValidatorPath
+if ($LASTEXITCODE -ne 0) {
+    throw "Act I gameplay review panel validator failed."
+}
+
+if ($gameplayReviewPanelsJson.status -ne "exported" -or [int]$gameplayReviewPanelsJson.panel_count -ne 8) {
+    throw "Act I gameplay review panels must export 8 readable gameplay crops."
+}
+foreach ($requiredText in @(
+    "Act I Gameplay Review Panels",
+    "larger crops",
+    "room-specific dialogue captions",
+    "Crop box"
+)) {
+    if ($gameplayReviewPanels -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I gameplay review panel report missing required text: $requiredText"
+    }
+}
+
 & powershell -NoProfile -ExecutionPolicy Bypass -File $corvinActionRuntimeFramesValidatorPath
 if ($LASTEXITCODE -ne 0) {
     throw "Corvin action runtime frame validator failed."
@@ -1289,6 +1318,7 @@ $atmosphereSetpieceCount = [int]$atmosphereSetpiecesJson.count
 $hudSkinAssetCount = [int]$hudSkinJson.asset_count
 $runtimeReviewFrameCount = [int]$runtimeReviewFramesJson.frame_count
 $godotRuntimeFrameCount = [int]$godotRuntimeFramesJson.frame_count
+$gameplayReviewPanelCount = [int]$gameplayReviewPanelsJson.panel_count
 $corvinActionRuntimeFrameCount = [int]$corvinActionRuntimeFramesJson.frame_count
 $inSceneActionFrameCount = [int]$inSceneActionReviewJson.frame_count
 $characterPaletteAssetCount = [int]$characterPaletteGradeJson.current_asset_count
@@ -1328,6 +1358,7 @@ $lines = @(
     "- Act I OpenAI HUD skin: pass, $hudSkinAssetCount generated noir UI texture assets are imported and wired into the playable prologue HUD without storing dialogue or puzzle state in image files.",
     "- Act I runtime review frames: pass, $runtimeReviewFrameCount player-view frames composite runtime room art, Corvin side sprites, NPC standees, first-frame atmosphere/setpieces, contact shadows, and the generated HUD skin.",
     "- Act I Godot runtime frames: pass, $godotRuntimeFrameCount runtime-composition player-view frames show actual room scene background paths, shared art constants, foreground props, wet-floor reflections, HUD textures, NPC standees, and Corvin side sprites.",
+    "- Act I gameplay review panels: pass, $gameplayReviewPanelCount larger cropped panels show the playable band, generated room art, Corvin, NPCs, foreground props, HUD, and room-specific dialogue captions at human-review scale.",
     "- Corvin action runtime frames: pass, $corvinActionRuntimeFrameCount renderer-captured action frames show actual character_corvin.tscn idle/talk/use/wet side animations through the RuntimeSprite loader.",
     "- Act I in-scene action review: pass, $inSceneActionFrameCount room-composition frames show Corvin talk/use/wet actions in context, including the Salt Market crowd turn_to_corvin state with zoom crops for action readability.",
     "- Act I character palette grade: pass, $characterPaletteAssetCount standee and crowd assets audited under the green-cast threshold so characters keep green reserved for wrong-light scenes.",
