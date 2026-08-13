@@ -31,7 +31,7 @@ GATES:
 - Act I atmosphere setpieces: pass, 6 transparent runtime overlays add tide glint, water glint, lamp flicker, smoke, steam, and window rain to OpenAI room plates without changing puzzle coordinates.
 - Act I OpenAI HUD skin: pass, 5 generated noir UI texture assets are imported and wired into the playable prologue HUD without storing dialogue or puzzle state in image files.
 - Act I runtime review frames: pass, 9 player-view frames composite runtime room art, Corvin side sprites, NPC standees, first-frame atmosphere/setpieces, contact shadows, and the generated HUD skin.
-- Act I Godot runtime frames: pass, 9 runtime-composition player-view frames show actual room scene background paths, shared art constants, foreground props, wet-floor reflections, HUD textures, NPC standees, and Corvin side sprites.
+- Act I Godot runtime frames: pass, 9 runtime-composition player-view frames show actual room scene background paths, shared art constants, foreground props, wet-floor reflections, HUD textures, NPC standees, Corvin side sprites, and Corvin's subtle amber readability rim.
 - Act I gameplay review panels: pass, 9 larger cropped panels show the playable band, generated room art, Corvin, NPCs, foreground props, HUD, and room-specific dialogue captions at human-review scale.
 - Corvin action runtime frames: pass, 8 renderer-captured action frames show actual character_corvin.tscn idle/talk/use/wet side animations through the RuntimeSprite loader.
 - Act I in-scene action review: pass, 9 room-composition frames show Corvin talk/use/wet actions in context, including the Salt Market crowd turn_to_corvin state, named NPC dialogue/counter staging, text-free wet interaction effects, and zoom crops for action readability.

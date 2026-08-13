@@ -7,6 +7,12 @@ const VISUAL_SCALE := 0.72
 const DEFAULT_ANIMATION := "idle_side_right"
 const READABILITY_SHADOW_COLOR := Color(0.0470588, 0.0627451, 0.0745098, 0.44)
 const READABILITY_SHADOW_OFFSET := Vector2(10, 14)
+const READABILITY_RIM_COLOR := Color(0.788235, 0.541176, 0.235294, 0.22)
+const READABILITY_RIM_OFFSETS := [
+	Vector2(-2, 0),
+	Vector2(2, 0),
+	Vector2(0, -2),
+]
 const ANIMATIONS := {
 	"idle_side_right": {
 		"path": "res://game/characters/corvin/sprites/act_i_clean/idle_side_right.png",
@@ -60,6 +66,7 @@ var _frame_count := 0
 var _current_frame := 0
 var _accumulator := 0.0
 var _readability_shadow: Sprite2D
+var _readability_rims: Array[Sprite2D] = []
 
 func _ready() -> void:
 	_ensure_readability_shadow()
@@ -151,6 +158,8 @@ func _set_frame(frame_index: int) -> void:
 	texture = frame_texture
 	if _readability_shadow:
 		_readability_shadow.texture = frame_texture
+	for rim in _readability_rims:
+		rim.texture = frame_texture
 
 
 func advance_for_test(delta: float) -> int:
@@ -175,6 +184,8 @@ func _show_fallback() -> void:
 	visible = false
 	if _readability_shadow:
 		_readability_shadow.visible = false
+	for rim in _readability_rims:
+		rim.visible = false
 	for path in [fallback_node_path, salt_node_path, drip_node_path]:
 		var node := get_node_or_null(path)
 		if node is CanvasItem:
@@ -192,6 +203,17 @@ func _ensure_readability_shadow() -> void:
 	_readability_shadow.show_behind_parent = true
 	_readability_shadow.visible = false
 	add_child(_readability_shadow)
+	for rim_offset in READABILITY_RIM_OFFSETS:
+		var rim := Sprite2D.new()
+		rim.name = "RuntimeReadabilityRim"
+		rim.centered = true
+		rim.modulate = READABILITY_RIM_COLOR
+		rim.z_index = z_index - 1
+		rim.show_behind_parent = true
+		rim.visible = false
+		rim.offset = rim_offset
+		add_child(rim)
+		_readability_rims.append(rim)
 
 
 func _update_readability_shadow() -> void:
@@ -199,3 +221,8 @@ func _update_readability_shadow() -> void:
 	_readability_shadow.offset = offset + READABILITY_SHADOW_OFFSET
 	_readability_shadow.scale = Vector2.ONE
 	_readability_shadow.visible = visible
+	for index in range(_readability_rims.size()):
+		var rim := _readability_rims[index]
+		rim.offset = offset + READABILITY_RIM_OFFSETS[index]
+		rim.scale = Vector2.ONE
+		rim.visible = visible
