@@ -1,0 +1,53 @@
+{
+  "id": "salt_market_crowd",
+  "source_background": "game/rooms/salt_market/background/salt_market_bg.png",
+  "bounds": {
+    "x": 1070,
+    "y": 455,
+    "width": 520,
+    "height": 330
+  },
+  "anchor": {
+    "x": 1070,
+    "y": 455
+  },
+  "z_index": 4,
+  "trigger": {
+    "room_code": "R03",
+    "hotspot": "MarketCrowd",
+    "verb": "talk"
+  },
+  "review": "docs/art/review/salt_market_crowd_setpiece_review.png",
+  "states": [
+    {
+      "state": "idle_murmur",
+      "frames": 8,
+      "fps": 8,
+      "runtime_path": "game/rooms/salt_market/setpieces/salt_market_crowd_idle_murmur.png",
+      "export_path": "art/export/setpieces/salt_market/salt_market_crowd_idle_murmur.png",
+      "width": 520,
+      "height": 330,
+      "sheet_width": 4160
+    },
+    {
+      "state": "turn_to_corvin",
+      "frames": 10,
+      "fps": 10,
+      "runtime_path": "game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png",
+      "export_path": "art/export/setpieces/salt_market/salt_market_crowd_turn_to_corvin.png",
+      "width": 520,
+      "height": 330,
+      "sheet_width": 5200
+    },
+    {
+      "state": "settle",
+      "frames": 6,
+      "fps": 10,
+      "runtime_path": "game/rooms/salt_market/setpieces/salt_market_crowd_settle.png",
+      "export_path": "art/export/setpieces/salt_market/salt_market_crowd_settle.png",
+      "width": 520,
+      "height": 330,
+      "sheet_width": 3120
+    }
+  ]
+}

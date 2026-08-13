@@ -2,17 +2,41 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 
 ROOT = Path(__file__).resolve().parents[1]
 STANDEE_DIR = ROOT / "game" / "standees" / "act_i"
 REPORT_PATH = ROOT / "docs" / "art" / "act_i_standee_color_grade.md"
+CONTACT_PATH = ROOT / "docs" / "art" / "review" / "act_i_openai_standees_contact_sheet.png"
+
+STANDEE_NAMES = {
+    "registrar": "The Registrar",
+    "juno": "Juno Ash",
+    "prosper": "Half-Coin Prosper",
+    "tomas_bollard": "Bollard-of-Tomas",
+    "sabine": "Sabine Croix",
+    "teodor": "Brother Teodor",
+    "bone_chandler": "The Bone Chandler",
+    "market_crowd": "Salt Market Crowd",
+}
 
 
 def grade_pixel(r: int, g: int, b: int, a: int) -> tuple[int, int, int, int]:
     if a <= 16:
         return r, g, b, a
+
+    # Standees are characters, not wrong-light props. Generated sheets can use
+    # the locked absinthe slot as a generic highlight, which reads sickly green
+    # once placed over the room plates. Re-home those pixels into warm oil-light
+    # or dull cloth shadow and reserve green for the backgrounds/set dressing.
+    if (r, g, b) == (0x7D, 0x9B, 0x4E):
+        return 116, 90, 62, a
+
+    # Repair previously graded absinthe highlights when this script is rerun
+    # without re-importing the raw sheets first.
+    if 95 <= r <= 150 and 82 <= g <= 125 and 50 <= b <= 92 and r >= g and g > b:
+        return 108, 84, 62, a
 
     # Keep shadow structure, but stop green-lit faces and coats from reading as
     # separate wrong-light art when composited over amber/slate room plates.
@@ -44,6 +68,33 @@ def greenish_percent(image: Image.Image) -> float:
     return (greenish / len(opaque)) * 100.0
 
 
+def make_contact_sheet(paths: list[Path]) -> Image.Image:
+    thumb_w, thumb_h = 360, 300
+    pad = 28
+    label_h = 44
+    columns = 4
+    rows = 2
+    canvas = Image.new(
+        "RGB",
+        (columns * thumb_w + (columns + 1) * pad, rows * (thumb_h + label_h) + (rows + 1) * pad),
+        (12, 16, 19),
+    )
+    draw = ImageDraw.Draw(canvas)
+    for index, path in enumerate(paths):
+        image = Image.open(path).convert("RGBA")
+        image.thumbnail((thumb_w, thumb_h), Image.Resampling.LANCZOS)
+        col = index % columns
+        row = index // columns
+        x = pad + col * (thumb_w + pad)
+        y = pad + row * (thumb_h + label_h + pad)
+        back = Image.new("RGBA", (thumb_w, thumb_h), (42, 58, 64, 255))
+        back.alpha_composite(image, ((thumb_w - image.width) // 2, thumb_h - image.height))
+        canvas.paste(back.convert("RGB"), (x, y))
+        label = STANDEE_NAMES.get(path.stem, path.stem.replace("_", " ").title())
+        draw.text((x, y + thumb_h + 8), label, fill=(228, 220, 200))
+    return canvas
+
+
 def main() -> None:
     lines = [
         "# Act I Standee Color Grade",
@@ -56,7 +107,8 @@ def main() -> None:
         "|---|---:|---:|",
     ]
 
-    for path in sorted(STANDEE_DIR.glob("*.png")):
+    paths = sorted(STANDEE_DIR.glob("*.png"))
+    for path in paths:
         image = Image.open(path).convert("RGBA")
         before = greenish_percent(image)
         graded = Image.new("RGBA", image.size)
@@ -66,8 +118,11 @@ def main() -> None:
         lines.append(f"| `{path.name}` | {before:.1f}% | {after:.1f}% |")
 
     REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"graded={len(list(STANDEE_DIR.glob('*.png')))}")
+    CONTACT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    make_contact_sheet(paths).save(CONTACT_PATH)
+    print(f"graded={len(paths)}")
     print(f"report={REPORT_PATH.relative_to(ROOT)}")
+    print(f"contact={CONTACT_PATH.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

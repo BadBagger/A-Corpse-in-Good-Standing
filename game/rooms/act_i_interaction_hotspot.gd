@@ -43,6 +43,8 @@ func get_hover_label() -> String:
 
 func handle_room_verb(verb: String) -> Dictionary:
 	var result := {
+		"interaction_key": interaction_key,
+		"verb": verb,
 		"requires_items": requires_items,
 		"requires_flags": requires_flags,
 		"items_add": [],

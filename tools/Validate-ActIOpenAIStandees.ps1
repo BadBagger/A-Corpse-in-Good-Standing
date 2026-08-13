@@ -76,6 +76,7 @@ foreach ($standee in $standees) {
 
         $opaqueSamples = 0
         $greenLeakSamples = 0
+        $greenDominanceSamples = 0
         for ($y = 0; $y -lt $bitmap.Height; $y += 12) {
             for ($x = 0; $x -lt $bitmap.Width; $x += 12) {
                 $pixel = $bitmap.GetPixel($x, $y)
@@ -83,6 +84,9 @@ foreach ($standee in $standees) {
                     $opaqueSamples += 1
                     if ($pixel.G -gt 180 -and $pixel.R -lt 80 -and $pixel.B -lt 80) {
                         $greenLeakSamples += 1
+                    }
+                    if ($pixel.G -gt ($pixel.R * 1.12) -and $pixel.G -gt ($pixel.B * 1.05) -and $pixel.G -gt 70) {
+                        $greenDominanceSamples += 1
                     }
                 }
             }
@@ -92,6 +96,10 @@ foreach ($standee in $standees) {
         }
         if ($greenLeakSamples -gt 0) {
             throw "Act I standee $id has bright chroma-green leakage in opaque pixels."
+        }
+        $greenDominancePercent = ($greenDominanceSamples / $opaqueSamples) * 100.0
+        if ($greenDominancePercent -gt 0.5) {
+            throw "Act I standee $id reads too green after grading: $([Math]::Round($greenDominancePercent, 2))% sampled opaque pixels."
         }
     }
     finally {

@@ -7,6 +7,7 @@ extends PopochiuRoom
 @export var show_debug_layout := false
 
 const ACT_I_STANDEE_BASE := "res://game/standees/act_i/%s.png"
+const SECTIONAL_SETPIECE_PLAYER := preload("res://game/rooms/sectional_setpiece_player.gd")
 const ACT_I_STANDEES_BY_ROOM := {
 	"R02": [
 		{"id": "tomas_bollard", "position": Vector2(400, 735), "z": 4},
@@ -29,6 +30,44 @@ const ACT_I_STANDEES_BY_ROOM := {
 	],
 	"R12": [
 		{"id": "sabine", "position": Vector2(1260, 735), "z": 4, "scale": 0.76},
+	],
+}
+const ACT_I_SETPIECES_BY_ROOM := {
+	"R03": [
+		{
+			"id": "salt_market_crowd",
+			"position": Vector2(1070, 455),
+			"z": 4,
+			"default_state": "idle_murmur",
+			"states": {
+				"idle_murmur": {
+					"path": "res://game/rooms/salt_market/setpieces/salt_market_crowd_idle_murmur.png",
+					"frames": 8,
+					"fps": 8.0,
+					"width": 520,
+					"height": 330,
+					"loop": true,
+				},
+				"turn_to_corvin": {
+					"path": "res://game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png",
+					"frames": 10,
+					"fps": 10.0,
+					"width": 520,
+					"height": 330,
+					"loop": false,
+					"return_state": "settle",
+				},
+				"settle": {
+					"path": "res://game/rooms/salt_market/setpieces/salt_market_crowd_settle.png",
+					"frames": 6,
+					"fps": 10.0,
+					"width": 520,
+					"height": 330,
+					"loop": false,
+					"return_state": "idle_murmur",
+				},
+			},
+		},
 	],
 }
 
@@ -57,6 +96,7 @@ func _ready() -> void:
 func _apply_real_art_presentation() -> void:
 	_set_debug_layout_visible(show_debug_layout)
 	_add_act_i_standees()
+	_add_act_i_setpieces()
 
 func _set_debug_layout_visible(is_visible: bool) -> void:
 	for node_name in ["Floor", "WalkableAreas", "TitleLabel", "NotesLabel"]:
@@ -135,6 +175,43 @@ func _make_act_i_standee_shadow(standee_id: String, image: Image, visual_scale: 
 	shadow.color = Color(0.0470588, 0.0627451, 0.0745098, 0.52)
 	return shadow
 
+func _add_act_i_setpieces() -> void:
+	if not ACT_I_SETPIECES_BY_ROOM.has(room_code):
+		return
+	var props := get_node_or_null("Props")
+	if props == null:
+		props = self
+	var container := props.get_node_or_null("ActISetpieces")
+	if container:
+		container.queue_free()
+	container = Node2D.new()
+	container.name = "ActISetpieces"
+	props.add_child(container)
+	for setpiece in ACT_I_SETPIECES_BY_ROOM[room_code]:
+		_add_act_i_setpiece(container, setpiece)
+
+func _add_act_i_setpiece(container: Node, setpiece: Dictionary) -> void:
+	var setpiece_id := String(setpiece.get("id", ""))
+	if setpiece_id.is_empty():
+		return
+	var player := Sprite2D.new()
+	player.set_script(SECTIONAL_SETPIECE_PLAYER)
+	player.name = "%sSetpiece" % setpiece_id.to_pascal_case()
+	player.position = setpiece.get("position", Vector2.ZERO)
+	player.z_index = int(setpiece.get("z", 0))
+	container.add_child(player)
+	player.call("configure", setpiece.get("states", {}), String(setpiece.get("default_state", "")))
+
+func _play_act_i_setpiece(setpiece_id: String, state_name: String) -> bool:
+	var props := get_node_or_null("Props/ActISetpieces")
+	if props == null:
+		return false
+	var node_name := "%sSetpiece" % setpiece_id.to_pascal_case()
+	var player := props.get_node_or_null(node_name)
+	if player == null or not player.has_method("play_state"):
+		return false
+	return bool(player.call("play_state", state_name, true))
+
 func _bind_hotspot_feedback(hotspot: Area2D, input_handler: Callable) -> void:
 	var input_callable := input_handler.bind(hotspot)
 	var entered_callable := _on_hotspot_mouse_entered.bind(hotspot)
@@ -210,6 +287,10 @@ func _hover_label(hotspot: Area2D) -> String:
 
 func _apply_interaction_result(result: Dictionary) -> void:
 	var narrative := _narrative()
+	var interaction_key := String(result.get("interaction_key", ""))
+	var verb := String(result.get("verb", ""))
+	if room_code == "R03" and interaction_key == "market_crowd" and (verb == "talk" or verb == "use"):
+		_play_act_i_setpiece("salt_market_crowd", "turn_to_corvin")
 	if narrative:
 		result = _resolve_alternate_result(result, narrative)
 		for required_flag in result.get("requires_flags", []):
