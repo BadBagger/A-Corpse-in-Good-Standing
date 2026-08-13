@@ -1,0 +1,66 @@
+{
+  "generated_from": "tools/Polish-CorvinSideActionSheets.py",
+  "status": "polished_pending_rendered_sheet_audit",
+  "rule_locks": [
+    "This is a deterministic 2D gameplay readability bridge, not final animation polish.",
+    "It preserves the canonical 256x512 cell contract and byte-for-byte Godot import parity.",
+    "Wet remains physical brine using bone/slate only and no arterial red.",
+    "Final Corvin animation polish still belongs in the Blender source pass."
+  ],
+  "rows": [
+    {
+      "animation": "talk",
+      "direction": "side_right",
+      "frames": 6,
+      "sheet_export": "art/export/characters/corvin/act_i_clean/talk_side_right.png",
+      "godot_import": "game/characters/corvin/sprites/act_i_clean/talk_side_right.png",
+      "max_horizontal_shift_px": 24,
+      "method": "deterministic 2D silhouette/readability polish bridge over existing Blender-rendered sheets"
+    },
+    {
+      "animation": "talk",
+      "direction": "side_left",
+      "frames": 6,
+      "sheet_export": "art/export/characters/corvin/act_i_clean/talk_side_left.png",
+      "godot_import": "game/characters/corvin/sprites/act_i_clean/talk_side_left.png",
+      "max_horizontal_shift_px": 24,
+      "method": "deterministic 2D silhouette/readability polish bridge over existing Blender-rendered sheets"
+    },
+    {
+      "animation": "use",
+      "direction": "side_right",
+      "frames": 8,
+      "sheet_export": "art/export/characters/corvin/act_i_clean/use_side_right.png",
+      "godot_import": "game/characters/corvin/sprites/act_i_clean/use_side_right.png",
+      "max_horizontal_shift_px": 28,
+      "method": "deterministic 2D silhouette/readability polish bridge over existing Blender-rendered sheets"
+    },
+    {
+      "animation": "use",
+      "direction": "side_left",
+      "frames": 8,
+      "sheet_export": "art/export/characters/corvin/act_i_clean/use_side_left.png",
+      "godot_import": "game/characters/corvin/sprites/act_i_clean/use_side_left.png",
+      "max_horizontal_shift_px": 28,
+      "method": "deterministic 2D silhouette/readability polish bridge over existing Blender-rendered sheets"
+    },
+    {
+      "animation": "wet",
+      "direction": "side_right",
+      "frames": 8,
+      "sheet_export": "art/export/characters/corvin/act_i_clean/wet_side_right.png",
+      "godot_import": "game/characters/corvin/sprites/act_i_clean/wet_side_right.png",
+      "max_horizontal_shift_px": 16,
+      "method": "deterministic 2D silhouette/readability polish bridge over existing Blender-rendered sheets"
+    },
+    {
+      "animation": "wet",
+      "direction": "side_left",
+      "frames": 8,
+      "sheet_export": "art/export/characters/corvin/act_i_clean/wet_side_left.png",
+      "godot_import": "game/characters/corvin/sprites/act_i_clean/wet_side_left.png",
+      "max_horizontal_shift_px": 16,
+      "method": "deterministic 2D silhouette/readability polish bridge over existing Blender-rendered sheets"
+    }
+  ]
+}

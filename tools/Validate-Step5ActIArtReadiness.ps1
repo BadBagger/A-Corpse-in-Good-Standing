@@ -21,6 +21,8 @@ $corvinSideActionRenderScriptsPath = Join-Path $root "docs\art\corvin_side_actio
 $corvinSideActionRenderScriptsJsonPath = Join-Path $root "docs\art\corvin_side_action_render_scripts_status.json"
 $corvinSideActionRenderedSheetsPath = Join-Path $root "docs\art\corvin_side_action_rendered_sheets_audit.md"
 $corvinSideActionRenderedSheetsJsonPath = Join-Path $root "docs\art\corvin_side_action_rendered_sheets_audit.json"
+$corvinSideActionPolishBridgePath = Join-Path $root "docs\art\corvin_side_action_polish_bridge.md"
+$corvinSideActionPolishBridgeJsonPath = Join-Path $root "docs\art\corvin_side_action_polish_bridge.json"
 $playtestReportPath = Join-Path $root "docs\playtest\results\act_i_greybox_auto_report.md"
 $backgroundElementPipelinePath = Join-Path $root "docs\art\act_i_background_element_pipeline.md"
 $backgroundSourceWorklistPath = Join-Path $root "docs\art\act_i_background_source_worklist.md"
@@ -112,6 +114,8 @@ foreach ($path in @(
     $corvinSideActionRenderScriptsJsonPath,
     $corvinSideActionRenderedSheetsPath,
     $corvinSideActionRenderedSheetsJsonPath,
+    $corvinSideActionPolishBridgePath,
+    $corvinSideActionPolishBridgeJsonPath,
     $corvinSideActionRenderCommandsPath,
     $corvinSideActionRenderCommandsJsonPath,
     $playtestReportPath,
@@ -208,6 +212,8 @@ $corvinSideActionRenderScripts = Get-Content -LiteralPath $corvinSideActionRende
 $corvinSideActionRenderScriptsJson = Get-Content -LiteralPath $corvinSideActionRenderScriptsJsonPath -Raw | ConvertFrom-Json
 $corvinSideActionRenderedSheets = Get-Content -LiteralPath $corvinSideActionRenderedSheetsPath -Raw
 $corvinSideActionRenderedSheetsJson = Get-Content -LiteralPath $corvinSideActionRenderedSheetsJsonPath -Raw | ConvertFrom-Json
+$corvinSideActionPolishBridge = Get-Content -LiteralPath $corvinSideActionPolishBridgePath -Raw
+$corvinSideActionPolishBridgeJson = Get-Content -LiteralPath $corvinSideActionPolishBridgeJsonPath -Raw | ConvertFrom-Json
 $corvinSideActionRenderCommands = Get-Content -LiteralPath $corvinSideActionRenderCommandsPath -Raw
 $corvinSideActionRenderCommandsJson = Get-Content -LiteralPath $corvinSideActionRenderCommandsJsonPath -Raw | ConvertFrom-Json
 $playtestReport = Get-Content -LiteralPath $playtestReportPath -Raw
@@ -496,6 +502,21 @@ foreach ($requiredText in @(
 )) {
     if ($corvinSideActionRenderedSheets -notmatch [regex]::Escape($requiredText)) {
         throw "Corvin side action rendered-sheet audit missing readiness text: $requiredText"
+    }
+}
+
+$corvinSideActionPolishRows = @($corvinSideActionPolishBridgeJson.rows)
+if ($corvinSideActionPolishBridgeJson.status -ne "polished_pending_rendered_sheet_audit" -or $corvinSideActionPolishRows.Count -ne 6) {
+    throw "Corvin side action polish bridge expected 6 polished rows pending rendered-sheet audit."
+}
+foreach ($requiredText in @(
+    "Corvin Side Action Polish Bridge",
+    "deterministic 2D gameplay readability bridge",
+    "Wet uses physical brine strokes in bone/slate only",
+    "Does not approve final animation polish"
+)) {
+    if ($corvinSideActionPolishBridge -notmatch [regex]::Escape($requiredText)) {
+        throw "Corvin side action polish bridge missing readiness text: $requiredText"
     }
 }
 
@@ -1136,7 +1157,7 @@ $lines = @(
     "- Corvin side-action render queue: pass, 6 deterministic Blender render/import rows for Act I talk/use/wet are present and pending final polish review with placeholder PNGs forbidden and post-render checks defined.",
     "- Corvin side-action render scripts: pass, 6 Blender entrypoints exist, refuse blank sheet assembly, and audit clean; status is $($corvinSideActionRenderScriptsJson.status) with $([int]$corvinSideActionRenderScriptsJson.missing_keyed_action_count) missing keyed actions.",
     "- Corvin side-action render commands: pass, 6 deterministic Blender command handoffs exist with 120-second timeout wrapping, byte-for-byte Godot import commands, and queue audit commands.",
-    "- Corvin side-action rendered sheets: pass, 6 exported sheets and 6 byte-for-byte Godot imports pass dimension, nonblank-frame, profile-silhouette, motion-readability, and wet arterial-red audits; final animation polish is still not approved.",
+    "- Corvin side-action rendered sheets: pass, 6 exported sheets and 6 byte-for-byte Godot imports pass dimension, nonblank-frame, profile-silhouette, motion-readability, and wet arterial-red audits after the deterministic 2D gameplay readability bridge; final animation polish is still not approved.",
     "- Corvin animation tracker: pass, $corvinPresent present / $corvinPending pending / $($corvinRows.Count) total; remaining pending rows are the broader production contract, not required for side-on Act I greybox review.",
     "- Ink shader yaw metrics: pass, status audited, object pairwise max $objectPairwiseMax% against threshold $pairwiseThreshold%, first-last drift $objectFirstLastDrift% against threshold $firstLastThreshold%; bad-control pairwise max $badControlPairwiseMax% remains the calibration contrast.",
     "- Automated Act I playtest evidence: pass, the report records direction-aware transition animation evidence and current-side idle arrival behavior.",
