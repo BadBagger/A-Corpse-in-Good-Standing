@@ -95,7 +95,12 @@ foreach ($requiredText in @(
     "HUD_SKIN_BASE",
     "_apply_noir_skin",
     "status_strip.png",
+    "Rect2i(0, 0, 430, 112)",
+    "region_enabled",
+    "region_rect",
+    "Vector2(0.325, 0.50)",
     "dialogue_panel.png",
+    "Vector2(1.15, 0.56)",
     "verb_button_plate.png",
     "bottom_inventory_panel.png",
     "small_icon_frame.png"

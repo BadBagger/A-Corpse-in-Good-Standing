@@ -104,8 +104,8 @@ func _refresh_inventory() -> void:
 	_inventory.text = "Inventory: " + (", ".join(inventory_items) if not inventory_items.is_empty() else "empty")
 
 func _apply_noir_skin() -> void:
-	_add_texture_backdrop(%Status, "status_strip.png", Vector2(8, 30), Vector2(0.88, 0.36), -1)
-	_add_texture_backdrop(%Dialogue, "dialogue_panel.png", Vector2(-8, -10), Vector2(0.50, 0.40), -1)
+	_add_texture_backdrop(%Status, "status_strip.png", Vector2(8, 30), Vector2(0.325, 0.50), -1, Rect2i(0, 0, 430, 112))
+	_add_texture_backdrop(%Dialogue, "dialogue_panel.png", Vector2(-128, -8), Vector2(1.15, 0.56), -1)
 	_add_texture_backdrop(%Inventory, "bottom_inventory_panel.png", Vector2(-14, -86), Vector2(0.63, 0.34), -1)
 	_add_texture_backdrop(%Litany, "small_icon_frame.png", Vector2(-74, -30), Vector2(0.34, 0.34), -1)
 	_style_panel(%WalkButton.get_parent().get_parent().get_parent(), Color(PALETTE.wet_black, 0.62))
@@ -121,7 +121,7 @@ func _apply_noir_skin() -> void:
 	for label in [_status, _objective, _inventory, _journal, _litany, _dialogue]:
 		_style_label(label)
 
-func _add_texture_backdrop(anchor: Control, file_name: String, offset: Vector2, scale: Vector2, z: int) -> void:
+func _add_texture_backdrop(anchor: Control, file_name: String, offset: Vector2, scale: Vector2, z: int, source_rect: Rect2i = Rect2i()) -> void:
 	var texture := _load_hud_texture(file_name)
 	if texture == null:
 		return
@@ -131,6 +131,9 @@ func _add_texture_backdrop(anchor: Control, file_name: String, offset: Vector2, 
 	var rect := TextureRect.new()
 	rect.name = file_name.get_basename().to_pascal_case()
 	rect.texture = texture
+	if source_rect.size.x > 0 and source_rect.size.y > 0:
+		rect.region_enabled = true
+		rect.region_rect = source_rect
 	rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	rect.stretch_mode = TextureRect.STRETCH_SCALE
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
