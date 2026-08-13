@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import csv
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -11,6 +12,7 @@ OUT_DIR = ROOT / "docs" / "art" / "review" / "act_i_godot_runtime_frames"
 CONTACT_PATH = ROOT / "docs" / "art" / "review" / "act_i_godot_runtime_frame_contact_sheet.png"
 REPORT_JSON = ROOT / "docs" / "art" / "act_i_godot_runtime_frames.json"
 REPORT_MD = ROOT / "docs" / "art" / "act_i_godot_runtime_frames.md"
+HOTSPOT_MAP = ROOT / "docs" / "art" / "act_i_hotspot_map.csv"
 
 PALETTE = {
     "bone": (228, 220, 200),
@@ -22,6 +24,9 @@ PALETTE = {
 
 CORVIN_READABILITY_RIM = (201, 138, 60, 56)
 CORVIN_READABILITY_RIM_OFFSETS = [(-2, 0), (2, 0), (0, -2)]
+HOTSPOT_GLINT_COLOR = (201, 138, 60, 132)
+HOTSPOT_GLINT_CORE = (228, 220, 200, 168)
+HOTSPOT_GLINT_LIMIT = 3
 
 ROOM_CAPTIONS = {
     "R01": "Mudflats. The tide brought Corvin back and kept the boots.",
@@ -131,6 +136,18 @@ ROOMS = [
     },
 ]
 
+HOTSPOT_GLINT_PRIORITY = {
+    "mudflats": ["MissingBoots", "BollardOfTomas", "HarborView"],
+    "old_quay": ["Tomas", "RopeCleat", "Flask"],
+    "salt_market": ["MarketCrowd", "Fishmonger", "ChurchSign"],
+    "harbor_registry": ["KestrelLedger", "Registrar", "DeskLamp"],
+    "bone_chandler": ["ProsperWatch", "ChessSet", "Wares"],
+    "almshouse": ["HalfCoinProsper", "Window", "Cots"],
+    "church_of_the_drowned": ["RateCard", "PoorBox", "ConfessionBooth"],
+    "grey_float": ["BilgeRegulator", "StaffCorner", "SteamScreen"],
+    "sabine_office": ["SabineDesk"],
+}
+
 
 def first_frame(path: Path, frame_w: int, frame_h: int) -> Image.Image:
     sheet = Image.open(path).convert("RGBA")
@@ -186,6 +203,54 @@ def draw_wet_floor_reflection(image: Image.Image, sprite: Image.Image, foot_x: i
     alpha = reflection.getchannel("A").point(lambda value: round(value * 0.18))
     tint.putalpha(alpha)
     image.alpha_composite(tint, (round(foot_x - tint.width / 2), foot_y + 5))
+
+
+def load_hotspot_glints() -> dict[str, list[dict[str, object]]]:
+    if not HOTSPOT_MAP.exists():
+        return {}
+
+    by_room: dict[str, dict[str, dict[str, object]]] = {}
+    with HOTSPOT_MAP.open("r", encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle):
+            if row.get("type") == "exit":
+                continue
+            room_id = str(row.get("room_id", ""))
+            name = str(row.get("name", ""))
+            if not room_id or not name:
+                continue
+            try:
+                x = int(float(str(row.get("x", "0"))))
+                y = int(float(str(row.get("y", "0"))))
+            except ValueError:
+                continue
+            by_room.setdefault(room_id, {})[name] = {
+                "name": name,
+                "label": str(row.get("label", name)),
+                "x": x,
+                "y": y,
+                "has_wet": bool(str(row.get("wet_ink_knot", "")).strip()),
+                "is_duel": row.get("type") == "duel" or bool(str(row.get("duel_opponent", "")).strip()),
+            }
+
+    selected: dict[str, list[dict[str, object]]] = {}
+    for room_id, priority_names in HOTSPOT_GLINT_PRIORITY.items():
+        room_map = by_room.get(room_id, {})
+        glints = [room_map[name] for name in priority_names if name in room_map]
+        selected[room_id] = glints[:HOTSPOT_GLINT_LIMIT]
+    return selected
+
+
+def draw_hotspot_glints(image: Image.Image, glints: list[dict[str, object]]) -> None:
+    draw = ImageDraw.Draw(image, "RGBA")
+    for glint in glints:
+        x = int(glint["x"])
+        y = int(glint["y"])
+        radius = 8 if glint.get("is_duel") else 6
+        if glint.get("has_wet"):
+            draw.arc((x - 18, y - 18, x + 18, y + 18), start=200, end=340, fill=(125, 155, 78, 112), width=2)
+        draw.line((x - radius, y, x + radius, y), fill=HOTSPOT_GLINT_COLOR, width=1)
+        draw.line((x, y - radius, x, y + radius), fill=HOTSPOT_GLINT_COLOR, width=1)
+        draw.ellipse((x - 2, y - 2, x + 2, y + 2), fill=HOTSPOT_GLINT_CORE)
 
 
 def wrap_text(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.ImageFont, max_width: int) -> list[str]:
@@ -264,6 +329,9 @@ def build_frame(room: dict) -> dict:
         standee = Image.open(standee_path).convert("RGBA")
         paste_sprite(image, standee, foot_x, foot_y, scale)
 
+    hotspot_glints = room.get("hotspot_glints", [])
+    draw_hotspot_glints(image, hotspot_glints)
+
     player_x, player_y, animation = room["player"]
     paste_corvin(image, player_x, player_y, animation)
     caption = ROOM_CAPTIONS[room["code"]]
@@ -292,6 +360,8 @@ def build_frame(room: dict) -> dict:
         "standee_count": len(room["standees"]),
         "standee_reflection_count": len(room["standees"]),
         "overlay_count": len(room["overlays"]),
+        "hotspot_glint_count": len(hotspot_glints),
+        "hotspot_glints": hotspot_glints,
         "dialogue_caption": caption,
         "dialogue_text_embedded_in_hud": True,
         "status_text_embedded_in_generated_hud": True,
@@ -318,14 +388,21 @@ def build_contact(records: list[dict]) -> None:
 
 
 def main() -> None:
-    records = [build_frame(room) for room in ROOMS]
+    glints_by_room = load_hotspot_glints()
+    rooms = []
+    for room in ROOMS:
+        room_copy = dict(room)
+        room_copy["hotspot_glints"] = glints_by_room.get(room["room_id"], [])
+        rooms.append(room_copy)
+
+    records = [build_frame(room) for room in rooms]
     build_contact(records)
     report = {
         "status": "captured",
         "capture": "godot_runtime_composition",
         "frame_count": len(records),
         "contact_sheet": CONTACT_PATH.relative_to(ROOT).as_posix(),
-        "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
+        "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
         "rooms": records,
     }
     REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
@@ -334,16 +411,16 @@ def main() -> None:
         "",
         "Generated by `tools/Build-ActIGodotRuntimeFrames.py`.",
         "",
-        "These Godot runtime-composition review frames use actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere overlays, HUD, NPC standees, and Corvin side sprites matching the actual Corvin character scene using the RuntimeSprite loader with a subtle amber readability rim. The compositor uses direct PNG loading so this proof survives headless renderer/import-cache differences.",
+        "These Godot runtime-composition review frames use actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere overlays, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and Corvin side sprites matching the actual Corvin character scene using the RuntimeSprite loader with a subtle amber readability rim. The compositor uses direct PNG loading so this proof survives headless renderer/import-cache differences.",
         "",
         f"- Contact sheet: `{report['contact_sheet']}`",
         f"- Frame count: {len(records)}",
         "",
-        "| Room | Captured frame | Props | Embedded HUD dialogue |",
-        "|---|---|---:|---|",
+        "| Room | Captured frame | Props | Glints | Embedded HUD dialogue |",
+        "|---|---|---:|---:|---|",
     ]
     for record in records:
-        lines.append(f"| {record['room_code']} / {record['title']} | `{record['output']}` | {record['foreground_prop_count']} | {record['dialogue_caption']} |")
+        lines.append(f"| {record['room_code']} / {record['title']} | `{record['output']}` | {record['foreground_prop_count']} | {record['hotspot_glint_count']} | {record['dialogue_caption']} |")
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"runtime_frames={len(records)}")
     print(f"contact_sheet={CONTACT_PATH.relative_to(ROOT)}")

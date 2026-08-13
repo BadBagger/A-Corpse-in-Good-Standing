@@ -3,7 +3,7 @@
   "capture": "godot_runtime_composition",
   "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png",
-  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
+  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
   "rooms": [
     {
       "room_code": "R01",
@@ -24,6 +24,33 @@
       "standee_count": 0,
       "standee_reflection_count": 0,
       "overlay_count": 1,
+      "hotspot_glint_count": 3,
+      "hotspot_glints": [
+        {
+          "name": "MissingBoots",
+          "label": "missing boots",
+          "x": 965,
+          "y": 910,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "BollardOfTomas",
+          "label": "Bollard-of-Tomas",
+          "x": 390,
+          "y": 702,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "HarborView",
+          "label": "harbor view",
+          "x": 1180,
+          "y": 620,
+          "has_wet": false,
+          "is_duel": false
+        }
+      ],
       "dialogue_caption": "Mudflats. The tide brought Corvin back and kept the boots.",
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
@@ -47,6 +74,33 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
+      "hotspot_glint_count": 3,
+      "hotspot_glints": [
+        {
+          "name": "Tomas",
+          "label": "Bollard Tomas",
+          "x": 470,
+          "y": 720,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "RopeCleat",
+          "label": "Rope cleat",
+          "x": 720,
+          "y": 800,
+          "has_wet": true,
+          "is_duel": false
+        },
+        {
+          "name": "Flask",
+          "label": "Empty flask",
+          "x": 1180,
+          "y": 760,
+          "has_wet": false,
+          "is_duel": false
+        }
+      ],
       "dialogue_caption": "Corvin: Tomas, you look moored. Tomas: I contain multitudes and two unpaid bar tabs.",
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
@@ -70,6 +124,33 @@
       "standee_count": 0,
       "standee_reflection_count": 0,
       "overlay_count": 2,
+      "hotspot_glint_count": 3,
+      "hotspot_glints": [
+        {
+          "name": "MarketCrowd",
+          "label": "Crowd",
+          "x": 960,
+          "y": 760,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "Fishmonger",
+          "label": "Fishmonger",
+          "x": 520,
+          "y": 720,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "ChurchSign",
+          "label": "Church sign",
+          "x": 1380,
+          "y": 540,
+          "has_wet": true,
+          "is_duel": false
+        }
+      ],
       "dialogue_caption": "The crowd notices Corvin is dead. Commerce handles it poorly.",
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
@@ -93,6 +174,33 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
+      "hotspot_glint_count": 3,
+      "hotspot_glints": [
+        {
+          "name": "KestrelLedger",
+          "label": "Kestrel ledger",
+          "x": 1220,
+          "y": 610,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "Registrar",
+          "label": "Registrar",
+          "x": 980,
+          "y": 690,
+          "has_wet": false,
+          "is_duel": true
+        },
+        {
+          "name": "DeskLamp",
+          "label": "Desk lamp",
+          "x": 890,
+          "y": 650,
+          "has_wet": true,
+          "is_duel": false
+        }
+      ],
       "dialogue_caption": "Registrar: Dead men do not have standing. Corvin: That explains my posture.",
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
@@ -116,6 +224,33 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 0,
+      "hotspot_glint_count": 3,
+      "hotspot_glints": [
+        {
+          "name": "ProsperWatch",
+          "label": "Prosper's watch",
+          "x": 1010,
+          "y": 700,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "ChessSet",
+          "label": "Chess set",
+          "x": 790,
+          "y": 680,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "Wares",
+          "label": "Wares",
+          "x": 560,
+          "y": 700,
+          "has_wet": false,
+          "is_duel": false
+        }
+      ],
       "dialogue_caption": "The Bone Chandler smiles like a receipt with teeth.",
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
@@ -139,6 +274,33 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 0,
+      "hotspot_glint_count": 3,
+      "hotspot_glints": [
+        {
+          "name": "HalfCoinProsper",
+          "label": "Half-Coin Prosper",
+          "x": 980,
+          "y": 700,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "Window",
+          "label": "Window",
+          "x": 780,
+          "y": 650,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "Cots",
+          "label": "Cots",
+          "x": 560,
+          "y": 720,
+          "has_wet": false,
+          "is_duel": false
+        }
+      ],
       "dialogue_caption": "Prosper forgets the debt. The kindness stays, annoyingly.",
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
@@ -162,6 +324,33 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 0,
+      "hotspot_glint_count": 3,
+      "hotspot_glints": [
+        {
+          "name": "RateCard",
+          "label": "Teodor's stall",
+          "x": 940,
+          "y": 700,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "PoorBox",
+          "label": "Poor box",
+          "x": 620,
+          "y": 720,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "ConfessionBooth",
+          "label": "Confession booth",
+          "x": 780,
+          "y": 650,
+          "has_wet": false,
+          "is_duel": false
+        }
+      ],
       "dialogue_caption": "Teodor sells paid truth with the expression of a man losing money on God.",
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
@@ -185,6 +374,33 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
+      "hotspot_glint_count": 3,
+      "hotspot_glints": [
+        {
+          "name": "BilgeRegulator",
+          "label": "Bilge regulator",
+          "x": 900,
+          "y": 700,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "StaffCorner",
+          "label": "Staff corner",
+          "x": 620,
+          "y": 710,
+          "has_wet": false,
+          "is_duel": false
+        },
+        {
+          "name": "SteamScreen",
+          "label": "Steam screen",
+          "x": 1450,
+          "y": 650,
+          "has_wet": false,
+          "is_duel": false
+        }
+      ],
       "dialogue_caption": "Juno: Everybody comes here to feel something. You are just honest about failing.",
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
@@ -208,6 +424,17 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
+      "hotspot_glint_count": 1,
+      "hotspot_glints": [
+        {
+          "name": "SabineDesk",
+          "label": "Sabine's desk",
+          "x": 960,
+          "y": 690,
+          "has_wet": false,
+          "is_duel": false
+        }
+      ],
       "dialogue_caption": "Sabine checks for a pulse. Her hand stays there anyway.",
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
