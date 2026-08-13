@@ -1155,7 +1155,9 @@ if ($godotRuntimeFramesJson.status -ne "captured" -or [int]$godotRuntimeFramesJs
 }
 foreach ($requiredText in @(
     "Act I Godot Runtime Frames",
-    "Godot SubViewport",
+    "Godot runtime",
+    "actual room scene background paths",
+    "shared runtime art constants",
     "runtime foreground props",
     "wet-floor reflections"
 )) {

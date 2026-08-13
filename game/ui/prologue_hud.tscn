@@ -20,18 +20,18 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 26.0
-offset_top = -204.0
-offset_right = 356.0
+offset_top = -176.0
+offset_right = 324.0
 offset_bottom = -26.0
 grow_vertical = 0
 mouse_filter = 0
 
 [node name="Margin" type="MarginContainer" parent="Root/VerbCoin"]
 layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="Grid" type="GridContainer" parent="Root/VerbCoin/Margin"]
 layout_mode = 2
@@ -74,7 +74,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 390.0
-offset_top = -92.0
+offset_top = -76.0
 offset_right = -26.0
 offset_bottom = -26.0
 grow_horizontal = 2
@@ -83,10 +83,10 @@ mouse_filter = 0
 
 [node name="InventoryMargin" type="MarginContainer" parent="Root/InventoryPanel"]
 layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
 
 [node name="Inventory" type="Label" parent="Root/InventoryPanel/InventoryMargin"]
 unique_name_in_owner = true
@@ -99,9 +99,9 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 26.0
-offset_top = 24.0
+offset_top = 18.0
 offset_right = -26.0
-offset_bottom = 72.0
+offset_bottom = 54.0
 grow_horizontal = 2
 mouse_filter = 2
 
@@ -123,9 +123,9 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 26.0
-offset_top = 74.0
+offset_top = 58.0
 offset_right = -600.0
-offset_bottom = 122.0
+offset_bottom = 96.0
 grow_horizontal = 2
 mouse_filter = 2
 
@@ -147,9 +147,9 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 26.0
-offset_top = 136.0
+offset_top = 104.0
 offset_right = -600.0
-offset_bottom = 336.0
+offset_bottom = 224.0
 grow_horizontal = 2
 mouse_filter = 2
 
@@ -171,10 +171,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -560.0
-offset_top = 92.0
+offset_left = -500.0
+offset_top = 62.0
 offset_right = -26.0
-offset_bottom = 316.0
+offset_bottom = 194.0
 grow_horizontal = 0
 mouse_filter = 2
 
@@ -196,10 +196,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -560.0
-offset_top = 330.0
+offset_left = -500.0
+offset_top = 204.0
 offset_right = -26.0
-offset_bottom = 382.0
+offset_bottom = 242.0
 grow_horizontal = 0
 mouse_filter = 2
 

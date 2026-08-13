@@ -104,17 +104,17 @@ func _refresh_inventory() -> void:
 	_inventory.text = "Inventory: " + (", ".join(inventory_items) if not inventory_items.is_empty() else "empty")
 
 func _apply_noir_skin() -> void:
-	_add_texture_backdrop(%Status, "status_strip.png", Vector2(12, 44), Vector2(1.0, 0.54), -1)
-	_add_texture_backdrop(%Dialogue, "dialogue_panel.png", Vector2(-10, -12), Vector2(0.67, 0.62), -1)
-	_add_texture_backdrop(%Inventory, "bottom_inventory_panel.png", Vector2(-16, -118), Vector2(0.68, 0.46), -1)
-	_add_texture_backdrop(%Litany, "small_icon_frame.png", Vector2(-102, -38), Vector2(0.46, 0.46), -1)
-	_style_panel(%WalkButton.get_parent().get_parent().get_parent(), Color(PALETTE.wet_black, 0.72))
-	_style_panel(%Inventory.get_parent().get_parent(), Color(PALETTE.wet_black, 0.68))
-	_style_panel(%Status.get_parent().get_parent(), Color(PALETTE.wet_black, 0.42))
-	_style_panel(%Objective.get_parent().get_parent(), Color(PALETTE.wet_black, 0.60))
-	_style_panel(%Dialogue.get_parent().get_parent(), Color(PALETTE.wet_black, 0.50))
-	_style_panel(%Journal.get_parent().get_parent(), Color(PALETTE.wet_black, 0.62))
-	_style_panel(%Litany.get_parent().get_parent(), Color(PALETTE.wet_black, 0.56))
+	_add_texture_backdrop(%Status, "status_strip.png", Vector2(8, 30), Vector2(0.88, 0.36), -1)
+	_add_texture_backdrop(%Dialogue, "dialogue_panel.png", Vector2(-8, -10), Vector2(0.50, 0.40), -1)
+	_add_texture_backdrop(%Inventory, "bottom_inventory_panel.png", Vector2(-14, -86), Vector2(0.63, 0.34), -1)
+	_add_texture_backdrop(%Litany, "small_icon_frame.png", Vector2(-74, -30), Vector2(0.34, 0.34), -1)
+	_style_panel(%WalkButton.get_parent().get_parent().get_parent(), Color(PALETTE.wet_black, 0.62))
+	_style_panel(%Inventory.get_parent().get_parent(), Color(PALETTE.wet_black, 0.58))
+	_style_panel(%Status.get_parent().get_parent(), Color(PALETTE.wet_black, 0.36))
+	_style_panel(%Objective.get_parent().get_parent(), Color(PALETTE.wet_black, 0.48))
+	_style_panel(%Dialogue.get_parent().get_parent(), Color(PALETTE.wet_black, 0.42))
+	_style_panel(%Journal.get_parent().get_parent(), Color(PALETTE.wet_black, 0.50))
+	_style_panel(%Litany.get_parent().get_parent(), Color(PALETTE.wet_black, 0.48))
 	for verb in VERBS:
 		_style_verb_button(_verb_buttons[verb], verb)
 		_add_button_texture_backdrop(_verb_buttons[verb], "verb_button_plate.png")
@@ -156,11 +156,11 @@ func _style_panel(node: Node, color: Color) -> void:
 
 func _style_verb_button(button: Button, verb: String) -> void:
 	button.text = "%s  %s" % [VERB_ICONS.get(verb, "?"), verb.to_upper()]
-	button.custom_minimum_size = Vector2(138, 42)
+	button.custom_minimum_size = Vector2(124, 36)
 	button.add_theme_color_override("font_color", PALETTE.bone)
 	button.add_theme_color_override("font_pressed_color", PALETTE.wet_black)
 	button.add_theme_color_override("font_hover_color", PALETTE.amber)
-	button.add_theme_font_size_override("font_size", 13)
+	button.add_theme_font_size_override("font_size", 12)
 	button.add_theme_stylebox_override("normal", _button_style(Color(PALETTE.harbor_slate, 0.82), Color(PALETTE.amber, 0.45)))
 	button.add_theme_stylebox_override("hover", _button_style(Color(PALETTE.harbor_slate, 0.95), Color(PALETTE.amber, 0.85)))
 	button.add_theme_stylebox_override("pressed", _button_style(Color(PALETTE.amber, 0.90), Color(PALETTE.bone, 0.9)))
