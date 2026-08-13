@@ -1,0 +1,105 @@
+{
+  "status": "despilled",
+  "sheets": [
+    {
+      "sheet": "idle_side_left.png",
+      "export_path": "art/export/characters/corvin/act_i_clean/idle_side_left.png",
+      "game_path": "game/characters/corvin/sprites/act_i_clean/idle_side_left.png",
+      "opaque_pixels": 336084,
+      "before_greenish_pixels": 0,
+      "after_greenish_pixels": 0,
+      "before_greenish_percent": 0.0,
+      "after_greenish_percent": 0.0
+    },
+    {
+      "sheet": "idle_side_right.png",
+      "export_path": "art/export/characters/corvin/act_i_clean/idle_side_right.png",
+      "game_path": "game/characters/corvin/sprites/act_i_clean/idle_side_right.png",
+      "opaque_pixels": 336084,
+      "before_greenish_pixels": 0,
+      "after_greenish_pixels": 0,
+      "before_greenish_percent": 0.0,
+      "after_greenish_percent": 0.0
+    },
+    {
+      "sheet": "walk_side_left.png",
+      "export_path": "art/export/characters/corvin/act_i_clean/walk_side_left.png",
+      "game_path": "game/characters/corvin/sprites/act_i_clean/walk_side_left.png",
+      "opaque_pixels": 224891,
+      "before_greenish_pixels": 0,
+      "after_greenish_pixels": 0,
+      "before_greenish_percent": 0.0,
+      "after_greenish_percent": 0.0
+    },
+    {
+      "sheet": "walk_side_right.png",
+      "export_path": "art/export/characters/corvin/act_i_clean/walk_side_right.png",
+      "game_path": "game/characters/corvin/sprites/act_i_clean/walk_side_right.png",
+      "opaque_pixels": 224891,
+      "before_greenish_pixels": 0,
+      "after_greenish_pixels": 0,
+      "before_greenish_percent": 0.0,
+      "after_greenish_percent": 0.0
+    },
+    {
+      "sheet": "talk_side_left.png",
+      "export_path": "art/export/characters/corvin/act_i_clean/talk_side_left.png",
+      "game_path": "game/characters/corvin/sprites/act_i_clean/talk_side_left.png",
+      "opaque_pixels": 132504,
+      "before_greenish_pixels": 0,
+      "after_greenish_pixels": 0,
+      "before_greenish_percent": 0.0,
+      "after_greenish_percent": 0.0
+    },
+    {
+      "sheet": "talk_side_right.png",
+      "export_path": "art/export/characters/corvin/act_i_clean/talk_side_right.png",
+      "game_path": "game/characters/corvin/sprites/act_i_clean/talk_side_right.png",
+      "opaque_pixels": 132619,
+      "before_greenish_pixels": 0,
+      "after_greenish_pixels": 0,
+      "before_greenish_percent": 0.0,
+      "after_greenish_percent": 0.0
+    },
+    {
+      "sheet": "use_side_left.png",
+      "export_path": "art/export/characters/corvin/act_i_clean/use_side_left.png",
+      "game_path": "game/characters/corvin/sprites/act_i_clean/use_side_left.png",
+      "opaque_pixels": 178810,
+      "before_greenish_pixels": 0,
+      "after_greenish_pixels": 0,
+      "before_greenish_percent": 0.0,
+      "after_greenish_percent": 0.0
+    },
+    {
+      "sheet": "use_side_right.png",
+      "export_path": "art/export/characters/corvin/act_i_clean/use_side_right.png",
+      "game_path": "game/characters/corvin/sprites/act_i_clean/use_side_right.png",
+      "opaque_pixels": 178927,
+      "before_greenish_pixels": 0,
+      "after_greenish_pixels": 0,
+      "before_greenish_percent": 0.0,
+      "after_greenish_percent": 0.0
+    },
+    {
+      "sheet": "wet_side_left.png",
+      "export_path": "art/export/characters/corvin/act_i_clean/wet_side_left.png",
+      "game_path": "game/characters/corvin/sprites/act_i_clean/wet_side_left.png",
+      "opaque_pixels": 176227,
+      "before_greenish_pixels": 0,
+      "after_greenish_pixels": 0,
+      "before_greenish_percent": 0.0,
+      "after_greenish_percent": 0.0
+    },
+    {
+      "sheet": "wet_side_right.png",
+      "export_path": "art/export/characters/corvin/act_i_clean/wet_side_right.png",
+      "game_path": "game/characters/corvin/sprites/act_i_clean/wet_side_right.png",
+      "opaque_pixels": 176349,
+      "before_greenish_pixels": 0,
+      "after_greenish_pixels": 0,
+      "before_greenish_percent": 0.0,
+      "after_greenish_percent": 0.0
+    }
+  ]
+}
