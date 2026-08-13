@@ -65,8 +65,11 @@ try {
     Invoke-Step -Name "Validate Act I paintover packet" -ScriptName "Validate-ActIPaintoverPacket.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I art readability review" -ScriptName "Validate-ActIArtReadabilityReview.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I review contact sheet" -ScriptName "Validate-ActIReviewContactSheet.ps1" -TimeoutSeconds 120
+    Invoke-Step -Name "Validate Act I OpenAI portraits" -ScriptName "Validate-ActIOpenAIPortraits.ps1" -TimeoutSeconds 120
+    Invoke-Step -Name "Validate Act I OpenAI standees" -ScriptName "Validate-ActIOpenAIStandees.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I OpenAI prop composite contact sheet" -ScriptName "Validate-ActIOpenAIPropCompositeContactSheet.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I atmosphere setpieces" -ScriptName "Validate-ActIAtmosphereSetpieces.ps1" -TimeoutSeconds 120
+    Invoke-Step -Name "Validate Act I OpenAI HUD skin" -ScriptName "Validate-ActIOpenAIHudSkin.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I human review notes" -ScriptName "Validate-ActIHumanReviewNotes.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I player review card" -ScriptName "Validate-ActIPlayerReviewCard.ps1" -TimeoutSeconds 120
     Invoke-Step -Name "Validate Act I VO line manifest" -ScriptName "Validate-ActIVoLineManifest.ps1" -TimeoutSeconds 120

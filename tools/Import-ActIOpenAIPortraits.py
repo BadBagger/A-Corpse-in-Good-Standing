@@ -63,9 +63,11 @@ def make_square(image: Image.Image, fill: tuple[int, int, int]) -> Image.Image:
 
 def palette_image() -> Image.Image:
     values: list[int] = []
-    for color in PALETTE.values():
+    runtime_colors = ("bone", "black", "slate", "amber")
+    for key in ("bone", "black", "slate", "amber"):
+        color = PALETTE[key]
         values.extend(color)
-    values.extend(list(PALETTE["black"]) * (256 - len(PALETTE)))
+    values.extend(list(PALETTE["black"]) * (256 - len(runtime_colors)))
     pal = Image.new("P", (1, 1))
     pal.putpalette(values)
     return pal
@@ -73,6 +75,28 @@ def palette_image() -> Image.Image:
 
 def palette_lock(image: Image.Image) -> Image.Image:
     return image.quantize(palette=palette_image(), dither=Image.Dither.FLOYDSTEINBERG).convert("RGB")
+
+
+def portrait_grade(image: Image.Image) -> Image.Image:
+    graded = Image.new("RGB", image.size)
+    pixels: list[tuple[int, int, int]] = []
+    for r, g, b in image.convert("RGB").getdata():
+        if g > r * 1.04 and g > b * 1.01 and g > 56:
+            luminance = int(round((r * 0.30) + (g * 0.52) + (b * 0.18)))
+            r = int(round((r * 0.48) + (luminance * 0.36) + 10))
+            g = int(round((g * 0.37) + (luminance * 0.42) + 3))
+            b = int(round((b * 0.52) + (luminance * 0.28)))
+        if max(r, g, b) > 88:
+            r = int(round(r * 1.03 + 4))
+            g = int(round(g * 0.92))
+            b = int(round(b * 0.93))
+        else:
+            r = int(round(r * 0.97))
+            g = int(round(g * 0.91))
+            b = int(round(b * 0.96))
+        pixels.append((max(0, min(255, r)), max(0, min(255, g)), max(0, min(255, b))))
+    graded.putdata(pixels)
+    return graded
 
 
 def crop_panel(sheet: Image.Image, spec: PortraitSpec) -> Image.Image:
@@ -123,7 +147,7 @@ def main() -> None:
         raw_export = EXPORT_DIR / f"{spec.character_id}_{spec.emotion}_raw.png"
         game_export = GAME_DIR / f"{spec.character_id}_{spec.emotion}.png"
         portrait.save(raw_export, optimize=True)
-        palette_lock(portrait).save(game_export, optimize=True)
+        palette_lock(portrait_grade(portrait)).save(game_export, optimize=True)
         records.append(
             {
                 "character_id": spec.character_id,
@@ -146,7 +170,7 @@ def main() -> None:
         "importer": "tools/Import-ActIOpenAIPortraits.py",
         "source_sheet": str(raw_sheet.relative_to(ROOT)).replace("\\", "/"),
         "contact_sheet": str(CONTACT_SHEET.relative_to(ROOT)).replace("\\", "/"),
-        "runtime_format": "720x720 palette-locked PNGs",
+        "runtime_format": "720x720 warm-graded, palette-locked PNGs",
         "content_line": "hard-R, no explicit anatomy, no child figures",
         "portraits": records,
     }
@@ -155,7 +179,7 @@ def main() -> None:
     lines = [
         "# Act I OpenAI Portraits",
         "",
-        "Six OpenAI-generated dialogue portraits were cropped from a single source sheet, preserved as raw exports, palette-locked for runtime use, and staged under `game/portraits/act_i`.",
+        "Six OpenAI-generated dialogue portraits were cropped from a single source sheet, preserved as raw exports, warm-graded, palette-locked for runtime use, and staged under `game/portraits/act_i`.",
         "",
         f"- Source sheet: `{report['source_sheet']}`",
         f"- Contact sheet: `{report['contact_sheet']}`",

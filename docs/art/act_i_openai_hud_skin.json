@@ -1,0 +1,83 @@
+{
+  "status": "imported",
+  "source_sheet": "art/src/ui/act_i/openai/act_i_hud_skin_openai_raw.png",
+  "contact_sheet": "docs/art/review/act_i_openai_hud_skin_contact_sheet.png",
+  "asset_count": 5,
+  "assets": [
+    {
+      "id": "status_strip",
+      "name": "Top status strip",
+      "target": "StatusPanel",
+      "source_box": [
+        52,
+        16,
+        1516,
+        151
+      ],
+      "export_path": "art/export/ui/act_i/status_strip.png",
+      "game_resource": "game/ui/skins/act_i/status_strip.png",
+      "width": 1200,
+      "height": 112
+    },
+    {
+      "id": "dialogue_panel",
+      "name": "Dialogue parchment panel",
+      "target": "DialoguePanel",
+      "source_box": [
+        44,
+        167,
+        1216,
+        514
+      ],
+      "export_path": "art/export/ui/act_i/dialogue_panel.png",
+      "game_resource": "game/ui/skins/act_i/dialogue_panel.png",
+      "width": 780,
+      "height": 230
+    },
+    {
+      "id": "verb_button_plate",
+      "name": "Verb button plate",
+      "target": "Verb buttons",
+      "source_box": [
+        631,
+        548,
+        903,
+        632
+      ],
+      "export_path": "art/export/ui/act_i/verb_button_plate.png",
+      "game_resource": "game/ui/skins/act_i/verb_button_plate.png",
+      "width": 154,
+      "height": 54
+    },
+    {
+      "id": "bottom_inventory_panel",
+      "name": "Bottom inventory panel",
+      "target": "Inventory and lower HUD",
+      "source_box": [
+        19,
+        668,
+        1517,
+        986
+      ],
+      "export_path": "art/export/ui/act_i/bottom_inventory_panel.png",
+      "game_resource": "game/ui/skins/act_i/bottom_inventory_panel.png",
+      "width": 980,
+      "height": 208
+    },
+    {
+      "id": "small_icon_frame",
+      "name": "Small icon frame",
+      "target": "Litany icon frame",
+      "source_box": [
+        1272,
+        233,
+        1497,
+        439
+      ],
+      "export_path": "art/export/ui/act_i/small_icon_frame.png",
+      "game_resource": "game/ui/skins/act_i/small_icon_frame.png",
+      "width": 112,
+      "height": 104
+    }
+  ]
+}

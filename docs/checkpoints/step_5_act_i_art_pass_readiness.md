@@ -28,6 +28,7 @@ GATES:
 - Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.
 - Act I OpenAI prop composite contact sheet: pass, generated review PNG shows 11 runtime room composites with palette-locked OpenAI foreground props across every Act I background room.
 - Act I atmosphere setpieces: pass, 5 transparent runtime overlays add water glint, lamp flicker, smoke, steam, and window rain to OpenAI room plates without changing puzzle coordinates.
+- Act I OpenAI HUD skin: pass, 5 generated noir UI texture assets are imported and wired into the playable prologue HUD without storing dialogue or puzzle state in image files.
 - Act I human review notes: pass, generated combined review notes include the greybox playtest rubric and the art readability checklist for the same Step 5 run.
 - Act I VO timing manifest: pass, 558 Ink-derived lines across 18 speakers; 528 recordable VO lines, 30 stage-direction review lines, and 8 minor speakers needing cast/consolidation decisions before final recording.
 - Confession VO manifest: pass, 62 confessions produce 124 unrecorded Corvin VO lines, including 62 elaboration lines, with 1749 words keyed by confession id.

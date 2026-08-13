@@ -3,7 +3,7 @@
   "importer": "tools/Import-ActIOpenAIPortraits.py",
   "source_sheet": "art/src/portraits/act_i/openai/act_i_portrait_sheet_openai_raw.png",
   "contact_sheet": "docs/art/review/act_i_openai_portraits_contact_sheet.png",
-  "runtime_format": "720x720 palette-locked PNGs",
+  "runtime_format": "720x720 warm-graded, palette-locked PNGs",
   "content_line": "hard-R, no explicit anatomy, no child figures",
   "portraits": [
     {
@@ -17,7 +17,7 @@
       "game_resource": "game/portraits/act_i/corvin_neutral.png",
       "width": 720,
       "height": 720,
-      "game_bytes": 119522
+      "game_bytes": 122089
     },
     {
       "character_id": "sabine",
@@ -30,7 +30,7 @@
       "game_resource": "game/portraits/act_i/sabine_controlled.png",
       "width": 720,
       "height": 720,
-      "game_bytes": 116723
+      "game_bytes": 117050
     },
     {
       "character_id": "registrar",
@@ -43,7 +43,7 @@
       "game_resource": "game/portraits/act_i/registrar_bored.png",
       "width": 720,
       "height": 720,
-      "game_bytes": 126338
+      "game_bytes": 124796
     },
     {
       "character_id": "juno",
@@ -56,7 +56,7 @@
       "game_resource": "game/portraits/act_i/juno_warm_danger.png",
       "width": 720,
       "height": 720,
-      "game_bytes": 113511
+      "game_bytes": 121213
     },
     {
       "character_id": "tomas",
@@ -69,7 +69,7 @@
       "game_resource": "game/portraits/act_i/tomas_wry.png",
       "width": 720,
       "height": 720,
-      "game_bytes": 142080
+      "game_bytes": 141356
     },
     {
       "character_id": "prosper",
@@ -82,7 +82,7 @@
       "game_resource": "game/portraits/act_i/prosper_forgetful_kind.png",
       "width": 720,
       "height": 720,
-      "game_bytes": 134982
+      "game_bytes": 137793
     }
   ]
 }

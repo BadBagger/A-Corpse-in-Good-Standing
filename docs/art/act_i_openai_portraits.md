@@ -1,6 +1,6 @@
 # Act I OpenAI Portraits
 
-Six OpenAI-generated dialogue portraits were cropped from a single source sheet, preserved as raw exports, palette-locked for runtime use, and staged under `game/portraits/act_i`.
+Six OpenAI-generated dialogue portraits were cropped from a single source sheet, preserved as raw exports, warm-graded, palette-locked for runtime use, and staged under `game/portraits/act_i`.
 
 - Source sheet: `art/src/portraits/act_i/openai/act_i_portrait_sheet_openai_raw.png`
 - Contact sheet: `docs/art/review/act_i_openai_portraits_contact_sheet.png`

@@ -49,6 +49,31 @@ foreach ($portrait in $portraits) {
             if ($bitmap.Width -ne 720 -or $bitmap.Height -ne 720) {
                 throw "Act I portrait $id must be 720x720, got $($bitmap.Width)x$($bitmap.Height): $relativePath"
             }
+            if ($relativePath -eq [string]$portrait.game_resource) {
+                $samples = 0
+                $greenDominanceSamples = 0
+                $greenBiasSamples = 0
+                for ($y = 0; $y -lt $bitmap.Height; $y += 12) {
+                    for ($x = 0; $x -lt $bitmap.Width; $x += 12) {
+                        $pixel = $bitmap.GetPixel($x, $y)
+                        $samples += 1
+                        if ($pixel.G -gt ($pixel.R * 1.08) -and $pixel.G -gt ($pixel.B * 1.03) -and $pixel.G -gt 70) {
+                            $greenDominanceSamples += 1
+                        }
+                        if ($pixel.G -gt $pixel.R -and $pixel.G -gt $pixel.B -and $pixel.G -gt 54) {
+                            $greenBiasSamples += 1
+                        }
+                    }
+                }
+                $greenDominancePercent = ($greenDominanceSamples / $samples) * 100.0
+                if ($greenDominancePercent -gt 0.75) {
+                    throw "Act I portrait $id reads too green after grading: $([Math]::Round($greenDominancePercent, 2))% sampled pixels."
+                }
+                $greenBiasPercent = ($greenBiasSamples / $samples) * 100.0
+                if ($greenBiasPercent -gt 6.0) {
+                    throw "Act I portrait $id has too much green-biased midtone: $([Math]::Round($greenBiasPercent, 2))% sampled pixels."
+                }
+            }
         }
         finally {
             if ($null -ne $bitmap) {
@@ -85,7 +110,8 @@ $md = Get-Content -LiteralPath $mdPath -Raw
 foreach ($requiredText in @(
     "Act I OpenAI Portraits",
     "hard-R, no explicit anatomy, no child figures",
-    "game/portraits/act_i/corvin_neutral.png"
+    "game/portraits/act_i/corvin_neutral.png",
+    "warm-graded"
 )) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I portrait report missing required text: $requiredText"
