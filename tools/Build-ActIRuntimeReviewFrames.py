@@ -107,6 +107,7 @@ def paste_sprite(image: Image.Image, sprite: Image.Image, foot_x: int, foot_y: i
     if scale != 1.0:
         sprite = sprite.resize((round(sprite.width * scale), round(sprite.height * scale)), Image.Resampling.LANCZOS)
     draw_contact_shadow(image, sprite.width, sprite.height, foot_x, foot_y)
+    draw_wet_floor_reflection(image, sprite, foot_x, foot_y)
     image.alpha_composite(sprite, (round(foot_x - sprite.width / 2), round(foot_y - sprite.height)))
 
 
@@ -138,6 +139,15 @@ def draw_contact_shadow(image: Image.Image, width: int, height: int, foot_x: int
     shadow_w = max(42, min(128, round(width * 0.30)))
     shadow_h = max(10, min(28, round(height * 0.038)))
     draw.ellipse((foot_x - shadow_w, foot_y - shadow_h, foot_x + shadow_w, foot_y + shadow_h), fill=(12, 16, 19, 132))
+
+
+def draw_wet_floor_reflection(image: Image.Image, sprite: Image.Image, foot_x: int, foot_y: int) -> None:
+    reflection = sprite.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
+    reflection = reflection.resize((round(reflection.width * 0.88), max(10, round(reflection.height * 0.18))), Image.Resampling.BICUBIC)
+    tint = Image.new("RGBA", reflection.size, (42, 58, 64, 0))
+    alpha = reflection.getchannel("A").point(lambda value: round(value * 0.18))
+    tint.putalpha(alpha)
+    image.alpha_composite(tint, (round(foot_x - tint.width / 2), foot_y + 5))
 
 
 def add_hud(image: Image.Image, room_code: str, title: str) -> None:
@@ -190,6 +200,7 @@ def build_frame(room: dict) -> dict:
         "output": output.relative_to(ROOT).as_posix(),
         "base": room["base"],
         "standee_count": len(room["standees"]),
+        "standee_reflection_count": len(room["standees"]),
         "overlay_count": len(room["overlays"]),
         "includes_corvin": True,
         "includes_hud": True,
@@ -222,7 +233,7 @@ def main() -> None:
         "status": "exported",
         "frame_count": len(records),
         "contact_sheet": CONTACT_PATH.relative_to(ROOT).as_posix(),
-        "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, first-frame overlays, and generated HUD skin",
+        "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, standee wet-floor reflections, first-frame overlays, and generated HUD skin",
         "rooms": records,
     }
     REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
@@ -242,6 +253,7 @@ def main() -> None:
         includes = ["Corvin", "HUD"]
         if record["standee_count"]:
             includes.append(f"{record['standee_count']} standee(s)")
+            includes.append(f"{record['standee_reflection_count']} standee reflection(s)")
         if record["overlay_count"]:
             includes.append(f"{record['overlay_count']} overlay(s)")
         lines.append(f"| {record['room_code']} / {record['title']} | `{record['output']}` | {', '.join(includes)} |")

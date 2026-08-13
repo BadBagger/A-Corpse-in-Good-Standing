@@ -3,7 +3,7 @@
   "capture": "godot_runtime_composition",
   "frame_count": 8,
   "contact_sheet": "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png",
-  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, atmosphere, HUD, NPC standees, and the actual Corvin character scene using RuntimeSprite loader.",
+  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, atmosphere, HUD, NPC standees, and the actual Corvin character scene using RuntimeSprite loader.",
   "rooms": [
     {
       "room_code": "R02",
@@ -21,6 +21,7 @@
       "contact_shadow_count": 4,
       "wet_reflection_count": 4,
       "standee_count": 1,
+      "standee_reflection_count": 1,
       "overlay_count": 1
     },
     {
@@ -39,6 +40,7 @@
       "contact_shadow_count": 5,
       "wet_reflection_count": 5,
       "standee_count": 0,
+      "standee_reflection_count": 0,
       "overlay_count": 2
     },
     {
@@ -57,6 +59,7 @@
       "contact_shadow_count": 4,
       "wet_reflection_count": 4,
       "standee_count": 1,
+      "standee_reflection_count": 1,
       "overlay_count": 1
     },
     {
@@ -75,6 +78,7 @@
       "contact_shadow_count": 4,
       "wet_reflection_count": 4,
       "standee_count": 1,
+      "standee_reflection_count": 1,
       "overlay_count": 0
     },
     {
@@ -93,6 +97,7 @@
       "contact_shadow_count": 5,
       "wet_reflection_count": 5,
       "standee_count": 1,
+      "standee_reflection_count": 1,
       "overlay_count": 0
     },
     {
@@ -111,6 +116,7 @@
       "contact_shadow_count": 4,
       "wet_reflection_count": 4,
       "standee_count": 1,
+      "standee_reflection_count": 1,
       "overlay_count": 0
     },
     {
@@ -129,6 +135,7 @@
       "contact_shadow_count": 4,
       "wet_reflection_count": 4,
       "standee_count": 1,
+      "standee_reflection_count": 1,
       "overlay_count": 1
     },
     {
@@ -147,6 +154,7 @@
       "contact_shadow_count": 4,
       "wet_reflection_count": 4,
       "standee_count": 1,
+      "standee_reflection_count": 1,
       "overlay_count": 1
     }
   ]

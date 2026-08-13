@@ -26,7 +26,7 @@ if ([int]$report.frame_count -ne 8) {
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png") {
     throw "Act I Godot runtime frame contact sheet path is not stable."
 }
-foreach ($requiredText in @("actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "actual Corvin character scene", "RuntimeSprite loader")) {
+foreach ($requiredText in @("actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "standee wet-floor reflections", "actual Corvin character scene", "RuntimeSprite loader")) {
     if ([string]$report.runtime_evidence -notmatch [regex]::Escape($requiredText)) {
         throw "Act I Godot runtime report missing runtime evidence text: $requiredText"
     }
@@ -62,6 +62,9 @@ foreach ($room in $rooms) {
     }
     if ([int]$room.wet_reflection_count -ne $propCount) {
         throw "Act I Godot runtime frame $code wet reflection count must equal foreground prop count."
+    }
+    if ([int]$room.standee_reflection_count -ne [int]$room.standee_count) {
+        throw "Act I Godot runtime frame $code must include one wet-floor reflection per standee."
     }
     $framePath = Join-Path $root ([string]$room.output -replace "/", "\")
     if (-not (Test-Path -LiteralPath $framePath)) {
@@ -100,7 +103,7 @@ finally {
 }
 
 $md = Get-Content -LiteralPath $mdPath -Raw
-foreach ($requiredText in @("Act I Godot Runtime Frames", "Godot runtime", "actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "actual Corvin character scene")) {
+foreach ($requiredText in @("Act I Godot Runtime Frames", "Godot runtime", "actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "standee wet-floor reflections", "actual Corvin character scene")) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I Godot runtime report missing required text: $requiredText"
     }
@@ -110,9 +113,17 @@ if ($md -match "[^\u0000-\u007F]") {
 }
 
 $captureScript = Get-Content -LiteralPath $captureScriptPath -Raw
-foreach ($requiredText in @("act_i_godot_runtime_frames", "godot_runtime_composition", "foreground_prop_count", 'game" / "characters" / "corvin', "RuntimeSprite", "direct PNG loading")) {
+foreach ($requiredText in @("act_i_godot_runtime_frames", "godot_runtime_composition", "foreground_prop_count", "draw_wet_floor_reflection", "standee_reflection_count", 'game" / "characters" / "corvin', "RuntimeSprite", "direct PNG loading")) {
     if (-not $captureScript.Contains($requiredText)) {
         throw "Act I Godot runtime capture script missing required text: $requiredText"
+    }
+}
+
+$roomScriptPath = Join-Path $root "game\rooms\act_i_greybox_room.gd"
+$roomScript = Get-Content -LiteralPath $roomScriptPath -Raw
+foreach ($requiredText in @("_make_act_i_standee_reflection", "WetFloorReflection", "reflection_image.flip_y")) {
+    if (-not $roomScript.Contains($requiredText)) {
+        throw "Act I Godot room script missing standee reflection text: $requiredText"
     }
 }
 

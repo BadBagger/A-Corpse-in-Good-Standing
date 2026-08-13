@@ -384,6 +384,13 @@ func _add_act_i_standee(container: Node, standee: Dictionary) -> void:
 	shadow.position = foot_position
 	shadow.z_index = int(standee.get("z", 0)) - 1
 	container.add_child(shadow)
+	var reflection := _make_act_i_standee_reflection(standee_id, image, visual_scale)
+	reflection.position = Vector2(
+		foot_position.x - (float(image.get_width()) * visual_scale * 0.44),
+		foot_position.y + 5.0
+	)
+	reflection.z_index = int(standee.get("z", 0)) - 1
+	container.add_child(reflection)
 	var sprite := Sprite2D.new()
 	sprite.name = "%sStandee" % standee_id.to_pascal_case()
 	sprite.texture = ImageTexture.create_from_image(image)
@@ -411,6 +418,17 @@ func _make_act_i_standee_shadow(standee_id: String, image: Image, visual_scale: 
 	])
 	shadow.color = Color(0.0470588, 0.0627451, 0.0745098, 0.52)
 	return shadow
+
+func _make_act_i_standee_reflection(standee_id: String, image: Image, visual_scale: float) -> Sprite2D:
+	var reflection := Sprite2D.new()
+	reflection.name = "%sWetFloorReflection" % standee_id.to_pascal_case()
+	var reflection_image := image.duplicate()
+	reflection_image.flip_y()
+	reflection.texture = ImageTexture.create_from_image(reflection_image)
+	reflection.centered = false
+	reflection.scale = Vector2(visual_scale * 0.88, visual_scale * 0.18)
+	reflection.modulate = Color(0.164706, 0.227451, 0.25098, 0.18)
+	return reflection
 
 func _add_act_i_setpieces() -> void:
 	if not ACT_I_SETPIECES_BY_ROOM.has(room_code):

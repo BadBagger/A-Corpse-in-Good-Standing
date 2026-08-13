@@ -27,6 +27,9 @@ if ([string]$report.contact_sheet -ne "docs/art/review/act_i_runtime_frame_conta
 if ([string]$report.runtime_evidence -notmatch "runtime foreground props" -or [string]$report.runtime_evidence -notmatch "Corvin" -or [string]$report.runtime_evidence -notmatch "generated HUD skin") {
     throw "Act I runtime review frame report must state runtime foreground props, Corvin, and generated HUD evidence."
 }
+if ([string]$report.runtime_evidence -notmatch "standee wet-floor reflections") {
+    throw "Act I runtime review frame report must state standee wet-floor reflection evidence."
+}
 
 Add-Type -AssemblyName System.Drawing
 $rooms = @($report.rooms)
@@ -47,6 +50,9 @@ foreach ($room in $rooms) {
     $seen[$code] = $true
     if (-not [bool]$room.includes_corvin -or -not [bool]$room.includes_hud) {
         throw "Act I runtime review frame $code must include Corvin and HUD."
+    }
+    if ([int]$room.standee_reflection_count -ne [int]$room.standee_count) {
+        throw "Act I runtime review frame $code must include one wet-floor reflection per standee."
     }
     $framePath = Join-Path $root ([string]$room.output -replace "/", "\")
     if (-not (Test-Path -LiteralPath $framePath)) {
@@ -92,6 +98,7 @@ foreach ($requiredText in @(
     "runtime foreground prop composites",
     "Corvin side sprites",
     "wet-floor reflections",
+    "standee reflection",
     "generated noir HUD skin",
     "looks like an in-game screen"
 )) {
@@ -111,6 +118,14 @@ foreach ($requiredText in @(
 )) {
     if (-not $loader.Contains($requiredText)) {
         throw "Corvin runtime sprite loader missing readability shadow text: $requiredText"
+    }
+}
+
+$roomScriptPath = Join-Path $root "game\rooms\act_i_greybox_room.gd"
+$roomScript = Get-Content -LiteralPath $roomScriptPath -Raw
+foreach ($requiredText in @("_make_act_i_standee_reflection", "WetFloorReflection", "reflection_image.flip_y", "Color(0.164706, 0.227451, 0.25098, 0.18)")) {
+    if (-not $roomScript.Contains($requiredText)) {
+        throw "Act I room runtime missing standee reflection text: $requiredText"
     }
 }
 
