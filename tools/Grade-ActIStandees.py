@@ -1,14 +1,22 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from PIL import Image, ImageDraw
 
 
 ROOT = Path(__file__).resolve().parents[1]
-STANDEE_DIR = ROOT / "game" / "standees" / "act_i"
+MANIFEST_PATH = ROOT / "docs" / "art" / "act_i_openai_standees.json"
 REPORT_PATH = ROOT / "docs" / "art" / "act_i_standee_color_grade.md"
 CONTACT_PATH = ROOT / "docs" / "art" / "review" / "act_i_openai_standees_contact_sheet.png"
+
+CHARACTER_PALETTE = (
+    (0x0C, 0x10, 0x13),
+    (0x2A, 0x3A, 0x40),
+    (0xE4, 0xDC, 0xC8),
+    (0xC9, 0x8A, 0x3C),
+)
 
 STANDEE_NAMES = {
     "registrar": "The Registrar",
@@ -22,6 +30,13 @@ STANDEE_NAMES = {
 }
 
 
+def nearest_character_color(r: int, g: int, b: int) -> tuple[int, int, int]:
+    return min(
+        CHARACTER_PALETTE,
+        key=lambda color: (r - color[0]) ** 2 + (g - color[1]) ** 2 + (b - color[2]) ** 2,
+    )
+
+
 def grade_pixel(r: int, g: int, b: int, a: int) -> tuple[int, int, int, int]:
     if a <= 16:
         return r, g, b, a
@@ -31,12 +46,12 @@ def grade_pixel(r: int, g: int, b: int, a: int) -> tuple[int, int, int, int]:
     # once placed over the room plates. Re-home those pixels into warm oil-light
     # or dull cloth shadow and reserve green for the backgrounds/set dressing.
     if (r, g, b) == (0x7D, 0x9B, 0x4E):
-        return 116, 90, 62, a
+        return 0xC9, 0x8A, 0x3C, a
 
     # Repair previously graded absinthe highlights when this script is rerun
     # without re-importing the raw sheets first.
     if 95 <= r <= 150 and 82 <= g <= 125 and 50 <= b <= 92 and r >= g and g > b:
-        return 108, 84, 62, a
+        return 0xC9, 0x8A, 0x3C, a
 
     # Keep shadow structure, but stop green-lit faces and coats from reading as
     # separate wrong-light art when composited over amber/slate room plates.
@@ -56,7 +71,9 @@ def grade_pixel(r: int, g: int, b: int, a: int) -> tuple[int, int, int, int]:
         g = int(round(g * 0.91))
         b = int(round(b * 0.96))
 
-    return max(0, min(255, r)), max(0, min(255, g)), max(0, min(255, b)), a
+    r, g, b = max(0, min(255, r)), max(0, min(255, g)), max(0, min(255, b))
+    r, g, b = nearest_character_color(r, g, b)
+    return r, g, b, a
 
 
 def greenish_percent(image: Image.Image) -> float:
@@ -96,6 +113,8 @@ def make_contact_sheet(paths: list[Path]) -> Image.Image:
 
 
 def main() -> None:
+    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    entries = manifest["standees"]
     lines = [
         "# Act I Standee Color Grade",
         "",
@@ -103,24 +122,31 @@ def main() -> None:
         "",
         "Purpose: reduce green-biased generated standee pixels so named characters sit inside the Act I wet-black/slate/bone/amber room plates.",
         "",
+        "The grade is idempotent: it reads each raw alpha export and rewrites the runtime PNG, so repeated runs do not compound color shifts.",
+        "Runtime standees are locked to wet black, harbor slate, bone white, and whale-oil amber. Absinthe green is reserved for room wrong-light and is not allowed on character standees.",
+        "",
         "| Standee | Greenish before | Greenish after |",
         "|---|---:|---:|",
     ]
 
-    paths = sorted(STANDEE_DIR.glob("*.png"))
-    for path in paths:
-        image = Image.open(path).convert("RGBA")
+    runtime_paths: list[Path] = []
+    for entry in entries:
+        raw_path = ROOT / entry["raw_export"]
+        runtime_path = ROOT / entry["game_resource"]
+        image = Image.open(raw_path).convert("RGBA")
         before = greenish_percent(image)
         graded = Image.new("RGBA", image.size)
         graded.putdata([grade_pixel(*px) for px in image.getdata()])
         after = greenish_percent(graded)
-        graded.save(path, optimize=True)
-        lines.append(f"| `{path.name}` | {before:.1f}% | {after:.1f}% |")
+        runtime_path.parent.mkdir(parents=True, exist_ok=True)
+        graded.save(runtime_path, optimize=True)
+        runtime_paths.append(runtime_path)
+        lines.append(f"| `{runtime_path.name}` | {before:.1f}% | {after:.1f}% |")
 
     REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
     CONTACT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    make_contact_sheet(paths).save(CONTACT_PATH)
-    print(f"graded={len(paths)}")
+    make_contact_sheet(runtime_paths).save(CONTACT_PATH)
+    print(f"graded={len(runtime_paths)}")
     print(f"report={REPORT_PATH.relative_to(ROOT)}")
     print(f"contact={CONTACT_PATH.relative_to(ROOT)}")
 
