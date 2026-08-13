@@ -1,0 +1,72 @@
+{
+  "props": [
+    {
+      "id": "harbormaster_desk",
+      "name": "Harbormaster desk",
+      "source_sheet": "art/src/props/sabine_office/openai/sabine_office_props_openai_raw.png",
+      "raw_export": "art/export/props/sabine_office/harbormaster_desk_raw.png",
+      "game_resource": "game/rooms/sabine_office/props/harbormaster_desk.png",
+      "width": 217,
+      "height": 180,
+      "target_height": 180,
+      "position": [
+        845,
+        565
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "frosted_sabine_door",
+      "name": "Frosted Sabine door",
+      "source_sheet": "art/src/props/sabine_office/openai/sabine_office_props_openai_raw.png",
+      "raw_export": "art/export/props/sabine_office/frosted_sabine_door_raw.png",
+      "game_resource": "game/rooms/sabine_office/props/frosted_sabine_door.png",
+      "width": 246,
+      "height": 430,
+      "target_height": 430,
+      "position": [
+        110,
+        220
+      ],
+      "z": 2,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "damp_persian_rug",
+      "name": "Damp Persian rug",
+      "source_sheet": "art/src/props/sabine_office/openai/sabine_office_props_openai_raw.png",
+      "raw_export": "art/export/props/sabine_office/damp_persian_rug_raw.png",
+      "game_resource": "game/rooms/sabine_office/props/damp_persian_rug.png",
+      "width": 236,
+      "height": 230,
+      "target_height": 230,
+      "position": [
+        430,
+        760
+      ],
+      "z": 3,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "harbor_chart_board",
+      "name": "Harbor chart board",
+      "source_sheet": "art/src/props/sabine_office/openai/sabine_office_props_openai_raw.png",
+      "raw_export": "art/export/props/sabine_office/harbor_chart_board_raw.png",
+      "game_resource": "game/rooms/sabine_office/props/harbor_chart_board.png",
+      "width": 225,
+      "height": 175,
+      "target_height": 175,
+      "position": [
+        1495,
+        495
+      ],
+      "z": 2,
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}
