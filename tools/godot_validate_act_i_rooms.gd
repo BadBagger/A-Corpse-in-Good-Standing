@@ -312,7 +312,10 @@ func _validate_act_i_interaction_pulse_layer(room_name: String, instance: Node, 
 		failures.append("Room %s missing ActIInteractionPulses container after pulse." % room_name)
 		return
 	if pulse_container.get_child_count() < 2:
-		failures.append("Room %s wet interaction pulse did not create pulse and label children." % room_name)
+		failures.append("Room %s wet interaction pulse did not create multiple visual effect children." % room_name)
+	for child in pulse_container.get_children():
+		if child is Label:
+			failures.append("Room %s wet interaction pulse must not create visible label text." % room_name)
 
 func _validate_room_verb_action_contract(failures: Array[String]) -> void:
 	_validate_room_source_verb_action_contract(

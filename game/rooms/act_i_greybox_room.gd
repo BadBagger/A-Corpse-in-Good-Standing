@@ -235,16 +235,16 @@ const ACT_I_ATMOSPHERE_BY_ROOM := {
 }
 const ACT_I_INTERACTION_PULSES := {
 	"R02": {
-		"rope_cleat": {"position": Vector2(655, 740), "radius": 82.0, "color": Color(0.894118, 0.862745, 0.784314, 0.58), "label": "wet rope darkens"},
+		"rope_cleat": {"position": Vector2(655, 740), "radius": 82.0, "color": Color(0.894118, 0.862745, 0.784314, 0.58), "effect": "rope"},
 	},
 	"R03": {
-		"church_sign": {"position": Vector2(1380, 540), "radius": 95.0, "color": Color(0.788235, 0.541176, 0.235294, 0.62), "label": "ink runs"},
+		"church_sign": {"position": Vector2(1380, 540), "radius": 95.0, "color": Color(0.788235, 0.541176, 0.235294, 0.62), "effect": "ink"},
 	},
 	"R05": {
-		"desk_lamp": {"position": Vector2(890, 650), "radius": 108.0, "color": Color(0.494118, 0.607843, 0.305882, 0.60), "label": "lamp smokes"},
+		"desk_lamp": {"position": Vector2(890, 650), "radius": 108.0, "color": Color(0.494118, 0.607843, 0.305882, 0.60), "effect": "smoke"},
 	},
 	"R08": {
-		"drain": {"position": Vector2(1410, 725), "radius": 96.0, "color": Color(0.894118, 0.862745, 0.784314, 0.54), "label": "water finds the grate"},
+		"drain": {"position": Vector2(1410, 725), "radius": 96.0, "color": Color(0.894118, 0.862745, 0.784314, 0.54), "effect": "drain"},
 	},
 }
 
@@ -518,27 +518,77 @@ func _play_act_i_interaction_pulse(interaction_key: String) -> bool:
 	for child in container.get_children():
 		child.queue_free()
 	var config: Dictionary = room_pulses[interaction_key]
+	var effect := String(config.get("effect", "ripple"))
+	var position: Vector2 = config.get("position", Vector2.ZERO)
+	var radius := float(config.get("radius", 90.0))
+	var color: Color = config.get("color", Color(0.894118, 0.862745, 0.784314, 0.55))
 	var pulse := Polygon2D.new()
 	pulse.name = "%sWetPulse" % interaction_key.to_pascal_case()
-	pulse.position = config.get("position", Vector2.ZERO)
-	pulse.color = config.get("color", Color(0.894118, 0.862745, 0.784314, 0.55))
-	pulse.polygon = _make_act_i_pulse_polygon(float(config.get("radius", 90.0)))
+	pulse.position = position
+	pulse.color = color
+	pulse.polygon = _make_act_i_pulse_polygon(radius)
 	pulse.z_index = 9
 	container.add_child(pulse)
-	var label := Label.new()
-	label.name = "%sWetPulseLabel" % interaction_key.to_pascal_case()
-	label.text = String(config.get("label", "wet reaction"))
-	label.position = pulse.position + Vector2(-80.0, -72.0)
-	label.modulate = Color(0.894118, 0.862745, 0.784314, 0.88)
-	label.z_index = 10
-	container.add_child(label)
+	_add_act_i_wet_effect_marks(container, interaction_key, effect, position, radius, color)
 	container.visible = true
 	var tween := create_tween()
 	tween.tween_property(pulse, "scale", Vector2(1.22, 0.72), 0.22)
 	tween.parallel().tween_property(pulse, "modulate:a", 0.0, 0.55)
-	tween.parallel().tween_property(label, "modulate:a", 0.0, 0.55)
+	for child in container.get_children():
+		if child != pulse and child is CanvasItem:
+			tween.parallel().tween_property(child, "modulate:a", 0.0, 0.55)
 	tween.tween_callback(container.hide)
 	return true
+
+func _add_act_i_wet_effect_marks(container: Node2D, interaction_key: String, effect: String, position: Vector2, radius: float, color: Color) -> void:
+	match effect:
+		"rope":
+			for index in 3:
+				var streak := Line2D.new()
+				streak.name = "%sRopeWetStreak%d" % [interaction_key.to_pascal_case(), index + 1]
+				streak.width = 5.0 - float(index)
+				streak.default_color = Color(0.894118, 0.862745, 0.784314, 0.52 - float(index) * 0.08)
+				streak.z_index = 10
+				var offset := Vector2(-36.0 + float(index) * 32.0, -18.0 + float(index) * 11.0)
+				streak.points = PackedVector2Array([position + offset, position + offset + Vector2(34.0, 9.0)])
+				container.add_child(streak)
+		"ink":
+			for index in 4:
+				var run := Line2D.new()
+				run.name = "%sInkRun%d" % [interaction_key.to_pascal_case(), index + 1]
+				run.width = 4.0
+				run.default_color = Color(0.788235, 0.541176, 0.235294, 0.62)
+				run.z_index = 10
+				var top := position + Vector2(-40.0 + float(index) * 26.0, -38.0)
+				run.points = PackedVector2Array([top, top + Vector2(-5.0 + float(index % 2) * 8.0, 62.0 + float(index) * 9.0)])
+				container.add_child(run)
+		"smoke":
+			for index in 3:
+				var puff := Polygon2D.new()
+				puff.name = "%sSmokePuff%d" % [interaction_key.to_pascal_case(), index + 1]
+				puff.position = position + Vector2(-30.0 + float(index) * 32.0, -28.0 - float(index) * 20.0)
+				puff.color = Color(0.494118, 0.607843, 0.305882, 0.34 - float(index) * 0.05)
+				puff.polygon = _make_act_i_pulse_polygon(max(18.0, radius * (0.24 - float(index) * 0.025)))
+				puff.z_index = 10
+				container.add_child(puff)
+		"drain":
+			for index in 4:
+				var flow := Line2D.new()
+				flow.name = "%sDrainFlow%d" % [interaction_key.to_pascal_case(), index + 1]
+				flow.width = 3.0
+				flow.default_color = Color(0.894118, 0.862745, 0.784314, 0.44)
+				flow.z_index = 10
+				var start := position + Vector2(-90.0 + float(index) * 38.0, -18.0 + float(index % 2) * 16.0)
+				flow.points = PackedVector2Array([start, position + Vector2(-12.0 + float(index) * 6.0, 4.0)])
+				container.add_child(flow)
+		_:
+			var shine := Polygon2D.new()
+			shine.name = "%sWetShine" % interaction_key.to_pascal_case()
+			shine.position = position
+			shine.color = color
+			shine.polygon = _make_act_i_pulse_polygon(radius * 0.42)
+			shine.z_index = 10
+			container.add_child(shine)
 
 func _make_act_i_pulse_polygon(radius: float) -> PackedVector2Array:
 	var points := PackedVector2Array()

@@ -2,7 +2,7 @@
   "status": "exported",
   "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_in_scene_action_contact_sheet.png",
-  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state, named NPC standee dialogue/counter staging, and visible wet interaction pulses.",
+  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state, named NPC standee dialogue/counter staging, and text-free wet interaction effects.",
   "frames": [
     {
       "id": "salt_market_talk_crowd_turn",
@@ -99,7 +99,8 @@
           740
         ],
         "radius": 82,
-        "label": "wet rope darkens"
+        "effect": "rope",
+        "visible_text": false
       },
       "uses_interaction_pulse": true,
       "crowd_hotspot": [],
@@ -145,7 +146,8 @@
           650
         ],
         "radius": 108,
-        "label": "lamp smokes"
+        "effect": "smoke",
+        "visible_text": false
       },
       "uses_interaction_pulse": true,
       "crowd_hotspot": [],
@@ -335,7 +337,8 @@
           725
         ],
         "radius": 96,
-        "label": "water finds the grate"
+        "effect": "drain",
+        "visible_text": false
       },
       "uses_interaction_pulse": true,
       "crowd_hotspot": [],

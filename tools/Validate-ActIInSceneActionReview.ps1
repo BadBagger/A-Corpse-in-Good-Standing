@@ -23,7 +23,7 @@ if ([int]$report.frame_count -ne 9) {
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_in_scene_action_contact_sheet.png") {
     throw "Act I in-scene action contact sheet path is not stable."
 }
-foreach ($requiredText in @("Corvin talk/use/wet side actions", "Salt Market crowd", "turn_to_corvin", "named NPC standee dialogue/counter staging", "visible wet interaction pulses")) {
+foreach ($requiredText in @("Corvin talk/use/wet side actions", "Salt Market crowd", "turn_to_corvin", "named NPC standee dialogue/counter staging", "text-free wet interaction effects")) {
     if ([string]$report.runtime_evidence -notmatch [regex]::Escape($requiredText)) {
         throw "Act I in-scene action report missing runtime evidence text: $requiredText"
     }
@@ -89,8 +89,11 @@ foreach ($frame in $frames) {
             throw "Act I in-scene action frame $id must include visible wet interaction pulse metadata."
         }
         $pulse = $frame.interaction_pulse
-        if ([string]::IsNullOrWhiteSpace([string]$pulse.label)) {
-            throw "Act I in-scene action frame $id pulse must include a label."
+        if ([string]::IsNullOrWhiteSpace([string]$pulse.effect)) {
+            throw "Act I in-scene action frame $id pulse must include a text-free effect id."
+        }
+        if ([bool]$pulse.visible_text) {
+            throw "Act I in-scene action frame $id pulse must not render visible explanatory text."
         }
     }
     $foot = @($frame.corvin_foot)
@@ -143,7 +146,7 @@ finally {
 }
 
 $md = Get-Content -LiteralPath $mdPath -Raw
-foreach ($requiredText in @("Act I In-Scene Action Review", "talk, use, and wet", "turn_to_corvin", "named NPC cases", "visible interaction pulses", "static idle room shots")) {
+foreach ($requiredText in @("Act I In-Scene Action Review", "talk, use, and wet", "turn_to_corvin", "named NPC cases", "text-free interaction effects", "static idle room shots")) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I in-scene action report missing required text: $requiredText"
     }
@@ -153,14 +156,14 @@ if ($md -match "[^\u0000-\u007F]") {
 }
 
 $builder = Get-Content -LiteralPath $builderPath -Raw
-foreach ($requiredText in @("salt_market_crowd_turn_to_corvin.png", "talk_side_right", "use_side_right", "wet_side_right", "draw_interaction_pulse", "uses_interaction_pulse", "paste_standee", "standee_count", "ImageFilter.MaxFilter", "201, 138, 60", "corvin_foot", "crowd_distance_px", "uses_sectional_setpiece_frame")) {
+foreach ($requiredText in @("salt_market_crowd_turn_to_corvin.png", "talk_side_right", "use_side_right", "wet_side_right", "draw_interaction_pulse", "uses_interaction_pulse", "visible_text", "paste_standee", "standee_count", "ImageFilter.MaxFilter", "201, 138, 60", "corvin_foot", "crowd_distance_px", "uses_sectional_setpiece_frame")) {
     if (-not $builder.Contains($requiredText)) {
         throw "Act I in-scene action builder missing required text: $requiredText"
     }
 }
 
 $roomScript = Get-Content -LiteralPath $roomScriptPath -Raw
-foreach ($requiredText in @('_play_act_i_setpiece("salt_market_crowd", "turn_to_corvin")', '_play_act_i_interaction_pulse(interaction_key)', "ACT_I_INTERACTION_PULSES", "rope_cleat", "church_sign", "desk_lamp", "drain", "interaction_key == `"market_crowd`"", "verb == `"talk`"", "verb == `"use`"", "verb == `"wet`"")) {
+foreach ($requiredText in @('_play_act_i_setpiece("salt_market_crowd", "turn_to_corvin")', '_play_act_i_interaction_pulse(interaction_key)', "_add_act_i_wet_effect_marks", "ACT_I_INTERACTION_PULSES", "rope_cleat", "church_sign", "desk_lamp", "drain", "interaction_key == `"market_crowd`"", "verb == `"talk`"", "verb == `"use`"", "verb == `"wet`"")) {
     if (-not $roomScript.Contains($requiredText)) {
         throw "Act I room script missing crowd-turn runtime trigger text: $requiredText"
     }
