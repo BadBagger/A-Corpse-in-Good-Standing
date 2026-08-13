@@ -17,6 +17,7 @@ PALETTE = {
     "black": (12, 16, 19),
     "slate": (42, 58, 64),
     "amber": (201, 138, 60),
+    "ink": (52, 32, 22),
 }
 
 ROOM_CAPTIONS = {
@@ -195,20 +196,30 @@ def add_hud(image: Image.Image, room_code: str, title: str, caption: str) -> Non
     inventory = Image.open(ROOT / "game" / "ui" / "skins" / "act_i" / "bottom_inventory_panel.png").convert("RGBA")
 
     status = status.resize((round(status.width * 0.88), round(status.height * 0.36)), Image.Resampling.LANCZOS)
-    dialogue = dialogue.resize((round(dialogue.width * 0.50), round(dialogue.height * 0.40)), Image.Resampling.LANCZOS)
+    dialogue = dialogue.resize((900, 128), Image.Resampling.LANCZOS)
     inventory = inventory.resize((round(inventory.width * 0.63), round(inventory.height * 0.34)), Image.Resampling.LANCZOS)
 
     image.alpha_composite(status, (12, 28))
-    image.alpha_composite(dialogue, (752, 902))
+    image.alpha_composite(dialogue, (530, 882))
     image.alpha_composite(inventory, (24, 928))
 
     draw = ImageDraw.Draw(image, "RGBA")
     font = ImageFont.load_default()
+    caption_font = load_font(20)
     draw.rectangle((18, 16, 396, 60), fill=(12, 16, 19, 164), outline=(201, 138, 60, 110))
     draw.text((32, 28), f"{room_code} / {title}", fill=PALETTE["bone"], font=font)
     draw.text((32, 44), "LOOK  USE  TALK  WET", fill=PALETTE["amber"], font=font)
-    for index, line in enumerate(wrap_text(draw, caption, font, 520)):
-        draw.text((778, 924 + index * 14), line, fill=PALETTE["bone"], font=font)
+    for index, line in enumerate(wrap_text(draw, caption, caption_font, 700)):
+        draw.text((650, 908 + index * 25), line, fill=PALETTE["ink"], font=caption_font)
+
+
+def load_font(size: int) -> ImageFont.ImageFont:
+    for font_name in ("arial.ttf", "segoeui.ttf"):
+        try:
+            return ImageFont.truetype(font_name, size)
+        except OSError:
+            continue
+    return ImageFont.load_default()
 
 
 def build_frame(room: dict) -> dict:
@@ -244,6 +255,7 @@ def build_frame(room: dict) -> dict:
         "standee_reflection_count": len(room["standees"]),
         "overlay_count": len(room["overlays"]),
         "dialogue_caption": caption,
+        "dialogue_text_embedded_in_hud": True,
         "includes_corvin": True,
         "includes_hud": True,
     }
@@ -275,14 +287,14 @@ def main() -> None:
         "status": "exported",
         "frame_count": len(records),
         "contact_sheet": CONTACT_PATH.relative_to(ROOT).as_posix(),
-        "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, standee wet-floor reflections, room-specific dialogue captions, first-frame overlays, and generated HUD skin",
+        "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, standee wet-floor reflections, room-specific dialogue captions embedded in the in-frame HUD, first-frame overlays, and generated HUD skin",
         "rooms": records,
     }
     REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     lines = [
         "# Act I Runtime Review Frames",
         "",
-        "Generated player-view review frames using runtime foreground prop composites, prop grounding, Corvin side sprites, NPC standees, room-specific dialogue captions, first-frame atmosphere/setpieces, contact shadows, wet-floor reflections, and the generated noir HUD skin.",
+        "Generated player-view review frames using runtime foreground prop composites, prop grounding, Corvin side sprites, NPC standees, room-specific dialogue captions embedded in the in-frame HUD, first-frame atmosphere/setpieces, contact shadows, wet-floor reflections, and the generated noir HUD skin.",
         "",
         f"- Contact sheet: `{report['contact_sheet']}`",
         f"- Frame count: {len(records)}",
@@ -298,7 +310,7 @@ def main() -> None:
             includes.append(f"{record['standee_reflection_count']} standee reflection(s)")
         if record["overlay_count"]:
             includes.append(f"{record['overlay_count']} overlay(s)")
-        lines.append(f"| {record['room_code']} / {record['title']} | `{record['output']}` | {', '.join(includes)}; caption: {record['dialogue_caption']} |")
+        lines.append(f"| {record['room_code']} / {record['title']} | `{record['output']}` | {', '.join(includes)}; embedded HUD caption: {record['dialogue_caption']} |")
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"runtime_frames={len(records)}")
     print(f"contact_sheet={CONTACT_PATH.relative_to(ROOT)}")

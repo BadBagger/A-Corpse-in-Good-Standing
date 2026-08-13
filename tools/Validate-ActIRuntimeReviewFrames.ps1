@@ -30,8 +30,8 @@ if ([string]$report.runtime_evidence -notmatch "runtime foreground props" -or [s
 if ([string]$report.runtime_evidence -notmatch "standee wet-floor reflections") {
     throw "Act I runtime review frame report must state standee wet-floor reflection evidence."
 }
-if ([string]$report.runtime_evidence -notmatch "room-specific dialogue captions") {
-    throw "Act I runtime review frame report must state room-specific dialogue caption evidence."
+if ([string]$report.runtime_evidence -notmatch "room-specific dialogue captions embedded in the in-frame HUD") {
+    throw "Act I runtime review frame report must state embedded in-frame HUD dialogue caption evidence."
 }
 
 Add-Type -AssemblyName System.Drawing
@@ -53,6 +53,9 @@ foreach ($room in $rooms) {
     $seen[$code] = $true
     if (-not [bool]$room.includes_corvin -or -not [bool]$room.includes_hud) {
         throw "Act I runtime review frame $code must include Corvin and HUD."
+    }
+    if (-not [bool]$room.dialogue_text_embedded_in_hud) {
+        throw "Act I runtime review frame $code must embed dialogue text in the HUD plaque."
     }
     if ([int]$room.standee_reflection_count -ne [int]$room.standee_count) {
         throw "Act I runtime review frame $code must include one wet-floor reflection per standee."
@@ -106,7 +109,7 @@ foreach ($requiredText in @(
     "Corvin side sprites",
     "wet-floor reflections",
     "standee reflection",
-    "room-specific dialogue",
+    "room-specific dialogue captions embedded in the in-frame HUD",
     "generated noir HUD skin",
     "looks like an in-game screen"
 )) {
@@ -130,7 +133,7 @@ foreach ($requiredText in @(
 }
 
 $builder = Get-Content -LiteralPath $builderPath -Raw
-foreach ($requiredText in @("ROOM_CAPTIONS", "wrap_text", "dialogue_caption")) {
+foreach ($requiredText in @("ROOM_CAPTIONS", "wrap_text", "dialogue_caption", "dialogue_text_embedded_in_hud", "caption_font")) {
     if (-not $builder.Contains($requiredText)) {
         throw "Act I runtime review builder missing dialogue caption text: $requiredText"
     }

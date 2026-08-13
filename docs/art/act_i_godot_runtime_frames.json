@@ -3,7 +3,7 @@
   "capture": "godot_runtime_composition",
   "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png",
-  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, room-specific dialogue captions, atmosphere, HUD, NPC standees, and the actual Corvin character scene using RuntimeSprite loader.",
+  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, room-specific dialogue captions embedded in the in-frame HUD, atmosphere, HUD, NPC standees, and the actual Corvin character scene using RuntimeSprite loader.",
   "rooms": [
     {
       "room_code": "R01",
@@ -23,7 +23,8 @@
       "standee_count": 0,
       "standee_reflection_count": 0,
       "overlay_count": 1,
-      "dialogue_caption": "Mudflats. The tide brought Corvin back and kept the boots."
+      "dialogue_caption": "Mudflats. The tide brought Corvin back and kept the boots.",
+      "dialogue_text_embedded_in_hud": true
     },
     {
       "room_code": "R02",
@@ -43,7 +44,8 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
-      "dialogue_caption": "Corvin: Tomas, you look moored. Tomas: I contain multitudes and two unpaid bar tabs."
+      "dialogue_caption": "Corvin: Tomas, you look moored. Tomas: I contain multitudes and two unpaid bar tabs.",
+      "dialogue_text_embedded_in_hud": true
     },
     {
       "room_code": "R03",
@@ -63,7 +65,8 @@
       "standee_count": 0,
       "standee_reflection_count": 0,
       "overlay_count": 2,
-      "dialogue_caption": "The crowd notices Corvin is dead. Commerce handles it poorly."
+      "dialogue_caption": "The crowd notices Corvin is dead. Commerce handles it poorly.",
+      "dialogue_text_embedded_in_hud": true
     },
     {
       "room_code": "R05",
@@ -83,7 +86,8 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
-      "dialogue_caption": "Registrar: Dead men do not have standing. Corvin: That explains my posture."
+      "dialogue_caption": "Registrar: Dead men do not have standing. Corvin: That explains my posture.",
+      "dialogue_text_embedded_in_hud": true
     },
     {
       "room_code": "R06",
@@ -103,7 +107,8 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 0,
-      "dialogue_caption": "The Bone Chandler smiles like a receipt with teeth."
+      "dialogue_caption": "The Bone Chandler smiles like a receipt with teeth.",
+      "dialogue_text_embedded_in_hud": true
     },
     {
       "room_code": "R07",
@@ -123,7 +128,8 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 0,
-      "dialogue_caption": "Prosper forgets the debt. The kindness stays, annoyingly."
+      "dialogue_caption": "Prosper forgets the debt. The kindness stays, annoyingly.",
+      "dialogue_text_embedded_in_hud": true
     },
     {
       "room_code": "R09",
@@ -143,7 +149,8 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 0,
-      "dialogue_caption": "Teodor sells paid truth with the expression of a man losing money on God."
+      "dialogue_caption": "Teodor sells paid truth with the expression of a man losing money on God.",
+      "dialogue_text_embedded_in_hud": true
     },
     {
       "room_code": "R10",
@@ -163,7 +170,8 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
-      "dialogue_caption": "Juno: Everybody comes here to feel something. You are just honest about failing."
+      "dialogue_caption": "Juno: Everybody comes here to feel something. You are just honest about failing.",
+      "dialogue_text_embedded_in_hud": true
     },
     {
       "room_code": "R12",
@@ -183,7 +191,8 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
-      "dialogue_caption": "Sabine checks for a pulse. Her hand stays there anyway."
+      "dialogue_caption": "Sabine checks for a pulse. Her hand stays there anyway.",
+      "dialogue_text_embedded_in_hud": true
     }
   ]
 }
