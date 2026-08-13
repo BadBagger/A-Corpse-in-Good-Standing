@@ -5,6 +5,8 @@ const FRAME_SIZE := Vector2i(256, 512)
 const FPS := 12.0
 const VISUAL_SCALE := 0.72
 const DEFAULT_ANIMATION := "idle_side_right"
+const READABILITY_SHADOW_COLOR := Color(0.0470588, 0.0627451, 0.0745098, 0.44)
+const READABILITY_SHADOW_OFFSET := Vector2(10, 14)
 const ANIMATIONS := {
 	"idle_side_right": {
 		"path": "res://game/characters/corvin/sprites/act_i_clean/idle_side_right.png",
@@ -57,8 +59,10 @@ var _active_animation := DEFAULT_ANIMATION
 var _frame_count := 0
 var _current_frame := 0
 var _accumulator := 0.0
+var _readability_shadow: Sprite2D
 
 func _ready() -> void:
+	_ensure_readability_shadow()
 	_load_sheet()
 
 
@@ -130,6 +134,7 @@ func _load_animation(animation_name: String) -> bool:
 	offset = Vector2(0, -188)
 	scale = Vector2(VISUAL_SCALE, VISUAL_SCALE)
 	visible = true
+	_update_readability_shadow()
 	_hide_fallback()
 	_set_frame(0)
 	return true
@@ -142,7 +147,10 @@ func _set_frame(frame_index: int) -> void:
 	_current_frame = clampi(frame_index, 0, _frame_count - 1)
 	var frame_origin := Vector2i(_current_frame * FRAME_SIZE.x, 0)
 	var frame := _sheet.get_region(Rect2i(frame_origin, FRAME_SIZE))
-	texture = ImageTexture.create_from_image(frame)
+	var frame_texture := ImageTexture.create_from_image(frame)
+	texture = frame_texture
+	if _readability_shadow:
+		_readability_shadow.texture = frame_texture
 
 
 func advance_for_test(delta: float) -> int:
@@ -165,7 +173,29 @@ func _show_fallback() -> void:
 	_sheet = null
 	_frame_count = 0
 	visible = false
+	if _readability_shadow:
+		_readability_shadow.visible = false
 	for path in [fallback_node_path, salt_node_path, drip_node_path]:
 		var node := get_node_or_null(path)
 		if node is CanvasItem:
 			node.visible = true
+
+
+func _ensure_readability_shadow() -> void:
+	if _readability_shadow:
+		return
+	_readability_shadow = Sprite2D.new()
+	_readability_shadow.name = "RuntimeReadabilityShadow"
+	_readability_shadow.centered = true
+	_readability_shadow.modulate = READABILITY_SHADOW_COLOR
+	_readability_shadow.z_index = z_index - 1
+	_readability_shadow.show_behind_parent = true
+	_readability_shadow.visible = false
+	add_child(_readability_shadow)
+
+
+func _update_readability_shadow() -> void:
+	_ensure_readability_shadow()
+	_readability_shadow.offset = offset + READABILITY_SHADOW_OFFSET
+	_readability_shadow.scale = Vector2.ONE
+	_readability_shadow.visible = visible

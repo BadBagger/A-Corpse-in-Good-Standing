@@ -1,0 +1,96 @@
+{
+  "status": "exported",
+  "frame_count": 8,
+  "contact_sheet": "docs/art/review/act_i_runtime_frame_contact_sheet.png",
+  "runtime_evidence": "room prop composites plus runtime Corvin, standees, first-frame overlays, and generated HUD skin",
+  "rooms": [
+    {
+      "room_code": "R02",
+      "room_id": "old_quay",
+      "title": "The Old Quay",
+      "output": "docs/art/review/act_i_runtime_frames/old_quay_runtime_frame.png",
+      "base": "docs/art/review/old_quay_openai_prop_composite.png",
+      "standee_count": 1,
+      "overlay_count": 1,
+      "includes_corvin": true,
+      "includes_hud": true
+    },
+    {
+      "room_code": "R03",
+      "room_id": "salt_market",
+      "title": "Salt Market",
+      "output": "docs/art/review/act_i_runtime_frames/salt_market_runtime_frame.png",
+      "base": "docs/art/review/salt_market_openai_prop_composite.png",
+      "standee_count": 0,
+      "overlay_count": 2,
+      "includes_corvin": true,
+      "includes_hud": true
+    },
+    {
+      "room_code": "R05",
+      "room_id": "harbor_registry",
+      "title": "Harbor Registry",
+      "output": "docs/art/review/act_i_runtime_frames/harbor_registry_runtime_frame.png",
+      "base": "docs/art/review/harbor_registry_openai_prop_composite.png",
+      "standee_count": 1,
+      "overlay_count": 1,
+      "includes_corvin": true,
+      "includes_hud": true
+    },
+    {
+      "room_code": "R06",
+      "room_id": "bone_chandler",
+      "title": "The Bone Chandler",
+      "output": "docs/art/review/act_i_runtime_frames/bone_chandler_runtime_frame.png",
+      "base": "docs/art/review/bone_chandler_openai_prop_composite.png",
+      "standee_count": 1,
+      "overlay_count": 0,
+      "includes_corvin": true,
+      "includes_hud": true
+    },
+    {
+      "room_code": "R07",
+      "room_id": "almshouse",
+      "title": "The Almshouse",
+      "output": "docs/art/review/act_i_runtime_frames/almshouse_runtime_frame.png",
+      "base": "docs/art/review/almshouse_openai_prop_composite.png",
+      "standee_count": 1,
+      "overlay_count": 0,
+      "includes_corvin": true,
+      "includes_hud": true
+    },
+    {
+      "room_code": "R09",
+      "room_id": "church_of_the_drowned",
+      "title": "Church of the Drowned",
+      "output": "docs/art/review/act_i_runtime_frames/church_of_the_drowned_runtime_frame.png",
+      "base": "docs/art/review/church_of_the_drowned_openai_prop_composite.png",
+      "standee_count": 1,
+      "overlay_count": 0,
+      "includes_corvin": true,
+      "includes_hud": true
+    },
+    {
+      "room_code": "R10",
+      "room_id": "grey_float",
+      "title": "The Grey Float",
+      "output": "docs/art/review/act_i_runtime_frames/grey_float_runtime_frame.png",
+      "base": "docs/art/review/grey_float_openai_prop_composite.png",
+      "standee_count": 1,
+      "overlay_count": 1,
+      "includes_corvin": true,
+      "includes_hud": true
+    },
+    {
+      "room_code": "R12",
+      "room_id": "sabine_office",
+      "title": "Sabine's Office",
+      "output": "docs/art/review/act_i_runtime_frames/sabine_office_runtime_frame.png",
+      "base": "docs/art/review/sabine_office_openai_prop_composite.png",
+      "standee_count": 1,
+      "overlay_count": 1,
+      "includes_corvin": true,
+      "includes_hud": true
+    }
+  ]
+}

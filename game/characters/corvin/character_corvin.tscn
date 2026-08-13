@@ -33,7 +33,7 @@ polygon = PackedVector2Array(-66, 12, -48, 4, -39, 62, -56, 70)
 
 [node name="Drip" type="Line2D" parent="."]
 points = PackedVector2Array(-4, 202, -4, 248, 8, 278)
-default_color = Color(0.494118, 0.607843, 0.305882, 1)
+default_color = Color(0.164706, 0.227451, 0.25098, 1)
 width = 4.0
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
