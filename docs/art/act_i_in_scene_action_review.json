@@ -1,0 +1,88 @@
+{
+  "status": "exported",
+  "frame_count": 4,
+  "contact_sheet": "docs/art/review/act_i_in_scene_action_contact_sheet.png",
+  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state.",
+  "frames": [
+    {
+      "id": "salt_market_talk_crowd_turn",
+      "room_code": "R03",
+      "title": "Salt Market",
+      "output": "docs/art/review/act_i_in_scene_action_frames/salt_market_talk_crowd_turn.png",
+      "corvin_animation": "talk_side_right",
+      "corvin_frame_count": 6,
+      "corvin_scaled_size": [
+        195,
+        389
+      ],
+      "corvin_foot": [
+        720,
+        770
+      ],
+      "expected_setpiece_state": "turn_to_corvin",
+      "uses_in_scene_corvin_action": true,
+      "uses_sectional_setpiece_frame": true,
+      "uses_compact_hud": true
+    },
+    {
+      "id": "salt_market_use_crowd_turn",
+      "room_code": "R03",
+      "title": "Salt Market",
+      "output": "docs/art/review/act_i_in_scene_action_frames/salt_market_use_crowd_turn.png",
+      "corvin_animation": "use_side_right",
+      "corvin_frame_count": 8,
+      "corvin_scaled_size": [
+        195,
+        389
+      ],
+      "corvin_foot": [
+        720,
+        770
+      ],
+      "expected_setpiece_state": "turn_to_corvin",
+      "uses_in_scene_corvin_action": true,
+      "uses_sectional_setpiece_frame": true,
+      "uses_compact_hud": true
+    },
+    {
+      "id": "old_quay_wet_action",
+      "room_code": "R02",
+      "title": "The Old Quay",
+      "output": "docs/art/review/act_i_in_scene_action_frames/old_quay_wet_action.png",
+      "corvin_animation": "wet_side_right",
+      "corvin_frame_count": 8,
+      "corvin_scaled_size": [
+        195,
+        389
+      ],
+      "corvin_foot": [
+        820,
+        760
+      ],
+      "expected_setpiece_state": "water_glint_loop",
+      "uses_in_scene_corvin_action": true,
+      "uses_sectional_setpiece_frame": true,
+      "uses_compact_hud": true
+    },
+    {
+      "id": "grey_float_talk_action",
+      "room_code": "R10",
+      "title": "The Grey Float",
+      "output": "docs/art/review/act_i_in_scene_action_frames/grey_float_talk_action.png",
+      "corvin_animation": "talk_side_right",
+      "corvin_frame_count": 6,
+      "corvin_scaled_size": [
+        195,
+        389
+      ],
+      "corvin_foot": [
+        800,
+        780
+      ],
+      "expected_setpiece_state": "steam_loop",
+      "uses_in_scene_corvin_action": true,
+      "uses_sectional_setpiece_frame": true,
+      "uses_compact_hud": true
+    }
+  ]
+}
