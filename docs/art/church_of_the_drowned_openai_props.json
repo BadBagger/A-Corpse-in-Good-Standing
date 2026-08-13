@@ -1,0 +1,76 @@
+{
+  "props": [
+    {
+      "id": "confession_booth",
+      "name": "Confession booth",
+      "source_sheet": "art/src/props/church_of_the_drowned/openai/church_of_the_drowned_props_openai_raw.png",
+      "raw_export": "art/export/props/church_of_the_drowned/confession_booth_raw.png",
+      "game_resource": "game/rooms/church_of_the_drowned/props/confession_booth.png",
+      "width": 230,
+      "height": 230,
+      "target_height": 230,
+      "position": [
+        705,
+        535
+      ],
+      "z": 4,
+      "hotspot": "ConfessionBooth",
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "church_ledger_desk",
+      "name": "Church ledger desk",
+      "source_sheet": "art/src/props/church_of_the_drowned/openai/church_of_the_drowned_props_openai_raw.png",
+      "raw_export": "art/export/props/church_of_the_drowned/church_ledger_desk_raw.png",
+      "game_resource": "game/rooms/church_of_the_drowned/props/church_ledger_desk.png",
+      "width": 156,
+      "height": 155,
+      "target_height": 155,
+      "position": [
+        875,
+        665
+      ],
+      "z": 4,
+      "hotspot": "RateCard",
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "church_tariff_sign",
+      "name": "Church tariff sign",
+      "source_sheet": "art/src/props/church_of_the_drowned/openai/church_of_the_drowned_props_openai_raw.png",
+      "raw_export": "art/export/props/church_of_the_drowned/church_tariff_sign_raw.png",
+      "game_resource": "game/rooms/church_of_the_drowned/props/church_tariff_sign.png",
+      "width": 150,
+      "height": 150,
+      "target_height": 150,
+      "position": [
+        1105,
+        645
+      ],
+      "z": 5,
+      "hotspot": "ChurchStallSign",
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "poor_box",
+      "name": "Poor box",
+      "source_sheet": "art/src/props/church_of_the_drowned/openai/church_of_the_drowned_props_openai_raw.png",
+      "raw_export": "art/export/props/church_of_the_drowned/poor_box_raw.png",
+      "game_resource": "game/rooms/church_of_the_drowned/props/poor_box.png",
+      "width": 145,
+      "height": 145,
+      "target_height": 145,
+      "position": [
+        545,
+        690
+      ],
+      "z": 4,
+      "hotspot": "PoorBox",
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}

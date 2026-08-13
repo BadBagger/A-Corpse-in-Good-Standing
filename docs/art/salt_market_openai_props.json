@@ -1,0 +1,89 @@
+{
+  "props": [
+    {
+      "id": "boot_stall",
+      "name": "Boot stall",
+      "source_sheet": "art/src/props/salt_market/openai/salt_market_props_openai_raw.png",
+      "raw_export": "art/export/props/salt_market/boot_stall_raw.png",
+      "game_resource": "game/rooms/salt_market/props/boot_stall.png",
+      "width": 300,
+      "height": 260,
+      "target_height": 260,
+      "position": [
+        92,
+        548
+      ],
+      "z": 3,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "church_sign",
+      "name": "Church sign",
+      "source_sheet": "art/src/props/salt_market/openai/salt_market_props_openai_raw.png",
+      "raw_export": "art/export/props/salt_market/church_sign_raw.png",
+      "game_resource": "game/rooms/salt_market/props/church_sign.png",
+      "width": 115,
+      "height": 220,
+      "target_height": 220,
+      "position": [
+        1295,
+        405
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "confession_queue",
+      "name": "Confession queue",
+      "source_sheet": "art/src/props/salt_market/openai/salt_market_props_openai_raw.png",
+      "raw_export": "art/export/props/salt_market/confession_queue_raw.png",
+      "game_resource": "game/rooms/salt_market/props/confession_queue.png",
+      "width": 372,
+      "height": 260,
+      "target_height": 260,
+      "position": [
+        1165,
+        500
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "fishmonger",
+      "name": "Fishmonger",
+      "source_sheet": "art/src/props/salt_market/openai/salt_market_props_openai_raw.png",
+      "raw_export": "art/export/props/salt_market/fishmonger_raw.png",
+      "game_resource": "game/rooms/salt_market/props/fishmonger.png",
+      "width": 378,
+      "height": 210,
+      "target_height": 210,
+      "position": [
+        430,
+        625
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "market_crowd_dressing",
+      "name": "Market crowd dressing",
+      "source_sheet": "art/src/props/salt_market/openai/salt_market_props_openai_raw.png",
+      "raw_export": "art/export/props/salt_market/market_crowd_dressing_raw.png",
+      "game_resource": "game/rooms/salt_market/props/market_crowd_dressing.png",
+      "width": 494,
+      "height": 245,
+      "target_height": 245,
+      "position": [
+        760,
+        545
+      ],
+      "z": 3,
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}
