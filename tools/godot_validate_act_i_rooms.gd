@@ -296,6 +296,12 @@ func _validate_act_i_runtime_prop_layer(room_name: String, instance: Node, failu
 		failures.append("Room %s runtime prop contact-shadow count mismatch: got %d expected %d." % [room_name, contact_shadows, expected_props])
 	if wet_reflections != expected_props:
 		failures.append("Room %s runtime wet-reflection count mismatch: got %d expected %d." % [room_name, wet_reflections, expected_props])
+	if room_name == "Mudflats":
+		var atmosphere := instance.get_node_or_null("Props/ActIAtmosphere/MudflatsTideGlintSetpiece")
+		if atmosphere == null:
+			failures.append("Mudflats missing runtime tide-glint atmosphere setpiece.")
+		elif not atmosphere.has_method("play_state"):
+			failures.append("Mudflats tide-glint atmosphere is not a sectional setpiece player.")
 
 func _validate_act_i_interaction_pulse_layer(room_name: String, instance: Node, failures: Array[String]) -> void:
 	if not REQUIRED_WET_PULSES.has(room_name):

@@ -28,7 +28,7 @@ GATES:
 - Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.
 - Act I OpenAI prop composite contact sheet: pass, generated review PNG shows 11 runtime room composites with palette-locked OpenAI foreground props across every Act I background room.
 - Act I prop grounding pass: pass, 47 foreground props are composited with contact shadows and wet-floor reflections for Act I review frames.
-- Act I atmosphere setpieces: pass, 5 transparent runtime overlays add water glint, lamp flicker, smoke, steam, and window rain to OpenAI room plates without changing puzzle coordinates.
+- Act I atmosphere setpieces: pass, 6 transparent runtime overlays add tide glint, water glint, lamp flicker, smoke, steam, and window rain to OpenAI room plates without changing puzzle coordinates.
 - Act I OpenAI HUD skin: pass, 5 generated noir UI texture assets are imported and wired into the playable prologue HUD without storing dialogue or puzzle state in image files.
 - Act I runtime review frames: pass, 8 player-view frames composite runtime room art, Corvin side sprites, NPC standees, first-frame atmosphere/setpieces, contact shadows, and the generated HUD skin.
 - Act I Godot runtime frames: pass, 8 runtime-composition player-view frames show actual room scene background paths, shared art constants, foreground props, wet-floor reflections, HUD textures, NPC standees, and Corvin side sprites.

@@ -1,8 +1,25 @@
 {
   "status": "exported",
-  "count": 5,
+  "count": 6,
   "review": "docs/art/review/act_i_atmosphere_setpieces_contact_sheet.png",
   "setpieces": [
+    {
+      "id": "mudflats_tide_glint",
+      "room_code": "R01",
+      "room_folder": "mudflats",
+      "background": "game/rooms/mudflats/background/mudflats_bg.png",
+      "x": 0,
+      "y": 610,
+      "width": 1920,
+      "height": 360,
+      "frames": 8,
+      "fps": 5.0,
+      "z": 2,
+      "kind": "tide_glint",
+      "runtime_path": "game/rooms/mudflats/atmosphere/mudflats_tide_glint.png",
+      "export_path": "art/export/atmosphere/act_i/mudflats/mudflats_tide_glint.png",
+      "sheet_width": 15360
+    },
     {
       "id": "old_quay_water_glint",
       "room_code": "R02",

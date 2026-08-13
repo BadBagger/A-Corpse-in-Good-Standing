@@ -2,6 +2,7 @@
 extends PopochiuRoom
 
 const Data := preload("room_mudflats_state.gd")
+const SECTIONAL_SETPIECE_PLAYER := preload("res://game/rooms/sectional_setpiece_player.gd")
 const HOVER_LABELS := {
 	"Silt": "Silt",
 	"OwnHands": "Own hands",
@@ -57,6 +58,7 @@ func _on_room_transition_finished() -> void:
 func _apply_real_art_presentation() -> void:
 	_set_debug_layout_visible(show_debug_layout)
 	_ground_mudflats_props()
+	_add_mudflats_atmosphere()
 
 func _set_debug_layout_visible(is_visible: bool) -> void:
 	for node_name in ["LeviathanRibs", "MudShelf", "HarborWater", "GreyboxLabels", "WalkableAreas", "Props/CorvinPlaceholder"]:
@@ -105,6 +107,35 @@ func _ground_mudflats_props() -> void:
 		reflection.modulate = Color(0.43, 0.48, 0.46, 0.13)
 		reflection.z_index = sprite.z_index - 1
 		container.add_child(reflection)
+
+func _add_mudflats_atmosphere() -> void:
+	var props := get_node_or_null("Props")
+	if props == null:
+		return
+	var existing := props.get_node_or_null("ActIAtmosphere")
+	if existing:
+		existing.queue_free()
+	var container := Node2D.new()
+	container.name = "ActIAtmosphere"
+	props.add_child(container)
+	var tide := SECTIONAL_SETPIECE_PLAYER.new()
+	tide.name = "MudflatsTideGlintSetpiece"
+	tide.position = Vector2(0, 610)
+	tide.z_index = 2
+	tide.configure(
+		{
+			"loop": {
+				"path": "res://game/rooms/mudflats/atmosphere/mudflats_tide_glint.png",
+				"frames": 8,
+				"fps": 5.0,
+				"width": 1920,
+				"height": 360,
+				"loop": true,
+			},
+		},
+		"loop"
+	)
+	container.add_child(tide)
 
 func _ensure_mudflats_prop_texture(sprite: Sprite2D) -> void:
 	if sprite.texture != null:

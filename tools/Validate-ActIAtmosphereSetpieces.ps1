@@ -5,9 +5,10 @@ $jsonPath = Join-Path $root "docs\art\act_i_atmosphere_setpieces.json"
 $mdPath = Join-Path $root "docs\art\act_i_atmosphere_setpieces.md"
 $reviewPath = Join-Path $root "docs\art\review\act_i_atmosphere_setpieces_contact_sheet.png"
 $roomScriptPath = Join-Path $root "game\rooms\act_i_greybox_room.gd"
+$mudflatsScriptPath = Join-Path $root "game\rooms\mudflats\room_mudflats.gd"
 $playerScriptPath = Join-Path $root "game\rooms\sectional_setpiece_player.gd"
 
-foreach ($path in @($jsonPath, $mdPath, $reviewPath, $roomScriptPath, $playerScriptPath)) {
+foreach ($path in @($jsonPath, $mdPath, $reviewPath, $roomScriptPath, $mudflatsScriptPath, $playerScriptPath)) {
     if (-not (Test-Path -LiteralPath $path)) {
         throw "Missing Act I atmosphere setpiece input: $path"
     }
@@ -18,11 +19,12 @@ if ($report.status -ne "exported") {
     throw "Act I atmosphere setpiece status must be exported."
 }
 $setpieces = @($report.setpieces)
-if ($setpieces.Count -ne 5 -or [int]$report.count -ne 5) {
-    throw "Act I atmosphere expected 5 setpieces, got report=$($report.count), rows=$($setpieces.Count)."
+if ($setpieces.Count -ne 6 -or [int]$report.count -ne 6) {
+    throw "Act I atmosphere expected 6 setpieces, got report=$($report.count), rows=$($setpieces.Count)."
 }
 
 $requiredIds = @(
+    "mudflats_tide_glint",
     "old_quay_water_glint",
     "salt_market_lamp_flicker",
     "harbor_registry_lamp_smoke",
@@ -110,6 +112,7 @@ foreach ($id in $requiredIds) {
 }
 
 $roomScript = Get-Content -LiteralPath $roomScriptPath -Raw
+$mudflatsScript = Get-Content -LiteralPath $mudflatsScriptPath -Raw
 foreach ($requiredText in @(
     "ACT_I_ATMOSPHERE_BY_ROOM",
     "_add_act_i_atmosphere",
@@ -123,13 +126,23 @@ foreach ($requiredText in @(
         throw "Act I room script missing atmosphere runtime text: $requiredText"
     }
 }
+foreach ($requiredText in @(
+    "_add_mudflats_atmosphere",
+    "MudflatsTideGlintSetpiece",
+    "mudflats_tide_glint.png",
+    "SECTIONAL_SETPIECE_PLAYER"
+)) {
+    if (-not $mudflatsScript.Contains($requiredText)) {
+        throw "Mudflats script missing atmosphere runtime text: $requiredText"
+    }
+}
 
 $md = Get-Content -LiteralPath $mdPath -Raw
 foreach ($requiredText in @(
     "Act I Atmosphere Setpieces",
     "OpenAI room plates",
     "hard-R, no explicit anatomy, no gore, no child figures",
-    "water glint, lamp flicker, smoke, steam, and window rain"
+    "tide glint, water glint, lamp flicker, smoke, steam, and window rain"
 )) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I atmosphere report missing required text: $requiredText"
