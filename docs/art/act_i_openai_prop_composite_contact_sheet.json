@@ -1,0 +1,75 @@
+{
+  "status": "exported",
+  "room_count": 11,
+  "background_room_count": 11,
+  "output": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png",
+  "rooms": [
+    {
+      "room_id": "mudflats",
+      "label": "Mudflats",
+      "composite": "docs/art/review/mudflats_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    },
+    {
+      "room_id": "old_quay",
+      "label": "Old Quay",
+      "composite": "docs/art/review/old_quay_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    },
+    {
+      "room_id": "salt_market",
+      "label": "Salt Market",
+      "composite": "docs/art/review/salt_market_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    },
+    {
+      "room_id": "harbor_registry",
+      "label": "Harbor Registry",
+      "composite": "docs/art/review/harbor_registry_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    },
+    {
+      "room_id": "bone_chandler",
+      "label": "Bone Chandler",
+      "composite": "docs/art/review/bone_chandler_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    },
+    {
+      "room_id": "almshouse",
+      "label": "Almshouse",
+      "composite": "docs/art/review/almshouse_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    },
+    {
+      "room_id": "fish_hall",
+      "label": "Fish Hall",
+      "composite": "docs/art/review/fish_hall_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    },
+    {
+      "room_id": "church_of_the_drowned",
+      "label": "Church",
+      "composite": "docs/art/review/church_of_the_drowned_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    },
+    {
+      "room_id": "grey_float",
+      "label": "Grey Float",
+      "composite": "docs/art/review/grey_float_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    },
+    {
+      "room_id": "harbormaster_office",
+      "label": "Harbormaster Office",
+      "composite": "docs/art/review/harbormaster_office_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    },
+    {
+      "room_id": "sabine_office",
+      "label": "Sabine Office",
+      "composite": "docs/art/review/sabine_office_openai_prop_composite.png",
+      "contact_sheet": "docs/art/review/act_i_openai_prop_composite_contact_sheet.png"
+    }
+  ],
+  "note": "Act I background rooms with OpenAI foreground prop composites."
+}
