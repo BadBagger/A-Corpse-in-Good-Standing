@@ -101,19 +101,39 @@ func _add_act_i_standee(container: Node, standee: Dictionary) -> void:
 	if err != OK:
 		push_warning("Could not load Act I standee %s: %s" % [path, error_string(err)])
 		return
+	var visual_scale := float(standee.get("scale", 1.0))
+	var foot_position: Vector2 = standee.get("position", Vector2.ZERO)
+	var shadow := _make_act_i_standee_shadow(standee_id, image, visual_scale)
+	shadow.position = foot_position
+	shadow.z_index = int(standee.get("z", 0)) - 1
+	container.add_child(shadow)
 	var sprite := Sprite2D.new()
 	sprite.name = "%sStandee" % standee_id.to_pascal_case()
 	sprite.texture = ImageTexture.create_from_image(image)
 	sprite.centered = false
-	var visual_scale := float(standee.get("scale", 1.0))
 	sprite.scale = Vector2(visual_scale, visual_scale)
-	var foot_position: Vector2 = standee.get("position", Vector2.ZERO)
 	sprite.position = Vector2(
 		foot_position.x - (float(image.get_width()) * visual_scale) / 2.0,
 		foot_position.y - float(image.get_height()) * visual_scale
 	)
 	sprite.z_index = int(standee.get("z", 0))
 	container.add_child(sprite)
+
+func _make_act_i_standee_shadow(standee_id: String, image: Image, visual_scale: float) -> Polygon2D:
+	var shadow := Polygon2D.new()
+	shadow.name = "%sContactShadow" % standee_id.to_pascal_case()
+	var width := clampf(float(image.get_width()) * visual_scale * 0.34, 42.0, 128.0)
+	var height := clampf(float(image.get_height()) * visual_scale * 0.045, 10.0, 28.0)
+	shadow.polygon = PackedVector2Array([
+		Vector2(-width, 0.0),
+		Vector2(-width * 0.58, -height),
+		Vector2(width * 0.58, -height),
+		Vector2(width, 0.0),
+		Vector2(width * 0.58, height),
+		Vector2(-width * 0.58, height)
+	])
+	shadow.color = Color(0.0470588, 0.0627451, 0.0745098, 0.52)
+	return shadow
 
 func _bind_hotspot_feedback(hotspot: Area2D, input_handler: Callable) -> void:
 	var input_callable := input_handler.bind(hotspot)

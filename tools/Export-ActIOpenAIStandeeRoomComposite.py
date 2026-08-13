@@ -6,6 +6,7 @@ from PIL import Image, ImageDraw
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SHADOW_COLOR = (12, 16, 19, 132)
 
 ROOMS = [
     ("R02", "The Old Quay", "old_quay", "old_quay_blockout_bg.png", [("tomas_bollard", 400, 735, 1.0)]),
@@ -34,6 +35,7 @@ def composite_room(room_id: str, title: str, folder: str, background: str, stand
                 (round(standee.width * scale), round(standee.height * scale)),
                 Image.Resampling.LANCZOS,
             )
+        draw_contact_shadow(image, standee, foot_x, foot_y)
         x = int(foot_x - standee.width / 2)
         y = int(foot_y - standee.height)
         image.alpha_composite(standee, (x, y))
@@ -42,6 +44,21 @@ def composite_room(room_id: str, title: str, folder: str, background: str, stand
     draw.rectangle((28, 28, 480, 84), fill=(12, 16, 19, 190))
     draw.text((44, 44), f"{room_id} / {title}", fill=(228, 220, 200))
     return image
+
+
+def draw_contact_shadow(image: Image.Image, standee: Image.Image, foot_x: int, foot_y: int) -> None:
+    draw = ImageDraw.Draw(image, "RGBA")
+    width = max(42, min(128, round(standee.width * 0.34)))
+    height = max(10, min(28, round(standee.height * 0.045)))
+    draw.ellipse(
+        (
+            foot_x - width,
+            foot_y - height,
+            foot_x + width,
+            foot_y + height,
+        ),
+        fill=SHADOW_COLOR,
+    )
 
 
 def main() -> None:
