@@ -8,16 +8,16 @@ This pass audits whether Act I character standees and crowd setpieces drift towa
 
 ## Current Assets
 
-| Asset | Wrong-light green |
-|---|---:|
-| `game/standees/act_i/bone_chandler.png` | 0.01% |
-| `game/standees/act_i/juno.png` | 0.01% |
-| `game/standees/act_i/market_crowd.png` | 0.02% |
-| `game/standees/act_i/prosper.png` | 0.04% |
-| `game/standees/act_i/registrar.png` | 0.01% |
-| `game/standees/act_i/sabine.png` | 0.03% |
-| `game/standees/act_i/teodor.png` | 0.01% |
-| `game/standees/act_i/tomas_bollard.png` | 0.01% |
-| `game/rooms/salt_market/setpieces/salt_market_crowd_idle_murmur.png` | 0.0% |
-| `game/rooms/salt_market/setpieces/salt_market_crowd_settle.png` | 0.0% |
-| `game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png` | 0.0% |
+| Asset | Wrong-light green | Broad green dominance |
+|---|---:|---:|
+| `game/standees/act_i/bone_chandler.png` | 0.01% | 0.0% |
+| `game/standees/act_i/juno.png` | 0.0% | 0.0% |
+| `game/standees/act_i/market_crowd.png` | 0.01% | 0.0% |
+| `game/standees/act_i/prosper.png` | 0.03% | 0.0% |
+| `game/standees/act_i/registrar.png` | 0.01% | 0.0% |
+| `game/standees/act_i/sabine.png` | 0.02% | 0.0% |
+| `game/standees/act_i/teodor.png` | 0.0% | 0.0% |
+| `game/standees/act_i/tomas_bollard.png` | 0.0% | 0.0% |
+| `game/rooms/salt_market/setpieces/salt_market_crowd_idle_murmur.png` | 0.0% | 0.0% |
+| `game/rooms/salt_market/setpieces/salt_market_crowd_settle.png` | 0.0% | 0.0% |
+| `game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png` | 0.0% | 0.0% |

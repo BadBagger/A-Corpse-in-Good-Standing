@@ -73,6 +73,15 @@ foreach ($frame in $frames) {
     if ($foot.Count -ne 2 -or [int]$foot[0] -lt 1 -or [int]$foot[1] -lt 1) {
         throw "Act I in-scene action frame $id must include a valid corvin_foot crop anchor."
     }
+    if ([string]$frame.room_code -eq "R03") {
+        $crowdHotspot = @($frame.crowd_hotspot)
+        if ($crowdHotspot.Count -ne 2) {
+            throw "Act I Salt Market action frame $id must include crowd_hotspot anchor metadata."
+        }
+        if ([double]$frame.crowd_distance_px -lt 260.0) {
+            throw "Act I Salt Market action frame $id leaves Corvin too close to crowd hotspot: $($frame.crowd_distance_px)px."
+        }
+    }
     $framePath = Join-Path $root ([string]$frame.output -replace "/", "\")
     if (-not (Test-Path -LiteralPath $framePath)) {
         throw "Act I in-scene action frame missing output: $($frame.output)"
@@ -120,7 +129,7 @@ if ($md -match "[^\u0000-\u007F]") {
 }
 
 $builder = Get-Content -LiteralPath $builderPath -Raw
-foreach ($requiredText in @("salt_market_crowd_turn_to_corvin.png", "talk_side_right", "use_side_right", "wet_side_right", "corvin_foot", "uses_sectional_setpiece_frame")) {
+foreach ($requiredText in @("salt_market_crowd_turn_to_corvin.png", "talk_side_right", "use_side_right", "wet_side_right", "ImageFilter.MaxFilter", "201, 138, 60", "corvin_foot", "crowd_distance_px", "uses_sectional_setpiece_frame")) {
     if (-not $builder.Contains($requiredText)) {
         throw "Act I in-scene action builder missing required text: $requiredText"
     }

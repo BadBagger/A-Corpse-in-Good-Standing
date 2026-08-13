@@ -34,7 +34,7 @@ ROOMS = [
         "title": "Salt Market",
         "room_id": "salt_market",
         "base": "docs/art/review/salt_market_openai_prop_composite.png",
-        "player": (720, 770, "idle_side_right"),
+        "player": (620, 790, "idle_side_right"),
         "standees": [],
         "overlays": [
             ("salt_market_crowd", "game/rooms/salt_market/setpieces/salt_market_crowd_idle_murmur.png", 1070, 455, 520, 330, 8),

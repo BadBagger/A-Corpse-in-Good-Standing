@@ -16,9 +16,14 @@
         389
       ],
       "corvin_foot": [
-        720,
-        770
+        620,
+        790
       ],
+      "crowd_hotspot": [
+        960,
+        760
+      ],
+      "crowd_distance_px": 341.3,
       "expected_setpiece_state": "turn_to_corvin",
       "uses_in_scene_corvin_action": true,
       "uses_sectional_setpiece_frame": true,
@@ -36,9 +41,14 @@
         389
       ],
       "corvin_foot": [
-        720,
-        770
+        620,
+        790
       ],
+      "crowd_hotspot": [
+        960,
+        760
+      ],
+      "crowd_distance_px": 341.3,
       "expected_setpiece_state": "turn_to_corvin",
       "uses_in_scene_corvin_action": true,
       "uses_sectional_setpiece_frame": true,
@@ -59,6 +69,8 @@
         820,
         760
       ],
+      "crowd_hotspot": [],
+      "crowd_distance_px": null,
       "expected_setpiece_state": "water_glint_loop",
       "uses_in_scene_corvin_action": true,
       "uses_sectional_setpiece_frame": true,
@@ -79,6 +91,8 @@
         800,
         780
       ],
+      "crowd_hotspot": [],
+      "crowd_distance_px": null,
       "expected_setpiece_state": "steam_loop",
       "uses_in_scene_corvin_action": true,
       "uses_sectional_setpiece_frame": true,

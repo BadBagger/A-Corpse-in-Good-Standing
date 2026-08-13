@@ -55,6 +55,10 @@ foreach ($asset in $assets) {
     if ($wrongLightGreen -gt 0.5) {
         throw "Act I standee $path has wrong-light green $wrongLightGreen%, over 0.5%."
     }
+    $greenDominance = [double]$asset.green_dominance_percent
+    if ($greenDominance -gt 4.0) {
+        throw "Act I standee $path has broad green dominance $greenDominance%, over 4.0%."
+    }
 }
 foreach ($path in $required) {
     if (-not $seen.ContainsKey($path)) {
@@ -63,7 +67,7 @@ foreach ($path in $required) {
 }
 
 $script = Get-Content -LiteralPath $scriptPath -Raw
-foreach ($requiredText in @("--apply", "green_cast_ratio", "wrong_light_green_percent", "green reserved for wrong light")) {
+foreach ($requiredText in @("--apply", "green_cast_ratio", "green_dominance_ratio", "wrong_light_green_percent", "green_dominance_percent", "green reserved for wrong light")) {
     if (-not $script.Contains($requiredText)) {
         throw "Act I character palette script missing required text: $requiredText"
     }
@@ -79,4 +83,4 @@ if ($md -match "[^\u0000-\u007F]") {
     throw "Act I character palette report must stay ASCII-only."
 }
 
-Write-Host "Act I character palette grade validation passed: assets=$($assets.Count), maxWrongLightGreen<=0.5%."
+Write-Host "Act I character palette grade validation passed: assets=$($assets.Count), maxWrongLightGreen<=0.5%, maxGreenDominance<=4.0%."

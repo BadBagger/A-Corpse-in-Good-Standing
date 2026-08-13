@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,7 +25,8 @@ CASES = [
         "room_code": "R03",
         "title": "Salt Market",
         "base": "docs/art/review/salt_market_openai_prop_composite.png",
-        "corvin": (720, 770, "talk_side_right"),
+        "corvin": (620, 790, "talk_side_right"),
+        "crowd_hotspot": (960, 760),
         "setpieces": [
             ("salt_market_crowd_turn_to_corvin", "game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png", 1070, 455, 520, 330, 10, 4),
             ("salt_market_lamp_flicker", "game/rooms/salt_market/atmosphere/salt_market_lamp_flicker.png", 1210, 210, 540, 500, 8, 0),
@@ -38,7 +39,8 @@ CASES = [
         "room_code": "R03",
         "title": "Salt Market",
         "base": "docs/art/review/salt_market_openai_prop_composite.png",
-        "corvin": (720, 770, "use_side_right"),
+        "corvin": (620, 790, "use_side_right"),
+        "crowd_hotspot": (960, 760),
         "setpieces": [
             ("salt_market_crowd_turn_to_corvin", "game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png", 1070, 455, 520, 330, 10, 7),
             ("salt_market_lamp_flicker", "game/rooms/salt_market/atmosphere/salt_market_lamp_flicker.png", 1210, 210, 540, 500, 8, 2),
@@ -94,6 +96,11 @@ def paste_corvin(image: Image.Image, foot_x: int, foot_y: int, animation: str) -
     alpha = sprite.getchannel("A").point(lambda value: round(value * 0.42))
     shadow.putalpha(alpha)
     image.alpha_composite(shadow, (x + 10, y + 14))
+    if animation in {"talk_side_right", "use_side_right"} and foot_x == 620:
+        edge_alpha = sprite.getchannel("A").filter(ImageFilter.MaxFilter(5)).point(lambda value: round(value * 0.18))
+        warm = Image.new("RGBA", sprite.size, (201, 138, 60, 0))
+        warm.putalpha(edge_alpha)
+        image.alpha_composite(warm, (x + 5, y + 2))
     image.alpha_composite(sprite, (x, y))
     return {"animation": animation, "frame_count": frame_count, "scaled_size": [sprite.width, sprite.height]}
 
@@ -124,6 +131,10 @@ def build_frame(case: dict[str, object]) -> dict[str, object]:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     output = OUT_DIR / f"{case['id']}.png"
     base.save(output, optimize=True)
+    crowd_hotspot = list(case.get("crowd_hotspot", ()))
+    crowd_distance = None
+    if crowd_hotspot:
+        crowd_distance = round(((int(foot_x) - int(crowd_hotspot[0])) ** 2 + (int(foot_y) - int(crowd_hotspot[1])) ** 2) ** 0.5, 1)
     return {
         "id": case["id"],
         "room_code": case["room_code"],
@@ -133,6 +144,8 @@ def build_frame(case: dict[str, object]) -> dict[str, object]:
         "corvin_frame_count": corvin_meta["frame_count"],
         "corvin_scaled_size": corvin_meta["scaled_size"],
         "corvin_foot": [int(foot_x), int(foot_y)],
+        "crowd_hotspot": crowd_hotspot,
+        "crowd_distance_px": crowd_distance,
         "expected_setpiece_state": case["expected_setpiece_state"],
         "uses_in_scene_corvin_action": True,
         "uses_sectional_setpiece_frame": True,
