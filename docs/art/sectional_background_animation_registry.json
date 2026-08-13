@@ -1,0 +1,57 @@
+{
+  "pipeline": "docs/art/sectional_background_animation_pipeline.md",
+  "native_resolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "setpieces": [
+    {
+      "id": "salt_market_crowd",
+      "room_code": "R03",
+      "room_id": "salt_market",
+      "status": "planned",
+      "bounds": {
+        "x": 1070,
+        "y": 455,
+        "width": 520,
+        "height": 330
+      },
+      "anchor": {
+        "x": 1070,
+        "y": 455
+      },
+      "footline_y": 785,
+      "z_index": 4,
+      "hotspot": "Crowd",
+      "trigger_verb": "talk",
+      "trigger_flag": "FL_salt_market_crowd_reacted",
+      "states": [
+        {
+          "name": "idle_murmur",
+          "kind": "loop",
+          "frames": 8,
+          "fps": 8
+        },
+        {
+          "name": "turn_to_corvin",
+          "kind": "one_shot",
+          "frames": 10,
+          "fps": 10
+        },
+        {
+          "name": "settle",
+          "kind": "one_shot",
+          "frames": 6,
+          "fps": 10
+        }
+      ],
+      "constraints": [
+        "Do not regenerate the whole Salt Market plate.",
+        "Do not move underlying hotspot coordinates.",
+        "No opaque rectangular matte.",
+        "Crowd adults must remain taller than tables and counters.",
+        "Palette-lock to the Act I palette without arterial red."
+      ]
+    }
+  ]
+}

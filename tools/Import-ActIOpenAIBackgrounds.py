@@ -33,7 +33,7 @@ class PlateImport:
 PLATES = [
     PlateImport("mudflats", Path(r"C:\Users\KyleB\.codex\generated_images\019fed98-2fe1-7052-afd1-585c9b506c3f\call_YXwKZgGrOvg0obvuVozrGlCf.png")),
     PlateImport("old_quay", Path(r"C:\Users\KyleB\.codex\generated_images\019fed98-2fe1-7052-afd1-585c9b506c3f\call_gBNTSptrXaYR6jWPN833oWPy.png")),
-    PlateImport("salt_market", Path(r"C:\Users\KyleB\.codex\generated_images\019fed98-2fe1-7052-afd1-585c9b506c3f\call_tLLeRCxoP6PuP43JbhaIvbmK.png")),
+    PlateImport("salt_market", Path(r"C:\Users\KyleB\.codex\generated_images\019fed98-2fe1-7052-afd1-585c9b506c3f\call_2PfCxgkh2eZJyAxWLOSQ69tU.png")),
     PlateImport("harbor_registry", Path(r"C:\Users\KyleB\.codex\generated_images\019fed98-2fe1-7052-afd1-585c9b506c3f\call_B093a4hvxvjpPjKp3pO914MO.png")),
     PlateImport("bone_chandler", Path(r"C:\Users\KyleB\.codex\generated_images\019fed98-2fe1-7052-afd1-585c9b506c3f\call_cE7papjngvNh5qhjlneUxst5.png")),
     PlateImport("fish_hall", Path(r"C:\Users\KyleB\.codex\generated_images\019fed98-2fe1-7052-afd1-585c9b506c3f\call_uBOcIerk7oJ2jCIOOupQQxDs.png")),
@@ -175,6 +175,9 @@ def main() -> None:
         "importer": "tools/Import-ActIOpenAIBackgrounds.py",
         "native_resolution": stage,
         "palette_lock": "Floyd-Steinberg quantized to locked Act I palette without arterial red",
+        "integration_notes": [
+            "R03 Salt Market uses a single integrated generated room plate; temporary foreground prop cutouts were removed from runtime."
+        ],
         "contact_sheet": str(CONTACT_SHEET_PATH.relative_to(ROOT)).replace("\\", "/"),
         "rooms": records,
     }
@@ -188,6 +191,7 @@ def main() -> None:
         f"- Rooms imported: {len(records)}",
         f"- Contact sheet: `{report['contact_sheet']}`",
         "- Runtime palette: locked Act I palette, no arterial red",
+        "- R03 Salt Market: integrated one-piece room plate; no separate pasted foreground prop cutouts in runtime",
         "",
         "| Room | Raw source | Runtime export |",
         "|---|---|---|",

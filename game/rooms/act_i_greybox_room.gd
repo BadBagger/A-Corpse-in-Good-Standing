@@ -11,26 +11,24 @@ const ACT_I_STANDEES_BY_ROOM := {
 	"R02": [
 		{"id": "tomas_bollard", "position": Vector2(400, 735), "z": 4},
 	],
-	"R03": [
-		{"id": "market_crowd", "position": Vector2(1010, 790), "z": 4},
-	],
+	"R03": [],
 	"R05": [
-		{"id": "registrar", "position": Vector2(1230, 705), "z": 4},
+		{"id": "registrar", "position": Vector2(1230, 705), "z": 4, "scale": 0.78},
 	],
 	"R06": [
-		{"id": "bone_chandler", "position": Vector2(1200, 760), "z": 4},
+		{"id": "bone_chandler", "position": Vector2(1200, 760), "z": 4, "scale": 0.78},
 	],
 	"R07": [
-		{"id": "prosper", "position": Vector2(1190, 775), "z": 4},
+		{"id": "prosper", "position": Vector2(1190, 775), "z": 4, "scale": 0.82},
 	],
 	"R09": [
-		{"id": "teodor", "position": Vector2(1230, 740), "z": 4},
+		{"id": "teodor", "position": Vector2(1230, 740), "z": 4, "scale": 0.78},
 	],
 	"R10": [
-		{"id": "juno", "position": Vector2(1250, 745), "z": 4},
+		{"id": "juno", "position": Vector2(1250, 745), "z": 4, "scale": 0.75},
 	],
 	"R12": [
-		{"id": "sabine", "position": Vector2(1260, 735), "z": 4},
+		{"id": "sabine", "position": Vector2(1260, 735), "z": 4, "scale": 0.76},
 	],
 }
 
@@ -107,8 +105,13 @@ func _add_act_i_standee(container: Node, standee: Dictionary) -> void:
 	sprite.name = "%sStandee" % standee_id.to_pascal_case()
 	sprite.texture = ImageTexture.create_from_image(image)
 	sprite.centered = false
+	var visual_scale := float(standee.get("scale", 1.0))
+	sprite.scale = Vector2(visual_scale, visual_scale)
 	var foot_position: Vector2 = standee.get("position", Vector2.ZERO)
-	sprite.position = Vector2(foot_position.x - float(image.get_width()) / 2.0, foot_position.y - float(image.get_height()))
+	sprite.position = Vector2(
+		foot_position.x - (float(image.get_width()) * visual_scale) / 2.0,
+		foot_position.y - float(image.get_height()) * visual_scale
+	)
 	sprite.z_index = int(standee.get("z", 0))
 	container.add_child(sprite)
 

@@ -3,7 +3,7 @@ extends Sprite2D
 
 const FRAME_SIZE := Vector2i(256, 512)
 const FPS := 12.0
-const VISUAL_SCALE := 0.5
+const VISUAL_SCALE := 0.72
 const DEFAULT_ANIMATION := "idle_side_right"
 const ANIMATIONS := {
 	"idle_side_right": {
@@ -127,7 +127,7 @@ func _load_animation(animation_name: String) -> bool:
 	_current_frame = 0
 	_accumulator = 0.0
 	centered = true
-	offset = Vector2(0, -128)
+	offset = Vector2(0, -188)
 	scale = Vector2(VISUAL_SCALE, VISUAL_SCALE)
 	visible = true
 	_hide_fallback()

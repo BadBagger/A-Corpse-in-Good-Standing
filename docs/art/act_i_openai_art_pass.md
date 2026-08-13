@@ -5,6 +5,7 @@ OpenAI-generated source plates were imported, preserved under `art/src/backgroun
 - Rooms imported: 11
 - Contact sheet: `docs/art/review/act_i_openai_contact_sheet.png`
 - Runtime palette: locked Act I palette, no arterial red
+- R03 Salt Market: integrated one-piece room plate; no separate pasted foreground prop cutouts in runtime
 
 | Room | Raw source | Runtime export |
 |---|---|---|

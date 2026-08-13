@@ -6,6 +6,9 @@
     "width": 1920
   },
   "palette_lock": "Floyd-Steinberg quantized to locked Act I palette without arterial red",
+  "integration_notes": [
+    "R03 Salt Market uses a single integrated generated room plate; temporary foreground prop cutouts were removed from runtime."
+  ],
   "contact_sheet": "docs/art/review/act_i_openai_contact_sheet.png",
   "rooms": [
     {
@@ -40,8 +43,8 @@
       "paintover_source": "art/src/backgrounds/act_i/salt_market.psd",
       "export_png": "art/export/backgrounds/act_i/salt_market_bg.png",
       "godot_background_resource": "game/rooms/salt_market/background/salt_market_bg.png",
-      "source_bytes": 2782716,
-      "export_bytes": 565509,
+      "source_bytes": 3029626,
+      "export_bytes": 608803,
       "psd_bytes": 6220840
     },
     {
