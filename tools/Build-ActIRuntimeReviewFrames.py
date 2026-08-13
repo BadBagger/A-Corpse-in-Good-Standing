@@ -19,6 +19,17 @@ PALETTE = {
     "amber": (201, 138, 60),
 }
 
+ROOM_CAPTIONS = {
+    "R02": "Corvin: Tomas, you look moored. Tomas: I contain multitudes and two unpaid bar tabs.",
+    "R03": "The crowd notices Corvin is dead. Commerce handles it poorly.",
+    "R05": "Registrar: Dead men do not have standing. Corvin: That explains my posture.",
+    "R06": "The Bone Chandler smiles like a receipt with teeth.",
+    "R07": "Prosper forgets the debt. The kindness stays, annoyingly.",
+    "R09": "Teodor sells paid truth with the expression of a man losing money on God.",
+    "R10": "Juno: Everybody comes here to feel something. You are just honest about failing.",
+    "R12": "Sabine checks for a pulse. Her hand stays there anyway.",
+}
+
 ROOMS = [
     {
         "code": "R02",
@@ -150,7 +161,25 @@ def draw_wet_floor_reflection(image: Image.Image, sprite: Image.Image, foot_x: i
     image.alpha_composite(tint, (round(foot_x - tint.width / 2), foot_y + 5))
 
 
-def add_hud(image: Image.Image, room_code: str, title: str) -> None:
+def wrap_text(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.ImageFont, max_width: int) -> list[str]:
+    words = text.split()
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        candidate = word if not current else f"{current} {word}"
+        bbox = draw.textbbox((0, 0), candidate, font=font)
+        if bbox[2] - bbox[0] <= max_width:
+            current = candidate
+        else:
+            if current:
+                lines.append(current)
+            current = word
+    if current:
+        lines.append(current)
+    return lines[:2]
+
+
+def add_hud(image: Image.Image, room_code: str, title: str, caption: str) -> None:
     status = Image.open(ROOT / "game" / "ui" / "skins" / "act_i" / "status_strip.png").convert("RGBA")
     dialogue = Image.open(ROOT / "game" / "ui" / "skins" / "act_i" / "dialogue_panel.png").convert("RGBA")
     inventory = Image.open(ROOT / "game" / "ui" / "skins" / "act_i" / "bottom_inventory_panel.png").convert("RGBA")
@@ -168,7 +197,8 @@ def add_hud(image: Image.Image, room_code: str, title: str) -> None:
     draw.rectangle((18, 16, 396, 60), fill=(12, 16, 19, 164), outline=(201, 138, 60, 110))
     draw.text((32, 28), f"{room_code} / {title}", fill=PALETTE["bone"], font=font)
     draw.text((32, 44), "LOOK  USE  TALK  WET", fill=PALETTE["amber"], font=font)
-    draw.text((778, 928), "Corvin: dead, damp, and still doing the voice.", fill=PALETTE["bone"], font=font)
+    for index, line in enumerate(wrap_text(draw, caption, font, 520)):
+        draw.text((778, 924 + index * 14), line, fill=PALETTE["bone"], font=font)
 
 
 def build_frame(room: dict) -> dict:
@@ -188,7 +218,8 @@ def build_frame(room: dict) -> dict:
 
     player_x, player_y, animation = room["player"]
     paste_corvin(image, player_x, player_y, animation)
-    add_hud(image, room["code"], room["title"])
+    caption = ROOM_CAPTIONS[room["code"]]
+    add_hud(image, room["code"], room["title"], caption)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     output = OUT_DIR / f"{room['room_id']}_runtime_frame.png"
@@ -202,6 +233,7 @@ def build_frame(room: dict) -> dict:
         "standee_count": len(room["standees"]),
         "standee_reflection_count": len(room["standees"]),
         "overlay_count": len(room["overlays"]),
+        "dialogue_caption": caption,
         "includes_corvin": True,
         "includes_hud": True,
     }
@@ -233,14 +265,14 @@ def main() -> None:
         "status": "exported",
         "frame_count": len(records),
         "contact_sheet": CONTACT_PATH.relative_to(ROOT).as_posix(),
-        "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, standee wet-floor reflections, first-frame overlays, and generated HUD skin",
+        "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, standee wet-floor reflections, room-specific dialogue captions, first-frame overlays, and generated HUD skin",
         "rooms": records,
     }
     REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     lines = [
         "# Act I Runtime Review Frames",
         "",
-        "Generated player-view review frames using runtime foreground prop composites, prop grounding, Corvin side sprites, NPC standees, first-frame atmosphere/setpieces, contact shadows, wet-floor reflections, and the generated noir HUD skin.",
+        "Generated player-view review frames using runtime foreground prop composites, prop grounding, Corvin side sprites, NPC standees, room-specific dialogue captions, first-frame atmosphere/setpieces, contact shadows, wet-floor reflections, and the generated noir HUD skin.",
         "",
         f"- Contact sheet: `{report['contact_sheet']}`",
         f"- Frame count: {len(records)}",
@@ -256,7 +288,7 @@ def main() -> None:
             includes.append(f"{record['standee_reflection_count']} standee reflection(s)")
         if record["overlay_count"]:
             includes.append(f"{record['overlay_count']} overlay(s)")
-        lines.append(f"| {record['room_code']} / {record['title']} | `{record['output']}` | {', '.join(includes)} |")
+        lines.append(f"| {record['room_code']} / {record['title']} | `{record['output']}` | {', '.join(includes)}; caption: {record['dialogue_caption']} |")
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"runtime_frames={len(records)}")
     print(f"contact_sheet={CONTACT_PATH.relative_to(ROOT)}")

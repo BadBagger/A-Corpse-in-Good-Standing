@@ -2,7 +2,7 @@
   "status": "exported",
   "frame_count": 8,
   "contact_sheet": "docs/art/review/act_i_runtime_frame_contact_sheet.png",
-  "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, standee wet-floor reflections, first-frame overlays, and generated HUD skin",
+  "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, standee wet-floor reflections, room-specific dialogue captions, first-frame overlays, and generated HUD skin",
   "rooms": [
     {
       "room_code": "R02",
@@ -13,6 +13,7 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
+      "dialogue_caption": "Corvin: Tomas, you look moored. Tomas: I contain multitudes and two unpaid bar tabs.",
       "includes_corvin": true,
       "includes_hud": true
     },
@@ -25,6 +26,7 @@
       "standee_count": 0,
       "standee_reflection_count": 0,
       "overlay_count": 2,
+      "dialogue_caption": "The crowd notices Corvin is dead. Commerce handles it poorly.",
       "includes_corvin": true,
       "includes_hud": true
     },
@@ -37,6 +39,7 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
+      "dialogue_caption": "Registrar: Dead men do not have standing. Corvin: That explains my posture.",
       "includes_corvin": true,
       "includes_hud": true
     },
@@ -49,6 +52,7 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 0,
+      "dialogue_caption": "The Bone Chandler smiles like a receipt with teeth.",
       "includes_corvin": true,
       "includes_hud": true
     },
@@ -61,6 +65,7 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 0,
+      "dialogue_caption": "Prosper forgets the debt. The kindness stays, annoyingly.",
       "includes_corvin": true,
       "includes_hud": true
     },
@@ -73,6 +78,7 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 0,
+      "dialogue_caption": "Teodor sells paid truth with the expression of a man losing money on God.",
       "includes_corvin": true,
       "includes_hud": true
     },
@@ -85,6 +91,7 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
+      "dialogue_caption": "Juno: Everybody comes here to feel something. You are just honest about failing.",
       "includes_corvin": true,
       "includes_hud": true
     },
@@ -97,6 +104,7 @@
       "standee_count": 1,
       "standee_reflection_count": 1,
       "overlay_count": 1,
+      "dialogue_caption": "Sabine checks for a pulse. Her hand stays there anyway.",
       "includes_corvin": true,
       "includes_hud": true
     }

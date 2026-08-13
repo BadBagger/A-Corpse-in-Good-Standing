@@ -30,6 +30,9 @@ if ([string]$report.runtime_evidence -notmatch "runtime foreground props" -or [s
 if ([string]$report.runtime_evidence -notmatch "standee wet-floor reflections") {
     throw "Act I runtime review frame report must state standee wet-floor reflection evidence."
 }
+if ([string]$report.runtime_evidence -notmatch "room-specific dialogue captions") {
+    throw "Act I runtime review frame report must state room-specific dialogue caption evidence."
+}
 
 Add-Type -AssemblyName System.Drawing
 $rooms = @($report.rooms)
@@ -53,6 +56,10 @@ foreach ($room in $rooms) {
     }
     if ([int]$room.standee_reflection_count -ne [int]$room.standee_count) {
         throw "Act I runtime review frame $code must include one wet-floor reflection per standee."
+    }
+    $caption = [string]$room.dialogue_caption
+    if ([string]::IsNullOrWhiteSpace($caption) -or $caption -eq "Corvin: dead, damp, and still doing the voice.") {
+        throw "Act I runtime review frame $code must include a room-specific dialogue caption."
     }
     $framePath = Join-Path $root ([string]$room.output -replace "/", "\")
     if (-not (Test-Path -LiteralPath $framePath)) {
@@ -99,6 +106,7 @@ foreach ($requiredText in @(
     "Corvin side sprites",
     "wet-floor reflections",
     "standee reflection",
+    "room-specific dialogue",
     "generated noir HUD skin",
     "looks like an in-game screen"
 )) {
@@ -119,6 +127,16 @@ foreach ($requiredText in @(
     if (-not $loader.Contains($requiredText)) {
         throw "Corvin runtime sprite loader missing readability shadow text: $requiredText"
     }
+}
+
+$builder = Get-Content -LiteralPath $builderPath -Raw
+foreach ($requiredText in @("ROOM_CAPTIONS", "wrap_text", "dialogue_caption")) {
+    if (-not $builder.Contains($requiredText)) {
+        throw "Act I runtime review builder missing dialogue caption text: $requiredText"
+    }
+}
+if ($builder.Contains("Corvin: dead, damp, and still doing the voice.")) {
+    throw "Act I runtime review builder must not use the generic dialogue placeholder."
 }
 
 $roomScriptPath = Join-Path $root "game\rooms\act_i_greybox_room.gd"
