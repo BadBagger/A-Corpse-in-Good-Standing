@@ -84,6 +84,7 @@ ROOMS = [
         "player": (760, 780, "idle_side_right"),
         "foreground_prop_count": 4,
         "standees": [("registrar", 1230, 705, 0.78)],
+        "character_occluders": [("registry_roll_book", "game/rooms/harbor_registry/props/registry_roll_book.png", 520, 555, 0.52)],
         "overlays": [("harbor_registry_lamp_smoke", "game/rooms/harbor_registry/atmosphere/harbor_registry_lamp_smoke.png", 700, 300, 520, 430, 10)],
     },
     {
@@ -94,6 +95,7 @@ ROOMS = [
         "player": (720, 780, "idle_side_right"),
         "foreground_prop_count": 4,
         "standees": [("bone_chandler", 1200, 760, 0.78)],
+        "character_occluders": [("bone_trade_counter", "game/rooms/bone_chandler/props/bone_trade_counter.png", 690, 545, 0.42)],
         "overlays": [],
     },
     {
@@ -104,6 +106,7 @@ ROOMS = [
         "player": (820, 790, "idle_side_right"),
         "foreground_prop_count": 5,
         "standees": [("prosper", 1190, 775, 0.82)],
+        "character_occluders": [("prosper_chair_table", "game/rooms/almshouse/props/prosper_chair_table.png", 890, 585, 0.48)],
         "overlays": [],
     },
     {
@@ -114,6 +117,7 @@ ROOMS = [
         "player": (830, 790, "idle_side_right"),
         "foreground_prop_count": 4,
         "standees": [("teodor", 1230, 740, 0.78)],
+        "character_occluders": [("church_ledger_desk", "game/rooms/church_of_the_drowned/props/church_ledger_desk.png", 875, 665, 0.46)],
         "overlays": [],
     },
     {
@@ -124,6 +128,10 @@ ROOMS = [
         "player": (800, 780, "idle_side_right"),
         "foreground_prop_count": 4,
         "standees": [("juno", 1250, 745, 0.75)],
+        "character_occluders": [
+            ("juno_ledger_table", "game/rooms/grey_float/props/juno_ledger_table.png", 290, 560, 0.45),
+            ("hot_pool_steps", "game/rooms/grey_float/props/hot_pool_steps.png", 1135, 665, 0.58),
+        ],
         "overlays": [("grey_float_steam_drift", "game/rooms/grey_float/atmosphere/grey_float_steam_drift.png", 120, 330, 1640, 470, 10)],
     },
     {
@@ -134,6 +142,10 @@ ROOMS = [
         "player": (790, 780, "idle_side_right"),
         "foreground_prop_count": 4,
         "standees": [("sabine", 1260, 735, 0.76)],
+        "character_occluders": [
+            ("harbormaster_desk", "game/rooms/sabine_office/props/harbormaster_desk.png", 845, 565, 0.44),
+            ("damp_persian_rug", "game/rooms/sabine_office/props/damp_persian_rug.png", 430, 760, 0.64),
+        ],
         "overlays": [("sabine_office_window_rain", "game/rooms/sabine_office/atmosphere/sabine_office_window_rain.png", 900, 90, 650, 470, 8)],
     },
 ]
@@ -215,6 +227,13 @@ def draw_character_integration_rim(image: Image.Image, sprite: Image.Image, x: i
     rim.putalpha(sprite.getchannel("A").point(lambda value: round(value * 0.14)))
     for offset_x, offset_y in CHARACTER_INTEGRATION_RIM_OFFSETS:
         image.alpha_composite(rim, (x + offset_x, y + offset_y))
+
+
+def paste_character_occluder(image: Image.Image, rel_path: str, x: int, y: int, crop_top_ratio: float) -> None:
+    prop = Image.open(ROOT / rel_path).convert("RGBA")
+    crop_y = max(1, min(prop.height - 1, round(prop.height * crop_top_ratio)))
+    front_slice = prop.crop((0, crop_y, prop.width, prop.height))
+    image.alpha_composite(front_slice, (x, y + crop_y))
 
 
 def load_hotspot_glints() -> dict[str, list[dict[str, object]]]:
@@ -346,6 +365,11 @@ def build_frame(room: dict) -> dict:
 
     player_x, player_y, animation = room["player"]
     paste_corvin(image, player_x, player_y, animation)
+
+    character_occluders = room.get("character_occluders", [])
+    for _occluder_id, rel_path, x, y, crop_top_ratio in character_occluders:
+        paste_character_occluder(image, rel_path, x, y, crop_top_ratio)
+
     caption = ROOM_CAPTIONS[room["code"]]
     add_hud(image, room["code"], room["title"], caption)
 
@@ -372,6 +396,7 @@ def build_frame(room: dict) -> dict:
         "standee_count": len(room["standees"]),
         "standee_reflection_count": len(room["standees"]),
         "standee_character_integration_rim_count": len(room["standees"]),
+        "character_occluder_count": len(character_occluders),
         "overlay_count": len(room["overlays"]),
         "hotspot_glint_count": len(hotspot_glints),
         "hotspot_glints": hotspot_glints,
@@ -415,7 +440,7 @@ def main() -> None:
         "capture": "godot_runtime_composition",
         "frame_count": len(records),
         "contact_sheet": CONTACT_PATH.relative_to(ROOT).as_posix(),
-        "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
+        "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, foreground character occluders, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
         "rooms": records,
     }
     REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
@@ -424,7 +449,7 @@ def main() -> None:
         "",
         "Generated by `tools/Build-ActIGodotRuntimeFrames.py`.",
         "",
-        "These Godot runtime-composition review frames use actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere overlays, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and Corvin side sprites matching the actual Corvin character scene using the RuntimeSprite loader with a subtle amber readability rim. The compositor uses direct PNG loading so this proof survives headless renderer/import-cache differences.",
+        "These Godot runtime-composition review frames use actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, foreground character occluders, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere overlays, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and Corvin side sprites matching the actual Corvin character scene using the RuntimeSprite loader with a subtle amber readability rim. The compositor uses direct PNG loading so this proof survives headless renderer/import-cache differences.",
         "",
         f"- Contact sheet: `{report['contact_sheet']}`",
         f"- Frame count: {len(records)}",

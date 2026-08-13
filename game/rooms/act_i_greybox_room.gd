@@ -81,6 +81,28 @@ const ACT_I_PROPS_BY_ROOM := {
 		{"id": "harbor_chart_board", "path": "res://game/rooms/sabine_office/props/harbor_chart_board.png", "position": Vector2(1495, 495), "z": 3},
 	],
 }
+const ACT_I_CHARACTER_OCCLUDERS_BY_ROOM := {
+	"R05": [
+		{"id": "registry_roll_book", "path": "res://game/rooms/harbor_registry/props/registry_roll_book.png", "position": Vector2(520, 555), "crop_top_ratio": 0.52},
+	],
+	"R06": [
+		{"id": "bone_trade_counter", "path": "res://game/rooms/bone_chandler/props/bone_trade_counter.png", "position": Vector2(690, 545), "crop_top_ratio": 0.42},
+	],
+	"R07": [
+		{"id": "prosper_chair_table", "path": "res://game/rooms/almshouse/props/prosper_chair_table.png", "position": Vector2(890, 585), "crop_top_ratio": 0.48},
+	],
+	"R09": [
+		{"id": "church_ledger_desk", "path": "res://game/rooms/church_of_the_drowned/props/church_ledger_desk.png", "position": Vector2(875, 665), "crop_top_ratio": 0.46},
+	],
+	"R10": [
+		{"id": "juno_ledger_table", "path": "res://game/rooms/grey_float/props/juno_ledger_table.png", "position": Vector2(290, 560), "crop_top_ratio": 0.45},
+		{"id": "hot_pool_steps", "path": "res://game/rooms/grey_float/props/hot_pool_steps.png", "position": Vector2(1135, 665), "crop_top_ratio": 0.58},
+	],
+	"R12": [
+		{"id": "harbormaster_desk", "path": "res://game/rooms/sabine_office/props/harbormaster_desk.png", "position": Vector2(845, 565), "crop_top_ratio": 0.44},
+		{"id": "damp_persian_rug", "path": "res://game/rooms/sabine_office/props/damp_persian_rug.png", "position": Vector2(430, 760), "crop_top_ratio": 0.64},
+	],
+}
 const ACT_I_STANDEES_BY_ROOM := {
 	"R02": [
 		{"id": "tomas_bollard", "position": Vector2(400, 735), "z": 4},
@@ -292,6 +314,7 @@ func _apply_real_art_presentation() -> void:
 	_add_act_i_standees()
 	_add_act_i_setpieces()
 	_add_act_i_atmosphere()
+	_add_act_i_character_occluders()
 	_add_act_i_interaction_pulse_layer()
 	_add_act_i_hover_focus_layer()
 
@@ -485,6 +508,49 @@ func _make_act_i_standee_integration_rim(standee_id: String, image: Image, visua
 	rim.scale = Vector2(visual_scale, visual_scale)
 	rim.modulate = Color(1, 1, 1, 0.68 if offset.y < 0.0 else 0.52)
 	return rim
+
+func _add_act_i_character_occluders() -> void:
+	if not ACT_I_CHARACTER_OCCLUDERS_BY_ROOM.has(room_code):
+		return
+	var props := get_node_or_null("Props")
+	if props == null:
+		props = self
+	var container := props.get_node_or_null("ActICharacterOccluders")
+	if container:
+		container.queue_free()
+	container = Node2D.new()
+	container.name = "ActICharacterOccluders"
+	container.z_index = 8
+	props.add_child(container)
+	for occluder in ACT_I_CHARACTER_OCCLUDERS_BY_ROOM[room_code]:
+		_add_act_i_character_occluder(container, occluder)
+
+func _add_act_i_character_occluder(container: Node, occluder: Dictionary) -> void:
+	var occluder_id := String(occluder.get("id", ""))
+	var path := String(occluder.get("path", ""))
+	if occluder_id.is_empty() or path.is_empty():
+		return
+	if not FileAccess.file_exists(path):
+		push_warning("Missing Act I character occluder: %s" % path)
+		return
+	var image := Image.new()
+	var err := image.load(path)
+	if err != OK:
+		push_warning("Could not load Act I character occluder %s: %s" % [path, error_string(err)])
+		return
+	var texture := ImageTexture.create_from_image(image)
+	var crop_top_ratio := clampf(float(occluder.get("crop_top_ratio", 0.5)), 0.1, 0.9)
+	var crop_y := int(round(float(image.get_height()) * crop_top_ratio))
+	var sprite := Sprite2D.new()
+	sprite.name = "%sCharacterOccluder" % occluder_id.to_pascal_case()
+	sprite.texture = texture
+	sprite.centered = false
+	sprite.region_enabled = true
+	sprite.region_rect = Rect2(0, crop_y, image.get_width(), image.get_height() - crop_y)
+	var position: Vector2 = occluder.get("position", Vector2.ZERO)
+	sprite.position = position + Vector2(0, crop_y)
+	sprite.z_index = int(occluder.get("z", 8))
+	container.add_child(sprite)
 
 func _add_act_i_setpieces() -> void:
 	if not ACT_I_SETPIECES_BY_ROOM.has(room_code):
