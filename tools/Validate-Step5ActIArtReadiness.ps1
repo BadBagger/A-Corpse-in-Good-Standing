@@ -1195,7 +1195,7 @@ if ($characterPaletteGradeJson.status -ne "audited" -or [int]$characterPaletteGr
 }
 foreach ($requiredText in @(
     "Act I Character Palette Grade",
-    "green/teal cast",
+    "wrong-light green",
     "Current Assets"
 )) {
     if ($characterPaletteGrade -notmatch [regex]::Escape($requiredText)) {

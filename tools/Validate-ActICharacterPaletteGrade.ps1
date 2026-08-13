@@ -51,9 +51,9 @@ foreach ($asset in $assets) {
     if (-not (Test-Path -LiteralPath $pngPath)) {
         throw "Missing standee PNG from palette report: $path"
     }
-    $greenCast = [double]$asset.green_cast_percent
-    if ($greenCast -gt 0.5) {
-        throw "Act I standee $path has green cast $greenCast%, over 0.5%."
+    $wrongLightGreen = [double]$asset.wrong_light_green_percent
+    if ($wrongLightGreen -gt 0.5) {
+        throw "Act I standee $path has wrong-light green $wrongLightGreen%, over 0.5%."
     }
 }
 foreach ($path in $required) {
@@ -63,7 +63,7 @@ foreach ($path in $required) {
 }
 
 $script = Get-Content -LiteralPath $scriptPath -Raw
-foreach ($requiredText in @("--apply", "green_cast_ratio", "green reserved for wrong light")) {
+foreach ($requiredText in @("--apply", "green_cast_ratio", "wrong_light_green_percent", "green reserved for wrong light")) {
     if (-not $script.Contains($requiredText)) {
         throw "Act I character palette script missing required text: $requiredText"
     }
@@ -79,4 +79,4 @@ if ($md -match "[^\u0000-\u007F]") {
     throw "Act I character palette report must stay ASCII-only."
 }
 
-Write-Host "Act I character palette grade validation passed: assets=$($assets.Count), maxGreenCast<=0.5%."
+Write-Host "Act I character palette grade validation passed: assets=$($assets.Count), maxWrongLightGreen<=0.5%."
