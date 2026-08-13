@@ -233,6 +233,20 @@ const ACT_I_ATMOSPHERE_BY_ROOM := {
 		},
 	],
 }
+const ACT_I_INTERACTION_PULSES := {
+	"R02": {
+		"rope_cleat": {"position": Vector2(655, 740), "radius": 82.0, "color": Color(0.894118, 0.862745, 0.784314, 0.58), "label": "wet rope darkens"},
+	},
+	"R03": {
+		"church_sign": {"position": Vector2(1380, 540), "radius": 95.0, "color": Color(0.788235, 0.541176, 0.235294, 0.62), "label": "ink runs"},
+	},
+	"R05": {
+		"desk_lamp": {"position": Vector2(890, 650), "radius": 108.0, "color": Color(0.494118, 0.607843, 0.305882, 0.60), "label": "lamp smokes"},
+	},
+	"R08": {
+		"drain": {"position": Vector2(1410, 725), "radius": 96.0, "color": Color(0.894118, 0.862745, 0.784314, 0.54), "label": "water finds the grate"},
+	},
+}
 
 var _hud: CanvasLayer
 var _duel_panel: CanvasLayer
@@ -262,6 +276,7 @@ func _apply_real_art_presentation() -> void:
 	_add_act_i_standees()
 	_add_act_i_setpieces()
 	_add_act_i_atmosphere()
+	_add_act_i_interaction_pulse_layer()
 
 func _set_debug_layout_visible(is_visible: bool) -> void:
 	for node_name in ["Floor", "WalkableAreas", "TitleLabel", "NotesLabel"]:
@@ -472,6 +487,66 @@ func _add_act_i_setpiece(container: Node, setpiece: Dictionary) -> void:
 	container.add_child(player)
 	player.call("configure", setpiece.get("states", {}), String(setpiece.get("default_state", "")))
 
+func _add_act_i_interaction_pulse_layer() -> void:
+	var props := get_node_or_null("Props")
+	if props == null:
+		props = self
+	var existing := props.get_node_or_null("ActIInteractionPulses")
+	if existing:
+		existing.queue_free()
+	var container := Node2D.new()
+	container.name = "ActIInteractionPulses"
+	container.z_index = 9
+	container.visible = false
+	props.add_child(container)
+
+func _play_act_i_interaction_pulse(interaction_key: String) -> bool:
+	if not ACT_I_INTERACTION_PULSES.has(room_code):
+		return false
+	var room_pulses: Dictionary = ACT_I_INTERACTION_PULSES[room_code]
+	if not room_pulses.has(interaction_key):
+		return false
+	var props := get_node_or_null("Props")
+	if props == null:
+		return false
+	var container := props.get_node_or_null("ActIInteractionPulses")
+	if container == null:
+		_add_act_i_interaction_pulse_layer()
+		container = props.get_node_or_null("ActIInteractionPulses")
+	if container == null:
+		return false
+	for child in container.get_children():
+		child.queue_free()
+	var config: Dictionary = room_pulses[interaction_key]
+	var pulse := Polygon2D.new()
+	pulse.name = "%sWetPulse" % interaction_key.to_pascal_case()
+	pulse.position = config.get("position", Vector2.ZERO)
+	pulse.color = config.get("color", Color(0.894118, 0.862745, 0.784314, 0.55))
+	pulse.polygon = _make_act_i_pulse_polygon(float(config.get("radius", 90.0)))
+	pulse.z_index = 9
+	container.add_child(pulse)
+	var label := Label.new()
+	label.name = "%sWetPulseLabel" % interaction_key.to_pascal_case()
+	label.text = String(config.get("label", "wet reaction"))
+	label.position = pulse.position + Vector2(-80.0, -72.0)
+	label.modulate = Color(0.894118, 0.862745, 0.784314, 0.88)
+	label.z_index = 10
+	container.add_child(label)
+	container.visible = true
+	var tween := create_tween()
+	tween.tween_property(pulse, "scale", Vector2(1.22, 0.72), 0.22)
+	tween.parallel().tween_property(pulse, "modulate:a", 0.0, 0.55)
+	tween.parallel().tween_property(label, "modulate:a", 0.0, 0.55)
+	tween.tween_callback(container.hide)
+	return true
+
+func _make_act_i_pulse_polygon(radius: float) -> PackedVector2Array:
+	var points := PackedVector2Array()
+	for index in 16:
+		var angle := (TAU * float(index)) / 16.0
+		points.append(Vector2(cos(angle) * radius, sin(angle) * radius * 0.38))
+	return points
+
 func _play_act_i_setpiece(setpiece_id: String, state_name: String) -> bool:
 	var props := get_node_or_null("Props/ActISetpieces")
 	if props == null:
@@ -561,6 +636,8 @@ func _apply_interaction_result(result: Dictionary) -> void:
 	var verb := String(result.get("verb", ""))
 	if room_code == "R03" and interaction_key == "market_crowd" and (verb == "talk" or verb == "use"):
 		_play_act_i_setpiece("salt_market_crowd", "turn_to_corvin")
+	if verb == "wet":
+		_play_act_i_interaction_pulse(interaction_key)
 	if narrative:
 		result = _resolve_alternate_result(result, narrative)
 		for required_flag in result.get("requires_flags", []):

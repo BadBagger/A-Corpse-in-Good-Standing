@@ -34,7 +34,7 @@ GATES:
 - Act I Godot runtime frames: pass, 8 runtime-composition player-view frames show actual room scene background paths, shared art constants, foreground props, wet-floor reflections, HUD textures, NPC standees, and Corvin side sprites.
 - Act I gameplay review panels: pass, 8 larger cropped panels show the playable band, generated room art, Corvin, NPCs, foreground props, HUD, and room-specific dialogue captions at human-review scale.
 - Corvin action runtime frames: pass, 8 renderer-captured action frames show actual character_corvin.tscn idle/talk/use/wet side animations through the RuntimeSprite loader.
-- Act I in-scene action review: pass, 8 room-composition frames show Corvin talk/use/wet actions in context, including the Salt Market crowd turn_to_corvin state, named NPC dialogue/counter staging, and zoom crops for action readability.
+- Act I in-scene action review: pass, 9 room-composition frames show Corvin talk/use/wet actions in context, including the Salt Market crowd turn_to_corvin state, named NPC dialogue/counter staging, visible wet interaction pulses, and zoom crops for action readability.
 - Act I character palette grade: pass, 11 standee and crowd assets audited under the green-cast threshold so characters keep green reserved for wrong-light scenes.
 - Act I human review notes: pass, generated combined review notes include the greybox playtest rubric and the art readability checklist for the same Step 5 run.
 - Act I VO timing manifest: pass, 558 Ink-derived lines across 18 speakers; 528 recordable VO lines, 30 stage-direction review lines, and 8 minor speakers needing cast/consolidation decisions before final recording.

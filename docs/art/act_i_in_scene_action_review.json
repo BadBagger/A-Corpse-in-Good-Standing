@@ -1,8 +1,8 @@
 {
   "status": "exported",
-  "frame_count": 8,
+  "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_in_scene_action_contact_sheet.png",
-  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state and named NPC standee dialogue/counter staging.",
+  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state, named NPC standee dialogue/counter staging, and visible wet interaction pulses.",
   "frames": [
     {
       "id": "salt_market_talk_crowd_turn",
@@ -21,6 +21,8 @@
       ],
       "standees": [],
       "standee_count": 0,
+      "interaction_pulse": {},
+      "uses_interaction_pulse": false,
       "crowd_hotspot": [
         960,
         760
@@ -49,6 +51,8 @@
       ],
       "standees": [],
       "standee_count": 0,
+      "interaction_pulse": {},
+      "uses_interaction_pulse": false,
       "crowd_hotspot": [
         960,
         760
@@ -89,6 +93,15 @@
         }
       ],
       "standee_count": 1,
+      "interaction_pulse": {
+        "position": [
+          655,
+          740
+        ],
+        "radius": 82,
+        "label": "wet rope darkens"
+      },
+      "uses_interaction_pulse": true,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
       "expected_setpiece_state": "water_glint_loop",
@@ -126,6 +139,15 @@
         }
       ],
       "standee_count": 1,
+      "interaction_pulse": {
+        "position": [
+          890,
+          650
+        ],
+        "radius": 108,
+        "label": "lamp smokes"
+      },
+      "uses_interaction_pulse": true,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
       "expected_setpiece_state": "lamp_smoke_loop",
@@ -163,6 +185,8 @@
         }
       ],
       "standee_count": 1,
+      "interaction_pulse": {},
+      "uses_interaction_pulse": false,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
       "expected_setpiece_state": "npc_counter_staging",
@@ -200,6 +224,8 @@
         }
       ],
       "standee_count": 1,
+      "interaction_pulse": {},
+      "uses_interaction_pulse": false,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
       "expected_setpiece_state": "npc_dialogue_staging",
@@ -237,6 +263,8 @@
         }
       ],
       "standee_count": 1,
+      "interaction_pulse": {},
+      "uses_interaction_pulse": false,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
       "expected_setpiece_state": "steam_loop",
@@ -274,12 +302,48 @@
         }
       ],
       "standee_count": 1,
+      "interaction_pulse": {},
+      "uses_interaction_pulse": false,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
       "expected_setpiece_state": "window_rain_loop",
       "uses_in_scene_corvin_action": true,
       "uses_sectional_setpiece_frame": true,
       "uses_named_npc_standee": true,
+      "uses_compact_hud": true
+    },
+    {
+      "id": "fish_hall_wet_drain",
+      "room_code": "R08",
+      "title": "The Fish Hall",
+      "output": "docs/art/review/act_i_in_scene_action_frames/fish_hall_wet_drain.png",
+      "corvin_animation": "wet_side_right",
+      "corvin_frame_count": 8,
+      "corvin_scaled_size": [
+        195,
+        389
+      ],
+      "corvin_foot": [
+        800,
+        780
+      ],
+      "standees": [],
+      "standee_count": 0,
+      "interaction_pulse": {
+        "position": [
+          1410,
+          725
+        ],
+        "radius": 96,
+        "label": "water finds the grate"
+      },
+      "uses_interaction_pulse": true,
+      "crowd_hotspot": [],
+      "crowd_distance_px": null,
+      "expected_setpiece_state": "wet_pulse_drain",
+      "uses_in_scene_corvin_action": true,
+      "uses_sectional_setpiece_frame": false,
+      "uses_named_npc_standee": false,
       "uses_compact_hud": true
     }
   ]

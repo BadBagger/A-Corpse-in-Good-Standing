@@ -76,6 +76,12 @@ const VERB_ACTION_CONTRACT := {
 	"use": "use_current_side",
 	"wet": "wet_current_side",
 }
+const REQUIRED_WET_PULSES := {
+	"OldQuay": "rope_cleat",
+	"SaltMarket": "church_sign",
+	"HarborRegistry": "desk_lamp",
+	"FishHall": "drain",
+}
 
 const REQUIRED_VERBS := ["look", "use", "talk", "walk", "wet"]
 const PLACEHOLDER_PATTERNS := [
@@ -129,6 +135,7 @@ func _run() -> void:
 			if instance.get_node_or_null(child_path) == null:
 				failures.append("Room %s missing required child: %s" % [room_name, child_path])
 		_validate_act_i_runtime_prop_layer(room_name, instance, failures)
+		_validate_act_i_interaction_pulse_layer(room_name, instance, failures)
 
 		var hotspots := instance.get_node_or_null("Hotspots")
 		if hotspots != null:
@@ -289,6 +296,23 @@ func _validate_act_i_runtime_prop_layer(room_name: String, instance: Node, failu
 		failures.append("Room %s runtime prop contact-shadow count mismatch: got %d expected %d." % [room_name, contact_shadows, expected_props])
 	if wet_reflections != expected_props:
 		failures.append("Room %s runtime wet-reflection count mismatch: got %d expected %d." % [room_name, wet_reflections, expected_props])
+
+func _validate_act_i_interaction_pulse_layer(room_name: String, instance: Node, failures: Array[String]) -> void:
+	if not REQUIRED_WET_PULSES.has(room_name):
+		return
+	if not instance.has_method("_play_act_i_interaction_pulse"):
+		failures.append("Room %s missing wet interaction visual pulse helper." % room_name)
+		return
+	var interaction_key := String(REQUIRED_WET_PULSES[room_name])
+	if not bool(instance.call("_play_act_i_interaction_pulse", interaction_key)):
+		failures.append("Room %s did not play required wet interaction pulse for %s." % [room_name, interaction_key])
+		return
+	var pulse_container := instance.get_node_or_null("Props/ActIInteractionPulses")
+	if pulse_container == null:
+		failures.append("Room %s missing ActIInteractionPulses container after pulse." % room_name)
+		return
+	if pulse_container.get_child_count() < 2:
+		failures.append("Room %s wet interaction pulse did not create pulse and label children." % room_name)
 
 func _validate_room_verb_action_contract(failures: Array[String]) -> void:
 	_validate_room_source_verb_action_contract(
