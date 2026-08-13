@@ -1,0 +1,89 @@
+{
+  "props": [
+    {
+      "id": "cot_row",
+      "name": "Poorhouse cot row",
+      "source_sheet": "art/src/props/almshouse/openai/almshouse_props_openai_raw.png",
+      "raw_export": "art/export/props/almshouse/cot_row_raw.png",
+      "game_resource": "game/rooms/almshouse/props/cot_row.png",
+      "width": 487,
+      "height": 245,
+      "target_height": 245,
+      "position": [
+        350,
+        560
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "salt_window",
+      "name": "Salt-stained window",
+      "source_sheet": "art/src/props/almshouse/openai/almshouse_props_openai_raw.png",
+      "raw_export": "art/export/props/almshouse/salt_window_raw.png",
+      "game_resource": "game/rooms/almshouse/props/salt_window.png",
+      "width": 289,
+      "height": 260,
+      "target_height": 260,
+      "position": [
+        705,
+        420
+      ],
+      "z": 3,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "prosper_chair_table",
+      "name": "Prosper chair and table",
+      "source_sheet": "art/src/props/almshouse/openai/almshouse_props_openai_raw.png",
+      "raw_export": "art/export/props/almshouse/prosper_chair_table_raw.png",
+      "game_resource": "game/rooms/almshouse/props/prosper_chair_table.png",
+      "width": 287,
+      "height": 250,
+      "target_height": 250,
+      "position": [
+        890,
+        585
+      ],
+      "z": 5,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "forgiveness_watch_tray",
+      "name": "Forgiveness watch tray",
+      "source_sheet": "art/src/props/almshouse/openai/almshouse_props_openai_raw.png",
+      "raw_export": "art/export/props/almshouse/forgiveness_watch_tray_raw.png",
+      "game_resource": "game/rooms/almshouse/props/forgiveness_watch_tray.png",
+      "width": 171,
+      "height": 145,
+      "target_height": 145,
+      "position": [
+        1055,
+        655
+      ],
+      "z": 6,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "privacy_screen_laundry",
+      "name": "Privacy screen laundry",
+      "source_sheet": "art/src/props/almshouse/openai/almshouse_props_openai_raw.png",
+      "raw_export": "art/export/props/almshouse/privacy_screen_laundry_raw.png",
+      "game_resource": "game/rooms/almshouse/props/privacy_screen_laundry.png",
+      "width": 278,
+      "height": 270,
+      "target_height": 270,
+      "position": [
+        1245,
+        540
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}
