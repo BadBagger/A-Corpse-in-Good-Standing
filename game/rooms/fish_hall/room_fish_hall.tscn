@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://game/rooms/act_i_greybox_room.gd" id="1_room"]
 [ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_hud"]
 [ext_resource type="Script" path="res://game/rooms/act_i_exit_hotspot.gd" id="3_exit"]
 [ext_resource type="Script" path="res://game/rooms/act_i_interaction_hotspot.gd" id="4_interaction"]
 [ext_resource type="Script" path="res://game/rooms/background_image_loader.gd" id="5_bg_loader"]
+[ext_resource type="Script" path="res://game/rooms/prop_image_loader.gd" id="6_prop_loader"]
 
 [sub_resource type="Gradient" id="Gradient_bg"]
 offsets = PackedFloat32Array(0, 0.58, 1)
@@ -74,6 +75,41 @@ color = Color(0.494118, 0.607843, 0.305882, 0.35)
 polygon = PackedVector2Array(160, 810, 1720, 760, 1810, 1025, 120, 1030)
 
 [node name="Props" type="Node2D" parent="."]
+
+[node name="IceTableBodyOutlineProp" type="Sprite2D" parent="Props"]
+position = Vector2(330, 565)
+z_index = 4
+script = ExtResource("6_prop_loader")
+prop_path = "res://game/rooms/fish_hall/props/ice_table_body_outline.png"
+centered = false
+
+[node name="CoronerTagTrayProp" type="Sprite2D" parent="Props"]
+position = Vector2(900, 645)
+z_index = 5
+script = ExtResource("6_prop_loader")
+prop_path = "res://game/rooms/fish_hall/props/coroner_tag_tray.png"
+centered = false
+
+[node name="VisitorBookProp" type="Sprite2D" parent="Props"]
+position = Vector2(1110, 610)
+z_index = 5
+script = ExtResource("6_prop_loader")
+prop_path = "res://game/rooms/fish_hall/props/visitor_book.png"
+centered = false
+
+[node name="DayCountBoardProp" type="Sprite2D" parent="Props"]
+position = Vector2(1350, 510)
+z_index = 4
+script = ExtResource("6_prop_loader")
+prop_path = "res://game/rooms/fish_hall/props/day_count_board.png"
+centered = false
+
+[node name="FloorDrainGrateProp" type="Sprite2D" parent="Props"]
+position = Vector2(1410, 725)
+z_index = 5
+script = ExtResource("6_prop_loader")
+prop_path = "res://game/rooms/fish_hall/props/floor_drain_grate.png"
+centered = false
 
 [node name="Hotspots" type="Node2D" parent="."]
 

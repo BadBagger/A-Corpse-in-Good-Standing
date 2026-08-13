@@ -1,0 +1,89 @@
+{
+  "props": [
+    {
+      "id": "ice_table_body_outline",
+      "name": "Ice table body outline",
+      "source_sheet": "art/src/props/fish_hall/openai/fish_hall_props_openai_raw.png",
+      "raw_export": "art/export/props/fish_hall/ice_table_body_outline_raw.png",
+      "game_resource": "game/rooms/fish_hall/props/ice_table_body_outline.png",
+      "width": 459,
+      "height": 265,
+      "target_height": 265,
+      "position": [
+        330,
+        565
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "coroner_tag_tray",
+      "name": "Coroner tag tray",
+      "source_sheet": "art/src/props/fish_hall/openai/fish_hall_props_openai_raw.png",
+      "raw_export": "art/export/props/fish_hall/coroner_tag_tray_raw.png",
+      "game_resource": "game/rooms/fish_hall/props/coroner_tag_tray.png",
+      "width": 206,
+      "height": 120,
+      "target_height": 120,
+      "position": [
+        900,
+        645
+      ],
+      "z": 5,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "visitor_book",
+      "name": "Visitor book",
+      "source_sheet": "art/src/props/fish_hall/openai/fish_hall_props_openai_raw.png",
+      "raw_export": "art/export/props/fish_hall/visitor_book_raw.png",
+      "game_resource": "game/rooms/fish_hall/props/visitor_book.png",
+      "width": 337,
+      "height": 165,
+      "target_height": 165,
+      "position": [
+        1110,
+        610
+      ],
+      "z": 5,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "day_count_board",
+      "name": "Day-count evidence board",
+      "source_sheet": "art/src/props/fish_hall/openai/fish_hall_props_openai_raw.png",
+      "raw_export": "art/export/props/fish_hall/day_count_board_raw.png",
+      "game_resource": "game/rooms/fish_hall/props/day_count_board.png",
+      "width": 427,
+      "height": 210,
+      "target_height": 210,
+      "position": [
+        1350,
+        510
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "floor_drain_grate",
+      "name": "Floor drain grate",
+      "source_sheet": "art/src/props/fish_hall/openai/fish_hall_props_openai_raw.png",
+      "raw_export": "art/export/props/fish_hall/floor_drain_grate_raw.png",
+      "game_resource": "game/rooms/fish_hall/props/floor_drain_grate.png",
+      "width": 268,
+      "height": 155,
+      "target_height": 155,
+      "position": [
+        1410,
+        725
+      ],
+      "z": 5,
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}
