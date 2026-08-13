@@ -76,7 +76,7 @@ if ($builder -match "debug|DEBUG|hotspot label|draw\.rectangle") {
 }
 
 $md = Get-Content -LiteralPath $runtimeReportMdPath -Raw
-foreach ($requiredText in @("in-world hotspot glints", "| Room | Captured frame | Props | Glints | Embedded HUD dialogue |")) {
+foreach ($requiredText in @("in-world hotspot glints", "| Room | Captured frame | Props | Glints | Portrait | Embedded HUD dialogue |")) {
     if (-not $md.Contains($requiredText)) {
         throw "Runtime frame report missing hotspot glint text: $requiredText"
     }

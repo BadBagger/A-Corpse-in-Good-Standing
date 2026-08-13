@@ -3,7 +3,7 @@
   "capture": "godot_runtime_composition",
   "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png",
-  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, foreground character occluders, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
+  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, foreground character occluders, speaker portraits embedded in the generated in-frame HUD, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
   "rooms": [
     {
       "room_code": "R01",
@@ -54,6 +54,8 @@
         }
       ],
       "dialogue_caption": "Mudflats. The tide brought Corvin back and kept the boots.",
+      "dialogue_portrait": "corvin_neutral",
+      "dialogue_portrait_embedded_in_hud": true,
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
     },
@@ -106,6 +108,8 @@
         }
       ],
       "dialogue_caption": "Corvin: Tomas, you look moored. Tomas: I contain multitudes and two unpaid bar tabs.",
+      "dialogue_portrait": "tomas_wry",
+      "dialogue_portrait_embedded_in_hud": true,
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
     },
@@ -158,6 +162,8 @@
         }
       ],
       "dialogue_caption": "The crowd notices Corvin is dead. Commerce handles it poorly.",
+      "dialogue_portrait": "corvin_neutral",
+      "dialogue_portrait_embedded_in_hud": true,
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
     },
@@ -210,6 +216,8 @@
         }
       ],
       "dialogue_caption": "Registrar: Dead men do not have standing. Corvin: That explains my posture.",
+      "dialogue_portrait": "registrar_bored",
+      "dialogue_portrait_embedded_in_hud": true,
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
     },
@@ -262,6 +270,8 @@
         }
       ],
       "dialogue_caption": "The Bone Chandler smiles like a receipt with teeth.",
+      "dialogue_portrait": "corvin_neutral",
+      "dialogue_portrait_embedded_in_hud": true,
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
     },
@@ -314,6 +324,8 @@
         }
       ],
       "dialogue_caption": "Prosper forgets the debt. The kindness stays, annoyingly.",
+      "dialogue_portrait": "prosper_forgetful_kind",
+      "dialogue_portrait_embedded_in_hud": true,
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
     },
@@ -366,6 +378,8 @@
         }
       ],
       "dialogue_caption": "Teodor sells paid truth with the expression of a man losing money on God.",
+      "dialogue_portrait": "corvin_neutral",
+      "dialogue_portrait_embedded_in_hud": true,
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
     },
@@ -418,6 +432,8 @@
         }
       ],
       "dialogue_caption": "Juno: Everybody comes here to feel something. You are just honest about failing.",
+      "dialogue_portrait": "juno_warm_danger",
+      "dialogue_portrait_embedded_in_hud": true,
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
     },
@@ -454,6 +470,8 @@
         }
       ],
       "dialogue_caption": "Sabine checks for a pulse. Her hand stays there anyway.",
+      "dialogue_portrait": "sabine_controlled",
+      "dialogue_portrait_embedded_in_hud": true,
       "dialogue_text_embedded_in_hud": true,
       "status_text_embedded_in_generated_hud": true
     }

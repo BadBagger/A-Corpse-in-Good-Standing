@@ -26,7 +26,7 @@ if ([int]$report.frame_count -ne 9) {
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png") {
     throw "Act I Godot runtime frame contact sheet path is not stable."
 }
-foreach ($requiredText in @("actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "standee wet-floor reflections", "foreground character occluders", "room-specific dialogue captions and status text embedded in the generated in-frame HUD", "actual Corvin character scene", "RuntimeSprite loader", "hotspot glints")) {
+foreach ($requiredText in @("actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "standee wet-floor reflections", "foreground character occluders", "speaker portraits embedded in the generated in-frame HUD", "room-specific dialogue captions and status text embedded in the generated in-frame HUD", "actual Corvin character scene", "RuntimeSprite loader", "hotspot glints")) {
     if ([string]$report.runtime_evidence -notmatch [regex]::Escape($requiredText)) {
         throw "Act I Godot runtime report missing runtime evidence text: $requiredText"
     }
@@ -55,6 +55,12 @@ foreach ($room in $rooms) {
     }
     if (-not [bool]$room.dialogue_text_embedded_in_hud) {
         throw "Act I Godot runtime frame $code must embed dialogue text in the HUD plaque."
+    }
+    if (-not [bool]$room.dialogue_portrait_embedded_in_hud) {
+        throw "Act I Godot runtime frame $code must embed the speaker portrait in the HUD plaque."
+    }
+    if ([string]::IsNullOrWhiteSpace([string]$room.dialogue_portrait)) {
+        throw "Act I Godot runtime frame $code must record the embedded speaker portrait id."
     }
     if (-not [bool]$room.status_text_embedded_in_generated_hud) {
         throw "Act I Godot runtime frame $code must embed status text in the generated HUD strip."
@@ -119,7 +125,7 @@ finally {
 }
 
 $md = Get-Content -LiteralPath $mdPath -Raw
-foreach ($requiredText in @("Act I Godot Runtime Frames", "Godot runtime", "actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "standee wet-floor reflections", "foreground character occluders", "room-specific dialogue captions and status text embedded in the generated in-frame HUD", "Embedded HUD dialogue", "actual Corvin character scene", "in-world hotspot glints")) {
+foreach ($requiredText in @("Act I Godot Runtime Frames", "Godot runtime", "actual room scene background paths", "shared runtime art constants", "runtime foreground props", "wet-floor reflections", "standee wet-floor reflections", "foreground character occluders", "speaker portraits embedded", "Portrait", "room-specific dialogue captions and status text embedded in the generated in-frame HUD", "Embedded HUD dialogue", "actual Corvin character scene", "in-world hotspot glints")) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I Godot runtime report missing required text: $requiredText"
     }
@@ -129,7 +135,7 @@ if ($md -match "[^\u0000-\u007F]") {
 }
 
 $captureScript = Get-Content -LiteralPath $captureScriptPath -Raw
-foreach ($requiredText in @("act_i_godot_runtime_frames", "godot_runtime_composition", "foreground_prop_count", "draw_wet_floor_reflection", "standee_reflection_count", "character_occluder_count", "paste_character_occluder", "ROOM_CAPTIONS", "wrap_text", "dialogue_caption", "dialogue_text_embedded_in_hud", "status_text_embedded_in_generated_hud", "caption_font", "prepare_status_strip", 'game" / "characters" / "corvin', "RuntimeSprite", "direct PNG loading", "load_hotspot_glints", "draw_hotspot_glints")) {
+foreach ($requiredText in @("act_i_godot_runtime_frames", "godot_runtime_composition", "foreground_prop_count", "draw_wet_floor_reflection", "standee_reflection_count", "character_occluder_count", "paste_character_occluder", "ROOM_CAPTIONS", "ROOM_SPEAKER_PORTRAITS", "wrap_text", "dialogue_caption", "dialogue_portrait", "dialogue_portrait_embedded_in_hud", "dialogue_text_embedded_in_hud", "status_text_embedded_in_generated_hud", "caption_font", "prepare_status_strip", 'game" / "characters" / "corvin', "RuntimeSprite", "direct PNG loading", "load_hotspot_glints", "draw_hotspot_glints")) {
     if (-not $captureScript.Contains($requiredText)) {
         throw "Act I Godot runtime capture script missing required text: $requiredText"
     }

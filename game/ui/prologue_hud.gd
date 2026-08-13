@@ -4,6 +4,7 @@ signal verb_changed(verb: String)
 
 const VERBS := ["walk", "look", "use", "talk", "wet"]
 const HUD_SKIN_BASE := "res://game/ui/skins/act_i/%s.png"
+const PORTRAIT_BASE := "res://game/portraits/act_i/%s.png"
 const PALETTE := {
 	"bone": Color("#E4DCC8"),
 	"wet_black": Color("#0C1013"),
@@ -18,9 +19,21 @@ const VERB_ICONS := {
 	"talk": "\"",
 	"wet": "~",
 }
+const SPEAKER_PORTRAITS := {
+	"corvin": "corvin_neutral",
+	"tomas": "tomas_wry",
+	"bollard-of-tomas": "tomas_wry",
+	"registrar": "registrar_bored",
+	"prosper": "prosper_forgetful_kind",
+	"half-coin prosper": "prosper_forgetful_kind",
+	"juno": "juno_warm_danger",
+	"sabine": "sabine_controlled",
+}
 
 var selected_verb := "look"
 var inventory_items: Array[String] = []
+var _speaker_portrait: TextureRect
+var _speaker_plate: TextureRect
 
 @onready var _verb_buttons := {
 	"walk": %WalkButton,
@@ -92,13 +105,18 @@ func set_confession_summary(summary: String) -> void:
 func set_dialogue_lines(lines: Array[Dictionary]) -> void:
 	if lines.is_empty():
 		_dialogue.text = "Dialogue: idle"
+		_set_speaker_portrait("")
 		return
 	var rendered: Array[String] = []
+	var active_speaker := ""
 	for line in lines:
 		var speaker := String(line.get("speaker", "")).capitalize()
 		var text := String(line.get("text", ""))
+		if active_speaker.is_empty() and not speaker.is_empty():
+			active_speaker = speaker
 		rendered.append("%s: %s" % [speaker, text] if not speaker.is_empty() else text)
 	_dialogue.text = "\n".join(rendered)
+	_set_speaker_portrait(active_speaker)
 
 func _refresh_inventory() -> void:
 	_inventory.text = "Inventory: " + (", ".join(inventory_items) if not inventory_items.is_empty() else "empty")
@@ -106,6 +124,7 @@ func _refresh_inventory() -> void:
 func _apply_noir_skin() -> void:
 	_add_texture_backdrop(%Status, "status_strip.png", Vector2(8, 30), Vector2(0.325, 0.50), -1, Rect2i(0, 0, 430, 112))
 	_add_texture_backdrop(%Dialogue, "dialogue_panel.png", Vector2(-122, -18), Vector2(1.15, 0.56), -1)
+	_add_dialogue_portrait_frame(%Dialogue)
 	_add_texture_backdrop(%Inventory, "bottom_inventory_panel.png", Vector2(-14, -86), Vector2(0.63, 0.34), -1)
 	_add_texture_backdrop(%Litany, "small_icon_frame.png", Vector2(-74, -30), Vector2(0.34, 0.34), -1)
 	_style_panel(%WalkButton.get_parent().get_parent().get_parent(), Color(PALETTE.wet_black, 0.62))
@@ -143,6 +162,31 @@ func _add_texture_backdrop(anchor: Control, file_name: String, offset: Vector2, 
 	rect.size = rect.custom_minimum_size
 	parent.add_child(rect)
 	parent.move_child(rect, 0)
+
+func _add_dialogue_portrait_frame(anchor: Control) -> void:
+	var parent := anchor.get_parent()
+	if parent == null:
+		return
+	_speaker_plate = TextureRect.new()
+	_speaker_plate.name = "DialogueSpeakerPortraitPlate"
+	_speaker_plate.texture = _load_hud_texture("small_icon_frame.png")
+	_speaker_plate.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_speaker_plate.stretch_mode = TextureRect.STRETCH_SCALE
+	_speaker_plate.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_speaker_plate.z_index = 1
+	_speaker_plate.position = Vector2(-104, -36)
+	_speaker_plate.size = Vector2(96, 96)
+	parent.add_child(_speaker_plate)
+	_speaker_portrait = TextureRect.new()
+	_speaker_portrait.name = "DialogueSpeakerPortrait"
+	_speaker_portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_speaker_portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_speaker_portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_speaker_portrait.z_index = 2
+	_speaker_portrait.position = Vector2(-93, -25)
+	_speaker_portrait.size = Vector2(74, 74)
+	parent.add_child(_speaker_portrait)
+	_set_speaker_portrait("")
 
 func _style_panel(node: Node, color: Color) -> void:
 	if not node is PanelContainer:
@@ -198,6 +242,19 @@ func _load_hud_texture(file_name: String) -> Texture2D:
 	if err != OK:
 		return null
 	return ImageTexture.create_from_image(image)
+
+func _set_speaker_portrait(speaker: String) -> void:
+	if _speaker_portrait == null:
+		return
+	var key := speaker.to_lower()
+	var portrait_id := String(SPEAKER_PORTRAITS.get(key, "corvin_neutral"))
+	var path := PORTRAIT_BASE % portrait_id
+	var image := Image.new()
+	var err := image.load(path)
+	if err != OK:
+		_speaker_portrait.texture = null
+		return
+	_speaker_portrait.texture = ImageTexture.create_from_image(image)
 
 func _button_style(fill: Color, border: Color) -> StyleBoxFlat:
 	var box := StyleBoxFlat.new()
