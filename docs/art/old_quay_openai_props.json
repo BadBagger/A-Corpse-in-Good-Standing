@@ -1,0 +1,72 @@
+{
+  "props": [
+    {
+      "id": "calcified_bollard_row",
+      "name": "Calcified bollard row",
+      "source_sheet": "art/src/props/old_quay/openai/old_quay_props_openai_raw.png",
+      "raw_export": "art/export/props/old_quay/calcified_bollard_row_raw.png",
+      "game_resource": "game/rooms/old_quay/props/calcified_bollard_row.png",
+      "width": 150,
+      "height": 150,
+      "target_height": 150,
+      "position": [
+        760,
+        620
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "salt_rope_cleat",
+      "name": "Salt rope cleat",
+      "source_sheet": "art/src/props/old_quay/openai/old_quay_props_openai_raw.png",
+      "raw_export": "art/export/props/old_quay/salt_rope_cleat_raw.png",
+      "game_resource": "game/rooms/old_quay/props/salt_rope_cleat.png",
+      "width": 160,
+      "height": 155,
+      "target_height": 155,
+      "position": [
+        655,
+        740
+      ],
+      "z": 5,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "empty_flask",
+      "name": "Empty flask",
+      "source_sheet": "art/src/props/old_quay/openai/old_quay_props_openai_raw.png",
+      "raw_export": "art/export/props/old_quay/empty_flask_raw.png",
+      "game_resource": "game/rooms/old_quay/props/empty_flask.png",
+      "width": 112,
+      "height": 105,
+      "target_height": 105,
+      "position": [
+        1115,
+        735
+      ],
+      "z": 5,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "quay_crate_cluster",
+      "name": "Quay crate cluster",
+      "source_sheet": "art/src/props/old_quay/openai/old_quay_props_openai_raw.png",
+      "raw_export": "art/export/props/old_quay/quay_crate_cluster_raw.png",
+      "game_resource": "game/rooms/old_quay/props/quay_crate_cluster.png",
+      "width": 194,
+      "height": 185,
+      "target_height": 185,
+      "position": [
+        1365,
+        700
+      ],
+      "z": 4,
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}
