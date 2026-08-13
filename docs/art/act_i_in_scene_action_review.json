@@ -2,7 +2,7 @@
   "status": "exported",
   "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_in_scene_action_contact_sheet.png",
-  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state, named NPC standee dialogue/counter staging, generated game HUD, embedded HUD dialogue text, and text-free wet interaction effects.",
+  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state, named NPC standee dialogue/counter staging, generated game HUD with embedded status and dialogue text, and text-free wet interaction effects.",
   "frames": [
     {
       "id": "salt_market_talk_crowd_turn",
@@ -33,7 +33,8 @@
       "uses_sectional_setpiece_frame": true,
       "uses_named_npc_standee": false,
       "uses_generated_game_hud": true,
-      "dialogue_text_embedded_in_hud": true
+      "dialogue_text_embedded_in_hud": true,
+      "status_text_embedded_in_generated_hud": true
     },
     {
       "id": "salt_market_use_crowd_turn",
@@ -64,7 +65,8 @@
       "uses_sectional_setpiece_frame": true,
       "uses_named_npc_standee": false,
       "uses_generated_game_hud": true,
-      "dialogue_text_embedded_in_hud": true
+      "dialogue_text_embedded_in_hud": true,
+      "status_text_embedded_in_generated_hud": true
     },
     {
       "id": "old_quay_wet_action",
@@ -112,7 +114,8 @@
       "uses_sectional_setpiece_frame": true,
       "uses_named_npc_standee": true,
       "uses_generated_game_hud": true,
-      "dialogue_text_embedded_in_hud": true
+      "dialogue_text_embedded_in_hud": true,
+      "status_text_embedded_in_generated_hud": true
     },
     {
       "id": "harbor_registry_talk_registrar",
@@ -160,7 +163,8 @@
       "uses_sectional_setpiece_frame": true,
       "uses_named_npc_standee": true,
       "uses_generated_game_hud": true,
-      "dialogue_text_embedded_in_hud": true
+      "dialogue_text_embedded_in_hud": true,
+      "status_text_embedded_in_generated_hud": true
     },
     {
       "id": "bone_chandler_use_counter",
@@ -200,7 +204,8 @@
       "uses_sectional_setpiece_frame": false,
       "uses_named_npc_standee": true,
       "uses_generated_game_hud": true,
-      "dialogue_text_embedded_in_hud": true
+      "dialogue_text_embedded_in_hud": true,
+      "status_text_embedded_in_generated_hud": true
     },
     {
       "id": "almshouse_talk_prosper",
@@ -240,7 +245,8 @@
       "uses_sectional_setpiece_frame": false,
       "uses_named_npc_standee": true,
       "uses_generated_game_hud": true,
-      "dialogue_text_embedded_in_hud": true
+      "dialogue_text_embedded_in_hud": true,
+      "status_text_embedded_in_generated_hud": true
     },
     {
       "id": "grey_float_talk_action",
@@ -280,7 +286,8 @@
       "uses_sectional_setpiece_frame": true,
       "uses_named_npc_standee": true,
       "uses_generated_game_hud": true,
-      "dialogue_text_embedded_in_hud": true
+      "dialogue_text_embedded_in_hud": true,
+      "status_text_embedded_in_generated_hud": true
     },
     {
       "id": "sabine_office_talk_sabine",
@@ -320,7 +327,8 @@
       "uses_sectional_setpiece_frame": true,
       "uses_named_npc_standee": true,
       "uses_generated_game_hud": true,
-      "dialogue_text_embedded_in_hud": true
+      "dialogue_text_embedded_in_hud": true,
+      "status_text_embedded_in_generated_hud": true
     },
     {
       "id": "fish_hall_wet_drain",
@@ -356,7 +364,8 @@
       "uses_sectional_setpiece_frame": false,
       "uses_named_npc_standee": false,
       "uses_generated_game_hud": true,
-      "dialogue_text_embedded_in_hud": true
+      "dialogue_text_embedded_in_hud": true,
+      "status_text_embedded_in_generated_hud": true
     }
   ]
 }

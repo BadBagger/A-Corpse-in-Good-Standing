@@ -195,20 +195,19 @@ def add_hud(image: Image.Image, room_code: str, title: str, caption: str) -> Non
     dialogue = Image.open(ROOT / "game" / "ui" / "skins" / "act_i" / "dialogue_panel.png").convert("RGBA")
     inventory = Image.open(ROOT / "game" / "ui" / "skins" / "act_i" / "bottom_inventory_panel.png").convert("RGBA")
 
-    status = status.resize((round(status.width * 0.88), round(status.height * 0.36)), Image.Resampling.LANCZOS)
+    status = prepare_status_strip(status)
     dialogue = dialogue.resize((900, 128), Image.Resampling.LANCZOS)
     inventory = inventory.resize((round(inventory.width * 0.63), round(inventory.height * 0.34)), Image.Resampling.LANCZOS)
 
-    image.alpha_composite(status, (12, 28))
+    image.alpha_composite(status, (12, 24))
     image.alpha_composite(dialogue, (530, 882))
     image.alpha_composite(inventory, (24, 928))
 
     draw = ImageDraw.Draw(image, "RGBA")
     font = ImageFont.load_default()
     caption_font = load_font(20)
-    draw.rectangle((18, 16, 396, 60), fill=(12, 16, 19, 164), outline=(201, 138, 60, 110))
-    draw.text((32, 28), f"{room_code} / {title}", fill=PALETTE["bone"], font=font)
-    draw.text((32, 44), "LOOK  USE  TALK  WET", fill=PALETTE["amber"], font=font)
+    draw.text((48, 39), f"{room_code} / {title}", fill=PALETTE["bone"], font=font)
+    draw.text((48, 56), "LOOK  USE  TALK  WET", fill=PALETTE["amber"], font=font)
     for index, line in enumerate(wrap_text(draw, caption, caption_font, 700)):
         draw.text((650, 908 + index * 25), line, fill=PALETTE["ink"], font=caption_font)
 
@@ -220,6 +219,18 @@ def load_font(size: int) -> ImageFont.ImageFont:
         except OSError:
             continue
     return ImageFont.load_default()
+
+
+def prepare_status_strip(status: Image.Image) -> Image.Image:
+    status = status.crop((0, 0, 430, status.height))
+    status = status.resize((390, 56), Image.Resampling.LANCZOS)
+    pixels = status.load()
+    for y in range(status.height):
+        for x in range(status.width):
+            red, green, blue, alpha = pixels[x, y]
+            if alpha and red < 18 and green < 20 and blue < 22:
+                pixels[x, y] = (red, green, blue, 0)
+    return status
 
 
 def build_frame(room: dict) -> dict:
@@ -256,6 +267,7 @@ def build_frame(room: dict) -> dict:
         "overlay_count": len(room["overlays"]),
         "dialogue_caption": caption,
         "dialogue_text_embedded_in_hud": True,
+        "status_text_embedded_in_generated_hud": True,
         "includes_corvin": True,
         "includes_hud": True,
     }
@@ -287,14 +299,14 @@ def main() -> None:
         "status": "exported",
         "frame_count": len(records),
         "contact_sheet": CONTACT_PATH.relative_to(ROOT).as_posix(),
-        "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, standee wet-floor reflections, room-specific dialogue captions embedded in the in-frame HUD, first-frame overlays, and generated HUD skin",
+        "runtime_evidence": "runtime foreground props, prop grounding, Corvin, standees, standee wet-floor reflections, room-specific dialogue captions and status text embedded in the generated in-frame HUD, first-frame overlays, and generated HUD skin",
         "rooms": records,
     }
     REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     lines = [
         "# Act I Runtime Review Frames",
         "",
-        "Generated player-view review frames using runtime foreground prop composites, prop grounding, Corvin side sprites, NPC standees, room-specific dialogue captions embedded in the in-frame HUD, first-frame atmosphere/setpieces, contact shadows, wet-floor reflections, and the generated noir HUD skin.",
+        "Generated player-view review frames using runtime foreground prop composites, prop grounding, Corvin side sprites, NPC standees, room-specific dialogue captions and status text embedded in the generated in-frame HUD, first-frame atmosphere/setpieces, contact shadows, wet-floor reflections, and the generated noir HUD skin.",
         "",
         f"- Contact sheet: `{report['contact_sheet']}`",
         f"- Frame count: {len(records)}",

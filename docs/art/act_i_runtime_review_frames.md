@@ -1,6 +1,6 @@
 # Act I Runtime Review Frames
 
-Generated player-view review frames using runtime foreground prop composites, prop grounding, Corvin side sprites, NPC standees, room-specific dialogue captions embedded in the in-frame HUD, first-frame atmosphere/setpieces, contact shadows, wet-floor reflections, and the generated noir HUD skin.
+Generated player-view review frames using runtime foreground prop composites, prop grounding, Corvin side sprites, NPC standees, room-specific dialogue captions and status text embedded in the generated in-frame HUD, first-frame atmosphere/setpieces, contact shadows, wet-floor reflections, and the generated noir HUD skin.
 
 - Contact sheet: `docs/art/review/act_i_runtime_frame_contact_sheet.png`
 - Frame count: 9

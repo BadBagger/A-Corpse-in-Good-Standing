@@ -23,7 +23,7 @@ if ([int]$report.frame_count -ne 9) {
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_in_scene_action_contact_sheet.png") {
     throw "Act I in-scene action contact sheet path is not stable."
 }
-foreach ($requiredText in @("Corvin talk/use/wet side actions", "Salt Market crowd", "turn_to_corvin", "named NPC standee dialogue/counter staging", "generated game HUD", "embedded HUD dialogue text", "text-free wet interaction effects")) {
+foreach ($requiredText in @("Corvin talk/use/wet side actions", "Salt Market crowd", "turn_to_corvin", "named NPC standee dialogue/counter staging", "generated game HUD with embedded status and dialogue text", "text-free wet interaction effects")) {
     if ([string]$report.runtime_evidence -notmatch [regex]::Escape($requiredText)) {
         throw "Act I in-scene action report missing runtime evidence text: $requiredText"
     }
@@ -69,7 +69,7 @@ foreach ($frame in $frames) {
     if ([int]$frame.corvin_frame_count -ne [int]$case.frames) {
         throw "Act I in-scene action frame $id Corvin frame count mismatch."
     }
-    foreach ($flag in @("uses_in_scene_corvin_action", "uses_generated_game_hud", "dialogue_text_embedded_in_hud")) {
+    foreach ($flag in @("uses_in_scene_corvin_action", "uses_generated_game_hud", "dialogue_text_embedded_in_hud", "status_text_embedded_in_generated_hud")) {
         if (-not [bool]$frame.$flag) {
             throw "Act I in-scene action frame $id missing flag: $flag"
         }
@@ -146,7 +146,7 @@ finally {
 }
 
 $md = Get-Content -LiteralPath $mdPath -Raw
-foreach ($requiredText in @("Act I In-Scene Action Review", "talk, use, and wet", "turn_to_corvin", "named NPC cases", "generated game HUD with embedded dialogue text", "text-free interaction effects", "static idle room shots")) {
+foreach ($requiredText in @("Act I In-Scene Action Review", "talk, use, and wet", "turn_to_corvin", "named NPC cases", "generated game HUD with embedded status and dialogue text", "text-free interaction effects", "static idle room shots")) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I in-scene action report missing required text: $requiredText"
     }
@@ -156,10 +156,13 @@ if ($md -match "[^\u0000-\u007F]") {
 }
 
 $builder = Get-Content -LiteralPath $builderPath -Raw
-foreach ($requiredText in @("salt_market_crowd_turn_to_corvin.png", "talk_side_right", "use_side_right", "wet_side_right", "draw_interaction_pulse", "uses_interaction_pulse", "visible_text", "paste_standee", "standee_count", "ImageFilter.MaxFilter", "201, 138, 60", "corvin_foot", "crowd_distance_px", "uses_sectional_setpiece_frame", "add_game_hud", "dialogue_text_embedded_in_hud", "dialogue_panel.png")) {
+foreach ($requiredText in @("salt_market_crowd_turn_to_corvin.png", "talk_side_right", "use_side_right", "wet_side_right", "draw_interaction_pulse", "uses_interaction_pulse", "visible_text", "paste_standee", "standee_count", "ImageFilter.MaxFilter", "201, 138, 60", "corvin_foot", "crowd_distance_px", "uses_sectional_setpiece_frame", "add_game_hud", "dialogue_text_embedded_in_hud", "status_text_embedded_in_generated_hud", "dialogue_panel.png", "status_strip.png", "prepare_status_strip")) {
     if (-not $builder.Contains($requiredText)) {
         throw "Act I in-scene action builder missing required text: $requiredText"
     }
+}
+if ($builder.Contains("draw.rectangle((18, 16")) {
+    throw "Act I in-scene action builder must not draw a black debug status rectangle over the generated HUD."
 }
 
 $roomScript = Get-Content -LiteralPath $roomScriptPath -Raw
