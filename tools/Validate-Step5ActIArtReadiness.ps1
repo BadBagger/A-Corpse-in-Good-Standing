@@ -121,6 +121,7 @@ $humanPlaytestShortcutPath = Join-Path $root "PLAY_ACT_I_REVIEW.cmd"
 $humanPlaytestShortcutValidatorPath = Join-Path $root "tools\Validate-ActIHumanPlaytestShortcut.ps1"
 $playerReviewCardPath = Join-Path $root "docs\playtest\act_i_player_review_card.md"
 $playerReviewCardValidatorPath = Join-Path $root "tools\Validate-ActIPlayerReviewCard.ps1"
+$playableHoverFocusValidatorPath = Join-Path $root "tools\Validate-ActIPlayableHoverFocus.ps1"
 $checkpointPath = Join-Path $root "docs\checkpoints\step_5_act_i_art_pass_readiness.md"
 
 foreach ($path in @(
@@ -242,7 +243,8 @@ foreach ($path in @(
     $humanPlaytestShortcutPath,
     $humanPlaytestShortcutValidatorPath,
     $playerReviewCardPath,
-    $playerReviewCardValidatorPath
+    $playerReviewCardValidatorPath,
+    $playableHoverFocusValidatorPath
 )) {
     if (-not (Test-Path -LiteralPath $path)) {
         throw "Missing Step 5 readiness input: $path"
@@ -1309,6 +1311,11 @@ foreach ($requiredText in @(
     }
 }
 
+& powershell -NoProfile -ExecutionPolicy Bypass -File $playableHoverFocusValidatorPath
+if ($LASTEXITCODE -ne 0) {
+    throw "Act I playable hover focus validator failed."
+}
+
 $backgroundPresent = @($backgroundRows | Where-Object { $_.status -eq "present" }).Count
 $backgroundPending = @($backgroundRows | Where-Object { $_.status -eq "pending" }).Count
 $corvinPresent = @($corvinRows | Where-Object { $_.status -eq "present" }).Count
@@ -1434,6 +1441,7 @@ $lines = @(
     "- Step 5 human review bundle: pass, generated compact launch/index handoff keeps the latest notes, decision CSV, contact sheet, Corvin side-action contact sheet, hotspot overlay, ready-source packet index at docs/art/act_i_background_ready_source_packets.md, paintover packet, duel-format lock, and Grey Float hard-R lock in one review path.",
     "- Act I human playtest launch preflight: pass, no-launch validator proves the launcher refreshes synced review materials and prints the review bundle, latest notes, decision CSV, contact sheet, Corvin side-action contact sheet, hotspot overlay, Corvin side-action scaffold, and ready-source packet index before Godot launch.",
     "- Act I player review card: pass, player-facing handoff exists separately from the internal rubric and withholds Rite names, route order, and duel math while defining the Act I finish mark.",
+    "- Act I playable hover focus: pass, shared Act I rooms and Mudflats show transient in-world hover rings from actual hotspot mouse enter/exit signals without exposing debug boxes or duel math.",
     "- Act I playable review shortcut: pass, root PLAY_ACT_I_REVIEW.cmd targets the validated launch script with automated report refresh and cannot bypass review preflight.",
     "BLOCKERS:",
     "1. Final paintover source files are still pending for all 11 Act I rooms. This is the next real Step 5 production task, not a Step 4 regression.",
@@ -1489,6 +1497,7 @@ foreach ($requiredText in @(
     "docs/art/act_i_background_ready_source_packets.md",
     "Act I human playtest launch preflight: pass",
     "Act I player review card: pass",
+    "Act I playable hover focus: pass",
     "Act I playable review shortcut: pass",
     "Act I VO timing manifest: pass",
     "Confession VO manifest: pass",

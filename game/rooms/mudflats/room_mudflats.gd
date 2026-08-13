@@ -17,6 +17,8 @@ const HOVER_LABELS := {
 
 var state: Data = Data.new()
 var _hud: CanvasLayer
+var _hover_focus_layer: Node2D
+var _hover_focus_tween: Tween
 
 func _ready() -> void:
 	super()
@@ -39,9 +41,11 @@ func _on_hotspot_mouse_entered(hotspot: Area2D) -> void:
 	var verb := "look"
 	if _hud and "selected_verb" in _hud:
 		verb = _hud.selected_verb
+	_show_hover_focus(hotspot)
 	_say("%s: %s" % [verb.capitalize(), _hover_label(hotspot)])
 
 func _on_hotspot_mouse_exited() -> void:
+	_hide_hover_focus()
 	_refresh_status()
 
 func _refresh_status() -> void:
@@ -59,6 +63,7 @@ func _apply_real_art_presentation() -> void:
 	_set_debug_layout_visible(show_debug_layout)
 	_ground_mudflats_props()
 	_add_mudflats_atmosphere()
+	_add_mudflats_hover_focus_layer()
 
 func _set_debug_layout_visible(is_visible: bool) -> void:
 	for node_name in ["LeviathanRibs", "MudShelf", "HarborWater", "GreyboxLabels", "WalkableAreas", "Props/CorvinPlaceholder"]:
@@ -136,6 +141,68 @@ func _add_mudflats_atmosphere() -> void:
 		"loop"
 	)
 	container.add_child(tide)
+
+func _add_mudflats_hover_focus_layer() -> void:
+	var props := get_node_or_null("Props")
+	if props == null:
+		props = self
+	var existing := props.get_node_or_null("ActIHoverFocus")
+	if existing:
+		existing.queue_free()
+	_hover_focus_layer = Node2D.new()
+	_hover_focus_layer.name = "ActIHoverFocus"
+	_hover_focus_layer.z_index = 12
+	_hover_focus_layer.visible = false
+	props.add_child(_hover_focus_layer)
+
+func _show_hover_focus(hotspot: Area2D) -> void:
+	if hotspot == null:
+		return
+	if _hover_focus_layer == null or not is_instance_valid(_hover_focus_layer):
+		_add_mudflats_hover_focus_layer()
+	if _hover_focus_layer == null:
+		return
+	if _hover_focus_tween:
+		_hover_focus_tween.kill()
+	for child in _hover_focus_layer.get_children():
+		child.queue_free()
+	var radius := 42.0 if hotspot.name == "SaltMarketExit" else 28.0
+	var focus := Polygon2D.new()
+	focus.name = "HoverFocusRing"
+	focus.position = hotspot.position
+	focus.color = Color(0.788235, 0.541176, 0.235294, 0.40)
+	focus.polygon = _make_hover_focus_polygon(radius)
+	_hover_focus_layer.add_child(focus)
+	var glint := Line2D.new()
+	glint.name = "HoverFocusGlint"
+	glint.position = hotspot.position
+	glint.points = PackedVector2Array([Vector2(-radius * 0.42, 0.0), Vector2(radius * 0.42, 0.0)])
+	glint.width = 2.0
+	glint.default_color = Color(0.894118, 0.862745, 0.784314, 0.70)
+	_hover_focus_layer.add_child(glint)
+	_hover_focus_layer.visible = true
+	_hover_focus_tween = create_tween()
+	_hover_focus_tween.set_loops()
+	_hover_focus_tween.tween_property(focus, "scale", Vector2(1.12, 0.82), 0.42)
+	_hover_focus_tween.parallel().tween_property(focus, "modulate:a", 0.38, 0.42)
+	_hover_focus_tween.tween_property(focus, "scale", Vector2(1.0, 1.0), 0.42)
+	_hover_focus_tween.parallel().tween_property(focus, "modulate:a", 0.78, 0.42)
+
+func _hide_hover_focus() -> void:
+	if _hover_focus_tween:
+		_hover_focus_tween.kill()
+		_hover_focus_tween = null
+	if _hover_focus_layer:
+		_hover_focus_layer.visible = false
+		for child in _hover_focus_layer.get_children():
+			child.queue_free()
+
+func _make_hover_focus_polygon(radius: float) -> PackedVector2Array:
+	var points := PackedVector2Array()
+	for index in 20:
+		var angle := (TAU * float(index)) / 20.0
+		points.append(Vector2(cos(angle) * radius, sin(angle) * radius * 0.34))
+	return points
 
 func _ensure_mudflats_prop_texture(sprite: Sprite2D) -> void:
 	if sprite.texture != null:

@@ -263,6 +263,8 @@ const ACT_I_ROOM_STATUS_LINES := {
 var _hud: CanvasLayer
 var _duel_panel: CanvasLayer
 var _pending_duel_result: Dictionary = {}
+var _hover_focus_layer: Node2D
+var _hover_focus_tween: Tween
 
 func _ready() -> void:
 	super()
@@ -289,6 +291,7 @@ func _apply_real_art_presentation() -> void:
 	_add_act_i_setpieces()
 	_add_act_i_atmosphere()
 	_add_act_i_interaction_pulse_layer()
+	_add_act_i_hover_focus_layer()
 
 func _set_debug_layout_visible(is_visible: bool) -> void:
 	for node_name in ["Floor", "WalkableAreas", "TitleLabel", "NotesLabel"]:
@@ -512,6 +515,19 @@ func _add_act_i_interaction_pulse_layer() -> void:
 	container.visible = false
 	props.add_child(container)
 
+func _add_act_i_hover_focus_layer() -> void:
+	var props := get_node_or_null("Props")
+	if props == null:
+		props = self
+	var existing := props.get_node_or_null("ActIHoverFocus")
+	if existing:
+		existing.queue_free()
+	_hover_focus_layer = Node2D.new()
+	_hover_focus_layer.name = "ActIHoverFocus"
+	_hover_focus_layer.z_index = 12
+	_hover_focus_layer.visible = false
+	props.add_child(_hover_focus_layer)
+
 func _play_act_i_interaction_pulse(interaction_key: String) -> bool:
 	if not ACT_I_INTERACTION_PULSES.has(room_code):
 		return false
@@ -633,10 +649,62 @@ func _on_hotspot_mouse_entered(hotspot: Area2D) -> void:
 	var verb := "look"
 	if _hud and "selected_verb" in _hud:
 		verb = _hud.selected_verb
+	_show_hover_focus(hotspot)
 	_say("%s: %s" % [verb.capitalize(), _hover_label(hotspot)])
 
 func _on_hotspot_mouse_exited() -> void:
+	_hide_hover_focus()
 	_refresh_status()
+
+func _show_hover_focus(hotspot: Area2D) -> void:
+	if hotspot == null:
+		return
+	if _hover_focus_layer == null or not is_instance_valid(_hover_focus_layer):
+		_add_act_i_hover_focus_layer()
+	if _hover_focus_layer == null:
+		return
+	if _hover_focus_tween:
+		_hover_focus_tween.kill()
+	for child in _hover_focus_layer.get_children():
+		child.queue_free()
+	var is_exit := hotspot.is_in_group("act_i_exit_hotspot")
+	var radius := 42.0 if is_exit else 28.0
+	var focus := Polygon2D.new()
+	focus.name = "HoverFocusRing"
+	focus.position = hotspot.position
+	focus.color = Color(0.788235, 0.541176, 0.235294, 0.36 if is_exit else 0.48)
+	focus.polygon = _make_hover_focus_polygon(radius)
+	_hover_focus_layer.add_child(focus)
+	var glint := Line2D.new()
+	glint.name = "HoverFocusGlint"
+	glint.position = hotspot.position
+	glint.points = PackedVector2Array([Vector2(-radius * 0.42, 0.0), Vector2(radius * 0.42, 0.0)])
+	glint.width = 2.0
+	glint.default_color = Color(0.894118, 0.862745, 0.784314, 0.70)
+	_hover_focus_layer.add_child(glint)
+	_hover_focus_layer.visible = true
+	_hover_focus_tween = create_tween()
+	_hover_focus_tween.set_loops()
+	_hover_focus_tween.tween_property(focus, "scale", Vector2(1.12, 0.82), 0.42)
+	_hover_focus_tween.parallel().tween_property(focus, "modulate:a", 0.38, 0.42)
+	_hover_focus_tween.tween_property(focus, "scale", Vector2(1.0, 1.0), 0.42)
+	_hover_focus_tween.parallel().tween_property(focus, "modulate:a", 0.78, 0.42)
+
+func _hide_hover_focus() -> void:
+	if _hover_focus_tween:
+		_hover_focus_tween.kill()
+		_hover_focus_tween = null
+	if _hover_focus_layer:
+		_hover_focus_layer.visible = false
+		for child in _hover_focus_layer.get_children():
+			child.queue_free()
+
+func _make_hover_focus_polygon(radius: float) -> PackedVector2Array:
+	var points := PackedVector2Array()
+	for index in 20:
+		var angle := (TAU * float(index)) / 20.0
+		points.append(Vector2(cos(angle) * radius, sin(angle) * radius * 0.34))
+	return points
 
 func _on_exit_hotspot_input(_viewport: Node, event: InputEvent, _shape_idx: int, hotspot: Area2D) -> void:
 	if not event is InputEventMouseButton:

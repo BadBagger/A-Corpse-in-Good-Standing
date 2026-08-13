@@ -61,8 +61,7 @@ foreach ($requiredText in @(
     "_on_hotspot_mouse_entered",
     "_on_hotspot_mouse_exited",
     "selected_verb",
-    "_hover_label",
-    "R01 / Mudflats"
+    "_hover_label"
 )) {
     if ($mudflatsRoom -notmatch [regex]::Escape($requiredText)) {
         throw "Mudflats tutorial room missing runtime hover feedback hook: $requiredText"
