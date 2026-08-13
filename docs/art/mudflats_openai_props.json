@@ -1,0 +1,55 @@
+{
+  "props": [
+    {
+      "id": "tomas_bollard",
+      "name": "Bollard-of-Tomas",
+      "source_sheet": "art/src/props/mudflats/openai/mudflats_props_openai_raw.png",
+      "raw_export": "art/export/props/mudflats/tomas_bollard_raw.png",
+      "game_resource": "game/rooms/mudflats/props/tomas_bollard.png",
+      "width": 245,
+      "height": 300,
+      "target_height": 300,
+      "foot_position": [
+        390,
+        705
+      ],
+      "z": 3,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "missing_boots",
+      "name": "Missing boots",
+      "source_sheet": "art/src/props/mudflats/openai/mudflats_props_openai_raw.png",
+      "raw_export": "art/export/props/mudflats/missing_boots_raw.png",
+      "game_resource": "game/rooms/mudflats/props/missing_boots.png",
+      "width": 238,
+      "height": 155,
+      "target_height": 155,
+      "foot_position": [
+        965,
+        910
+      ],
+      "z": 5,
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "brine_silt",
+      "name": "Brine and silt",
+      "source_sheet": "art/src/props/mudflats/openai/mudflats_props_openai_raw.png",
+      "raw_export": "art/export/props/mudflats/brine_silt_raw.png",
+      "game_resource": "game/rooms/mudflats/props/brine_silt.png",
+      "width": 185,
+      "height": 120,
+      "target_height": 120,
+      "foot_position": [
+        1085,
+        945
+      ],
+      "z": 2,
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}

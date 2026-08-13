@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://game/rooms/mudflats/room_mudflats.gd" id="1_0xcyh"]
 [ext_resource type="PackedScene" path="res://game/ui/prologue_hud.tscn" id="2_6xdqo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://game/rooms/mudflats/hotspot_missing_boots.gd" id="4_u3f8x"]
 [ext_resource type="Script" path="res://game/rooms/mudflats/hotspot_salt_market_exit.gd" id="5_xohei"]
 [ext_resource type="Script" path="res://game/rooms/background_image_loader.gd" id="6_bg_loader"]
+[ext_resource type="Script" path="res://game/rooms/prop_image_loader.gd" id="7_prop_loader"]
 
 [sub_resource type="Gradient" id="Gradient_bg"]
 offsets = PackedFloat32Array(0, 0.55, 1)
@@ -116,6 +117,27 @@ polygon = PackedVector2Array(-66, 12, -48, 4, -39, 62, -56, 70)
 points = PackedVector2Array(-4, 202, -4, 248, 8, 278)
 default_color = Color(0.494118, 0.607843, 0.305882, 1)
 width = 4.0
+
+[node name="BrineSiltProp" type="Sprite2D" parent="Props"]
+position = Vector2(846, 825)
+z_index = 2
+script = ExtResource("7_prop_loader")
+prop_path = "res://game/rooms/mudflats/props/brine_silt.png"
+centered = false
+
+[node name="TomasBollardProp" type="Sprite2D" parent="Props"]
+position = Vector2(268, 405)
+z_index = 3
+script = ExtResource("7_prop_loader")
+prop_path = "res://game/rooms/mudflats/props/tomas_bollard.png"
+centered = false
+
+[node name="MissingBootsProp" type="Sprite2D" parent="Props"]
+position = Vector2(897, 785)
+z_index = 5
+script = ExtResource("7_prop_loader")
+prop_path = "res://game/rooms/mudflats/props/missing_boots.png"
+centered = false
 
 [node name="Hotspots" type="Node2D" parent="."]
 
