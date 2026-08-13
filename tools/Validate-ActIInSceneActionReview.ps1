@@ -17,13 +17,13 @@ $report = Get-Content -LiteralPath $jsonPath -Raw | ConvertFrom-Json
 if ($report.status -ne "exported") {
     throw "Act I in-scene action review status must be exported."
 }
-if ([int]$report.frame_count -ne 4) {
-    throw "Act I in-scene action review expected 4 frames, got $($report.frame_count)."
+if ([int]$report.frame_count -ne 8) {
+    throw "Act I in-scene action review expected 8 frames, got $($report.frame_count)."
 }
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_in_scene_action_contact_sheet.png") {
     throw "Act I in-scene action contact sheet path is not stable."
 }
-foreach ($requiredText in @("Corvin talk/use/wet side actions", "Salt Market crowd", "turn_to_corvin")) {
+foreach ($requiredText in @("Corvin talk/use/wet side actions", "Salt Market crowd", "turn_to_corvin", "named NPC standee dialogue/counter staging")) {
     if ([string]$report.runtime_evidence -notmatch [regex]::Escape($requiredText)) {
         throw "Act I in-scene action report missing runtime evidence text: $requiredText"
     }
@@ -33,13 +33,17 @@ $expected = @{
     "salt_market_talk_crowd_turn" = @{ room = "R03"; animation = "talk_side_right"; setpiece = "turn_to_corvin"; frames = 6 }
     "salt_market_use_crowd_turn" = @{ room = "R03"; animation = "use_side_right"; setpiece = "turn_to_corvin"; frames = 8 }
     "old_quay_wet_action" = @{ room = "R02"; animation = "wet_side_right"; setpiece = "water_glint_loop"; frames = 8 }
+    "harbor_registry_talk_registrar" = @{ room = "R05"; animation = "talk_side_right"; setpiece = "lamp_smoke_loop"; frames = 6 }
+    "bone_chandler_use_counter" = @{ room = "R06"; animation = "use_side_right"; setpiece = "npc_counter_staging"; frames = 8 }
+    "almshouse_talk_prosper" = @{ room = "R07"; animation = "talk_side_right"; setpiece = "npc_dialogue_staging"; frames = 6 }
     "grey_float_talk_action" = @{ room = "R10"; animation = "talk_side_right"; setpiece = "steam_loop"; frames = 6 }
+    "sabine_office_talk_sabine" = @{ room = "R12"; animation = "talk_side_right"; setpiece = "window_rain_loop"; frames = 6 }
 }
 
 Add-Type -AssemblyName System.Drawing
 $frames = @($report.frames)
-if ($frames.Count -ne 4) {
-    throw "Act I in-scene action report expected 4 frame records, got $($frames.Count)."
+if ($frames.Count -ne 8) {
+    throw "Act I in-scene action report expected 8 frame records, got $($frames.Count)."
 }
 $seen = @{}
 foreach ($frame in $frames) {
@@ -64,9 +68,19 @@ foreach ($frame in $frames) {
     if ([int]$frame.corvin_frame_count -ne [int]$case.frames) {
         throw "Act I in-scene action frame $id Corvin frame count mismatch."
     }
-    foreach ($flag in @("uses_in_scene_corvin_action", "uses_sectional_setpiece_frame", "uses_compact_hud")) {
+    foreach ($flag in @("uses_in_scene_corvin_action", "uses_compact_hud")) {
         if (-not [bool]$frame.$flag) {
             throw "Act I in-scene action frame $id missing flag: $flag"
+        }
+    }
+    if ([string]$frame.room_code -in @("R02", "R05", "R06", "R07", "R10", "R12")) {
+        if (-not [bool]$frame.uses_named_npc_standee -or [int]$frame.standee_count -lt 1) {
+            throw "Act I in-scene action frame $id must include named NPC standee staging."
+        }
+    }
+    if ([string]$frame.room_code -in @("R02", "R03", "R05", "R10", "R12")) {
+        if (-not [bool]$frame.uses_sectional_setpiece_frame) {
+            throw "Act I in-scene action frame $id must include an atmosphere or sectional setpiece frame."
         }
     }
     $foot = @($frame.corvin_foot)
@@ -119,7 +133,7 @@ finally {
 }
 
 $md = Get-Content -LiteralPath $mdPath -Raw
-foreach ($requiredText in @("Act I In-Scene Action Review", "talk, use, and wet", "turn_to_corvin", "static idle room shots")) {
+foreach ($requiredText in @("Act I In-Scene Action Review", "talk, use, and wet", "turn_to_corvin", "named NPC cases", "static idle room shots")) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I in-scene action report missing required text: $requiredText"
     }
@@ -129,7 +143,7 @@ if ($md -match "[^\u0000-\u007F]") {
 }
 
 $builder = Get-Content -LiteralPath $builderPath -Raw
-foreach ($requiredText in @("salt_market_crowd_turn_to_corvin.png", "talk_side_right", "use_side_right", "wet_side_right", "ImageFilter.MaxFilter", "201, 138, 60", "corvin_foot", "crowd_distance_px", "uses_sectional_setpiece_frame")) {
+foreach ($requiredText in @("salt_market_crowd_turn_to_corvin.png", "talk_side_right", "use_side_right", "wet_side_right", "paste_standee", "standee_count", "ImageFilter.MaxFilter", "201, 138, 60", "corvin_foot", "crowd_distance_px", "uses_sectional_setpiece_frame")) {
     if (-not $builder.Contains($requiredText)) {
         throw "Act I in-scene action builder missing required text: $requiredText"
     }

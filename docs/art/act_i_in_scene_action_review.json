@@ -1,8 +1,8 @@
 {
   "status": "exported",
-  "frame_count": 4,
+  "frame_count": 8,
   "contact_sheet": "docs/art/review/act_i_in_scene_action_contact_sheet.png",
-  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state.",
+  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state and named NPC standee dialogue/counter staging.",
   "frames": [
     {
       "id": "salt_market_talk_crowd_turn",
@@ -19,6 +19,8 @@
         620,
         790
       ],
+      "standees": [],
+      "standee_count": 0,
       "crowd_hotspot": [
         960,
         760
@@ -27,6 +29,7 @@
       "expected_setpiece_state": "turn_to_corvin",
       "uses_in_scene_corvin_action": true,
       "uses_sectional_setpiece_frame": true,
+      "uses_named_npc_standee": false,
       "uses_compact_hud": true
     },
     {
@@ -44,6 +47,8 @@
         620,
         790
       ],
+      "standees": [],
+      "standee_count": 0,
       "crowd_hotspot": [
         960,
         760
@@ -52,6 +57,7 @@
       "expected_setpiece_state": "turn_to_corvin",
       "uses_in_scene_corvin_action": true,
       "uses_sectional_setpiece_frame": true,
+      "uses_named_npc_standee": false,
       "uses_compact_hud": true
     },
     {
@@ -69,11 +75,137 @@
         820,
         760
       ],
+      "standees": [
+        {
+          "id": "tomas_bollard",
+          "foot": [
+            400,
+            735
+          ],
+          "scaled_size": [
+            327,
+            400
+          ]
+        }
+      ],
+      "standee_count": 1,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
       "expected_setpiece_state": "water_glint_loop",
       "uses_in_scene_corvin_action": true,
       "uses_sectional_setpiece_frame": true,
+      "uses_named_npc_standee": true,
+      "uses_compact_hud": true
+    },
+    {
+      "id": "harbor_registry_talk_registrar",
+      "room_code": "R05",
+      "title": "Harbor Registry",
+      "output": "docs/art/review/act_i_in_scene_action_frames/harbor_registry_talk_registrar.png",
+      "corvin_animation": "talk_side_right",
+      "corvin_frame_count": 6,
+      "corvin_scaled_size": [
+        195,
+        389
+      ],
+      "corvin_foot": [
+        760,
+        780
+      ],
+      "standees": [
+        {
+          "id": "registrar",
+          "foot": [
+            1230,
+            705
+          ],
+          "scaled_size": [
+            174,
+            328
+          ]
+        }
+      ],
+      "standee_count": 1,
+      "crowd_hotspot": [],
+      "crowd_distance_px": null,
+      "expected_setpiece_state": "lamp_smoke_loop",
+      "uses_in_scene_corvin_action": true,
+      "uses_sectional_setpiece_frame": true,
+      "uses_named_npc_standee": true,
+      "uses_compact_hud": true
+    },
+    {
+      "id": "bone_chandler_use_counter",
+      "room_code": "R06",
+      "title": "The Bone Chandler",
+      "output": "docs/art/review/act_i_in_scene_action_frames/bone_chandler_use_counter.png",
+      "corvin_animation": "use_side_right",
+      "corvin_frame_count": 8,
+      "corvin_scaled_size": [
+        195,
+        389
+      ],
+      "corvin_foot": [
+        720,
+        780
+      ],
+      "standees": [
+        {
+          "id": "bone_chandler",
+          "foot": [
+            1200,
+            760
+          ],
+          "scaled_size": [
+            177,
+            335
+          ]
+        }
+      ],
+      "standee_count": 1,
+      "crowd_hotspot": [],
+      "crowd_distance_px": null,
+      "expected_setpiece_state": "npc_counter_staging",
+      "uses_in_scene_corvin_action": true,
+      "uses_sectional_setpiece_frame": false,
+      "uses_named_npc_standee": true,
+      "uses_compact_hud": true
+    },
+    {
+      "id": "almshouse_talk_prosper",
+      "room_code": "R07",
+      "title": "The Almshouse",
+      "output": "docs/art/review/act_i_in_scene_action_frames/almshouse_talk_prosper.png",
+      "corvin_animation": "talk_side_right",
+      "corvin_frame_count": 6,
+      "corvin_scaled_size": [
+        195,
+        389
+      ],
+      "corvin_foot": [
+        820,
+        790
+      ],
+      "standees": [
+        {
+          "id": "prosper",
+          "foot": [
+            1190,
+            775
+          ],
+          "scaled_size": [
+            229,
+            295
+          ]
+        }
+      ],
+      "standee_count": 1,
+      "crowd_hotspot": [],
+      "crowd_distance_px": null,
+      "expected_setpiece_state": "npc_dialogue_staging",
+      "uses_in_scene_corvin_action": true,
+      "uses_sectional_setpiece_frame": false,
+      "uses_named_npc_standee": true,
       "uses_compact_hud": true
     },
     {
@@ -91,11 +223,63 @@
         800,
         780
       ],
+      "standees": [
+        {
+          "id": "juno",
+          "foot": [
+            1250,
+            745
+          ],
+          "scaled_size": [
+            237,
+            352
+          ]
+        }
+      ],
+      "standee_count": 1,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
       "expected_setpiece_state": "steam_loop",
       "uses_in_scene_corvin_action": true,
       "uses_sectional_setpiece_frame": true,
+      "uses_named_npc_standee": true,
+      "uses_compact_hud": true
+    },
+    {
+      "id": "sabine_office_talk_sabine",
+      "room_code": "R12",
+      "title": "Sabine's Office",
+      "output": "docs/art/review/act_i_in_scene_action_frames/sabine_office_talk_sabine.png",
+      "corvin_animation": "talk_side_right",
+      "corvin_frame_count": 6,
+      "corvin_scaled_size": [
+        195,
+        389
+      ],
+      "corvin_foot": [
+        790,
+        780
+      ],
+      "standees": [
+        {
+          "id": "sabine",
+          "foot": [
+            1260,
+            735
+          ],
+          "scaled_size": [
+            188,
+            350
+          ]
+        }
+      ],
+      "standee_count": 1,
+      "crowd_hotspot": [],
+      "crowd_distance_px": null,
+      "expected_setpiece_state": "window_rain_loop",
+      "uses_in_scene_corvin_action": true,
+      "uses_sectional_setpiece_frame": true,
+      "uses_named_npc_standee": true,
       "uses_compact_hud": true
     }
   ]

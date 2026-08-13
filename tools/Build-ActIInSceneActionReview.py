@@ -31,6 +31,7 @@ CASES = [
             ("salt_market_crowd_turn_to_corvin", "game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png", 1070, 455, 520, 330, 10, 4),
             ("salt_market_lamp_flicker", "game/rooms/salt_market/atmosphere/salt_market_lamp_flicker.png", 1210, 210, 540, 500, 8, 0),
         ],
+        "standees": [],
         "caption": "Talk: crowd turns toward Corvin.",
         "expected_setpiece_state": "turn_to_corvin",
     },
@@ -45,6 +46,7 @@ CASES = [
             ("salt_market_crowd_turn_to_corvin", "game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png", 1070, 455, 520, 330, 10, 7),
             ("salt_market_lamp_flicker", "game/rooms/salt_market/atmosphere/salt_market_lamp_flicker.png", 1210, 210, 540, 500, 8, 2),
         ],
+        "standees": [],
         "caption": "Use: public recognition has a visible crowd reaction.",
         "expected_setpiece_state": "turn_to_corvin",
     },
@@ -57,8 +59,44 @@ CASES = [
         "setpieces": [
             ("old_quay_water_glint", "game/rooms/old_quay/atmosphere/old_quay_water_glint.png", 0, 650, 1920, 310, 8, 3),
         ],
+        "standees": [("tomas_bollard", 400, 735, 1.0)],
         "caption": "Wet: Corvin's supernatural verb reads in the room.",
         "expected_setpiece_state": "water_glint_loop",
+    },
+    {
+        "id": "harbor_registry_talk_registrar",
+        "room_code": "R05",
+        "title": "Harbor Registry",
+        "base": "docs/art/review/harbor_registry_openai_prop_composite.png",
+        "corvin": (760, 780, "talk_side_right"),
+        "standees": [("registrar", 1230, 705, 0.78)],
+        "setpieces": [
+            ("harbor_registry_lamp_smoke", "game/rooms/harbor_registry/atmosphere/harbor_registry_lamp_smoke.png", 700, 300, 520, 430, 10, 5),
+        ],
+        "caption": "Talk: Registrar duel staging keeps both speakers readable.",
+        "expected_setpiece_state": "lamp_smoke_loop",
+    },
+    {
+        "id": "bone_chandler_use_counter",
+        "room_code": "R06",
+        "title": "The Bone Chandler",
+        "base": "docs/art/review/bone_chandler_openai_prop_composite.png",
+        "corvin": (720, 780, "use_side_right"),
+        "standees": [("bone_chandler", 1200, 760, 0.78)],
+        "setpieces": [],
+        "caption": "Use: counter interaction keeps prop, hand, and shopkeeper clear.",
+        "expected_setpiece_state": "npc_counter_staging",
+    },
+    {
+        "id": "almshouse_talk_prosper",
+        "room_code": "R07",
+        "title": "The Almshouse",
+        "base": "docs/art/review/almshouse_openai_prop_composite.png",
+        "corvin": (820, 790, "talk_side_right"),
+        "standees": [("prosper", 1190, 775, 0.82)],
+        "setpieces": [],
+        "caption": "Talk: Prosper's debt-forgiveness beat has readable eyelines.",
+        "expected_setpiece_state": "npc_dialogue_staging",
     },
     {
         "id": "grey_float_talk_action",
@@ -66,11 +104,25 @@ CASES = [
         "title": "The Grey Float",
         "base": "docs/art/review/grey_float_openai_prop_composite.png",
         "corvin": (800, 780, "talk_side_right"),
+        "standees": [("juno", 1250, 745, 0.75)],
         "setpieces": [
             ("grey_float_steam_drift", "game/rooms/grey_float/atmosphere/grey_float_steam_drift.png", 120, 330, 1640, 470, 10, 5),
         ],
         "caption": "Talk: action silhouette remains readable through steam.",
         "expected_setpiece_state": "steam_loop",
+    },
+    {
+        "id": "sabine_office_talk_sabine",
+        "room_code": "R12",
+        "title": "Sabine's Office",
+        "base": "docs/art/review/sabine_office_openai_prop_composite.png",
+        "corvin": (790, 780, "talk_side_right"),
+        "standees": [("sabine", 1260, 735, 0.76)],
+        "setpieces": [
+            ("sabine_office_window_rain", "game/rooms/sabine_office/atmosphere/sabine_office_window_rain.png", 900, 90, 650, 470, 8, 4),
+        ],
+        "caption": "Talk: Sabine's office reads as a two-character scene.",
+        "expected_setpiece_state": "window_rain_loop",
     },
 ]
 
@@ -105,6 +157,24 @@ def paste_corvin(image: Image.Image, foot_x: int, foot_y: int, animation: str) -
     return {"animation": animation, "frame_count": frame_count, "scaled_size": [sprite.width, sprite.height]}
 
 
+def paste_standee(image: Image.Image, standee_id: str, foot_x: int, foot_y: int, scale: float) -> dict[str, object]:
+    path = ROOT / "game" / "standees" / "act_i" / f"{standee_id}.png"
+    if not path.exists():
+        raise FileNotFoundError(f"Missing Act I standee: {path}")
+    sprite = Image.open(path).convert("RGBA")
+    if scale != 1.0:
+        sprite = sprite.resize((round(sprite.width * scale), round(sprite.height * scale)), Image.Resampling.LANCZOS)
+    draw_contact_shadow(image, sprite.width, sprite.height, foot_x, foot_y)
+    reflection = sprite.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
+    reflection = reflection.resize((round(reflection.width * 0.88), max(10, round(reflection.height * 0.18))), Image.Resampling.BICUBIC)
+    tint = Image.new("RGBA", reflection.size, (42, 58, 64, 0))
+    alpha = reflection.getchannel("A").point(lambda value: round(value * 0.16))
+    tint.putalpha(alpha)
+    image.alpha_composite(tint, (round(foot_x - tint.width / 2), foot_y + 5))
+    image.alpha_composite(sprite, (round(foot_x - sprite.width / 2), round(foot_y - sprite.height)))
+    return {"id": standee_id, "foot": [foot_x, foot_y], "scaled_size": [sprite.width, sprite.height]}
+
+
 def draw_contact_shadow(image: Image.Image, width: int, height: int, foot_x: int, foot_y: int) -> None:
     draw = ImageDraw.Draw(image, "RGBA")
     shadow_w = max(42, min(128, round(width * 0.30)))
@@ -125,6 +195,9 @@ def build_frame(case: dict[str, object]) -> dict[str, object]:
     for _overlay_id, rel_path, x, y, width, height, frames, frame_index in case["setpieces"]:
         overlay = sheet_frame(ROOT / rel_path, width, height, frames, frame_index)
         base.alpha_composite(overlay, (x, y))
+    standee_records = []
+    for standee_id, standee_x, standee_y, standee_scale in case.get("standees", []):
+        standee_records.append(paste_standee(base, str(standee_id), int(standee_x), int(standee_y), float(standee_scale)))
     foot_x, foot_y, animation = case["corvin"]
     corvin_meta = paste_corvin(base, int(foot_x), int(foot_y), str(animation))
     add_compact_hud(base, str(case["room_code"]), str(case["title"]), str(case["caption"]))
@@ -144,11 +217,14 @@ def build_frame(case: dict[str, object]) -> dict[str, object]:
         "corvin_frame_count": corvin_meta["frame_count"],
         "corvin_scaled_size": corvin_meta["scaled_size"],
         "corvin_foot": [int(foot_x), int(foot_y)],
+        "standees": standee_records,
+        "standee_count": len(standee_records),
         "crowd_hotspot": crowd_hotspot,
         "crowd_distance_px": crowd_distance,
         "expected_setpiece_state": case["expected_setpiece_state"],
         "uses_in_scene_corvin_action": True,
-        "uses_sectional_setpiece_frame": True,
+        "uses_sectional_setpiece_frame": bool(case["setpieces"]),
+        "uses_named_npc_standee": len(standee_records) > 0,
         "uses_compact_hud": True,
     }
 
@@ -169,11 +245,23 @@ def build_contact(records: list[dict[str, object]]) -> None:
         room_thumb = frame.copy()
         room_thumb.thumbnail((room_w, room_h), Image.Resampling.LANCZOS)
         foot_x, foot_y = record["corvin_foot"]
+        focus_points = [(int(foot_x), int(foot_y) - 170)]
+        for standee in record.get("standees", []):
+            standee_foot = standee.get("foot", [])
+            if len(standee_foot) == 2:
+                focus_points.append((int(standee_foot[0]), int(standee_foot[1]) - 170))
+        crowd_hotspot = record.get("crowd_hotspot", [])
+        if len(crowd_hotspot) == 2:
+            focus_points.append((int(crowd_hotspot[0]), int(crowd_hotspot[1]) - 140))
+        min_x = min(point[0] for point in focus_points)
+        max_x = max(point[0] for point in focus_points)
+        min_y = min(point[1] for point in focus_points)
+        max_y = max(point[1] for point in focus_points)
         crop_box = (
-            max(0, int(foot_x) - 170),
-            max(0, int(foot_y) - 360),
-            min(frame.width, int(foot_x) + 170),
-            min(frame.height, int(foot_y) + 90),
+            max(0, min_x - 120),
+            max(0, min_y - 180),
+            min(frame.width, max_x + 120),
+            min(frame.height, max_y + 230),
         )
         action_crop = frame.crop(crop_box)
         action_crop.thumbnail((crop_w, crop_h), Image.Resampling.LANCZOS)
@@ -195,7 +283,7 @@ def main() -> None:
         "status": "exported",
         "frame_count": len(records),
         "contact_sheet": CONTACT_PATH.relative_to(ROOT).as_posix(),
-        "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state.",
+        "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state and named NPC standee dialogue/counter staging.",
         "frames": records,
     }
     REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
@@ -204,16 +292,16 @@ def main() -> None:
         "",
         "Generated by `tools/Build-ActIInSceneActionReview.py`.",
         "",
-        "These review frames show Corvin's talk, use, and wet side actions inside Act I room compositions. The Salt Market cases use the crowd `turn_to_corvin` sectional setpiece state, so the review proof covers the planned crowd reaction instead of only static idle room shots.",
+        "These review frames show Corvin's talk, use, and wet side actions inside Act I room compositions. The Salt Market cases use the crowd `turn_to_corvin` sectional setpiece state, and the named NPC cases include standees, contact shadows, and wet-floor reflections, so the review proof covers interaction staging instead of only static idle room shots.",
         "",
         f"- Contact sheet: `{report['contact_sheet']}`",
         f"- Frame count: {len(records)}",
         "",
-        "| Frame | Room | Corvin action | Setpiece state | Output |",
-        "|---|---|---|---|---|",
+        "| Frame | Room | Corvin action | NPCs | Setpiece state | Output |",
+        "|---|---|---|---:|---|---|",
     ]
     for record in records:
-        lines.append(f"| {record['id']} | {record['room_code']} / {record['title']} | `{record['corvin_animation']}` | `{record['expected_setpiece_state']}` | `{record['output']}` |")
+        lines.append(f"| {record['id']} | {record['room_code']} / {record['title']} | `{record['corvin_animation']}` | {record['standee_count']} | `{record['expected_setpiece_state']}` | `{record['output']}` |")
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"in_scene_action_frames={len(records)}")
     print(f"contact_sheet={CONTACT_PATH.relative_to(ROOT)}")
