@@ -36,7 +36,7 @@ GATES:
 - Act I living scene cues: pass, playable rooms add looping water shimmer, lamp breath, steam/rain streaks, and intentional Church wrong-light pools while runtime screenshots keep the cues palette-bounded.
 - Act I gameplay review panels: pass, 9 larger cropped panels show the playable band, generated room art, Corvin, NPCs, foreground props, HUD, and room-specific dialogue captions at human-review scale.
 - Corvin action runtime frames: pass, 8 renderer-captured action frames show actual character_corvin.tscn idle/talk/use/wet side animations through the RuntimeSprite loader.
-- Act I in-scene action review: pass, 9 room-composition frames show Corvin talk/use/wet actions in context, including the Salt Market crowd turn_to_corvin state, named NPC dialogue/counter staging, text-free wet interaction effects, and zoom crops for action readability.
+- Act I in-scene action review: pass, 9 room-composition frames show Corvin talk/use/wet actions in context, including the Salt Market crowd turn_to_corvin state, named NPC dialogue/counter staging, text-free action focus marks, text-free wet interaction effects, and zoom crops for action readability.
 - Act I character palette grade: pass, 11 standee and crowd assets audited under the green-cast threshold so characters keep green reserved for wrong-light scenes.
 - Act I character scene fit: pass, NPC standees are bounded to the playable room scale, foot-grounded, reflected, subtly rim-lit, and green-controlled in the runtime review frames.
 - Act I character occlusion: pass, selected foreground props are reapplied as cropped front-depth layers over the character band so desks, counters, screens, and rugs can sit between camera and characters.

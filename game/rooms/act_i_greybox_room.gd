@@ -265,7 +265,7 @@ const ACT_I_INTERACTION_PULSES := {
 		"church_sign": {"position": Vector2(1380, 540), "radius": 95.0, "color": Color(0.788235, 0.541176, 0.235294, 0.62), "effect": "ink"},
 	},
 	"R05": {
-		"desk_lamp": {"position": Vector2(890, 650), "radius": 108.0, "color": Color(0.494118, 0.607843, 0.305882, 0.60), "effect": "smoke"},
+		"desk_lamp": {"position": Vector2(890, 650), "radius": 108.0, "color": Color(0.894118, 0.862745, 0.784314, 0.46), "effect": "smoke"},
 	},
 	"R08": {
 		"drain": {"position": Vector2(1410, 725), "radius": 96.0, "color": Color(0.894118, 0.862745, 0.784314, 0.54), "effect": "drain"},
@@ -325,6 +325,8 @@ var _duel_panel: CanvasLayer
 var _pending_duel_result: Dictionary = {}
 var _hover_focus_layer: Node2D
 var _hover_focus_tween: Tween
+var _action_focus_layer: Node2D
+var _action_focus_tween: Tween
 
 func _ready() -> void:
 	super()
@@ -354,6 +356,7 @@ func _apply_real_art_presentation() -> void:
 	_add_act_i_character_occluders()
 	_add_act_i_interaction_pulse_layer()
 	_add_act_i_hover_focus_layer()
+	_add_act_i_action_focus_layer()
 
 func _set_debug_layout_visible(is_visible: bool) -> void:
 	for node_name in ["Floor", "WalkableAreas", "TitleLabel", "NotesLabel"]:
@@ -733,6 +736,19 @@ func _add_act_i_hover_focus_layer() -> void:
 	_hover_focus_layer.visible = false
 	props.add_child(_hover_focus_layer)
 
+func _add_act_i_action_focus_layer() -> void:
+	var props := get_node_or_null("Props")
+	if props == null:
+		props = self
+	var existing := props.get_node_or_null("ActIActionFocus")
+	if existing:
+		existing.queue_free()
+	_action_focus_layer = Node2D.new()
+	_action_focus_layer.name = "ActIActionFocus"
+	_action_focus_layer.z_index = 13
+	_action_focus_layer.visible = false
+	props.add_child(_action_focus_layer)
+
 func _play_act_i_interaction_pulse(interaction_key: String) -> bool:
 	if not ACT_I_INTERACTION_PULSES.has(room_code):
 		return false
@@ -800,7 +816,7 @@ func _add_act_i_wet_effect_marks(container: Node2D, interaction_key: String, eff
 				var puff := Polygon2D.new()
 				puff.name = "%sSmokePuff%d" % [interaction_key.to_pascal_case(), index + 1]
 				puff.position = position + Vector2(-30.0 + float(index) * 32.0, -28.0 - float(index) * 20.0)
-				puff.color = Color(0.494118, 0.607843, 0.305882, 0.34 - float(index) * 0.05)
+				puff.color = Color(0.894118, 0.862745, 0.784314, 0.30 - float(index) * 0.05)
 				puff.polygon = _make_act_i_pulse_polygon(max(18.0, radius * (0.24 - float(index) * 0.025)))
 				puff.z_index = 10
 				container.add_child(puff)
@@ -911,6 +927,46 @@ func _make_hover_focus_polygon(radius: float) -> PackedVector2Array:
 		points.append(Vector2(cos(angle) * radius, sin(angle) * radius * 0.34))
 	return points
 
+func _show_action_focus(hotspot: Area2D, verb: String) -> void:
+	if hotspot == null:
+		return
+	if _action_focus_layer == null or not is_instance_valid(_action_focus_layer):
+		_add_act_i_action_focus_layer()
+	if _action_focus_layer == null:
+		return
+	if _action_focus_tween:
+		_action_focus_tween.kill()
+	for child in _action_focus_layer.get_children():
+		child.queue_free()
+	var radius := 36.0
+	if verb == "wet":
+		radius = 52.0
+	elif verb == "talk":
+		radius = 44.0
+	var mark := Polygon2D.new()
+	mark.name = "%sActionFocusMark" % verb.to_pascal_case()
+	mark.position = hotspot.position
+	mark.color = Color(0.788235, 0.541176, 0.235294, 0.42)
+	mark.polygon = _make_hover_focus_polygon(radius)
+	_action_focus_layer.add_child(mark)
+	var glint := Line2D.new()
+	glint.name = "%sActionFocusGlint" % verb.to_pascal_case()
+	glint.position = hotspot.position
+	glint.width = 2.0
+	glint.default_color = Color(0.894118, 0.862745, 0.784314, 0.82)
+	glint.points = PackedVector2Array([
+		Vector2(-radius * 0.52, -radius * 0.10),
+		Vector2(radius * 0.52, radius * 0.10)
+	])
+	_action_focus_layer.add_child(glint)
+	_action_focus_layer.visible = true
+	_action_focus_tween = create_tween()
+	_action_focus_tween.tween_property(mark, "scale", Vector2(1.28, 0.72), 0.18)
+	_action_focus_tween.parallel().tween_property(glint, "modulate:a", 0.20, 0.18)
+	_action_focus_tween.tween_property(mark, "modulate:a", 0.0, 0.34)
+	_action_focus_tween.parallel().tween_property(glint, "modulate:a", 0.0, 0.34)
+	_action_focus_tween.tween_callback(_action_focus_layer.hide)
+
 func _on_exit_hotspot_input(_viewport: Node, event: InputEvent, _shape_idx: int, hotspot: Area2D) -> void:
 	if not event is InputEventMouseButton:
 		return
@@ -921,6 +977,7 @@ func _on_exit_hotspot_input(_viewport: Node, event: InputEvent, _shape_idx: int,
 	if _hud:
 		verb = _hud.selected_verb
 
+	_show_action_focus(hotspot, verb)
 	_play_corvin_verb_action(verb)
 	if hotspot.has_method("handle_room_verb"):
 		var result: Dictionary = hotspot.handle_room_verb(verb)
@@ -936,6 +993,7 @@ func _on_interaction_hotspot_input(_viewport: Node, event: InputEvent, _shape_id
 	if _hud:
 		verb = _hud.selected_verb
 
+	_show_action_focus(hotspot, verb)
 	_play_corvin_verb_action(verb)
 	if hotspot.has_method("handle_room_verb"):
 		var result: Dictionary = hotspot.handle_room_verb(verb)

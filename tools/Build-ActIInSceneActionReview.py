@@ -28,6 +28,7 @@ CASES = [
         "base": "docs/art/review/salt_market_openai_prop_composite.png",
         "corvin": (620, 790, "talk_side_right"),
         "crowd_hotspot": (960, 760),
+        "action_focus": {"position": (960, 760), "verb": "talk"},
         "setpieces": [
             ("salt_market_crowd_turn_to_corvin", "game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png", 1070, 455, 520, 330, 10, 4),
             ("salt_market_lamp_flicker", "game/rooms/salt_market/atmosphere/salt_market_lamp_flicker.png", 1210, 210, 540, 500, 8, 0),
@@ -43,6 +44,7 @@ CASES = [
         "base": "docs/art/review/salt_market_openai_prop_composite.png",
         "corvin": (620, 790, "use_side_right"),
         "crowd_hotspot": (960, 760),
+        "action_focus": {"position": (960, 760), "verb": "use"},
         "setpieces": [
             ("salt_market_crowd_turn_to_corvin", "game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png", 1070, 455, 520, 330, 10, 7),
             ("salt_market_lamp_flicker", "game/rooms/salt_market/atmosphere/salt_market_lamp_flicker.png", 1210, 210, 540, 500, 8, 2),
@@ -61,6 +63,7 @@ CASES = [
             ("old_quay_water_glint", "game/rooms/old_quay/atmosphere/old_quay_water_glint.png", 0, 650, 1920, 310, 8, 3),
         ],
         "standees": [("tomas_bollard", 400, 735, 1.0)],
+        "action_focus": {"position": (655, 740), "verb": "wet"},
         "pulse": {"position": (655, 740), "radius": 82, "color": (228, 220, 200, 148), "effect": "rope"},
         "caption": "Wet: Corvin's supernatural verb reads in the room.",
         "expected_setpiece_state": "water_glint_loop",
@@ -75,7 +78,8 @@ CASES = [
         "setpieces": [
             ("harbor_registry_lamp_smoke", "game/rooms/harbor_registry/atmosphere/harbor_registry_lamp_smoke.png", 700, 300, 520, 430, 10, 5),
         ],
-        "pulse": {"position": (890, 650), "radius": 108, "color": (125, 155, 78, 154), "effect": "smoke"},
+        "action_focus": {"position": (1230, 585), "verb": "talk"},
+        "pulse": {"position": (890, 650), "radius": 108, "color": (228, 220, 200, 118), "effect": "smoke"},
         "caption": "Talk: Registrar duel staging keeps both speakers readable.",
         "expected_setpiece_state": "lamp_smoke_loop",
     },
@@ -87,6 +91,7 @@ CASES = [
         "corvin": (720, 780, "use_side_right"),
         "standees": [("bone_chandler", 1200, 760, 0.78)],
         "setpieces": [],
+        "action_focus": {"position": (1018, 612), "verb": "use"},
         "caption": "Use: counter interaction keeps prop, hand, and shopkeeper clear.",
         "expected_setpiece_state": "npc_counter_staging",
     },
@@ -98,6 +103,7 @@ CASES = [
         "corvin": (820, 790, "talk_side_right"),
         "standees": [("prosper", 1190, 775, 0.82)],
         "setpieces": [],
+        "action_focus": {"position": (1190, 610), "verb": "talk"},
         "caption": "Talk: Prosper's debt-forgiveness beat has readable eyelines.",
         "expected_setpiece_state": "npc_dialogue_staging",
     },
@@ -111,6 +117,7 @@ CASES = [
         "setpieces": [
             ("grey_float_steam_drift", "game/rooms/grey_float/atmosphere/grey_float_steam_drift.png", 120, 330, 1640, 470, 10, 5),
         ],
+        "action_focus": {"position": (1250, 585), "verb": "talk"},
         "caption": "Talk: action silhouette remains readable through steam.",
         "expected_setpiece_state": "steam_loop",
     },
@@ -124,6 +131,7 @@ CASES = [
         "setpieces": [
             ("sabine_office_window_rain", "game/rooms/sabine_office/atmosphere/sabine_office_window_rain.png", 900, 90, 650, 470, 8, 4),
         ],
+        "action_focus": {"position": (1260, 575), "verb": "talk"},
         "caption": "Talk: Sabine's office reads as a two-character scene.",
         "expected_setpiece_state": "window_rain_loop",
     },
@@ -135,6 +143,7 @@ CASES = [
         "corvin": (800, 780, "wet_side_right"),
         "standees": [],
         "setpieces": [],
+        "action_focus": {"position": (1410, 725), "verb": "wet"},
         "pulse": {"position": (1410, 725), "radius": 96, "color": (228, 220, 200, 138), "effect": "drain"},
         "caption": "Wet: drain reaction gives the puzzle verb a visible effect.",
         "expected_setpiece_state": "wet_pulse_drain",
@@ -215,7 +224,7 @@ def draw_interaction_pulse(image: Image.Image, pulse: dict[str, object]) -> dict
             puff_radius = max(18, int(radius * (0.24 - index * 0.025)))
             px = x - 30 + index * 32
             py = y - 28 - index * 20
-            draw.ellipse((px - puff_radius, py - puff_radius * 0.38, px + puff_radius, py + puff_radius * 0.38), fill=(125, 155, 78, 86 - index * 13))
+            draw.ellipse((px - puff_radius, py - puff_radius * 0.38, px + puff_radius, py + puff_radius * 0.38), fill=(228, 220, 200, 76 - index * 12))
     elif effect == "drain":
         for index in range(4):
             sx = x - 90 + index * 38
@@ -227,6 +236,16 @@ def draw_interaction_pulse(image: Image.Image, pulse: dict[str, object]) -> dict
             top_y = y - 38
             draw.line((top_x, top_y, top_x - 5 + (index % 2) * 8, top_y + 62 + index * 9), fill=(201, 138, 60, 158), width=4)
     return {"position": [int(x), int(y)], "radius": radius, "effect": effect, "visible_text": False}
+
+
+def draw_action_focus(image: Image.Image, focus: dict[str, object]) -> dict[str, object]:
+    x, y = focus["position"]
+    verb = str(focus.get("verb", "look"))
+    radius = 52 if verb == "wet" else 44 if verb == "talk" else 36
+    draw = ImageDraw.Draw(image, "RGBA")
+    draw.ellipse((x - radius, y - radius * 0.34, x + radius, y + radius * 0.34), outline=(201, 138, 60, 138), width=3)
+    draw.line((x - radius * 0.52, y - radius * 0.10, x + radius * 0.52, y + radius * 0.10), fill=(228, 220, 200, 184), width=2)
+    return {"position": [int(x), int(y)], "verb": verb, "radius": radius, "visible_text": False}
 
 
 def wrap_text(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.ImageFont, max_width: int) -> list[str]:
@@ -303,6 +322,7 @@ def build_frame(case: dict[str, object]) -> dict[str, object]:
     pulse_record = {}
     if "pulse" in case:
         pulse_record = draw_interaction_pulse(base, case["pulse"])
+    action_focus = draw_action_focus(base, case["action_focus"])
     add_game_hud(base, str(case["room_code"]), str(case["title"]), str(case["caption"]))
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     output = OUT_DIR / f"{case['id']}.png"
@@ -323,6 +343,8 @@ def build_frame(case: dict[str, object]) -> dict[str, object]:
         "standees": standee_records,
         "standee_count": len(standee_records),
         "interaction_pulse": pulse_record,
+        "action_focus": action_focus,
+        "uses_action_focus_mark": True,
         "uses_interaction_pulse": bool(pulse_record),
         "crowd_hotspot": crowd_hotspot,
         "crowd_distance_px": crowd_distance,
@@ -390,7 +412,7 @@ def main() -> None:
         "status": "exported",
         "frame_count": len(records),
         "contact_sheet": CONTACT_PATH.relative_to(ROOT).as_posix(),
-        "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state, named NPC standee dialogue/counter staging, generated game HUD with embedded status and dialogue text, and text-free wet interaction effects.",
+        "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state, named NPC standee dialogue/counter staging, generated game HUD with embedded status and dialogue text, text-free action focus marks, and text-free wet interaction effects.",
         "frames": records,
     }
     REPORT_JSON.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
@@ -399,18 +421,20 @@ def main() -> None:
         "",
         "Generated by `tools/Build-ActIInSceneActionReview.py`.",
         "",
-        "These review frames show Corvin's talk, use, and wet side actions inside Act I room compositions. The Salt Market cases use the crowd `turn_to_corvin` sectional setpiece state, the named NPC cases include standees, contact shadows, and wet-floor reflections, the frames use the generated game HUD with embedded status and dialogue text, and the wet cases include text-free interaction effects, so the review proof covers interaction staging instead of only static idle room shots.",
+        "These review frames show Corvin's talk, use, and wet side actions inside Act I room compositions. The Salt Market cases use the crowd `turn_to_corvin` sectional setpiece state, the named NPC cases include standees, contact shadows, and wet-floor reflections, the frames use the generated game HUD with embedded status and dialogue text, every case includes a text-free action focus mark at the clicked target, and the wet cases include text-free interaction effects, so the review proof covers interaction staging instead of only static idle room shots.",
         "",
         f"- Contact sheet: `{report['contact_sheet']}`",
         f"- Frame count: {len(records)}",
         "",
-        "| Frame | Room | Corvin action | NPCs | Pulse | Setpiece state | Output |",
-        "|---|---|---|---:|---|---|---|",
+        "| Frame | Room | Corvin action | NPCs | Focus | Pulse | Setpiece state | Output |",
+        "|---|---|---|---:|---|---|---|---|",
     ]
     for record in records:
         pulse = record.get("interaction_pulse", {})
         pulse_effect = pulse.get("effect", "-") if pulse else "-"
-        lines.append(f"| {record['id']} | {record['room_code']} / {record['title']} | `{record['corvin_animation']}` | {record['standee_count']} | {pulse_effect} | `{record['expected_setpiece_state']}` | `{record['output']}` |")
+        focus = record.get("action_focus", {})
+        focus_verb = focus.get("verb", "-") if focus else "-"
+        lines.append(f"| {record['id']} | {record['room_code']} / {record['title']} | `{record['corvin_animation']}` | {record['standee_count']} | {focus_verb} | {pulse_effect} | `{record['expected_setpiece_state']}` | `{record['output']}` |")
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"in_scene_action_frames={len(records)}")
     print(f"contact_sheet={CONTACT_PATH.relative_to(ROOT)}")

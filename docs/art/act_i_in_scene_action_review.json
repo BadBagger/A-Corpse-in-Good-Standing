@@ -2,7 +2,7 @@
   "status": "exported",
   "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_in_scene_action_contact_sheet.png",
-  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state, named NPC standee dialogue/counter staging, generated game HUD with embedded status and dialogue text, and text-free wet interaction effects.",
+  "runtime_evidence": "In-scene action review frames show Corvin talk/use/wet side actions inside Act I rooms, including the Salt Market crowd turn_to_corvin sectional setpiece state, named NPC standee dialogue/counter staging, generated game HUD with embedded status and dialogue text, text-free action focus marks, and text-free wet interaction effects.",
   "frames": [
     {
       "id": "salt_market_talk_crowd_turn",
@@ -22,6 +22,16 @@
       "standees": [],
       "standee_count": 0,
       "interaction_pulse": {},
+      "action_focus": {
+        "position": [
+          960,
+          760
+        ],
+        "verb": "talk",
+        "radius": 44,
+        "visible_text": false
+      },
+      "uses_action_focus_mark": true,
       "uses_interaction_pulse": false,
       "crowd_hotspot": [
         960,
@@ -54,6 +64,16 @@
       "standees": [],
       "standee_count": 0,
       "interaction_pulse": {},
+      "action_focus": {
+        "position": [
+          960,
+          760
+        ],
+        "verb": "use",
+        "radius": 36,
+        "visible_text": false
+      },
+      "uses_action_focus_mark": true,
       "uses_interaction_pulse": false,
       "crowd_hotspot": [
         960,
@@ -106,6 +126,16 @@
         "effect": "rope",
         "visible_text": false
       },
+      "action_focus": {
+        "position": [
+          655,
+          740
+        ],
+        "verb": "wet",
+        "radius": 52,
+        "visible_text": false
+      },
+      "uses_action_focus_mark": true,
       "uses_interaction_pulse": true,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
@@ -155,6 +185,16 @@
         "effect": "smoke",
         "visible_text": false
       },
+      "action_focus": {
+        "position": [
+          1230,
+          585
+        ],
+        "verb": "talk",
+        "radius": 44,
+        "visible_text": false
+      },
+      "uses_action_focus_mark": true,
       "uses_interaction_pulse": true,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
@@ -196,6 +236,16 @@
       ],
       "standee_count": 1,
       "interaction_pulse": {},
+      "action_focus": {
+        "position": [
+          1018,
+          612
+        ],
+        "verb": "use",
+        "radius": 36,
+        "visible_text": false
+      },
+      "uses_action_focus_mark": true,
       "uses_interaction_pulse": false,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
@@ -237,6 +287,16 @@
       ],
       "standee_count": 1,
       "interaction_pulse": {},
+      "action_focus": {
+        "position": [
+          1190,
+          610
+        ],
+        "verb": "talk",
+        "radius": 44,
+        "visible_text": false
+      },
+      "uses_action_focus_mark": true,
       "uses_interaction_pulse": false,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
@@ -278,6 +338,16 @@
       ],
       "standee_count": 1,
       "interaction_pulse": {},
+      "action_focus": {
+        "position": [
+          1250,
+          585
+        ],
+        "verb": "talk",
+        "radius": 44,
+        "visible_text": false
+      },
+      "uses_action_focus_mark": true,
       "uses_interaction_pulse": false,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
@@ -319,6 +389,16 @@
       ],
       "standee_count": 1,
       "interaction_pulse": {},
+      "action_focus": {
+        "position": [
+          1260,
+          575
+        ],
+        "verb": "talk",
+        "radius": 44,
+        "visible_text": false
+      },
+      "uses_action_focus_mark": true,
       "uses_interaction_pulse": false,
       "crowd_hotspot": [],
       "crowd_distance_px": null,
@@ -356,6 +436,16 @@
         "effect": "drain",
         "visible_text": false
       },
+      "action_focus": {
+        "position": [
+          1410,
+          725
+        ],
+        "verb": "wet",
+        "radius": 52,
+        "visible_text": false
+      },
+      "uses_action_focus_mark": true,
       "uses_interaction_pulse": true,
       "crowd_hotspot": [],
       "crowd_distance_px": null,

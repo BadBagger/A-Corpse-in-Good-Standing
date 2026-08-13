@@ -23,7 +23,7 @@ if ([int]$report.frame_count -ne 9) {
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_in_scene_action_contact_sheet.png") {
     throw "Act I in-scene action contact sheet path is not stable."
 }
-foreach ($requiredText in @("Corvin talk/use/wet side actions", "Salt Market crowd", "turn_to_corvin", "named NPC standee dialogue/counter staging", "generated game HUD with embedded status and dialogue text", "text-free wet interaction effects")) {
+foreach ($requiredText in @("Corvin talk/use/wet side actions", "Salt Market crowd", "turn_to_corvin", "named NPC standee dialogue/counter staging", "generated game HUD with embedded status and dialogue text", "text-free action focus marks", "text-free wet interaction effects")) {
     if ([string]$report.runtime_evidence -notmatch [regex]::Escape($requiredText)) {
         throw "Act I in-scene action report missing runtime evidence text: $requiredText"
     }
@@ -74,6 +74,20 @@ foreach ($frame in $frames) {
             throw "Act I in-scene action frame $id missing flag: $flag"
         }
     }
+    if (-not [bool]$frame.uses_action_focus_mark) {
+        throw "Act I in-scene action frame $id must include a text-free action focus mark."
+    }
+    $focus = $frame.action_focus
+    if ([string]::IsNullOrWhiteSpace([string]$focus.verb)) {
+        throw "Act I in-scene action frame $id focus mark must record the action verb."
+    }
+    if ([bool]$focus.visible_text) {
+        throw "Act I in-scene action frame $id focus mark must not render explanatory text."
+    }
+    $focusPosition = @($focus.position)
+    if ($focusPosition.Count -ne 2) {
+        throw "Act I in-scene action frame $id focus mark must include a target position."
+    }
     if ([string]$frame.room_code -in @("R02", "R05", "R06", "R07", "R10", "R12")) {
         if (-not [bool]$frame.uses_named_npc_standee -or [int]$frame.standee_count -lt 1) {
             throw "Act I in-scene action frame $id must include named NPC standee staging."
@@ -119,6 +133,36 @@ foreach ($frame in $frames) {
         if ($bitmap.Width -ne 1920 -or $bitmap.Height -ne 1080) {
             throw "Act I in-scene action frame $id must be 1920x1080, got $($bitmap.Width)x$($bitmap.Height)."
         }
+        $focusX = [int]$focusPosition[0]
+        $focusY = [int]$focusPosition[1]
+        $greenDominant = 0
+        $amberBone = 0
+        $focusSamples = 0
+        for ($sampleY = [Math]::Max(0, $focusY - 62); $sampleY -lt [Math]::Min($bitmap.Height, $focusY + 62); $sampleY += 4) {
+            for ($sampleX = [Math]::Max(0, $focusX - 72); $sampleX -lt [Math]::Min($bitmap.Width, $focusX + 72); $sampleX += 4) {
+                $pixel = $bitmap.GetPixel($sampleX, $sampleY)
+                if ($pixel.A -le 32) {
+                    continue
+                }
+                $focusSamples += 1
+                if ($pixel.G -gt ($pixel.R * 1.12) -and $pixel.G -gt ($pixel.B * 1.08) -and $pixel.G -gt 70) {
+                    $greenDominant += 1
+                }
+                if (($pixel.R -gt 120 -and $pixel.G -gt 80 -and $pixel.B -lt 140) -or ($pixel.R -gt 190 -and $pixel.G -gt 180 -and $pixel.B -gt 150)) {
+                    $amberBone += 1
+                }
+            }
+        }
+        if ($focusSamples -lt 600) {
+            throw "Act I in-scene action frame $id action focus sample is unexpectedly sparse."
+        }
+        $greenRatio = $greenDominant / [Math]::Max(1, $focusSamples)
+        if ($greenRatio -gt 0.08) {
+            throw "Act I in-scene action frame $id action focus reads too green: $([Math]::Round($greenRatio * 100, 3))%."
+        }
+        if ($amberBone -lt 5) {
+            throw "Act I in-scene action frame $id action focus lacks amber/bone pixels."
+        }
     }
     finally {
         if ($null -ne $bitmap) {
@@ -146,7 +190,7 @@ finally {
 }
 
 $md = Get-Content -LiteralPath $mdPath -Raw
-foreach ($requiredText in @("Act I In-Scene Action Review", "talk, use, and wet", "turn_to_corvin", "named NPC cases", "generated game HUD with embedded status and dialogue text", "text-free interaction effects", "static idle room shots")) {
+foreach ($requiredText in @("Act I In-Scene Action Review", "talk, use, and wet", "turn_to_corvin", "named NPC cases", "generated game HUD with embedded status and dialogue text", "text-free action focus mark", "text-free interaction effects", "static idle room shots")) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I in-scene action report missing required text: $requiredText"
     }
@@ -156,7 +200,7 @@ if ($md -match "[^\u0000-\u007F]") {
 }
 
 $builder = Get-Content -LiteralPath $builderPath -Raw
-foreach ($requiredText in @("salt_market_crowd_turn_to_corvin.png", "talk_side_right", "use_side_right", "wet_side_right", "draw_interaction_pulse", "uses_interaction_pulse", "visible_text", "paste_standee", "standee_count", "ImageFilter.MaxFilter", "201, 138, 60", "corvin_foot", "crowd_distance_px", "uses_sectional_setpiece_frame", "add_game_hud", "dialogue_text_embedded_in_hud", "status_text_embedded_in_generated_hud", "dialogue_panel.png", "status_strip.png", "prepare_status_strip")) {
+foreach ($requiredText in @("salt_market_crowd_turn_to_corvin.png", "talk_side_right", "use_side_right", "wet_side_right", "draw_interaction_pulse", "draw_action_focus", "uses_action_focus_mark", "action_focus", "uses_interaction_pulse", "visible_text", "paste_standee", "standee_count", "ImageFilter.MaxFilter", "201, 138, 60", "corvin_foot", "crowd_distance_px", "uses_sectional_setpiece_frame", "add_game_hud", "dialogue_text_embedded_in_hud", "status_text_embedded_in_generated_hud", "dialogue_panel.png", "status_strip.png", "prepare_status_strip")) {
     if (-not $builder.Contains($requiredText)) {
         throw "Act I in-scene action builder missing required text: $requiredText"
     }
@@ -166,7 +210,7 @@ if ($builder.Contains("draw.rectangle((18, 16")) {
 }
 
 $roomScript = Get-Content -LiteralPath $roomScriptPath -Raw
-foreach ($requiredText in @('_play_act_i_setpiece("salt_market_crowd", "turn_to_corvin")', '_play_act_i_interaction_pulse(interaction_key)', "_add_act_i_wet_effect_marks", "ACT_I_INTERACTION_PULSES", "rope_cleat", "church_sign", "desk_lamp", "drain", "interaction_key == `"market_crowd`"", "verb == `"talk`"", "verb == `"use`"", "verb == `"wet`"")) {
+foreach ($requiredText in @('_play_act_i_setpiece("salt_market_crowd", "turn_to_corvin")', '_play_act_i_interaction_pulse(interaction_key)', "_show_action_focus(hotspot, verb)", "ActIActionFocus", "_add_act_i_wet_effect_marks", "ACT_I_INTERACTION_PULSES", "rope_cleat", "church_sign", "desk_lamp", "drain", "interaction_key == `"market_crowd`"", "verb == `"talk`"", "verb == `"use`"", "verb == `"wet`"")) {
     if (-not $roomScript.Contains($requiredText)) {
         throw "Act I room script missing crowd-turn runtime trigger text: $requiredText"
     }
