@@ -36,6 +36,7 @@ GATES:
 - Corvin action runtime frames: pass, 8 renderer-captured action frames show actual character_corvin.tscn idle/talk/use/wet side animations through the RuntimeSprite loader.
 - Act I in-scene action review: pass, 9 room-composition frames show Corvin talk/use/wet actions in context, including the Salt Market crowd turn_to_corvin state, named NPC dialogue/counter staging, text-free wet interaction effects, and zoom crops for action readability.
 - Act I character palette grade: pass, 11 standee and crowd assets audited under the green-cast threshold so characters keep green reserved for wrong-light scenes.
+- Salt Market green-spill grade: pass, 5 visible market/crowd layers audited and graded; max post-grade green spill is 0% while sky/Church wrong-light remains allowed.
 - Act I human review notes: pass, generated combined review notes include the greybox playtest rubric and the art readability checklist for the same Step 5 run.
 - Act I VO timing manifest: pass, 558 Ink-derived lines across 18 speakers; 528 recordable VO lines, 30 stage-direction review lines, and 8 minor speakers needing cast/consolidation decisions before final recording.
 - Confession VO manifest: pass, 62 confessions produce 124 unrecorded Corvin VO lines, including 62 elaboration lines, with 1749 words keyed by confession id.

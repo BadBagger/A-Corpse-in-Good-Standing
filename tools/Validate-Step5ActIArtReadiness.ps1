@@ -75,6 +75,9 @@ $inSceneActionReviewValidatorPath = Join-Path $root "tools\Validate-ActIInSceneA
 $characterPaletteGradePath = Join-Path $root "docs\art\act_i_character_palette_grade.md"
 $characterPaletteGradeJsonPath = Join-Path $root "docs\art\act_i_character_palette_grade.json"
 $characterPaletteGradeValidatorPath = Join-Path $root "tools\Validate-ActICharacterPaletteGrade.ps1"
+$saltMarketGreenSpillPath = Join-Path $root "docs\art\salt_market_green_spill_grade.md"
+$saltMarketGreenSpillJsonPath = Join-Path $root "docs\art\salt_market_green_spill_grade.json"
+$saltMarketGreenSpillValidatorPath = Join-Path $root "tools\Validate-SaltMarketGreenSpill.ps1"
 $humanReviewNotesPath = Join-Path $root "docs\playtest\results\act_i_human_review_validation.md"
 $voLineManifestPath = Join-Path $root "docs\vo\act_i_vo_line_manifest.json"
 $voLineManifestReportPath = Join-Path $root "docs\vo\act_i_vo_line_manifest.md"
@@ -192,6 +195,9 @@ foreach ($path in @(
     $characterPaletteGradePath,
     $characterPaletteGradeJsonPath,
     $characterPaletteGradeValidatorPath,
+    $saltMarketGreenSpillPath,
+    $saltMarketGreenSpillJsonPath,
+    $saltMarketGreenSpillValidatorPath,
     $humanReviewNotesPath,
     $voLineManifestPath,
     $voLineManifestReportPath,
@@ -294,6 +300,8 @@ $inSceneActionReview = Get-Content -LiteralPath $inSceneActionReviewPath -Raw
 $inSceneActionReviewJson = Get-Content -LiteralPath $inSceneActionReviewJsonPath -Raw | ConvertFrom-Json
 $characterPaletteGrade = Get-Content -LiteralPath $characterPaletteGradePath -Raw
 $characterPaletteGradeJson = Get-Content -LiteralPath $characterPaletteGradeJsonPath -Raw | ConvertFrom-Json
+$saltMarketGreenSpill = Get-Content -LiteralPath $saltMarketGreenSpillPath -Raw
+$saltMarketGreenSpillJson = Get-Content -LiteralPath $saltMarketGreenSpillJsonPath -Raw | ConvertFrom-Json
 $humanReviewNotes = Get-Content -LiteralPath $humanReviewNotesPath -Raw
 $voLineManifest = Get-Content -LiteralPath $voLineManifestPath -Raw | ConvertFrom-Json
 $voLineManifestReport = Get-Content -LiteralPath $voLineManifestReportPath -Raw
@@ -1265,6 +1273,27 @@ foreach ($requiredText in @(
     }
 }
 
+& powershell -NoProfile -ExecutionPolicy Bypass -File $saltMarketGreenSpillValidatorPath
+if ($LASTEXITCODE -ne 0) {
+    throw "Salt Market green-spill validator failed."
+}
+
+if ($saltMarketGreenSpillJson.status -ne "graded" -or [int]$saltMarketGreenSpillJson.target_count -ne 5) {
+    throw "Salt Market green-spill grade must cover the background crowd band and four foreground prop layers."
+}
+if ([double]$saltMarketGreenSpillJson.max_green_spill_percent_after -gt 0.35) {
+    throw "Salt Market green-spill grade must keep max post-grade green spill under 0.35%."
+}
+foreach ($requiredText in @(
+    "Salt Market Green Spill Grade",
+    "sky/Church/wrong-light only",
+    "game/rooms/salt_market/background/salt_market_bg.png"
+)) {
+    if ($saltMarketGreenSpill -notmatch [regex]::Escape($requiredText)) {
+        throw "Salt Market green-spill report missing required text: $requiredText"
+    }
+}
+
 $backgroundPresent = @($backgroundRows | Where-Object { $_.status -eq "present" }).Count
 $backgroundPending = @($backgroundRows | Where-Object { $_.status -eq "pending" }).Count
 $corvinPresent = @($corvinRows | Where-Object { $_.status -eq "present" }).Count
@@ -1324,6 +1353,8 @@ $gameplayReviewPanelCount = [int]$gameplayReviewPanelsJson.panel_count
 $corvinActionRuntimeFrameCount = [int]$corvinActionRuntimeFramesJson.frame_count
 $inSceneActionFrameCount = [int]$inSceneActionReviewJson.frame_count
 $characterPaletteAssetCount = [int]$characterPaletteGradeJson.current_asset_count
+$saltMarketGreenSpillTargetCount = [int]$saltMarketGreenSpillJson.target_count
+$saltMarketGreenSpillMaxAfter = [double]$saltMarketGreenSpillJson.max_green_spill_percent_after
 
 $lines = @(
     "CHECKPOINT: Step 5 entry - Act I Art-Pass Readiness",
@@ -1364,6 +1395,7 @@ $lines = @(
     "- Corvin action runtime frames: pass, $corvinActionRuntimeFrameCount renderer-captured action frames show actual character_corvin.tscn idle/talk/use/wet side animations through the RuntimeSprite loader.",
     "- Act I in-scene action review: pass, $inSceneActionFrameCount room-composition frames show Corvin talk/use/wet actions in context, including the Salt Market crowd turn_to_corvin state, named NPC dialogue/counter staging, text-free wet interaction effects, and zoom crops for action readability.",
     "- Act I character palette grade: pass, $characterPaletteAssetCount standee and crowd assets audited under the green-cast threshold so characters keep green reserved for wrong-light scenes.",
+    "- Salt Market green-spill grade: pass, $saltMarketGreenSpillTargetCount visible market/crowd layers audited and graded; max post-grade green spill is $saltMarketGreenSpillMaxAfter% while sky/Church wrong-light remains allowed.",
     "- Act I human review notes: pass, generated combined review notes include the greybox playtest rubric and the art readability checklist for the same Step 5 run.",
     "- Act I VO timing manifest: pass, $voLineCount Ink-derived lines across $voSpeakerCount speakers; $voRecordableLineCount recordable VO lines, $voStageDirectionCount stage-direction review lines, and $voUncastSpeakerCount minor speakers needing cast/consolidation decisions before final recording.",
     "- Confession VO manifest: pass, $confessionVoConfessionCount confessions produce $confessionVoLineCount unrecorded Corvin VO lines, including $confessionVoElaborationLineCount elaboration lines, with $confessionVoWordCount words keyed by confession id.",
@@ -1431,6 +1463,7 @@ foreach ($requiredText in @(
     "Act I runtime review frames: pass",
     "Act I in-scene action review: pass",
     "Act I character palette grade: pass",
+    "Salt Market green-spill grade: pass",
     "Step 5 review dashboard: pass",
     "ready-source packet review step",
     "Step 5 human review bundle: pass",
