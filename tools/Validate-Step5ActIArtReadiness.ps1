@@ -41,6 +41,9 @@ $propCompositeContactSheetPath = Join-Path $root "docs\art\act_i_openai_prop_com
 $propCompositeContactSheetJsonPath = Join-Path $root "docs\art\act_i_openai_prop_composite_contact_sheet.json"
 $propCompositeContactSheetImagePath = Join-Path $root "docs\art\review\act_i_openai_prop_composite_contact_sheet.png"
 $propCompositeContactSheetValidatorPath = Join-Path $root "tools\Validate-ActIOpenAIPropCompositeContactSheet.ps1"
+$propGroundingPath = Join-Path $root "docs\art\act_i_prop_grounding_pass.md"
+$propGroundingJsonPath = Join-Path $root "docs\art\act_i_prop_grounding_pass.json"
+$propGroundingValidatorPath = Join-Path $root "tools\Validate-ActIPropGroundingPass.ps1"
 $atmosphereSetpiecesPath = Join-Path $root "docs\art\act_i_atmosphere_setpieces.md"
 $atmosphereSetpiecesJsonPath = Join-Path $root "docs\art\act_i_atmosphere_setpieces.json"
 $atmosphereSetpiecesImagePath = Join-Path $root "docs\art\review\act_i_atmosphere_setpieces_contact_sheet.png"
@@ -53,6 +56,9 @@ $runtimeReviewFramesPath = Join-Path $root "docs\art\act_i_runtime_review_frames
 $runtimeReviewFramesJsonPath = Join-Path $root "docs\art\act_i_runtime_review_frames.json"
 $runtimeReviewFramesImagePath = Join-Path $root "docs\art\review\act_i_runtime_frame_contact_sheet.png"
 $runtimeReviewFramesValidatorPath = Join-Path $root "tools\Validate-ActIRuntimeReviewFrames.ps1"
+$characterPaletteGradePath = Join-Path $root "docs\art\act_i_character_palette_grade.md"
+$characterPaletteGradeJsonPath = Join-Path $root "docs\art\act_i_character_palette_grade.json"
+$characterPaletteGradeValidatorPath = Join-Path $root "tools\Validate-ActICharacterPaletteGrade.ps1"
 $humanReviewNotesPath = Join-Path $root "docs\playtest\results\act_i_human_review_validation.md"
 $voLineManifestPath = Join-Path $root "docs\vo\act_i_vo_line_manifest.json"
 $voLineManifestReportPath = Join-Path $root "docs\vo\act_i_vo_line_manifest.md"
@@ -136,6 +142,9 @@ foreach ($path in @(
     $propCompositeContactSheetJsonPath,
     $propCompositeContactSheetImagePath,
     $propCompositeContactSheetValidatorPath,
+    $propGroundingPath,
+    $propGroundingJsonPath,
+    $propGroundingValidatorPath,
     $atmosphereSetpiecesPath,
     $atmosphereSetpiecesJsonPath,
     $atmosphereSetpiecesImagePath,
@@ -148,6 +157,9 @@ foreach ($path in @(
     $runtimeReviewFramesJsonPath,
     $runtimeReviewFramesImagePath,
     $runtimeReviewFramesValidatorPath,
+    $characterPaletteGradePath,
+    $characterPaletteGradeJsonPath,
+    $characterPaletteGradeValidatorPath,
     $humanReviewNotesPath,
     $voLineManifestPath,
     $voLineManifestReportPath,
@@ -232,12 +244,16 @@ $artReadabilityReview = Get-Content -LiteralPath $artReadabilityReviewPath -Raw
 $reviewContactSheet = Get-Content -LiteralPath $reviewContactSheetPath -Raw
 $propCompositeContactSheet = Get-Content -LiteralPath $propCompositeContactSheetPath -Raw
 $propCompositeContactSheetJson = Get-Content -LiteralPath $propCompositeContactSheetJsonPath -Raw | ConvertFrom-Json
+$propGrounding = Get-Content -LiteralPath $propGroundingPath -Raw
+$propGroundingJson = Get-Content -LiteralPath $propGroundingJsonPath -Raw | ConvertFrom-Json
 $atmosphereSetpieces = Get-Content -LiteralPath $atmosphereSetpiecesPath -Raw
 $atmosphereSetpiecesJson = Get-Content -LiteralPath $atmosphereSetpiecesJsonPath -Raw | ConvertFrom-Json
 $hudSkin = Get-Content -LiteralPath $hudSkinPath -Raw
 $hudSkinJson = Get-Content -LiteralPath $hudSkinJsonPath -Raw | ConvertFrom-Json
 $runtimeReviewFrames = Get-Content -LiteralPath $runtimeReviewFramesPath -Raw
 $runtimeReviewFramesJson = Get-Content -LiteralPath $runtimeReviewFramesJsonPath -Raw | ConvertFrom-Json
+$characterPaletteGrade = Get-Content -LiteralPath $characterPaletteGradePath -Raw
+$characterPaletteGradeJson = Get-Content -LiteralPath $characterPaletteGradeJsonPath -Raw | ConvertFrom-Json
 $humanReviewNotes = Get-Content -LiteralPath $humanReviewNotesPath -Raw
 $voLineManifest = Get-Content -LiteralPath $voLineManifestPath -Raw | ConvertFrom-Json
 $voLineManifestReport = Get-Content -LiteralPath $voLineManifestReportPath -Raw
@@ -1032,6 +1048,24 @@ foreach ($requiredText in @(
     }
 }
 
+& powershell -NoProfile -ExecutionPolicy Bypass -File $propGroundingValidatorPath
+if ($LASTEXITCODE -ne 0) {
+    throw "Act I prop grounding validator failed."
+}
+
+if ($propGroundingJson.status -ne "grounded" -or [int]$propGroundingJson.room_count -ne 11) {
+    throw "Act I prop grounding pass must cover 11 rooms."
+}
+foreach ($requiredText in @(
+    "Act I Prop Grounding Pass",
+    "contact shadows",
+    "wet-floor reflections"
+)) {
+    if ($propGrounding -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I prop grounding report missing required text: $requiredText"
+    }
+}
+
 & powershell -NoProfile -ExecutionPolicy Bypass -File $atmosphereSetpiecesValidatorPath
 if ($LASTEXITCODE -ne 0) {
     throw "Act I atmosphere setpiece validator failed."
@@ -1090,6 +1124,24 @@ foreach ($requiredText in @(
     }
 }
 
+& powershell -NoProfile -ExecutionPolicy Bypass -File $characterPaletteGradeValidatorPath
+if ($LASTEXITCODE -ne 0) {
+    throw "Act I character palette grade validator failed."
+}
+
+if ($characterPaletteGradeJson.status -ne "audited" -or [int]$characterPaletteGradeJson.current_asset_count -ne 8) {
+    throw "Act I character palette grade must audit 8 current standee assets."
+}
+foreach ($requiredText in @(
+    "Act I Character Palette Grade",
+    "green/teal cast",
+    "Current Assets"
+)) {
+    if ($characterPaletteGrade -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I character palette grade report missing required text: $requiredText"
+    }
+}
+
 $backgroundPresent = @($backgroundRows | Where-Object { $_.status -eq "present" }).Count
 $backgroundPending = @($backgroundRows | Where-Object { $_.status -eq "pending" }).Count
 $corvinPresent = @($corvinRows | Where-Object { $_.status -eq "present" }).Count
@@ -1140,9 +1192,11 @@ $voAudioPresentCount = [int]$voAudioStatus.present_count
 $voAudioMissingCount = [int]$voAudioStatus.missing_count
 $reviewDecisionRoomCount = $reviewDecisionRows.Count
 $propCompositeRoomCount = [int]$propCompositeContactSheetJson.room_count
+$propGroundingPropCount = [int]$propGroundingJson.prop_count
 $atmosphereSetpieceCount = [int]$atmosphereSetpiecesJson.count
 $hudSkinAssetCount = [int]$hudSkinJson.asset_count
 $runtimeReviewFrameCount = [int]$runtimeReviewFramesJson.frame_count
+$characterPaletteAssetCount = [int]$characterPaletteGradeJson.current_asset_count
 
 $lines = @(
     "CHECKPOINT: Step 5 entry - Act I Art-Pass Readiness",
@@ -1174,9 +1228,11 @@ $lines = @(
     "- Act I art readability review: pass, generated room-by-room review checklist covers brightest-object readability, walk-band clarity, wet targets, confession-source staging, Grey Float hard-R checks, and Registrar duel-format risk.",
     "- Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.",
     "- Act I OpenAI prop composite contact sheet: pass, generated review PNG shows $propCompositeRoomCount runtime room composites with palette-locked OpenAI foreground props across every Act I background room.",
+    "- Act I prop grounding pass: pass, $propGroundingPropCount foreground props are composited with contact shadows and wet-floor reflections for Act I review frames.",
     "- Act I atmosphere setpieces: pass, $atmosphereSetpieceCount transparent runtime overlays add water glint, lamp flicker, smoke, steam, and window rain to OpenAI room plates without changing puzzle coordinates.",
     "- Act I OpenAI HUD skin: pass, $hudSkinAssetCount generated noir UI texture assets are imported and wired into the playable prologue HUD without storing dialogue or puzzle state in image files.",
     "- Act I runtime review frames: pass, $runtimeReviewFrameCount player-view frames composite runtime room art, Corvin side sprites, NPC standees, first-frame atmosphere/setpieces, contact shadows, and the generated HUD skin.",
+    "- Act I character palette grade: pass, $characterPaletteAssetCount standees audited under the green-cast threshold so characters keep green reserved for wrong-light scenes.",
     "- Act I human review notes: pass, generated combined review notes include the greybox playtest rubric and the art readability checklist for the same Step 5 run.",
     "- Act I VO timing manifest: pass, $voLineCount Ink-derived lines across $voSpeakerCount speakers; $voRecordableLineCount recordable VO lines, $voStageDirectionCount stage-direction review lines, and $voUncastSpeakerCount minor speakers needing cast/consolidation decisions before final recording.",
     "- Confession VO manifest: pass, $confessionVoConfessionCount confessions produce $confessionVoLineCount unrecorded Corvin VO lines, including $confessionVoElaborationLineCount elaboration lines, with $confessionVoWordCount words keyed by confession id.",
@@ -1238,9 +1294,11 @@ foreach ($requiredText in @(
     "Act I background ready source packets: pass",
     "Act I review contact sheet: pass",
     "Act I OpenAI prop composite contact sheet: pass",
+    "Act I prop grounding pass: pass",
     "Act I atmosphere setpieces: pass",
     "Act I OpenAI HUD skin: pass",
     "Act I runtime review frames: pass",
+    "Act I character palette grade: pass",
     "Step 5 review dashboard: pass",
     "ready-source packet review step",
     "Step 5 human review bundle: pass",

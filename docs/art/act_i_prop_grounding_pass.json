@@ -1,0 +1,531 @@
+{
+  "generated_from": "tools/Enhance-ActIOpenAIPropComposites.py",
+  "status": "grounded",
+  "room_count": 11,
+  "prop_count": 47,
+  "grounding_pass": "contact shadows and wet-floor reflections added from each runtime prop alpha mask",
+  "rooms": [
+    {
+      "room_id": "almshouse",
+      "title": "Almshouse",
+      "output": "docs/art/review/almshouse_openai_prop_composite.png",
+      "background": "game/rooms/almshouse/background/almshouse_bg.png",
+      "prop_count": 5,
+      "props": [
+        {
+          "id": "salt_window",
+          "resource": "game/rooms/almshouse/props/salt_window.png",
+          "position": [
+            705,
+            420
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "cot_row",
+          "resource": "game/rooms/almshouse/props/cot_row.png",
+          "position": [
+            350,
+            560
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "privacy_screen_laundry",
+          "resource": "game/rooms/almshouse/props/privacy_screen_laundry.png",
+          "position": [
+            1245,
+            540
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "prosper_chair_table",
+          "resource": "game/rooms/almshouse/props/prosper_chair_table.png",
+          "position": [
+            890,
+            585
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "forgiveness_watch_tray",
+          "resource": "game/rooms/almshouse/props/forgiveness_watch_tray.png",
+          "position": [
+            1055,
+            655
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    },
+    {
+      "room_id": "bone_chandler",
+      "title": "Bone Chandler",
+      "output": "docs/art/review/bone_chandler_openai_prop_composite.png",
+      "background": "game/rooms/bone_chandler/background/bone_chandler_bg.png",
+      "prop_count": 4,
+      "props": [
+        {
+          "id": "bone_trade_counter",
+          "resource": "game/rooms/bone_chandler/props/bone_trade_counter.png",
+          "position": [
+            690,
+            545
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "prosper_watch_display",
+          "resource": "game/rooms/bone_chandler/props/prosper_watch_display.png",
+          "position": [
+            1018,
+            612
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "bone_shelf_cluster",
+          "resource": "game/rooms/bone_chandler/props/bone_shelf_cluster.png",
+          "position": [
+            1325,
+            500
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "salt_trade_tray",
+          "resource": "game/rooms/bone_chandler/props/salt_trade_tray.png",
+          "position": [
+            650,
+            760
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    },
+    {
+      "room_id": "church_of_the_drowned",
+      "title": "Church Of The Drowned",
+      "output": "docs/art/review/church_of_the_drowned_openai_prop_composite.png",
+      "background": "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
+      "prop_count": 4,
+      "props": [
+        {
+          "id": "poor_box",
+          "resource": "game/rooms/church_of_the_drowned/props/poor_box.png",
+          "position": [
+            545,
+            690
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "confession_booth",
+          "resource": "game/rooms/church_of_the_drowned/props/confession_booth.png",
+          "position": [
+            705,
+            535
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "church_ledger_desk",
+          "resource": "game/rooms/church_of_the_drowned/props/church_ledger_desk.png",
+          "position": [
+            875,
+            665
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "church_tariff_sign",
+          "resource": "game/rooms/church_of_the_drowned/props/church_tariff_sign.png",
+          "position": [
+            1105,
+            645
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    },
+    {
+      "room_id": "fish_hall",
+      "title": "Fish Hall",
+      "output": "docs/art/review/fish_hall_openai_prop_composite.png",
+      "background": "game/rooms/fish_hall/background/fish_hall_bg.png",
+      "prop_count": 5,
+      "props": [
+        {
+          "id": "ice_table_body_outline",
+          "resource": "game/rooms/fish_hall/props/ice_table_body_outline.png",
+          "position": [
+            330,
+            565
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "day_count_board",
+          "resource": "game/rooms/fish_hall/props/day_count_board.png",
+          "position": [
+            1350,
+            510
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "coroner_tag_tray",
+          "resource": "game/rooms/fish_hall/props/coroner_tag_tray.png",
+          "position": [
+            900,
+            645
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "visitor_book",
+          "resource": "game/rooms/fish_hall/props/visitor_book.png",
+          "position": [
+            1110,
+            610
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "floor_drain_grate",
+          "resource": "game/rooms/fish_hall/props/floor_drain_grate.png",
+          "position": [
+            1410,
+            725
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    },
+    {
+      "room_id": "grey_float",
+      "title": "Grey Float",
+      "output": "docs/art/review/grey_float_openai_prop_composite.png",
+      "background": "game/rooms/grey_float/background/grey_float_bg.png",
+      "prop_count": 4,
+      "props": [
+        {
+          "id": "juno_ledger_table",
+          "resource": "game/rooms/grey_float/props/juno_ledger_table.png",
+          "position": [
+            290,
+            560
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "bilge_regulator",
+          "resource": "game/rooms/grey_float/props/bilge_regulator.png",
+          "position": [
+            860,
+            465
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "privacy_screen",
+          "resource": "game/rooms/grey_float/props/privacy_screen.png",
+          "position": [
+            1335,
+            440
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "hot_pool_steps",
+          "resource": "game/rooms/grey_float/props/hot_pool_steps.png",
+          "position": [
+            1135,
+            665
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    },
+    {
+      "room_id": "harbor_registry",
+      "title": "Harbor Registry",
+      "output": "docs/art/review/harbor_registry_openai_prop_composite.png",
+      "background": "game/rooms/harbor_registry/background/harbor_registry_bg.png",
+      "prop_count": 4,
+      "props": [
+        {
+          "id": "registry_roll_book",
+          "resource": "game/rooms/harbor_registry/props/registry_roll_book.png",
+          "position": [
+            520,
+            555
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "registry_candles",
+          "resource": "game/rooms/harbor_registry/props/registry_candles.png",
+          "position": [
+            910,
+            642
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "registry_confession_slips",
+          "resource": "game/rooms/harbor_registry/props/registry_confession_slips.png",
+          "position": [
+            1065,
+            720
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "registry_inkstand",
+          "resource": "game/rooms/harbor_registry/props/registry_inkstand.png",
+          "position": [
+            790,
+            720
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    },
+    {
+      "room_id": "harbormaster_office",
+      "title": "Harbormaster Office",
+      "output": "docs/art/review/harbormaster_office_openai_prop_composite.png",
+      "background": "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
+      "prop_count": 5,
+      "props": [
+        {
+          "id": "permit_board",
+          "resource": "game/rooms/harbormaster_office/props/permit_board.png",
+          "position": [
+            420,
+            425
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "sabine_door_panel",
+          "resource": "game/rooms/harbormaster_office/props/sabine_door_panel.png",
+          "position": [
+            1340,
+            415
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "checklist_desk",
+          "resource": "game/rooms/harbormaster_office/props/checklist_desk.png",
+          "position": [
+            540,
+            575
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "clerk_counter",
+          "resource": "game/rooms/harbormaster_office/props/clerk_counter.png",
+          "position": [
+            880,
+            575
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "queue_rail_sign",
+          "resource": "game/rooms/harbormaster_office/props/queue_rail_sign.png",
+          "position": [
+            1185,
+            690
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    },
+    {
+      "room_id": "mudflats",
+      "title": "Mudflats",
+      "output": "docs/art/review/mudflats_openai_prop_composite.png",
+      "background": "game/rooms/mudflats/background/mudflats_bg.png",
+      "prop_count": 3,
+      "props": [
+        {
+          "id": "brine_silt",
+          "resource": "game/rooms/mudflats/props/brine_silt.png",
+          "position": [
+            846,
+            825
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "tomas_bollard",
+          "resource": "game/rooms/mudflats/props/tomas_bollard.png",
+          "position": [
+            268,
+            405
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "missing_boots",
+          "resource": "game/rooms/mudflats/props/missing_boots.png",
+          "position": [
+            897,
+            785
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    },
+    {
+      "room_id": "old_quay",
+      "title": "Old Quay",
+      "output": "docs/art/review/old_quay_openai_prop_composite.png",
+      "background": "game/rooms/old_quay/background/old_quay_bg.png",
+      "prop_count": 4,
+      "props": [
+        {
+          "id": "calcified_bollard_row",
+          "resource": "game/rooms/old_quay/props/calcified_bollard_row.png",
+          "position": [
+            760,
+            620
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "salt_rope_cleat",
+          "resource": "game/rooms/old_quay/props/salt_rope_cleat.png",
+          "position": [
+            655,
+            740
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "empty_flask",
+          "resource": "game/rooms/old_quay/props/empty_flask.png",
+          "position": [
+            1115,
+            735
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "quay_crate_cluster",
+          "resource": "game/rooms/old_quay/props/quay_crate_cluster.png",
+          "position": [
+            1365,
+            700
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    },
+    {
+      "room_id": "sabine_office",
+      "title": "Sabine Office",
+      "output": "docs/art/review/sabine_office_openai_prop_composite.png",
+      "background": "game/rooms/sabine_office/background/sabine_office_bg.png",
+      "prop_count": 4,
+      "props": [
+        {
+          "id": "frosted_sabine_door",
+          "resource": "game/rooms/sabine_office/props/frosted_sabine_door.png",
+          "position": [
+            110,
+            220
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "damp_persian_rug",
+          "resource": "game/rooms/sabine_office/props/damp_persian_rug.png",
+          "position": [
+            430,
+            760
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "harbormaster_desk",
+          "resource": "game/rooms/sabine_office/props/harbormaster_desk.png",
+          "position": [
+            845,
+            565
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "harbor_chart_board",
+          "resource": "game/rooms/sabine_office/props/harbor_chart_board.png",
+          "position": [
+            1495,
+            495
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    },
+    {
+      "room_id": "salt_market",
+      "title": "Salt Market",
+      "output": "docs/art/review/salt_market_openai_prop_composite.png",
+      "background": "game/rooms/salt_market/background/salt_market_bg.png",
+      "prop_count": 5,
+      "props": [
+        {
+          "id": "boot_stall",
+          "resource": "game/rooms/salt_market/props/boot_stall.png",
+          "position": [
+            92,
+            548
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "market_crowd_dressing",
+          "resource": "game/rooms/salt_market/props/market_crowd_dressing.png",
+          "position": [
+            760,
+            545
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "church_sign",
+          "resource": "game/rooms/salt_market/props/church_sign.png",
+          "position": [
+            1295,
+            405
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "confession_queue",
+          "resource": "game/rooms/salt_market/props/confession_queue.png",
+          "position": [
+            1165,
+            500
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        },
+        {
+          "id": "fishmonger",
+          "resource": "game/rooms/salt_market/props/fishmonger.png",
+          "position": [
+            430,
+            625
+          ],
+          "grounding": "contact_shadow_and_wet_reflection"
+        }
+      ]
+    }
+  ]
+}

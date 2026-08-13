@@ -1,0 +1,57 @@
+{
+  "status": "audited",
+  "asset_count": 0,
+  "current_asset_count": 8,
+  "palette_rule": "Act I character overlays keep green reserved for wrong light; standee shadows are biased toward harbor slate and whale-oil amber.",
+  "records": [],
+  "current_assets": [
+    {
+      "asset": "game/standees/act_i/bone_chandler.png",
+      "width": 227,
+      "height": 430,
+      "green_cast_percent": 0.05
+    },
+    {
+      "asset": "game/standees/act_i/juno.png",
+      "width": 316,
+      "height": 470,
+      "green_cast_percent": 0.02
+    },
+    {
+      "asset": "game/standees/act_i/market_crowd.png",
+      "width": 465,
+      "height": 430,
+      "green_cast_percent": 0.04
+    },
+    {
+      "asset": "game/standees/act_i/prosper.png",
+      "width": 279,
+      "height": 360,
+      "green_cast_percent": 0.1
+    },
+    {
+      "asset": "game/standees/act_i/registrar.png",
+      "width": 223,
+      "height": 420,
+      "green_cast_percent": 0.06
+    },
+    {
+      "asset": "game/standees/act_i/sabine.png",
+      "width": 248,
+      "height": 460,
+      "green_cast_percent": 0.14
+    },
+    {
+      "asset": "game/standees/act_i/teodor.png",
+      "width": 175,
+      "height": 420,
+      "green_cast_percent": 0.05
+    },
+    {
+      "asset": "game/standees/act_i/tomas_bollard.png",
+      "width": 327,
+      "height": 400,
+      "green_cast_percent": 0.03
+    }
+  ]
+}
