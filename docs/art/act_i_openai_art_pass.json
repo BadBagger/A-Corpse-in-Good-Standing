@@ -1,0 +1,144 @@
+{
+  "generated_from": "OpenAI image generation via built-in image_gen tool",
+  "importer": "tools/Import-ActIOpenAIBackgrounds.py",
+  "native_resolution": {
+    "height": 1080,
+    "width": 1920
+  },
+  "palette_lock": "Floyd-Steinberg quantized to locked Act I palette without arterial red",
+  "contact_sheet": "docs/art/review/act_i_openai_contact_sheet.png",
+  "rooms": [
+    {
+      "room_id": "mudflats",
+      "room_code": "R01",
+      "title": "Mudflats",
+      "openai_source": "art/src/backgrounds/act_i/openai/mudflats_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/mudflats.psd",
+      "export_png": "art/export/backgrounds/act_i/mudflats_bg.png",
+      "godot_background_resource": "game/rooms/mudflats/background/mudflats_bg.png",
+      "source_bytes": 2772676,
+      "export_bytes": 552478,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "old_quay",
+      "room_code": "R02",
+      "title": "The Old Quay",
+      "openai_source": "art/src/backgrounds/act_i/openai/old_quay_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/old_quay.psd",
+      "export_png": "art/export/backgrounds/act_i/old_quay_blockout_bg.png",
+      "godot_background_resource": "game/rooms/old_quay/background/old_quay_blockout_bg.png",
+      "source_bytes": 2436635,
+      "export_bytes": 446898,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "salt_market",
+      "room_code": "R03",
+      "title": "Salt Market",
+      "openai_source": "art/src/backgrounds/act_i/openai/salt_market_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/salt_market.psd",
+      "export_png": "art/export/backgrounds/act_i/salt_market_bg.png",
+      "godot_background_resource": "game/rooms/salt_market/background/salt_market_bg.png",
+      "source_bytes": 2782716,
+      "export_bytes": 565509,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "harbor_registry",
+      "room_code": "R05",
+      "title": "Harbor Registry",
+      "openai_source": "art/src/backgrounds/act_i/openai/harbor_registry_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/harbor_registry.psd",
+      "export_png": "art/export/backgrounds/act_i/harbor_registry_bg.png",
+      "godot_background_resource": "game/rooms/harbor_registry/background/harbor_registry_bg.png",
+      "source_bytes": 2248846,
+      "export_bytes": 374244,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "bone_chandler",
+      "room_code": "R06",
+      "title": "The Bone Chandler",
+      "openai_source": "art/src/backgrounds/act_i/openai/bone_chandler_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/bone_chandler.psd",
+      "export_png": "art/export/backgrounds/act_i/bone_chandler_bg.png",
+      "godot_background_resource": "game/rooms/bone_chandler/background/bone_chandler_bg.png",
+      "source_bytes": 2350088,
+      "export_bytes": 458728,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "fish_hall",
+      "room_code": "R08",
+      "title": "The Fish Hall",
+      "openai_source": "art/src/backgrounds/act_i/openai/fish_hall_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/fish_hall.psd",
+      "export_png": "art/export/backgrounds/act_i/fish_hall_bg.png",
+      "godot_background_resource": "game/rooms/fish_hall/background/fish_hall_bg.png",
+      "source_bytes": 2405120,
+      "export_bytes": 402287,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "almshouse",
+      "room_code": "R07",
+      "title": "The Almshouse",
+      "openai_source": "art/src/backgrounds/act_i/openai/almshouse_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/almshouse.psd",
+      "export_png": "art/export/backgrounds/act_i/almshouse_bg.png",
+      "godot_background_resource": "game/rooms/almshouse/background/almshouse_bg.png",
+      "source_bytes": 2068971,
+      "export_bytes": 397741,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "church_of_the_drowned",
+      "room_code": "R09",
+      "title": "Church of the Drowned",
+      "openai_source": "art/src/backgrounds/act_i/openai/church_of_the_drowned_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/church_of_the_drowned.psd",
+      "export_png": "art/export/backgrounds/act_i/church_of_the_drowned_bg.png",
+      "godot_background_resource": "game/rooms/church_of_the_drowned/background/church_of_the_drowned_bg.png",
+      "source_bytes": 2419051,
+      "export_bytes": 423816,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "grey_float",
+      "room_code": "R10",
+      "title": "The Grey Float",
+      "openai_source": "art/src/backgrounds/act_i/openai/grey_float_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/grey_float.psd",
+      "export_png": "art/export/backgrounds/act_i/grey_float_bg.png",
+      "godot_background_resource": "game/rooms/grey_float/background/grey_float_bg.png",
+      "source_bytes": 2185226,
+      "export_bytes": 422067,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "harbormaster_office",
+      "room_code": "R11",
+      "title": "Harbormaster's Office",
+      "openai_source": "art/src/backgrounds/act_i/openai/harbormaster_office_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/harbormaster_office.psd",
+      "export_png": "art/export/backgrounds/act_i/harbormaster_office_bg.png",
+      "godot_background_resource": "game/rooms/harbormaster_office/background/harbormaster_office_bg.png",
+      "source_bytes": 2260985,
+      "export_bytes": 470795,
+      "psd_bytes": 6220840
+    },
+    {
+      "room_id": "sabine_office",
+      "room_code": "R12",
+      "title": "Sabine's Office",
+      "openai_source": "art/src/backgrounds/act_i/openai/sabine_office_openai_raw.png",
+      "paintover_source": "art/src/backgrounds/act_i/sabine_office.psd",
+      "export_png": "art/export/backgrounds/act_i/sabine_office_bg.png",
+      "godot_background_resource": "game/rooms/sabine_office/background/sabine_office_bg.png",
+      "source_bytes": 2254772,
+      "export_bytes": 401135,
+      "psd_bytes": 6220840
+    }
+  ]
+}

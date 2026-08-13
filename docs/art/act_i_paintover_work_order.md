@@ -9,8 +9,7 @@ Ready rooms in work order: 11
 Blocked rooms still held by start gate: 0
 
 Rule locks:
-- Only rooms with
-eady_for_paintover == true and no blockers may appear here.
+- Only rooms with `ready_for_paintover == true` and no blockers may appear here.
 - Do not create placeholder PSDs to satisfy the work order.
 - Accepted Litany/Registrar duel format remains locked.
 - Grey Float remains hard-R: steam, silhouette, privacy, and agency only.

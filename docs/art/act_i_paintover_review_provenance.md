@@ -18,14 +18,14 @@ Rule locks:
 
 | Room | Decision | Start Ready | Work Order | Intake | Completion | Build | Reviewer | Reviewed At | Look Target | Corvin Scaffold |
 |---|---|---|---|---|---|---|---|---|---|---|
-| R01 Mudflats | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
-| R02 The Old Quay | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
-| R03 Salt Market | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
-| R05 Harbor Registry | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
-| R06 The Bone Chandler | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
-| R07 The Almshouse | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
-| R08 The Fish Hall | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
-| R09 Church of the Drowned | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
-| R10 The Grey Float | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
-| R11 Harbormaster's Office | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
-| R12 Sabine's Office | approved | True | True | accepted_present | complete | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R01 Mudflats | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R02 The Old Quay | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R03 Salt Market | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R05 Harbor Registry | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R06 The Bone Chandler | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R07 The Almshouse | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R08 The Fish Hall | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R09 Church of the Drowned | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R10 The Grey Float | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R11 Harbormaster's Office | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R12 Sabine's Office | approved | True | True | accepted_present | pending_final_export | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |

@@ -88,7 +88,8 @@ $workOrder = [ordered]@{
     rooms = $workRooms
 }
 
-$workOrder | ConvertTo-Json -Depth 16 | Set-Content -LiteralPath $jsonPath -Encoding UTF8
+$jsonText = $workOrder | ConvertTo-Json -Depth 16
+[System.IO.File]::WriteAllText($jsonPath, $jsonText + [Environment]::NewLine, [System.Text.UTF8Encoding]::new($false))
 
 $lines = @(
     "# Act I Paintover Work Order",
@@ -102,7 +103,7 @@ $lines = @(
     "Blocked rooms still held by start gate: $([int]$startGate.blocked_count)",
     "",
     "Rule locks:",
-    "- Only rooms with `ready_for_paintover == true` and no blockers may appear here.",
+    '- Only rooms with `ready_for_paintover == true` and no blockers may appear here.',
     "- Do not create placeholder PSDs to satisfy the work order.",
     "- Accepted Litany/Registrar duel format remains locked.",
     "- Grey Float remains hard-R: steam, silhouette, privacy, and agency only.",
@@ -159,7 +160,10 @@ if ($workRooms.Count -eq 0) {
     }
 }
 
-Set-Content -LiteralPath $mdPath -Value $lines -Encoding UTF8
+while ($lines.Count -gt 0 -and [string]::IsNullOrWhiteSpace([string]$lines[$lines.Count - 1])) {
+    $lines = @($lines[0..($lines.Count - 2)])
+}
+[System.IO.File]::WriteAllLines($mdPath, $lines, [System.Text.UTF8Encoding]::new($false))
 
 Write-Host "Exported Act I paintover work order JSON -> $jsonPath"
 Write-Host "Exported Act I paintover work order report -> $mdPath"
