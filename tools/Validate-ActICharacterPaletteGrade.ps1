@@ -22,6 +22,12 @@ if ([int]$report.current_asset_count -ne 11) {
 if ([string]$report.palette_rule -notmatch "green reserved for wrong light") {
     throw "Act I character palette report must state the green-as-wrong-light rule."
 }
+if ([double]$report.person_slate_cap_percent -ne 46.0) {
+    throw "Act I character palette report must keep the person slate cap at 46.0%."
+}
+if ([double]$report.setpiece_slate_cap_percent -ne 58.0) {
+    throw "Act I character palette report must keep the setpiece slate cap at 58.0%."
+}
 
 $assets = @($report.current_assets)
 $required = @(
@@ -59,6 +65,9 @@ foreach ($asset in $assets) {
     if ($greenDominance -gt 4.0) {
         throw "Act I standee $path has broad green dominance $greenDominance%, over 4.0%."
     }
+    if (-not [bool]$asset.slate_cap_pass) {
+        throw "Act I standee $path exceeds slate/green-blue mass cap: $($asset.slate_proximity_percent)% over $($asset.slate_cap_percent)%."
+    }
 }
 foreach ($path in $required) {
     if (-not $seen.ContainsKey($path)) {
@@ -67,14 +76,14 @@ foreach ($path in $required) {
 }
 
 $script = Get-Content -LiteralPath $scriptPath -Raw
-foreach ($requiredText in @("--apply", "green_cast_ratio", "green_dominance_ratio", "wrong_light_green_percent", "green_dominance_percent", "green reserved for wrong light")) {
+foreach ($requiredText in @("--apply", "green_cast_ratio", "green_dominance_ratio", "slate_proximity_ratio", "wrong_light_green_percent", "green_dominance_percent", "green reserved for wrong light", "Slate is capped")) {
     if (-not $script.Contains($requiredText)) {
         throw "Act I character palette script missing required text: $requiredText"
     }
 }
 
 $md = Get-Content -LiteralPath $mdPath -Raw
-foreach ($requiredText in @('Act I Character Palette Grade', 'Mode: `audit`', 'Current Assets')) {
+foreach ($requiredText in @('Act I Character Palette Grade', 'Mode: `audit`', 'Person slate cap', 'Slate proximity', 'Current Assets')) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I character palette report missing required text: $requiredText"
     }
@@ -83,4 +92,4 @@ if ($md -match "[^\u0000-\u007F]") {
     throw "Act I character palette report must stay ASCII-only."
 }
 
-Write-Host "Act I character palette grade validation passed: assets=$($assets.Count), maxWrongLightGreen<=0.5%, maxGreenDominance<=4.0%."
+Write-Host "Act I character palette grade validation passed: assets=$($assets.Count), maxWrongLightGreen<=0.5%, maxGreenDominance<=4.0%, slateCaps=pass."

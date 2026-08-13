@@ -2,85 +2,120 @@
   "status": "audited",
   "asset_count": 0,
   "current_asset_count": 11,
-  "palette_rule": "Act I character overlays keep green reserved for wrong light; standee and crowd shadows are biased toward harbor slate and whale-oil amber. Broad green dominance is audited separately from exact absinthe-palette proximity.",
+  "palette_rule": "Act I character overlays keep green reserved for wrong light; standee and crowd shadows are biased toward wet black and whale-oil amber. Slate is capped on character overlays so people do not collapse into the green-blue room shadow mass.",
+  "person_slate_cap_percent": 46.0,
+  "setpiece_slate_cap_percent": 58.0,
   "records": [],
   "current_assets": [
     {
       "asset": "game/standees/act_i/bone_chandler.png",
       "width": 227,
       "height": 430,
-      "wrong_light_green_percent": 0.01,
-      "green_dominance_percent": 0.0
+      "wrong_light_green_percent": 0.0,
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 34.19,
+      "slate_cap_percent": 46.0,
+      "slate_cap_pass": true
     },
     {
       "asset": "game/standees/act_i/juno.png",
       "width": 316,
       "height": 470,
       "wrong_light_green_percent": 0.0,
-      "green_dominance_percent": 0.0
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 26.41,
+      "slate_cap_percent": 46.0,
+      "slate_cap_pass": true
     },
     {
       "asset": "game/standees/act_i/market_crowd.png",
       "width": 465,
       "height": 430,
-      "wrong_light_green_percent": 0.01,
-      "green_dominance_percent": 0.0
+      "wrong_light_green_percent": 0.0,
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 38.55,
+      "slate_cap_percent": 46.0,
+      "slate_cap_pass": true
     },
     {
       "asset": "game/standees/act_i/prosper.png",
       "width": 279,
       "height": 360,
-      "wrong_light_green_percent": 0.03,
-      "green_dominance_percent": 0.0
+      "wrong_light_green_percent": 0.0,
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 34.49,
+      "slate_cap_percent": 46.0,
+      "slate_cap_pass": true
     },
     {
       "asset": "game/standees/act_i/registrar.png",
       "width": 223,
       "height": 420,
-      "wrong_light_green_percent": 0.01,
-      "green_dominance_percent": 0.0
+      "wrong_light_green_percent": 0.0,
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 23.32,
+      "slate_cap_percent": 46.0,
+      "slate_cap_pass": true
     },
     {
       "asset": "game/standees/act_i/sabine.png",
       "width": 248,
       "height": 460,
-      "wrong_light_green_percent": 0.02,
-      "green_dominance_percent": 0.0
+      "wrong_light_green_percent": 0.0,
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 26.4,
+      "slate_cap_percent": 46.0,
+      "slate_cap_pass": true
     },
     {
       "asset": "game/standees/act_i/teodor.png",
       "width": 175,
       "height": 420,
       "wrong_light_green_percent": 0.0,
-      "green_dominance_percent": 0.0
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 32.78,
+      "slate_cap_percent": 46.0,
+      "slate_cap_pass": true
     },
     {
       "asset": "game/standees/act_i/tomas_bollard.png",
       "width": 327,
       "height": 400,
       "wrong_light_green_percent": 0.0,
-      "green_dominance_percent": 0.0
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 38.45,
+      "slate_cap_percent": 46.0,
+      "slate_cap_pass": true
     },
     {
       "asset": "game/rooms/salt_market/setpieces/salt_market_crowd_idle_murmur.png",
       "width": 4160,
       "height": 330,
       "wrong_light_green_percent": 0.0,
-      "green_dominance_percent": 0.0
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 26.46,
+      "slate_cap_percent": 58.0,
+      "slate_cap_pass": true
     },
     {
       "asset": "game/rooms/salt_market/setpieces/salt_market_crowd_settle.png",
       "width": 3120,
       "height": 330,
       "wrong_light_green_percent": 0.0,
-      "green_dominance_percent": 0.0
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 28.54,
+      "slate_cap_percent": 58.0,
+      "slate_cap_pass": true
     },
     {
       "asset": "game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png",
       "width": 5200,
       "height": 330,
       "wrong_light_green_percent": 0.0,
-      "green_dominance_percent": 0.0
+      "green_dominance_percent": 0.0,
+      "slate_proximity_percent": 28.09,
+      "slate_cap_percent": 58.0,
+      "slate_cap_pass": true
     }
   ]
 }
