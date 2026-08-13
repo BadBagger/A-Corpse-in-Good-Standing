@@ -1,12 +1,12 @@
-{
+﻿{
     "generated_from":  "docs/art/act_i_paintover_start_gate.json",
-    "generated_at_utc":  "2026-08-12T12:18:32.6298976Z",
-    "source_modified_utc":  "2026-08-12T12:18:12.2149138Z",
+    "generated_at_utc":  "2026-08-13T11:48:40.1292044Z",
+    "source_modified_utc":  "2026-08-12T21:20:53.2007480Z",
     "purpose":  "Ordered Step 5 human-review dashboard and artifact index for Act I final-paintover readiness.",
     "readiness_state":  "green_for_review",
-    "paintover_gate_status":  "blocked_pending_human_review",
-    "ready_rooms":  0,
-    "blocked_rooms":  11,
+    "paintover_gate_status":  "ready",
+    "ready_rooms":  11,
+    "blocked_rooms":  0,
     "rule_locks":  [
                        "Keep the accepted Litany/Registrar duel format; do not add a second confession-spend UI.",
                        "Keep Grey Float hard-R: steam, silhouette, privacy, and agency; no explicit X content.",

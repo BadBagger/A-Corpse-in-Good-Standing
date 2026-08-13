@@ -13,6 +13,15 @@ $sourcePaths = [ordered]@{
     "docs/playtest/act_i_review_handoff_sync.md" = Join-Path $root "docs\playtest\act_i_review_handoff_sync.md"
     "docs/art/act_i_paintover_start_gate.json" = Join-Path $root "docs\art\act_i_paintover_start_gate.json"
     "docs/art/act_i_review_contact_sheet.html" = Join-Path $root "docs\art\act_i_review_contact_sheet.html"
+    "docs/art/act_i_godot_runtime_frames.md" = Join-Path $root "docs\art\act_i_godot_runtime_frames.md"
+    "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png" = Join-Path $root "docs\art\review\act_i_godot_runtime_frame_contact_sheet.png"
+    "docs/art/act_i_gameplay_review_panels.md" = Join-Path $root "docs\art\act_i_gameplay_review_panels.md"
+    "docs/art/review/act_i_gameplay_review_panels_contact_sheet.png" = Join-Path $root "docs\art\review\act_i_gameplay_review_panels_contact_sheet.png"
+    "docs/art/act_i_in_scene_action_review.md" = Join-Path $root "docs\art\act_i_in_scene_action_review.md"
+    "docs/art/review/act_i_in_scene_action_contact_sheet.png" = Join-Path $root "docs\art\review\act_i_in_scene_action_contact_sheet.png"
+    "docs/art/act_i_openai_hud_skin.md" = Join-Path $root "docs\art\act_i_openai_hud_skin.md"
+    "docs/art/review/act_i_openai_hud_skin_contact_sheet.png" = Join-Path $root "docs\art\review\act_i_openai_hud_skin_contact_sheet.png"
+    "docs/art/review/act_i_openai_portraits_contact_sheet.png" = Join-Path $root "docs\art\review\act_i_openai_portraits_contact_sheet.png"
     "docs/art/review/corvin_side_actions_contact_sheet.png" = Join-Path $root "docs\art\review\corvin_side_actions_contact_sheet.png"
     "docs/art/act_i_hotspot_overlay.svg" = Join-Path $root "docs\art\act_i_hotspot_overlay.svg"
     "docs/art/corvin_meshy_motion_source_audit.md" = Join-Path $root "docs\art\corvin_meshy_motion_source_audit.md"
@@ -86,6 +95,15 @@ $bundle = [ordered]@{
         "docs/playtest/act_i_review_decisions_template.csv",
         "docs/playtest/act_i_review_handoff_sync.md",
         "docs/art/act_i_review_contact_sheet.html",
+        "docs/art/act_i_godot_runtime_frames.md",
+        "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png",
+        "docs/art/act_i_gameplay_review_panels.md",
+        "docs/art/review/act_i_gameplay_review_panels_contact_sheet.png",
+        "docs/art/act_i_in_scene_action_review.md",
+        "docs/art/review/act_i_in_scene_action_contact_sheet.png",
+        "docs/art/act_i_openai_hud_skin.md",
+        "docs/art/review/act_i_openai_hud_skin_contact_sheet.png",
+        "docs/art/review/act_i_openai_portraits_contact_sheet.png",
         "docs/art/review/corvin_side_actions_contact_sheet.png",
         "docs/art/act_i_hotspot_overlay.svg",
         "docs/art/corvin_meshy_motion_source_audit.md",
@@ -142,6 +160,7 @@ $lines = @(
     "- Treat the Corvin side-action render commands as operator handoff commands; rendered outputs still need sheet audit and human animation review.",
     "- Treat the Corvin side-action rendered-sheet audit as dimension, nonblank-frame, profile-silhouette, arterial-red, and byte-for-byte import proof only; it does not approve final animation polish.",
     "- Treat the generated look target as mood/readability reference only; it is not final room art, hotspot authority, or character sprite source.",
+    "- Review the runtime Godot frame, gameplay panel, and in-scene action contact sheets before judging whether Act I reads like an actual game screen.",
     "- Do not start final paintovers while paintover_gate_status is blocked_pending_human_review.",
     "",
     "## Review Artifacts",

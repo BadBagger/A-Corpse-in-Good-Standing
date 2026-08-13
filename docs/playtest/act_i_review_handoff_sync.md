@@ -6,8 +6,8 @@ Purpose: prove the latest human review notes, decision CSV, review tracker, and 
 
 Tracker rooms: 11
 Decision CSV rows: 11
-Pending review: 11
-Approved: 0
+Pending review: 0
+Approved: 11
 Revise before art: 0
 Stop and redesign: 0
 
@@ -19,14 +19,14 @@ Rule locks:
 
 | Room | Decision | Build | Reviewer | Reviewed At | CSV synced | Notes mention room |
 |---|---|---|---|---|---|---|
-| R01 Mudflats | pending_review | none | none | none | yes | yes |
-| R02 The Old Quay | pending_review | none | none | none | yes | yes |
-| R03 Salt Market | pending_review | none | none | none | yes | yes |
-| R05 Harbor Registry | pending_review | none | none | none | yes | yes |
-| R06 The Bone Chandler | pending_review | none | none | none | yes | yes |
-| R07 The Almshouse | pending_review | none | none | none | yes | yes |
-| R08 The Fish Hall | pending_review | none | none | none | yes | yes |
-| R09 Church of the Drowned | pending_review | none | none | none | yes | yes |
-| R10 The Grey Float | pending_review | none | none | none | yes | yes |
-| R11 Harbormaster's Office | pending_review | none | none | none | yes | yes |
-| R12 Sabine's Office | pending_review | none | none | none | yes | yes |
+| R01 Mudflats | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R02 The Old Quay | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R03 Salt Market | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R05 Harbor Registry | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R06 The Bone Chandler | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R07 The Almshouse | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R08 The Fish Hall | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R09 Church of the Drowned | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R10 The Grey Float | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R11 Harbormaster's Office | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |
+| R12 Sabine's Office | approved | 0be0cb49f21c | Kyle override | 2026-08-12 | yes | yes |

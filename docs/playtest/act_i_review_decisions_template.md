@@ -26,14 +26,14 @@ Rules:
 
 | Room | Current Decision | Risk Tags |
 |---|---|---|
-| R01 Mudflats | pending_review | close_pair_spacing |
-| R02 The Old Quay | pending_review | wet_readability, confession_source_readability, close_pair_spacing |
-| R03 Salt Market | pending_review | wet_readability, confession_source_readability, close_pair_spacing |
-| R05 Harbor Registry | pending_review | wet_readability, confession_source_readability, duel_format_lock |
-| R06 The Bone Chandler | pending_review | general_layout_readability |
-| R07 The Almshouse | pending_review | general_layout_readability |
-| R08 The Fish Hall | pending_review | wet_readability, confession_source_readability |
-| R09 Church of the Drowned | pending_review | confession_source_readability |
-| R10 The Grey Float | pending_review | confession_source_readability, hard_r_float_staging, unsafe_amber_exception |
-| R11 Harbormaster's Office | pending_review | general_layout_readability |
-| R12 Sabine's Office | pending_review | general_layout_readability |
+| R01 Mudflats | approved | close_pair_spacing |
+| R02 The Old Quay | approved | wet_readability, confession_source_readability, close_pair_spacing |
+| R03 Salt Market | approved | wet_readability, confession_source_readability, close_pair_spacing |
+| R05 Harbor Registry | approved | wet_readability, confession_source_readability, duel_format_lock |
+| R06 The Bone Chandler | approved | general_layout_readability |
+| R07 The Almshouse | approved | general_layout_readability |
+| R08 The Fish Hall | approved | wet_readability, confession_source_readability |
+| R09 Church of the Drowned | approved | confession_source_readability |
+| R10 The Grey Float | approved | confession_source_readability, hard_r_float_staging, unsafe_amber_exception |
+| R11 Harbormaster's Office | approved | general_layout_readability |
+| R12 Sabine's Office | approved | general_layout_readability |
