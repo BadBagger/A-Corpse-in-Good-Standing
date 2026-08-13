@@ -3,7 +3,7 @@
   "capture": "godot_runtime_composition",
   "frame_count": 9,
   "contact_sheet": "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png",
-  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
+  "runtime_evidence": "Godot runtime-composed review frames using actual room scene background paths, shared runtime art constants, runtime foreground props, contact shadows, wet-floor reflections, standee wet-floor reflections, standee character integration rims, room-specific dialogue captions and status text embedded in the generated in-frame HUD, atmosphere, HUD, NPC standees, in-world hotspot glints sourced from the Act I hotspot map, and the actual Corvin character scene using RuntimeSprite loader with a subtle amber readability rim.",
   "rooms": [
     {
       "room_code": "R01",
@@ -23,6 +23,7 @@
       "wet_reflection_count": 3,
       "standee_count": 0,
       "standee_reflection_count": 0,
+      "standee_character_integration_rim_count": 0,
       "overlay_count": 1,
       "hotspot_glint_count": 3,
       "hotspot_glints": [
@@ -73,6 +74,7 @@
       "wet_reflection_count": 4,
       "standee_count": 1,
       "standee_reflection_count": 1,
+      "standee_character_integration_rim_count": 1,
       "overlay_count": 1,
       "hotspot_glint_count": 3,
       "hotspot_glints": [
@@ -123,6 +125,7 @@
       "wet_reflection_count": 5,
       "standee_count": 0,
       "standee_reflection_count": 0,
+      "standee_character_integration_rim_count": 0,
       "overlay_count": 2,
       "hotspot_glint_count": 3,
       "hotspot_glints": [
@@ -173,6 +176,7 @@
       "wet_reflection_count": 4,
       "standee_count": 1,
       "standee_reflection_count": 1,
+      "standee_character_integration_rim_count": 1,
       "overlay_count": 1,
       "hotspot_glint_count": 3,
       "hotspot_glints": [
@@ -223,6 +227,7 @@
       "wet_reflection_count": 4,
       "standee_count": 1,
       "standee_reflection_count": 1,
+      "standee_character_integration_rim_count": 1,
       "overlay_count": 0,
       "hotspot_glint_count": 3,
       "hotspot_glints": [
@@ -273,6 +278,7 @@
       "wet_reflection_count": 5,
       "standee_count": 1,
       "standee_reflection_count": 1,
+      "standee_character_integration_rim_count": 1,
       "overlay_count": 0,
       "hotspot_glint_count": 3,
       "hotspot_glints": [
@@ -323,6 +329,7 @@
       "wet_reflection_count": 4,
       "standee_count": 1,
       "standee_reflection_count": 1,
+      "standee_character_integration_rim_count": 1,
       "overlay_count": 0,
       "hotspot_glint_count": 3,
       "hotspot_glints": [
@@ -373,6 +380,7 @@
       "wet_reflection_count": 4,
       "standee_count": 1,
       "standee_reflection_count": 1,
+      "standee_character_integration_rim_count": 1,
       "overlay_count": 1,
       "hotspot_glint_count": 3,
       "hotspot_glints": [
@@ -423,6 +431,7 @@
       "wet_reflection_count": 4,
       "standee_count": 1,
       "standee_reflection_count": 1,
+      "standee_character_integration_rim_count": 1,
       "overlay_count": 1,
       "hotspot_glint_count": 1,
       "hotspot_glints": [

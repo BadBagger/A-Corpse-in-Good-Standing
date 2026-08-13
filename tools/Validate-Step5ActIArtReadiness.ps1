@@ -77,6 +77,7 @@ $inSceneActionReviewValidatorPath = Join-Path $root "tools\Validate-ActIInSceneA
 $characterPaletteGradePath = Join-Path $root "docs\art\act_i_character_palette_grade.md"
 $characterPaletteGradeJsonPath = Join-Path $root "docs\art\act_i_character_palette_grade.json"
 $characterPaletteGradeValidatorPath = Join-Path $root "tools\Validate-ActICharacterPaletteGrade.ps1"
+$characterSceneFitValidatorPath = Join-Path $root "tools\Validate-ActICharacterSceneFit.ps1"
 $saltMarketGreenSpillPath = Join-Path $root "docs\art\salt_market_green_spill_grade.md"
 $saltMarketGreenSpillJsonPath = Join-Path $root "docs\art\salt_market_green_spill_grade.json"
 $saltMarketGreenSpillValidatorPath = Join-Path $root "tools\Validate-SaltMarketGreenSpill.ps1"
@@ -200,6 +201,7 @@ foreach ($path in @(
     $characterPaletteGradePath,
     $characterPaletteGradeJsonPath,
     $characterPaletteGradeValidatorPath,
+    $characterSceneFitValidatorPath,
     $saltMarketGreenSpillPath,
     $saltMarketGreenSpillJsonPath,
     $saltMarketGreenSpillValidatorPath,
@@ -1194,7 +1196,8 @@ foreach ($requiredText in @(
     "shared runtime art constants",
     "runtime foreground props",
     "wet-floor reflections",
-    "readability rim"
+    "readability rim",
+    "standee character integration rims"
 )) {
     if ($godotRuntimeFrames -notmatch [regex]::Escape($requiredText)) {
         throw "Act I Godot runtime frame report missing required text: $requiredText"
@@ -1275,6 +1278,11 @@ foreach ($requiredText in @(
 & powershell -NoProfile -ExecutionPolicy Bypass -File $characterPaletteGradeValidatorPath
 if ($LASTEXITCODE -ne 0) {
     throw "Act I character palette grade validator failed."
+}
+
+& powershell -NoProfile -ExecutionPolicy Bypass -File $characterSceneFitValidatorPath
+if ($LASTEXITCODE -ne 0) {
+    throw "Act I character scene-fit validator failed."
 }
 
 if ($characterPaletteGradeJson.status -ne "audited" -or [int]$characterPaletteGradeJson.current_asset_count -ne 11) {
@@ -1412,11 +1420,12 @@ $lines = @(
     "- Act I atmosphere setpieces: pass, $atmosphereSetpieceCount transparent runtime overlays add tide glint, water glint, lamp flicker, smoke, steam, and window rain to OpenAI room plates without changing puzzle coordinates.",
     "- Act I OpenAI HUD skin: pass, $hudSkinAssetCount generated noir UI texture assets are imported and wired into the playable prologue HUD without storing dialogue or puzzle state in image files.",
     "- Act I runtime review frames: pass, $runtimeReviewFrameCount player-view frames composite runtime room art, Corvin side sprites, NPC standees, first-frame atmosphere/setpieces, contact shadows, and the generated HUD skin.",
-    "- Act I Godot runtime frames: pass, $godotRuntimeFrameCount runtime-composition player-view frames show actual room scene background paths, shared art constants, foreground props, wet-floor reflections, HUD textures, NPC standees, in-world hotspot glints, Corvin side sprites, and Corvin's subtle amber readability rim.",
+    "- Act I Godot runtime frames: pass, $godotRuntimeFrameCount runtime-composition player-view frames show actual room scene background paths, shared art constants, foreground props, wet-floor reflections, HUD textures, NPC standees, in-world hotspot glints, Corvin side sprites, Corvin's subtle amber readability rim, and standee character integration rims.",
     "- Act I gameplay review panels: pass, $gameplayReviewPanelCount larger cropped panels show the playable band, generated room art, Corvin, NPCs, foreground props, HUD, and room-specific dialogue captions at human-review scale.",
     "- Corvin action runtime frames: pass, $corvinActionRuntimeFrameCount renderer-captured action frames show actual character_corvin.tscn idle/talk/use/wet side animations through the RuntimeSprite loader.",
     "- Act I in-scene action review: pass, $inSceneActionFrameCount room-composition frames show Corvin talk/use/wet actions in context, including the Salt Market crowd turn_to_corvin state, named NPC dialogue/counter staging, text-free wet interaction effects, and zoom crops for action readability.",
     "- Act I character palette grade: pass, $characterPaletteAssetCount standee and crowd assets audited under the green-cast threshold so characters keep green reserved for wrong-light scenes.",
+    "- Act I character scene fit: pass, NPC standees are bounded to the playable room scale, foot-grounded, reflected, subtly rim-lit, and green-controlled in the runtime review frames.",
     "- Salt Market green-spill grade: pass, $saltMarketGreenSpillTargetCount visible market/crowd layers audited and graded; max post-grade green spill is $saltMarketGreenSpillMaxAfter% while sky/Church wrong-light remains allowed.",
     "- Act I human review notes: pass, generated combined review notes include the greybox playtest rubric and the art readability checklist for the same Step 5 run.",
     "- Act I VO timing manifest: pass, $voLineCount Ink-derived lines across $voSpeakerCount speakers; $voRecordableLineCount recordable VO lines, $voStageDirectionCount stage-direction review lines, and $voUncastSpeakerCount minor speakers needing cast/consolidation decisions before final recording.",
@@ -1488,6 +1497,7 @@ foreach ($requiredText in @(
     "in-world hotspot glints",
     "Act I in-scene action review: pass",
     "Act I character palette grade: pass",
+    "Act I character scene fit: pass",
     "Salt Market green-spill grade: pass",
     "Step 5 review dashboard: pass",
     "ready-source packet review step",

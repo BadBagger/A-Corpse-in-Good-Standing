@@ -8,6 +8,8 @@ extends PopochiuRoom
 
 const ACT_I_STANDEE_BASE := "res://game/standees/act_i/%s.png"
 const SECTIONAL_SETPIECE_PLAYER := preload("res://game/rooms/sectional_setpiece_player.gd")
+const ACT_I_CHARACTER_INTEGRATION_RIM_COLOR := Color(0.788235, 0.541176, 0.235294, 0.14)
+const ACT_I_CHARACTER_INTEGRATION_RIM_OFFSETS := [Vector2(-1, 0), Vector2(1, 0), Vector2(0, -1)]
 const ACT_I_PROPS_BY_ROOM := {
 	"R01": [
 		{"id": "brine_silt", "path": "res://game/rooms/mudflats/props/brine_silt.png", "position": Vector2(846, 825), "z": 3},
@@ -421,6 +423,14 @@ func _add_act_i_standee(container: Node, standee: Dictionary) -> void:
 	)
 	reflection.z_index = int(standee.get("z", 0)) - 1
 	container.add_child(reflection)
+	for rim_offset in ACT_I_CHARACTER_INTEGRATION_RIM_OFFSETS:
+		var rim := _make_act_i_standee_integration_rim(standee_id, image, visual_scale, rim_offset)
+		rim.position = Vector2(
+			foot_position.x - (float(image.get_width()) * visual_scale) / 2.0,
+			foot_position.y - float(image.get_height()) * visual_scale
+		) + rim_offset
+		rim.z_index = int(standee.get("z", 0)) - 1
+		container.add_child(rim)
 	var sprite := Sprite2D.new()
 	sprite.name = "%sStandee" % standee_id.to_pascal_case()
 	sprite.texture = ImageTexture.create_from_image(image)
@@ -459,6 +469,22 @@ func _make_act_i_standee_reflection(standee_id: String, image: Image, visual_sca
 	reflection.scale = Vector2(visual_scale * 0.88, visual_scale * 0.18)
 	reflection.modulate = Color(0.164706, 0.227451, 0.25098, 0.18)
 	return reflection
+
+func _make_act_i_standee_integration_rim(standee_id: String, image: Image, visual_scale: float, offset: Vector2) -> Sprite2D:
+	var rim := Sprite2D.new()
+	rim.name = "%sCharacterIntegrationRim" % standee_id.to_pascal_case()
+	var rim_image := Image.create(image.get_width(), image.get_height(), false, Image.FORMAT_RGBA8)
+	rim_image.fill(Color.TRANSPARENT)
+	for y in image.get_height():
+		for x in image.get_width():
+			var pixel := image.get_pixel(x, y)
+			if pixel.a > 0.08:
+				rim_image.set_pixel(x, y, ACT_I_CHARACTER_INTEGRATION_RIM_COLOR)
+	rim.texture = ImageTexture.create_from_image(rim_image)
+	rim.centered = false
+	rim.scale = Vector2(visual_scale, visual_scale)
+	rim.modulate = Color(1, 1, 1, 0.68 if offset.y < 0.0 else 0.52)
+	return rim
 
 func _add_act_i_setpieces() -> void:
 	if not ACT_I_SETPIECES_BY_ROOM.has(room_code):
