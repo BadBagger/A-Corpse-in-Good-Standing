@@ -56,6 +56,10 @@ $runtimeReviewFramesPath = Join-Path $root "docs\art\act_i_runtime_review_frames
 $runtimeReviewFramesJsonPath = Join-Path $root "docs\art\act_i_runtime_review_frames.json"
 $runtimeReviewFramesImagePath = Join-Path $root "docs\art\review\act_i_runtime_frame_contact_sheet.png"
 $runtimeReviewFramesValidatorPath = Join-Path $root "tools\Validate-ActIRuntimeReviewFrames.ps1"
+$godotRuntimeFramesPath = Join-Path $root "docs\art\act_i_godot_runtime_frames.md"
+$godotRuntimeFramesJsonPath = Join-Path $root "docs\art\act_i_godot_runtime_frames.json"
+$godotRuntimeFramesImagePath = Join-Path $root "docs\art\review\act_i_godot_runtime_frame_contact_sheet.png"
+$godotRuntimeFramesValidatorPath = Join-Path $root "tools\Validate-ActIGodotRuntimeFrames.ps1"
 $characterPaletteGradePath = Join-Path $root "docs\art\act_i_character_palette_grade.md"
 $characterPaletteGradeJsonPath = Join-Path $root "docs\art\act_i_character_palette_grade.json"
 $characterPaletteGradeValidatorPath = Join-Path $root "tools\Validate-ActICharacterPaletteGrade.ps1"
@@ -157,6 +161,10 @@ foreach ($path in @(
     $runtimeReviewFramesJsonPath,
     $runtimeReviewFramesImagePath,
     $runtimeReviewFramesValidatorPath,
+    $godotRuntimeFramesPath,
+    $godotRuntimeFramesJsonPath,
+    $godotRuntimeFramesImagePath,
+    $godotRuntimeFramesValidatorPath,
     $characterPaletteGradePath,
     $characterPaletteGradeJsonPath,
     $characterPaletteGradeValidatorPath,
@@ -252,6 +260,8 @@ $hudSkin = Get-Content -LiteralPath $hudSkinPath -Raw
 $hudSkinJson = Get-Content -LiteralPath $hudSkinJsonPath -Raw | ConvertFrom-Json
 $runtimeReviewFrames = Get-Content -LiteralPath $runtimeReviewFramesPath -Raw
 $runtimeReviewFramesJson = Get-Content -LiteralPath $runtimeReviewFramesJsonPath -Raw | ConvertFrom-Json
+$godotRuntimeFrames = Get-Content -LiteralPath $godotRuntimeFramesPath -Raw
+$godotRuntimeFramesJson = Get-Content -LiteralPath $godotRuntimeFramesJsonPath -Raw | ConvertFrom-Json
 $characterPaletteGrade = Get-Content -LiteralPath $characterPaletteGradePath -Raw
 $characterPaletteGradeJson = Get-Content -LiteralPath $characterPaletteGradeJsonPath -Raw | ConvertFrom-Json
 $humanReviewNotes = Get-Content -LiteralPath $humanReviewNotesPath -Raw
@@ -1125,13 +1135,32 @@ foreach ($requiredText in @(
     }
 }
 
+& powershell -NoProfile -ExecutionPolicy Bypass -File $godotRuntimeFramesValidatorPath
+if ($LASTEXITCODE -ne 0) {
+    throw "Act I Godot runtime frame validator failed."
+}
+
+if ($godotRuntimeFramesJson.status -ne "captured" -or [int]$godotRuntimeFramesJson.frame_count -ne 8) {
+    throw "Act I Godot runtime frames must capture 8 player-view frames."
+}
+foreach ($requiredText in @(
+    "Act I Godot Runtime Frames",
+    "Godot SubViewport",
+    "runtime foreground props",
+    "wet-floor reflections"
+)) {
+    if ($godotRuntimeFrames -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I Godot runtime frame report missing required text: $requiredText"
+    }
+}
+
 & powershell -NoProfile -ExecutionPolicy Bypass -File $characterPaletteGradeValidatorPath
 if ($LASTEXITCODE -ne 0) {
     throw "Act I character palette grade validator failed."
 }
 
-if ($characterPaletteGradeJson.status -ne "audited" -or [int]$characterPaletteGradeJson.current_asset_count -ne 8) {
-    throw "Act I character palette grade must audit 8 current standee assets."
+if ($characterPaletteGradeJson.status -ne "audited" -or [int]$characterPaletteGradeJson.current_asset_count -ne 11) {
+    throw "Act I character palette grade must audit 11 current character and crowd assets."
 }
 foreach ($requiredText in @(
     "Act I Character Palette Grade",
@@ -1197,6 +1226,7 @@ $propGroundingPropCount = [int]$propGroundingJson.prop_count
 $atmosphereSetpieceCount = [int]$atmosphereSetpiecesJson.count
 $hudSkinAssetCount = [int]$hudSkinJson.asset_count
 $runtimeReviewFrameCount = [int]$runtimeReviewFramesJson.frame_count
+$godotRuntimeFrameCount = [int]$godotRuntimeFramesJson.frame_count
 $characterPaletteAssetCount = [int]$characterPaletteGradeJson.current_asset_count
 
 $lines = @(
@@ -1233,7 +1263,8 @@ $lines = @(
     "- Act I atmosphere setpieces: pass, $atmosphereSetpieceCount transparent runtime overlays add water glint, lamp flicker, smoke, steam, and window rain to OpenAI room plates without changing puzzle coordinates.",
     "- Act I OpenAI HUD skin: pass, $hudSkinAssetCount generated noir UI texture assets are imported and wired into the playable prologue HUD without storing dialogue or puzzle state in image files.",
     "- Act I runtime review frames: pass, $runtimeReviewFrameCount player-view frames composite runtime room art, Corvin side sprites, NPC standees, first-frame atmosphere/setpieces, contact shadows, and the generated HUD skin.",
-    "- Act I character palette grade: pass, $characterPaletteAssetCount standees audited under the green-cast threshold so characters keep green reserved for wrong-light scenes.",
+    "- Act I Godot runtime frames: pass, $godotRuntimeFrameCount renderer-captured player-view frames show actual room scenes with foreground props, wet-floor reflections, HUD textures, NPC standees, and review Corvin sprite.",
+    "- Act I character palette grade: pass, $characterPaletteAssetCount standee and crowd assets audited under the green-cast threshold so characters keep green reserved for wrong-light scenes.",
     "- Act I human review notes: pass, generated combined review notes include the greybox playtest rubric and the art readability checklist for the same Step 5 run.",
     "- Act I VO timing manifest: pass, $voLineCount Ink-derived lines across $voSpeakerCount speakers; $voRecordableLineCount recordable VO lines, $voStageDirectionCount stage-direction review lines, and $voUncastSpeakerCount minor speakers needing cast/consolidation decisions before final recording.",
     "- Confession VO manifest: pass, $confessionVoConfessionCount confessions produce $confessionVoLineCount unrecorded Corvin VO lines, including $confessionVoElaborationLineCount elaboration lines, with $confessionVoWordCount words keyed by confession id.",

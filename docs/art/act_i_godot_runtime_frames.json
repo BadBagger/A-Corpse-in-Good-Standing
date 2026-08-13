@@ -1,0 +1,105 @@
+{
+	"capture": "godot_subviewport",
+	"contact_sheet": "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png",
+	"frame_count": 8,
+	"rooms": [
+		{
+			"contact_shadow_count": 4,
+			"foreground_prop_count": 4,
+			"includes_corvin_review_sprite": true,
+			"includes_godot_viewport_capture": true,
+			"output": "docs/art/review/act_i_godot_runtime_frames/old_quay_godot_runtime_frame.png",
+			"room_code": "R02",
+			"room_id": "old_quay",
+			"scene": "game/rooms/old_quay/room_old_quay.tscn",
+			"title": "The Old Quay",
+			"wet_reflection_count": 4
+		},
+		{
+			"contact_shadow_count": 5,
+			"foreground_prop_count": 5,
+			"includes_corvin_review_sprite": true,
+			"includes_godot_viewport_capture": true,
+			"output": "docs/art/review/act_i_godot_runtime_frames/salt_market_godot_runtime_frame.png",
+			"room_code": "R03",
+			"room_id": "salt_market",
+			"scene": "game/rooms/salt_market/room_salt_market.tscn",
+			"title": "Salt Market",
+			"wet_reflection_count": 5
+		},
+		{
+			"contact_shadow_count": 4,
+			"foreground_prop_count": 4,
+			"includes_corvin_review_sprite": true,
+			"includes_godot_viewport_capture": true,
+			"output": "docs/art/review/act_i_godot_runtime_frames/harbor_registry_godot_runtime_frame.png",
+			"room_code": "R05",
+			"room_id": "harbor_registry",
+			"scene": "game/rooms/harbor_registry/room_harbor_registry.tscn",
+			"title": "Harbor Registry",
+			"wet_reflection_count": 4
+		},
+		{
+			"contact_shadow_count": 4,
+			"foreground_prop_count": 4,
+			"includes_corvin_review_sprite": true,
+			"includes_godot_viewport_capture": true,
+			"output": "docs/art/review/act_i_godot_runtime_frames/bone_chandler_godot_runtime_frame.png",
+			"room_code": "R06",
+			"room_id": "bone_chandler",
+			"scene": "game/rooms/bone_chandler/room_bone_chandler.tscn",
+			"title": "The Bone Chandler",
+			"wet_reflection_count": 4
+		},
+		{
+			"contact_shadow_count": 5,
+			"foreground_prop_count": 5,
+			"includes_corvin_review_sprite": true,
+			"includes_godot_viewport_capture": true,
+			"output": "docs/art/review/act_i_godot_runtime_frames/almshouse_godot_runtime_frame.png",
+			"room_code": "R07",
+			"room_id": "almshouse",
+			"scene": "game/rooms/almshouse/room_almshouse.tscn",
+			"title": "The Almshouse",
+			"wet_reflection_count": 5
+		},
+		{
+			"contact_shadow_count": 4,
+			"foreground_prop_count": 4,
+			"includes_corvin_review_sprite": true,
+			"includes_godot_viewport_capture": true,
+			"output": "docs/art/review/act_i_godot_runtime_frames/church_of_the_drowned_godot_runtime_frame.png",
+			"room_code": "R09",
+			"room_id": "church_of_the_drowned",
+			"scene": "game/rooms/church_of_the_drowned/room_church_of_the_drowned.tscn",
+			"title": "Church of the Drowned",
+			"wet_reflection_count": 4
+		},
+		{
+			"contact_shadow_count": 4,
+			"foreground_prop_count": 4,
+			"includes_corvin_review_sprite": true,
+			"includes_godot_viewport_capture": true,
+			"output": "docs/art/review/act_i_godot_runtime_frames/grey_float_godot_runtime_frame.png",
+			"room_code": "R10",
+			"room_id": "grey_float",
+			"scene": "game/rooms/grey_float/room_grey_float.tscn",
+			"title": "The Grey Float",
+			"wet_reflection_count": 4
+		},
+		{
+			"contact_shadow_count": 4,
+			"foreground_prop_count": 4,
+			"includes_corvin_review_sprite": true,
+			"includes_godot_viewport_capture": true,
+			"output": "docs/art/review/act_i_godot_runtime_frames/sabine_office_godot_runtime_frame.png",
+			"room_code": "R12",
+			"room_id": "sabine_office",
+			"scene": "game/rooms/sabine_office/room_sabine_office.tscn",
+			"title": "Sabine's Office",
+			"wet_reflection_count": 4
+		}
+	],
+	"runtime_evidence": "Godot-rendered room scenes with runtime foreground props, contact shadows, wet-floor reflections, atmosphere, HUD, NPC standees, and review Corvin sprite.",
+	"status": "captured"
+}

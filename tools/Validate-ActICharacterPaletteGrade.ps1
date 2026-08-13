@@ -16,8 +16,8 @@ $report = Get-Content -LiteralPath $jsonPath -Raw | ConvertFrom-Json
 if ($report.status -ne "audited") {
     throw "Act I character palette report must be the non-mutating audited status."
 }
-if ([int]$report.current_asset_count -ne 8) {
-    throw "Act I character palette report expected 8 current assets, got $($report.current_asset_count)."
+if ([int]$report.current_asset_count -ne 11) {
+    throw "Act I character palette report expected 11 current assets, got $($report.current_asset_count)."
 }
 if ([string]$report.palette_rule -notmatch "green reserved for wrong light") {
     throw "Act I character palette report must state the green-as-wrong-light rule."
@@ -32,7 +32,10 @@ $required = @(
     "game/standees/act_i/registrar.png",
     "game/standees/act_i/sabine.png",
     "game/standees/act_i/teodor.png",
-    "game/standees/act_i/tomas_bollard.png"
+    "game/standees/act_i/tomas_bollard.png",
+    "game/rooms/salt_market/setpieces/salt_market_crowd_idle_murmur.png",
+    "game/rooms/salt_market/setpieces/salt_market_crowd_settle.png",
+    "game/rooms/salt_market/setpieces/salt_market_crowd_turn_to_corvin.png"
 )
 $seen = @{}
 foreach ($asset in $assets) {

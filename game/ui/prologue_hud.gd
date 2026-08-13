@@ -122,7 +122,7 @@ func _apply_noir_skin() -> void:
 		_style_label(label)
 
 func _add_texture_backdrop(anchor: Control, file_name: String, offset: Vector2, scale: Vector2, z: int) -> void:
-	var texture := load(HUD_SKIN_BASE % file_name)
+	var texture := _load_hud_texture(file_name)
 	if texture == null:
 		return
 	var parent := anchor.get_parent()
@@ -167,7 +167,7 @@ func _style_verb_button(button: Button, verb: String) -> void:
 	button.add_theme_stylebox_override("focus", _button_style(Color(PALETTE.harbor_slate, 0.95), Color(PALETTE.bone, 0.95)))
 
 func _add_button_texture_backdrop(button: Button, file_name: String) -> void:
-	var texture := load(HUD_SKIN_BASE % file_name)
+	var texture := _load_hud_texture(file_name)
 	if texture == null:
 		return
 	var rect := TextureRect.new()
@@ -184,6 +184,17 @@ func _add_button_texture_backdrop(button: Button, file_name: String) -> void:
 	rect.offset_bottom = 0
 	button.add_child(rect)
 	button.move_child(rect, 0)
+
+func _hud_skin_path(file_name: String) -> String:
+	return HUD_SKIN_BASE % file_name.trim_suffix(".png")
+
+func _load_hud_texture(file_name: String) -> Texture2D:
+	var path := _hud_skin_path(file_name)
+	var image := Image.new()
+	var err := image.load(path)
+	if err != OK:
+		return null
+	return ImageTexture.create_from_image(image)
 
 func _button_style(fill: Color, border: Color) -> StyleBoxFlat:
 	var box := StyleBoxFlat.new()
