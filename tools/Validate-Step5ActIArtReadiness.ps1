@@ -39,6 +39,10 @@ $propCompositeContactSheetPath = Join-Path $root "docs\art\act_i_openai_prop_com
 $propCompositeContactSheetJsonPath = Join-Path $root "docs\art\act_i_openai_prop_composite_contact_sheet.json"
 $propCompositeContactSheetImagePath = Join-Path $root "docs\art\review\act_i_openai_prop_composite_contact_sheet.png"
 $propCompositeContactSheetValidatorPath = Join-Path $root "tools\Validate-ActIOpenAIPropCompositeContactSheet.ps1"
+$atmosphereSetpiecesPath = Join-Path $root "docs\art\act_i_atmosphere_setpieces.md"
+$atmosphereSetpiecesJsonPath = Join-Path $root "docs\art\act_i_atmosphere_setpieces.json"
+$atmosphereSetpiecesImagePath = Join-Path $root "docs\art\review\act_i_atmosphere_setpieces_contact_sheet.png"
+$atmosphereSetpiecesValidatorPath = Join-Path $root "tools\Validate-ActIAtmosphereSetpieces.ps1"
 $humanReviewNotesPath = Join-Path $root "docs\playtest\results\act_i_human_review_validation.md"
 $voLineManifestPath = Join-Path $root "docs\vo\act_i_vo_line_manifest.json"
 $voLineManifestReportPath = Join-Path $root "docs\vo\act_i_vo_line_manifest.md"
@@ -120,6 +124,10 @@ foreach ($path in @(
     $propCompositeContactSheetJsonPath,
     $propCompositeContactSheetImagePath,
     $propCompositeContactSheetValidatorPath,
+    $atmosphereSetpiecesPath,
+    $atmosphereSetpiecesJsonPath,
+    $atmosphereSetpiecesImagePath,
+    $atmosphereSetpiecesValidatorPath,
     $humanReviewNotesPath,
     $voLineManifestPath,
     $voLineManifestReportPath,
@@ -202,6 +210,8 @@ $artReadabilityReview = Get-Content -LiteralPath $artReadabilityReviewPath -Raw
 $reviewContactSheet = Get-Content -LiteralPath $reviewContactSheetPath -Raw
 $propCompositeContactSheet = Get-Content -LiteralPath $propCompositeContactSheetPath -Raw
 $propCompositeContactSheetJson = Get-Content -LiteralPath $propCompositeContactSheetJsonPath -Raw | ConvertFrom-Json
+$atmosphereSetpieces = Get-Content -LiteralPath $atmosphereSetpiecesPath -Raw
+$atmosphereSetpiecesJson = Get-Content -LiteralPath $atmosphereSetpiecesJsonPath -Raw | ConvertFrom-Json
 $humanReviewNotes = Get-Content -LiteralPath $humanReviewNotesPath -Raw
 $voLineManifest = Get-Content -LiteralPath $voLineManifestPath -Raw | ConvertFrom-Json
 $voLineManifestReport = Get-Content -LiteralPath $voLineManifestReportPath -Raw
@@ -981,6 +991,25 @@ foreach ($requiredText in @(
     }
 }
 
+& powershell -NoProfile -ExecutionPolicy Bypass -File $atmosphereSetpiecesValidatorPath
+if ($LASTEXITCODE -ne 0) {
+    throw "Act I atmosphere setpiece validator failed."
+}
+
+if ($atmosphereSetpiecesJson.status -ne "exported" -or [int]$atmosphereSetpiecesJson.count -ne 5) {
+    throw "Act I atmosphere setpieces must export 5 runtime overlays."
+}
+foreach ($requiredText in @(
+    "Act I Atmosphere Setpieces",
+    "OpenAI room plates",
+    "water glint, lamp flicker, smoke, steam, and window rain",
+    "hard-R, no explicit anatomy, no gore, no child figures"
+)) {
+    if ($atmosphereSetpieces -notmatch [regex]::Escape($requiredText)) {
+        throw "Act I atmosphere setpiece report missing required text: $requiredText"
+    }
+}
+
 $backgroundPresent = @($backgroundRows | Where-Object { $_.status -eq "present" }).Count
 $backgroundPending = @($backgroundRows | Where-Object { $_.status -eq "pending" }).Count
 $corvinPresent = @($corvinRows | Where-Object { $_.status -eq "present" }).Count
@@ -1031,6 +1060,7 @@ $voAudioPresentCount = [int]$voAudioStatus.present_count
 $voAudioMissingCount = [int]$voAudioStatus.missing_count
 $reviewDecisionRoomCount = $reviewDecisionRows.Count
 $propCompositeRoomCount = [int]$propCompositeContactSheetJson.room_count
+$atmosphereSetpieceCount = [int]$atmosphereSetpiecesJson.count
 
 $lines = @(
     "CHECKPOINT: Step 5 entry - Act I Art-Pass Readiness",
@@ -1062,6 +1092,7 @@ $lines = @(
     "- Act I art readability review: pass, generated room-by-room review checklist covers brightest-object readability, walk-band clarity, wet targets, confession-source staging, Grey Float hard-R checks, and Registrar duel-format risk.",
     "- Act I review contact sheet: pass, generated browser contact sheet shows all 11 blockouts with walk bands, marker positions, hotspot tables, duel-format lock, and Grey Float hard-R lock.",
     "- Act I OpenAI prop composite contact sheet: pass, generated review PNG shows $propCompositeRoomCount runtime room composites with palette-locked OpenAI foreground props across every Act I background room.",
+    "- Act I atmosphere setpieces: pass, $atmosphereSetpieceCount transparent runtime overlays add water glint, lamp flicker, smoke, steam, and window rain to OpenAI room plates without changing puzzle coordinates.",
     "- Act I human review notes: pass, generated combined review notes include the greybox playtest rubric and the art readability checklist for the same Step 5 run.",
     "- Act I VO timing manifest: pass, $voLineCount Ink-derived lines across $voSpeakerCount speakers; $voRecordableLineCount recordable VO lines, $voStageDirectionCount stage-direction review lines, and $voUncastSpeakerCount minor speakers needing cast/consolidation decisions before final recording.",
     "- Confession VO manifest: pass, $confessionVoConfessionCount confessions produce $confessionVoLineCount unrecorded Corvin VO lines, including $confessionVoElaborationLineCount elaboration lines, with $confessionVoWordCount words keyed by confession id.",
@@ -1123,6 +1154,7 @@ foreach ($requiredText in @(
     "Act I background ready source packets: pass",
     "Act I review contact sheet: pass",
     "Act I OpenAI prop composite contact sheet: pass",
+    "Act I atmosphere setpieces: pass",
     "Step 5 review dashboard: pass",
     "ready-source packet review step",
     "Step 5 human review bundle: pass",

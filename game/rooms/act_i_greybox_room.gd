@@ -70,6 +70,98 @@ const ACT_I_SETPIECES_BY_ROOM := {
 		},
 	],
 }
+const ACT_I_ATMOSPHERE_BY_ROOM := {
+	"R02": [
+		{
+			"id": "old_quay_water_glint",
+			"position": Vector2(0, 650),
+			"z": 2,
+			"default_state": "loop",
+			"states": {
+				"loop": {
+					"path": "res://game/rooms/old_quay/atmosphere/old_quay_water_glint.png",
+					"frames": 8,
+					"fps": 6.0,
+					"width": 1920,
+					"height": 310,
+					"loop": true,
+				},
+			},
+		},
+	],
+	"R03": [
+		{
+			"id": "salt_market_lamp_flicker",
+			"position": Vector2(1210, 210),
+			"z": 3,
+			"default_state": "loop",
+			"states": {
+				"loop": {
+					"path": "res://game/rooms/salt_market/atmosphere/salt_market_lamp_flicker.png",
+					"frames": 8,
+					"fps": 7.0,
+					"width": 540,
+					"height": 500,
+					"loop": true,
+				},
+			},
+		},
+	],
+	"R05": [
+		{
+			"id": "harbor_registry_lamp_smoke",
+			"position": Vector2(700, 300),
+			"z": 3,
+			"default_state": "loop",
+			"states": {
+				"loop": {
+					"path": "res://game/rooms/harbor_registry/atmosphere/harbor_registry_lamp_smoke.png",
+					"frames": 10,
+					"fps": 8.0,
+					"width": 520,
+					"height": 430,
+					"loop": true,
+				},
+			},
+		},
+	],
+	"R10": [
+		{
+			"id": "grey_float_steam_drift",
+			"position": Vector2(120, 330),
+			"z": 5,
+			"default_state": "loop",
+			"states": {
+				"loop": {
+					"path": "res://game/rooms/grey_float/atmosphere/grey_float_steam_drift.png",
+					"frames": 10,
+					"fps": 6.0,
+					"width": 1640,
+					"height": 470,
+					"loop": true,
+				},
+			},
+		},
+	],
+	"R12": [
+		{
+			"id": "sabine_office_window_rain",
+			"position": Vector2(900, 90),
+			"z": 3,
+			"default_state": "loop",
+			"states": {
+				"loop": {
+					"path": "res://game/rooms/sabine_office/atmosphere/sabine_office_window_rain.png",
+					"frames": 8,
+					"fps": 6.0,
+					"width": 650,
+					"height": 470,
+					"loop": true,
+				},
+			},
+		},
+	],
+}
 
 var _hud: CanvasLayer
 var _duel_panel: CanvasLayer
@@ -97,6 +189,7 @@ func _apply_real_art_presentation() -> void:
 	_set_debug_layout_visible(show_debug_layout)
 	_add_act_i_standees()
 	_add_act_i_setpieces()
+	_add_act_i_atmosphere()
 
 func _set_debug_layout_visible(is_visible: bool) -> void:
 	for node_name in ["Floor", "WalkableAreas", "TitleLabel", "NotesLabel"]:
@@ -188,6 +281,21 @@ func _add_act_i_setpieces() -> void:
 	container.name = "ActISetpieces"
 	props.add_child(container)
 	for setpiece in ACT_I_SETPIECES_BY_ROOM[room_code]:
+		_add_act_i_setpiece(container, setpiece)
+
+func _add_act_i_atmosphere() -> void:
+	if not ACT_I_ATMOSPHERE_BY_ROOM.has(room_code):
+		return
+	var props := get_node_or_null("Props")
+	if props == null:
+		props = self
+	var container := props.get_node_or_null("ActIAtmosphere")
+	if container:
+		container.queue_free()
+	container = Node2D.new()
+	container.name = "ActIAtmosphere"
+	props.add_child(container)
+	for setpiece in ACT_I_ATMOSPHERE_BY_ROOM[room_code]:
 		_add_act_i_setpiece(container, setpiece)
 
 func _add_act_i_setpiece(container: Node, setpiece: Dictionary) -> void:
