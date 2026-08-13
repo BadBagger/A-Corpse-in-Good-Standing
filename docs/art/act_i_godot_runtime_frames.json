@@ -6,7 +6,8 @@
 		{
 			"contact_shadow_count": 4,
 			"foreground_prop_count": 4,
-			"includes_corvin_review_sprite": true,
+			"includes_actual_corvin_scene": true,
+			"includes_corvin_runtime_sprite_loader": true,
 			"includes_godot_viewport_capture": true,
 			"output": "docs/art/review/act_i_godot_runtime_frames/old_quay_godot_runtime_frame.png",
 			"room_code": "R02",
@@ -18,7 +19,8 @@
 		{
 			"contact_shadow_count": 5,
 			"foreground_prop_count": 5,
-			"includes_corvin_review_sprite": true,
+			"includes_actual_corvin_scene": true,
+			"includes_corvin_runtime_sprite_loader": true,
 			"includes_godot_viewport_capture": true,
 			"output": "docs/art/review/act_i_godot_runtime_frames/salt_market_godot_runtime_frame.png",
 			"room_code": "R03",
@@ -30,7 +32,8 @@
 		{
 			"contact_shadow_count": 4,
 			"foreground_prop_count": 4,
-			"includes_corvin_review_sprite": true,
+			"includes_actual_corvin_scene": true,
+			"includes_corvin_runtime_sprite_loader": true,
 			"includes_godot_viewport_capture": true,
 			"output": "docs/art/review/act_i_godot_runtime_frames/harbor_registry_godot_runtime_frame.png",
 			"room_code": "R05",
@@ -42,7 +45,8 @@
 		{
 			"contact_shadow_count": 4,
 			"foreground_prop_count": 4,
-			"includes_corvin_review_sprite": true,
+			"includes_actual_corvin_scene": true,
+			"includes_corvin_runtime_sprite_loader": true,
 			"includes_godot_viewport_capture": true,
 			"output": "docs/art/review/act_i_godot_runtime_frames/bone_chandler_godot_runtime_frame.png",
 			"room_code": "R06",
@@ -54,7 +58,8 @@
 		{
 			"contact_shadow_count": 5,
 			"foreground_prop_count": 5,
-			"includes_corvin_review_sprite": true,
+			"includes_actual_corvin_scene": true,
+			"includes_corvin_runtime_sprite_loader": true,
 			"includes_godot_viewport_capture": true,
 			"output": "docs/art/review/act_i_godot_runtime_frames/almshouse_godot_runtime_frame.png",
 			"room_code": "R07",
@@ -66,7 +71,8 @@
 		{
 			"contact_shadow_count": 4,
 			"foreground_prop_count": 4,
-			"includes_corvin_review_sprite": true,
+			"includes_actual_corvin_scene": true,
+			"includes_corvin_runtime_sprite_loader": true,
 			"includes_godot_viewport_capture": true,
 			"output": "docs/art/review/act_i_godot_runtime_frames/church_of_the_drowned_godot_runtime_frame.png",
 			"room_code": "R09",
@@ -78,7 +84,8 @@
 		{
 			"contact_shadow_count": 4,
 			"foreground_prop_count": 4,
-			"includes_corvin_review_sprite": true,
+			"includes_actual_corvin_scene": true,
+			"includes_corvin_runtime_sprite_loader": true,
 			"includes_godot_viewport_capture": true,
 			"output": "docs/art/review/act_i_godot_runtime_frames/grey_float_godot_runtime_frame.png",
 			"room_code": "R10",
@@ -90,7 +97,8 @@
 		{
 			"contact_shadow_count": 4,
 			"foreground_prop_count": 4,
-			"includes_corvin_review_sprite": true,
+			"includes_actual_corvin_scene": true,
+			"includes_corvin_runtime_sprite_loader": true,
 			"includes_godot_viewport_capture": true,
 			"output": "docs/art/review/act_i_godot_runtime_frames/sabine_office_godot_runtime_frame.png",
 			"room_code": "R12",
@@ -100,6 +108,6 @@
 			"wet_reflection_count": 4
 		}
 	],
-	"runtime_evidence": "Godot-rendered room scenes with runtime foreground props, contact shadows, wet-floor reflections, atmosphere, HUD, NPC standees, and review Corvin sprite.",
+	"runtime_evidence": "Godot-rendered room scenes with runtime foreground props, contact shadows, wet-floor reflections, atmosphere, HUD, NPC standees, and the actual Corvin character scene using RuntimeSprite loader.",
 	"status": "captured"
 }

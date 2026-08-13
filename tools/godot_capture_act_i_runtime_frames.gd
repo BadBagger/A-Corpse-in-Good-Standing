@@ -5,8 +5,7 @@ const OUT_DIR := "res://docs/art/review/act_i_godot_runtime_frames"
 const CONTACT_SHEET := "res://docs/art/review/act_i_godot_runtime_frame_contact_sheet.png"
 const REPORT_JSON := "res://docs/art/act_i_godot_runtime_frames.json"
 const REPORT_MD := "res://docs/art/act_i_godot_runtime_frames.md"
-const CORVIN_FRAME_SIZE := Vector2i(256, 512)
-const CORVIN_VISUAL_SCALE := 0.76
+const CORVIN_CHARACTER_SCENE := "res://game/characters/corvin/character_corvin.tscn"
 const ROOMS := [
 	{
 		"code": "R02",
@@ -14,7 +13,7 @@ const ROOMS := [
 		"room_id": "old_quay",
 		"scene": "res://game/rooms/old_quay/room_old_quay.tscn",
 		"player": Vector2(820, 760),
-		"animation": "idle_side_right",
+		"animation": "play_idle_side_right",
 	},
 	{
 		"code": "R03",
@@ -22,7 +21,7 @@ const ROOMS := [
 		"room_id": "salt_market",
 		"scene": "res://game/rooms/salt_market/room_salt_market.tscn",
 		"player": Vector2(720, 770),
-		"animation": "idle_side_right",
+		"animation": "play_idle_side_right",
 	},
 	{
 		"code": "R05",
@@ -30,7 +29,7 @@ const ROOMS := [
 		"room_id": "harbor_registry",
 		"scene": "res://game/rooms/harbor_registry/room_harbor_registry.tscn",
 		"player": Vector2(760, 780),
-		"animation": "idle_side_right",
+		"animation": "play_idle_side_right",
 	},
 	{
 		"code": "R06",
@@ -38,7 +37,7 @@ const ROOMS := [
 		"room_id": "bone_chandler",
 		"scene": "res://game/rooms/bone_chandler/room_bone_chandler.tscn",
 		"player": Vector2(720, 780),
-		"animation": "idle_side_right",
+		"animation": "play_idle_side_right",
 	},
 	{
 		"code": "R07",
@@ -46,7 +45,7 @@ const ROOMS := [
 		"room_id": "almshouse",
 		"scene": "res://game/rooms/almshouse/room_almshouse.tscn",
 		"player": Vector2(820, 790),
-		"animation": "idle_side_right",
+		"animation": "play_idle_side_right",
 	},
 	{
 		"code": "R09",
@@ -54,7 +53,7 @@ const ROOMS := [
 		"room_id": "church_of_the_drowned",
 		"scene": "res://game/rooms/church_of_the_drowned/room_church_of_the_drowned.tscn",
 		"player": Vector2(830, 790),
-		"animation": "idle_side_right",
+		"animation": "play_idle_side_right",
 	},
 	{
 		"code": "R10",
@@ -62,7 +61,7 @@ const ROOMS := [
 		"room_id": "grey_float",
 		"scene": "res://game/rooms/grey_float/room_grey_float.tscn",
 		"player": Vector2(800, 780),
-		"animation": "idle_side_right",
+		"animation": "play_idle_side_right",
 	},
 	{
 		"code": "R12",
@@ -70,15 +69,9 @@ const ROOMS := [
 		"room_id": "sabine_office",
 		"scene": "res://game/rooms/sabine_office/room_sabine_office.tscn",
 		"player": Vector2(790, 780),
-		"animation": "idle_side_right",
+		"animation": "play_idle_side_right",
 	},
 ]
-const CORVIN_ANIMATIONS := {
-	"idle_side_right": {
-		"path": "res://game/characters/corvin/sprites/act_i_clean/idle_side_right.png",
-		"frames": 12,
-	},
-}
 const EXPECTED_PROP_IDS_BY_ROOM := {
 	"R02": ["calcified_bollard_row", "salt_rope_cleat", "empty_flask", "quay_crate_cluster"],
 	"R03": ["boot_stall", "market_crowd_dressing", "church_sign", "confession_queue", "fishmonger"],
@@ -149,7 +142,7 @@ func _capture_room(room: Dictionary, failures: Array[String]) -> Dictionary:
 		instance.queue_free()
 		await process_frame
 		return {}
-	_add_review_corvin(instance, room, failures)
+	_add_runtime_corvin(instance, room, failures)
 	_set_review_hud(instance, String(room["code"]), String(room["title"]))
 	await process_frame
 	await process_frame
@@ -179,51 +172,37 @@ func _capture_room(room: Dictionary, failures: Array[String]) -> Dictionary:
 		"output": _project_relative(output),
 		"scene": _project_relative(String(room["scene"])),
 		"includes_godot_viewport_capture": true,
-		"includes_corvin_review_sprite": true,
+		"includes_actual_corvin_scene": true,
+		"includes_corvin_runtime_sprite_loader": true,
 		"foreground_prop_count": prop_count,
 		"contact_shadow_count": shadow_count,
 		"wet_reflection_count": reflection_count,
 	}
 
 
-func _add_review_corvin(parent: Node, room: Dictionary, failures: Array[String]) -> void:
-	var animation_name := String(room["animation"])
-	if not CORVIN_ANIMATIONS.has(animation_name):
-		failures.append("Unknown Corvin animation for Godot runtime capture: %s" % animation_name)
+func _add_runtime_corvin(parent: Node, room: Dictionary, failures: Array[String]) -> void:
+	var packed: PackedScene = load(CORVIN_CHARACTER_SCENE)
+	if packed == null:
+		failures.append("Could not load Corvin runtime scene for Godot capture: %s" % CORVIN_CHARACTER_SCENE)
 		return
-	var animation: Dictionary = CORVIN_ANIMATIONS[animation_name]
-	var image := Image.new()
-	var err := image.load(String(animation["path"]))
-	if err != OK:
-		failures.append("Could not load Corvin capture sheet %s: %s" % [animation["path"], error_string(err)])
+	var character := packed.instantiate()
+	if character == null:
+		failures.append("Could not instantiate Corvin runtime scene for Godot capture.")
 		return
-	var frame := image.get_region(Rect2i(Vector2i.ZERO, CORVIN_FRAME_SIZE))
-	var texture := ImageTexture.create_from_image(frame)
-	var foot_position: Vector2 = room["player"]
-	var visual_size := Vector2(CORVIN_FRAME_SIZE) * CORVIN_VISUAL_SCALE
-	var container := Node2D.new()
-	container.name = "ReviewCorvinRuntimeSprite"
-	parent.add_child(container)
-	var shadow := Sprite2D.new()
-	shadow.name = "ReviewCorvinRuntimeShadow"
-	shadow.texture = texture
-	shadow.centered = false
-	shadow.position = Vector2(
-		foot_position.x - visual_size.x / 2.0 + 10.0,
-		foot_position.y - visual_size.y + 14.0
-	)
-	shadow.scale = Vector2(CORVIN_VISUAL_SCALE, CORVIN_VISUAL_SCALE)
-	shadow.modulate = Color(0.0470588, 0.0627451, 0.0745098, 0.44)
-	shadow.z_index = 5
-	container.add_child(shadow)
-	var sprite := Sprite2D.new()
-	sprite.name = "ReviewCorvinRuntimeFrame"
-	sprite.texture = texture
-	sprite.centered = false
-	sprite.position = Vector2(foot_position.x - visual_size.x / 2.0, foot_position.y - visual_size.y)
-	sprite.scale = Vector2(CORVIN_VISUAL_SCALE, CORVIN_VISUAL_SCALE)
-	sprite.z_index = 6
-	container.add_child(sprite)
+	character.name = "RuntimeCorvinSceneCapture"
+	character.position = room["player"]
+	character.z_index = 6
+	parent.add_child(character)
+	var method := String(room["animation"])
+	if not character.has_method(method) or not bool(character.call(method)):
+		failures.append("Could not play Corvin runtime animation method for capture: %s" % method)
+		return
+	var runtime_sprite := character.get_node_or_null("RuntimeSprite")
+	if runtime_sprite == null or not runtime_sprite.has_method("active_animation_for_test"):
+		failures.append("Corvin runtime scene capture missing RuntimeSprite test hook.")
+		return
+	if String(runtime_sprite.call("active_animation_for_test")) != "idle_side_right":
+		failures.append("Corvin runtime scene capture did not render idle_side_right.")
 
 
 func _set_review_hud(room: Node, code: String, title: String) -> void:
@@ -282,7 +261,7 @@ func _build_contact_sheet() -> String:
 	var sheet_size := Vector2i(columns * thumb_size.x + (columns + 1) * pad, rows * (thumb_size.y + label_height) + (rows + 1) * pad)
 	var sheet := Image.create(sheet_size.x, sheet_size.y, false, Image.FORMAT_RGBA8)
 	sheet.fill(Color(0.0470588, 0.0627451, 0.0745098, 1.0))
-	for index in _records.size():
+	for index in range(_records.size()):
 		var record := _records[index]
 		var frame := Image.new()
 		var err := frame.load("res://%s" % record["output"])
@@ -305,7 +284,7 @@ func _write_report() -> void:
 		"capture": "godot_subviewport",
 		"frame_count": _records.size(),
 		"contact_sheet": _project_relative(CONTACT_SHEET),
-		"runtime_evidence": "Godot-rendered room scenes with runtime foreground props, contact shadows, wet-floor reflections, atmosphere, HUD, NPC standees, and review Corvin sprite.",
+		"runtime_evidence": "Godot-rendered room scenes with runtime foreground props, contact shadows, wet-floor reflections, atmosphere, HUD, NPC standees, and the actual Corvin character scene using RuntimeSprite loader.",
 		"rooms": _records,
 	}
 	var json_text := JSON.stringify(report, "\t") + "\n"
@@ -317,7 +296,7 @@ func _write_report() -> void:
 		"",
 		"Generated by `tools/godot_capture_act_i_runtime_frames.gd`.",
 		"",
-		"These frames are captured from Godot SubViewport rendering of the actual room scenes after `_apply_real_art_presentation()`, with runtime foreground props, contact shadows, wet-floor reflections, atmosphere overlays, HUD, NPC standees, and a review Corvin sprite.",
+		"These frames are captured from Godot SubViewport rendering of the actual room scenes after `_apply_real_art_presentation()`, with runtime foreground props, contact shadows, wet-floor reflections, atmosphere overlays, HUD, NPC standees, and the actual Corvin character scene using the RuntimeSprite loader.",
 		"",
 		"- Contact sheet: `%s`" % report["contact_sheet"],
 		"- Frame count: %d" % _records.size(),

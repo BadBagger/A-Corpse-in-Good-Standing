@@ -26,7 +26,7 @@ if ([int]$report.frame_count -ne 8) {
 if ([string]$report.contact_sheet -ne "docs/art/review/act_i_godot_runtime_frame_contact_sheet.png") {
     throw "Act I Godot runtime frame contact sheet path is not stable."
 }
-foreach ($requiredText in @("Godot-rendered room scenes", "runtime foreground props", "wet-floor reflections", "review Corvin sprite")) {
+foreach ($requiredText in @("Godot-rendered room scenes", "runtime foreground props", "wet-floor reflections", "actual Corvin character scene", "RuntimeSprite loader")) {
     if ([string]$report.runtime_evidence -notmatch [regex]::Escape($requiredText)) {
         throw "Act I Godot runtime report missing runtime evidence text: $requiredText"
     }
@@ -48,7 +48,7 @@ foreach ($room in $rooms) {
         throw "Duplicate Act I Godot runtime room code: $code"
     }
     $seen[$code] = $true
-    foreach ($flag in @("includes_godot_viewport_capture", "includes_corvin_review_sprite")) {
+    foreach ($flag in @("includes_godot_viewport_capture", "includes_actual_corvin_scene", "includes_corvin_runtime_sprite_loader")) {
         if (-not [bool]$room.$flag) {
             throw "Act I Godot runtime frame $code missing flag: $flag"
         }
@@ -100,7 +100,7 @@ finally {
 }
 
 $md = Get-Content -LiteralPath $mdPath -Raw
-foreach ($requiredText in @("Act I Godot Runtime Frames", "Godot SubViewport", "runtime foreground props", "wet-floor reflections")) {
+foreach ($requiredText in @("Act I Godot Runtime Frames", "Godot SubViewport", "runtime foreground props", "wet-floor reflections", "actual Corvin character scene")) {
     if (-not $md.Contains($requiredText)) {
         throw "Act I Godot runtime report missing required text: $requiredText"
     }
@@ -110,7 +110,7 @@ if ($md -match "[^\u0000-\u007F]") {
 }
 
 $captureScript = Get-Content -LiteralPath $captureScriptPath -Raw
-foreach ($requiredText in @("SubViewport", "_apply_real_art_presentation", "get_texture().get_image()", "ReviewCorvinRuntimeSprite")) {
+foreach ($requiredText in @("SubViewport", "_apply_real_art_presentation", "get_texture().get_image()", "character_corvin.tscn", "RuntimeSprite")) {
     if (-not $captureScript.Contains($requiredText)) {
         throw "Act I Godot runtime capture script missing required text: $requiredText"
     }

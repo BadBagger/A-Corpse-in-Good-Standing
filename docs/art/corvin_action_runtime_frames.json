@@ -1,0 +1,81 @@
+{
+	"capture": "godot_subviewport",
+	"contact_sheet": "docs/art/review/corvin_action_runtime_contact_sheet.png",
+	"frame_count": 8,
+	"frames": [
+		{
+			"active_animation": "idle_side_right",
+			"frame_count": 12,
+			"id": "idle_side_right",
+			"method": "play_idle_side_right",
+			"output": "docs/art/review/corvin_action_runtime_frames/idle_side_right_runtime_frame.png",
+			"uses_actual_corvin_scene": true,
+			"uses_runtime_sprite_loader": true
+		},
+		{
+			"active_animation": "talk_side_right",
+			"frame_count": 6,
+			"id": "talk_side_right",
+			"method": "play_talk_side_right",
+			"output": "docs/art/review/corvin_action_runtime_frames/talk_side_right_runtime_frame.png",
+			"uses_actual_corvin_scene": true,
+			"uses_runtime_sprite_loader": true
+		},
+		{
+			"active_animation": "use_side_right",
+			"frame_count": 8,
+			"id": "use_side_right",
+			"method": "play_use_side_right",
+			"output": "docs/art/review/corvin_action_runtime_frames/use_side_right_runtime_frame.png",
+			"uses_actual_corvin_scene": true,
+			"uses_runtime_sprite_loader": true
+		},
+		{
+			"active_animation": "wet_side_right",
+			"frame_count": 8,
+			"id": "wet_side_right",
+			"method": "play_wet_side_right",
+			"output": "docs/art/review/corvin_action_runtime_frames/wet_side_right_runtime_frame.png",
+			"uses_actual_corvin_scene": true,
+			"uses_runtime_sprite_loader": true
+		},
+		{
+			"active_animation": "idle_side_left",
+			"frame_count": 12,
+			"id": "idle_side_left",
+			"method": "play_idle_side_left",
+			"output": "docs/art/review/corvin_action_runtime_frames/idle_side_left_runtime_frame.png",
+			"uses_actual_corvin_scene": true,
+			"uses_runtime_sprite_loader": true
+		},
+		{
+			"active_animation": "talk_side_left",
+			"frame_count": 6,
+			"id": "talk_side_left",
+			"method": "play_talk_side_left",
+			"output": "docs/art/review/corvin_action_runtime_frames/talk_side_left_runtime_frame.png",
+			"uses_actual_corvin_scene": true,
+			"uses_runtime_sprite_loader": true
+		},
+		{
+			"active_animation": "use_side_left",
+			"frame_count": 8,
+			"id": "use_side_left",
+			"method": "play_use_side_left",
+			"output": "docs/art/review/corvin_action_runtime_frames/use_side_left_runtime_frame.png",
+			"uses_actual_corvin_scene": true,
+			"uses_runtime_sprite_loader": true
+		},
+		{
+			"active_animation": "wet_side_left",
+			"frame_count": 8,
+			"id": "wet_side_left",
+			"method": "play_wet_side_left",
+			"output": "docs/art/review/corvin_action_runtime_frames/wet_side_left_runtime_frame.png",
+			"uses_actual_corvin_scene": true,
+			"uses_runtime_sprite_loader": true
+		}
+	],
+	"runtime_evidence": "Godot-rendered actual Corvin character scene using RuntimeSprite loader and action bridge methods for idle, talk, use, and wet side animations.",
+	"status": "captured"
+}
