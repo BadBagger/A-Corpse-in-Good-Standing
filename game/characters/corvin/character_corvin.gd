@@ -2,9 +2,14 @@
 extends PopochiuCharacter
 
 const Data := preload("character_corvin_state.gd")
+const ACT_I_NEUTRAL_AVATAR_PATH := "res://game/portraits/act_i/corvin_neutral.png"
 
 var state: Data = Data.new()
 var _last_side_direction := "side_right"
+
+func _ready() -> void:
+	_ensure_act_i_avatar()
+	super()
 
 func play_runtime_animation(animation_name: String) -> bool:
 	if animation_name == "idle_current_side":
@@ -67,6 +72,24 @@ func play_idle_current_side() -> bool:
 
 func active_side_direction_for_test() -> String:
 	return _last_side_direction
+
+func _ensure_act_i_avatar() -> void:
+	for avatar_entry in avatars:
+		if avatar_entry is Dictionary and str(avatar_entry.get("emotion", "")) == "":
+			return
+
+	if not FileAccess.file_exists(ACT_I_NEUTRAL_AVATAR_PATH):
+		return
+
+	var image := Image.load_from_file(ACT_I_NEUTRAL_AVATAR_PATH)
+	if image == null or image.is_empty():
+		return
+
+	var texture := ImageTexture.create_from_image(image)
+	avatars.append({
+		"emotion": "",
+		"avatar": texture,
+	})
 
 func _remember_side_direction(animation_name: String) -> void:
 	if animation_name.ends_with("_side_left"):

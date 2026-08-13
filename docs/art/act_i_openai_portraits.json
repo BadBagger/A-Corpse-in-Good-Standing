@@ -1,0 +1,88 @@
+{
+  "generated_from": "OpenAI image generation via built-in image_gen tool",
+  "importer": "tools/Import-ActIOpenAIPortraits.py",
+  "source_sheet": "art/src/portraits/act_i/openai/act_i_portrait_sheet_openai_raw.png",
+  "contact_sheet": "docs/art/review/act_i_openai_portraits_contact_sheet.png",
+  "runtime_format": "720x720 palette-locked PNGs",
+  "content_line": "hard-R, no explicit anatomy, no child figures",
+  "portraits": [
+    {
+      "character_id": "corvin",
+      "display_name": "Corvin Vale",
+      "role": "player",
+      "emotion": "neutral",
+      "content_note": "Act I returned notary; wet coat and salt-knuckle read.",
+      "raw_source": "art/src/portraits/act_i/openai/act_i_portrait_sheet_openai_raw.png",
+      "raw_export": "art/export/portraits/act_i/corvin_neutral_raw.png",
+      "game_resource": "game/portraits/act_i/corvin_neutral.png",
+      "width": 720,
+      "height": 720,
+      "game_bytes": 119522
+    },
+    {
+      "character_id": "sabine",
+      "display_name": "Sabine Croix",
+      "role": "main_npc",
+      "emotion": "controlled",
+      "content_note": "Harbormaster authority portrait; no apology in the expression.",
+      "raw_source": "art/src/portraits/act_i/openai/act_i_portrait_sheet_openai_raw.png",
+      "raw_export": "art/export/portraits/act_i/sabine_controlled_raw.png",
+      "game_resource": "game/portraits/act_i/sabine_controlled.png",
+      "width": 720,
+      "height": 720,
+      "game_bytes": 116723
+    },
+    {
+      "character_id": "registrar",
+      "display_name": "The Registrar",
+      "role": "duel_opponent",
+      "emotion": "bored",
+      "content_note": "Act I Confession Duel opponent; ledger/ink identity preserved.",
+      "raw_source": "art/src/portraits/act_i/openai/act_i_portrait_sheet_openai_raw.png",
+      "raw_export": "art/export/portraits/act_i/registrar_bored_raw.png",
+      "game_resource": "game/portraits/act_i/registrar_bored.png",
+      "width": 720,
+      "height": 720,
+      "game_bytes": 126338
+    },
+    {
+      "character_id": "juno",
+      "display_name": "Juno Ash",
+      "role": "main_npc",
+      "emotion": "warm_danger",
+      "content_note": "Grey Float proprietor; hard-R styling remains portrait-only and non-explicit.",
+      "raw_source": "art/src/portraits/act_i/openai/act_i_portrait_sheet_openai_raw.png",
+      "raw_export": "art/export/portraits/act_i/juno_warm_danger_raw.png",
+      "game_resource": "game/portraits/act_i/juno_warm_danger.png",
+      "width": 720,
+      "height": 720,
+      "game_bytes": 113511
+    },
+    {
+      "character_id": "tomas",
+      "display_name": "Bollard-of-Tomas",
+      "role": "supporting_npc",
+      "emotion": "wry",
+      "content_note": "Talking mooring post; comic-tragic salt/calcification read.",
+      "raw_source": "art/src/portraits/act_i/openai/act_i_portrait_sheet_openai_raw.png",
+      "raw_export": "art/export/portraits/act_i/tomas_wry_raw.png",
+      "game_resource": "game/portraits/act_i/tomas_wry.png",
+      "width": 720,
+      "height": 720,
+      "game_bytes": 142080
+    },
+    {
+      "character_id": "prosper",
+      "display_name": "Half-Coin Prosper",
+      "role": "supporting_npc",
+      "emotion": "forgetful_kind",
+      "content_note": "Debt Forgiven path NPC; salt-memory rot and gentleness read.",
+      "raw_source": "art/src/portraits/act_i/openai/act_i_portrait_sheet_openai_raw.png",
+      "raw_export": "art/export/portraits/act_i/prosper_forgetful_kind_raw.png",
+      "game_resource": "game/portraits/act_i/prosper_forgetful_kind.png",
+      "width": 720,
+      "height": 720,
+      "game_bytes": 134982
+    }
+  ]
+}
