@@ -1,0 +1,76 @@
+{
+  "props": [
+    {
+      "id": "registry_roll_book",
+      "name": "Open harbor roll book",
+      "source_sheet": "art/src/props/harbor_registry/openai/harbor_registry_props_openai_raw.png",
+      "raw_export": "art/export/props/harbor_registry/registry_roll_book_raw.png",
+      "game_resource": "game/rooms/harbor_registry/props/registry_roll_book.png",
+      "width": 191,
+      "height": 190,
+      "target_height": 190,
+      "position": [
+        520,
+        555
+      ],
+      "z": 3,
+      "hotspot": "RollBook",
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "registry_confession_slips",
+      "name": "Confession slips and wax seals",
+      "source_sheet": "art/src/props/harbor_registry/openai/harbor_registry_props_openai_raw.png",
+      "raw_export": "art/export/props/harbor_registry/registry_confession_slips_raw.png",
+      "game_resource": "game/rooms/harbor_registry/props/registry_confession_slips.png",
+      "width": 119,
+      "height": 118,
+      "target_height": 118,
+      "position": [
+        1065,
+        720
+      ],
+      "z": 4,
+      "hotspot": "KestrelLedger",
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "registry_inkstand",
+      "name": "Inkstand and notary stamp",
+      "source_sheet": "art/src/props/harbor_registry/openai/harbor_registry_props_openai_raw.png",
+      "raw_export": "art/export/props/harbor_registry/registry_inkstand_raw.png",
+      "game_resource": "game/rooms/harbor_registry/props/registry_inkstand.png",
+      "width": 110,
+      "height": 110,
+      "target_height": 110,
+      "position": [
+        790,
+        720
+      ],
+      "z": 5,
+      "hotspot": "DeskLamp",
+      "palette_locked": true,
+      "alpha_cutout": true
+    },
+    {
+      "id": "registry_candles",
+      "name": "Candles and brass nameplate",
+      "source_sheet": "art/src/props/harbor_registry/openai/harbor_registry_props_openai_raw.png",
+      "raw_export": "art/export/props/harbor_registry/registry_candles_raw.png",
+      "game_resource": "game/rooms/harbor_registry/props/registry_candles.png",
+      "width": 118,
+      "height": 118,
+      "target_height": 118,
+      "position": [
+        910,
+        642
+      ],
+      "z": 4,
+      "hotspot": "DeskLamp",
+      "palette_locked": true,
+      "alpha_cutout": true
+    }
+  ]
+}
